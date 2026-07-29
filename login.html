@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Your Company</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #090b14;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(103, 58, 183, 0.35),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(3, 169, 244, 0.25),
+            transparent 35%
+        ),
+
+        #090b14;
+}
+
+
+/* =====================================================
+   ANIMATED BLOBS
+===================================================== */
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(5px);
+    opacity: 0.5;
+
+    animation:
+        moveBlob 12s
+        infinite
+        alternate
+        ease-in-out;
+}
+
+
+.blob.one {
+
+    width: 350px;
+    height: 350px;
+
+    background: #673ab7;
+
+    top: -150px;
+    left: -100px;
+
+}
+
+
+.blob.two {
+
+    width: 300px;
+    height: 300px;
+
+    background: #03a9f4;
+
+    bottom: -120px;
+    right: -80px;
+
+    animation-delay: 3s;
+
+}
+
+
+.blob.three {
+
+    width: 180px;
+    height: 180px;
+
+    background: #9c27b0;
+
+    top: 40%;
+    left: 40%;
+
+    animation-delay: 6s;
+
+}
+
+
+@keyframes moveBlob {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(40px, -30px)
+            scale(1.1);
+    }
+
+    100% {
+        transform:
+            translate(-30px, 40px)
+            scale(0.9);
+    }
+
+}
+
+
+/* =====================================================
+   DECORATIVE CIRCLES
+===================================================== */
+
+.circle {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle
+        20s
+        linear
+        infinite;
+
+}
+
+
+.circle.one {
+
+    width: 500px;
+    height: 500px;
+
+    top: -200px;
+    right: -150px;
+
+}
+
+
+.circle.two {
+
+    width: 300px;
+    height: 300px;
+
+    bottom: -100px;
+    left: -100px;
+
+    animation-direction: reverse;
+
+}
+
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+
+    position: fixed;
+
+    top: 35px;
+    left: 45px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: white;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+.brand-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673ab7,
+            #03a9f4
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(3,169,244,0.3);
+
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+#slideBox {
+
+    position: absolute;
+
+    width: 1050px;
+
+    max-width: 94%;
+
+    height: 700px;
+
+    max-height: 88vh;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.5);
+
+    z-index: 10;
+
+}
+
+
+/* =====================================================
+   SLIDING LAYER
+===================================================== */
+
+.topLayer {
+
+    position: absolute;
+
+    width: 200%;
+
+    height: 100%;
+
+    left: -100%;
+
+    transition:
+        left 0.7s
+        cubic-bezier(
+            0.77,
+            0,
+            0.175,
+            1
+        );
+
+}
+
+
+/* =====================================================
+   PANELS
+===================================================== */
+
+.left,
+.right {
+
+    position: absolute;
+
+    width: 50%;
+
+    height: 100%;
+
+    top: 0;
+
+}
+
+
+/* =====================================================
+   SIGN UP PANEL
+===================================================== */
+
+.left {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(128,0,128,0.98),
+            rgba(81,45,168,0.98)
+        );
+
+    color: white;
+
+    overflow-y: auto;
+
+}
+
+
+/* =====================================================
+   LOGIN PANEL
+===================================================== */
+
+.right {
+
+    right: 0;
+
+    background:
+        rgba(255,255,255,0.97);
+
+    color: #1a1a1a;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content {
+
+    width: 75%;
+
+    max-width: 400px;
+
+    margin: auto;
+
+}
+
+
+.left .content {
+
+    width: 82%;
+
+    max-width: 650px;
+
+    padding:
+        45px
+        0;
+
+}
+
+
+/* =====================================================
+   SMALL TITLE
+===================================================== */
+
+.eyebrow {
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+
+    opacity: 0.65;
+
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.content h2 {
+
+    font-size: 42px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+}
+
+
+.left h2 {
+
+    color: white;
+
+}
+
+
+.right h2 {
+
+    color: #512da8;
+
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+    opacity: 0.7;
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-element {
+
+    margin-bottom: 20px;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+}
+
+
+.form-full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 8px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 7px;
+
+}
+
+
+.required {
+
+    color: #ffcccb;
+
+}
+
+
+/* =====================================================
+   INPUT WRAPPER
+===================================================== */
+
+.input-box {
+
+    position: relative;
+
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.left input,
+.left select,
+.left textarea {
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    color: white;
+
+    border-radius: 8px;
+
+    padding:
+        12px;
+
+}
+
+
+.left select option {
+
+    color: #222;
+
+}
+
+
+.left textarea {
+
+    min-height: 80px;
+
+    resize: vertical;
+
+}
+
+
+.left input::placeholder,
+.left textarea::placeholder {
+
+    color:
+        rgba(255,255,255,0.5);
+
+}
+
+
+.left input:focus,
+.left select:focus,
+.left textarea:focus {
+
+    border-color:
+        #03a9f4;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(3,169,244,0.15);
+
+}
+
+
+/* =====================================================
+   PHONE
+===================================================== */
+
+.phone-box {
+
+    display: flex;
+
+}
+
+
+.phone-code {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        0 12px;
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-right: none;
+
+    border-radius:
+        8px 0 0 8px;
+
+    font-size: 13px;
+
+}
+
+
+.phone-box input {
+
+    border-radius:
+        0 8px 8px 0;
+
+}
+
+
+/* =====================================================
+   PASSWORD TOGGLE
+===================================================== */
+
+.show-password {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    color: white;
+
+    opacity: 0.7;
+
+}
+
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+.password-strength {
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    opacity: 0.7;
+
+}
+
+
+.strength-bar {
+
+    height: 4px;
+
+    margin-top: 5px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.2);
+
+    overflow: hidden;
+
+}
+
+
+.strength-fill {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #03a9f4;
+
+    transition: 0.3s;
+
+}
+
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+
+.form-checkbox {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-top: 15px;
+
+}
+
+
+.form-checkbox input {
+
+    width: 16px;
+
+    height: 16px;
+
+    margin-top: 2px;
+
+    accent-color:
+        #03a9f4;
+
+}
+
+
+.form-checkbox label {
+
+    margin: 0;
+
+    font-size: 11px;
+
+    text-transform: none;
+
+    letter-spacing: 0;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+
+}
+
+
+.form-checkbox a {
+
+    color:
+        #03a9f4;
+
+    text-decoration: none;
+
+}
+
+
+/* =====================================================
+   BUTTON AREA
+===================================================== */
+
+.form-submit {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+button {
+
+    height: 48px;
+
+    padding:
+        0 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.login {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #673ab7,
+            #512da8
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(103,58,183,0.3);
+
+}
+
+
+/* =====================================================
+   SIGNUP BUTTON
+===================================================== */
+
+.signup {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #03a9f4,
+            #0288d1
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(3,169,244,0.3);
+
+}
+
+
+/* =====================================================
+   SWITCH BUTTON
+===================================================== */
+
+.switch {
+
+    background:
+        transparent;
+
+    box-shadow:
+        none;
+
+    padding:
+        0 10px;
+
+}
+
+
+.left .switch {
+
+    color: white;
+
+}
+
+
+.right .switch {
+
+    color: #673ab7;
+
+}
+
+
+/* =====================================================
+   LOGIN INPUT
+===================================================== */
+
+.right input {
+
+    background:
+        #f5f5f7;
+
+    border:
+        1px solid
+        #e2e2e2;
+
+    color:
+        #222;
+
+    padding:
+        0 15px;
+
+    height:
+        50px;
+
+    border-radius:
+        10px;
+
+}
+
+
+.right input:focus {
+
+    border-color:
+        #673ab7;
+
+    background:
+        white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(103,58,183,0.1);
+
+}
+
+
+/* =====================================================
+   LOGIN PASSWORD
+===================================================== */
+
+.right .show-password {
+
+    color:
+        #673ab7;
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.message {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+}
+
+
+.success {
+
+    display: block;
+
+    background:
+        rgba(92,184,92,0.15);
+
+    color:
+        #3c763d;
+
+}
+
+
+.error {
+
+    display: block;
+
+    background:
+        rgba(217,83,79,0.15);
+
+    color:
+        #a94442;
+
+}
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+.forgot {
+
+    display: block;
+
+    text-align: right;
+
+    margin-top: -10px;
+
+    margin-bottom: 15px;
+
+    color:
+        #673ab7;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    body {
+
+        overflow: auto;
+
+    }
+
+
+    .brand {
+
+        top: 20px;
+
+        left: 20px;
+
+        font-size: 17px;
+
+    }
+
+
+    #slideBox {
+
+        width: 94%;
+
+        height: 650px;
+
+        max-height: none;
+
+        top: 55%;
+
+    }
+
+
+    .content {
+
+        width: 80%;
+
+    }
+
+
+    .left .content {
+
+        width: 82%;
+
+        padding:
+            30px 0;
+
+    }
+
+
+    .content h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .form-full {
+
+        grid-column:
+            auto;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media screen and (max-width: 480px) {
+
+    #slideBox {
+
+        width: 94%;
+
+        height: 620px;
+
+    }
+
+
+    .content {
+
+        width: 82%;
+
+    }
+
+
+    .left .content {
+
+        width: 85%;
+
+    }
+
+
+    .content h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .form-submit {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .form-submit button {
+
+        width:
+            100%;
+
+    }
+
+}
+
+/* =====================================================
+   BACK TO MAIN WEBSITE
+===================================================== */
+
+.back-home {
+
+    position: fixed;
+
+    top: 30px;
+    right: 40px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    border-radius: 10px;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+    transition:
+        all 0.3s ease;
+
+}
+
+
+/* ARROW */
+
+.back-home span {
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+/* HOVER */
+
+.back-home:hover {
+
+    background:
+        rgba(255,255,255,0.15);
+
+    border-color:
+        rgba(255,255,255,0.35);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.25);
+
+}
+
+
+.back-home:hover span {
+
+    transform:
+        translateX(-5px);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .back-home {
+
+        top: 20px;
+
+        right: 20px;
+
+        padding: 10px 14px;
+
+        font-size: 11px;
+
+    }
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .back-home {
+
+        top: 15px;
+
+        right: 15px;
+
+        padding: 9px 12px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- BACK TO MAIN WEBSITE -->
+<a href="index2.html" class="back-home">
+    <span>←</span>
+    Back to Main Website
+</a>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+
+    <div class="blob two"></div>
+
+    <div class="blob three"></div>
+
+    <div class="circle one"></div>
+
+    <div class="circle two"></div>
+
+</div>
+
+
+<!-- =====================================================
+     BRAND
+===================================================== -->
+
+<div class="brand">
+
+    <div class="brand-icon">
+        N
+    </div>
+
+    Your Company
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN / REGISTER CARD
+===================================================== -->
+
+<div id="slideBox">
+
+<div class="topLayer">
+
+
+<!-- =====================================================
+     REGISTER PANEL
+===================================================== -->
+
+<div class="left">
+
+<div class="content">
+
+
+<div class="eyebrow">
+    Create your account
+</div>
+
+
+<h2>
+    Register
+</h2>
+
+
+<p class="description">
+
+    Create an account with us
+    and manage your services
+    from your client portal.
+
+</p>
+
+
+<form id="signupForm">
+
+
+<!-- =================================================
+     PERSONAL INFORMATION
+================================================== -->
+
+<div class="section-title">
+    Personal Information
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-element">
+
+<label>
+    First Name <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="firstName"
+    placeholder="First Name"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Last Name <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="lastName"
+    placeholder="Last Name"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Email Address <span class="required">*</span>
+</label>
+
+<input
+    type="email"
+    id="email"
+    placeholder="you@example.com"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Phone Number <span class="required">*</span>
+</label>
+
+<div class="phone-box">
+
+<div class="phone-code">
+    +27
+</div>
+
+<input
+    type="tel"
+    id="phone"
+    placeholder="82 123 4567"
+    required
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+     BILLING ADDRESS
+================================================== -->
+
+<div class="section-title">
+    Billing Address
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-element form-full">
+
+<label>
+    Company Name (Optional)
+</label>
+
+<input
+    type="text"
+    id="companyName"
+    placeholder="Company Name"
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Street Address <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="streetAddress"
+    placeholder="Street Address"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Street Address 2
+</label>
+
+<input
+    type="text"
+    id="streetAddress2"
+    placeholder="Street Address 2"
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    City <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="city"
+    placeholder="City"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    State / Province <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="state"
+    placeholder="State / Province"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Postcode <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="postcode"
+    placeholder="Postcode"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Country
+</label>
+
+<select id="country">
+
+<option>
+    South Africa
+</option>
+
+<option>
+    Botswana
+</option>
+
+<option>
+    Zimbabwe
+</option>
+
+<option>
+    Mozambique
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Tax ID (Optional)
+</label>
+
+<input
+    type="text"
+    id="taxId"
+    placeholder="Tax ID"
+>
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     ADDITIONAL INFORMATION
+================================================== -->
+
+<div class="section-title">
+    Additional Information
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-element">
+
+<label>
+    How did you find us?
+</label>
+
+<select id="howFound">
+
+<option>
+    None
+</option>
+
+<option>
+    Google Search
+</option>
+
+<option>
+    Facebook
+</option>
+
+<option>
+    Instagram
+</option>
+
+<option>
+    TikTok
+</option>
+
+<option>
+    Friend or Family
+</option>
+
+<option>
+    Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Identity Number <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="identityNumber"
+    placeholder="Identity Number"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    WIFI Name <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="wifiName"
+    placeholder="Your WIFI Name"
+    required
+>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    WIFI Password <span class="required">*</span>
+</label>
+
+<div class="input-box">
+
+<input
+    type="password"
+    id="wifiPassword"
+    minlength="8"
+    maxlength="16"
+    placeholder="8-16 characters"
+    required
+>
+
+<span
+    class="show-password"
+    onclick="togglePassword(
+        'wifiPassword',
+        this
+    )"
+>
+    Show
+</span>
+
+</div>
+
+</div>
+
+
+<div class="form-element form-full">
+
+<label>
+    Additional Information
+</label>
+
+<textarea
+    id="additionalInfo"
+    placeholder="Enter additional information..."
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     WIFI INFORMATION
+================================================== -->
+
+<div style="
+    font-size:11px;
+    line-height:1.6;
+    opacity:0.7;
+    margin-top:10px;
+">
+
+<strong>WIFI Name:</strong>
+
+The name entered above will be the name
+of your WIFI network and will be seen by
+you or others.
+
+<br><br>
+
+<strong>WIFI Password:</strong>
+
+This must include 8-16 characters including
+uppercase/lowercase letters, numbers,
+and symbols.
+
+</div>
+
+
+<!-- =================================================
+     ACCOUNT SECURITY
+================================================== -->
+
+<div class="section-title">
+    Account Security
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-element">
+
+<label>
+    Password <span class="required">*</span>
+</label>
+
+<div class="input-box">
+
+<input
+    type="password"
+    id="signupPassword"
+    placeholder="Create a password"
+    required
+>
+
+<span
+    class="show-password"
+    onclick="togglePassword(
+        'signupPassword',
+        this
+    )"
+>
+    Show
+</span>
+
+</div>
+
+
+<div class="password-strength">
+
+Password Strength:
+
+<span id="strengthText">
+    Enter a Password
+</span>
+
+<div class="strength-bar">
+
+<div
+    id="strengthFill"
+    class="strength-fill"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Confirm Password <span class="required">*</span>
+</label>
+
+<div class="input-box">
+
+<input
+    type="password"
+    id="confirmPassword"
+    placeholder="Confirm password"
+    required
+>
+
+<span
+    class="show-password"
+    onclick="togglePassword(
+        'confirmPassword',
+        this
+    )"
+>
+    Show
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     MAILING LIST
+================================================== -->
+
+<div class="form-checkbox">
+
+<input
+    type="checkbox"
+    id="mailingList"
+>
+
+<label for="mailingList">
+
+<strong>
+    Join our mailing list
+</strong>
+
+<br>
+
+We would like to send you occasional news,
+information and special offers by email.
+You can unsubscribe at any time.
+
+</label>
+
+</div>
+
+
+<!-- =================================================
+     TERMS
+================================================== -->
+
+<div class="form-checkbox">
+
+<input
+    type="checkbox"
+    id="terms"
+    required
+>
+
+<label for="terms">
+
+I have read and agree to the
+
+<a href="#">
+    Terms of Service
+</a>
+
+</label>
+
+</div>
+
+
+<!-- =================================================
+     REGISTER BUTTON
+================================================== -->
+
+<div class="form-submit">
+
+<button
+    type="submit"
+    class="signup"
+>
+    Create Account
+</button>
+
+
+<button
+    type="button"
+    class="switch"
+    id="goLeft"
+>
+    Already Registered? Login
+</button>
+
+</div>
+
+
+<div
+    id="signupMessage"
+    class="message"
+></div>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN PANEL
+===================================================== -->
+
+<div class="right">
+
+<div class="content">
+
+
+<div class="eyebrow">
+    Welcome back
+</div>
+
+
+<h2>
+    Login
+</h2>
+
+
+<p class="description">
+
+    Sign in to continue to your
+    account and access your dashboard.
+
+</p>
+
+
+<form id="loginForm">
+
+
+<div class="form-element">
+
+<label>
+    Username
+</label>
+
+<div class="input-box">
+
+<input
+    type="text"
+    id="loginUsername"
+    placeholder="Enter your username"
+    required
+>
+
+</div>
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Password
+</label>
+
+<div class="input-box">
+
+<input
+    type="password"
+    id="loginPassword"
+    placeholder="Enter your password"
+    required
+>
+
+<span
+    class="show-password"
+    onclick="togglePassword(
+        'loginPassword',
+        this
+    )"
+>
+    Show
+</span>
+
+</div>
+
+</div>
+
+
+<a
+    href="#"
+    class="forgot"
+    onclick="forgotPassword()"
+>
+    Forgot Password?
+</a>
+
+
+<div class="form-submit">
+
+
+<button
+    type="submit"
+    class="login"
+>
+    Login
+</button>
+
+
+<button
+    type="button"
+    class="switch"
+    id="goRight"
+>
+    Create an Account
+</button>
+
+
+</div>
+
+
+<div
+    id="loginMessage"
+    class="message"
+></div>
+
+
+</form>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   SLIDER
+===================================================== */
+
+const topLayer =
+    document.querySelector(".topLayer");
+
+
+const goRight =
+    document.getElementById("goRight");
+
+
+const goLeft =
+    document.getElementById("goLeft");
+
+
+/* GO TO REGISTER */
+
+goRight.addEventListener(
+    "click",
+    function() {
+
+        topLayer.style.left =
+            "0";
+
+    }
+);
+
+
+/* GO TO LOGIN */
+
+goLeft.addEventListener(
+    "click",
+    function() {
+
+        topLayer.style.left =
+            "-100%";
+
+    }
+);
+
+
+/* =====================================================
+   SHOW / HIDE PASSWORD
+===================================================== */
+
+function togglePassword(
+    inputId,
+    button
+) {
+
+    const input =
+        document.getElementById(
+            inputId
+        );
+
+
+    if (
+        input.type ===
+        "password"
+    ) {
+
+        input.type =
+            "text";
+
+        button.textContent =
+            "Hide";
+
+    }
+
+    else {
+
+        input.type =
+            "password";
+
+        button.textContent =
+            "Show";
+
+    }
+
+}
+
+
+/* =====================================================
+   PASSWORD STRENGTH
+===================================================== */
+
+const signupPassword =
+    document.getElementById(
+        "signupPassword"
+    );
+
+
+signupPassword.addEventListener(
+    "input",
+    function() {
+
+        const value =
+            signupPassword.value;
+
+
+        let strength = 0;
+
+
+        if (
+            value.length >= 8
+        ) {
+
+            strength++;
+
+        }
+
+
+        if (
+            /[A-Z]/.test(value)
+        ) {
+
+            strength++;
+
+        }
+
+
+        if (
+            /[a-z]/.test(value)
+        ) {
+
+            strength++;
+
+        }
+
+
+        if (
+            /[0-9]/.test(value)
+        ) {
+
+            strength++;
+
+        }
+
+
+        if (
+            /[^A-Za-z0-9]/.test(value)
+        ) {
+
+            strength++;
+
+        }
+
+
+        const text =
+            document.getElementById(
+                "strengthText"
+            );
+
+
+        const fill =
+            document.getElementById(
+                "strengthFill"
+            );
+
+
+        if (
+            value.length === 0
+        ) {
+
+            text.textContent =
+                "Enter a Password";
+
+            fill.style.width =
+                "0%";
+
+        }
+
+        else if (
+            strength <= 2
+        ) {
+
+            text.textContent =
+                "Weak";
+
+            fill.style.width =
+                "30%";
+
+        }
+
+        else if (
+            strength <= 4
+        ) {
+
+            text.textContent =
+                "Medium";
+
+            fill.style.width =
+                "65%";
+
+        }
+
+        else {
+
+            text.textContent =
+                "Strong";
+
+            fill.style.width =
+                "100%";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+document
+.getElementById(
+    "signupForm"
+)
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const password =
+            document.getElementById(
+                "signupPassword"
+            ).value;
+
+
+        const confirmPassword =
+            document.getElementById(
+                "confirmPassword"
+            ).value;
+
+
+        const wifiPassword =
+            document.getElementById(
+                "wifiPassword"
+            ).value;
+
+
+        const terms =
+            document.getElementById(
+                "terms"
+            ).checked;
+
+
+        const message =
+            document.getElementById(
+                "signupMessage"
+            );
+
+
+        /* CHECK PASSWORD */
+
+        if (
+            password !==
+            confirmPassword
+        ) {
+
+            message.textContent =
+                "Passwords do not match.";
+
+            message.className =
+                "message error";
+
+            return;
+
+        }
+
+
+        /* CHECK WIFI PASSWORD */
+
+        if (
+            wifiPassword.length < 8 ||
+            wifiPassword.length > 16
+        ) {
+
+            message.textContent =
+                "WIFI Password must be between 8 and 16 characters.";
+
+            message.className =
+                "message error";
+
+            return;
+
+        }
+
+
+        /* CHECK TERMS */
+
+        if (!terms) {
+
+            message.textContent =
+                "Please agree to the Terms of Service.";
+
+            message.className =
+                "message error";
+
+            return;
+
+        }
+
+
+        /* SUCCESS */
+
+        message.textContent =
+            "Registration successful!";
+
+        message.className =
+            "message success";
+
+
+        /*
+        ==========================================
+        IMPORTANT
+
+        This is currently only a FRONT-END demo.
+
+        Later we can connect this form to:
+
+        Node.js
+        Express
+        MySQL
+
+        The registration information can then
+        be stored in your database.
+
+        ==========================================
+        */
+
+    }
+);
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+document
+.getElementById(
+    "loginForm"
+)
+.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const username =
+            document.getElementById(
+                "loginUsername"
+            ).value;
+
+
+        const password =
+            document.getElementById(
+                "loginPassword"
+            ).value;
+
+
+        const message =
+            document.getElementById(
+                "loginMessage"
+            );
+
+
+        /* DEMO LOGIN */
+
+        if (
+            username === "admin" &&
+            password === "1234"
+        ) {
+
+            message.textContent =
+                "Login successful!";
+
+            message.className =
+                "message success";
+
+        }
+
+        else {
+
+            message.textContent =
+                "Incorrect username or password.";
+
+            message.className =
+                "message error";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+function forgotPassword() {
+
+    alert(
+        "Password reset functionality will be connected to your backend."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

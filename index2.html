@@ -1,0 +1,4158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="Professional internet connectivity, hosting, domains, software and IT solutions.">
+
+<title>DingesTech Hub | Internet & IT Solutions</title>
+
+
+<style>
+
+/* =========================================================
+   COLOR SETTINGS
+   Change the colors below to customize the whole website
+========================================================= */
+:root {
+    --primary-color: #00A8E8;
+
+    --primary-dark: #0086BA;
+
+    --dark-color: #111827;
+
+    --text-color: #1F2937;
+
+    --light-color: #F8FAFC;
+
+    --white-color: #FFFFFF;
+
+    --accent-color: #F59E0B;
+
+    --success-color: #16A34A;
+
+    --danger-color: #DC2626;
+
+    --border-color: #E5E7EB;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+    background:
+    var(--light-color);
+    color:
+    var(--text-color);
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+button,
+input,
+select {
+    font-family: inherit;
+}
+.container {
+
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+}
+/* =========================================================
+   TOP BAR
+========================================================= */
+.top-bar {
+    background:
+    var(--dark-color);
+    color:
+    var(--white-color);
+    font-size:
+    14px;
+}
+.top-bar-content {
+    min-height:
+    40px;
+    display:
+    flex;
+    align-items:
+    center;
+    justify-content:
+    space-between;
+}
+.top-links {
+    display:
+    flex;
+    gap:
+    25px;
+}
+.top-links a:hover {
+    color:
+    var(--primary-color);
+}
+/* =========================================================
+   HEADER
+========================================================= */
+.header {
+    background:
+    var(--white-color);
+    border-bottom:
+    1px solid var(--border-color);
+    position:
+    sticky;
+    top:
+    0;
+    z-index:
+    1000;
+}
+.nav-container {
+    width:
+    90%;
+    max-width:
+    1400px;
+    height:
+    75px;
+    margin:
+    auto;
+    display:
+    flex;
+    align-items:
+    center;
+    justify-content:
+    space-between;
+}
+/* =========================================================
+   LOGO
+========================================================= */
+.logo {
+    font-size:
+    27px;
+    font-weight:
+    800;
+    white-space:
+    nowrap;
+}
+.logo a {
+    color:
+    var(--dark-color);
+}
+.logo span {
+    color:
+    var(--primary-color);
+}
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+.navigation {
+    display:
+    flex;
+    align-items:
+    center;
+    gap:
+    5px;
+}
+.nav-link {
+    display:
+    flex;
+    align-items:
+    center;
+    gap:
+    6px;
+    padding:
+    28px 14px;
+    color:
+    var(--dark-color);
+    font-size:
+    15px;
+    font-weight:
+    600;
+    transition:
+    0.3s;
+}
+.nav-link:hover {
+    color:
+    var(--primary-color);
+}
+.dropdown {
+    position:
+    relative;
+}
+.dropdown-toggle span {
+    font-size:
+    9px;
+}
+/* =========================================================
+   FIRST LEVEL DROPDOWN
+========================================================= */
+.dropdown-menu {
+    position:
+    absolute;
+    top:
+    100%;
+    left:
+    0;
+    min-width:
+    250px;
+    background:
+    var(--white-color);
+    border:
+    1px solid var(--border-color);
+    border-radius:
+    0 0 8px 8px;
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+    padding:
+    10px 0;
+    opacity:
+    0;
+    visibility:
+    hidden;
+    transform:
+    translateY(10px);
+    transition:
+    0.25s;
+}
+.dropdown:hover >
+.dropdown-menu {
+    opacity:
+    1;
+    visibility:
+    visible;
+    transform:
+    translateY(0);
+}
+/* =========================================================
+   DROPDOWN ITEMS
+========================================================= */
+.dropdown-item {
+    position:
+    relative;
+}
+.dropdown-menu > a,
+.dropdown-item > a {
+    display:
+    flex;
+    align-items:
+    center;
+    justify-content:
+    space-between;
+    padding:
+    12px 18px;
+    color:
+    var(--text-color);
+    font-size:
+    14px;
+    white-space:
+    nowrap;
+}
+.dropdown-menu > a:hover,
+.dropdown-item > a:hover {
+    background:
+    var(--light-color);
+    color:
+    var(--primary-color);
+}
+/* =========================================================
+   SECOND LEVEL SUBMENU
+========================================================= */
+.submenu {
+    position:
+    absolute;
+    left:
+    100%;
+    top:
+    -10px;
+    min-width:
+    270px;
+    background:
+    var(--white-color);
+    border:
+    1px solid var(--border-color);
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+    padding:
+    10px 0;
+    opacity:
+    0;
+    visibility:
+    hidden;
+    transform:
+    translateX(10px);
+    transition:
+    0.25s;
+}
+.dropdown-item:hover >
+.submenu {
+    opacity:
+    1;
+    visibility:
+    visible;
+    transform:
+    translateX(0);
+}
+.submenu a {
+
+    display:
+    block;
+
+    padding:
+    11px 18px;
+
+    color:
+    var(--text-color);
+
+    font-size:
+    14px;
+
+}
+
+
+.submenu a:hover {
+
+    background:
+    var(--light-color);
+
+    color:
+    var(--primary-color);
+
+}
+
+
+/* =========================================================
+   THIRD LEVEL
+========================================================= */
+
+.nested-dropdown {
+
+    position:
+    relative;
+
+}
+
+
+.nested-dropdown > a {
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    justify-content:
+    space-between;
+
+    padding:
+    11px 18px;
+
+    color:
+    var(--text-color);
+
+}
+
+
+.nested-submenu {
+
+    position:
+    absolute;
+
+    left:
+    100%;
+
+    top:
+    -10px;
+
+    min-width:
+    270px;
+
+    background:
+    var(--white-color);
+
+    border:
+    1px solid var(--border-color);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.12);
+
+    padding:
+    10px 0;
+
+    opacity:
+    0;
+
+    visibility:
+    hidden;
+
+    transform:
+    translateX(10px);
+
+    transition:
+    0.25s;
+
+}
+
+
+.nested-dropdown:hover >
+.nested-submenu {
+
+    opacity:
+    1;
+
+    visibility:
+    visible;
+
+    transform:
+    translateX(0);
+
+}
+
+
+.nested-submenu a {
+
+    display:
+    block;
+
+    padding:
+    11px 18px;
+
+    color:
+    var(--text-color);
+
+}
+
+
+.nested-submenu a:hover {
+
+    background:
+    var(--light-color);
+
+    color:
+    var(--primary-color);
+
+}
+
+
+/* =========================================================
+   NAVIGATION BUTTONS
+========================================================= */
+
+.nav-actions {
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    gap:
+    8px;
+
+}
+
+
+.nav-actions button {
+
+    border:
+    none;
+
+    cursor:
+    pointer;
+
+    padding:
+    10px 15px;
+
+    border-radius:
+    6px;
+
+    font-weight:
+    600;
+
+}
+
+
+.login-btn {
+
+    background:
+    transparent;
+
+    color:
+    var(--primary-color);
+
+}
+
+
+.register-btn {
+
+    background:
+    var(--primary-color);
+
+    color:
+    white;
+
+}
+
+
+.register-btn:hover {
+
+    background:
+    var(--primary-dark);
+
+}
+
+
+.cart-btn {
+
+    background:
+    var(--dark-color);
+
+    color:
+    white;
+
+}
+
+
+#cartCount {
+
+    background:
+    var(--accent-color);
+
+    padding:
+    2px 7px;
+
+    border-radius:
+    20px;
+
+    font-size:
+    11px;
+
+    margin-left:
+    4px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+.menu-btn {
+
+    display:
+    none;
+
+    background:
+    none;
+
+    border:
+    none;
+
+    font-size:
+    27px;
+
+    cursor:
+    pointer;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    background:
+    linear-gradient(
+        135deg,
+        #07111F,
+        #003B5C
+    );
+
+    color:
+    white;
+
+    padding:
+    90px 0;
+
+}
+
+
+.hero-content {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:
+    70px;
+
+    align-items:
+    center;
+
+}
+
+
+.hero-text h1 {
+
+    font-size:
+    50px;
+
+    line-height:
+    1.15;
+
+    margin-bottom:
+    20px;
+
+}
+
+
+.hero-text h1 span {
+
+    color:
+    var(--primary-color);
+
+}
+
+
+.hero-text p {
+
+    color:
+    #D7EAF2;
+
+    font-size:
+    18px;
+
+    max-width:
+    600px;
+
+    margin-bottom:
+    30px;
+
+}
+
+
+.hero-buttons {
+
+    display:
+    flex;
+
+    gap:
+    12px;
+
+    flex-wrap:
+    wrap;
+
+}
+
+
+.primary-btn {
+
+    background:
+    var(--primary-color);
+
+    color:
+    white;
+
+    border:
+    none;
+
+    padding:
+    14px 24px;
+
+    border-radius:
+    7px;
+
+    cursor:
+    pointer;
+
+    font-weight:
+    bold;
+
+}
+
+
+.primary-btn:hover {
+
+    background:
+    var(--primary-dark);
+
+}
+
+
+.secondary-btn {
+
+    background:
+    transparent;
+
+    color:
+    white;
+
+    border:
+    1px solid rgba(255,255,255,0.4);
+
+    padding:
+    13px 24px;
+
+    border-radius:
+    7px;
+
+    cursor:
+    pointer;
+
+    font-weight:
+    bold;
+
+}
+
+
+/* =========================================================
+   DOMAIN SEARCH
+========================================================= */
+
+.domain-search-box {
+
+    background:
+    white;
+
+    padding:
+    10px;
+
+    border-radius:
+    12px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.25);
+
+}
+
+
+.domain-search-box h3 {
+
+    color:
+    var(--dark-color);
+
+    padding:
+    15px 15px 5px;
+
+}
+
+
+.search-input-wrapper {
+
+    display:
+    flex;
+
+    gap:
+    8px;
+
+}
+
+
+.search-input-wrapper input {
+
+    flex:
+    1;
+
+    border:
+    1px solid var(--border-color);
+
+    outline:
+    none;
+
+    padding:
+    16px;
+
+    border-radius:
+    6px;
+
+    font-size:
+    15px;
+
+    color:
+    var(--text-color);
+
+}
+
+
+.search-input-wrapper select {
+
+    border:
+    1px solid var(--border-color);
+
+    border-radius:
+    6px;
+
+    padding:
+    0 12px;
+
+    background:
+    white;
+
+    cursor:
+    pointer;
+
+}
+
+
+.search-input-wrapper button {
+
+    background:
+    var(--accent-color);
+
+    color:
+    white;
+
+    border:
+    none;
+
+    padding:
+    0 22px;
+
+    border-radius:
+    6px;
+
+    cursor:
+    pointer;
+
+    font-weight:
+    bold;
+
+}
+
+
+.search-input-wrapper button:hover {
+
+    opacity:
+    0.9;
+
+}
+
+
+/* =========================================================
+   QUICK SERVICES
+========================================================= */
+
+.quick-services {
+
+    background:
+    white;
+
+    padding:
+    25px 0;
+
+    border-bottom:
+    1px solid var(--border-color);
+
+}
+
+
+.quick-grid {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(4, 1fr);
+
+    gap:
+    15px;
+
+}
+
+
+.quick-item {
+
+    padding:
+    18px;
+
+    border-right:
+    1px solid var(--border-color);
+
+}
+
+
+.quick-item:last-child {
+
+    border:
+    none;
+
+}
+
+
+.quick-icon {
+
+    font-size:
+    28px;
+
+    margin-bottom:
+    5px;
+
+}
+
+
+.quick-item h3 {
+
+    font-size:
+    16px;
+
+}
+
+
+.quick-item p {
+
+    color:
+    #6B7280;
+
+    font-size:
+    13px;
+
+}
+
+
+/* =========================================================
+   SEARCH RESULTS
+========================================================= */
+
+.search-results-section {
+
+    padding:
+    70px 0;
+
+    background:
+    white;
+
+}
+
+
+.search-results-section h2 {
+
+    text-align:
+    center;
+
+    margin-bottom:
+    35px;
+
+}
+
+
+#searchResults {
+
+    max-width:
+    900px;
+
+    margin:
+    auto;
+
+}
+
+
+.empty-results {
+
+    text-align:
+    center;
+
+    padding:
+    40px;
+
+    color:
+    #6B7280;
+
+}
+
+
+.empty-icon {
+
+    font-size:
+    50px;
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.result-card {
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    align-items:
+    center;
+
+    padding:
+    20px;
+
+    border:
+    1px solid var(--border-color);
+
+    border-radius:
+    10px;
+
+    margin-bottom:
+    12px;
+
+}
+
+
+.result-domain {
+
+    font-size:
+    18px;
+
+    font-weight:
+    bold;
+
+}
+
+
+.available {
+
+    color:
+    var(--success-color);
+
+    font-size:
+    14px;
+
+}
+
+
+.unavailable {
+
+    color:
+    var(--danger-color);
+
+    font-size:
+    14px;
+
+}
+
+
+.result-actions {
+
+    display:
+    flex;
+
+    align-items:
+    center;
+
+    gap:
+    15px;
+
+}
+
+
+.result-price {
+
+    font-weight:
+    bold;
+
+    color:
+    var(--primary-color);
+
+}
+
+
+.add-cart {
+
+    background:
+    var(--primary-color);
+
+    color:
+    white;
+
+    border:
+    none;
+
+    padding:
+    10px 18px;
+
+    border-radius:
+    6px;
+
+    cursor:
+    pointer;
+
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-section {
+
+    padding:
+    90px 0;
+
+    background:
+    var(--light-color);
+
+}
+
+
+.section-heading {
+
+    text-align:
+    center;
+
+    margin-bottom:
+    50px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+    36px;
+
+    margin-bottom:
+    10px;
+
+    color:
+    var(--dark-color);
+
+}
+
+
+.section-heading p {
+
+    max-width:
+    700px;
+
+    margin:
+    auto;
+
+    color:
+    #6B7280;
+
+}
+
+
+.services-grid {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:
+    25px;
+
+}
+
+
+.service-card {
+
+    background:
+    white;
+
+    padding:
+    30px;
+
+    border:
+    1px solid var(--border-color);
+
+    border-radius:
+    12px;
+
+    transition:
+    0.3s;
+
+}
+
+
+.service-card:hover {
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.08);
+
+}
+
+
+.service-icon {
+
+    font-size:
+    35px;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.service-card h3 {
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.service-card p {
+
+    color:
+    #6B7280;
+
+    margin-bottom:
+    20px;
+
+}
+
+
+.service-link {
+
+    color:
+    var(--primary-color);
+
+    font-weight:
+    bold;
+
+}
+
+
+/* =========================================================
+   HOSTING
+========================================================= */
+
+.hosting-section {
+
+    padding:
+    90px 0;
+
+    background:
+    var(--dark-color);
+
+    color:
+    white;
+
+}
+
+
+.hosting-content {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:
+    60px;
+
+    align-items:
+    center;
+
+}
+
+
+.section-tag {
+
+    color:
+    var(--primary-color);
+
+    font-size:
+    13px;
+
+    font-weight:
+    bold;
+
+    letter-spacing:
+    2px;
+
+}
+
+
+.hosting-text h2 {
+
+    font-size:
+    38px;
+
+    margin:
+    15px 0;
+
+}
+
+
+.hosting-text p {
+
+    color:
+    #CBD5E1;
+
+    margin-bottom:
+    25px;
+
+}
+
+
+.hosting-features {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(2, 1fr);
+
+    gap:
+    20px;
+
+}
+
+
+.feature {
+
+    padding:
+    25px;
+
+    border:
+    1px solid #334155;
+
+    border-radius:
+    10px;
+
+}
+
+
+.feature-icon {
+
+    font-size:
+    30px;
+
+    margin-bottom:
+    10px;
+
+}
+
+
+.feature p {
+
+    color:
+    #94A3B8;
+
+    font-size:
+    14px;
+
+}
+
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.about-section {
+
+    padding:
+    90px 0;
+
+    background:
+    white;
+
+}
+
+
+.benefits {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap:
+    25px;
+
+}
+
+
+.benefit {
+
+    padding:
+    30px;
+
+    border:
+    1px solid var(--border-color);
+
+    border-radius:
+    10px;
+
+}
+
+
+.benefit-number {
+
+    color:
+    var(--primary-color);
+
+    font-size:
+    18px;
+
+    font-weight:
+    bold;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.benefit p {
+
+    color:
+    #6B7280;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+
+    padding:
+    70px 0;
+
+    background:
+    #E8F7FC;
+
+}
+
+
+.contact-content {
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    align-items:
+    center;
+
+    gap:
+    30px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    background:
+    #0B1120;
+
+    color:
+    white;
+
+    padding-top:
+    60px;
+
+}
+
+
+.footer-grid {
+
+    display:
+    grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:
+    40px;
+
+    padding-bottom:
+    50px;
+
+}
+
+
+.footer-logo {
+
+    font-size:
+    25px;
+
+    font-weight:
+    bold;
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.footer-logo span {
+
+    color:
+    var(--primary-color);
+
+}
+
+
+.footer-column p {
+
+    color:
+    #9CA3AF;
+
+}
+
+
+.footer-column h3 {
+
+    margin-bottom:
+    15px;
+
+}
+
+
+.footer-column a {
+
+    display:
+    block;
+
+    color:
+    #9CA3AF;
+
+    margin-bottom:
+    8px;
+
+}
+
+
+.footer-column a:hover {
+
+    color:
+    var(--primary-color);
+
+}
+
+
+.footer-bottom {
+
+    border-top:
+    1px solid #374151;
+
+    padding:
+    20px;
+
+    text-align:
+    center;
+
+    color:
+    #9CA3AF;
+
+}
+
+
+/* =========================================================
+   CART MODAL
+========================================================= */
+
+.modal {
+
+    display:
+    none;
+
+    position:
+    fixed;
+
+    inset:
+    0;
+
+    background:
+    rgba(0,0,0,0.65);
+
+    z-index:
+    2000;
+
+    align-items:
+    center;
+
+    justify-content:
+    center;
+
+    padding:
+    20px;
+
+}
+
+
+.modal.show {
+
+    display:
+    flex;
+
+}
+
+
+.modal-content {
+
+    width:
+    100%;
+
+    max-width:
+    600px;
+
+    background:
+    white;
+
+    border-radius:
+    12px;
+
+    padding:
+    30px;
+
+    position:
+    relative;
+
+    max-height:
+    80vh;
+
+    overflow-y:
+    auto;
+
+}
+
+
+.close-modal {
+
+    position:
+    absolute;
+
+    top:
+    12px;
+
+    right:
+    18px;
+
+    border:
+    none;
+
+    background:
+    none;
+
+    font-size:
+    28px;
+
+    cursor:
+    pointer;
+
+}
+
+
+.cart-item {
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    align-items:
+    center;
+
+    padding:
+    15px 0;
+
+    border-bottom:
+    1px solid var(--border-color);
+
+}
+
+
+.remove-cart {
+
+    background:
+    #FEE2E2;
+
+    color:
+    var(--danger-color);
+
+    border:
+    none;
+
+    padding:
+    7px 10px;
+
+    border-radius:
+    5px;
+
+    cursor:
+    pointer;
+
+}
+
+
+.cart-total {
+
+    display:
+    flex;
+
+    justify-content:
+    space-between;
+
+    padding:
+    20px 0;
+
+    font-size:
+    20px;
+
+}
+
+
+.checkout-btn {
+
+    width:
+    100%;
+
+    padding:
+    14px;
+
+    background:
+    var(--primary-color);
+
+    color:
+    white;
+
+    border:
+    none;
+
+    border-radius:
+    7px;
+
+    font-weight:
+    bold;
+
+    cursor:
+    pointer;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .navigation {
+
+        display:
+        none;
+
+        position:
+        absolute;
+
+        top:
+        75px;
+
+        left:
+        0;
+
+        width:
+        100%;
+
+        background:
+        white;
+
+        flex-direction:
+        column;
+
+        align-items:
+        stretch;
+
+        padding:
+        15px;
+
+        box-shadow:
+        0 10px 25px rgba(0,0,0,0.12);
+
+    }
+
+
+    .navigation.show {
+
+        display:
+        flex;
+
+    }
+
+
+    .nav-link {
+
+        padding:
+        15px;
+
+    }
+
+
+    .dropdown-menu,
+    .submenu,
+    .nested-submenu {
+
+        position:
+        static;
+
+        display:
+        none;
+
+        opacity:
+        1;
+
+        visibility:
+        visible;
+
+        transform:
+        none;
+
+        box-shadow:
+        none;
+
+        border:
+        none;
+
+        padding-left:
+        15px;
+
+    }
+
+
+    .dropdown:hover >
+    .dropdown-menu {
+
+        display:
+        block;
+
+    }
+
+
+    .dropdown-item:hover >
+    .submenu {
+
+        display:
+        block;
+
+    }
+
+
+    .nested-dropdown:hover >
+    .nested-submenu {
+
+        display:
+        block;
+
+    }
+
+
+    .nav-actions {
+
+        display:
+        none;
+
+    }
+
+
+    .menu-btn {
+
+        display:
+        block;
+
+    }
+
+
+    .hero-content {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .services-grid {
+
+        grid-template-columns:
+        repeat(2, 1fr);
+
+    }
+
+
+    .hosting-content {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .benefits {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+        repeat(2, 1fr);
+
+    }
+
+
+    .quick-grid {
+
+        grid-template-columns:
+        repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .top-bar-content {
+
+        justify-content:
+        center;
+
+    }
+
+
+    .top-links {
+
+        display:
+        none;
+
+    }
+
+
+    .hero {
+
+        padding:
+        60px 0;
+
+    }
+
+
+    .hero-text h1 {
+
+        font-size:
+        36px;
+
+    }
+
+
+    .search-input-wrapper {
+
+        flex-direction:
+        column;
+
+    }
+
+
+    .search-input-wrapper input,
+    .search-input-wrapper select,
+    .search-input-wrapper button {
+
+        padding:
+        14px;
+
+    }
+
+
+    .services-grid {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .hosting-features {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .contact-content {
+
+        flex-direction:
+        column;
+
+        align-items:
+        flex-start;
+
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .quick-grid {
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+
+    .quick-item {
+
+        border:
+        none;
+
+        border-bottom:
+        1px solid var(--border-color);
+
+    }
+
+
+    .result-card {
+
+        flex-direction:
+        column;
+
+        align-items:
+        flex-start;
+
+        gap:
+        15px;
+
+    }
+
+
+    .result-actions {
+
+        width:
+        100%;
+
+        justify-content:
+        space-between;
+
+    }
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+====================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-content">
+
+
+        <div class="top-links">
+
+            <a href="#contact">
+                Status
+            </a>
+
+            <a href="#contact">
+                Contact Us
+            </a>
+			
+			<a href="#contact">
+                More
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+    <div class="nav-container">
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="#">
+                DingesTech<span>Hub</span>
+            </a>
+        </div>
+		
+        <!-- NAVIGATION -->
+        <nav class="navigation" id="navigation">
+
+            <!-- HOME -->
+
+            <a href="#" class="nav-link">
+                Home
+            </a>
+
+            <!-- SERVICES -->
+            <div class="dropdown">
+                <a href="#services"
+                   class="nav-link dropdown-toggle">
+
+                    Services
+					
+                    <span>▼</span>
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <!-- INTERNET CONNECTIVITY -->
+
+                    <div class="dropdown-item">
+                        <a href="#">
+
+                            Internet Connectivity
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+                            <a href="#">
+                                Mobile
+                            </a>
+
+                            <a href="#">
+                                Wireless LTE 4G/5G
+                            </a>
+
+                            <a href="#">
+                                Fibre
+                            </a>
+
+                            <a href="#">
+                                Wireless Broadband
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- VOIP -->
+
+                    <div class="dropdown-item">
+
+                        <a href="#">
+
+                            VOIP / Telephony
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+                            <a href="#">
+                                Smart Numbers
+                            </a>
+
+                            <a href="#">
+                                Advanced PBX
+                            </a>
+
+                            <a href="#">
+                                Call Centre Solutions
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- WEB HOSTING -->
+
+                    <div class="dropdown-item">
+
+                        <a href="#">
+
+                            Web & Email Hosting
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+                            <a href="#domains">
+                                Domain
+                            </a>
+
+                            <a href="#">
+                                Email Hosting
+                            </a>
+
+                            <a href="#">
+                                Website Development
+                            </a>
+
+                            <a href="#hosting">
+                                Shared Hosting
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- IOT -->
+
+                    <div class="dropdown-item">
+
+                        <a href="#">
+
+                            Internet of Things
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+                            <a href="#">
+                                Smart Appliances & Devices
+                            </a>
+
+                            <a href="#">
+                                Automation Software
+                            </a>
+
+                            <a href="#">
+                                Remote Monitoring
+                            </a>
+
+                            <a href="#">
+                                Smart Security
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SOFTWARE -->
+
+                    <div class="dropdown-item">
+
+                        <a href="#">
+
+                            Software
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+
+                            <!-- CRM -->
+
+                            <div class="nested-dropdown">
+
+                                <a href="#">
+
+                                    CRM Software
+
+                                    <span>›</span>
+
+                                </a>
+
+
+                                <div class="nested-submenu">
+
+                                    <a href="#">
+                                        Smart Process Automation
+                                    </a>
+
+                                    <a href="#">
+                                        Workflows
+                                    </a>
+
+                                    <a href="#">
+                                        API Integrations
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#">
+                                WhatsApp Business API
+                            </a>
+
+                            <a href="#">
+                                Cleaning Software
+                            </a>
+
+                            <a href="#">
+                                Antivirus Software
+                            </a>
+
+                            <a href="#">
+                                Microsoft 365
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SMART SOLUTIONS -->
+
+                    <div class="dropdown-item">
+
+                        <a href="#">
+
+                            Smart Solutions
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <div class="submenu">
+
+                            <a href="#">
+                                Proactive & Network Monitoring
+                            </a>
+
+                            <a href="#">
+                                Printers Setup & Issues
+                            </a>
+
+                            <a href="#">
+                                Technical Assistance & IT Support
+                            </a>
+
+                            <a href="#">
+                                Cleaning, Antivirus & Microsoft Software
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HELP CENTRE -->
+
+            <div class="dropdown">
+
+                <a href="#"
+                   class="nav-link dropdown-toggle">
+
+                    Help Centre
+
+                    <span>▼</span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="https://help.afrihost.com/"
+                       target="_blank">
+
+                        Knowledgebase
+
+                    </a>
+
+                    <a href="#contact">
+
+                        Contact Support
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <a href="#contact"
+               class="nav-link">
+
+                Contact Us
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- NAV ACTIONS -->
+
+        <div class="nav-actions">
+           
+		   <a href="login.html" class="login-btn">
+                      Login
+            </a> 
+
+
+            <button
+                class="register-btn"
+                onclick="showMessage('Registration system coming soon')">
+
+                Register
+
+            </button>
+
+
+            <button
+                class="cart-btn"
+                onclick="openCart()">
+
+                🛒 Cart
+
+                <span id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+    <div class="container hero-content">
+
+
+        <div class="hero-text">
+
+            <span class="section-tag">
+                CONNECT • HOST • GROW
+            </span>
+
+
+            <h1>
+
+                Everything You Need
+                <span>To Connect & Grow</span>
+
+            </h1>
+
+
+            <p>
+
+                Get reliable internet connectivity,
+                domains, hosting, business email,
+                software and professional IT solutions
+                for your home or business.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="document.getElementById('services').scrollIntoView()">
+
+                    Explore Our Services
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="document.getElementById('contact').scrollIntoView()">
+
+                    Contact Us
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- DOMAIN SEARCH -->
+
+        <div class="domain-search-box">
+
+            <h3>
+                Find Your Perfect Domain
+            </h3>
+
+
+            <form id="domainSearchForm">
+
+                <div class="search-input-wrapper">
+
+
+                    <input
+                        type="text"
+                        id="domainInput"
+                        placeholder="Enter your domain name"
+                        required
+                    >
+
+
+                    <select id="domainExtension">
+
+                        <option value=".co.za">
+                            .co.za
+                        </option>
+
+                        <option value=".com">
+                            .com
+                        </option>
+
+                        <option value=".net">
+                            .net
+                        </option>
+
+                        <option value=".org">
+                            .org
+                        </option>
+
+                        <option value=".africa">
+                            .africa
+                        </option>
+
+                        <option value=".online">
+                            .online
+                        </option>
+
+                    </select>
+
+
+                    <button type="submit">
+
+                        Search
+
+                    </button>
+
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK SERVICES
+====================================================== -->
+
+<section class="quick-services">
+
+    <div class="container quick-grid">
+
+
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                🌐
+            </div>
+
+            <h3>
+                Internet Connectivity
+            </h3>
+
+            <p>
+                Fibre, LTE, mobile and broadband solutions.
+            </p>
+
+        </div>
+
+
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                ☁️
+            </div>
+
+            <h3>
+                Hosting & Domains
+            </h3>
+
+            <p>
+                Professional hosting and domain registration.
+            </p>
+
+        </div>
+
+
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                📞
+            </div>
+
+            <h3>
+                Business Communication
+            </h3>
+
+            <p>
+                VOIP, PBX and business communication solutions.
+            </p>
+
+        </div>
+
+
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                🛠️
+            </div>
+
+            <h3>
+                IT Support
+            </h3>
+
+            <p>
+                Technical support and smart IT solutions.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEARCH RESULTS
+====================================================== -->
+
+<section class="search-results-section">
+
+    <div class="container">
+
+        <h2>
+            Domain Search Results
+        </h2>
+
+
+        <div id="searchResults">
+
+            <div class="empty-results">
+
+                <div class="empty-icon">
+                    🔎
+                </div>
+
+                <p>
+                    Search for a domain name to see available domains.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+====================================================== -->
+
+<section
+    class="services-section"
+    id="services">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Our Services
+            </h2>
+
+            <p>
+                Complete technology solutions designed
+                to keep you connected, productive and secure.
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Internet Connectivity
+                </h3>
+
+                <p>
+                    Stay connected with mobile,
+                    LTE, 4G, 5G, Fibre and wireless broadband.
+                </p>
+
+                <a href="#" class="service-link">
+                    Explore Connectivity →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📞
+                </div>
+
+                <h3>
+                    VOIP & Telephony
+                </h3>
+
+                <p>
+                    Modern communication solutions
+                    for businesses of every size.
+                </p>
+
+                <a href="#" class="service-link">
+                    View Telephony →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ☁️
+                </div>
+
+                <h3>
+                    Web & Email Hosting
+                </h3>
+
+                <p>
+                    Domains, email hosting, website development
+                    and reliable shared hosting.
+                </p>
+
+                <a href="#domains" class="service-link">
+                    View Hosting →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📡
+                </div>
+
+                <h3>
+                    Internet of Things
+                </h3>
+
+                <p>
+                    Smart devices, automation,
+                    monitoring and security solutions.
+                </p>
+
+                <a href="#" class="service-link">
+                    Explore IoT →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Software Solutions
+                </h3>
+
+                <p>
+                    CRM, automation, WhatsApp Business API,
+                    Microsoft 365 and security software.
+                </p>
+
+                <a href="#" class="service-link">
+                    View Software →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Smart IT Solutions
+                </h3>
+
+                <p>
+                    Network monitoring, technical assistance,
+                    IT support and business technology solutions.
+                </p>
+
+                <a href="#" class="service-link">
+                    Get IT Support →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DOMAIN EXTENSIONS
+====================================================== -->
+
+<section
+    class="services-section"
+    id="domains">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Register Your Domain
+            </h2>
+
+            <p>
+                Build your online presence with
+                a professional domain name.
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card">
+
+                <div class="domain-extension">
+                    .co.za
+                </div>
+
+                <h3>
+                    South African Domain
+                </h3>
+
+                <p>
+                    Perfect for South African businesses
+                    and organizations.
+                </p>
+
+                <h3>
+                    $8.99 / year
+                </h3>
+
+                <br>
+
+                <button
+                    class="primary-btn"
+                    onclick="addDomain('.co.za', 8.99)">
+
+                    Register Now
+
+                </button>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="domain-extension">
+                    .com
+                </div>
+
+                <h3>
+                    Global Business
+                </h3>
+
+                <p>
+                    The world's most recognized
+                    domain extension.
+                </p>
+
+                <h3>
+                    $12.99 / year
+                </h3>
+
+                <br>
+
+                <button
+                    class="primary-btn"
+                    onclick="addDomain('.com', 12.99)">
+
+                    Register Now
+
+                </button>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="domain-extension">
+                    .net
+                </div>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Great for technology
+                    and internet businesses.
+                </p>
+
+                <h3>
+                    $11.99 / year
+                </h3>
+
+                <br>
+
+                <button
+                    class="primary-btn"
+                    onclick="addDomain('.net', 11.99)">
+
+                    Register Now
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOSTING
+====================================================== -->
+
+<section
+    class="hosting-section"
+    id="hosting">
+
+
+    <div class="container hosting-content">
+
+
+        <div class="hosting-text">
+
+            <span class="section-tag">
+                WEB & EMAIL HOSTING
+            </span>
+
+
+            <h2>
+                Build Your Online Presence
+            </h2>
+
+
+            <p>
+                Get reliable web hosting, professional email,
+                domains and website development services
+                for your business.
+            </p>
+
+
+            <button
+                class="primary-btn"
+                onclick="showMessage('Hosting plans coming soon')">
+
+                View Hosting Plans
+
+            </button>
+
+        </div>
+
+
+
+        <div class="hosting-features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Fast Hosting
+                </h3>
+
+                <p>
+                    High-performance hosting
+                    for your website.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    SSL Security
+                </h3>
+
+                <p>
+                    Protect your website
+                    and visitors.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    📧
+                </div>
+
+                <h3>
+                    Business Email
+                </h3>
+
+                <p>
+                    Professional email
+                    for your business.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    IT Support
+                </h3>
+
+                <p>
+                    Technical help when
+                    you need it.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+====================================================== -->
+
+<section
+    class="about-section"
+    id="about">
+
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Why Choose DomainHub?
+            </h2>
+
+            <p>
+                We provide reliable technology
+                solutions for homes and businesses.
+            </p>
+
+        </div>
+
+
+
+        <div class="benefits">
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    01
+                </div>
+
+                <h3>
+                    Reliable Connectivity
+                </h3>
+
+                <p>
+                    Stay connected with reliable
+                    internet and communication services.
+                </p>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    02
+                </div>
+
+                <h3>
+                    Complete IT Solutions
+                </h3>
+
+                <p>
+                    Get hosting, software, security
+                    and IT support in one place.
+                </p>
+
+            </div>
+
+
+
+            <div class="benefit">
+
+                <div class="benefit-number">
+                    03
+                </div>
+
+                <h3>
+                    Professional Support
+                </h3>
+
+                <p>
+                    Our team is ready to help
+                    you solve your technology challenges.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+====================================================== -->
+
+<section
+    class="contact-section"
+    id="contact">
+
+
+    <div class="container contact-content">
+
+
+        <div>
+
+            <span class="section-tag">
+                GET IN TOUCH
+            </span>
+
+
+            <h2>
+                Need Help With Your Technology?
+            </h2>
+
+
+            <p>
+                Talk to our team about internet,
+                hosting, software or IT support.
+            </p>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="showMessage('Contact form coming soon')">
+
+            Contact Support
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-column">
+
+            <div class="footer-logo">
+
+                Domain<span>Hub</span>
+
+            </div>
+
+            <p>
+                Your trusted partner for internet,
+                hosting, software and IT solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="#services">
+                Internet Connectivity
+            </a>
+
+            <a href="#services">
+                VOIP / Telephony
+            </a>
+
+            <a href="#hosting">
+                Web Hosting
+            </a>
+
+            <a href="#domains">
+                Domains
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Solutions
+            </h3>
+
+            <a href="#services">
+                Software
+            </a>
+
+            <a href="#services">
+                IoT Solutions
+            </a>
+
+            <a href="#services">
+                Smart Solutions
+            </a>
+
+            <a href="#services">
+                IT Support
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-column">
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="#contact">
+                Contact Us
+            </a>
+
+            <a
+                href="https://help.afrihost.com/"
+                target="_blank">
+
+                Knowledgebase
+
+            </a>
+
+            <a href="#contact">
+                Technical Support
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 DomainHub.
+            All rights reserved.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     CART MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="cartModal">
+
+
+    <div class="modal-content">
+
+
+        <button
+            class="close-modal"
+            onclick="closeCart()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Your Shopping Cart
+        </h2>
+
+
+        <div id="cartItems">
+
+            <p>
+                Your cart is currently empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <span>
+                Total:
+            </span>
+
+            <strong id="cartTotal">
+                $0.00
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout-btn"
+            onclick="checkout()">
+
+            Proceed to Checkout
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = [];
+
+
+
+/* =====================================================
+   DOMAIN SEARCH
+===================================================== */
+
+document
+.getElementById("domainSearchForm")
+.addEventListener(
+"submit",
+function(event) {
+
+    event.preventDefault();
+
+
+    let domainName =
+        document
+        .getElementById("domainInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    let extension =
+        document
+        .getElementById("domainExtension")
+        .value;
+
+
+    if (domainName === "") {
+
+        alert(
+            "Please enter a domain name."
+        );
+
+        return;
+
+    }
+
+
+    domainName =
+        domainName.replace(
+            /\s+/g,
+            ""
+        );
+
+
+    domainName =
+        domainName.replace(
+            /\.(co\.za|com|net|org|africa|online)$/i,
+            ""
+        );
+
+
+    let mainDomain =
+        domainName + extension;
+
+
+    displaySearchResults(
+        mainDomain
+    );
+
+});
+
+
+
+/* =====================================================
+   DISPLAY SEARCH RESULTS
+===================================================== */
+
+function displaySearchResults(
+    mainDomain
+) {
+
+
+    let results =
+        document
+        .getElementById(
+            "searchResults"
+        );
+
+
+    let baseName =
+        mainDomain.split(".")[0];
+
+
+    let alternativeDomains = [
+
+        {
+            name:
+            mainDomain,
+
+            price:
+            8.99
+
+        },
+
+        {
+
+            name:
+            baseName + ".com",
+
+            price:
+            12.99
+
+        },
+
+        {
+
+            name:
+            baseName + ".net",
+
+            price:
+            11.99
+
+        },
+
+        {
+
+            name:
+            baseName + ".org",
+
+            price:
+            10.99
+
+        }
+
+    ];
+
+
+    results.innerHTML = "";
+
+
+    alternativeDomains.forEach(
+
+        function(domain, index) {
+
+
+            let available =
+                index !== 2;
+
+
+            let resultCard =
+                document.createElement(
+                    "div"
+                );
+
+
+            resultCard.className =
+                "result-card";
+
+
+            resultCard.innerHTML = `
+
+                <div>
+
+                    <div class="result-domain">
+
+                        ${domain.name}
+
+                    </div>
+
+                    <div class="${
+                        available
+                        ? "available"
+                        : "unavailable"
+                    }">
+
+                        ${
+                            available
+                            ? "✓ Domain Available"
+                            : "✕ Domain Unavailable"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="result-actions">
+
+                    <span class="result-price">
+
+                        $${domain.price.toFixed(2)}/year
+
+                    </span>
+
+
+                    ${
+                        available
+
+                        ?
+
+                        `<button
+                            class="add-cart"
+                            onclick="addToCart(
+                                '${domain.name}',
+                                ${domain.price}
+                            )">
+
+                            Add to Cart
+
+                        </button>`
+
+                        :
+
+                        `<button
+                            class="add-cart"
+                            disabled
+                            style="
+                            opacity:0.5;
+                            cursor:not-allowed;
+                            ">
+
+                            Unavailable
+
+                        </button>`
+                    }
+
+                </div>
+
+            `;
+
+
+            results.appendChild(
+                resultCard
+            );
+
+        }
+
+    );
+
+}
+
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(
+    domainName,
+    price
+) {
+
+
+    let existingItem =
+        cart.find(
+            item =>
+            item.name === domainName
+        );
+
+
+    if (existingItem) {
+
+        alert(
+            "This domain is already in your cart."
+        );
+
+        return;
+
+    }
+
+
+    cart.push({
+
+        name:
+        domainName,
+
+        price:
+        price
+
+    });
+
+
+    updateCart();
+
+
+    alert(
+        domainName +
+        " has been added to your cart."
+    );
+
+}
+
+
+
+/* =====================================================
+   ADD DOMAIN
+===================================================== */
+
+function addDomain(
+    extension,
+    price
+) {
+
+
+    let domainName =
+        prompt(
+            "Enter the domain name you want to register:"
+        );
+
+
+    if (
+        !domainName ||
+        domainName.trim() === ""
+    ) {
+
+        return;
+
+    }
+
+
+    domainName =
+        domainName
+        .trim()
+        .toLowerCase();
+
+
+    domainName =
+        domainName.replace(
+            /\.(co\.za|com|net|org|africa|online)$/i,
+            ""
+        );
+
+
+    let fullDomain =
+        domainName +
+        extension;
+
+
+    addToCart(
+        fullDomain,
+        price
+    );
+
+}
+
+
+
+/* =====================================================
+   UPDATE CART
+===================================================== */
+
+function updateCart() {
+
+
+    let cartCount =
+        document
+        .getElementById(
+            "cartCount"
+        );
+
+
+    let cartItems =
+        document
+        .getElementById(
+            "cartItems"
+        );
+
+
+    let cartTotal =
+        document
+        .getElementById(
+            "cartTotal"
+        );
+
+
+    cartCount.textContent =
+        cart.length;
+
+
+    cartItems.innerHTML =
+        "";
+
+
+    if (
+        cart.length === 0
+    ) {
+
+
+        cartItems.innerHTML = `
+
+            <p>
+                Your cart is currently empty.
+            </p>
+
+        `;
+
+
+        cartTotal.textContent =
+            "$0.00";
+
+
+        return;
+
+    }
+
+
+    let total =
+        0;
+
+
+    cart.forEach(
+
+        function(item, index) {
+
+
+            total +=
+                item.price;
+
+
+            let cartItem =
+                document
+                .createElement(
+                    "div"
+                );
+
+
+            cartItem.className =
+                "cart-item";
+
+
+            cartItem.innerHTML = `
+
+                <div>
+
+                    <strong>
+                        ${item.name}
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        $${item.price.toFixed(2)}/year
+                    </small>
+
+                </div>
+
+
+                <button
+                    class="remove-cart"
+                    onclick="removeFromCart(${index})">
+
+                    Remove
+
+                </button>
+
+            `;
+
+
+            cartItems.appendChild(
+                cartItem
+            );
+
+        }
+
+    );
+
+
+    cartTotal.textContent =
+        "$" +
+        total.toFixed(2);
+
+}
+
+
+
+/* =====================================================
+   REMOVE FROM CART
+===================================================== */
+
+function removeFromCart(
+    index
+) {
+
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    updateCart();
+
+}
+
+
+
+/* =====================================================
+   OPEN CART
+===================================================== */
+
+function openCart() {
+
+
+    document
+    .getElementById(
+        "cartModal"
+    )
+    .classList
+    .add(
+        "show"
+    );
+
+
+    updateCart();
+
+}
+
+
+
+/* =====================================================
+   CLOSE CART
+===================================================== */
+
+function closeCart() {
+
+
+    document
+    .getElementById(
+        "cartModal"
+    )
+    .classList
+    .remove(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   CHECKOUT
+===================================================== */
+
+function checkout() {
+
+
+    if (
+        cart.length === 0
+    ) {
+
+        alert(
+            "Your cart is empty."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Checkout system will be connected to the backend later."
+    );
+
+}
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+function toggleMenu() {
+
+
+    document
+    .getElementById(
+        "navigation"
+    )
+    .classList
+    .toggle(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   GENERAL MESSAGE
+===================================================== */
+
+function showMessage(
+    message
+) {
+
+    alert(
+        message
+    );
+
+}
+
+
+
+/* =====================================================
+   CLOSE CART OUTSIDE
+===================================================== */
+
+document
+.getElementById(
+    "cartModal"
+)
+.addEventListener(
+"click",
+function(event) {
+
+
+    if (
+        event.target ===
+        this
+    ) {
+
+        closeCart();
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
