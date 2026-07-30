@@ -1,0 +1,2813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Melon Mobile | Dinges TechHub</title>
+
+
+    <style>
+
+        /* =========================================================
+           COLOR SETTINGS
+        ========================================================= */
+
+        :root {
+            --primary-color: #00A8E8;
+            --primary-dark: #0086BA;
+
+            --dark-color: #111827;
+            --text-color: #4B5563;
+
+            --light-color: #F8FAFC;
+            --white-color: #FFFFFF;
+
+            --border-color: #E5E7EB;
+
+            --success-color: #16A34A;
+
+            --melon-color: #8CC63F;
+        }
+
+
+        /* =========================================================
+           GENERAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        header {
+            background: var(--white-color);
+
+            border-bottom: 1px solid var(--border-color);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .navbar {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            min-height: 76px;
+
+            padding: 0 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            color: var(--dark-color);
+
+            white-space: nowrap;
+        }
+
+
+        .logo span {
+
+            color: var(--primary-color);
+        }
+
+
+        /* NAV LINKS */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            color: var(--dark-color);
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: var(--primary-color);
+        }
+
+
+        /* NAV ACTIONS */
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .login-btn {
+
+            color: var(--primary-color);
+
+            font-weight: 600;
+
+            padding: 10px 15px;
+        }
+
+
+        .register-btn {
+
+            background: var(--primary-color);
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            font-weight: 600;
+        }
+
+
+        .cart-btn {
+
+            background: var(--dark-color);
+
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            font-weight: 600;
+        }
+
+
+
+        /* =========================================================
+           BREADCRUMB
+        ========================================================= */
+
+        .breadcrumb-section {
+
+            background: var(--white-color);
+
+            padding: 20px;
+        }
+
+
+        .breadcrumb {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            font-size: 14px;
+
+            color: var(--text-color);
+        }
+
+
+        .breadcrumb a {
+
+            color: var(--primary-color);
+
+            font-weight: 600;
+        }
+
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #EAF9FF,
+
+                    #FFFFFF
+
+                );
+
+            padding: 90px 20px;
+        }
+
+
+        .hero-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1.2fr 0.8fr;
+
+            align-items: center;
+
+            gap: 60px;
+        }
+
+
+        .hero-content h1 {
+
+            font-size: 58px;
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero-content h1 span {
+
+            color: var(--primary-color);
+        }
+
+
+        .hero-subtitle {
+
+            font-size: 25px;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+
+            color: var(--dark-color);
+        }
+
+
+        .hero-content p {
+
+            font-size: 18px;
+
+            color: var(--text-color);
+
+            max-width: 650px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* HERO BUTTONS */
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .primary-btn {
+
+            display: inline-block;
+
+            background: var(--primary-color);
+
+            color: white;
+
+            padding: 14px 25px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+
+        .primary-btn:hover {
+
+            background: var(--primary-dark);
+
+            transform: translateY(-2px);
+        }
+
+
+        .secondary-btn {
+
+            display: inline-block;
+
+            background: white;
+
+            color: var(--primary-color);
+
+            padding: 14px 25px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+
+            border: 2px solid var(--primary-color);
+
+            transition: 0.3s;
+        }
+
+
+        .secondary-btn:hover {
+
+            background: var(--primary-color);
+
+            color: white;
+        }
+
+
+        /* HERO VISUAL */
+
+        .hero-card {
+
+            background: var(--white-color);
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 20px;
+
+            padding: 45px;
+
+            text-align: center;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .melon-logo {
+
+            width: 120px;
+
+            height: 120px;
+
+            margin: auto auto 25px;
+
+            border-radius: 50%;
+
+            background: var(--melon-color);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 55px;
+
+            font-weight: bold;
+        }
+
+
+        .hero-card h3 {
+
+            font-size: 26px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .hero-card p {
+
+            color: var(--text-color);
+        }
+
+
+
+        /* =========================================================
+           GENERAL SECTION
+        ========================================================= */
+
+        .section {
+
+            padding: 85px 20px;
+        }
+
+
+        .section-container {
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        .section-header {
+
+            text-align: center;
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+        }
+
+
+        .section-label {
+
+            color: var(--primary-color);
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-header h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-header p {
+
+            color: var(--text-color);
+
+            font-size: 17px;
+        }
+
+
+
+        /* =========================================================
+           WHY CHOOSE MELON
+        ========================================================= */
+
+        .why-section {
+
+            background: var(--white-color);
+        }
+
+
+        .why-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .feature-card {
+
+            padding: 30px;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            background: white;
+
+            transition: 0.3s;
+        }
+
+
+        .feature-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+
+        .feature-icon {
+
+            width: 55px;
+
+            height: 55px;
+
+            background: #E0F7FF;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 26px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .feature-card h3 {
+
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .feature-card p {
+
+            color: var(--text-color);
+
+            font-size: 15px;
+        }
+
+
+
+        /* =========================================================
+           MOBILE PLANS
+        ========================================================= */
+
+        .plans-section {
+
+            background: var(--light-color);
+        }
+
+
+        .plans-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .plan-card {
+
+            background: white;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+
+        .plan-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .plan-card.featured {
+
+            border: 2px solid var(--primary-color);
+
+            transform: scale(1.03);
+        }
+
+
+        .popular {
+
+            position: absolute;
+
+            top: -14px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--primary-color);
+
+            color: white;
+
+            padding: 5px 15px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+
+        .plan-card h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .plan-description {
+
+            color: var(--text-color);
+
+            margin-bottom: 25px;
+        }
+
+
+        .plan-features {
+
+            list-style: none;
+
+            margin-bottom: 25px;
+        }
+
+
+        .plan-features li {
+
+            margin-bottom: 12px;
+
+            color: var(--text-color);
+        }
+
+
+        .plan-features li::before {
+
+            content: "✓";
+
+            color: var(--success-color);
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+
+        .plan-btn {
+
+            display: block;
+
+            text-align: center;
+
+            background: var(--primary-color);
+
+            color: white;
+
+            padding: 12px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+        }
+
+
+
+        /* =========================================================
+           WHY SWITCH
+        ========================================================= */
+
+        .switch-section {
+
+            background: var(--dark-color);
+
+            color: white;
+        }
+
+
+        .switch-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+
+        .switch-content h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .switch-content p {
+
+            color: #D1D5DB;
+
+            margin-bottom: 25px;
+        }
+
+
+        .switch-list {
+
+            list-style: none;
+
+            margin-bottom: 30px;
+        }
+
+
+        .switch-list li {
+
+            margin-bottom: 12px;
+
+            color: #E5E7EB;
+        }
+
+
+        .switch-list li::before {
+
+            content: "✓";
+
+            color: #38BDF8;
+
+            font-weight: bold;
+
+            margin-right: 10px;
+        }
+
+
+        .switch-box {
+
+            background: #1F2937;
+
+            border-radius: 15px;
+
+            padding: 45px;
+
+            text-align: center;
+        }
+
+
+        .switch-box h3 {
+
+            font-size: 26px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .switch-box p {
+
+            color: #D1D5DB;
+
+            margin-bottom: 25px;
+        }
+
+
+
+        /* =========================================================
+           EVERYTHING YOU NEED
+        ========================================================= */
+
+        .everything-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .everything-card {
+
+            background: white;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 10px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 18px;
+        }
+
+
+        .everything-icon {
+
+            font-size: 28px;
+        }
+
+
+        .everything-card h3 {
+
+            font-size: 18px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .everything-card p {
+
+            color: var(--text-color);
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================================================
+           SIMPLE AFFORDABLE RELIABLE
+        ========================================================= */
+
+        .simple-section {
+
+            background: var(--white-color);
+
+            text-align: center;
+        }
+
+
+        .simple-grid {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+
+        .simple-card h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .simple-card p {
+
+            color: var(--text-color);
+        }
+
+
+
+        /* =========================================================
+           PERFECT FOR
+        ========================================================= */
+
+        .perfect-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .perfect-card {
+
+            background: white;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            text-align: center;
+        }
+
+
+        .perfect-card .icon {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .perfect-card h3 {
+
+            margin-bottom: 8px;
+        }
+
+
+        .perfect-card p {
+
+            color: var(--text-color);
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================================================
+           BUSINESS SOLUTIONS
+        ========================================================= */
+
+        .business-section {
+
+            background: var(--white-color);
+        }
+
+
+        .business-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .business-list {
+
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+
+        .business-item {
+
+            padding: 20px;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================================================
+           FAQ
+        ========================================================= */
+
+        .faq-container {
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .faq-item {
+
+            background: white;
+
+            border: 1px solid var(--border-color);
+
+            border-radius: 8px;
+
+            margin-bottom: 12px;
+
+            overflow: hidden;
+        }
+
+
+        .faq-question {
+
+            width: 100%;
+
+            padding: 20px;
+
+            background: white;
+
+            border: none;
+
+            text-align: left;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            color: var(--dark-color);
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .faq-question span {
+
+            color: var(--primary-color);
+
+            font-size: 22px;
+        }
+
+
+        .faq-answer {
+
+            display: none;
+
+            padding: 0 20px 20px;
+
+            color: var(--text-color);
+        }
+
+
+        .faq-item.active .faq-answer {
+
+            display: block;
+        }
+
+
+
+        /* =========================================================
+           READY TO JOIN
+        ========================================================= */
+
+        .join-section {
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #00A8E8,
+
+                    #0086BA
+
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 85px 20px;
+        }
+
+
+        .join-container {
+
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+
+        .join-container h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .join-container p {
+
+            margin-bottom: 30px;
+
+            font-size: 17px;
+        }
+
+
+        .join-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .join-btn {
+
+            background: white;
+
+            color: var(--primary-color);
+
+            padding: 14px 25px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+        }
+
+
+        .join-btn-outline {
+
+            background: transparent;
+
+            color: white;
+
+            border: 2px solid white;
+
+            padding: 12px 25px;
+
+            border-radius: 6px;
+
+            font-weight: 700;
+        }
+
+
+
+        /* =========================================================
+           CROSS SELL
+        ========================================================= */
+
+        .cross-section {
+
+            background: var(--white-color);
+
+            padding: 80px 20px;
+        }
+
+
+        .cross-grid {
+
+            max-width: 1000px;
+
+            margin: 40px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .cross-card {
+
+            border: 1px solid var(--border-color);
+
+            padding: 20px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            color: var(--dark-color);
+
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+
+        .cross-card:hover {
+
+            border-color: var(--primary-color);
+
+            color: var(--primary-color);
+
+            transform: translateY(-3px);
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            background: #0B1120;
+
+            color: white;
+
+            padding: 35px 20px;
+
+            text-align: center;
+        }
+
+
+        footer p {
+
+            color: #9CA3AF;
+
+            font-size: 14px;
+        }
+
+
+
+        /* =========================================================
+           MOBILE RESPONSIVENESS
+        ========================================================= */
+
+        @media (max-width: 950px) {
+
+            .hero-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .hero-content {
+
+                text-align: center;
+
+            }
+
+
+            .hero-content p {
+
+                margin-left: auto;
+
+                margin-right: auto;
+
+            }
+
+
+            .hero-buttons {
+
+                justify-content: center;
+
+            }
+
+
+            .why-grid,
+
+            .plans-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .perfect-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .business-list {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .cross-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .switch-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 700px) {
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
+            .logo {
+
+                font-size: 22px;
+
+            }
+
+
+            .nav-actions {
+
+                gap: 5px;
+
+            }
+
+
+            .login-btn {
+
+                padding: 8px;
+
+            }
+
+
+            .register-btn,
+
+            .cart-btn {
+
+                padding: 8px 10px;
+
+                font-size: 13px;
+
+            }
+
+
+            .hero {
+
+                padding: 60px 20px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 42px;
+
+            }
+
+
+            .hero-subtitle {
+
+                font-size: 21px;
+
+            }
+
+
+            .hero-card {
+
+                padding: 30px;
+
+            }
+
+
+            .section {
+
+                padding: 65px 20px;
+
+            }
+
+
+            .section-header h2 {
+
+                font-size: 30px;
+
+            }
+
+
+            .why-grid,
+
+            .plans-grid,
+
+            .everything-grid,
+
+            .simple-grid,
+
+            .perfect-grid,
+
+            .business-list,
+
+            .cross-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .plan-card.featured {
+
+                transform: none;
+
+            }
+
+
+            .join-container h2 {
+
+                font-size: 32px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+
+
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
+
+<section class="breadcrumb-section">
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="services.html">
+            Services
+        </a>
+
+        &nbsp; / &nbsp;
+
+        <a href="internet-connectivity.html">
+            Internet Connectivity
+        </a>
+
+        &nbsp; / &nbsp;
+
+        Melon Mobile
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <div class="hero-content">
+
+            <div class="section-label">
+                Dinges TechHub Mobile
+            </div>
+
+
+            <h1>
+                Melon <span>Mobile</span>
+            </h1>
+
+
+            <div class="hero-subtitle">
+                Mobile Made Simple.
+            </div>
+
+
+            <p>
+                Stay connected with affordable mobile plans,
+                flexible airtime, data bundles, and reliable
+                nationwide coverage — all backed by Dinges TechHub.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#plans" class="primary-btn">
+                    View Plans
+                </a>
+
+
+                <a href="#switch" class="secondary-btn">
+                    Switch to Melon Mobile
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-card">
+
+            <div class="melon-logo">
+                M
+            </div>
+
+
+            <h3>
+                Simple. Affordable. Reliable.
+            </h3>
+
+
+            <p>
+                A mobile solution designed for individuals,
+                families and businesses.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY CHOOSE MELON
+========================================================= -->
+
+<section class="section why-section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Why Choose Melon Mobile?
+            </div>
+
+
+            <h2>
+                More Than Just a Mobile Network.
+            </h2>
+
+
+            <p>
+                Whether you're an individual, family, or business,
+                Melon Mobile gives you the flexibility and support
+                you deserve.
+            </p>
+
+        </div>
+
+
+
+        <div class="why-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Flexible Monthly Plans
+                </h3>
+
+                <p>
+                    Choose a mobile package that fits your
+                    communication and data needs.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Keep Your Number
+                </h3>
+
+                <p>
+                    Switch to Melon Mobile while keeping
+                    your existing mobile number.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📶
+                </div>
+
+                <h3>
+                    Reliable Coverage
+                </h3>
+
+                <p>
+                    Stay connected with reliable nationwide
+                    mobile connectivity.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Business & Personal
+                </h3>
+
+                <p>
+                    Mobile packages designed for both
+                    individuals and businesses.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Friendly Local Support
+                </h3>
+
+                <p>
+                    Get assistance from the friendly Dinges
+                    TechHub team when you need it.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    No Hidden Surprises
+                </h3>
+
+                <p>
+                    Simple mobile solutions with clear,
+                    straightforward options.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MOBILE PLANS
+========================================================= -->
+
+<section class="section plans-section" id="plans">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Our Mobile Plans
+            </div>
+
+
+            <h2>
+                Choose Your Mobile Plan
+            </h2>
+
+
+            <p>
+                Find the package that matches the way you
+                use your mobile service.
+            </p>
+
+        </div>
+
+
+
+        <div class="plans-grid">
+
+
+            <!-- STARTER -->
+
+            <div class="plan-card">
+
+                <h3>
+                    Starter
+                </h3>
+
+
+                <p class="plan-description">
+                    Perfect for light users.
+                </p>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        Airtime
+                    </li>
+
+                    <li>
+                        Data
+                    </li>
+
+                    <li>
+                        WhatsApp
+                    </li>
+
+                    <li>
+                        Month-to-month
+                    </li>
+
+                </ul>
+
+
+                <a href="contact.html" class="plan-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+
+
+            <!-- EVERYDAY -->
+
+            <div class="plan-card featured">
+
+                <div class="popular">
+                    POPULAR
+                </div>
+
+
+                <h3>
+                    Everyday
+                </h3>
+
+
+                <p class="plan-description">
+                    Ideal for everyday communication.
+                </p>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        Airtime
+                    </li>
+
+                    <li>
+                        Data
+                    </li>
+
+                    <li>
+                        Voice Minutes
+                    </li>
+
+                    <li>
+                        Month-to-month
+                    </li>
+
+                </ul>
+
+
+                <a href="contact.html" class="plan-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+
+
+            <!-- UNLIMITED -->
+
+            <div class="plan-card">
+
+                <h3>
+                    Unlimited+
+                </h3>
+
+
+                <p class="plan-description">
+                    Designed for professionals and businesses.
+                </p>
+
+
+                <ul class="plan-features">
+
+                    <li>
+                        Large Data Bundle
+                    </li>
+
+                    <li>
+                        Unlimited Calling
+                    </li>
+
+                    <li>
+                        Business Ready
+                    </li>
+
+                    <li>
+                        Priority Support
+                    </li>
+
+                </ul>
+
+
+                <a href="contact.html" class="plan-btn">
+                    Enquire Now
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY SWITCH
+========================================================= -->
+
+<section class="section switch-section" id="switch">
+
+    <div class="switch-container">
+
+
+        <div class="switch-content">
+
+            <div class="section-label">
+                Why Switch?
+            </div>
+
+
+            <h2>
+                Switching Has Never Been Easier.
+            </h2>
+
+
+            <p>
+                We'll help you move your existing number
+                to Melon Mobile with minimal downtime.
+            </p>
+
+
+            <ul class="switch-list">
+
+                <li>
+                    Keep your current number
+                </li>
+
+                <li>
+                    Fast activation
+                </li>
+
+                <li>
+                    Dedicated support
+                </li>
+
+                <li>
+                    Business migrations available
+                </li>
+
+            </ul>
+
+
+            <a href="contact.html" class="primary-btn">
+                Switch Today
+            </a>
+
+        </div>
+
+
+
+        <div class="switch-box">
+
+            <h3>
+                Ready to Make the Switch?
+            </h3>
+
+
+            <p>
+                Talk to the Dinges TechHub team and
+                we'll help you get started.
+            </p>
+
+
+            <a href="contact.html" class="secondary-btn">
+                Contact Us
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EVERYTHING YOU NEED
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Everything You Need
+            </div>
+
+
+            <h2>
+                One Mobile Solution. Everything Covered.
+            </h2>
+
+
+            <p>
+                Get the essential mobile services you need
+                for personal and business communication.
+            </p>
+
+        </div>
+
+
+
+        <div class="everything-grid">
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>
+                        Airtime
+                    </h3>
+
+                    <p>
+                        Top up anytime.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    📱
+                </div>
+
+                <div>
+
+                    <h3>
+                        Data
+                    </h3>
+
+                    <p>
+                        Affordable data bundles.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    📞
+                </div>
+
+                <div>
+
+                    <h3>
+                        Voice
+                    </h3>
+
+                    <p>
+                        Crystal-clear nationwide calling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    💳
+                </div>
+
+                <div>
+
+                    <h3>
+                        SIM Cards
+                    </h3>
+
+                    <p>
+                        Quick activation and delivery.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    💼
+                </div>
+
+                <div>
+
+                    <h3>
+                        Business Mobile
+                    </h3>
+
+                    <p>
+                        Manage staff mobile services in one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="everything-card">
+
+                <div class="everything-icon">
+                    🌍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Roaming
+                    </h3>
+
+                    <p>
+                        Stay connected while travelling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY MELON
+========================================================= -->
+
+<section class="section simple-section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Why Melon Mobile?
+            </div>
+
+
+            <h2>
+                Simple. Affordable. Reliable.
+            </h2>
+
+
+            <p>
+                Instead of dealing with multiple providers,
+                enjoy one trusted technology partner.
+            </p>
+
+        </div>
+
+
+
+        <div class="simple-grid">
+
+
+            <div class="simple-card">
+
+                <h3>
+                    Flexible Plans
+                </h3>
+
+                <p>
+                    Choose plans that fit your needs.
+                </p>
+
+            </div>
+
+
+
+            <div class="simple-card">
+
+                <h3>
+                    Local Support
+                </h3>
+
+                <p>
+                    Friendly South African support.
+                </p>
+
+            </div>
+
+
+
+            <div class="simple-card">
+
+                <h3>
+                    Easy Upgrades
+                </h3>
+
+                <p>
+                    Upgrade your mobile services as your needs grow.
+                </p>
+
+            </div>
+
+
+
+            <div class="simple-card">
+
+                <h3>
+                    Business Ready
+                </h3>
+
+                <p>
+                    Solutions designed for modern businesses.
+                </p>
+
+            </div>
+
+
+
+            <div class="simple-card">
+
+                <h3>
+                    Reliable Coverage
+                </h3>
+
+                <p>
+                    Stay connected wherever coverage is available.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PERFECT FOR
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Perfect For
+            </div>
+
+
+            <h2>
+                Mobile Solutions for Everyone
+            </h2>
+
+
+            <p>
+                Whether you're connecting your family or
+                managing a business, we've got you covered.
+            </p>
+
+        </div>
+
+
+
+        <div class="perfect-grid">
+
+
+            <div class="perfect-card">
+
+                <div class="icon">
+                    🏠
+                </div>
+
+                <h3>
+                    Home Users
+                </h3>
+
+                <p>
+                    Affordable mobile plans for everyday life.
+                </p>
+
+            </div>
+
+
+
+            <div class="perfect-card">
+
+                <div class="icon">
+                    👨‍👩‍👧‍👦
+                </div>
+
+                <h3>
+                    Families
+                </h3>
+
+                <p>
+                    Manage multiple SIMs easily.
+                </p>
+
+            </div>
+
+
+
+            <div class="perfect-card">
+
+                <div class="icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Small Businesses
+                </h3>
+
+                <p>
+                    Reliable communication for your team.
+                </p>
+
+            </div>
+
+
+
+            <div class="perfect-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Large Businesses
+                </h3>
+
+                <p>
+                    Fleet mobile management and business packages.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BUSINESS MOBILE SOLUTIONS
+========================================================= -->
+
+<section class="section business-section">
+
+    <div class="business-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Business Mobile Solutions
+            </div>
+
+
+            <h2>
+                Simplify Communication for Your Business
+            </h2>
+
+
+            <p>
+                We help companies manage mobile communication
+                across their teams with practical business solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="business-list">
+
+
+            <div class="business-item">
+                Employee SIM Management
+            </div>
+
+
+            <div class="business-item">
+                Shared Data Solutions
+            </div>
+
+
+            <div class="business-item">
+                Business Voice Services
+            </div>
+
+
+            <div class="business-item">
+                Mobile Reporting
+            </div>
+
+
+            <div class="business-item">
+                Dedicated Account Management
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Frequently Asked Questions
+            </div>
+
+
+            <h2>
+                Have Questions?
+            </h2>
+
+        </div>
+
+
+
+        <div class="faq-container">
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Can I keep my number?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Yes. You can request to port your existing
+                    mobile number when switching to Melon Mobile.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Is there a contract?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Melon Mobile offers flexible options.
+                    Contact Dinges TechHub to discuss the
+                    package that best suits your needs.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Which network does Melon Mobile use?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Contact the Dinges TechHub team for
+                    the latest information about network
+                    coverage and available mobile services.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Can businesses apply?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Yes. Business mobile solutions are available
+                    for companies that need employee SIM management,
+                    shared data and business communication services.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    How long does activation take?
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Activation times can vary depending on the
+                    service requested. Contact us for assistance
+                    with your specific activation.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     READY TO JOIN
+========================================================= -->
+
+<section class="join-section">
+
+    <div class="join-container">
+
+
+        <h2>
+            Join Melon Mobile Today
+        </h2>
+
+
+        <p>
+            Affordable mobile solutions backed by the
+            friendly team at Dinges TechHub.
+        </p>
+
+
+        <div class="join-buttons">
+
+
+            <a href="#plans" class="join-btn">
+                View Plans
+            </a>
+
+
+            <a href="contact.html" class="join-btn">
+                Order Your SIM
+            </a>
+
+
+            <a href="contact.html" class="join-btn-outline">
+                Contact Us
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CROSS SELL
+========================================================= -->
+
+<section class="cross-section">
+
+    <div class="section-container">
+
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Complete Your Technology Solution
+            </div>
+
+
+            <h2>
+                More Than Just Mobile
+            </h2>
+
+
+            <p>
+                Customers who choose Melon Mobile also love
+                our other technology and connectivity solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="cross-grid">
+
+
+            <a href="fibre.html" class="cross-card">
+                Fibre Internet
+            </a>
+
+
+            <a href="wireless-broadband.html" class="cross-card">
+                Wireless Broadband
+            </a>
+
+
+            <a href="#" class="cross-card">
+                Cloud PBX
+            </a>
+
+
+            <a href="#" class="cross-card">
+                Smart Numbers
+            </a>
+
+
+            <a href="#" class="cross-card">
+                Microsoft 365
+            </a>
+
+
+            <a href="#" class="cross-card">
+                IT Support
+            </a>
+
+
+            <a href="#" class="cross-card">
+                Website Hosting
+            </a>
+
+
+            <a href="#" class="cross-card">
+                CRM Solutions
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 Dinges TechHub. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     FAQ JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    const faqQuestions =
+        document.querySelectorAll(".faq-question");
+
+
+    faqQuestions.forEach(function(question) {
+
+        question.addEventListener("click", function() {
+
+            const currentItem =
+                this.parentElement;
+
+
+            document
+                .querySelectorAll(".faq-item")
+                .forEach(function(item) {
+
+                    if (item !== currentItem) {
+
+                        item.classList.remove("active");
+
+                        item
+                            .querySelector(".faq-question span")
+                            .textContent = "+";
+
+                    }
+
+                });
+
+
+            currentItem.classList.toggle("active");
+
+
+            const icon =
+                this.querySelector("span");
+
+
+            if (currentItem.classList.contains("active")) {
+
+                icon.textContent = "−";
+
+            } else {
+
+                icon.textContent = "+";
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

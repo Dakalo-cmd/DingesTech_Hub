@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Internet Connectivity | Dinges TechHub</title>
+
+
+<style>
+
+/* =========================================================
+   COLOR SETTINGS
+========================================================= */
+
+:root {
+
+    --primary-color: #00A8E8;
+
+    --primary-dark: #0086BA;
+
+    --dark-color: #111827;
+
+    --text-color: #4B5563;
+
+    --light-color: #F8FAFC;
+
+    --white-color: #FFFFFF;
+
+    --border-color: #E5E7EB;
+
+}
+
+
+
+/* =========================================================
+   GENERAL SETTINGS
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: var(--light-color);
+
+    color: var(--dark-color);
+
+    line-height: 1.6;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+
+/* =========================================================
+   LARGE BREADCRUMB
+========================================================= */
+
+.breadcrumb-section {
+
+    background: var(--white-color);
+
+    padding: 32px 20px;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+
+.breadcrumb-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+.breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    font-size: 16px;
+
+    color: var(--text-color);
+
+}
+
+
+.breadcrumb a {
+
+    color: var(--primary-color);
+
+    font-weight: 600;
+
+    transition: 0.3s;
+
+}
+
+
+.breadcrumb a:hover {
+
+    color: var(--primary-dark);
+
+}
+
+
+.breadcrumb-divider {
+
+    color: #9CA3AF;
+
+    font-weight: 500;
+
+}
+
+
+.current-page {
+
+    color: var(--dark-color);
+
+    font-weight: 700;
+
+}
+
+
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero {
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EAF9FF,
+
+            #FFFFFF
+
+        );
+
+    padding: 90px 20px;
+
+    text-align: center;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+    margin: auto;
+
+}
+
+
+.hero-label {
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero h1 {
+
+    font-size: 52px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+
+    color: var(--dark-color);
+
+}
+
+
+.hero h1 span {
+
+    color: var(--primary-color);
+
+}
+
+
+.hero p {
+
+    font-size: 18px;
+
+    color: var(--text-color);
+
+    max-width: 750px;
+
+    margin: auto;
+
+}
+
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.intro {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 80px 20px 50px;
+
+    text-align: center;
+
+}
+
+
+.section-label {
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.intro h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.intro p {
+
+    color: var(--text-color);
+
+    font-size: 17px;
+
+}
+
+
+
+/* =========================================================
+   SERVICE CARDS SECTION
+========================================================= */
+
+.services-section {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 20px 20px 90px;
+
+}
+
+
+.service-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.service-card {
+
+    background: var(--white-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 14px;
+
+    padding: 35px;
+
+    transition: all 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 390px;
+
+    color: var(--dark-color);
+
+    cursor: pointer;
+
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 18px 40px
+
+        rgba(0, 0, 0, 0.10);
+
+    border-color: var(--primary-color);
+
+}
+
+
+
+/* =========================================================
+   SERVICE ICON
+========================================================= */
+
+.service-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 14px;
+
+    background: #E0F7FF;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 34px;
+
+    margin-bottom: 25px;
+
+    transition: 0.3s;
+
+}
+
+
+.service-card:hover .service-icon {
+
+    transform: scale(1.08);
+
+}
+
+
+
+/* =========================================================
+   SERVICE CONTENT
+========================================================= */
+
+.service-card h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.service-card p {
+
+    color: var(--text-color);
+
+    margin-bottom: 25px;
+
+}
+
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.service-features {
+
+    list-style: none;
+
+    margin-bottom: 25px;
+
+}
+
+
+.service-features li {
+
+    margin-bottom: 9px;
+
+    color: var(--text-color);
+
+}
+
+
+.service-features li::before {
+
+    content: "✓";
+
+    color: var(--primary-color);
+
+    font-weight: bold;
+
+    margin-right: 8px;
+
+}
+
+
+
+/* =========================================================
+   CARD LINK
+========================================================= */
+
+.service-card-footer {
+
+    margin-top: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border-color);
+
+}
+
+
+.service-link {
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+
+}
+
+
+.service-arrow {
+
+    color: var(--primary-color);
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.service-card:hover .service-arrow {
+
+    transform: translateX(6px);
+
+}
+
+
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+
+.why-section {
+
+    background: var(--white-color);
+
+    padding: 85px 20px;
+
+}
+
+
+.why-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+.why-container h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.why-container > p {
+
+    color: var(--text-color);
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+}
+
+
+.why-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+
+}
+
+
+.why-card {
+
+    padding: 30px 25px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    transition: 0.3s;
+
+}
+
+
+.why-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--primary-color);
+
+}
+
+
+.why-card h3 {
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+
+}
+
+
+.why-card p {
+
+    color: var(--text-color);
+
+    font-size: 14px;
+
+}
+
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+
+    background: var(--dark-color);
+
+    color: white;
+
+    padding: 85px 20px;
+
+    text-align: center;
+
+}
+
+
+.cta-container {
+
+    max-width: 750px;
+
+    margin: auto;
+
+}
+
+
+.cta h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.cta p {
+
+    color: #D1D5DB;
+
+    margin-bottom: 30px;
+
+}
+
+
+.cta-btn {
+
+    display: inline-block;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+
+}
+
+
+.cta-btn:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    background: #0B1120;
+
+    color: white;
+
+    padding: 30px 20px;
+
+    text-align: center;
+
+}
+
+
+footer p {
+
+    color: #9CA3AF;
+
+    font-size: 14px;
+
+}
+
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .why-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+}
+
+
+@media (max-width: 700px) {
+
+
+    .breadcrumb-section {
+
+        padding: 22px 20px;
+
+    }
+
+
+    .breadcrumb {
+
+        font-size: 14px;
+
+        gap: 8px;
+
+    }
+
+
+    .hero {
+
+        padding: 65px 20px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .hero p {
+
+        font-size: 16px;
+
+    }
+
+
+    .service-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .why-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .intro {
+
+        padding: 60px 20px 40px;
+
+    }
+
+
+    .intro h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .cta h2 {
+
+        font-size: 30px;
+
+    }
+
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- =========================================================
+     BREADCRUMB
+========================================================= -->
+
+<section class="breadcrumb-section">
+
+    <div class="breadcrumb-container">
+
+        <div class="breadcrumb">
+
+
+            <a href="index.html">
+
+                Home
+
+            </a>
+
+
+            <span class="breadcrumb-divider">
+
+                /
+
+            </span>
+
+
+            <a href="services.html">
+
+                Services
+
+            </a>
+
+
+            <span class="breadcrumb-divider">
+
+                /
+
+            </span>
+
+
+            <span class="current-page">
+
+                Internet Connectivity
+
+            </span>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="hero-label">
+
+            Stay Connected
+
+        </div>
+
+
+        <h1>
+
+            Internet <span>Connectivity</span>
+
+        </h1>
+
+
+        <p>
+
+            Stay connected with reliable, fast and flexible internet
+            solutions designed for homes, families and businesses.
+            Whether you need fibre, wireless broadband or mobile
+            connectivity, Dinges TechHub has a solution for you.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRODUCTION
+========================================================= -->
+
+<section class="intro">
+
+
+    <div class="section-label">
+
+        Our Connectivity Solutions
+
+    </div>
+
+
+    <h2>
+
+        Choose the Right Connectivity for You
+
+    </h2>
+
+
+    <p>
+
+        Explore our range of connectivity services and find the
+        solution that fits your lifestyle or business needs.
+        From high-speed fibre to flexible mobile connectivity,
+        we help you stay connected wherever you are.
+
+    </p>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     CONNECTIVITY SERVICES
+========================================================= -->
+
+<section class="services-section">
+
+
+    <div class="service-grid">
+
+
+
+        <!-- =================================================
+             MELON MOBILE
+        ================================================== -->
+
+        <a
+
+            href="melon-mobile.html"
+
+            class="service-card"
+
+        >
+
+
+            <div class="service-icon">
+
+                📱
+
+            </div>
+
+
+            <h3>
+
+                Melon Mobile
+
+            </h3>
+
+
+            <p>
+
+                Stay connected with affordable mobile plans,
+                flexible airtime, data bundles and reliable
+                nationwide coverage.
+
+            </p>
+
+
+            <ul class="service-features">
+
+
+                <li>
+
+                    Flexible monthly plans
+
+                </li>
+
+
+                <li>
+
+                    Airtime and data bundles
+
+                </li>
+
+
+                <li>
+
+                    Keep your existing number
+
+                </li>
+
+
+                <li>
+
+                    Personal and business packages
+
+                </li>
+
+
+            </ul>
+
+
+            <div class="service-card-footer">
+
+
+                <span class="service-link">
+
+                    Explore Melon Mobile
+
+                </span>
+
+
+                <span class="service-arrow">
+
+                    →
+
+                </span>
+
+
+            </div>
+
+
+        </a>
+
+
+
+        <!-- =================================================
+             FIBRE
+        ================================================== -->
+
+        <a
+
+            href="fibre.html"
+
+            class="service-card"
+
+        >
+
+
+            <div class="service-icon">
+
+                🌐
+
+            </div>
+
+
+            <h3>
+
+                Fibre Internet
+
+            </h3>
+
+
+            <p>
+
+                Enjoy fast, reliable fibre internet for streaming,
+                working, gaming and keeping your entire household
+                or business connected.
+
+            </p>
+
+
+            <ul class="service-features">
+
+
+                <li>
+
+                    High-speed internet
+
+                </li>
+
+
+                <li>
+
+                    Reliable connectivity
+
+                </li>
+
+
+                <li>
+
+                    Perfect for homes and businesses
+
+                </li>
+
+
+                <li>
+
+                    Multiple package options
+
+                </li>
+
+
+            </ul>
+
+
+            <div class="service-card-footer">
+
+
+                <span class="service-link">
+
+                    Explore Fibre
+
+                </span>
+
+
+                <span class="service-arrow">
+
+                    →
+
+                </span>
+
+
+            </div>
+
+
+        </a>
+
+
+
+        <!-- =================================================
+             WIRELESS BROADBAND
+        ================================================== -->
+
+        <a
+
+            href="wireless-broadband.html"
+
+            class="service-card"
+
+        >
+
+
+            <div class="service-icon">
+
+                📡
+
+            </div>
+
+
+            <h3>
+
+                Wireless Broadband
+
+            </h3>
+
+
+            <p>
+
+                Flexible wireless internet solutions for locations
+                that need reliable connectivity without the complexity
+                of traditional wired installations.
+
+            </p>
+
+
+            <ul class="service-features">
+
+
+                <li>
+
+                    Flexible wireless connectivity
+
+                </li>
+
+
+                <li>
+
+                    Easy installation
+
+                </li>
+
+
+                <li>
+
+                    Home and business solutions
+
+                </li>
+
+
+                <li>
+
+                    Reliable internet access
+
+                </li>
+
+
+            </ul>
+
+
+            <div class="service-card-footer">
+
+
+                <span class="service-link">
+
+                    Explore Wireless Broadband
+
+                </span>
+
+
+                <span class="service-arrow">
+
+                    →
+
+                </span>
+
+
+            </div>
+
+
+        </a>
+
+
+
+        <!-- =================================================
+             LTE 4G / 5G
+        ================================================== -->
+
+        <a
+
+            href="lte.html"
+
+            class="service-card"
+
+        >
+
+
+            <div class="service-icon">
+
+                📶
+
+            </div>
+
+
+            <h3>
+
+                Wireless LTE 4G/5G
+
+            </h3>
+
+
+            <p>
+
+                Get fast wireless internet using modern LTE and
+                4G/5G technology, giving you the flexibility to
+                stay connected wherever coverage is available.
+
+            </p>
+
+
+            <ul class="service-features">
+
+
+                <li>
+
+                    Fast 4G and 5G connectivity
+
+                </li>
+
+
+                <li>
+
+                    Flexible wireless solution
+
+                </li>
+
+
+                <li>
+
+                    Suitable for homes and businesses
+
+                </li>
+
+
+                <li>
+
+                    Quick connectivity
+
+                </li>
+
+
+            </ul>
+
+
+            <div class="service-card-footer">
+
+
+                <span class="service-link">
+
+                    Explore LTE 4G/5G
+
+                </span>
+
+
+                <span class="service-arrow">
+
+                    →
+
+                </span>
+
+
+            </div>
+
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY CHOOSE DINGES TECHHUB
+========================================================= -->
+
+<section class="why-section">
+
+
+    <div class="why-container">
+
+
+        <div class="section-label">
+
+            Why Dinges TechHub
+
+        </div>
+
+
+        <h2>
+
+            Connectivity Made Simple
+
+        </h2>
+
+
+        <p>
+
+            We help individuals and businesses find the right
+            connectivity solution without the confusion.
+            Our team is here to help you choose, connect and
+            stay connected.
+
+        </p>
+
+
+
+        <div class="why-grid">
+
+
+
+            <div class="why-card">
+
+
+                <h3>
+
+                    Reliable Solutions
+
+                </h3>
+
+
+                <p>
+
+                    Connectivity options designed to keep
+                    you online when you need it.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="why-card">
+
+
+                <h3>
+
+                    Flexible Packages
+
+                </h3>
+
+
+                <p>
+
+                    Choose solutions that fit your personal
+                    or business requirements.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="why-card">
+
+
+                <h3>
+
+                    Local Support
+
+                </h3>
+
+
+                <p>
+
+                    Get friendly assistance from the Dinges
+                    TechHub team when you need it.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="why-card">
+
+
+                <h3>
+
+                    Business Ready
+
+                </h3>
+
+
+                <p>
+
+                    Connectivity solutions that can grow
+                    with your business.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+
+    <div class="cta-container">
+
+
+        <h2>
+
+            Ready to Get Connected?
+
+        </h2>
+
+
+        <p>
+
+            Let Dinges TechHub help you find the right internet
+            connectivity solution for your home or business.
+
+        </p>
+
+
+        <a
+
+            href="contact.html"
+
+            class="cta-btn"
+
+        >
+
+            Talk to Us →
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+
+    <p>
+
+        © 2026 Dinges TechHub. All Rights Reserved.
+
+    </p>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
