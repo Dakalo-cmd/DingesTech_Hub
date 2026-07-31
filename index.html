@@ -2448,7 +2448,7 @@ img{
 
             <!-- CONTACT -->
 
-            <a href="#contact"
+            <a href="contact.html"
                class="nav-link">
 
                 Contact Us
@@ -3809,39 +3809,29 @@ function addToCart(
 
 }
 
-
-
 /* =====================================================
    ADD DOMAIN
 ===================================================== */
-
 function addDomain(
     extension,
     price
 ) {
-
-
     let domainName =
         prompt(
             "Enter the domain name you want to register:"
         );
 
-
     if (
         !domainName ||
         domainName.trim() === ""
     ) {
-
         return;
-
     }
-
 
     domainName =
         domainName
         .trim()
         .toLowerCase();
-
 
     domainName =
         domainName.replace(
@@ -3849,177 +3839,106 @@ function addDomain(
             ""
         );
 
-
     let fullDomain =
         domainName +
         extension;
-
-
     addToCart(
         fullDomain,
         price
     );
-
 }
-
-
 
 /* =====================================================
    UPDATE CART
 ===================================================== */
-
 function updateCart() {
-
-
     let cartCount =
         document
         .getElementById(
             "cartCount"
         );
-
-
     let cartItems =
         document
         .getElementById(
             "cartItems"
         );
-
-
     let cartTotal =
         document
         .getElementById(
             "cartTotal"
         );
-
-
     cartCount.textContent =
         cart.length;
-
-
     cartItems.innerHTML =
         "";
-
-
     if (
         cart.length === 0
     ) {
-
-
         cartItems.innerHTML = `
-
             <p>
                 Your cart is currently empty.
             </p>
-
         `;
-
-
         cartTotal.textContent =
             "$0.00";
-
-
         return;
-
     }
-
-
     let total =
         0;
-
-
     cart.forEach(
-
         function(item, index) {
-
-
             total +=
                 item.price;
-
-
             let cartItem =
                 document
                 .createElement(
                     "div"
                 );
-
-
             cartItem.className =
                 "cart-item";
-
-
             cartItem.innerHTML = `
-
                 <div>
-
                     <strong>
                         ${item.name}
                     </strong>
-
                     <br>
-
                     <small>
                         $${item.price.toFixed(2)}/year
                     </small>
-
                 </div>
-
-
                 <button
                     class="remove-cart"
                     onclick="removeFromCart(${index})">
-
                     Remove
-
                 </button>
-
             `;
-
-
             cartItems.appendChild(
                 cartItem
             );
-
         }
-
     );
-
-
     cartTotal.textContent =
         "$" +
         total.toFixed(2);
-
 }
-
-
 
 /* =====================================================
    REMOVE FROM CART
 ===================================================== */
-
 function removeFromCart(
     index
 ) {
-
-
     cart.splice(
         index,
         1
     );
-
-
     updateCart();
-
 }
-
-
 
 /* =====================================================
    OPEN CART
 ===================================================== */
-
 function openCart() {
-
-
     document
     .getElementById(
         "cartModal"
@@ -4028,21 +3947,13 @@ function openCart() {
     .add(
         "show"
     );
-
-
     updateCart();
-
 }
-
-
 
 /* =====================================================
    CLOSE CART
 ===================================================== */
-
 function closeCart() {
-
-
     document
     .getElementById(
         "cartModal"
@@ -4051,46 +3962,29 @@ function closeCart() {
     .remove(
         "show"
     );
-
 }
-
-
 
 /* =====================================================
    CHECKOUT
 ===================================================== */
-
 function checkout() {
-
-
     if (
         cart.length === 0
     ) {
-
         alert(
             "Your cart is empty."
         );
-
         return;
-
     }
-
-
     alert(
         "Checkout system will be connected to the backend later."
     );
-
 }
-
-
 
 /* =====================================================
    MOBILE MENU
 ===================================================== */
-
 function toggleMenu() {
-
-
     document
     .getElementById(
         "navigation"
@@ -4099,15 +3993,11 @@ function toggleMenu() {
     .toggle(
         "show"
     );
-
 }
-
-
 
 /* =====================================================
    GENERAL MESSAGE
 ===================================================== */
-
 function showMessage(
     message
 ) {
@@ -4115,15 +4005,11 @@ function showMessage(
     alert(
         message
     );
-
 }
-
-
 
 /* =====================================================
    CLOSE CART OUTSIDE
 ===================================================== */
-
 document
 .getElementById(
     "cartModal"
@@ -4131,15 +4017,11 @@ document
 .addEventListener(
 "click",
 function(event) {
-
-
     if (
         event.target ===
         this
     ) {
-
         closeCart();
-
     }
 
 });

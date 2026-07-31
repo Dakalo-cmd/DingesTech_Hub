@@ -1,0 +1,4077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Contact Us | Dinges TechHub
+    </title>
+
+    <meta
+        name="description"
+        content="Contact Dinges TechHub for internet connectivity, fibre, mobile, wireless broadband, technical support and business technology solutions."
+    >
+
+
+    <style>
+
+        /* =========================================================
+           COLOR SETTINGS
+        ========================================================= */
+
+        :root {
+
+            --primary-color: #00A8E8;
+
+            --primary-dark: #0086BA;
+
+            --dark-color: #111827;
+
+            --dark-blue: #0B1F33;
+
+            --text-color: #1F2937;
+
+            --muted-text: #64748B;
+
+            --light-color: #F8FAFC;
+
+            --white-color: #FFFFFF;
+
+            --border-color: #E2E8F0;
+
+            --success-color: #16A34A;
+
+            --shadow:
+                0 10px 30px
+                rgba(15, 23, 42, 0.08);
+
+            --transition:
+                all 0.3s ease;
+
+        }
+
+
+        /* =========================================================
+           GLOBAL RESET
+        ========================================================= */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color:
+                var(--text-color);
+
+            background:
+                var(--white-color);
+
+            line-height:
+                1.6;
+
+        }
+
+
+        a {
+
+            text-decoration:
+                none;
+
+            color:
+                inherit;
+
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+
+            font:
+                inherit;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        .container {
+
+            width:
+                90%;
+
+            max-width:
+                1200px;
+
+            margin:
+                auto;
+
+        }
+
+
+
+        /* =========================================================
+           HEADER / NAVIGATION
+        ========================================================= */
+
+        header {
+
+            background:
+                var(--white-color);
+
+            border-bottom:
+                1px solid var(--border-color);
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+        }
+
+
+        .navbar {
+
+            min-height:
+                75px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                30px;
+
+        }
+
+
+        .logo {
+
+            font-size:
+                24px;
+
+            font-weight:
+                800;
+
+            color:
+                var(--dark-color);
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .logo span {
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .nav-menu {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                25px;
+
+            list-style:
+                none;
+
+        }
+
+
+        .nav-menu > li {
+
+            position:
+                relative;
+
+        }
+
+
+        .nav-link {
+
+            color:
+                var(--dark-color);
+
+            font-size:
+                15px;
+
+            font-weight:
+                600;
+
+            padding:
+                28px 0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                5px;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .dropdown-arrow {
+
+            font-size:
+                11px;
+
+        }
+
+
+
+        /* =========================================================
+           DROPDOWN MENU
+        ========================================================= */
+
+        .dropdown-menu {
+
+            position:
+                absolute;
+
+            top:
+                100%;
+
+            left:
+                50%;
+
+            transform:
+                translateX(-50%) translateY(10px);
+
+            background:
+                var(--white-color);
+
+            min-width:
+                240px;
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                10px;
+
+            box-shadow:
+                var(--shadow);
+
+            padding:
+                10px;
+
+            list-style:
+                none;
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .dropdown-menu li a {
+
+            display:
+                block;
+
+            padding:
+                11px 14px;
+
+            color:
+                var(--text-color);
+
+            border-radius:
+                7px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .dropdown-menu li a:hover {
+
+            background:
+                #F0F9FF;
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .dropdown:hover .dropdown-menu {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateX(-50%) translateY(0);
+
+        }
+
+
+
+        /* =========================================================
+           NAV BUTTONS
+        ========================================================= */
+
+        .nav-actions {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+        }
+
+
+        .login-btn,
+        .register-btn {
+
+            padding:
+                10px 18px;
+
+            border-radius:
+                7px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .login-btn {
+
+            color:
+                var(--primary-color);
+
+            border:
+                1px solid var(--primary-color);
+
+        }
+
+
+        .login-btn:hover {
+
+            background:
+                var(--primary-color);
+
+            color:
+                var(--white-color);
+
+        }
+
+
+        .register-btn {
+
+            color:
+                var(--white-color);
+
+            background:
+                var(--primary-color);
+
+            border:
+                1px solid var(--primary-color);
+
+        }
+
+
+        .register-btn:hover {
+
+            background:
+                var(--primary-dark);
+
+        }
+
+
+        .cart-btn {
+
+            font-size:
+                20px;
+
+            padding:
+                8px;
+
+        }
+
+
+
+        /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================= */
+
+        .menu-toggle {
+
+            display:
+                none;
+
+            background:
+                none;
+
+            border:
+                none;
+
+            font-size:
+                28px;
+
+            color:
+                var(--dark-color);
+
+            cursor:
+                pointer;
+
+        }
+
+
+
+        /* =========================================================
+           HERO SECTION
+        ========================================================= */
+
+        .contact-hero {
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    rgba(11, 31, 51, 0.98),
+
+                    rgba(0, 134, 186, 0.92)
+
+                );
+
+            color:
+                var(--white-color);
+
+            padding:
+                90px 20px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .hero-content {
+
+            max-width:
+                800px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .hero-badge {
+
+            display:
+                inline-block;
+
+            padding:
+                7px 15px;
+
+            border:
+                1px solid rgba(255,255,255,0.3);
+
+            border-radius:
+                30px;
+
+            font-size:
+                13px;
+
+            margin-bottom:
+                20px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+        }
+
+
+        .contact-hero h1 {
+
+            font-size:
+                clamp(36px, 6vw, 60px);
+
+            line-height:
+                1.1;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .contact-hero h1 span {
+
+            color:
+                #7DD3FC;
+
+        }
+
+
+        .contact-hero p {
+
+            font-size:
+                18px;
+
+            color:
+                #E0F2FE;
+
+            max-width:
+                700px;
+
+            margin:
+                auto;
+
+        }
+
+
+
+        /* =========================================================
+           CONTACT CARDS
+        ========================================================= */
+
+        .contact-cards-section {
+
+            margin-top:
+                -50px;
+
+            position:
+                relative;
+
+            z-index:
+                5;
+
+        }
+
+
+        .contact-cards {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap:
+                20px;
+
+        }
+
+
+        .contact-card {
+
+            background:
+                var(--white-color);
+
+            padding:
+                30px 20px;
+
+            text-align:
+                center;
+
+            border-radius:
+                12px;
+
+            box-shadow:
+                var(--shadow);
+
+            border:
+                1px solid var(--border-color);
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .contact-card:hover {
+
+            transform:
+                translateY(-6px);
+
+        }
+
+
+        .contact-icon {
+
+            width:
+                55px;
+
+            height:
+                55px;
+
+            margin:
+                0 auto 15px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            border-radius:
+                50%;
+
+            background:
+                #E0F2FE;
+
+            color:
+                var(--primary-color);
+
+            font-size:
+                25px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .contact-icon img {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+        }
+
+
+        .contact-card h3 {
+
+            margin-bottom:
+                8px;
+
+            color:
+                var(--dark-color);
+
+        }
+
+
+        .contact-card p {
+
+            color:
+                var(--muted-text);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .contact-card a {
+
+            color:
+                var(--primary-color);
+
+            font-weight:
+                700;
+
+            font-size:
+                14px;
+
+        }
+
+
+
+        /* =========================================================
+           MAIN CONTACT SECTION
+        ========================================================= */
+
+        .contact-section {
+
+            padding:
+                90px 0;
+
+        }
+
+
+        .contact-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1.2fr;
+
+            gap:
+                60px;
+
+            align-items:
+                start;
+
+        }
+
+
+
+        /* =========================================================
+           CONTACT INFORMATION
+        ========================================================= */
+
+        .section-label {
+
+            color:
+                var(--primary-color);
+
+            font-size:
+                14px;
+
+            font-weight:
+                800;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .contact-info h2 {
+
+            font-size:
+                38px;
+
+            line-height:
+                1.2;
+
+            color:
+                var(--dark-color);
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .contact-info > p {
+
+            color:
+                var(--muted-text);
+
+            margin-bottom:
+                35px;
+
+        }
+
+
+        .info-item {
+
+            display:
+                flex;
+
+            gap:
+                18px;
+
+            margin-bottom:
+                25px;
+
+            align-items:
+                flex-start;
+
+        }
+
+
+        .info-icon {
+
+            width:
+                45px;
+
+            height:
+                45px;
+
+            min-width:
+                45px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #E0F2FE;
+
+            color:
+                var(--primary-color);
+
+            border-radius:
+                8px;
+
+            font-size:
+                20px;
+
+        }
+
+
+        .info-item h4 {
+
+            color:
+                var(--dark-color);
+
+            margin-bottom:
+                3px;
+
+        }
+
+
+        .info-item p {
+
+            color:
+                var(--muted-text);
+
+            font-size:
+                14px;
+
+        }
+
+
+
+        /* =========================================================
+           LOCATION ITEM
+        ========================================================= */
+
+        .location-info {
+
+            display:
+                flex;
+
+            gap:
+                18px;
+
+            align-items:
+                flex-start;
+
+        }
+
+
+        .location-image-wrapper {
+
+            width:
+                150px;
+
+            height:
+                110px;
+
+            min-width:
+                150px;
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+
+            position:
+                relative;
+
+            border:
+                1px solid var(--border-color);
+
+        }
+
+
+        .location-image-wrapper a {
+
+            display:
+                block;
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            position:
+                relative;
+
+        }
+
+
+        .location-map-image {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            object-fit:
+                cover;
+
+            transition:
+                transform 0.3s ease;
+
+        }
+
+
+        .location-image-wrapper:hover
+        .location-map-image {
+
+            transform:
+                scale(1.08);
+
+        }
+
+
+        .map-image-overlay {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                rgba(0, 134, 186, 0.80);
+
+            color:
+                white;
+
+            font-size:
+                12px;
+
+            font-weight:
+                700;
+
+            text-align:
+                center;
+
+            opacity:
+                0;
+
+            transition:
+                opacity 0.3s ease;
+
+        }
+
+
+        .location-image-wrapper:hover
+        .map-image-overlay {
+
+            opacity:
+                1;
+
+        }
+
+
+        .get-directions-link {
+
+            display:
+                inline-block;
+
+            margin-top:
+                8px;
+
+            color:
+                var(--primary-color);
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+        }
+
+
+
+        /* =========================================================
+           CONTACT FORM
+        ========================================================= */
+
+        .contact-form-wrapper {
+
+            background:
+                var(--white-color);
+
+            padding:
+                40px;
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                15px;
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .contact-form-wrapper h3 {
+
+            font-size:
+                27px;
+
+            color:
+                var(--dark-color);
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .contact-form-wrapper > p {
+
+            color:
+                var(--muted-text);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .form-row {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                18px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .form-group label {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            color:
+                var(--dark-color);
+
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width:
+                100%;
+
+            padding:
+                13px 15px;
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                7px;
+
+            outline:
+                none;
+
+            color:
+                var(--text-color);
+
+            background:
+                var(--white-color);
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                var(--primary-color);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0, 168, 232, 0.1);
+
+        }
+
+
+        .form-group textarea {
+
+            min-height:
+                140px;
+
+            resize:
+                vertical;
+
+        }
+
+
+        .submit-btn {
+
+            width:
+                100%;
+
+            padding:
+                14px 20px;
+
+            background:
+                var(--primary-color);
+
+            color:
+                var(--white-color);
+
+            border:
+                none;
+
+            border-radius:
+                7px;
+
+            font-weight:
+                800;
+
+            cursor:
+                pointer;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .submit-btn:hover {
+
+            background:
+                var(--primary-dark);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .form-message {
+
+            display:
+                none;
+
+            padding:
+                13px;
+
+            margin-top:
+                15px;
+
+            border-radius:
+                7px;
+
+            background:
+                #DCFCE7;
+
+            color:
+                #166534;
+
+            font-size:
+                14px;
+
+            text-align:
+                center;
+
+        }
+
+
+
+        /* =========================================================
+           LOCATION CHECKER
+        ========================================================= */
+
+        .location-checker {
+
+            margin-top:
+                35px;
+
+            padding:
+                25px;
+
+            background:
+                #F0F9FF;
+
+            border:
+                1px solid #BAE6FD;
+
+            border-radius:
+                12px;
+
+        }
+
+
+        .location-checker h3 {
+
+            font-size:
+                20px;
+
+            margin-bottom:
+                7px;
+
+            color:
+                var(--dark-color);
+
+        }
+
+
+        .location-checker p {
+
+            font-size:
+                14px;
+
+            color:
+                var(--muted-text);
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .location-check-form {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+        }
+
+
+        .location-check-form input {
+
+            flex:
+                1;
+
+            padding:
+                13px 15px;
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                7px;
+
+            outline:
+                none;
+
+        }
+
+
+        .location-check-form input:focus {
+
+            border-color:
+                var(--primary-color);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0, 168, 232, 0.1);
+
+        }
+
+
+        .location-check-btn {
+
+            padding:
+                13px 20px;
+
+            border:
+                none;
+
+            border-radius:
+                7px;
+
+            background:
+                var(--primary-color);
+
+            color:
+                var(--white-color);
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                var(--transition);
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .location-check-btn:hover {
+
+            background:
+                var(--primary-dark);
+
+        }
+
+
+        .location-result {
+
+            display:
+                none;
+
+            margin-top:
+                15px;
+
+            padding:
+                12px 15px;
+
+            border-radius:
+                7px;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .location-result.show {
+
+            display:
+                block;
+
+        }
+
+
+        .location-result.success {
+
+            background:
+                #DCFCE7;
+
+            color:
+                #166534;
+
+            border:
+                1px solid #BBF7D0;
+
+        }
+
+
+        .location-result.info {
+
+            background:
+                #EFF6FF;
+
+            color:
+                #1D4ED8;
+
+            border:
+                1px solid #BFDBFE;
+
+        }
+
+
+
+        /* =========================================================
+           SUPPORT SECTION
+        ========================================================= */
+
+        .support-section {
+
+            padding:
+                80px 0;
+
+            background:
+                var(--light-color);
+
+        }
+
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            max-width:
+                700px;
+
+            margin:
+                0 auto 45px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                38px;
+
+            color:
+                var(--dark-color);
+
+            margin-bottom:
+                12px;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted-text);
+
+        }
+
+
+        .support-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                25px;
+
+        }
+
+
+        .support-card {
+
+            background:
+                var(--white-color);
+
+            padding:
+                35px;
+
+            border:
+                1px solid var(--border-color);
+
+            border-radius:
+                12px;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .support-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .support-card-icon {
+
+            font-size:
+                35px;
+
+            margin-bottom:
+                18px;
+
+        }
+
+
+        .support-card h3 {
+
+            margin-bottom:
+                10px;
+
+            color:
+                var(--dark-color);
+
+        }
+
+
+        .support-card p {
+
+            color:
+                var(--muted-text);
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                20px;
+
+        }
+
+
+        .support-card a {
+
+            color:
+                var(--primary-color);
+
+            font-weight:
+                700;
+
+            font-size:
+                14px;
+
+        }
+
+
+
+        /* =========================================================
+           SERVICE AREA SECTION
+        ========================================================= */
+
+        .service-area {
+
+            padding:
+                80px 0;
+
+        }
+
+
+        .area-box {
+
+            background:
+                var(--dark-blue);
+
+            color:
+                var(--white-color);
+
+            border-radius:
+                15px;
+
+            padding:
+                55px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                40px;
+
+            align-items:
+                center;
+
+        }
+
+
+        .area-box h2 {
+
+            font-size:
+                35px;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .area-box p {
+
+            color:
+                #CBD5E1;
+
+        }
+
+
+        .area-list {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                12px;
+
+        }
+
+
+        .area-list div {
+
+            background:
+                rgba(255,255,255,0.08);
+
+            padding:
+                13px 15px;
+
+            border-radius:
+                7px;
+
+            font-size:
+                14px;
+
+        }
+
+
+
+        /* =========================================================
+           FAQ SECTION
+        ========================================================= */
+
+        .faq-section {
+
+            padding:
+                80px 0;
+
+            background:
+                var(--light-color);
+
+        }
+
+
+        .faq-container {
+
+            max-width:
+                850px;
+
+            margin:
+                auto;
+
+        }
+
+
+        .faq-item {
+
+            background:
+                var(--white-color);
+
+            border:
+                1px solid var(--border-color);
+
+            margin-bottom:
+                12px;
+
+            border-radius:
+                8px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .faq-question {
+
+            width:
+                100%;
+
+            padding:
+                20px;
+
+            background:
+                var(--white-color);
+
+            border:
+                none;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            text-align:
+                left;
+
+            font-weight:
+                700;
+
+            color:
+                var(--dark-color);
+
+            cursor:
+                pointer;
+
+        }
+
+
+        .faq-answer {
+
+            display:
+                none;
+
+            padding:
+                0 20px 20px;
+
+            color:
+                var(--muted-text);
+
+            font-size:
+                14px;
+
+        }
+
+
+        .faq-item.active .faq-answer {
+
+            display:
+                block;
+
+        }
+
+
+        .faq-icon {
+
+            font-size:
+                20px;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .faq-item.active .faq-icon {
+
+            transform:
+                rotate(45deg);
+
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            background:
+                var(--dark-color);
+
+            color:
+                var(--white-color);
+
+            padding:
+                60px 0 25px;
+
+        }
+
+
+        .footer-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap:
+                40px;
+
+            padding-bottom:
+                40px;
+
+        }
+
+
+        .footer-logo {
+
+            font-size:
+                24px;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .footer-logo span {
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .footer-column p {
+
+            color:
+                #94A3B8;
+
+            font-size:
+                14px;
+
+            max-width:
+                350px;
+
+        }
+
+
+        .footer-column h4 {
+
+            margin-bottom:
+                15px;
+
+        }
+
+
+        .footer-column ul {
+
+            list-style:
+                none;
+
+        }
+
+
+        .footer-column li {
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .footer-column a {
+
+            color:
+                #94A3B8;
+
+            font-size:
+                14px;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .footer-column a:hover {
+
+            color:
+                var(--primary-color);
+
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+            padding-top:
+                20px;
+
+            text-align:
+                center;
+
+            color:
+                #94A3B8;
+
+            font-size:
+                13px;
+
+        }
+
+
+
+        /* =========================================================
+           WHATSAPP FLOATING BUTTON
+        ========================================================= */
+
+        .whatsapp-float {
+
+            position:
+                fixed;
+
+            right:
+                25px;
+
+            bottom:
+                25px;
+
+            width:
+                58px;
+
+            height:
+                58px;
+
+            border-radius:
+                50%;
+
+            background:
+                #25D366;
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                27px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,0.2);
+
+            z-index:
+                999;
+
+            transition:
+                var(--transition);
+
+        }
+
+
+        .whatsapp-float:hover {
+
+            transform:
+                scale(1.1);
+
+        }
+
+
+
+        /* =========================================================
+           RESPONSIVE DESIGN
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-menu {
+
+                gap:
+                    15px;
+
+            }
+
+
+            .nav-actions {
+
+                gap:
+                    5px;
+
+            }
+
+
+            .contact-cards {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 850px) {
+
+            .menu-toggle {
+
+                display:
+                    block;
+
+            }
+
+
+            .navbar {
+
+                min-height:
+                    70px;
+
+            }
+
+
+            .nav-menu {
+
+                position:
+                    absolute;
+
+                top:
+                    70px;
+
+                left:
+                    0;
+
+                width:
+                    100%;
+
+                background:
+                    var(--white-color);
+
+                border-top:
+                    1px solid var(--border-color);
+
+                display:
+                    none;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                gap:
+                    0;
+
+                padding:
+                    10px 5%;
+
+                box-shadow:
+                    var(--shadow);
+
+            }
+
+
+            .nav-menu.active {
+
+                display:
+                    flex;
+
+            }
+
+
+            .nav-menu > li {
+
+                width:
+                    100%;
+
+            }
+
+
+            .nav-link {
+
+                padding:
+                    14px 0;
+
+            }
+
+
+            .dropdown-menu {
+
+                position:
+                    static;
+
+                transform:
+                    none;
+
+                opacity:
+                    1;
+
+                visibility:
+                    visible;
+
+                display:
+                    none;
+
+                box-shadow:
+                    none;
+
+                border:
+                    none;
+
+                padding:
+                    0 0 5px 15px;
+
+                min-width:
+                    auto;
+
+            }
+
+
+            .dropdown.active .dropdown-menu {
+
+                display:
+                    block;
+
+            }
+
+
+            .dropdown:hover .dropdown-menu {
+
+                transform:
+                    none;
+
+            }
+
+
+            .nav-actions {
+
+                margin-left:
+                    auto;
+
+            }
+
+
+            .login-btn,
+            .register-btn {
+
+                display:
+                    none;
+
+            }
+
+
+            .contact-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    40px;
+
+            }
+
+
+            .area-box {
+
+                grid-template-columns:
+                    1fr;
+
+                padding:
+                    40px;
+
+            }
+
+
+            .support-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width:
+                    92%;
+
+            }
+
+
+            .logo {
+
+                font-size:
+                    20px;
+
+            }
+
+
+            .contact-hero {
+
+                padding:
+                    70px 20px;
+
+            }
+
+
+            .contact-hero p {
+
+                font-size:
+                    16px;
+
+            }
+
+
+            .contact-cards {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .contact-section {
+
+                padding:
+                    60px 0;
+
+            }
+
+
+            .contact-info h2 {
+
+                font-size:
+                    30px;
+
+            }
+
+
+            .contact-form-wrapper {
+
+                padding:
+                    25px 20px;
+
+            }
+
+
+            .form-row {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    0;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size:
+                    30px;
+
+            }
+
+
+            .area-box {
+
+                padding:
+                    30px 25px;
+
+            }
+
+
+            .area-box h2 {
+
+                font-size:
+                    28px;
+
+            }
+
+
+            .area-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .location-info {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .location-image-wrapper {
+
+                width:
+                    100%;
+
+                height:
+                    200px;
+
+                min-width:
+                    100%;
+
+            }
+
+
+            .location-check-form {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .location-check-btn {
+
+                width:
+                    100%;
+
+            }
+
+
+            .whatsapp-float {
+
+                width:
+                    52px;
+
+                height:
+                    52px;
+
+                right:
+                    18px;
+
+                bottom:
+                    18px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            Dinges<span>TechHub</span>
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
+
+
+        <ul
+            class="nav-menu"
+            id="navMenu"
+        >
+
+            <li>
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+            </li>
+
+
+            <li class="dropdown">
+
+                <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                >
+
+                    Services
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="internet-connectivity.html">
+                            Internet Connectivity
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mobile.html">
+                            Mobile
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="lte-4g-5g.html">
+                            Wireless LTE / 4G / 5G
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li class="dropdown">
+
+                <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                >
+
+                    Help Centre
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="network-status.html">
+                            Network Status
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="support.html">
+                            Technical Support
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="faq.html">
+                            FAQs
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="contact.html"
+                    class="nav-link active"
+                >
+                    Contact Us
+                </a>
+
+            </li>
+
+        </ul>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+
+            <a
+                href="register.html"
+                class="register-btn"
+            >
+                Register
+            </a>
+
+
+            <a
+                href="cart.html"
+                class="cart-btn"
+                aria-label="Shopping cart"
+            >
+                🛒
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="contact-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            Dinges TechHub Support
+        </div>
+
+
+        <h1>
+            Let's Get You
+            <span>Connected</span>
+        </h1>
+
+
+        <p>
+            Have a question about our internet services, fibre,
+            mobile plans, wireless broadband, or technical support?
+            Our team is ready to help.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT CARDS
+========================================================= -->
+
+<section class="contact-cards-section">
+
+    <div class="container contact-cards">
+
+
+        <!-- PHONE -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                📞
+            </div>
+
+            <h3>
+                Call Us
+            </h3>
+
+            <p>
+                Speak directly with our team.
+            </p>
+
+            <a href="tel:+27000000000">
+                +27 00 000 0000
+            </a>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                ✉️
+            </div>
+
+            <h3>
+                Email Us
+            </h3>
+
+            <p>
+                Send us your questions anytime.
+            </p>
+
+            <a href="mailto:support@dingestechhub.co.za">
+                support@dingestechhub.co.za
+            </a>
+
+        </div>
+
+
+
+        <!-- WHATSAPP -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h3>
+                WhatsApp
+            </h3>
+
+            <p>
+                Chat with our support team.
+            </p>
+
+            <a
+                href="https://wa.me/27000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Chat on WhatsApp
+            </a>
+
+        </div>
+
+
+
+        <!-- LOCATION -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+
+                <img
+                    src="dinges location.png"
+                    alt="Dinges TechHub location map"
+                >
+
+            </div>
+
+            <h3>
+                Visit Us
+            </h3>
+
+            <p>
+                We are here to assist you.
+            </p>
+
+            <a href="#service-area">
+                View Location
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN CONTACT SECTION
+========================================================= -->
+
+<section class="contact-section">
+
+    <div class="container contact-grid">
+
+
+        <!-- =====================================================
+             LEFT SIDE - CONTACT INFORMATION
+        ====================================================== -->
+
+        <div class="contact-info">
+
+
+            <div class="section-label">
+                Get In Touch
+            </div>
+
+
+            <h2>
+                We're Here to Help
+            </h2>
+
+
+            <p>
+                Whether you are looking for a new internet connection,
+                need technical assistance, or have a question about
+                your account, our team is ready to assist you.
+            </p>
+
+
+
+            <!-- PHONE -->
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    📞
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Phone
+                    </h4>
+
+                    <p>
+                        +27 00 000 0000
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    ✉️
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Email
+                    </h4>
+
+                    <p>
+                        support@dingestechhub.co.za
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUSINESS HOURS -->
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    🕒
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        Business Hours
+                    </h4>
+
+
+                    <p>
+
+                        Monday - Friday:
+                        09:00 - 16:00
+
+                        <br>
+
+                        Saturday:
+                        Closed
+
+                        <br>
+
+                        Sunday:
+                        Closed
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOCATION + MAP
+            ================================================== -->
+
+            <div class="location-info">
+
+
+                <div class="location-image-wrapper">
+
+                    <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Get directions to Dinges TechHub"
+                    >
+
+                        <img
+                            src="dinges location.png"
+                            alt="Dinges TechHub location map"
+                            class="location-map-image"
+                        >
+
+
+                        <span class="map-image-overlay">
+                            Get Directions
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <div>
+
+                    <h4>
+                        Our Location
+                    </h4>
+
+
+                    <p>
+                        Beryl Ridge Estate,
+                        20 Nimmersat Street,
+                        Stonehenge,
+                        Mbombela,
+                        1201
+                    </p>
+
+
+                    <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="get-directions-link"
+                    >
+                        Get Directions →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 VISITOR LOCATION CHECKER
+            ================================================== -->
+
+            <div class="location-checker">
+
+                <h3>
+                    📍 Check Your Location
+                </h3>
+
+
+                <p>
+                    Enter your address, suburb, or city and
+                    our team can assist you in checking the
+                    connectivity services available in your area.
+                </p>
+
+
+                <form
+                    class="location-check-form"
+                    id="locationCheckForm"
+                >
+
+                    <input
+                        type="text"
+                        id="customerLocation"
+                        placeholder="Enter your address or location"
+                        autocomplete="street-address"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="location-check-btn"
+                    >
+                        Check Availability
+                    </button>
+
+                </form>
+
+
+                <div
+                    class="location-result"
+                    id="locationResult"
+                ></div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             RIGHT SIDE - CONTACT FORM
+        ====================================================== -->
+
+        <div class="contact-form-wrapper">
+
+            <h3>
+                Send Us a Message
+            </h3>
+
+
+            <p>
+                Fill in the form below and our team will get back
+                to you as soon as possible.
+            </p>
+
+
+            <form id="contactForm">
+
+
+                <!-- NAME + EMAIL -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name *
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PHONE + SUBJECT -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+27 XX XXX XXXX"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="subject">
+                            Subject *
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            placeholder="How can we help?"
+                            required
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- REASON -->
+
+                <div class="form-group">
+
+                    <label for="reason">
+                        Reason for Contact
+                    </label>
+
+
+                    <select
+                        id="reason"
+                        name="reason"
+                    >
+
+                        <option value="">
+                            Select an option
+                        </option>
+
+
+                        <option value="new-connection">
+                            New Internet Connection
+                        </option>
+
+
+                        <option value="technical-support">
+                            Technical Support
+                        </option>
+
+
+                        <option value="billing">
+                            Billing & Account
+                        </option>
+
+
+                        <option value="fibre">
+                            Fibre Enquiry
+                        </option>
+
+
+                        <option value="mobile">
+                            Mobile Services
+                        </option>
+
+
+                        <option value="business">
+                            Business Services
+                        </option>
+
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="contactLocation">
+                        Your Location / Address
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="contactLocation"
+                        name="contactLocation"
+                        placeholder="Enter your suburb, city or full address"
+                        autocomplete="street-address"
+                    >
+
+                </div>
+
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Message *
+                    </label>
+
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us how we can help you..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    Send Message
+                </button>
+
+
+                <div
+                    class="form-message"
+                    id="formMessage"
+                >
+                    Thank you! Your message has been received.
+                    Our team will contact you shortly.
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SUPPORT OPTIONS
+========================================================= -->
+
+<section class="support-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                How Can We Help?
+            </div>
+
+
+            <h2>
+                Choose the Right Support
+            </h2>
+
+
+            <p>
+                Get connected with the right team for your needs.
+            </p>
+
+        </div>
+
+
+
+        <div class="support-grid">
+
+
+            <div class="support-card">
+
+                <div class="support-card-icon">
+                    🛠️
+                </div>
+
+
+                <h3>
+                    Technical Support
+                </h3>
+
+
+                <p>
+                    Experiencing connection problems or need help
+                    with your internet service? Our technical team
+                    is ready to assist.
+                </p>
+
+
+                <a href="support.html">
+                    Get Technical Help →
+                </a>
+
+            </div>
+
+
+
+            <div class="support-card">
+
+                <div class="support-card-icon">
+                    🌐
+                </div>
+
+
+                <h3>
+                    New Services
+                </h3>
+
+
+                <p>
+                    Looking for fibre, LTE, 4G, 5G, wireless,
+                    or mobile connectivity? Let us help you
+                    find the right solution.
+                </p>
+
+
+                <a href="internet-connectivity.html">
+                    Explore Services →
+                </a>
+
+            </div>
+
+
+
+            <div class="support-card">
+
+                <div class="support-card-icon">
+                    💳
+                </div>
+
+
+                <h3>
+                    Billing & Accounts
+                </h3>
+
+
+                <p>
+                    Need help with your account, payments,
+                    invoices, or subscription? Contact our
+                    customer service team.
+                </p>
+
+
+                <a href="#contactForm">
+                    Contact Us →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SERVICE AREA
+========================================================= -->
+
+<section
+    class="service-area"
+    id="service-area"
+>
+
+    <div class="container">
+
+        <div class="area-box">
+
+
+            <div>
+
+                <div class="section-label">
+                    Where We Operate
+                </div>
+
+
+                <h2>
+                    Connecting South Africa
+                </h2>
+
+
+                <p>
+                    Dinges TechHub is committed to providing reliable
+                    connectivity and technology solutions to customers
+                    across South Africa.
+                </p>
+
+            </div>
+
+
+
+            <div class="area-list">
+
+                <div>
+                    ✓ Gauteng
+                </div>
+
+
+                <div>
+                    ✓ Mpumalanga
+                </div>
+
+
+                <div>
+                    ✓ Other Areas
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+
+<section class="faq-section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                Frequently Asked Questions
+            </div>
+
+
+            <h2>
+                Before You Contact Us
+            </h2>
+
+
+            <p>
+                Find quick answers to some common questions.
+            </p>
+
+        </div>
+
+
+
+        <div class="faq-container">
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    How quickly will you respond to my message?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Our team aims to respond to customer enquiries
+                    as quickly as possible during business hours.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Can I check if fibre is available in my area?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Yes. Enter your address or location in the
+                    location checker above, or contact our team
+                    and we can assist you with checking available
+                    connectivity options.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Do you provide technical support?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Yes. Our support team can assist with
+                    connectivity and service-related enquiries.
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    Can I contact you through WhatsApp?
+
+                    <span class="faq-icon">
+                        +
+                    </span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    Yes. You can use the WhatsApp button on this
+                    page to start a conversation with our team.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-column">
+
+                <div class="footer-logo">
+                    Dinges<span>TechHub</span>
+                </div>
+
+
+                <p>
+                    Reliable connectivity and technology solutions
+                    designed to keep individuals and businesses
+                    connected.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="internet-connectivity.html">
+                            Internet Connectivity
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="wireless.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="mobile.html">
+                            Mobile
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="support.html">
+                            Technical Support
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="network-status.html">
+                            Network Status
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="faq.html">
+                            FAQs
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="cart.html">
+                            Cart
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            © 2026 Dinges TechHub.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     WHATSAPP BUTTON
+========================================================= -->
+
+<a
+    href="https://wa.me/27000000000"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+>
+    💬
+</a>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+
+menuToggle.addEventListener(
+    "click",
+    function () {
+
+        navMenu.classList.toggle("active");
+
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE DROPDOWN MENUS
+========================================================= */
+
+const dropdowns =
+    document.querySelectorAll(".dropdown");
+
+
+dropdowns.forEach(
+    function(dropdown) {
+
+        const toggle =
+            dropdown.querySelector(".dropdown-toggle");
+
+
+        toggle.addEventListener(
+            "click",
+            function(event) {
+
+                if (window.innerWidth <= 850) {
+
+                    event.preventDefault();
+
+                    dropdown.classList.toggle("active");
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   LOCATION CHECKER
+========================================================= */
+
+const locationCheckForm =
+    document.getElementById(
+        "locationCheckForm"
+    );
+
+
+const customerLocation =
+    document.getElementById(
+        "customerLocation"
+    );
+
+
+const locationResult =
+    document.getElementById(
+        "locationResult"
+    );
+
+
+locationCheckForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const location =
+            customerLocation.value.trim();
+
+
+        if (location === "") {
+
+            locationResult.className =
+                "location-result show info";
+
+
+            locationResult.innerHTML =
+                "Please enter your address, suburb or city.";
+
+
+            return;
+
+        }
+
+
+        /*
+        ---------------------------------------------------------
+        TEMPORARY LOCATION CHECK
+
+        This currently receives the location entered by
+        the visitor.
+
+        Later, this can be connected to a real coverage
+        checker or database.
+        ---------------------------------------------------------
+        */
+
+
+        locationResult.className =
+            "location-result show success";
+
+
+        locationResult.innerHTML =
+
+            "<strong>Location received!</strong><br>" +
+
+            "You entered: <strong>" +
+
+            location +
+
+            "</strong><br><br>" +
+
+            "Our team can assist you in checking the " +
+
+            "connectivity services available in your area.";
+
+    }
+);
+
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+const contactForm =
+    document.getElementById(
+        "contactForm"
+    );
+
+
+const formMessage =
+    document.getElementById(
+        "formMessage"
+    );
+
+
+contactForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        /*
+        ---------------------------------------------------------
+        TEMPORARY FUNCTION
+
+        This currently only displays a success message.
+
+        Later this form can be connected to:
+
+        1. Supabase
+        2. EmailJS
+        3. PHP backend
+        4. Java / Jakarta backend
+        5. Another email service
+        ---------------------------------------------------------
+        */
+
+
+        formMessage.style.display =
+            "block";
+
+
+        contactForm.reset();
+
+
+        setTimeout(
+            function() {
+
+                formMessage.style.display =
+                    "none";
+
+            },
+            6000
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   FAQ ACCORDION
+========================================================= */
+
+const faqQuestions =
+    document.querySelectorAll(
+        ".faq-question"
+    );
+
+
+faqQuestions.forEach(
+    function(question) {
+
+        question.addEventListener(
+            "click",
+            function() {
+
+                const faqItem =
+                    question.parentElement;
+
+
+                faqItem.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   CLOSE MOBILE MENU AFTER CLICKING A NORMAL LINK
+========================================================= */
+
+const normalNavLinks =
+    document.querySelectorAll(
+        ".nav-menu > li:not(.dropdown) .nav-link"
+    );
+
+
+normalNavLinks.forEach(
+    function(link) {
+
+        link.addEventListener(
+            "click",
+            function() {
+
+                navMenu.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+</script>
+
+
+</body>
+</html>
