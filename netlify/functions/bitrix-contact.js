@@ -11,7 +11,7 @@ exports.handler = async function (event) {
             })
         };
 
-    }
+    } 
 
 
     try {
