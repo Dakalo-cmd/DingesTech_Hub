@@ -1,118 +1,269 @@
 exports.handler = async function (event) {
 
-    // Only allow POST requests
+    // =========================================================
+    // ONLY ALLOW POST REQUESTS
+    // =========================================================
+
     if (event.httpMethod !== "POST") {
 
         return {
             statusCode: 405,
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
             body: JSON.stringify({
                 success: false,
                 message: "Method not allowed"
             })
         };
 
-    } 
+    }
 
 
     try {
 
-        // Get form data from the website
-        const data = JSON.parse(event.body);
+        // =========================================================
+        // GET FORM DATA
+        // =========================================================
+
+        const data =
+            JSON.parse(event.body || "{}");
 
 
-        // Get the information sent by the contact form
-        const name = data.name || "";
-        const email = data.email || "";
-        const phone = data.phone || "";
-        const subject = data.subject || "";
-        const message = data.message || "";
+        // =========================================================
+        // GET ALL CONTACT FORM FIELDS
+        // =========================================================
+
+        const name =
+            (data.name || "").trim();
+
+        const email =
+            (data.email || "").trim();
+
+        const phone =
+            (data.phone || "").trim();
+
+        const subject =
+            (data.subject || "").trim();
+
+        const reason =
+            (data.reason || "").trim();
+
+        const contactLocation =
+            (data.contactLocation || "").trim();
+
+        const message =
+            (data.message || "").trim();
 
 
-        // Check required fields
-        if (!name || !email || !subject || !message) {
+        // =========================================================
+        // CHECK REQUIRED FIELDS
+        // =========================================================
+
+        if (
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ) {
 
             return {
+
                 statusCode: 400,
 
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
                 body: JSON.stringify({
+
                     success: false,
-                    message: "Please complete all required fields."
+
+                    message:
+                        "Please complete all required fields."
+
                 })
+
             };
 
         }
 
 
-        /*
-        =========================================================
-        BITRIX24 CONNECTION
-        We will add your Bitrix24 webhook URL here later.
-        =========================================================
-        */
+        // =========================================================
+        // GET BITRIX24 WEBHOOK FROM NETLIFY ENVIRONMENT VARIABLE
+        // =========================================================
 
         const bitrixWebhookUrl =
             process.env.BITRIX_WEBHOOK_URL;
 
 
-        // Send information to Bitrix24
-        const response = await fetch(
-            bitrixWebhookUrl,
-            {
-                method: "POST",
+        // Check if webhook exists
+        if (!bitrixWebhookUrl) {
+
+            console.error(
+                "BITRIX_WEBHOOK_URL is not configured."
+            );
+
+
+            return {
+
+                statusCode: 500,
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type":
+                        "application/json"
                 },
 
                 body: JSON.stringify({
 
-                    fields: {
+                    success: false,
 
-                        TITLE:
-                            "Website Enquiry - " + subject,
-
-                        NAME:
-                            name,
-
-                        EMAIL: [
-                            {
-                                VALUE: email,
-                                VALUE_TYPE: "WORK"
-                            }
-                        ],
-
-                        PHONE: phone
-                            ? [
-                                {
-                                    VALUE: phone,
-                                    VALUE_TYPE: "WORK"
-                                }
-                            ]
-                            : [],
-
-                        COMMENTS:
-                            "Subject: " +
-                            subject +
-                            "\n\nMessage:\n" +
-                            message,
-
-                        SOURCE_DESCRIPTION:
-                            "Dinges TechHub Website Contact Form"
-
-                    }
+                    message:
+                        "Bitrix24 connection is not configured."
 
                 })
 
-            }
-        );
+            };
 
+        }
+
+
+        // =========================================================
+        // CREATE BITRIX24 CRM LEAD
+        // =========================================================
+
+        const bitrixResponse =
+            await fetch(
+                bitrixWebhookUrl + "crm.lead.add.json",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        fields: {
+
+                            // ---------------------------------
+                            // LEAD TITLE
+                            // ---------------------------------
+
+                            TITLE:
+                                "Website Enquiry - " +
+                                subject,
+
+
+                            // ---------------------------------
+                            // CUSTOMER NAME
+                            // ---------------------------------
+
+                            NAME:
+                                name,
+
+
+                            // ---------------------------------
+                            // CUSTOMER EMAIL
+                            // ---------------------------------
+
+                            EMAIL: [
+
+                                {
+
+                                    VALUE:
+                                        email,
+
+                                    VALUE_TYPE:
+                                        "WORK"
+
+                                }
+
+                            ],
+
+
+                            // ---------------------------------
+                            // CUSTOMER PHONE
+                            // ---------------------------------
+
+                            PHONE:
+                                phone
+                                    ? [
+
+                                        {
+
+                                            VALUE:
+                                                phone,
+
+                                            VALUE_TYPE:
+                                                "WORK"
+
+                                        }
+
+                                    ]
+
+                                    : [],
+
+
+                            // ---------------------------------
+                            // LEAD COMMENTS
+                            // ---------------------------------
+
+                            COMMENTS:
+
+                                "Dinges TechHub Website Contact Form\n\n" +
+
+                                "Subject: " +
+                                subject +
+
+                                "\n\nReason for Contact: " +
+                                (reason || "Not specified") +
+
+                                "\n\nLocation / Address: " +
+                                (contactLocation || "Not specified") +
+
+                                "\n\nMessage:\n" +
+                                message,
+
+
+                            // ---------------------------------
+                            // LEAD SOURCE
+                            // ---------------------------------
+
+                            SOURCE_DESCRIPTION:
+                                "Dinges TechHub Website Contact Form"
+
+                        }
+
+                    })
+
+                }
+            );
+
+
+        // =========================================================
+        // GET BITRIX24 RESPONSE
+        // =========================================================
 
         const result =
-            await response.json();
+            await bitrixResponse.json();
 
 
-        // Check if Bitrix24 accepted the enquiry
-        if (!response.ok) {
+        // =========================================================
+        // CHECK BITRIX24 RESPONSE
+        // =========================================================
+
+        if (
+            !bitrixResponse.ok ||
+            result.error
+        ) {
 
             console.error(
                 "Bitrix24 Error:",
@@ -123,6 +274,11 @@ exports.handler = async function (event) {
             return {
 
                 statusCode: 500,
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
 
                 body: JSON.stringify({
 
@@ -138,10 +294,24 @@ exports.handler = async function (event) {
         }
 
 
-        // Success
+        // =========================================================
+        // SUCCESS
+        // =========================================================
+
+        console.log(
+            "Bitrix24 Lead Created:",
+            result.result
+        );
+
+
         return {
 
             statusCode: 200,
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
 
             body: JSON.stringify({
 
@@ -157,6 +327,11 @@ exports.handler = async function (event) {
 
     } catch (error) {
 
+
+        // =========================================================
+        // ERROR HANDLING
+        // =========================================================
+
         console.error(
             "Server Error:",
             error
@@ -166,6 +341,11 @@ exports.handler = async function (event) {
         return {
 
             statusCode: 500,
+
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
 
             body: JSON.stringify({
 
