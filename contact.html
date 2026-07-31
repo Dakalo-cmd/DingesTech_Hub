@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -1283,6 +1284,20 @@
         }
 
 
+        .submit-btn:disabled {
+
+            opacity:
+                0.7;
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+
+        }
+
+
         .form-message {
 
             display:
@@ -1297,17 +1312,41 @@
             border-radius:
                 7px;
 
+            font-size:
+                14px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .form-message.show {
+
+            display:
+                block;
+
+        }
+
+
+        .form-message.success {
+
             background:
                 #DCFCE7;
 
             color:
                 #166534;
 
-            font-size:
-                14px;
+        }
 
-            text-align:
-                center;
+
+        .form-message.error {
+
+            background:
+                #FEE2E2;
+
+            color:
+                #991B1B;
 
         }
 
@@ -2498,6 +2537,7 @@
             class="menu-toggle"
             id="menuToggle"
             aria-label="Open navigation menu"
+            type="button"
         >
             ☰
         </button>
@@ -2702,8 +2742,6 @@
     <div class="container contact-cards">
 
 
-        <!-- PHONE -->
-
         <div class="contact-card">
 
             <div class="contact-icon">
@@ -2726,8 +2764,6 @@
 
 
 
-        <!-- EMAIL -->
-
         <div class="contact-card">
 
             <div class="contact-icon">
@@ -2749,8 +2785,6 @@
         </div>
 
 
-
-        <!-- WHATSAPP -->
 
         <div class="contact-card">
 
@@ -2777,8 +2811,6 @@
         </div>
 
 
-
-        <!-- LOCATION -->
 
         <div class="contact-card">
 
@@ -2821,12 +2853,9 @@
     <div class="container contact-grid">
 
 
-        <!-- =====================================================
-             LEFT SIDE - CONTACT INFORMATION
-        ====================================================== -->
+        <!-- LEFT SIDE -->
 
         <div class="contact-info">
-
 
             <div class="section-label">
                 Get In Touch
@@ -2845,8 +2874,6 @@
             </p>
 
 
-
-            <!-- PHONE -->
 
             <div class="info-item">
 
@@ -2871,8 +2898,6 @@
 
 
 
-            <!-- EMAIL -->
-
             <div class="info-item">
 
                 <div class="info-icon">
@@ -2895,8 +2920,6 @@
             </div>
 
 
-
-            <!-- BUSINESS HOURS -->
 
             <div class="info-item">
 
@@ -2934,10 +2957,6 @@
             </div>
 
 
-
-            <!-- =================================================
-                 LOCATION + MAP
-            ================================================== -->
 
             <div class="location-info">
 
@@ -2999,9 +3018,7 @@
 
 
 
-            <!-- =================================================
-                 VISITOR LOCATION CHECKER
-            ================================================== -->
+            <!-- LOCATION CHECKER -->
 
             <div class="location-checker">
 
@@ -3070,10 +3087,13 @@
             </p>
 
 
+            <!-- IMPORTANT:
+                 JavaScript below uses this exact ID:
+                 contactForm
+            -->
+
             <form id="contactForm">
 
-
-                <!-- NAME + EMAIL -->
 
                 <div class="form-row">
 
@@ -3119,8 +3139,6 @@
 
 
 
-                <!-- PHONE + SUBJECT -->
-
                 <div class="form-row">
 
 
@@ -3163,8 +3181,6 @@
                 </div>
 
 
-
-                <!-- REASON -->
 
                 <div class="form-group">
 
@@ -3223,8 +3239,6 @@
 
 
 
-                <!-- LOCATION -->
-
                 <div class="form-group">
 
                     <label for="contactLocation">
@@ -3244,8 +3258,6 @@
 
 
 
-                <!-- MESSAGE -->
-
                 <div class="form-group">
 
                     <label for="message">
@@ -3264,8 +3276,6 @@
 
 
 
-                <!-- SUBMIT -->
-
                 <button
                     type="submit"
                     class="submit-btn"
@@ -3277,10 +3287,7 @@
                 <div
                     class="form-message"
                     id="formMessage"
-                >
-                    Thank you! Your message has been received.
-                    Our team will contact you shortly.
-                </div>
+                ></div>
 
 
             </form>
@@ -3509,7 +3516,10 @@
 
             <div class="faq-item">
 
-                <button class="faq-question">
+                <button
+                    class="faq-question"
+                    type="button"
+                >
 
                     How quickly will you respond to my message?
 
@@ -3533,7 +3543,10 @@
 
             <div class="faq-item">
 
-                <button class="faq-question">
+                <button
+                    class="faq-question"
+                    type="button"
+                >
 
                     Can I check if fibre is available in my area?
 
@@ -3559,7 +3572,10 @@
 
             <div class="faq-item">
 
-                <button class="faq-question">
+                <button
+                    class="faq-question"
+                    type="button"
+                >
 
                     Do you provide technical support?
 
@@ -3583,7 +3599,10 @@
 
             <div class="faq-item">
 
-                <button class="faq-question">
+                <button
+                    class="faq-question"
+                    type="button"
+                >
 
                     Can I contact you through WhatsApp?
 
@@ -3807,7 +3826,7 @@
 
 
 /* =========================================================
-   MOBILE MENU
+   GET ELEMENTS
 ========================================================= */
 
 const menuToggle =
@@ -3816,15 +3835,30 @@ const menuToggle =
 const navMenu =
     document.getElementById("navMenu");
 
+const contactForm =
+    document.getElementById("contactForm");
 
-menuToggle.addEventListener(
-    "click",
-    function () {
+const formMessage =
+    document.getElementById("formMessage");
 
-        navMenu.classList.toggle("active");
 
-    }
-);
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("active");
+
+        }
+    );
+
+}
 
 
 
@@ -3843,20 +3877,24 @@ dropdowns.forEach(
             dropdown.querySelector(".dropdown-toggle");
 
 
-        toggle.addEventListener(
-            "click",
-            function(event) {
+        if (toggle) {
 
-                if (window.innerWidth <= 850) {
+            toggle.addEventListener(
+                "click",
+                function(event) {
 
-                    event.preventDefault();
+                    if (window.innerWidth <= 850) {
 
-                    dropdown.classList.toggle("active");
+                        event.preventDefault();
+
+                        dropdown.classList.toggle("active");
+
+                    }
 
                 }
+            );
 
-            }
-        );
+        }
 
     }
 );
@@ -3885,127 +3923,302 @@ const locationResult =
     );
 
 
-locationCheckForm.addEventListener(
-    "submit",
-    function(event) {
+if (
+    locationCheckForm &&
+    customerLocation &&
+    locationResult
+) {
 
-        event.preventDefault();
+    locationCheckForm.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
 
 
-        const location =
-            customerLocation.value.trim();
+            const location =
+                customerLocation.value.trim();
 
 
-        if (location === "") {
+            if (location === "") {
+
+                locationResult.className =
+                    "location-result show info";
+
+
+                locationResult.innerHTML =
+                    "Please enter your address, suburb or city.";
+
+
+                return;
+
+            }
+
 
             locationResult.className =
-                "location-result show info";
+                "location-result show success";
 
 
             locationResult.innerHTML =
-                "Please enter your address, suburb or city.";
 
+                "<strong>Location received!</strong><br>" +
 
-            return;
+                "You entered: <strong>" +
+
+                escapeHtml(location) +
+
+                "</strong><br><br>" +
+
+                "Our team can assist you in checking the " +
+
+                "connectivity services available in your area.";
 
         }
+    );
 
-
-        /*
-        ---------------------------------------------------------
-        TEMPORARY LOCATION CHECK
-
-        This currently receives the location entered by
-        the visitor.
-
-        Later, this can be connected to a real coverage
-        checker or database.
-        ---------------------------------------------------------
-        */
-
-
-        locationResult.className =
-            "location-result show success";
-
-
-        locationResult.innerHTML =
-
-            "<strong>Location received!</strong><br>" +
-
-            "You entered: <strong>" +
-
-            location +
-
-            "</strong><br><br>" +
-
-            "Our team can assist you in checking the " +
-
-            "connectivity services available in your area.";
-
-    }
-);
+}
 
 
 
 /* =========================================================
-   CONTACT FORM
+   CONTACT FORM → NETLIFY FUNCTION → BITRIX24
 ========================================================= */
 
-const contactForm =
-    document.getElementById(
-        "contactForm"
+if (contactForm) {
+
+    contactForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            const submitButton =
+                contactForm.querySelector(
+                    ".submit-btn"
+                );
+
+
+            /* Clear old message */
+
+            formMessage.className =
+                "form-message";
+
+
+            formMessage.textContent =
+                "";
+
+
+            /* Disable button */
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                "Sending...";
+
+
+            /* =================================================
+               COLLECT ALL FORM DATA
+            ================================================= */
+
+            const formData = {
+
+                name:
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim(),
+
+
+                email:
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim(),
+
+
+                phone:
+                    document
+                    .getElementById("phone")
+                    .value
+                    .trim(),
+
+
+                subject:
+                    document
+                    .getElementById("subject")
+                    .value
+                    .trim(),
+
+
+                reason:
+                    document
+                    .getElementById("reason")
+                    .value
+                    .trim(),
+
+
+                contactLocation:
+                    document
+                    .getElementById("contactLocation")
+                    .value
+                    .trim(),
+
+
+                message:
+                    document
+                    .getElementById("message")
+                    .value
+                    .trim()
+
+            };
+
+
+            try {
+
+
+                /* =================================================
+                   SEND DATA TO NETLIFY FUNCTION
+                ================================================= */
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+
+                            method:
+                                "POST",
+
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+
+                            body:
+                                JSON.stringify(
+                                    formData
+                                )
+
+                        }
+                    );
+
+
+
+                /* =================================================
+                   CHECK RESPONSE
+                ================================================= */
+
+                let result;
+
+
+                try {
+
+                    result =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    result = {
+
+                        success:
+                            false,
+
+                        message:
+                            "The server returned an invalid response."
+
+                    };
+
+                }
+
+
+
+                /* =================================================
+                   SUCCESS
+                ================================================= */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+
+                    formMessage.className =
+                        "form-message show success";
+
+
+                    formMessage.textContent =
+                        "Thank you! Your message has been sent successfully. Our team will contact you shortly.";
+
+
+                    contactForm.reset();
+
+
+                }
+
+
+                /* =================================================
+                   ERROR
+                ================================================= */
+
+                else {
+
+
+                    formMessage.className =
+                        "form-message show error";
+
+
+                    formMessage.textContent =
+
+                        result.message ||
+
+                        "We could not send your message. Please try again later.";
+
+                }
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Contact form error:",
+                    error
+                );
+
+
+                formMessage.className =
+                    "form-message show error";
+
+
+                formMessage.textContent =
+
+                    "We could not connect to the server. Please try again later.";
+
+
+            }
+
+
+            /* =================================================
+               ENABLE BUTTON AGAIN
+            ================================================= */
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.textContent =
+                "Send Message";
+
+
+        }
     );
 
-
-const formMessage =
-    document.getElementById(
-        "formMessage"
-    );
-
-
-contactForm.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
-
-
-        /*
-        ---------------------------------------------------------
-        TEMPORARY FUNCTION
-
-        This currently only displays a success message.
-
-        Later this form can be connected to:
-
-        1. Supabase
-        2. EmailJS
-        3. PHP backend
-        4. Java / Jakarta backend
-        5. Another email service
-        ---------------------------------------------------------
-        */
-
-
-        formMessage.style.display =
-            "block";
-
-
-        contactForm.reset();
-
-
-        setTimeout(
-            function() {
-
-                formMessage.style.display =
-                    "none";
-
-            },
-            6000
-        );
-
-    }
-);
+}
 
 
 
@@ -4043,7 +4256,7 @@ faqQuestions.forEach(
 
 
 /* =========================================================
-   CLOSE MOBILE MENU AFTER CLICKING A NORMAL LINK
+   CLOSE MOBILE MENU AFTER NORMAL LINK CLICK
 ========================================================= */
 
 const normalNavLinks =
@@ -4059,9 +4272,13 @@ normalNavLinks.forEach(
             "click",
             function() {
 
-                navMenu.classList.remove(
-                    "active"
-                );
+                if (navMenu) {
+
+                    navMenu.classList.remove(
+                        "active"
+                    );
+
+                }
 
             }
         );
@@ -4070,8 +4287,31 @@ normalNavLinks.forEach(
 );
 
 
+
+/* =========================================================
+   BASIC HTML ESCAPE FUNCTION
+   Prevents user-entered location from being interpreted
+   as HTML inside the location result.
+========================================================= */
+
+function escapeHtml(value) {
+
+    const div =
+        document.createElement("div");
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
+
+}
+
+
 </script>
 
 
 </body>
+
 </html>
