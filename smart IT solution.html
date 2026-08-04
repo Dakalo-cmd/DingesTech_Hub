@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart IT Solutions | Dinges TechHub</title>
+
+    <meta
+        name="description"
+        content="Dinges TechHub provides smart IT solutions including IT support, network solutions, cybersecurity, cloud services, IT infrastructure and technology consulting."
+    >
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL SETTINGS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: #020202;
+
+            background: #ffffff;
+
+            line-height: 1.6;
+        }
+
+
+        .container {
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+
+
+        /* =====================================================
+           TOP BLACK BAR
+        ===================================================== */
+
+        .top-bar {
+            background: #020202;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .top-bar-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+        }
+
+
+        .top-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .top-links a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .top-links a:hover {
+            color: #FFBB42;
+        }
+
+
+
+        /* =====================================================
+           MAIN HEADER
+        ===================================================== */
+
+        .main-header {
+            background: #ffffff;
+
+            border-bottom: 1px solid #eeeeee;
+
+            position: relative;
+
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .logo {
+            text-decoration: none;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-black {
+            color: #020202;
+        }
+
+
+        .logo-purple {
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           MAIN NAVIGATION
+        ===================================================== */
+
+        .main-nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 35px;
+
+            margin-left: auto;
+        }
+
+
+        .main-nav > a,
+        .nav-dropdown > a {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #020202;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            padding: 28px 0;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .main-nav > a:hover,
+        .nav-dropdown > a:hover {
+
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           DROPDOWN
+        ===================================================== */
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+
+        .dropdown-arrow {
+
+            font-size: 9px;
+
+            color: #020202;
+
+            transition: transform 0.3s ease;
+        }
+
+
+        .nav-dropdown:hover .dropdown-arrow {
+
+            transform: rotate(180deg);
+        }
+
+
+        .dropdown-menu {
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(10px);
+
+            width: 260px;
+
+            padding: 10px 0;
+
+            background: #ffffff;
+
+            border-top: 3px solid #7A2C78;
+
+            border-radius:
+                0 0 8px 8px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.12);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+
+        .nav-dropdown:hover .dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        .dropdown-menu a {
+
+            display: block;
+
+            padding: 12px 20px;
+
+            color: #333333;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        .dropdown-menu a:hover {
+
+            background: #f7f1f7;
+
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           CART
+        ===================================================== */
+
+        .cart-button {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 14px;
+
+            background: #020202;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .cart-button:hover {
+
+            background: #3C1542;
+
+            transform: translateY(-2px);
+        }
+
+
+        .cart-button strong {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 21px;
+
+            height: 21px;
+
+            background: #FFBB42;
+
+            color: #020202;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+        }
+
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ===================================================== */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: #3C1542;
+
+            font-size: 26px;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =====================================================
+           HERO SECTION
+        ===================================================== */
+
+        .smart-it-hero {
+
+            position: relative;
+
+            padding: 100px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3C1542,
+                    #7A2C78
+                );
+
+            overflow: hidden;
+        }
+
+
+        .smart-it-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 187, 66, 0.08);
+
+            top: -150px;
+
+            right: -100px;
+        }
+
+
+        .smart-it-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            bottom: -120px;
+
+            left: -80px;
+        }
+
+
+        .smart-it-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            color: #FFBB42;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .smart-it-hero h1 {
+
+            margin-bottom: 20px;
+
+            color: #ffffff;
+
+            font-size: 52px;
+
+            line-height: 1.2;
+        }
+
+
+        .smart-it-hero p {
+
+            max-width: 720px;
+
+            margin: 0 auto 30px;
+
+            color:
+                rgba(255, 255, 255, 0.85);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            background: #FFBB42;
+
+            color: #3C1542;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            border-radius: 6px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .hero-button:hover {
+
+            background: #ffffff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
+
+        .smart-it-intro {
+
+            padding: 85px 20px;
+
+            background: #ffffff;
+        }
+
+
+        .smart-it-intro-content {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+
+        .section-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            color: #7A2C78;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .smart-it-intro h2 {
+
+            margin-bottom: 20px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+
+            line-height: 1.3;
+        }
+
+
+        .smart-it-intro p {
+
+            color: #666666;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =====================================================
+           SOLUTIONS SECTION
+        ===================================================== */
+
+        .smart-it-solutions {
+
+            padding: 85px 20px;
+
+            background: #f7f7f7;
+        }
+
+
+        .section-heading {
+
+            max-width: 750px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+
+        .section-heading h2 {
+
+            margin-bottom: 15px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+        }
+
+
+        .section-heading p {
+
+            color: #666666;
+
+            font-size: 16px;
+        }
+
+
+        .solutions-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .solution-card {
+
+            padding: 35px 30px;
+
+            background: #ffffff;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e5e5;
+
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .solution-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #7A2C78;
+
+            box-shadow:
+                0 15px 35px
+                rgba(60, 21, 66, 0.1);
+        }
+
+
+        .solution-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #f2e8f2;
+
+            color: #7A2C78;
+
+            border-radius: 50%;
+
+            font-size: 28px;
+        }
+
+
+        .solution-card h3 {
+
+            margin-bottom: 12px;
+
+            color: #3C1542;
+
+            font-size: 21px;
+        }
+
+
+        .solution-card p {
+
+            color: #666666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =====================================================
+           BENEFITS SECTION
+        ===================================================== */
+
+        .smart-it-benefits {
+
+            padding: 90px 20px;
+
+            background: #ffffff;
+        }
+
+
+        .benefits-wrapper {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .benefits-content h2 {
+
+            margin-bottom: 20px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+
+            line-height: 1.3;
+        }
+
+
+        .benefits-content p {
+
+            margin-bottom: 25px;
+
+            color: #666666;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        .benefits-list {
+
+            list-style: none;
+        }
+
+
+        .benefits-list li {
+
+            position: relative;
+
+            padding-left: 30px;
+
+            margin-bottom: 15px;
+
+            color: #555555;
+
+            font-size: 16px;
+        }
+
+
+        .benefits-list li::before {
+
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            color: #7A2C78;
+
+            font-weight: bold;
+
+            font-size: 18px;
+        }
+
+
+        .benefits-visual {
+
+            min-height: 400px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3C1542,
+                    #7A2C78
+                );
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(60, 21, 66, 0.15);
+        }
+
+
+        .it-card {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            padding: 40px 30px;
+
+            background:
+                rgba(255, 255, 255, 0.1);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.2);
+
+            border-radius: 18px;
+
+            text-align: center;
+        }
+
+
+        .it-icon {
+
+            font-size: 60px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .it-card h3 {
+
+            margin-bottom: 10px;
+
+            color: #ffffff;
+
+            font-size: 25px;
+        }
+
+
+        .it-card p {
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =====================================================
+           CTA SECTION
+        ===================================================== */
+
+        .smart-it-cta {
+
+            padding: 80px 20px;
+
+            background: #3C1542;
+
+            text-align: center;
+        }
+
+
+        .smart-it-cta h2 {
+
+            margin-bottom: 15px;
+
+            color: #ffffff;
+
+            font-size: 36px;
+        }
+
+
+        .smart-it-cta p {
+
+            max-width: 680px;
+
+            margin: 0 auto 30px;
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-size: 16px;
+        }
+
+
+        .cta-button {
+
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #FFBB42;
+
+            color: #3C1542;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border-radius: 6px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .cta-button:hover {
+
+            background: #ffffff;
+
+            transform: translateY(-3px);
+        }
+
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .smart-it-hero h1 {
+
+                font-size: 42px;
+            }
+
+
+            .solutions-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .benefits-wrapper {
+
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .top-bar {
+
+                height: 38px;
+            }
+
+
+            .top-links {
+
+                gap: 18px;
+            }
+
+
+            .top-links a {
+
+                font-size: 12px;
+            }
+
+
+            .navbar {
+
+                min-height: 70px;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .main-nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+
+                margin: 0;
+
+                padding: 10px 20px;
+
+                background: #ffffff;
+
+                box-shadow:
+                    0 10px 25px
+                    rgba(0, 0, 0, 0.1);
+            }
+
+
+            .main-nav.active {
+
+                display: flex;
+            }
+
+
+            .main-nav > a,
+            .nav-dropdown > a {
+
+                padding: 15px 5px;
+
+                border-bottom:
+                    1px solid #eeeeee;
+            }
+
+
+            .nav-dropdown {
+
+                width: 100%;
+            }
+
+
+            .dropdown-menu {
+
+                position: static;
+
+                width: 100%;
+
+                transform: none;
+
+                box-shadow: none;
+
+                border-top: none;
+
+                border-left:
+                    3px solid #7A2C78;
+
+                border-radius: 0;
+
+                display: none;
+
+                opacity: 1;
+
+                visibility: visible;
+            }
+
+
+            .nav-dropdown:hover
+            .dropdown-menu {
+
+                display: none;
+            }
+
+
+            .nav-dropdown.active
+            .dropdown-menu {
+
+                display: block;
+            }
+
+
+            .cart-button {
+
+                margin-left: auto;
+            }
+
+
+            .cart-button span {
+
+                display: none;
+            }
+
+
+            .smart-it-hero {
+
+                padding: 75px 20px;
+            }
+
+
+            .smart-it-hero h1 {
+
+                font-size: 34px;
+            }
+
+
+            .smart-it-hero p {
+
+                font-size: 16px;
+            }
+
+
+            .smart-it-intro,
+            .smart-it-solutions,
+            .smart-it-benefits {
+
+                padding: 65px 20px;
+            }
+
+
+            .smart-it-intro h2,
+            .section-heading h2,
+            .benefits-content h2 {
+
+                font-size: 29px;
+            }
+
+
+            .solutions-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .benefits-visual {
+
+                min-height: 320px;
+
+                padding: 25px;
+            }
+
+
+            .smart-it-cta {
+
+                padding: 65px 20px;
+            }
+
+
+            .smart-it-cta h2 {
+
+                font-size: 29px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            .logo {
+
+                font-size: 23px;
+            }
+
+
+            .cart-button {
+
+                padding: 9px 11px;
+            }
+
+
+            .smart-it-hero h1 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- =====================================================
+     TOP BLACK BAR
+====================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-content">
+
+        <div class="top-links">
+
+            <a href="status.html">
+                Status
+            </a>
+
+            <a href="contact-us.html">
+                Contact Us
+            </a>
+
+            <a href="#">
+                More
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN NAVIGATION
+====================================================== -->
+
+<header class="main-header">
+
+    <div class="container navbar">
+
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-black">
+                DingesTech
+            </span>
+
+            <span class="logo-purple">
+                Hub
+            </span>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+
+            <!-- SERVICES -->
+
+            <div class="nav-dropdown">
+
+                <a href="#">
+
+                    Services
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="internet-connectivity.html">
+                        Internet Connectivity
+                    </a>
+
+                    <a href="voip-telephony.html">
+                        VOIP / Telephony
+                    </a>
+
+                    <a href="hosting.html">
+                        Web & Email Hosting
+                    </a>
+
+                    <a href="iot.html">
+                        Internet of Things (IoT)
+                    </a>
+
+                    <a href="software-solutions.html">
+                        Software Solutions
+                    </a>
+
+                    <a href="smart-it-solutions.html">
+                        Smart IT Solutions
+                    </a>
+
+                    <a href="crm.html">
+                        CRM
+                    </a>
+
+                    <a href="smart-home-business.html">
+                        Smart Home & Business
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HELP CENTRE -->
+
+            <div class="nav-dropdown">
+
+                <a href="#">
+
+                    Help Centre
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="support.html">
+                        Support
+                    </a>
+
+                    <a href="faqs.html">
+                        FAQs
+                    </a>
+
+                    <a href="contact-us.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT US -->
+
+            <a href="contact-us.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+
+
+        <!-- CART -->
+
+        <a href="cart.html" class="cart-button">
+
+            🛒
+
+            <span>
+                Cart
+            </span>
+
+            <strong id="cartCount">
+                0
+            </strong>
+
+        </a>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+        >
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="smart-it-hero">
+
+    <div class="container">
+
+        <div class="smart-it-hero-content">
+
+
+            <span class="hero-label">
+                SMART IT SOLUTIONS
+            </span>
+
+
+            <h1>
+                Smarter Technology.
+                Better Business.
+            </h1>
+
+
+            <p>
+                Empower your business with reliable, secure and
+                intelligent IT solutions designed to simplify your
+                technology and help you work more efficiently.
+            </p>
+
+
+            <a
+                href="#contact"
+                class="hero-button"
+            >
+                Get Started
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+====================================================== -->
+
+<section class="smart-it-intro">
+
+    <div class="container">
+
+        <div class="smart-it-intro-content">
+
+
+            <span class="section-label">
+                SMART IT SOLUTIONS
+            </span>
+
+
+            <h2>
+                Technology That Works For Your Business
+            </h2>
+
+
+            <p>
+                Dinges TechHub provides practical IT solutions that
+                help businesses improve their technology infrastructure,
+                protect important information and keep their teams
+                productive. We combine technology, connectivity and
+                support to create smarter IT environments.
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOLUTIONS SECTION
+====================================================== -->
+
+<section class="smart-it-solutions">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                OUR IT SOLUTIONS
+            </span>
+
+
+            <h2>
+                Smart Technology For Modern Businesses
+            </h2>
+
+
+            <p>
+                From everyday IT support to infrastructure and
+                security, we help you build a reliable technology
+                environment.
+            </p>
+
+        </div>
+
+
+
+        <div class="solutions-grid">
+
+
+            <!-- CARD 1 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    🖥️
+                </div>
+
+
+                <h3>
+                    IT Support
+                </h3>
+
+
+                <p>
+                    Get assistance with everyday technology issues,
+                    troubleshooting and IT requirements.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 2 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    🌐
+                </div>
+
+
+                <h3>
+                    Network Solutions
+                </h3>
+
+
+                <p>
+                    Build reliable networks that help your business
+                    connect teams, devices and systems.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 3 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    🔐
+                </div>
+
+
+                <h3>
+                    Cybersecurity
+                </h3>
+
+
+                <p>
+                    Improve your security posture with practical
+                    solutions designed to protect your digital environment.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 4 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    ☁️
+                </div>
+
+
+                <h3>
+                    Cloud Solutions
+                </h3>
+
+
+                <p>
+                    Explore cloud-based solutions that support
+                    collaboration, accessibility and business continuity.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 5 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    🗄️
+                </div>
+
+
+                <h3>
+                    IT Infrastructure
+                </h3>
+
+
+                <p>
+                    Create a stable technology foundation with
+                    infrastructure solutions designed around your needs.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 6 -->
+
+            <div class="solution-card">
+
+                <div class="solution-icon">
+                    💡
+                </div>
+
+
+                <h3>
+                    Technology Consulting
+                </h3>
+
+
+                <p>
+                    Get guidance on technology choices and strategies
+                    that can support your business goals.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BENEFITS SECTION
+====================================================== -->
+
+<section class="smart-it-benefits">
+
+    <div class="container">
+
+        <div class="benefits-wrapper">
+
+
+            <!-- LEFT CONTENT -->
+
+            <div class="benefits-content">
+
+
+                <span class="section-label">
+                    WHY SMART IT?
+                </span>
+
+
+                <h2>
+                    Make Technology Work Smarter For You
+                </h2>
+
+
+                <p>
+                    The right IT strategy can help your business
+                    improve productivity, strengthen security and
+                    create a more reliable technology environment.
+                </p>
+
+
+                <ul class="benefits-list">
+
+                    <li>
+                        Reliable technology infrastructure
+                    </li>
+
+                    <li>
+                        Improved business productivity
+                    </li>
+
+                    <li>
+                        Better network connectivity
+                    </li>
+
+                    <li>
+                        Enhanced digital security
+                    </li>
+
+                    <li>
+                        Technology solutions that can grow with your business
+                    </li>
+
+                    <li>
+                        Practical IT support and guidance
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- RIGHT VISUAL -->
+
+            <div class="benefits-visual">
+
+
+                <div class="it-card">
+
+
+                    <div class="it-icon">
+                        💻
+                    </div>
+
+
+                    <h3>
+                        Smart Technology.
+                        Simple Solutions.
+                    </h3>
+
+
+                    <p>
+                        Connect your people, systems and technology
+                        with reliable IT solutions designed for
+                        the modern business.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA SECTION
+====================================================== -->
+
+<section
+    class="smart-it-cta"
+    id="contact"
+>
+
+
+    <div class="container">
+
+
+        <h2>
+            Ready To Make Your IT Smarter?
+        </h2>
+
+
+        <p>
+            Talk to the Dinges TechHub team about your IT
+            requirements and discover practical technology
+            solutions for your business.
+        </p>
+
+
+        <a
+            href="contact-us.html"
+            class="cta-button"
+        >
+            Contact Us
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mainNav =
+        document.querySelector(".main-nav");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            mainNav.classList.toggle("active");
+
+        }
+    );
+
+
+
+    /* =====================================================
+       MOBILE DROPDOWN MENUS
+    ===================================================== */
+
+    const dropdowns =
+        document.querySelectorAll(
+            ".nav-dropdown > a"
+        );
+
+
+    dropdowns.forEach(
+        function(dropdown) {
+
+            dropdown.addEventListener(
+                "click",
+                function(event) {
+
+
+                    if (
+                        window.innerWidth <= 768
+                    ) {
+
+
+                        event.preventDefault();
+
+
+                        this.parentElement
+                            .classList
+                            .toggle("active");
+
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CART COUNT
+    ===================================================== */
+
+    let cartCount =
+        localStorage.getItem("cartCount") || 0;
+
+
+    document.getElementById("cartCount")
+        .textContent = cartCount;
+
+
+</script>
+
+
+</body>
+
+</html>

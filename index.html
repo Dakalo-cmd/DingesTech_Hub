@@ -12,328 +12,444 @@ content="Professional internet connectivity, hosting, domains, software and IT s
 
 <title>DingesTech Hub | Internet & IT Solutions</title>
 
-
 <style>
 
 /* =========================================================
    COLOR SETTINGS
-   Change the colors below to customize the whole website
+   DINGES TECHHUB OFFICIAL COLOR PALETTE
+
+   A - #3C1542  Dark Purple
+   B - #7A2C78  Main Purple
+   C - #949493  Grey
+   D - #D9D9D9  Light Grey
+   E - #020202  Black
+   F - #FFBB42  Gold
 ========================================================= */
+
 :root {
-    --primary-color: #00A8E8;
 
-    --primary-dark: #0086BA;
+    /* A - Dark Purple */
+    --primary-dark: #3C1542;
 
-    --dark-color: #111827;
+    /* B - Main Purple */
+    --primary-color: #7A2C78;
 
-    --text-color: #1F2937;
+    /* C - Grey */
+    --grey-color: #949493;
 
-    --light-color: #F8FAFC;
+    /* D - Light Grey */
+    --light-color: #D9D9D9;
 
+    /* E - Black */
+    --dark-color: #020202;
+
+    /* F - Gold */
+    --accent-color: #FFBB42;
+
+    /* Supporting Colors */
     --white-color: #FFFFFF;
 
-    --accent-color: #F59E0B;
+    --text-color: #020202;
 
     --success-color: #16A34A;
 
     --danger-color: #DC2626;
 
-    --border-color: #E5E7EB;
+    --border-color: #D9D9D9;
 }
+
 
 /* =========================================================
    RESET
 ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:
-    var(--light-color);
+        var(--light-color);
+
     color:
-    var(--text-color);
+        var(--text-color);
+
     line-height: 1.6;
 }
+
 a {
     text-decoration: none;
     color: inherit;
 }
+
 button,
 input,
 select {
     font-family: inherit;
 }
-.container {
 
+.container {
     width: 90%;
     max-width: 1400px;
     margin: auto;
 }
+
+
 /* =========================================================
    TOP BAR
 ========================================================= */
+
 .top-bar {
     background:
-    var(--dark-color);
+        var(--dark-color);
+
     color:
-    var(--white-color);
+        var(--white-color);
+
     font-size:
-    14px;
+        14px;
 }
+
 .top-bar-content {
     min-height:
-    40px;
+        40px;
+
     display:
-    flex;
+        flex;
+
     align-items:
-    center;
+        center;
+
     justify-content:
-    space-between;
+        space-between;
 }
+
 .top-links {
     display:
-    flex;
+        flex;
+
     gap:
-    25px;
+        25px;
 }
+
 .top-links a:hover {
     color:
-    var(--primary-color);
+        var(--accent-color);
 }
+
+
 /* =========================================================
    HEADER
 ========================================================= */
+
 .header {
     background:
-    var(--white-color);
+        var(--white-color);
+
     border-bottom:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
+
     position:
-    sticky;
+        sticky;
+
     top:
-    0;
+        0;
+
     z-index:
-    1000;
+        1000;
 }
+
 .nav-container {
     width:
-    90%;
+        90%;
+
     max-width:
-    1400px;
+        1400px;
+
     height:
-    75px;
+        75px;
+
     margin:
-    auto;
+        auto;
+
     display:
-    flex;
+        flex;
+
     align-items:
-    center;
+        center;
+
     justify-content:
-    space-between;
+        space-between;
 }
+
+
 /* =========================================================
    LOGO
 ========================================================= */
+
 .logo {
     font-size:
-    27px;
+        27px;
+
     font-weight:
-    800;
+        800;
+
     white-space:
-    nowrap;
+        nowrap;
 }
+
 .logo a {
     color:
-    var(--dark-color);
+        var(--dark-color);
 }
+
 .logo span {
     color:
-    var(--primary-color);
+        var(--primary-color);
 }
+
+
 /* =========================================================
    MAIN NAVIGATION
 ========================================================= */
+
 .navigation {
     display:
-    flex;
+        flex;
+
     align-items:
-    center;
+        center;
+
     gap:
-    5px;
+        5px;
 }
+
 .nav-link {
     display:
-    flex;
+        flex;
+
     align-items:
-    center;
+        center;
+
     gap:
-    6px;
+        6px;
+
     padding:
-    28px 14px;
+        28px 14px;
+
     color:
-    var(--dark-color);
+        var(--dark-color);
+
     font-size:
-    15px;
+        15px;
+
     font-weight:
-    600;
+        600;
+
     transition:
-    0.3s;
+        0.3s;
 }
+
 .nav-link:hover {
     color:
-    var(--primary-color);
+        var(--primary-color);
 }
+
 .dropdown {
     position:
-    relative;
+        relative;
 }
+
 .dropdown-toggle span {
     font-size:
-    9px;
+        9px;
 }
+
+
 /* =========================================================
    FIRST LEVEL DROPDOWN
 ========================================================= */
+
 .dropdown-menu {
     position:
-    absolute;
+        absolute;
+
     top:
-    100%;
+        100%;
+
     left:
-    0;
+        0;
+
     min-width:
-    250px;
+        250px;
+
     background:
-    var(--white-color);
+        var(--white-color);
+
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
+
     border-radius:
-    0 0 8px 8px;
+        0 0 8px 8px;
+
     box-shadow:
-    0 15px 35px rgba(0,0,0,0.12);
+        0 15px 35px rgba(0, 0, 0, 0.12);
+
     padding:
-    10px 0;
+        10px 0;
+
     opacity:
-    0;
+        0;
+
     visibility:
-    hidden;
+        hidden;
+
     transform:
-    translateY(10px);
+        translateY(10px);
+
     transition:
-    0.25s;
+        0.25s;
 }
-.dropdown:hover >
-.dropdown-menu {
+
+.dropdown:hover > .dropdown-menu {
     opacity:
-    1;
+        1;
+
     visibility:
-    visible;
+        visible;
+
     transform:
-    translateY(0);
+        translateY(0);
 }
+
+
 /* =========================================================
    DROPDOWN ITEMS
 ========================================================= */
+
 .dropdown-item {
     position:
-    relative;
+        relative;
 }
+
 .dropdown-menu > a,
 .dropdown-item > a {
     display:
-    flex;
+        flex;
+
     align-items:
-    center;
+        center;
+
     justify-content:
-    space-between;
+        space-between;
+
     padding:
-    12px 18px;
+        12px 18px;
+
     color:
-    var(--text-color);
+        var(--text-color);
+
     font-size:
-    14px;
+        14px;
+
     white-space:
-    nowrap;
+        nowrap;
 }
+
 .dropdown-menu > a:hover,
 .dropdown-item > a:hover {
     background:
-    var(--light-color);
+        var(--light-color);
+
     color:
-    var(--primary-color);
+        var(--primary-color);
 }
+
+
 /* =========================================================
    SECOND LEVEL SUBMENU
 ========================================================= */
+
 .submenu {
     position:
-    absolute;
+        absolute;
+
     left:
-    100%;
+        100%;
+
     top:
-    -10px;
+        -10px;
+
     min-width:
-    270px;
+        270px;
+
     background:
-    var(--white-color);
+        var(--white-color);
+
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
+
     box-shadow:
-    0 15px 35px rgba(0,0,0,0.12);
+        0 15px 35px rgba(0, 0, 0, 0.12);
+
     padding:
-    10px 0;
+        10px 0;
+
     opacity:
-    0;
+        0;
+
     visibility:
-    hidden;
+        hidden;
+
     transform:
-    translateX(10px);
+        translateX(10px);
+
     transition:
-    0.25s;
+        0.25s;
 }
-.dropdown-item:hover >
-.submenu {
-    opacity:
-    1;
-    visibility:
-    visible;
-    transform:
-    translateX(0);
-}
-.submenu a {
 
+.dropdown-item:hover > .submenu {
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateX(0);
+}
+
+.submenu a {
     display:
-    block;
+        block;
 
     padding:
-    11px 18px;
+        11px 18px;
 
     color:
-    var(--text-color);
+        var(--text-color);
 
     font-size:
-    14px;
-
+        14px;
 }
 
-
 .submenu a:hover {
-
     background:
-    var(--light-color);
+        var(--light-color);
 
     color:
-    var(--primary-color);
-
+        var(--primary-color);
 }
 
 
@@ -342,111 +458,93 @@ select {
 ========================================================= */
 
 .nested-dropdown {
-
     position:
-    relative;
-
+        relative;
 }
-
 
 .nested-dropdown > a {
-
     display:
-    flex;
+        flex;
 
     align-items:
-    center;
+        center;
 
     justify-content:
-    space-between;
+        space-between;
 
     padding:
-    11px 18px;
+        11px 18px;
 
     color:
-    var(--text-color);
-
+        var(--text-color);
 }
 
-
 .nested-submenu {
-
     position:
-    absolute;
+        absolute;
 
     left:
-    100%;
+        100%;
 
     top:
-    -10px;
+        -10px;
 
     min-width:
-    270px;
+        270px;
 
     background:
-    var(--white-color);
+        var(--white-color);
 
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     box-shadow:
-    0 15px 35px rgba(0,0,0,0.12);
+        0 15px 35px rgba(0, 0, 0, 0.12);
 
     padding:
-    10px 0;
+        10px 0;
 
     opacity:
-    0;
+        0;
 
     visibility:
-    hidden;
+        hidden;
 
     transform:
-    translateX(10px);
+        translateX(10px);
 
     transition:
-    0.25s;
-
+        0.25s;
 }
 
-
-.nested-dropdown:hover >
-.nested-submenu {
-
+.nested-dropdown:hover > .nested-submenu {
     opacity:
-    1;
+        1;
 
     visibility:
-    visible;
+        visible;
 
     transform:
-    translateX(0);
-
+        translateX(0);
 }
-
 
 .nested-submenu a {
-
     display:
-    block;
+        block;
 
     padding:
-    11px 18px;
+        11px 18px;
 
     color:
-    var(--text-color);
-
+        var(--text-color);
 }
 
-
 .nested-submenu a:hover {
-
     background:
-    var(--light-color);
+        var(--light-color);
 
     color:
-    var(--primary-color);
-
+        var(--primary-color);
 }
 
 
@@ -455,97 +553,104 @@ select {
 ========================================================= */
 
 .nav-actions {
-
     display:
-    flex;
+        flex;
 
     align-items:
-    center;
+        center;
 
     gap:
-    8px;
-
+        8px;
 }
-
 
 .nav-actions button {
-
     border:
-    none;
+        none;
 
     cursor:
-    pointer;
+        pointer;
 
     padding:
-    10px 15px;
+        10px 15px;
 
     border-radius:
-    6px;
+        6px;
 
     font-weight:
-    600;
-
+        600;
 }
 
 
+/* LOGIN */
 .login-btn {
-
-    background:
-    transparent;
-
-    color:
-    var(--primary-color);
-
+    background: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
+.login-btn:hover {
+    background: var(--primary-dark);
+    color: var(--white-color);
+}
+
+
+/* REGISTER */
 
 .register-btn {
-
     background:
-    var(--primary-color);
+        var(--primary-color);
 
     color:
-    white;
-
+        var(--white-color);
 }
-
 
 .register-btn:hover {
-
     background:
-    var(--primary-dark);
-
+        var(--primary-dark);
 }
 
+
+/* CART */
 
 .cart-btn {
-
     background:
-    var(--dark-color);
+        var(--dark-color);
 
     color:
-    white;
+        var(--white-color);
+}
 
+.cart-btn:hover {
+    background:
+        var(--primary-dark);
 }
 
 
-#cartCount {
+/* CART COUNT */
 
+#cartCount {
     background:
-    var(--accent-color);
+        var(--accent-color);
+
+    color:
+        var(--dark-color);
 
     padding:
-    2px 7px;
+        2px 7px;
 
     border-radius:
-    20px;
+        20px;
 
     font-size:
-    11px;
+        11px;
 
     margin-left:
-    4px;
-
+        4px;
 }
 
 
@@ -554,22 +659,23 @@ select {
 ========================================================= */
 
 .menu-btn {
-
     display:
-    none;
+        none;
 
     background:
-    none;
+        none;
 
     border:
-    none;
+        none;
 
     font-size:
-    27px;
+        27px;
 
     cursor:
-    pointer;
+        pointer;
 
+    color:
+        var(--primary-color);
 }
 
 
@@ -578,150 +684,152 @@ select {
 ========================================================= */
 
 .hero {
-
     background:
-    linear-gradient(
-        135deg,
-        #07111F,
-        #003B5C
-    );
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
 
     color:
-    white;
+        var(--white-color);
 
     padding:
-    90px 0;
-
+        90px 0;
 }
-
 
 .hero-content {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
     gap:
-    70px;
+        70px;
 
     align-items:
-    center;
-
+        center;
 }
-
 
 .hero-text h1 {
-
     font-size:
-    50px;
+        50px;
 
     line-height:
-    1.15;
+        1.15;
 
     margin-bottom:
-    20px;
-
+        20px;
 }
-
 
 .hero-text h1 span {
-
     color:
-    var(--primary-color);
-
+        var(--accent-color);
 }
-
 
 .hero-text p {
-
     color:
-    #D7EAF2;
+        var(--light-color);
 
     font-size:
-    18px;
+        18px;
 
     max-width:
-    600px;
+        600px;
 
     margin-bottom:
-    30px;
-
+        30px;
 }
 
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
 .hero-buttons {
-
     display:
-    flex;
+        flex;
 
     gap:
-    12px;
+        12px;
 
     flex-wrap:
-    wrap;
-
+        wrap;
 }
 
+
+/* PRIMARY BUTTON */
 
 .primary-btn {
-
     background:
-    var(--primary-color);
+        var(--accent-color);
 
     color:
-    white;
+        var(--dark-color);
 
     border:
-    none;
+        none;
 
     padding:
-    14px 24px;
+        14px 24px;
 
     border-radius:
-    7px;
+        7px;
 
     cursor:
-    pointer;
+        pointer;
 
     font-weight:
-    bold;
+        bold;
 
+    transition:
+        0.3s;
 }
-
 
 .primary-btn:hover {
-
     background:
-    var(--primary-dark);
+        var(--primary-color);
 
+    color:
+        var(--white-color);
 }
 
 
-.secondary-btn {
+/* SECONDARY BUTTON */
 
+.secondary-btn {
     background:
-    transparent;
+        transparent;
 
     color:
-    white;
+        var(--white-color);
 
     border:
-    1px solid rgba(255,255,255,0.4);
+        1px solid rgba(255, 255, 255, 0.5);
 
     padding:
-    13px 24px;
+        13px 24px;
 
     border-radius:
-    7px;
+        7px;
 
     cursor:
-    pointer;
+        pointer;
 
     font-weight:
-    bold;
+        bold;
 
+    transition:
+        0.3s;
+}
+
+.secondary-btn:hover {
+    background:
+        var(--white-color);
+
+    color:
+        var(--primary-color);
 }
 
 
@@ -730,121 +838,104 @@ select {
 ========================================================= */
 
 .domain-search-box {
-
     background:
-    white;
+        var(--white-color);
 
     padding:
-    10px;
+        10px;
 
     border-radius:
-    12px;
+        12px;
 
     box-shadow:
-    0 20px 50px rgba(0,0,0,0.25);
-
+        0 20px 50px rgba(0, 0, 0, 0.25);
 }
-
 
 .domain-search-box h3 {
-
     color:
-    var(--dark-color);
+        var(--dark-color);
 
     padding:
-    15px 15px 5px;
-
+        15px 15px 5px;
 }
-
 
 .search-input-wrapper {
-
     display:
-    flex;
+        flex;
 
     gap:
-    8px;
-
+        8px;
 }
-
 
 .search-input-wrapper input {
-
     flex:
-    1;
+        1;
 
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     outline:
-    none;
+        none;
 
     padding:
-    16px;
+        16px;
 
     border-radius:
-    6px;
+        6px;
 
     font-size:
-    15px;
+        15px;
 
     color:
-    var(--text-color);
-
+        var(--text-color);
 }
-
 
 .search-input-wrapper select {
-
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     border-radius:
-    6px;
+        6px;
 
     padding:
-    0 12px;
+        0 12px;
 
     background:
-    white;
+        var(--white-color);
 
     cursor:
-    pointer;
-
+        pointer;
 }
-
 
 .search-input-wrapper button {
-
     background:
-    var(--accent-color);
+        var(--accent-color);
 
     color:
-    white;
+        var(--dark-color);
 
     border:
-    none;
+        none;
 
     padding:
-    0 22px;
+        0 22px;
 
     border-radius:
-    6px;
+        6px;
 
     cursor:
-    pointer;
+        pointer;
 
     font-weight:
-    bold;
-
+        bold;
 }
 
-
 .search-input-wrapper button:hover {
+    background:
+        var(--primary-color);
 
-    opacity:
-    0.9;
-
+    color:
+        var(--white-color);
 }
 
 
@@ -853,79 +944,62 @@ select {
 ========================================================= */
 
 .quick-services {
-
     background:
-    white;
+        var(--white-color);
 
     padding:
-    25px 0;
+        25px 0;
 
     border-bottom:
-    1px solid var(--border-color);
-
+        1px solid var(--border-color);
 }
-
 
 .quick-grid {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    repeat(4, 1fr);
+        repeat(4, 1fr);
 
     gap:
-    15px;
-
+        15px;
 }
-
 
 .quick-item {
-
     padding:
-    18px;
+        18px;
 
     border-right:
-    1px solid var(--border-color);
-
+        1px solid var(--border-color);
 }
-
 
 .quick-item:last-child {
-
     border:
-    none;
-
+        none;
 }
-
 
 .quick-icon {
-
     font-size:
-    28px;
+        28px;
 
     margin-bottom:
-    5px;
-
+        5px;
 }
-
 
 .quick-item h3 {
-
     font-size:
-    16px;
-
-}
-
-
-.quick-item p {
+        16px;
 
     color:
-    #6B7280;
+        var(--primary-dark);
+}
+
+.quick-item p {
+    color:
+        var(--grey-color);
 
     font-size:
-    13px;
-
+        13px;
 }
 
 
@@ -934,167 +1008,140 @@ select {
 ========================================================= */
 
 .search-results-section {
-
     padding:
-    70px 0;
+        70px 0;
 
     background:
-    white;
-
+        var(--white-color);
 }
-
 
 .search-results-section h2 {
-
     text-align:
-    center;
+        center;
 
     margin-bottom:
-    35px;
+        35px;
 
+    color:
+        var(--primary-dark);
 }
-
 
 #searchResults {
-
     max-width:
-    900px;
+        900px;
 
     margin:
-    auto;
-
+        auto;
 }
-
 
 .empty-results {
-
     text-align:
-    center;
+        center;
 
     padding:
-    40px;
+        40px;
 
     color:
-    #6B7280;
-
+        var(--grey-color);
 }
-
 
 .empty-icon {
-
     font-size:
-    50px;
+        50px;
 
     margin-bottom:
-    10px;
-
+        10px;
 }
-
 
 .result-card {
-
     display:
-    flex;
+        flex;
 
     justify-content:
-    space-between;
+        space-between;
 
     align-items:
-    center;
+        center;
 
     padding:
-    20px;
+        20px;
 
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     border-radius:
-    10px;
+        10px;
 
     margin-bottom:
-    12px;
-
+        12px;
 }
-
 
 .result-domain {
-
     font-size:
-    18px;
+        18px;
 
     font-weight:
-    bold;
-
+        bold;
 }
-
 
 .available {
-
     color:
-    var(--success-color);
+        var(--success-color);
 
     font-size:
-    14px;
-
+        14px;
 }
-
 
 .unavailable {
-
     color:
-    var(--danger-color);
+        var(--danger-color);
 
     font-size:
-    14px;
-
+        14px;
 }
-
 
 .result-actions {
-
     display:
-    flex;
+        flex;
 
     align-items:
-    center;
+        center;
 
     gap:
-    15px;
-
+        15px;
 }
-
 
 .result-price {
-
     font-weight:
-    bold;
+        bold;
 
     color:
-    var(--primary-color);
-
+        var(--primary-color);
 }
 
-
 .add-cart {
-
     background:
-    var(--primary-color);
+        var(--primary-color);
 
     color:
-    white;
+        var(--white-color);
 
     border:
-    none;
+        none;
 
     padding:
-    10px 18px;
+        10px 18px;
 
     border-radius:
-    6px;
+        6px;
 
     cursor:
-    pointer;
+        pointer;
+}
 
+.add-cart:hover {
+    background:
+        var(--primary-dark);
 }
 
 
@@ -1103,138 +1150,117 @@ select {
 ========================================================= */
 
 .services-section {
-
     padding:
-    90px 0;
+        90px 0;
 
     background:
-    var(--light-color);
-
+        var(--light-color);
 }
-
 
 .section-heading {
-
     text-align:
-    center;
+        center;
 
     margin-bottom:
-    50px;
-
+        50px;
 }
-
 
 .section-heading h2 {
-
     font-size:
-    36px;
+        36px;
 
     margin-bottom:
-    10px;
+        10px;
 
     color:
-    var(--dark-color);
-
+        var(--primary-dark);
 }
-
 
 .section-heading p {
-
     max-width:
-    700px;
+        700px;
 
     margin:
-    auto;
+        auto;
 
     color:
-    #6B7280;
-
+        var(--grey-color);
 }
-
 
 .services-grid {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    repeat(3, 1fr);
+        repeat(3, 1fr);
 
     gap:
-    25px;
-
+        25px;
 }
-
 
 .service-card {
-
     background:
-    white;
+        var(--white-color);
 
     padding:
-    30px;
+        30px;
 
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     border-radius:
-    12px;
+        12px;
 
     transition:
-    0.3s;
-
+        0.3s;
 }
-
 
 .service-card:hover {
-
     transform:
-    translateY(-5px);
+        translateY(-5px);
 
     box-shadow:
-    0 15px 35px rgba(0,0,0,0.08);
+        0 15px 35px rgba(0, 0, 0, 0.08);
 
+    border-color:
+        var(--primary-color);
 }
-
 
 .service-icon {
-
     font-size:
-    35px;
+        35px;
 
     margin-bottom:
-    15px;
-
+        15px;
 }
-
 
 .service-card h3 {
-
     margin-bottom:
-    10px;
+        10px;
 
+    color:
+        var(--primary-dark);
 }
-
 
 .service-card p {
-
     color:
-    #6B7280;
+        var(--grey-color);
 
     margin-bottom:
-    20px;
-
+        20px;
 }
 
-
 .service-link {
-
     color:
-    var(--primary-color);
+        var(--primary-color);
 
     font-weight:
-    bold;
+        bold;
+}
 
+.service-link:hover {
+    color:
+        var(--primary-dark);
 }
 
 
@@ -1243,122 +1269,104 @@ select {
 ========================================================= */
 
 .hosting-section {
-
     padding:
-    90px 0;
+        90px 0;
 
     background:
-    var(--dark-color);
+        var(--primary-dark);
 
     color:
-    white;
-
+        var(--white-color);
 }
-
 
 .hosting-content {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    1fr 1fr;
+        1fr 1fr;
 
     gap:
-    60px;
+        60px;
 
     align-items:
-    center;
-
+        center;
 }
-
 
 .section-tag {
-
     color:
-    var(--primary-color);
+        var(--accent-color);
 
     font-size:
-    13px;
+        13px;
 
     font-weight:
-    bold;
+        bold;
 
     letter-spacing:
-    2px;
-
+        2px;
 }
-
 
 .hosting-text h2 {
-
     font-size:
-    38px;
+        38px;
 
     margin:
-    15px 0;
-
+        15px 0;
 }
-
 
 .hosting-text p {
-
     color:
-    #CBD5E1;
+        var(--light-color);
 
     margin-bottom:
-    25px;
-
+        25px;
 }
-
 
 .hosting-features {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    repeat(2, 1fr);
+        repeat(2, 1fr);
 
     gap:
-    20px;
-
+        20px;
 }
-
 
 .feature {
-
     padding:
-    25px;
+        25px;
 
     border:
-    1px solid #334155;
+        1px solid rgba(255, 255, 255, 0.2);
 
     border-radius:
-    10px;
+        10px;
 
+    transition:
+        0.3s;
 }
 
+.feature:hover {
+    border-color:
+        var(--accent-color);
+}
 
 .feature-icon {
-
     font-size:
-    30px;
+        30px;
 
     margin-bottom:
-    10px;
-
+        10px;
 }
 
-
 .feature p {
-
     color:
-    #94A3B8;
+        #D9D9D9;
 
     font-size:
-    14px;
-
+        14px;
 }
 
 
@@ -1367,66 +1375,63 @@ select {
 ========================================================= */
 
 .about-section {
-
     padding:
-    90px 0;
+        90px 0;
 
     background:
-    white;
-
+        var(--white-color);
 }
-
 
 .benefits {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    repeat(3, 1fr);
+        repeat(3, 1fr);
 
     gap:
-    25px;
-
+        25px;
 }
-
 
 .benefit {
-
     padding:
-    30px;
+        30px;
 
     border:
-    1px solid var(--border-color);
+        1px solid var(--border-color);
 
     border-radius:
-    10px;
+        10px;
 
+    transition:
+        0.3s;
 }
 
+.benefit:hover {
+    border-color:
+        var(--primary-color);
+
+    transform:
+        translateY(-4px);
+}
 
 .benefit-number {
-
     color:
-    var(--primary-color);
+        var(--primary-color);
 
     font-size:
-    18px;
+        18px;
 
     font-weight:
-    bold;
+        bold;
 
     margin-bottom:
-    15px;
-
+        15px;
 }
 
-
 .benefit p {
-
     color:
-    #6B7280;
-
+        var(--grey-color);
 }
 
 
@@ -1435,30 +1440,25 @@ select {
 ========================================================= */
 
 .contact-section {
-
     padding:
-    70px 0;
+        70px 0;
 
     background:
-    #E8F7FC;
-
+        var(--light-color);
 }
 
-
 .contact-content {
-
     display:
-    flex;
+        flex;
 
     justify-content:
-    space-between;
+        space-between;
 
     align-items:
-    center;
+        center;
 
     gap:
-    30px;
-
+        30px;
 }
 
 
@@ -1467,110 +1467,84 @@ select {
 ========================================================= */
 
 .footer {
-
     background:
-    #0B1120;
+        var(--primary-dark);
 
     color:
-    white;
+        var(--white-color);
 
     padding-top:
-    60px;
-
+        60px;
 }
-
 
 .footer-grid {
-
     display:
-    grid;
+        grid;
 
     grid-template-columns:
-    2fr 1fr 1fr 1fr;
+        2fr 1fr 1fr 1fr;
 
     gap:
-    40px;
+        40px;
 
     padding-bottom:
-    50px;
-
+        50px;
 }
-
 
 .footer-logo {
-
     font-size:
-    25px;
+        25px;
 
     font-weight:
-    bold;
+        bold;
 
     margin-bottom:
-    15px;
-
+        15px;
 }
-
 
 .footer-logo span {
-
     color:
-    var(--primary-color);
-
+        var(--accent-color);
 }
-
 
 .footer-column p {
-
     color:
-    #9CA3AF;
-
+        #D9D9D9;
 }
-
 
 .footer-column h3 {
-
     margin-bottom:
-    15px;
-
+        15px;
 }
-
 
 .footer-column a {
-
     display:
-    block;
+        block;
 
     color:
-    #9CA3AF;
+        #D9D9D9;
 
     margin-bottom:
-    8px;
-
+        8px;
 }
-
 
 .footer-column a:hover {
-
     color:
-    var(--primary-color);
-
+        var(--accent-color);
 }
 
-
 .footer-bottom {
-
     border-top:
-    1px solid #374151;
+        1px solid rgba(255, 255, 255, 0.2);
 
     padding:
-    20px;
+        20px;
 
     text-align:
-    center;
+        center;
 
     color:
-    #9CA3AF;
-
+        #D9D9D9;
 }
 
 
@@ -1579,183 +1553,173 @@ select {
 ========================================================= */
 
 .modal {
-
     display:
-    none;
+        none;
 
     position:
-    fixed;
+        fixed;
 
     inset:
-    0;
+        0;
 
     background:
-    rgba(0,0,0,0.65);
+        rgba(2, 2, 2, 0.65);
 
     z-index:
-    2000;
+        2000;
 
     align-items:
-    center;
+        center;
 
     justify-content:
-    center;
+        center;
 
     padding:
-    20px;
-
+        20px;
 }
-
 
 .modal.show {
-
     display:
-    flex;
-
+        flex;
 }
-
 
 .modal-content {
-
     width:
-    100%;
+        100%;
 
     max-width:
-    600px;
+        600px;
 
     background:
-    white;
+        var(--white-color);
 
     border-radius:
-    12px;
+        12px;
 
     padding:
-    30px;
+        30px;
 
     position:
-    relative;
+        relative;
 
     max-height:
-    80vh;
+        80vh;
 
     overflow-y:
-    auto;
-
+        auto;
 }
-
 
 .close-modal {
-
     position:
-    absolute;
+        absolute;
 
     top:
-    12px;
+        12px;
 
     right:
-    18px;
+        18px;
 
     border:
-    none;
+        none;
 
     background:
-    none;
+        none;
 
     font-size:
-    28px;
+        28px;
 
     cursor:
-    pointer;
+        pointer;
 
+    color:
+        var(--dark-color);
 }
 
+.close-modal:hover {
+    color:
+        var(--primary-color);
+}
 
 .cart-item {
-
     display:
-    flex;
+        flex;
 
     justify-content:
-    space-between;
+        space-between;
 
     align-items:
-    center;
+        center;
 
     padding:
-    15px 0;
+        15px 0;
 
     border-bottom:
-    1px solid var(--border-color);
-
+        1px solid var(--border-color);
 }
-
 
 .remove-cart {
-
     background:
-    #FEE2E2;
+        #FEE2E2;
 
     color:
-    var(--danger-color);
+        var(--danger-color);
 
     border:
-    none;
+        none;
 
     padding:
-    7px 10px;
+        7px 10px;
 
     border-radius:
-    5px;
+        5px;
 
     cursor:
-    pointer;
-
+        pointer;
 }
-
 
 .cart-total {
-
     display:
-    flex;
+        flex;
 
     justify-content:
-    space-between;
+        space-between;
 
     padding:
-    20px 0;
+        20px 0;
 
     font-size:
-    20px;
-
+        20px;
 }
 
-
 .checkout-btn {
-
     width:
-    100%;
+        100%;
 
     padding:
-    14px;
+        14px;
 
     background:
-    var(--primary-color);
+        var(--primary-color);
 
     color:
-    white;
+        var(--white-color);
 
     border:
-    none;
+        none;
 
     border-radius:
-    7px;
+        7px;
 
     font-weight:
-    bold;
+        bold;
 
     cursor:
-    pointer;
+        pointer;
+}
 
+.checkout-btn:hover {
+    background:
+        var(--primary-dark);
 }
 
 
@@ -1766,324 +1730,468 @@ select {
 @media (max-width: 1150px) {
 
     .navigation {
-
         display:
-        none;
+            none;
 
         position:
-        absolute;
+            absolute;
 
         top:
-        75px;
+            75px;
 
         left:
-        0;
+            0;
 
         width:
-        100%;
+            100%;
 
         background:
-        white;
+            var(--white-color);
 
         flex-direction:
-        column;
+            column;
 
         align-items:
-        stretch;
+            stretch;
 
         padding:
-        15px;
+            15px;
 
         box-shadow:
-        0 10px 25px rgba(0,0,0,0.12);
-
+            0 10px 25px rgba(0, 0, 0, 0.12);
     }
-
 
     .navigation.show {
-
         display:
-        flex;
-
+            flex;
     }
-
 
     .nav-link {
-
         padding:
-        15px;
-
+            15px;
     }
-
 
     .dropdown-menu,
     .submenu,
     .nested-submenu {
-
         position:
-        static;
+            static;
 
         display:
-        none;
+            none;
 
         opacity:
-        1;
+            1;
 
         visibility:
-        visible;
+            visible;
 
         transform:
-        none;
+            none;
 
         box-shadow:
-        none;
+            none;
 
         border:
-        none;
+            none;
 
         padding-left:
-        15px;
-
+            15px;
     }
 
-
-    .dropdown:hover >
-    .dropdown-menu {
-
+    .dropdown:hover > .dropdown-menu {
         display:
-        block;
-
+            block;
     }
 
-
-    .dropdown-item:hover >
-    .submenu {
-
+    .dropdown-item:hover > .submenu {
         display:
-        block;
-
+            block;
     }
 
-
-    .nested-dropdown:hover >
-    .nested-submenu {
-
+    .nested-dropdown:hover > .nested-submenu {
         display:
-        block;
-
+            block;
     }
-
 
     .nav-actions {
-
         display:
-        none;
-
+            none;
     }
-
 
     .menu-btn {
-
         display:
-        block;
-
+            block;
     }
-
 
     .hero-content {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 }
 
 
 @media (max-width: 900px) {
 
     .services-grid {
-
         grid-template-columns:
-        repeat(2, 1fr);
-
+            repeat(2, 1fr);
     }
-
 
     .hosting-content {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .benefits {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .footer-grid {
-
         grid-template-columns:
-        repeat(2, 1fr);
-
+            repeat(2, 1fr);
     }
-
 
     .quick-grid {
-
         grid-template-columns:
-        repeat(2, 1fr);
-
+            repeat(2, 1fr);
     }
-
 }
 
 
 @media (max-width: 600px) {
 
     .top-bar-content {
-
         justify-content:
-        center;
-
+            center;
     }
-
 
     .top-links {
-
         display:
-        none;
-
+            none;
     }
-
 
     .hero {
-
         padding:
-        60px 0;
-
+            60px 0;
     }
-
 
     .hero-text h1 {
-
         font-size:
-        36px;
-
+            36px;
     }
-
 
     .search-input-wrapper {
-
         flex-direction:
-        column;
-
+            column;
     }
-
 
     .search-input-wrapper input,
     .search-input-wrapper select,
     .search-input-wrapper button {
-
         padding:
-        14px;
-
+            14px;
     }
-
 
     .services-grid {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .hosting-features {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .contact-content {
-
         flex-direction:
-        column;
+            column;
 
         align-items:
-        flex-start;
-
+            flex-start;
     }
-
 
     .footer-grid {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .quick-grid {
-
         grid-template-columns:
-        1fr;
-
+            1fr;
     }
-
 
     .quick-item {
-
         border:
-        none;
+            none;
 
         border-bottom:
-        1px solid var(--border-color);
-
+            1px solid var(--border-color);
     }
-
 
     .result-card {
-
         flex-direction:
-        column;
+            column;
 
         align-items:
-        flex-start;
+            flex-start;
 
         gap:
-        15px;
-
+            15px;
     }
-
 
     .result-actions {
-
         width:
-        100%;
+            100%;
 
         justify-content:
-        space-between;
+            space-between;
+    }
+}
 
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+img {
+    max-width:
+        100%;
+
+    height:
+        auto;
+
+    display:
+        block;
+}
+
+/* =====================================================
+   ABOUT DINGES TECH
+====================================================== */
+
+.about-overview-section {
+    padding: 85px 20px;
+    background: #ffffff;
+    position: relative;
+}
+
+
+/* Main Container */
+
+.about-overview {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/* Content */
+
+.about-overview-content {
+    text-align: center;
+    padding: 55px 65px;
+
+    background: #f8f8f8;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Decorative Top Line */
+
+.about-overview-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #3C1542,
+        #7A2C78,
+        #FFBB42
+    );
+}
+
+
+/* About Label */
+
+.about-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #7A2C78;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* Heading */
+
+.about-overview-content h2 {
+    max-width: 750px;
+
+    margin: 0 auto 25px;
+
+    color: #3C1542;
+
+    font-size: 36px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+}
+
+
+/* Paragraphs */
+
+.about-overview-content p {
+    max-width: 780px;
+
+    margin: 0 auto 18px;
+
+    color: #666666;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* Strong Text */
+
+.about-overview-content strong {
+    color: #3C1542;
+
+    font-weight: 700;
+}
+
+
+/* Learn More Button */
+
+.about-learn-more {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    padding: 13px 25px;
+
+    background: #7A2C78;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    border-radius: 6px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Arrow */
+
+.about-learn-more span {
+    font-size: 19px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover */
+
+.about-learn-more:hover {
+    background: #3C1542;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(60, 21, 66, 0.2);
+}
+
+
+.about-learn-more:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =====================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 768px) {
+
+    .about-overview-section {
+        padding: 60px 15px;
+    }
+
+
+    .about-overview-content {
+        padding: 45px 25px;
+    }
+
+
+    .about-overview-content h2 {
+        font-size: 28px;
+
+        line-height: 1.35;
+    }
+
+
+    .about-overview-content p {
+        font-size: 15px;
+
+        line-height: 1.7;
     }
 
 }
 
-img{ 
-     max-width:100%;
-	 height:auto;
-	 display:block;
+
+@media (max-width: 480px) {
+
+    .about-overview-content {
+        padding: 40px 20px;
+    }
+
+
+    .about-overview-content h2 {
+        font-size: 25px;
+    }
+
+
+    .about-learn-more {
+        width: 100%;
+
+        justify-content: center;
+    }
+
 }
-
-
-</style>
+</style> 
 
 </head>
 
@@ -2434,7 +2542,7 @@ img{
 
                     </a>
 
-                    <a href="#contact">
+                    <a href="contact.html">
 
                         Contact Support
 
@@ -2464,20 +2572,11 @@ img{
 
         <div class="nav-actions">
            
-		   <a href="login.html" class="login-btn">
-                      Login
-            </a> 
-
-
-            <button
-                class="register-btn"
-                onclick="showMessage('Registration system coming soon')">
-
-                Register
-
+		   <button type="button" class="login-btn" onclick="window.location.href='login.html'">
+                          Login
             </button>
 
-
+          
             <button
                 class="cart-btn"
                 onclick="openCart()">
@@ -2644,15 +2743,20 @@ img{
      QUICK SERVICES
 ====================================================== -->
 
+<!-- =========================================================
+     QUICK CATEGORIES
+========================================================= -->
+
 <section class="quick-services">
 
     <div class="container quick-grid">
 
 
+        <!-- 1. INTERNET CONNECTIVITY -->
         <div class="quick-item">
 
             <div class="quick-icon">
-              <img src="internet connectivity.jpg" alt="internet icon">
+                🌐
             </div>
 
             <h3>
@@ -2660,12 +2764,31 @@ img{
             </h3>
 
             <p>
-                Fibre, LTE, mobile and broadband solutions.
+                Reliable fibre, wireless, LTE, 5G and mobile connectivity solutions.
             </p>
 
         </div>
 
 
+        <!-- 2. COMMUNICATION SOLUTIONS -->
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                📞
+            </div>
+
+            <h3>
+                Communication Solutions
+            </h3>
+
+            <p>
+                Cloud PBX, smart numbers, mobile services and business communications.
+            </p>
+
+        </div>
+
+
+        <!-- 3. WEB & EMAIL HOSTING -->
         <div class="quick-item">
 
             <div class="quick-icon">
@@ -2673,33 +2796,53 @@ img{
             </div>
 
             <h3>
-                Hosting & Domains
+                Web & Email Hosting
             </h3>
 
             <p>
-                Professional hosting and domain registration.
+                Domains, websites, business email and reliable web hosting.
             </p>
 
         </div>
 
 
+        <!-- 4. SOFTWARE SOLUTIONS -->
         <div class="quick-item">
 
             <div class="quick-icon">
-                  <img src="voip.png" alt="Voip icon">
+                💻
             </div>
 
             <h3>
-                Business Communication
+                Software Solutions
             </h3>
 
             <p>
-                VOIP, PBX and business communication solutions.
+                Business software, Microsoft 365, CRM and security solutions.
             </p>
 
         </div>
 
 
+        <!-- 5. SMART LIVING & BUSINESS -->
+        <div class="quick-item">
+
+            <div class="quick-icon">
+                🏠
+            </div>
+
+            <h3>
+                Smart Living & Business
+            </h3>
+
+            <p>
+                Smart automation, security and connected technology for homes and businesses.
+            </p>
+
+        </div>
+
+
+        <!-- 6. SMART SOLUTIONS -->
         <div class="quick-item">
 
             <div class="quick-icon">
@@ -2707,11 +2850,11 @@ img{
             </div>
 
             <h3>
-                IT Support
+                Smart Solutions
             </h3>
 
             <p>
-                Technical support and smart IT solutions.
+                Professional IT support, monitoring and technology management.
             </p>
 
         </div>
@@ -2722,41 +2865,47 @@ img{
 </section>
 
 
-
 <!-- =====================================================
-     SEARCH RESULTS
+     ABOUT DINGES TECH
 ====================================================== -->
 
-<section class="search-results-section">
+<section class="about-overview-section">
 
-    <div class="container">
+    <div class="container about-overview">
 
-        <h2>
-            Domain Search Results
-        </h2>
+        <div class="about-overview-content">
 
+            <span class="about-label">
+                ABOUT US
+            </span>
 
-        <div id="searchResults">
+            <h2>
+                Dinges Tech is a young, vibrant technology service provider...
+            </h2>
 
-            <div class="empty-results">
+            <p>
+                We resell internet connectivity, VOIP, CRM, and smart home/business
+                services from reputable providers. Founded under
+                <strong>Gracious Virtual Assistants (GVA)</strong> in 2012,
+                Dinges Tech began trading independently in late 2019.
+            </p>
 
-                <div class="empty-icon">
-                    🔎
-                </div>
+            <p>
+                By leveraging our suppliers' expertise, we stay updated with the
+                latest technology developments, offering our clients the
+                <strong>best solutions at the best prices.</strong>
+            </p>
 
-                <p>
-                    Search for a domain name to see available domains.
-                </p>
-
-            </div>
+            <a href="#" class="about-learn-more">
+                Learn More
+                <span>→</span>
+            </a>
 
         </div>
 
     </div>
 
 </section>
-
-
 
 <!-- =====================================================
      SERVICES
@@ -2821,7 +2970,7 @@ img{
                     for businesses of every size.
                 </p>
 
-                <a href="melon" class="service-link">
+                <a href="voip_telephony.html" class="service-link">
                     View Telephony →
                 </a>
 
@@ -2844,7 +2993,7 @@ img{
                     and reliable shared hosting.
                 </p>
 
-                <a href="#domains" class="service-link">
+                <a href="web&hosting.html" class="service-link">
                     View Hosting →
                 </a>
 
@@ -2867,7 +3016,7 @@ img{
                     monitoring and security solutions.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="internet of things.html" class="service-link">
                     Explore IoT →
                 </a>
 
@@ -2888,7 +3037,7 @@ img{
                     CRM, automation, WhatsApp Business API,
                     Microsoft 365 and security software.
                 </p>
-                <a href="#" class="service-link">
+                <a href="software-solution.html" class="service-link">
                     View Software →
                 </a>
             </div>
@@ -2908,7 +3057,7 @@ img{
                     IT support and business technology solutions.
                 </p>
 
-                <a href="#" class="service-link">
+                <a href="Smart IT solution.html" class="service-link">
                     Get IT Support →
                 </a>
 

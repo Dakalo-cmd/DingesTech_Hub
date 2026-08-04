@@ -9,7 +9,6 @@
 
 <title>Login | Your Company</title>
 
-
 <style>
 
 /* =====================================================
@@ -79,7 +78,6 @@ body {
         ease-in-out;
 }
 
-
 .blob.one {
 
     width: 350px;
@@ -91,7 +89,6 @@ body {
     left: -100px;
 
 }
-
 
 .blob.two {
 
@@ -106,7 +103,6 @@ body {
     animation-delay: 3s;
 
 }
-
 
 .blob.three {
 
@@ -168,7 +164,6 @@ body {
 
 }
 
-
 .circle.one {
 
     width: 500px;
@@ -178,7 +173,6 @@ body {
     right: -150px;
 
 }
-
 
 .circle.two {
 
@@ -787,19 +781,28 @@ textarea {
 /* =====================================================
    CHECKBOX
 ===================================================== */
+
 .form-checkbox {
+
     display: flex;
+
     align-items: flex-start;
+
     gap: 8px;
+
     margin-top: 15px;
 
 }
 
 
 .form-checkbox input {
+
     width: 16px;
+
     height: 16px;
+
     margin-top: 2px;
+
     accent-color:
         #03a9f4;
 
@@ -853,17 +856,28 @@ textarea {
 /* =====================================================
    BUTTON
 ===================================================== */
+
 button {
+
     height: 48px;
+
     padding:
         0 25px;
+
     border: none;
+
     border-radius: 10px;
+
     cursor: pointer;
+
     font-size: 12px;
+
     font-weight: bold;
+
     text-transform: uppercase;
+
     letter-spacing: 1px;
+
     transition: 0.3s;
 
 }
@@ -1078,141 +1092,6 @@ button:hover {
 
 
 /* =====================================================
-   MOBILE
-===================================================== */
-
-@media screen and (max-width: 768px) {
-
-    body {
-
-        overflow: auto;
-
-    }
-
-
-    .brand {
-
-        top: 20px;
-
-        left: 20px;
-
-        font-size: 17px;
-
-    }
-
-
-    #slideBox {
-
-        width: 94%;
-
-        height: 650px;
-
-        max-height: none;
-
-        top: 55%;
-
-    }
-
-
-    .content {
-
-        width: 80%;
-
-    }
-
-
-    .left .content {
-
-        width: 82%;
-
-        padding:
-            30px 0;
-
-    }
-
-
-    .content h2 {
-
-        font-size: 32px;
-
-    }
-
-
-    .form-grid {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .form-full {
-
-        grid-column:
-            auto;
-
-    }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media screen and (max-width: 480px) {
-
-    #slideBox {
-
-        width: 94%;
-
-        height: 620px;
-
-    }
-
-
-    .content {
-
-        width: 82%;
-
-    }
-
-
-    .left .content {
-
-        width: 85%;
-
-    }
-
-
-    .content h2 {
-
-        font-size: 28px;
-
-    }
-
-
-    .form-submit {
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-
-    }
-
-
-    .form-submit button {
-
-        width:
-            100%;
-
-    }
-
-}
-
-/* =====================================================
    BACK TO MAIN WEBSITE
 ===================================================== */
 
@@ -1264,8 +1143,6 @@ button:hover {
 }
 
 
-/* ARROW */
-
 .back-home span {
 
     font-size: 20px;
@@ -1277,8 +1154,6 @@ button:hover {
 
 }
 
-
-/* HOVER */
 
 .back-home:hover {
 
@@ -1312,6 +1187,69 @@ button:hover {
 
 @media screen and (max-width: 768px) {
 
+    body {
+
+        overflow: auto;
+
+    }
+
+    .brand {
+
+        top: 20px;
+
+        left: 20px;
+
+        font-size: 17px;
+
+    }
+
+    #slideBox {
+
+        width: 94%;
+
+        height: 650px;
+
+        max-height: none;
+
+        top: 55%;
+
+    }
+
+    .content {
+
+        width: 80%;
+
+    }
+
+    .left .content {
+
+        width: 82%;
+
+        padding:
+            30px 0;
+
+    }
+
+    .content h2 {
+
+        font-size: 32px;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .form-full {
+
+        grid-column:
+            auto;
+
+    }
+
     .back-home {
 
         top: 20px;
@@ -1328,6 +1266,49 @@ button:hover {
 
 
 @media screen and (max-width: 480px) {
+
+    #slideBox {
+
+        width: 94%;
+
+        height: 620px;
+
+    }
+
+    .content {
+
+        width: 82%;
+
+    }
+
+    .left .content {
+
+        width: 85%;
+
+    }
+
+    .content h2 {
+
+        font-size: 28px;
+
+    }
+
+    .form-submit {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+    .form-submit button {
+
+        width:
+            100%;
+
+    }
 
     .back-home {
 
@@ -1348,11 +1329,17 @@ button:hover {
 
 <body>
 
+
 <!-- BACK TO MAIN WEBSITE -->
+
 <a href="index.html" class="back-home">
+
     <span>←</span>
+
     Back to Main Website
+
 </a>
+
 
 <!-- =====================================================
      BACKGROUND
@@ -1425,7 +1412,12 @@ button:hover {
 </p>
 
 
-<form id="signupForm">
+<form
+    id="signupForm"
+    action="auth/register.php"
+    method="POST"
+    enctype="multipart/form-data"
+>
 
 
 <!-- =================================================
@@ -1449,6 +1441,7 @@ button:hover {
 <input
     type="text"
     id="firstName"
+    name="first_name"
     placeholder="First Name"
     required
 >
@@ -1465,6 +1458,7 @@ button:hover {
 <input
     type="text"
     id="lastName"
+    name="last_name"
     placeholder="Last Name"
     required
 >
@@ -1481,6 +1475,7 @@ button:hover {
 <input
     type="email"
     id="email"
+    name="email"
     placeholder="you@example.com"
     required
 >
@@ -1503,6 +1498,7 @@ button:hover {
 <input
     type="tel"
     id="phone"
+    name="phone"
     placeholder="82 123 4567"
     required
 >
@@ -1535,6 +1531,7 @@ button:hover {
 <input
     type="text"
     id="companyName"
+    name="company_name"
     placeholder="Company Name"
 >
 
@@ -1550,6 +1547,7 @@ button:hover {
 <input
     type="text"
     id="streetAddress"
+    name="street_address"
     placeholder="Street Address"
     required
 >
@@ -1566,6 +1564,7 @@ button:hover {
 <input
     type="text"
     id="streetAddress2"
+    name="street_address_2"
     placeholder="Street Address 2"
 >
 
@@ -1581,6 +1580,7 @@ button:hover {
 <input
     type="text"
     id="city"
+    name="city"
     placeholder="City"
     required
 >
@@ -1597,6 +1597,7 @@ button:hover {
 <input
     type="text"
     id="state"
+    name="state"
     placeholder="State / Province"
     required
 >
@@ -1613,6 +1614,7 @@ button:hover {
 <input
     type="text"
     id="postcode"
+    name="postcode"
     placeholder="Postcode"
     required
 >
@@ -1626,21 +1628,24 @@ button:hover {
     Country
 </label>
 
-<select id="country">
+<select
+    id="country"
+    name="country"
+>
 
-<option>
+<option value="South Africa">
     South Africa
 </option>
 
-<option>
+<option value="Botswana">
     Botswana
 </option>
 
-<option>
+<option value="Zimbabwe">
     Zimbabwe
 </option>
 
-<option>
+<option value="Mozambique">
     Mozambique
 </option>
 
@@ -1658,6 +1663,7 @@ button:hover {
 <input
     type="text"
     id="taxId"
+    name="tax_id"
     placeholder="Tax ID"
 >
 
@@ -1685,33 +1691,36 @@ button:hover {
     How did you find us?
 </label>
 
-<select id="howFound">
+<select
+    id="howFound"
+    name="how_found"
+>
 
-<option>
+<option value="None">
     None
 </option>
 
-<option>
+<option value="Google Search">
     Google Search
 </option>
 
-<option>
+<option value="Facebook">
     Facebook
 </option>
 
-<option>
+<option value="Instagram">
     Instagram
 </option>
 
-<option>
+<option value="TikTok">
     TikTok
 </option>
 
-<option>
+<option value="Friend or Family">
     Friend or Family
 </option>
 
-<option>
+<option value="Other">
     Other
 </option>
 
@@ -1729,6 +1738,7 @@ button:hover {
 <input
     type="text"
     id="identityNumber"
+    name="identity_number"
     placeholder="Identity Number"
     required
 >
@@ -1739,13 +1749,14 @@ button:hover {
 <div class="form-element">
 
 <label>
-    WIFI Name <span class="required">*</span>
+    ID Proof <span class="required">*</span>
 </label>
 
 <input
-    type="text"
-    id="wifiName"
-    placeholder="Your WIFI Name"
+    type="file"
+    id="idProof"
+    name="idProof"
+    accept=".pdf,.jpg,.jpeg,.png"
     required
 >
 
@@ -1755,31 +1766,16 @@ button:hover {
 <div class="form-element">
 
 <label>
-    WIFI Password <span class="required">*</span>
+    Proof of Residence <span class="required">*</span>
 </label>
 
-<div class="input-box">
-
 <input
-    type="password"
-    id="wifiPassword"
-    minlength="8"
-    maxlength="16"
-    placeholder="8-16 characters"
+    type="file"
+    id="proofOfResidence"
+    name="proofOfResidence"
+    accept=".pdf,.jpg,.jpeg,.png"
     required
 >
-
-<span
-    class="show-password"
-    onclick="togglePassword(
-        'wifiPassword',
-        this
-    )"
->
-    Show
-</span>
-
-</div>
 
 </div>
 
@@ -1792,6 +1788,7 @@ button:hover {
 
 <textarea
     id="additionalInfo"
+    name="additional_info"
     placeholder="Enter additional information..."
 ></textarea>
 
@@ -1801,10 +1798,6 @@ button:hover {
 </div>
 
 
-<!-- =================================================
-     WIFI INFORMATION
-================================================== -->
-
 <div style="
     font-size:11px;
     line-height:1.6;
@@ -1812,19 +1805,15 @@ button:hover {
     margin-top:10px;
 ">
 
-<strong>WIFI Name:</strong>
+<strong>Required Documents:</strong>
 
-The name entered above will be the name
-of your WIFI network and will be seen by
-you or others.
+Please upload a valid copy of your ID document
+and a valid proof of residence.
 
 <br><br>
 
-<strong>WIFI Password:</strong>
-
-This must include 8-16 characters including
-uppercase/lowercase letters, numbers,
-and symbols.
+Accepted file formats:
+PDF, JPG, JPEG, PNG.
 
 </div>
 
@@ -1852,16 +1841,14 @@ and symbols.
 <input
     type="password"
     id="signupPassword"
+    name="password"
     placeholder="Create a password"
     required
 >
 
 <span
     class="show-password"
-    onclick="togglePassword(
-        'signupPassword',
-        this
-    )"
+    onclick="togglePassword('signupPassword', this)"
 >
     Show
 </span>
@@ -1902,16 +1889,14 @@ Password Strength:
 <input
     type="password"
     id="confirmPassword"
+    name="confirm_password"
     placeholder="Confirm password"
     required
 >
 
 <span
     class="show-password"
-    onclick="togglePassword(
-        'confirmPassword',
-        this
-    )"
+    onclick="togglePassword('confirmPassword', this)"
 >
     Show
 </span>
@@ -1933,6 +1918,8 @@ Password Strength:
 <input
     type="checkbox"
     id="mailingList"
+    name="mailing_list"
+    value="1"
 >
 
 <label for="mailingList">
@@ -1961,6 +1948,8 @@ You can unsubscribe at any time.
 <input
     type="checkbox"
     id="terms"
+    name="terms"
+    value="1"
     required
 >
 
@@ -1979,7 +1968,7 @@ I have read and agree to the
 
 <!-- =================================================
      REGISTER BUTTON
-================================================== -->
+===================================================== -->
 
 <div class="form-submit">
 
@@ -2082,10 +2071,7 @@ I have read and agree to the
 
 <span
     class="show-password"
-    onclick="togglePassword(
-        'loginPassword',
-        this
-    )"
+    onclick="togglePassword('loginPassword', this)"
 >
     Show
 </span>
@@ -2098,7 +2084,7 @@ I have read and agree to the
 <a
     href="#"
     class="forgot"
-    onclick="forgotPassword()"
+    onclick="forgotPassword(); return false;"
 >
     Forgot Password?
 </a>
@@ -2147,7 +2133,6 @@ I have read and agree to the
 
 <script>
 
-
 /* =====================================================
    SLIDER
 ===================================================== */
@@ -2155,36 +2140,28 @@ I have read and agree to the
 const topLayer =
     document.querySelector(".topLayer");
 
-
 const goRight =
     document.getElementById("goRight");
-
 
 const goLeft =
     document.getElementById("goLeft");
 
 
-/* GO TO REGISTER */
-
 goRight.addEventListener(
     "click",
     function() {
 
-        topLayer.style.left =
-            "0";
+        topLayer.style.left = "0";
 
     }
 );
 
 
-/* GO TO LOGIN */
-
 goLeft.addEventListener(
     "click",
     function() {
 
-        topLayer.style.left =
-            "-100%";
+        topLayer.style.left = "-100%";
 
     }
 );
@@ -2200,31 +2177,19 @@ function togglePassword(
 ) {
 
     const input =
-        document.getElementById(
-            inputId
-        );
+        document.getElementById(inputId);
 
+    if (input.type === "password") {
 
-    if (
-        input.type ===
-        "password"
-    ) {
+        input.type = "text";
 
-        input.type =
-            "text";
+        button.textContent = "Hide";
 
-        button.textContent =
-            "Hide";
+    } else {
 
-    }
+        input.type = "password";
 
-    else {
-
-        input.type =
-            "password";
-
-        button.textContent =
-            "Show";
+        button.textContent = "Show";
 
     }
 
@@ -2236,10 +2201,7 @@ function togglePassword(
 ===================================================== */
 
 const signupPassword =
-    document.getElementById(
-        "signupPassword"
-    );
-
+    document.getElementById("signupPassword");
 
 signupPassword.addEventListener(
     "input",
@@ -2248,70 +2210,35 @@ signupPassword.addEventListener(
         const value =
             signupPassword.value;
 
-
         let strength = 0;
 
-
-        if (
-            value.length >= 8
-        ) {
-
+        if (value.length >= 8) {
             strength++;
-
         }
 
-
-        if (
-            /[A-Z]/.test(value)
-        ) {
-
+        if (/[A-Z]/.test(value)) {
             strength++;
-
         }
 
-
-        if (
-            /[a-z]/.test(value)
-        ) {
-
+        if (/[a-z]/.test(value)) {
             strength++;
-
         }
 
-
-        if (
-            /[0-9]/.test(value)
-        ) {
-
+        if (/[0-9]/.test(value)) {
             strength++;
-
         }
 
-
-        if (
-            /[^A-Za-z0-9]/.test(value)
-        ) {
-
+        if (/[^A-Za-z0-9]/.test(value)) {
             strength++;
-
         }
-
 
         const text =
-            document.getElementById(
-                "strengthText"
-            );
-
+            document.getElementById("strengthText");
 
         const fill =
-            document.getElementById(
-                "strengthFill"
-            );
+            document.getElementById("strengthFill");
 
-
-        if (
-            value.length === 0
-        ) {
+        if (value.length === 0) {
 
             text.textContent =
                 "Enter a Password";
@@ -2321,9 +2248,7 @@ signupPassword.addEventListener(
 
         }
 
-        else if (
-            strength <= 2
-        ) {
+        else if (strength <= 2) {
 
             text.textContent =
                 "Weak";
@@ -2333,9 +2258,7 @@ signupPassword.addEventListener(
 
         }
 
-        else if (
-            strength <= 4
-        ) {
+        else if (strength <= 4) {
 
             text.textContent =
                 "Medium";
@@ -2364,9 +2287,7 @@ signupPassword.addEventListener(
 ===================================================== */
 
 document
-.getElementById(
-    "signupForm"
-)
+.getElementById("signupForm")
 .addEventListener(
     "submit",
     function(event) {
@@ -2383,12 +2304,6 @@ document
         const confirmPassword =
             document.getElementById(
                 "confirmPassword"
-            ).value;
-
-
-        const wifiPassword =
-            document.getElementById(
-                "wifiPassword"
             ).value;
 
 
@@ -2422,24 +2337,6 @@ document
         }
 
 
-        /* CHECK WIFI PASSWORD */
-
-        if (
-            wifiPassword.length < 8 ||
-            wifiPassword.length > 16
-        ) {
-
-            message.textContent =
-                "WIFI Password must be between 8 and 16 characters.";
-
-            message.className =
-                "message error";
-
-            return;
-
-        }
-
-
         /* CHECK TERMS */
 
         if (!terms) {
@@ -2455,45 +2352,140 @@ document
         }
 
 
-        /* SUCCESS */
+        /* CHECK PASSWORD LENGTH */
+
+        if (
+            password.length < 8
+        ) {
+
+            message.textContent =
+                "Password must be at least 8 characters long.";
+
+            message.className =
+                "message error";
+
+            return;
+
+        }
+
+
+        /* GET COMPLETE FORM */
+
+        const form =
+            document.getElementById(
+                "signupForm"
+            );
+
+
+        const formData =
+            new FormData(form);
+
+
+        /* SHOW LOADING */
 
         message.textContent =
-            "Registration successful!";
+            "Creating your account...";
 
         message.className =
             "message success";
 
 
-        /*
-        ==========================================
-        IMPORTANT
+        /* SEND TO PHP */
 
-        This is currently only a FRONT-END demo.
+        fetch(
+            "auth/register.php",
+            {
+                method: "POST",
+                body: formData
+            }
+        )
 
-        Later we can connect this form to:
+        .then(
+            response => response.text()
+        )
 
-        Node.js
-        Express
-        MySQL
+        .then(
+            data => {
 
-        The registration information can then
-        be stored in your database.
+                console.log(
+                    "PHP RESPONSE:",
+                    data
+                );
 
-        ==========================================
-        */
+
+                if (
+                    data
+                    .toLowerCase()
+                    .includes("success")
+                ) {
+
+                    message.textContent =
+                        "Registration successful! Your account is pending approval.";
+
+                    message.className =
+                        "message success";
+
+
+                    form.reset();
+
+
+                    document
+                    .getElementById(
+                        "strengthText"
+                    )
+                    .textContent =
+                        "Enter a Password";
+
+
+                    document
+                    .getElementById(
+                        "strengthFill"
+                    )
+                    .style.width =
+                        "0%";
+
+                }
+
+                else {
+
+                    message.textContent =
+                        data;
+
+                    message.className =
+                        "message error";
+
+                }
+
+            }
+        )
+
+        .catch(
+            error => {
+
+                console.error(
+                    "Registration Error:",
+                    error
+                );
+
+                message.textContent =
+                    "Unable to connect to the server. Please check your PHP file and XAMPP.";
+
+                message.className =
+                    "message error";
+
+            }
+        );
 
     }
 );
 
 
 /* =====================================================
-   LOGIN
+   LOGIN DEMO
 ===================================================== */
 
 document
-.getElementById(
-    "loginForm"
-)
+.getElementById("loginForm")
 .addEventListener(
     "submit",
     function(event) {
@@ -2518,8 +2510,6 @@ document
                 "loginMessage"
             );
 
-
-        /* DEMO LOGIN */
 
         if (
             username === "admin" &&
@@ -2561,7 +2551,6 @@ function forgotPassword() {
 }
 
 </script>
-
 
 </body>
 

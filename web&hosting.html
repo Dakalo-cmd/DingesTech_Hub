@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web & Email Hosting | Dinges TechHub</title>
+
+    <meta
+        name="description"
+        content="Dinges TechHub provides reliable web hosting, email hosting, domain registration and website development solutions for businesses and individuals."
+    >
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL SETTINGS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: #020202;
+
+            background: #ffffff;
+
+            line-height: 1.6;
+        }
+
+
+        .container {
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+        }
+
+
+
+        /* =====================================================
+           TOP BLACK BAR
+        ===================================================== */
+
+        .top-bar {
+            background: #020202;
+
+            height: 40px;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .top-bar-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+        }
+
+
+        .top-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .top-links a {
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .top-links a:hover {
+            color: #FFBB42;
+        }
+
+
+
+        /* =====================================================
+           MAIN HEADER
+        ===================================================== */
+
+        .main-header {
+            background: #ffffff;
+
+            border-bottom: 1px solid #eeeeee;
+
+            position: relative;
+
+            z-index: 1000;
+        }
+
+
+        .navbar {
+            min-height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+
+        /* =====================================================
+           DINGES TECHHUB LOGO
+           CLICKING LOGO GOES TO HOME PAGE
+        ===================================================== */
+
+        .logo {
+            text-decoration: none;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+
+        .logo-black {
+            color: #020202;
+        }
+
+
+        .logo-purple {
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           MAIN NAVIGATION
+        ===================================================== */
+
+        .main-nav {
+            display: flex;
+
+            align-items: center;
+
+            gap: 35px;
+
+            margin-left: auto;
+        }
+
+
+        .main-nav > a,
+        .nav-dropdown > a {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: #020202;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            padding: 28px 0;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .main-nav > a:hover,
+        .nav-dropdown > a:hover {
+
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           DROPDOWN
+        ===================================================== */
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+
+        .dropdown-arrow {
+
+            font-size: 9px;
+
+            color: #020202;
+
+            transition: transform 0.3s ease;
+        }
+
+
+        .nav-dropdown:hover .dropdown-arrow {
+
+            transform: rotate(180deg);
+        }
+
+
+        .dropdown-menu {
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateY(10px);
+
+            width: 240px;
+
+            padding: 10px 0;
+
+            background: #ffffff;
+
+            border-top: 3px solid #7A2C78;
+
+            border-radius:
+                0 0 8px 8px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.12);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+        }
+
+
+        .nav-dropdown:hover .dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        .dropdown-menu a {
+
+            display: block;
+
+            padding: 12px 20px;
+
+            color: #333333;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        .dropdown-menu a:hover {
+
+            background: #f7f1f7;
+
+            color: #7A2C78;
+        }
+
+
+
+        /* =====================================================
+           CART
+        ===================================================== */
+
+        .cart-button {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 10px 14px;
+
+            background: #020202;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .cart-button:hover {
+
+            background: #3C1542;
+
+            transform: translateY(-2px);
+        }
+
+
+        .cart-button strong {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 21px;
+
+            height: 21px;
+
+            background: #FFBB42;
+
+            color: #020202;
+
+            border-radius: 50%;
+
+            font-size: 11px;
+        }
+
+
+
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ===================================================== */
+
+        .menu-toggle {
+
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: #3C1542;
+
+            font-size: 26px;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =====================================================
+           HERO SECTION
+        ===================================================== */
+
+        .hosting-hero {
+
+            position: relative;
+
+            padding: 100px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3C1542,
+                    #7A2C78
+                );
+
+            overflow: hidden;
+        }
+
+
+        .hosting-hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 187, 66, 0.08);
+
+            top: -150px;
+
+            right: -100px;
+        }
+
+
+        .hosting-hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+
+            height: 250px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            bottom: -120px;
+
+            left: -80px;
+        }
+
+
+        .hosting-hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+
+        .hero-label {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            color: #FFBB42;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hosting-hero h1 {
+
+            margin-bottom: 20px;
+
+            color: #ffffff;
+
+            font-size: 52px;
+
+            line-height: 1.2;
+        }
+
+
+        .hosting-hero p {
+
+            max-width: 700px;
+
+            margin: 0 auto 30px;
+
+            color:
+                rgba(255, 255, 255, 0.85);
+
+            font-size: 18px;
+
+            line-height: 1.8;
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding: 14px 28px;
+
+            background: #FFBB42;
+
+            color: #3C1542;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            border-radius: 6px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .hero-button:hover {
+
+            background: #ffffff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
+
+        .hosting-intro {
+
+            padding: 85px 20px;
+
+            background: #ffffff;
+        }
+
+
+        .hosting-intro-content {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+
+        .section-label {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            color: #7A2C78;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .hosting-intro h2 {
+
+            margin-bottom: 20px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+
+            line-height: 1.3;
+        }
+
+
+        .hosting-intro p {
+
+            color: #666666;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =====================================================
+           SERVICES SECTION
+        ===================================================== */
+
+        .hosting-services {
+
+            padding: 85px 20px;
+
+            background: #f7f7f7;
+        }
+
+
+        .section-heading {
+
+            max-width: 700px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+
+        .section-heading h2 {
+
+            margin-bottom: 15px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+        }
+
+
+        .section-heading p {
+
+            color: #666666;
+
+            font-size: 16px;
+        }
+
+
+        .services-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .service-card {
+
+            padding: 35px 30px;
+
+            background: #ffffff;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e5e5;
+
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .service-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #7A2C78;
+
+            box-shadow:
+                0 15px 35px
+                rgba(60, 21, 66, 0.1);
+        }
+
+
+        .service-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #f2e8f2;
+
+            color: #7A2C78;
+
+            border-radius: 50%;
+
+            font-size: 28px;
+        }
+
+
+        .service-card h3 {
+
+            margin-bottom: 12px;
+
+            color: #3C1542;
+
+            font-size: 21px;
+        }
+
+
+        .service-card p {
+
+            color: #666666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =====================================================
+           BENEFITS SECTION
+        ===================================================== */
+
+        .hosting-benefits {
+
+            padding: 90px 20px;
+
+            background: #ffffff;
+        }
+
+
+        .benefits-wrapper {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .benefits-content h2 {
+
+            margin-bottom: 20px;
+
+            color: #3C1542;
+
+            font-size: 36px;
+
+            line-height: 1.3;
+        }
+
+
+        .benefits-content p {
+
+            margin-bottom: 25px;
+
+            color: #666666;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        .benefits-list {
+
+            list-style: none;
+        }
+
+
+        .benefits-list li {
+
+            position: relative;
+
+            padding-left: 30px;
+
+            margin-bottom: 15px;
+
+            color: #555555;
+
+            font-size: 16px;
+        }
+
+
+        .benefits-list li::before {
+
+            content: "✓";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 0;
+
+            color: #7A2C78;
+
+            font-weight: bold;
+
+            font-size: 18px;
+        }
+
+
+        .benefits-visual {
+
+            min-height: 400px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3C1542,
+                    #7A2C78
+                );
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(60, 21, 66, 0.15);
+        }
+
+
+        .hosting-card {
+
+            width: 100%;
+
+            max-width: 380px;
+
+            padding: 40px 30px;
+
+            background:
+                rgba(255, 255, 255, 0.1);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.2);
+
+            border-radius: 18px;
+
+            text-align: center;
+        }
+
+
+        .hosting-icon {
+
+            font-size: 60px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hosting-card h3 {
+
+            margin-bottom: 10px;
+
+            color: #ffffff;
+
+            font-size: 25px;
+        }
+
+
+        .hosting-card p {
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-size: 15px;
+        }
+
+
+
+        /* =====================================================
+           CTA SECTION
+        ===================================================== */
+
+        .hosting-cta {
+
+            padding: 80px 20px;
+
+            background: #3C1542;
+
+            text-align: center;
+        }
+
+
+        .hosting-cta h2 {
+
+            margin-bottom: 15px;
+
+            color: #ffffff;
+
+            font-size: 36px;
+        }
+
+
+        .hosting-cta p {
+
+            max-width: 650px;
+
+            margin: 0 auto 30px;
+
+            color:
+                rgba(255, 255, 255, 0.8);
+
+            font-size: 16px;
+        }
+
+
+        .cta-button {
+
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #FFBB42;
+
+            color: #3C1542;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            border-radius: 6px;
+
+            transition: all 0.3s ease;
+        }
+
+
+        .cta-button:hover {
+
+            background: #ffffff;
+
+            transform: translateY(-3px);
+        }
+
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .services-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 900px) {
+
+            .hosting-hero h1 {
+
+                font-size: 42px;
+            }
+
+
+            .benefits-wrapper {
+
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .top-bar {
+
+                height: 38px;
+            }
+
+
+            .top-links {
+
+                gap: 18px;
+            }
+
+
+            .top-links a {
+
+                font-size: 12px;
+            }
+
+
+            .navbar {
+
+                min-height: 70px;
+            }
+
+
+            .menu-toggle {
+
+                display: block;
+            }
+
+
+            .main-nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+
+                margin: 0;
+
+                padding: 10px 20px;
+
+                background: #ffffff;
+
+                box-shadow:
+                    0 10px 25px
+                    rgba(0, 0, 0, 0.1);
+            }
+
+
+            .main-nav.active {
+
+                display: flex;
+            }
+
+
+            .main-nav > a,
+            .nav-dropdown > a {
+
+                padding: 15px 5px;
+
+                border-bottom:
+                    1px solid #eeeeee;
+            }
+
+
+            .nav-dropdown {
+
+                width: 100%;
+            }
+
+
+            .dropdown-menu {
+
+                position: static;
+
+                width: 100%;
+
+                transform: none;
+
+                box-shadow: none;
+
+                border-top: none;
+
+                border-left:
+                    3px solid #7A2C78;
+
+                border-radius: 0;
+
+                display: none;
+
+                opacity: 1;
+
+                visibility: visible;
+            }
+
+
+            .nav-dropdown:hover
+            .dropdown-menu {
+
+                display: none;
+            }
+
+
+            .nav-dropdown.active
+            .dropdown-menu {
+
+                display: block;
+            }
+
+
+            .cart-button {
+
+                margin-left: auto;
+            }
+
+
+            .cart-button span {
+
+                display: none;
+            }
+
+
+            .hosting-hero {
+
+                padding: 75px 20px;
+            }
+
+
+            .hosting-hero h1 {
+
+                font-size: 34px;
+            }
+
+
+            .hosting-hero p {
+
+                font-size: 16px;
+            }
+
+
+            .hosting-intro,
+            .hosting-services,
+            .hosting-benefits {
+
+                padding: 65px 20px;
+            }
+
+
+            .hosting-intro h2,
+            .section-heading h2,
+            .benefits-content h2 {
+
+                font-size: 29px;
+            }
+
+
+            .services-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .benefits-visual {
+
+                min-height: 320px;
+
+                padding: 25px;
+            }
+
+
+            .hosting-cta {
+
+                padding: 65px 20px;
+            }
+
+
+            .hosting-cta h2 {
+
+                font-size: 29px;
+            }
+
+        }
+
+
+
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
+
+        @media (max-width: 480px) {
+
+            .logo {
+
+                font-size: 23px;
+            }
+
+
+            .cart-button {
+
+                padding: 9px 11px;
+            }
+
+
+            .hosting-hero h1 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- =====================================================
+     TOP BLACK BAR
+====================================================== -->
+
+<div class="top-bar">
+
+    <div class="container top-bar-content">
+
+        <div class="top-links">
+
+            <a href="status.html">
+                Status
+            </a>
+
+            <a href="contact-us.html">
+                Contact Us
+            </a>
+
+            <a href="#">
+                More
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN NAVIGATION
+====================================================== -->
+
+<header class="main-header">
+
+    <div class="container navbar">
+
+
+        <!-- LOGO
+             CLICKING THIS RETURNS TO HOME PAGE -->
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-black">
+                DingesTech
+            </span>
+
+            <span class="logo-purple">
+                Hub
+            </span>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+
+            <!-- SERVICES -->
+
+            <div class="nav-dropdown">
+
+                <a href="#">
+
+                    Services
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="internet-connectivity.html">
+                        Internet Connectivity
+                    </a>
+
+                    <a href="voip-telephony.html">
+                        VOIP / Telephony
+                    </a>
+
+                    <a href="hosting.html">
+                        Web & Email Hosting
+                    </a>
+
+                    <a href="crm.html">
+                        CRM
+                    </a>
+
+                    <a href="smart-home-business.html">
+                        Smart Home & Business
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HELP CENTRE -->
+
+            <div class="nav-dropdown">
+
+                <a href="#">
+
+                    Help Centre
+
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="support.html">
+                        Support
+                    </a>
+
+                    <a href="faqs.html">
+                        FAQs
+                    </a>
+
+                    <a href="contact-us.html">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT US -->
+
+            <a href="contact-us.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+
+
+        <!-- CART -->
+
+        <a href="cart.html" class="cart-button">
+
+            🛒
+
+            <span>
+                Cart
+            </span>
+
+            <strong id="cartCount">
+                0
+            </strong>
+
+        </a>
+
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+        >
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="hosting-hero">
+
+    <div class="container">
+
+        <div class="hosting-hero-content">
+
+
+            <span class="hero-label">
+                WEB & EMAIL HOSTING
+            </span>
+
+
+            <h1>
+                Build Your Presence.
+                Stay Connected.
+            </h1>
+
+
+            <p>
+                Get your business online with reliable web hosting,
+                professional email, domain registration and modern
+                website development solutions.
+            </p>
+
+
+            <a
+                href="#contact"
+                class="hero-button"
+            >
+                Get Started
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTRODUCTION
+====================================================== -->
+
+<section class="hosting-intro">
+
+    <div class="container">
+
+        <div class="hosting-intro-content">
+
+
+            <span class="section-label">
+                WEB & EMAIL HOSTING
+            </span>
+
+
+            <h2>
+                Everything You Need To Build Your Online Presence
+            </h2>
+
+
+            <p>
+                Dinges TechHub provides reliable hosting and digital
+                solutions designed to help businesses and individuals
+                establish a professional online presence. From domain
+                registration and business email to website hosting and
+                development, we help you get online and stay connected.
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOSTING SERVICES
+====================================================== -->
+
+<section class="hosting-services">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                OUR SERVICES
+            </span>
+
+
+            <h2>
+                Web & Email Solutions For Your Needs
+            </h2>
+
+
+            <p>
+                Choose the services you need to build and manage
+                your online presence.
+            </p>
+
+        </div>
+
+
+
+        <div class="services-grid">
+
+
+            <!-- CARD 1 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🌐
+                </div>
+
+
+                <h3>
+                    Domain Registration
+                </h3>
+
+
+                <p>
+                    Register a professional domain name that represents
+                    your business, organisation or personal brand online.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 2 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✉️
+                </div>
+
+
+                <h3>
+                    Email Hosting
+                </h3>
+
+
+                <p>
+                    Use professional email addresses with your own
+                    domain to build trust and improve business communication.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 3 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ☁️
+                </div>
+
+
+                <h3>
+                    Web Hosting
+                </h3>
+
+
+                <p>
+                    Reliable shared hosting solutions designed to help
+                    keep your website accessible to your customers.
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD 4 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+
+                <h3>
+                    Website Development
+                </h3>
+
+
+                <p>
+                    Responsive and professional websites designed to
+                    help your business establish a strong digital presence.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BENEFITS SECTION
+====================================================== -->
+
+<section class="hosting-benefits">
+
+    <div class="container">
+
+        <div class="benefits-wrapper">
+
+
+            <!-- LEFT CONTENT -->
+
+            <div class="benefits-content">
+
+
+                <span class="section-label">
+                    WHY CHOOSE US?
+                </span>
+
+
+                <h2>
+                    Everything You Need To Get Online
+                </h2>
+
+
+                <p>
+                    Managing your online presence can be easier when
+                    your domain, hosting, email and website services
+                    are supported by one technology partner.
+                </p>
+
+
+                <ul class="benefits-list">
+
+                    <li>
+                        Reliable shared web hosting
+                    </li>
+
+                    <li>
+                        Professional business email
+                    </li>
+
+                    <li>
+                        Domain registration and support
+                    </li>
+
+                    <li>
+                        Responsive website development
+                    </li>
+
+                    <li>
+                        Flexible solutions for growing businesses
+                    </li>
+
+                    <li>
+                        Local technical support
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- RIGHT VISUAL -->
+
+            <div class="benefits-visual">
+
+
+                <div class="hosting-card">
+
+
+                    <div class="hosting-icon">
+                        ☁️
+                    </div>
+
+
+                    <h3>
+                        Your Business Online
+                    </h3>
+
+
+                    <p>
+                        Reliable hosting and professional digital
+                        solutions designed to help your business
+                        stay connected.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA SECTION
+====================================================== -->
+
+<section
+    class="hosting-cta"
+    id="contact"
+>
+
+
+    <div class="container">
+
+
+        <h2>
+            Ready To Get Your Business Online?
+        </h2>
+
+
+        <p>
+            Talk to the Dinges TechHub team about your domain,
+            hosting, email or website requirements and let us
+            help you build your online presence.
+        </p>
+
+
+        <a
+            href="contact-us.html"
+            class="cta-button"
+        >
+            Contact Us
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menuToggle");
+
+    const mainNav =
+        document.querySelector(".main-nav");
+
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            mainNav.classList.toggle("active");
+
+        }
+    );
+
+
+
+    /* =====================================================
+       MOBILE DROPDOWN MENUS
+    ===================================================== */
+
+    const dropdowns =
+        document.querySelectorAll(
+            ".nav-dropdown > a"
+        );
+
+
+    dropdowns.forEach(
+        function(dropdown) {
+
+            dropdown.addEventListener(
+                "click",
+                function(event) {
+
+
+                    if (
+                        window.innerWidth <= 768
+                    ) {
+
+
+                        event.preventDefault();
+
+
+                        this.parentElement
+                            .classList
+                            .toggle("active");
+
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CART COUNT
+    ===================================================== */
+
+    let cartCount =
+        localStorage.getItem("cartCount") || 0;
+
+
+    document.getElementById("cartCount")
+        .textContent = cartCount;
+
+
+</script>
+
+
+</body>
+
+</html>
