@@ -1322,6 +1322,96 @@ button:hover {
 
 }
 
+/* =====================================================
+   SERVICE SELECTOR
+===================================================== */
+
+.service-selector {
+    margin-bottom: 25px;
+}
+
+.service-selector label {
+    color: white;
+}
+
+.service-selector select {
+    width: 100%;
+}
+
+
+/* =====================================================
+   SERVICE INFORMATION
+===================================================== */
+
+.service-info {
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    color: rgba(255,255,255,0.75);
+}
+
+
+/* =====================================================
+   FICA NOTICE
+===================================================== */
+
+.fica-notice {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    background:
+        rgba(255,193,7,0.12);
+
+    border:
+        1px solid
+        rgba(255,193,7,0.35);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: white;
+
+}
+
+
+.fica-notice strong {
+
+    color: #FFBB42;
+
+}
+
+
+/* =====================================================
+   FICA SECTION
+===================================================== */
+
+#ficaSection {
+
+    display: none;
+
+}
+
 </style>
 
 </head>
@@ -1418,7 +1508,114 @@ button:hover {
     method="POST"
     enctype="multipart/form-data"
 >
+<!-- =================================================
+     SERVICE SELECTION
+================================================== -->
 
+<div class="service-selector">
+
+<label>
+    Select the Service You Need
+    <span class="required">*</span>
+</label>
+
+<select
+    id="service"
+    name="service_id"
+    required
+>
+
+<option value="">
+    Select a service
+</option>
+
+<!-- SERVICES THAT REQUIRE FICA -->
+
+<option
+    value="fibre"
+    data-fica="yes"
+>
+    Fibre Internet
+</option>
+
+<option
+    value="wireless"
+    data-fica="yes"
+>
+    Wireless Broadband
+</option>
+
+<option
+    value="lte"
+    data-fica="yes"
+>
+    4G / 5G LTE
+</option>
+
+
+<!-- SERVICES THAT DO NOT REQUIRE FICA -->
+
+<option
+    value="mobile"
+    data-fica="no"
+>
+    Mobile Data / Airtime
+</option>
+
+<option
+    value="domain"
+    data-fica="no"
+>
+    Domain Registration
+</option>
+
+<option
+    value="hosting"
+    data-fica="no"
+>
+    Web Hosting
+</option>
+
+<option
+    value="technical_support"
+    data-fica="no"
+>
+    Technical Support
+</option>
+
+</select>
+
+
+<div
+    id="serviceInfo"
+    class="service-info"
+>
+    Please select a service to continue.
+</div>
+
+</div>
+
+
+<!-- =================================================
+     FICA NOTICE
+================================================== -->
+
+<div
+    id="ficaNotice"
+    class="fica-notice"
+>
+
+<strong>
+    FICA Verification Required
+</strong>
+
+<br>
+
+The service you selected requires identity
+verification. You will need to provide your
+identity number, ID document and proof of residence.
+
+</div>
 
 <!-- =================================================
      PERSONAL INFORMATION
@@ -1597,7 +1794,7 @@ button:hover {
 <input
     type="text"
     id="state"
-    name="state"
+    name="province"
     placeholder="State / Province"
     required
 >
@@ -1728,58 +1925,6 @@ button:hover {
 
 </div>
 
-
-<div class="form-element">
-
-<label>
-    Identity Number <span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="identityNumber"
-    name="identity_number"
-    placeholder="Identity Number"
-    required
->
-
-</div>
-
-
-<div class="form-element">
-
-<label>
-    ID Proof <span class="required">*</span>
-</label>
-
-<input
-    type="file"
-    id="idProof"
-    name="idProof"
-    accept=".pdf,.jpg,.jpeg,.png"
-    required
->
-
-</div>
-
-
-<div class="form-element">
-
-<label>
-    Proof of Residence <span class="required">*</span>
-</label>
-
-<input
-    type="file"
-    id="proofOfResidence"
-    name="proofOfResidence"
-    accept=".pdf,.jpg,.jpeg,.png"
-    required
->
-
-</div>
-
-
 <div class="form-element form-full">
 
 <label>
@@ -1797,6 +1942,79 @@ button:hover {
 
 </div>
 
+<!-- =================================================
+     FICA VERIFICATION
+================================================== -->
+
+<div
+    id="ficaSection"
+>
+
+
+<div class="section-title">
+    FICA Verification
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-element">
+
+<label>
+    Identity Number
+    <span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="identityNumber"
+    name="identity_number"
+    placeholder="Identity Number"
+>
+
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    ID Proof
+    <span class="required">*</span>
+</label>
+
+<input
+    type="file"
+    id="idProof"
+    name="idProof"
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+
+
+</div>
+
+
+<div class="form-element">
+
+<label>
+    Proof of Residence
+    <span class="required">*</span>
+</label>
+
+<input
+    type="file"
+    id="proofOfResidence"
+    name="proofOfResidence"
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+
+
+</div>
+
+
+</div>
+
 
 <div style="
     font-size:11px;
@@ -1805,7 +2023,9 @@ button:hover {
     margin-top:10px;
 ">
 
-<strong>Required Documents:</strong>
+<strong>
+    Required Documents:
+</strong>
 
 Please upload a valid copy of your ID document
 and a valid proof of residence.
@@ -1813,7 +2033,11 @@ and a valid proof of residence.
 <br><br>
 
 Accepted file formats:
+
 PDF, JPG, JPEG, PNG.
+
+</div>
+
 
 </div>
 
@@ -2031,7 +2255,11 @@ I have read and agree to the
 </p>
 
 
-<form id="loginForm">
+<form
+    id="loginForm"
+    action="auth/login.php"
+    method="POST"
+>
 
 
 <div class="form-element">
@@ -2043,12 +2271,12 @@ I have read and agree to the
 <div class="input-box">
 
 <input
-    type="text"
-    id="loginUsername"
-    placeholder="Enter your username"
+    type="email"
+    id="loginEmail"
+    name="email"
+    placeholder="Enter your email address"
     required
 >
-
 </div>
 
 </div>
@@ -2065,6 +2293,7 @@ I have read and agree to the
 <input
     type="password"
     id="loginPassword"
+    name="password"
     placeholder="Enter your password"
     required
 >
@@ -2130,54 +2359,52 @@ I have read and agree to the
 
 </div>
 
-
 <script>
 
 /* =====================================================
    SLIDER
 ===================================================== */
 
-const topLayer =
-    document.querySelector(".topLayer");
+const topLayer = document.querySelector(".topLayer");
 
-const goRight =
-    document.getElementById("goRight");
+const goRight = document.getElementById("goRight");
 
-const goLeft =
-    document.getElementById("goLeft");
+const goLeft = document.getElementById("goLeft");
 
 
-goRight.addEventListener(
-    "click",
-    function() {
+if (goRight) {
+
+    goRight.addEventListener("click", function () {
 
         topLayer.style.left = "0";
 
-    }
-);
+    });
+
+}
 
 
-goLeft.addEventListener(
-    "click",
-    function() {
+if (goLeft) {
+
+    goLeft.addEventListener("click", function () {
 
         topLayer.style.left = "-100%";
 
-    }
-);
+    });
+
+}
 
 
 /* =====================================================
    SHOW / HIDE PASSWORD
 ===================================================== */
 
-function togglePassword(
-    inputId,
-    button
-) {
+function togglePassword(inputId, button) {
 
-    const input =
-        document.getElementById(inputId);
+    const input = document.getElementById(inputId);
+
+    if (!input) {
+        return;
+    }
 
     if (input.type === "password") {
 
@@ -2203,339 +2430,907 @@ function togglePassword(
 const signupPassword =
     document.getElementById("signupPassword");
 
-signupPassword.addEventListener(
-    "input",
-    function() {
+const strengthText =
+    document.getElementById("strengthText");
 
-        const value =
-            signupPassword.value;
+const strengthFill =
+    document.getElementById("strengthFill");
 
-        let strength = 0;
 
-        if (value.length >= 8) {
-            strength++;
+if (signupPassword) {
+
+    signupPassword.addEventListener(
+        "input",
+        function () {
+
+            const value =
+                signupPassword.value;
+
+            let strength = 0;
+
+
+            if (value.length >= 8) {
+                strength++;
+            }
+
+
+            if (/[A-Z]/.test(value)) {
+                strength++;
+            }
+
+
+            if (/[a-z]/.test(value)) {
+                strength++;
+            }
+
+
+            if (/[0-9]/.test(value)) {
+                strength++;
+            }
+
+
+            if (/[^A-Za-z0-9]/.test(value)) {
+                strength++;
+            }
+
+
+            if (value.length === 0) {
+
+                strengthText.textContent =
+                    "Enter a Password";
+
+                strengthFill.style.width =
+                    "0%";
+
+            }
+
+            else if (strength <= 2) {
+
+                strengthText.textContent =
+                    "Weak";
+
+                strengthFill.style.width =
+                    "30%";
+
+            }
+
+            else if (strength <= 4) {
+
+                strengthText.textContent =
+                    "Medium";
+
+                strengthFill.style.width =
+                    "65%";
+
+            }
+
+            else {
+
+                strengthText.textContent =
+                    "Strong";
+
+                strengthFill.style.width =
+                    "100%";
+
+            }
+
         }
+    );
 
-        if (/[A-Z]/.test(value)) {
-            strength++;
-        }
-
-        if (/[a-z]/.test(value)) {
-            strength++;
-        }
-
-        if (/[0-9]/.test(value)) {
-            strength++;
-        }
-
-        if (/[^A-Za-z0-9]/.test(value)) {
-            strength++;
-        }
-
-        const text =
-            document.getElementById("strengthText");
-
-        const fill =
-            document.getElementById("strengthFill");
-
-        if (value.length === 0) {
-
-            text.textContent =
-                "Enter a Password";
-
-            fill.style.width =
-                "0%";
-
-        }
-
-        else if (strength <= 2) {
-
-            text.textContent =
-                "Weak";
-
-            fill.style.width =
-                "30%";
-
-        }
-
-        else if (strength <= 4) {
-
-            text.textContent =
-                "Medium";
-
-            fill.style.width =
-                "65%";
-
-        }
-
-        else {
-
-            text.textContent =
-                "Strong";
-
-            fill.style.width =
-                "100%";
-
-        }
-
-    }
-);
+}
 
 
 /* =====================================================
-   REGISTER
+   SERVICE SELECTION / FICA
 ===================================================== */
 
-document
-.getElementById("signupForm")
-.addEventListener(
-    "submit",
-    function(event) {
+const serviceSelect =
+    document.getElementById("service");
 
-        event.preventDefault();
+const ficaSection =
+    document.getElementById("ficaSection");
 
+const ficaNotice =
+    document.getElementById("ficaNotice");
 
-        const password =
-            document.getElementById(
-                "signupPassword"
-            ).value;
+const serviceInfo =
+    document.getElementById("serviceInfo");
 
+const identityNumber =
+    document.getElementById("identityNumber");
 
-        const confirmPassword =
-            document.getElementById(
-                "confirmPassword"
-            ).value;
+const idProof =
+    document.getElementById("idProof");
 
-
-        const terms =
-            document.getElementById(
-                "terms"
-            ).checked;
+const proofOfResidence =
+    document.getElementById("proofOfResidence");
 
 
-        const message =
-            document.getElementById(
-                "signupMessage"
-            );
+/* =====================================================
+   FICA SERVICES
+===================================================== */
+
+const ficaServices = [
+
+    "fibre",
+
+    "wireless",
+
+    "lte"
+
+];
 
 
-        /* CHECK PASSWORD */
+/* =====================================================
+   UPDATE FICA
+===================================================== */
 
-        if (
-            password !==
-            confirmPassword
-        ) {
+function updateFicaFields() {
 
-            message.textContent =
-                "Passwords do not match.";
-
-            message.className =
-                "message error";
-
-            return;
-
-        }
+    if (!serviceSelect) {
+        return;
+    }
 
 
-        /* CHECK TERMS */
-
-        if (!terms) {
-
-            message.textContent =
-                "Please agree to the Terms of Service.";
-
-            message.className =
-                "message error";
-
-            return;
-
-        }
+    const service =
+        serviceSelect.value;
 
 
-        /* CHECK PASSWORD LENGTH */
+    /*
+    ================================================
+    NO SERVICE SELECTED
+    ================================================
+    */
 
-        if (
-            password.length < 8
-        ) {
+    if (!service) {
 
-            message.textContent =
-                "Password must be at least 8 characters long.";
+        if (ficaSection) {
 
-            message.className =
-                "message error";
-
-            return;
+            ficaSection.style.display =
+                "none";
 
         }
 
 
-        /* GET COMPLETE FORM */
+        if (ficaNotice) {
 
-        const form =
-            document.getElementById(
-                "signupForm"
-            );
+            ficaNotice.style.display =
+                "none";
 
-
-        const formData =
-            new FormData(form);
+        }
 
 
-        /* SHOW LOADING */
+        if (serviceInfo) {
 
-        message.textContent =
-            "Creating your account...";
+            serviceInfo.textContent =
+                "Please select a service to continue.";
 
-        message.className =
-            "message success";
+        }
 
 
-        /* SEND TO PHP */
+        removeFicaRequired();
 
-        fetch(
-            "auth/register.php",
-            {
-                method: "POST",
-                body: formData
-            }
-        )
+        return;
 
-        .then(
-            response => response.text()
-        )
+    }
 
-        .then(
-            data => {
 
-                console.log(
-                    "PHP RESPONSE:",
-                    data
+    /*
+    ================================================
+    CHECK IF FICA IS REQUIRED
+    ================================================
+    */
+
+    const ficaRequired =
+        ficaServices.includes(service);
+
+
+    /*
+    ================================================
+    FICA REQUIRED
+    ================================================
+    */
+
+    if (ficaRequired) {
+
+        if (ficaSection) {
+
+            ficaSection.style.display =
+                "block";
+
+        }
+
+
+        if (ficaNotice) {
+
+            ficaNotice.style.display =
+                "block";
+
+        }
+
+
+        if (serviceInfo) {
+
+            serviceInfo.textContent =
+                "This service requires FICA verification.";
+
+        }
+
+
+        addFicaRequired();
+
+    }
+
+
+    /*
+    ================================================
+    FICA NOT REQUIRED
+    ================================================
+    */
+
+    else {
+
+        if (ficaSection) {
+
+            ficaSection.style.display =
+                "none";
+
+        }
+
+
+        if (ficaNotice) {
+
+            ficaNotice.style.display =
+                "none";
+
+        }
+
+
+        if (serviceInfo) {
+
+            serviceInfo.textContent =
+                "FICA verification is not required for this service.";
+
+        }
+
+
+        removeFicaRequired();
+
+    }
+
+}
+
+
+/* =====================================================
+   ADD REQUIRED TO FICA
+===================================================== */
+
+function addFicaRequired() {
+
+    if (identityNumber) {
+
+        identityNumber.required =
+            true;
+
+    }
+
+
+    if (idProof) {
+
+        idProof.required =
+            true;
+
+    }
+
+
+    if (proofOfResidence) {
+
+        proofOfResidence.required =
+            true;
+
+    }
+
+}
+
+
+/* =====================================================
+   REMOVE REQUIRED FROM FICA
+===================================================== */
+
+function removeFicaRequired() {
+
+    if (identityNumber) {
+
+        identityNumber.required =
+            false;
+
+        identityNumber.value =
+            "";
+
+    }
+
+
+    if (idProof) {
+
+        idProof.required =
+            false;
+
+        idProof.value =
+            "";
+
+    }
+
+
+    if (proofOfResidence) {
+
+        proofOfResidence.required =
+            false;
+
+        proofOfResidence.value =
+            "";
+
+    }
+
+}
+
+
+/* =====================================================
+   SERVICE CHANGE EVENT
+===================================================== */
+
+if (serviceSelect) {
+
+    serviceSelect.addEventListener(
+        "change",
+        updateFicaFields
+    );
+
+}
+
+
+/* =====================================================
+   RUN FICA CHECK ON PAGE LOAD
+===================================================== */
+
+updateFicaFields();
+
+
+/* =====================================================
+   REGISTER FORM
+===================================================== */
+
+const signupForm =
+    document.getElementById("signupForm");
+
+
+if (signupForm) {
+
+    signupForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const message =
+                document.getElementById(
+                    "signupMessage"
                 );
 
 
+            const password =
+                document.getElementById(
+                    "signupPassword"
+                ).value;
+
+
+            const confirmPassword =
+                document.getElementById(
+                    "confirmPassword"
+                ).value;
+
+
+            const terms =
+                document.getElementById(
+                    "terms"
+                ).checked;
+
+
+            const service =
+                document.getElementById(
+                    "service"
+                ).value;
+
+
+            /*
+            ==========================================
+            CHECK SERVICE
+            ==========================================
+            */
+
+            if (!service) {
+
+                message.textContent =
+                    "Please select the service you need.";
+
+                message.className =
+                    "message error";
+
+                return;
+
+            }
+
+
+            /*
+            ==========================================
+            CHECK PASSWORD
+            ==========================================
+            */
+
+            if (password !== confirmPassword) {
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                message.className =
+                    "message error";
+
+                return;
+
+            }
+
+
+            /*
+            ==========================================
+            CHECK PASSWORD LENGTH
+            ==========================================
+            */
+
+            if (password.length < 8) {
+
+                message.textContent =
+                    "Password must be at least 8 characters long.";
+
+                message.className =
+                    "message error";
+
+                return;
+
+            }
+
+
+            /*
+            ==========================================
+            CHECK TERMS
+            ==========================================
+            */
+
+            if (!terms) {
+
+                message.textContent =
+                    "Please agree to the Terms of Service.";
+
+                message.className =
+                    "message error";
+
+                return;
+
+            }
+
+
+            /*
+            ==========================================
+            CHECK FICA
+            ==========================================
+            */
+
+            const ficaRequired =
+                ficaServices.includes(service);
+
+
+            if (ficaRequired) {
+
                 if (
-                    data
-                    .toLowerCase()
-                    .includes("success")
+                    !identityNumber.value.trim() ||
+                    !idProof.files.length ||
+                    !proofOfResidence.files.length
                 ) {
 
                     message.textContent =
-                        "Registration successful! Your account is pending approval.";
+                        "Please complete all required FICA fields and upload your documents.";
 
                     message.className =
-                        "message success";
+                        "message error";
 
-
-                    form.reset();
-
-
-                    document
-                    .getElementById(
-                        "strengthText"
-                    )
-                    .textContent =
-                        "Enter a Password";
-
-
-                    document
-                    .getElementById(
-                        "strengthFill"
-                    )
-                    .style.width =
-                        "0%";
+                    return;
 
                 }
 
-                else {
+            }
+
+
+            /*
+            ==========================================
+            CREATE FORM DATA
+            ==========================================
+            */
+
+            const formData =
+                new FormData(signupForm);
+
+
+            /*
+            ==========================================
+            SHOW LOADING
+            ==========================================
+            */
+
+            message.textContent =
+                "Creating your account...";
+
+            message.className =
+                "message success";
+
+
+            /*
+            ==========================================
+            SEND TO PHP
+            ==========================================
+            */
+
+            fetch(
+                "auth/register.php",
+                {
+
+                    method: "POST",
+
+                    body: formData
+
+                }
+            )
+
+
+            /*
+            ==========================================
+            GET RESPONSE
+            ==========================================
+            */
+
+            .then(
+                response => {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Server returned an error."
+                        );
+
+                    }
+
+                    return response.text();
+
+                }
+            )
+
+
+            /*
+            ==========================================
+            PROCESS RESPONSE
+            ==========================================
+            */
+
+            .then(
+                data => {
+
+                    console.log(
+                        "PHP RESPONSE:",
+                        data
+                    );
+
+
+                    const result =
+                        data.trim();
+
+
+                    /*
+                    ==================================
+                    SUCCESS
+                    ==================================
+                    */
+
+                    if (
+                        result
+                        .toLowerCase()
+                        .includes("success")
+                    ) {
+
+                        message.textContent =
+                            "Registration successful! Your account is pending approval.";
+
+                        message.className =
+                            "message success";
+
+
+                        signupForm.reset();
+
+
+                        /*
+                        Reset FICA fields
+                        */
+
+                        removeFicaRequired();
+
+
+                        /*
+                        Reset service message
+                        */
+
+                        if (ficaSection) {
+
+                            ficaSection.style.display =
+                                "none";
+
+                        }
+
+
+                        if (ficaNotice) {
+
+                            ficaNotice.style.display =
+                                "none";
+
+                        }
+
+
+                        if (serviceInfo) {
+
+                            serviceInfo.textContent =
+                                "Please select a service to continue.";
+
+                        }
+
+
+                        /*
+                        Reset password strength
+                        */
+
+                        if (strengthText) {
+
+                            strengthText.textContent =
+                                "Enter a Password";
+
+                        }
+
+
+                        if (strengthFill) {
+
+                            strengthFill.style.width =
+                                "0%";
+
+                        }
+
+                    }
+
+
+                    /*
+                    ==================================
+                    ERROR FROM PHP
+                    ==================================
+                    */
+
+                    else {
+
+                        message.textContent =
+                            result;
+
+                        message.className =
+                            "message error";
+
+                    }
+
+                }
+            )
+
+
+            /*
+            ==========================================
+            CONNECTION ERROR
+            ==========================================
+            */
+
+            .catch(
+                error => {
+
+                    console.error(
+                        "Registration Error:",
+                        error
+                    );
+
 
                     message.textContent =
-                        data;
+                        "Unable to connect to the server. Please check that XAMPP and Apache are running.";
 
                     message.className =
                         "message error";
 
                 }
+            );
 
-            }
-        )
+        }
+    );
 
-        .catch(
-            error => {
-
-                console.error(
-                    "Registration Error:",
-                    error
-                );
-
-                message.textContent =
-                    "Unable to connect to the server. Please check your PHP file and XAMPP.";
-
-                message.className =
-                    "message error";
-
-            }
-        );
-
-    }
-);
+}
 
 
 /* =====================================================
-   LOGIN DEMO
+   LOGIN FORM
 ===================================================== */
 
-document
-.getElementById("loginForm")
-.addEventListener(
-    "submit",
-    function(event) {
-
-        event.preventDefault();
+const loginForm =
+    document.getElementById("loginForm");
 
 
-        const username =
-            document.getElementById(
-                "loginUsername"
-            ).value;
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
 
 
-        const password =
-            document.getElementById(
-                "loginPassword"
-            ).value;
+            const formData =
+                new FormData(loginForm);
 
 
-        const message =
-            document.getElementById(
-                "loginMessage"
-            );
+            const message =
+                document.getElementById(
+                    "loginMessage"
+                );
 
 
-        if (
-            username === "admin" &&
-            password === "1234"
-        ) {
+            /*
+            ==========================================
+            SHOW LOADING
+            ==========================================
+            */
 
             message.textContent =
-                "Login successful!";
+                "Logging in...";
 
             message.className =
                 "message success";
 
+
+            /*
+            ==========================================
+            SEND LOGIN
+            ==========================================
+            */
+
+            fetch(
+                "auth/login.php",
+                {
+
+                    method: "POST",
+
+                    body: formData
+
+                }
+            )
+
+
+            /*
+            ==========================================
+            GET RESPONSE
+            ==========================================
+            */
+
+            .then(
+                response =>
+                    response.text()
+            )
+
+
+            /*
+            ==========================================
+            PROCESS LOGIN
+            ==========================================
+            */
+
+            .then(
+                data => {
+
+                    console.log(
+                        "LOGIN RESPONSE:",
+                        data
+                    );
+
+
+                    const result =
+                        data.trim();
+
+
+                    /*
+                    ==================================
+                    LOGIN SUCCESS
+                    ==================================
+                    */
+
+                    if (
+                        result
+                        .toLowerCase()
+                        ===
+                        "success"
+                    ) {
+
+                        message.textContent =
+                            "Login successful! Redirecting...";
+
+                        message.className =
+                            "message success";
+
+
+                        setTimeout(
+                            function () {
+
+                                window.location.href =
+                                    "customer-dashboard.php";
+
+                            },
+                            1000
+                        );
+
+                    }
+
+
+                    /*
+                    ==================================
+                    LOGIN FAILED
+                    ==================================
+                    */
+
+                    else {
+
+                        message.textContent =
+                            result;
+
+                        message.className =
+                            "message error";
+
+                    }
+
+                }
+            )
+
+
+            /*
+            ==========================================
+            CONNECTION ERROR
+            ==========================================
+            */
+
+            .catch(
+                error => {
+
+                    console.error(
+                        "Login Error:",
+                        error
+                    );
+
+
+                    message.textContent =
+                        "Unable to connect to the server. Please check your PHP and XAMPP.";
+
+                    message.className =
+                        "message error";
+
+                }
+            );
+
         }
+    );
 
-        else {
-
-            message.textContent =
-                "Incorrect username or password.";
-
-            message.className =
-                "message error";
-
-        }
-
-    }
-);
+}
 
 
 /* =====================================================
