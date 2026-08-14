@@ -1,0 +1,2549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wireless Broadband | Dinges TechHub</title>
+
+<style>
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root{
+
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+
+    --black:#020202;
+    --gray:#949393;
+
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+
+    --border:#E5E1E7;
+
+    --success:#198754;
+    --danger:#8B2929;
+
+    --shadow:
+        0 10px 25px rgba(60,21,66,.08);
+
+    --shadow-hover:
+        0 18px 35px rgba(60,21,66,.15);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--light);
+
+    color:var(--black);
+
+    line-height:1.6;
+
+}
+
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:8px 5%;
+
+    font-size:13px;
+
+}
+
+
+.topbar-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+}
+
+
+.nav-inner{
+
+    max-width:1200px;
+
+    min-height:72px;
+
+    margin:auto;
+
+    padding:0 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+}
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+}
+
+
+.logo-mark{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:9px;
+
+    background:var(--primary);
+
+    color:var(--accent);
+
+    display:grid;
+
+    place-items:center;
+
+    font-weight:900;
+
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+
+.nav-links a{
+
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.2s ease;
+
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--secondary);
+
+}
+
+
+.nav-cta{
+
+    background:var(--accent);
+
+    color:var(--black)!important;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:var(--white);
+
+    padding:75px 5%;
+
+    text-align:center;
+
+}
+
+
+.hero-inner{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+
+.eyebrow{
+
+    display:inline-block;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(38px,5vw,56px);
+
+    line-height:1.05;
+
+    margin-bottom:15px;
+
+}
+
+
+.hero p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    color:
+        rgba(255,255,255,.88);
+
+    font-size:16px;
+
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:60px 5%;
+
+}
+
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+
+.section-heading h2{
+
+    color:var(--primary);
+
+    font-size:32px;
+
+    margin-bottom:6px;
+
+}
+
+
+.section-heading p{
+
+    color:var(--gray);
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   INFO CARDS
+   ========================================================= */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:50px;
+
+}
+
+
+.info-card{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+}
+
+
+.info-icon{
+
+    width:55px;
+
+    height:55px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:#F5F1F6;
+
+    color:var(--secondary);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:25px;
+
+}
+
+
+.info-card h3{
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    margin-bottom:7px;
+
+}
+
+
+.info-card p{
+
+    color:var(--gray);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message{
+
+    display:none;
+
+    background:#FFF4F4;
+
+    border:1px solid #E7BDBD;
+
+    color:var(--danger);
+
+    padding:18px;
+
+    border-radius:9px;
+
+    margin-bottom:25px;
+
+    font-size:13px;
+
+}
+
+
+.error-message.show{
+
+    display:block;
+
+}
+
+
+/* =========================================================
+   API STATUS
+   ========================================================= */
+
+.api-status{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:15px 18px;
+
+    margin-bottom:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:13px;
+
+    color:var(--gray);
+
+}
+
+
+.status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    flex-shrink:0;
+
+}
+
+
+.status-dot.online{
+
+    background:var(--success);
+
+}
+
+
+.status-dot.offline{
+
+    background:#C62828;
+
+}
+
+
+/* =========================================================
+   PROVIDER SECTION
+   ========================================================= */
+
+.provider-section{
+
+    margin-top:20px;
+
+}
+
+
+.provider-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+
+.provider-card{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease,
+
+        border-color .25s ease;
+
+    text-align:center;
+
+}
+
+
+.provider-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:var(--secondary);
+
+}
+
+
+.provider-card.active{
+
+    border:
+        2px solid var(--secondary);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+/* =========================================================
+   PROVIDER ICON
+   ========================================================= */
+
+.provider-image{
+
+    width:80px;
+
+    height:80px;
+
+    margin:
+        0 auto 18px;
+
+    border-radius:15px;
+
+    background:#F5F1F6;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+.provider-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    padding:10px;
+
+}
+
+
+.provider-placeholder{
+
+    color:var(--secondary);
+
+    font-size:25px;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   PROVIDER CARD TEXT
+   ========================================================= */
+
+.provider-card h3{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    margin-bottom:6px;
+
+}
+
+
+.provider-card p{
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    margin-bottom:18px;
+
+}
+
+
+/* =========================================================
+   PROVIDER BUTTON
+   ========================================================= */
+
+.provider-button{
+
+    width:100%;
+
+    border:0;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
+}
+
+
+.provider-card:hover .provider-button,
+.provider-card.active .provider-button{
+
+    background:var(--secondary);
+
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading{
+
+    text-align:center;
+
+    padding:35px;
+
+    color:var(--gray);
+
+    font-size:14px;
+
+}
+
+
+.loading-spinner{
+
+    width:30px;
+
+    height:30px;
+
+    border:
+        3px solid #E8E2E9;
+
+    border-top-color:
+        var(--secondary);
+
+    border-radius:50%;
+
+    margin:
+        0 auto 12px;
+
+    animation:
+        spin .8s linear infinite;
+
+}
+
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   PACKAGES
+   ========================================================= */
+
+.packages-section{
+
+    margin-top:55px;
+
+    display:none;
+
+}
+
+
+.packages-section.show{
+
+    display:block;
+
+}
+
+
+.packages-header{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.packages-header h2{
+
+    font-size:26px;
+
+}
+
+
+.packages-header p{
+
+    color:
+        rgba(255,255,255,.75);
+
+    font-size:13px;
+
+}
+
+
+.close-packages{
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    background:transparent;
+
+    color:var(--white);
+
+    padding:9px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+.close-packages:hover{
+
+    background:
+        rgba(255,255,255,.1);
+
+}
+
+
+/* =========================================================
+   PACKAGE GRID
+   ========================================================= */
+
+.package-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+
+/* =========================================================
+   PACKAGE CARD
+   ========================================================= */
+
+.package-card{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s ease;
+
+}
+
+
+.package-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+
+.package-provider{
+
+    display:inline-block;
+
+    background:#F5F1F6;
+
+    color:var(--secondary);
+
+    padding:5px 9px;
+
+    border-radius:6px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+
+.package-card h3{
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+/* =========================================================
+   SPEED
+   ========================================================= */
+
+.package-speed{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+}
+
+
+.speed-box{
+
+    background:#F8F5F8;
+
+    border-radius:8px;
+
+    padding:10px;
+
+}
+
+
+.speed-box small{
+
+    display:block;
+
+    color:var(--gray);
+
+    font-size:10px;
+
+    margin-bottom:2px;
+
+}
+
+
+.speed-box strong{
+
+    color:var(--primary);
+
+    font-size:15px;
+
+}
+
+
+/* =========================================================
+   PACKAGE INFO
+   ========================================================= */
+
+.package-info{
+
+    border-top:
+        1px solid var(--border);
+
+    padding-top:13px;
+
+    display:grid;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+}
+
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    font-size:12px;
+
+}
+
+
+.info-label{
+
+    color:var(--gray);
+
+}
+
+
+.info-value{
+
+    color:#333;
+
+    font-weight:700;
+
+    text-align:right;
+
+    max-width:65%;
+
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.package-price{
+
+    border-top:
+        1px solid var(--border);
+
+    padding-top:15px;
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.price-label{
+
+    color:var(--gray);
+
+    font-size:11px;
+
+}
+
+
+.price{
+
+    color:var(--secondary);
+
+    font-size:24px;
+
+    font-weight:900;
+
+}
+
+
+.price-period{
+
+    color:var(--gray);
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+   ========================================================= */
+
+.select-package{
+
+    width:100%;
+
+    margin-top:17px;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    border:0;
+
+    border-radius:8px;
+
+    padding:11px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+
+.select-package:hover{
+
+    opacity:.9;
+
+}
+
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.empty-message{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:var(--gray);
+
+    grid-column:1/-1;
+
+}
+
+
+.empty-message h3{
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+
+/* =========================================================
+   DATABASE NOTE
+   ========================================================= */
+
+.database-note{
+
+    margin-top:40px;
+
+    padding:16px 18px;
+
+    border-left:
+        4px solid var(--accent);
+
+    background:var(--white);
+
+    border-radius:9px;
+
+    color:var(--gray);
+
+    font-size:12px;
+
+}
+
+
+.database-note strong{
+
+    color:var(--primary);
+
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:60px 5%;
+
+}
+
+
+.cta-inner{
+
+    max-width:750px;
+
+    margin:auto;
+
+}
+
+
+.cta h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+
+.cta p{
+
+    color:
+        rgba(255,255,255,.8);
+
+    font-size:14px;
+
+    margin-bottom:22px;
+
+}
+
+
+.cta-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.cta a{
+
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    padding:11px 22px;
+
+    border-radius:9px;
+
+}
+
+
+.cta a.secondary{
+
+    background:transparent;
+
+    color:var(--white);
+
+    border:
+        1px solid rgba(255,255,255,.35);
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+
+    background:#16091A;
+
+    color:
+        rgba(255,255,255,.75);
+
+    text-align:center;
+
+    padding:30px 5%;
+
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .provider-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .package-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .info-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .nav-links{
+
+        gap:14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:650px){
+
+    .provider-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .package-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+
+    .topbar-inner{
+
+        justify-content:center;
+
+        text-align:center;
+
+    }
+
+
+    .topbar-inner span:last-child{
+
+        display:none;
+
+    }
+
+
+    .hero{
+
+        padding:55px 5%;
+
+    }
+
+
+    .hero h1{
+
+        font-size:40px;
+
+    }
+
+
+    .main{
+
+        padding:50px 5%;
+
+    }
+
+
+    .section-heading h2{
+
+        font-size:28px;
+
+    }
+
+
+    .packages-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+    .package-price{
+
+        align-items:flex-start;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>
+            Reliable Technology & Connectivity Solutions
+        </span>
+
+        <span>
+            South Africa
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                DT
+            </span>
+
+            <span>
+                Dinges TechHub
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="fibre.html">
+                Fibre
+            </a>
+
+            <a
+                href="wireless-broadband.html"
+                class="active"
+            >
+                Wireless Broadband
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a
+                href="cart.html"
+                class="nav-cta"
+            >
+                Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            Internet Connectivity
+        </span>
+
+
+        <h1>
+            Wireless Broadband
+        </h1>
+
+
+        <p>
+            Stay connected with reliable wireless broadband
+            solutions designed for homes, businesses and areas
+            where fibre may not yet be available.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="main">
+
+
+    <!-- =================================================
+         INTRO
+         ================================================= -->
+
+    <div class="section-heading">
+
+        <h2>
+            Wireless Broadband Solutions
+        </h2>
+
+        <p>
+            Explore available wireless broadband providers
+            and packages from our live database.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         BENEFITS
+         ================================================= -->
+
+    <div class="info-grid">
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                📡
+            </div>
+
+            <h3>
+                Wireless Connectivity
+            </h3>
+
+            <p>
+                Connect without waiting for fibre
+                infrastructure to reach your area.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Reliable Speeds
+            </h3>
+
+            <p>
+                Choose a package that matches your
+                home's or business's connectivity needs.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                🏠
+            </div>
+
+            <h3>
+                Home & Business
+            </h3>
+
+            <p>
+                Wireless broadband options are available
+                for different usage requirements.
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- =================================================
+         API ERROR
+         ================================================= -->
+
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
+
+
+    <!-- =================================================
+         API STATUS
+         ================================================= -->
+
+    <div
+        id="apiStatus"
+        class="api-status"
+    >
+
+        <span
+            id="statusDot"
+            class="status-dot"
+        ></span>
+
+        <span id="statusText">
+            Connecting to wireless broadband database...
+        </span>
+
+    </div>
+
+
+    <!-- =================================================
+         PROVIDERS
+         ================================================= -->
+
+    <section class="provider-section">
+
+
+        <div class="section-heading">
+
+            <h2>
+                Choose Your Wireless Provider
+            </h2>
+
+            <p>
+                Select a provider below to view its available
+                wireless broadband packages.
+            </p>
+
+        </div>
+
+
+        <div
+            id="providerLoading"
+            class="loading"
+        >
+
+            <div class="loading-spinner"></div>
+
+            Loading wireless broadband providers...
+
+        </div>
+
+
+        <div
+            id="providerGrid"
+            class="provider-grid"
+        ></div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         PACKAGES
+         ================================================= -->
+
+    <section
+        id="packagesSection"
+        class="packages-section"
+    >
+
+
+        <div class="packages-header">
+
+
+            <div>
+
+                <h2 id="selectedProviderName">
+                    Wireless Broadband Packages
+                </h2>
+
+
+                <p id="selectedProviderDescription">
+                    Available packages from this provider.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-packages"
+                onclick="closePackages()"
+            >
+
+                ← Back to Providers
+
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="packagesLoading"
+            class="loading"
+        >
+
+            <div class="loading-spinner"></div>
+
+            Loading packages from database...
+
+        </div>
+
+
+        <div
+            id="packageGrid"
+            class="package-grid"
+        ></div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         DATABASE NOTE
+         ================================================= -->
+
+    <div class="database-note">
+
+        <strong>
+            Live database:
+        </strong>
+
+        Wireless broadband packages are loaded from the
+        Dinges TechHub PHP API. Package names, providers,
+        speeds and pricing can therefore be managed from
+        the backend instead of being hard-coded into this page.
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+
+        <h2>
+            Need Help Choosing Wireless Broadband?
+        </h2>
+
+
+        <p>
+            Contact Dinges TechHub and we can help you
+            choose a wireless broadband package suitable
+            for your location and connectivity needs.
+        </p>
+
+
+        <div class="cta-buttons">
+
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+
+            <a
+                href="services.html"
+                class="secondary"
+            >
+                View All Services
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <p>
+
+        &copy;
+
+        <span id="year"></span>
+
+        Dinges TechHub.
+        All rights reserved.
+
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+
+/* =========================================================
+   API CONFIGURATION
+   ========================================================= */
+
+/*
+    YOUR WIRELESS BROADBAND PHP API
+
+    If your API is located somewhere else,
+    change ONLY this line.
+
+    Example:
+
+    https://register.web.za/api/wireless-packages.php
+*/
+
+const API_URL =
+    "https://register.web.za/api/wireless-packages.php";
+
+
+/* =========================================================
+   YEAR
+   ========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   PAGE LOAD
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadProviders();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD PROVIDERS
+   ========================================================= */
+
+async function loadProviders(){
+
+    const providerLoading =
+        document.getElementById(
+            "providerLoading"
+        );
+
+    const providerGrid =
+        document.getElementById(
+            "providerGrid"
+        );
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+    const statusDot =
+        document.getElementById(
+            "statusDot"
+        );
+
+    const statusText =
+        document.getElementById(
+            "statusText"
+        );
+
+
+    try{
+
+
+        console.log(
+            "Wireless API:",
+            API_URL
+        );
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"GET",
+
+                    headers:{
+                        "Accept":
+                            "application/json"
+                    },
+
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status +
+                " - " +
+                response.statusText
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Wireless API response:",
+            data
+        );
+
+
+        if(
+            data.success === false
+        ){
+
+            throw new Error(
+                data.error ||
+                data.message ||
+                "The API returned an unsuccessful response."
+            );
+
+        }
+
+
+        /*
+            Get packages.
+
+            The API can return:
+
+            {
+                success:true,
+                packages:[]
+            }
+
+            or
+
+            {
+                success:true,
+                data:[]
+            }
+        */
+
+        const packages =
+            Array.isArray(data.packages)
+                ? data.packages
+                : Array.isArray(data.data)
+                    ? data.data
+                    : [];
+
+
+        providerLoading.style.display =
+            "none";
+
+
+        statusDot.classList.add(
+            "online"
+        );
+
+
+        statusText.textContent =
+            packages.length +
+            " wireless broadband package" +
+            (
+                packages.length === 1
+                    ? ""
+                    : "s"
+            ) +
+            " available from the database.";
+
+
+        if(
+            packages.length === 0
+        ){
+
+            providerGrid.innerHTML = `
+
+                <div class="empty-message">
+
+                    <h3>
+                        No Wireless Packages Found
+                    </h3>
+
+                    <p>
+                        No wireless broadband packages
+                        were returned by the database.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+            Build provider list from
+            the actual API data.
+        */
+
+        const providers =
+            buildProviders(packages);
+
+
+        if(
+            providers.length === 0
+        ){
+
+            providerGrid.innerHTML = `
+
+                <div class="empty-message">
+
+                    <h3>
+                        No Providers Found
+                    </h3>
+
+                    <p>
+                        The API returned packages,
+                        but no provider names were found.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        providers.forEach(
+            function(provider){
+
+                providerGrid.appendChild(
+                    createProviderCard(
+                        provider
+                    )
+                );
+
+            }
+        );
+
+
+        /*
+            Save packages globally.
+
+            This lets the provider cards
+            filter the already-loaded
+            database response.
+        */
+
+        window.wirelessPackages =
+            packages;
+
+
+    }
+    catch(error){
+
+
+        console.error(
+            "Wireless Broadband API Error:",
+            error
+        );
+
+
+        providerLoading.style.display =
+            "none";
+
+
+        statusDot.classList.add(
+            "offline"
+        );
+
+
+        statusText.textContent =
+            "Unable to connect to the wireless broadband API.";
+
+
+        errorMessage.innerHTML = `
+
+            <strong>
+                Unable to Load Wireless Broadband
+            </strong>
+
+            <br><br>
+
+            The page could not retrieve the
+            wireless broadband packages.
+
+            <br><br>
+
+            <strong>
+                Error:
+            </strong>
+
+            ${escapeHTML(
+                error.message
+            )}
+
+            <br><br>
+
+            Please check that:
+
+            <br>
+
+            • The PHP wireless API exists.
+
+            <br>
+
+            • The API URL is correct.
+
+            <br>
+
+            • The PHP API can connect to the database.
+
+            <br>
+
+            • CORS allows requests from Netlify.
+
+        `;
+
+
+        errorMessage.classList.add(
+            "show"
+        );
+
+
+        providerGrid.innerHTML = `
+
+            <div class="empty-message">
+
+                <h3>
+                    Unable to Connect
+                </h3>
+
+                <p>
+                    We could not retrieve wireless
+                    broadband packages from the database.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   BUILD PROVIDERS
+   ========================================================= */
+
+function buildProviders(packages){
+
+    const providerMap =
+        new Map();
+
+
+    packages.forEach(
+        function(pkg){
+
+            const provider =
+                getProviderName(pkg);
+
+
+            if(!provider){
+                return;
+            }
+
+
+            if(
+                !providerMap.has(
+                    provider
+                )
+            ){
+
+                providerMap.set(
+                    provider,
+                    {
+                        name:provider,
+                        packages:[]
+                    }
+                );
+
+            }
+
+
+            providerMap
+                .get(provider)
+                .packages
+                .push(pkg);
+
+        }
+    );
+
+
+    return Array.from(
+        providerMap.values()
+    );
+
+}
+
+
+/* =========================================================
+   GET PROVIDER NAME
+   ========================================================= */
+
+function getProviderName(pkg){
+
+    /*
+        Supports different API
+        naming conventions.
+    */
+
+    return (
+        pkg.provider ||
+        pkg.provider_name ||
+        pkg.fibre_provider ||
+        pkg.wireless_provider ||
+        pkg.company ||
+        pkg.vendor ||
+        ""
+    ).toString().trim();
+
+}
+
+
+/* =========================================================
+   CREATE PROVIDER CARD
+   ========================================================= */
+
+function createProviderCard(provider){
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "provider-card";
+
+
+    const providerName =
+        provider.name;
+
+
+    const firstLetter =
+        providerName
+            .charAt(0)
+            .toUpperCase();
+
+
+    card.innerHTML = `
+
+        <div class="provider-image">
+
+            <span class="provider-placeholder">
+
+                ${escapeHTML(
+                    firstLetter
+                )}
+
+            </span>
+
+        </div>
+
+
+        <h3>
+
+            ${escapeHTML(
+                providerName
+            )}
+
+        </h3>
+
+
+        <p>
+
+            ${provider.packages.length}
+
+            available package
+            ${
+                provider.packages.length === 1
+                    ? ""
+                    : "s"
+            }
+
+        </p>
+
+
+        <button
+            type="button"
+            class="provider-button"
+        >
+
+            View Packages
+
+        </button>
+
+    `;
+
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            selectProvider(
+                providerName
+            );
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   SELECT PROVIDER
+   ========================================================= */
+
+function selectProvider(
+    providerName
+){
+
+    document
+        .querySelectorAll(
+            ".provider-card"
+        )
+        .forEach(
+            function(card){
+
+                card.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+
+    /*
+        Find matching card
+    */
+
+    document
+        .querySelectorAll(
+            ".provider-card"
+        )
+        .forEach(
+            function(card){
+
+                const heading =
+                    card.querySelector(
+                        "h3"
+                    );
+
+
+                if(
+                    heading &&
+                    heading.textContent.trim()
+                        === providerName
+                ){
+
+                    card.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+
+    const packagesSection =
+        document.getElementById(
+            "packagesSection"
+        );
+
+
+    const packageGrid =
+        document.getElementById(
+            "packageGrid"
+        );
+
+
+    const loading =
+        document.getElementById(
+            "packagesLoading"
+        );
+
+
+    const selectedName =
+        document.getElementById(
+            "selectedProviderName"
+        );
+
+
+    const selectedDescription =
+        document.getElementById(
+            "selectedProviderDescription"
+        );
+
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    errorMessage.classList.remove(
+        "show"
+    );
+
+
+    packagesSection.classList.add(
+        "show"
+    );
+
+
+    selectedName.textContent =
+        providerName +
+        " Wireless Broadband";
+
+
+    selectedDescription.textContent =
+        "Available wireless broadband packages from " +
+        providerName +
+        ".";
+
+
+    packageGrid.innerHTML =
+        "";
+
+
+    loading.style.display =
+        "block";
+
+
+    packagesSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    /*
+        Filter loaded API packages.
+    */
+
+    const packages =
+        window.wirelessPackages
+            .filter
