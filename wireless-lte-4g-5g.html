@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wireless LTE, 4G & 5G | Dinges TechHub</title>
+
+<style>
+
+:root{
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+    --black:#020202;
+    --gray:#949393;
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+    --border:#E5E1E7;
+
+    --shadow:0 10px 25px rgba(60,21,66,.08);
+    --shadow-hover:0 18px 35px rgba(60,21,66,.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--black);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:var(--primary);
+    color:var(--white);
+    padding:8px 5%;
+    font-size:13px;
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar{
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.nav-inner{
+    max-width:1200px;
+    min-height:72px;
+
+    margin:auto;
+    padding:0 5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--primary);
+
+    font-size:20px;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:40px;
+    height:40px;
+
+    border-radius:9px;
+
+    background:var(--primary);
+
+    color:var(--accent);
+
+    display:grid;
+    place-items:center;
+
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#333;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--secondary);
+}
+
+.nav-cta{
+    background:var(--accent);
+
+    color:var(--black)!important;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:var(--white);
+
+    padding:75px 5%;
+
+    text-align:center;
+}
+
+.hero-inner{
+    max-width:850px;
+    margin:auto;
+}
+
+.eyebrow{
+    display:inline-block;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:clamp(38px,5vw,56px);
+
+    line-height:1.05;
+
+    margin-bottom:18px;
+}
+
+.hero p{
+    max-width:720px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:60px 5%;
+}
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.section-heading h2{
+    color:var(--primary);
+
+    font-size:32px;
+
+    margin-bottom:7px;
+}
+
+.section-heading p{
+    color:var(--gray);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error-message{
+    display:none;
+
+    background:#FFF4F4;
+
+    border:1px solid #E7BDBD;
+
+    color:#8B2929;
+
+    padding:15px;
+
+    border-radius:9px;
+
+    margin-bottom:20px;
+
+    font-size:13px;
+}
+
+.error-message.show{
+    display:block;
+}
+
+
+/* =========================================================
+   INTRO CARDS
+========================================================= */
+
+.intro-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:45px;
+}
+
+.intro-card{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+}
+
+.intro-icon{
+    width:58px;
+    height:58px;
+
+    margin:0 auto 15px;
+
+    border-radius:14px;
+
+    background:#F5F1F6;
+
+    display:grid;
+    place-items:center;
+
+    font-size:26px;
+}
+
+.intro-card h3{
+    color:var(--primary);
+
+    font-size:18px;
+
+    margin-bottom:7px;
+}
+
+.intro-card p{
+    color:var(--gray);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   PACKAGES
+========================================================= */
+
+.packages-section{
+    margin-top:20px;
+}
+
+.packages-header{
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-radius:15px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.packages-header h2{
+    font-size:26px;
+
+    margin-bottom:4px;
+}
+
+.packages-header p{
+    color:rgba(255,255,255,.75);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   PACKAGE GRID
+========================================================= */
+
+.package-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================================================
+   PACKAGE CARD
+========================================================= */
+
+.package-card{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s ease;
+}
+
+.package-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:var(--secondary);
+}
+
+.package-card h3{
+    color:var(--primary);
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+    min-height:48px;
+}
+
+
+/* =========================================================
+   PACKAGE BADGE
+========================================================= */
+
+.package-badge{
+    display:inline-block;
+
+    background:#F5F1F6;
+
+    color:var(--secondary);
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   SPEED / DATA
+========================================================= */
+
+.package-speed{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+    margin-bottom:18px;
+}
+
+.speed-box{
+    background:#F8F5F8;
+
+    border-radius:8px;
+
+    padding:11px;
+}
+
+.speed-box small{
+    display:block;
+
+    color:var(--gray);
+
+    font-size:10px;
+
+    margin-bottom:2px;
+}
+
+.speed-box strong{
+    color:var(--primary);
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   PACKAGE INFORMATION
+========================================================= */
+
+.package-info{
+    border-top:1px solid var(--border);
+
+    padding-top:13px;
+
+    display:grid;
+
+    gap:8px;
+
+    margin-bottom:18px;
+}
+
+.info-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+    font-size:12px;
+}
+
+.info-label{
+    color:var(--gray);
+}
+
+.info-value{
+    color:#333;
+
+    font-weight:700;
+
+    text-align:right;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.package-price{
+    border-top:1px solid var(--border);
+
+    padding-top:15px;
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.price-label{
+    color:var(--gray);
+
+    font-size:11px;
+}
+
+.price{
+    color:var(--secondary);
+
+    font-size:24px;
+
+    font-weight:900;
+}
+
+.price-period{
+    color:var(--gray);
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SELECT BUTTON
+========================================================= */
+
+.select-package{
+    width:100%;
+
+    margin-top:17px;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    border:0;
+
+    border-radius:8px;
+
+    padding:11px;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+.select-package:hover{
+    transform:translateY(-1px);
+
+    opacity:.9;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading{
+    text-align:center;
+
+    padding:35px;
+
+    color:var(--gray);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-message{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:35px;
+
+    text-align:center;
+
+    color:var(--gray);
+
+    grid-column:1/-1;
+}
+
+.empty-message h3{
+    color:var(--primary);
+
+    margin-bottom:8px;
+}
+
+
+/* =========================================================
+   COVERAGE NOTE
+========================================================= */
+
+.coverage-note{
+    margin-top:40px;
+
+    padding:20px;
+
+    border-left:4px solid var(--accent);
+
+    background:var(--white);
+
+    border-radius:9px;
+
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+.coverage-note strong{
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+    background:var(--primary);
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:60px 5%;
+}
+
+.cta-inner{
+    max-width:750px;
+
+    margin:auto;
+}
+
+.cta h2{
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:rgba(255,255,255,.8);
+
+    font-size:14px;
+
+    margin-bottom:22px;
+}
+
+.cta a{
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    padding:11px 22px;
+
+    border-radius:9px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#16091A;
+
+    color:rgba(255,255,255,.75);
+
+    text-align:center;
+
+    padding:30px 5%;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .package-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .intro-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:650px){
+
+    .package-grid{
+        grid-template-columns:1fr;
+    }
+
+    .intro-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .topbar-inner{
+        justify-content:center;
+
+        text-align:center;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 5%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .main{
+        padding:50px 5%;
+    }
+
+    .section-heading h2{
+        font-size:28px;
+    }
+
+    .packages-header{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>
+            Reliable Technology & Connectivity Solutions
+        </span>
+
+        <span>
+            South Africa
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                DT
+            </span>
+
+            <span>
+                Dinges TechHub
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="internet-connectivity.html">
+                Internet Connectivity
+            </a>
+
+            <a href="wireless-lte-4g-5g.html"
+               class="active">
+                LTE / 4G / 5G
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="cart.html"
+               class="nav-cta">
+                Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            Wireless Connectivity
+        </span>
+
+        <h1>
+            Wireless LTE, 4G & 5G
+        </h1>
+
+        <p>
+            Stay connected without the need for fibre.
+            Explore flexible wireless internet packages
+            for home, work and everyday connectivity.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+
+    <div class="section-heading">
+
+        <h2>
+            Wireless Internet Solutions
+        </h2>
+
+        <p>
+            Choose the wireless solution that best suits
+            your connectivity requirements.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         INTRODUCTION
+    ================================================== -->
+
+    <div class="intro-grid">
+
+
+        <article class="intro-card">
+
+            <div class="intro-icon">
+                📡
+            </div>
+
+            <h3>
+                LTE Connectivity
+            </h3>
+
+            <p>
+                Reliable wireless connectivity using
+                available LTE mobile networks.
+            </p>
+
+        </article>
+
+
+        <article class="intro-card">
+
+            <div class="intro-icon">
+                📶
+            </div>
+
+            <h3>
+                4G Internet
+            </h3>
+
+            <p>
+                Flexible 4G packages for homes,
+                businesses and mobile users.
+            </p>
+
+        </article>
+
+
+        <article class="intro-card">
+
+            <div class="intro-icon">
+                🚀
+            </div>
+
+            <h3>
+                5G Connectivity
+            </h3>
+
+            <p>
+                High-speed wireless connectivity
+                where compatible 5G coverage is available.
+            </p>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- =================================================
+         ERROR
+    ================================================== -->
+
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
+
+
+    <!-- =================================================
+         PACKAGES
+    ================================================== -->
+
+    <section class="packages-section">
+
+
+        <div class="packages-header">
+
+            <div>
+
+                <h2>
+                    Available Wireless Packages
+                </h2>
+
+                <p id="packagesDescription">
+                    Loading available LTE, 4G and 5G packages...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="packagesLoading"
+            class="loading"
+        >
+
+            Loading wireless packages...
+
+        </div>
+
+
+        <div
+            id="packageGrid"
+            class="package-grid"
+        ></div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         COVERAGE NOTE
+    ================================================== -->
+
+    <div class="coverage-note">
+
+        <strong>
+            Coverage is important:
+        </strong>
+
+        Wireless LTE, 4G and 5G availability,
+        speeds and network performance depend on
+        network coverage and signal strength at your location.
+
+        Please contact Dinges TechHub if you need help
+        checking availability before ordering.
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <h2>
+            Need Help Choosing a Wireless Package?
+        </h2>
+
+        <p>
+            Not sure whether LTE, 4G or 5G is right for you?
+            Contact Dinges TechHub and we can help you choose
+            a suitable package.
+        </p>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+
+        &copy;
+
+        <span id="year"></span>
+
+        Dinges TechHub.
+        All rights reserved.
+
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =========================================================
+   API CONFIGURATION
+========================================================= */
+
+/*
+    IMPORTANT:
+
+    Your Netlify website cannot directly connect to MySQL.
+
+    The PHP API must be hosted on your register.web.za
+    server.
+
+    Example:
+
+    https://register.web.za/api/wireless-lte-4g-5g.php
+
+    If your PHP file is stored somewhere else,
+    change ONLY this URL.
+*/
+
+const API_URL =
+    "https://register.web.za/api/wireless-lte-4g-5g.php";
+
+
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   LOAD PACKAGES
+========================================================= */
+
+async function loadPackages(){
+
+    const loading =
+        document.getElementById("packagesLoading");
+
+    const grid =
+        document.getElementById("packageGrid");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+    const description =
+        document.getElementById("packagesDescription");
+
+
+    try{
+
+        errorMessage.classList.remove("show");
+
+        errorMessage.textContent = "";
+
+
+        loading.style.display =
+            "block";
+
+
+        grid.innerHTML =
+            "";
+
+
+        console.log(
+            "Loading wireless packages from:",
+            API_URL
+        );
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"GET",
+
+                    headers:{
+                        "Accept":
+                            "application/json"
+                    },
+
+                    cache:"no-store"
+                }
+            );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP error " +
+                response.status
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Wireless API response:",
+            data
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.error ||
+                "The API returned an unsuccessful response."
+            );
+
+        }
+
+
+        if(
+            !Array.isArray(data.packages)
+        ){
+
+            throw new Error(
+                "The API did not return a valid packages array."
+            );
+
+        }
+
+
+        if(
+            data.packages.length === 0
+        ){
+
+            description.textContent =
+                "There are currently no wireless packages available.";
+
+
+            grid.innerHTML = `
+
+                <div class="empty-message">
+
+                    <h3>
+                        No Packages Available
+                    </h3>
+
+                    <p>
+                        There are currently no
+                        LTE, 4G or 5G packages
+                        available.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        description.textContent =
+            data.packages.length +
+            " wireless package" +
+            (
+                data.packages.length === 1
+                    ? ""
+                    : "s"
+            ) +
+            " available.";
+
+
+        data.packages.forEach(
+            function(pkg){
+
+                grid.appendChild(
+                    createPackageCard(pkg)
+                );
+
+            }
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Wireless API Error:",
+            error
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        errorMessage.textContent =
+            "Unable to load wireless packages. " +
+            error.message;
+
+
+        errorMessage.classList.add(
+            "show"
+        );
+
+
+        grid.innerHTML = `
+
+            <div class="empty-message">
+
+                <h3>
+                    Unable to Load Packages
+                </h3>
+
+                <p>
+                    We could not retrieve the wireless
+                    packages from the database.
+                </p>
+
+                <p style="
+                    margin-top:10px;
+                    font-size:12px;
+                ">
+
+                    Please check that the PHP API is
+                    available and that the API URL
+                    is correct.
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   CREATE PACKAGE CARD
+========================================================= */
+
+function createPackageCard(pkg){
+
+    const card =
+        document.createElement("article");
+
+
+    card.className =
+        "package-card";
+
+
+    /*
+        Support different field names.
+
+        This makes the page more flexible
+        depending on what your PHP API returns.
+    */
+
+    const packageName =
+        pkg.package_name ||
+        pkg.name ||
+        "Wireless Package";
+
+
+    const description =
+        pkg.description ||
+        "";
+
+
+    const downloadSpeed =
+        pkg.download_speed ||
+        pkg.download ||
+        pkg.speed ||
+        "-";
+
+
+    const uploadSpeed =
+        pkg.upload_speed ||
+        pkg.upload ||
+        "-";
+
+
+    const dataAmount =
+        pkg.data ||
+        pkg.data_amount ||
+        pkg.allowance ||
+        extractDataAmount(packageName) ||
+        "-";
+
+
+    const networkType =
+        pkg.network_type ||
+        pkg.connection_type ||
+        pkg.internet_type ||
+        "Wireless";
+
+
+    const monthlyPrice =
+        pkg.monthly_price ??
+        pkg.pricing?.monthly ??
+        pkg.price ??
+        0;
+
+
+    const setupFee =
+        pkg.setup_fee ??
+        pkg.pricing?.setup ??
+        0;
+
+
+    const packageId =
+        pkg.id ||
+        pkg.product_id ||
+        "";
+
+
+    card.innerHTML = `
+
+        <span class="package-badge">
+
+            ${escapeHTML(networkType)}
+
+        </span>
+
+
+        <h3>
+
+            ${escapeHTML(packageName)}
+
+        </h3>
+
+
+        <div class="package-speed">
+
+
+            <div class="speed-box">
+
+                <small>
+                    Data
+                </small>
+
+                <strong>
+
+                    ${escapeHTML(dataAmount)}
+
+                </strong>
+
+            </div>
+
+
+            <div class="speed-box">
+
+                <small>
+                    Network
+                </small>
+
+                <strong>
+
+                    ${escapeHTML(networkType)}
+
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="package-info">
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Package
+                </span>
+
+                <span class="info-value">
+
+                    ${escapeHTML(packageName)}
+
+                </span>
+
+            </div>
+
+
+            ${
+                description
+                ?
+                `
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        Details
+                    </span>
+
+                    <span class="info-value">
+                        ${cleanDescription(description)}
+                    </span>
+
+                </div>
+
+                `
+                :
+                ""
+            }
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Setup Fee
+                </span>
+
+                <span class="info-value">
+
+                    R${formatPrice(setupFee)}
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="package-price">
+
+
+            <div>
+
+                <div class="price-label">
+                    Monthly
+                </div>
+
+                <div class="price">
+
+                    R${formatPrice(monthlyPrice)}
+
+                </div>
+
+            </div>
+
+
+            <div class="price-period">
+                per month
+            </div>
+
+
+        </div>
+
+
+        <button
+            type="button"
+            class="select-package"
+        >
+
+            Select Package
+
+        </button>
+
+    `;
+
+
+    /*
+        Attach click event safely.
+
+        This avoids putting raw JSON inside
+        an HTML onclick attribute.
+    */
+
+    const button =
+        card.querySelector(
+            ".select-package"
+        );
+
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            selectPackage(pkg);
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   SELECT PACKAGE
+========================================================= */
+
+function selectPackage(pkg){
+
+    console.log(
+        "Selected wireless package:",
+        pkg
+    );
+
+
+    const packageName =
+        pkg.package_name ||
+        pkg.name ||
+        "Wireless Package";
+
+
+    const monthlyPrice =
+        pkg.monthly_price ??
+        pkg.pricing?.monthly ??
+        pkg.price ??
+        0;
+
+
+    /*
+        Temporary selection.
+
+        Later this can be connected
+        directly to your WHMCS cart.
+    */
+
+    alert(
+
+        "Package selected:\n\n" +
+
+        packageName +
+
+        "\n\nMonthly: R" +
+
+        formatPrice(monthlyPrice)
+
+    );
+
+}
+
+
+/* =========================================================
+   EXTRACT DATA AMOUNT
+========================================================= */
+
+function extractDataAmount(name){
+
+    const match =
+        String(name).match(
+            /(\d+(?:\.\d+)?)\s*(GB|TB|MB)/i
+        );
+
+
+    if(!match){
+
+        return "-";
+
+    }
+
+
+    return match[1] +
+        " " +
+        match[2].toUpperCase();
+
+}
+
+
+/* =========================================================
+   CLEAN DESCRIPTION
+========================================================= */
+
+function cleanDescription(value){
+
+    let text =
+        String(value || "");
+
+
+    /*
+        Remove basic HTML tags.
+    */
+
+    text =
+        text.replace(
+            /<[^>]*>/g,
+            " "
+        );
+
+
+    /*
+        Decode a few common entities.
+    */
+
+    text =
+        text.replace(
+            /&nbsp;/gi,
+            " "
+        );
+
+
+    text =
+        text.replace(
+            /&amp;/gi,
+            "&"
+        );
+
+
+    text =
+        text.replace(
+            /&lt;/gi,
+            "<"
+        );
+
+
+    text =
+        text.replace(
+            /&gt;/gi,
+            ">"
+        );
+
+
+    /*
+        Remove excessive whitespace.
+    */
+
+    text =
+        text.replace(
+            /\s+/g,
+            " "
+        )
+        .trim();
+
+
+    /*
+        Keep cards from becoming too long.
+    */
+
+    if(text.length > 100){
+
+        text =
+            text.substring(0,100) +
+            "...";
+
+    }
+
+
+    return escapeHTML(text);
+
+}
+
+
+/* =========================================================
+   PRICE FORMAT
+========================================================= */
+
+function formatPrice(value){
+
+    /*
+        Handle WHMCS-style values such as:
+        -1
+        null
+        empty strings
+    */
+
+    const number =
+        Number(value);
+
+
+    if(
+        Number.isNaN(number) ||
+        number < 0
+    ){
+
+        return "0.00";
+
+    }
+
+
+    return number.toLocaleString(
+        "en-ZA",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadPackages();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
