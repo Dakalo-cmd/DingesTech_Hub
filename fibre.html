@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -9,1852 +8,676 @@
 
 <title>Fibre Internet | Dinges TechHub</title>
 
-
 <style>
 
+:root{
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+    --black:#020202;
+    --gray:#949393;
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+    --border:#E5E1E7;
+
+    --shadow:0 10px 25px rgba(60,21,66,.08);
+    --shadow-hover:0 18px 35px rgba(60,21,66,.15);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--black);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
 /* =========================================================
-   COLOR SETTINGS
-========================================================= */
+   TOP BAR
+   ========================================================= */
 
-:root {
-
-    --primary-color: #00A8E8;
-
-    --primary-dark: #0086BA;
-
-    --dark-color: #111827;
-
-    --text-color: #4B5563;
-
-    --light-color: #F8FAFC;
-
-    --white-color: #FFFFFF;
-
-    --border-color: #E5E7EB;
-
+.topbar{
+    background:var(--primary);
+    color:var(--white);
+    padding:8px 5%;
+    font-size:13px;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-* {
-
-    margin: 0;
-
-    padding: 0;
-
-    box-sizing: border-box;
-
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
-
-
-html {
-
-    scroll-behavior: smooth;
-
-}
-
-
-body {
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    background: var(--light-color);
-
-    color: var(--dark-color);
-
-    line-height: 1.6;
-
-}
-
-
-a {
-
-    text-decoration: none;
-
-}
-
-
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
-header {
-
-    background: var(--white-color);
-
-    border-bottom: 1px solid var(--border-color);
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 1000;
-
+.navbar{
+    background:var(--white);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-
-.navbar {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    min-height: 76px;
-
-    padding: 0 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 30px;
-
+.nav-inner{
+    max-width:1200px;
+    min-height:72px;
+    margin:auto;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
 }
 
-
-.logo {
-
-    font-size: 28px;
-
-    font-weight: 700;
-
-    color: var(--dark-color);
-
-    white-space: nowrap;
-
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:var(--primary);
+    font-size:20px;
+    font-weight:800;
+    white-space:nowrap;
 }
 
-
-.logo span {
-
-    color: var(--primary-color);
-
+.logo-mark{
+    width:40px;
+    height:40px;
+    border-radius:9px;
+    background:var(--primary);
+    color:var(--accent);
+    display:grid;
+    place-items:center;
+    font-weight:900;
 }
 
-
-.nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 30px;
-
-    list-style: none;
-
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
 }
 
-
-.nav-links a {
-
-    color: var(--dark-color);
-
-    font-weight: 600;
-
-    transition: 0.3s;
-
+.nav-links a{
+    color:#333;
+    font-size:14px;
+    font-weight:600;
+    transition:.2s ease;
 }
 
-
-.nav-links a:hover {
-
-    color: var(--primary-color);
-
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--secondary);
 }
 
-
-.nav-actions {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
+.nav-cta{
+    background:var(--accent);
+    color:var(--black)!important;
+    padding:9px 16px;
+    border-radius:8px;
 }
-
-
-.login-btn {
-
-    color: var(--primary-color);
-
-    font-weight: 600;
-
-    padding: 10px 15px;
-
-}
-
-
-.register-btn {
-
-    background: var(--primary-color);
-
-    color: white;
-
-    padding: 10px 18px;
-
-    border-radius: 6px;
-
-    font-weight: 600;
-
-}
-
-
-.cart-btn {
-
-    background: var(--dark-color);
-
-    color: white;
-
-    padding: 10px 18px;
-
-    border-radius: 6px;
-
-    font-weight: 600;
-
-}
-
-
-
-/* =========================================================
-   BREADCRUMB
-========================================================= */
-
-.breadcrumb-section {
-
-    background: white;
-
-    padding: 20px;
-
-}
-
-
-.breadcrumb {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    font-size: 14px;
-
-    color: var(--text-color);
-
-}
-
-
-.breadcrumb a {
-
-    color: var(--primary-color);
-
-    font-weight: 600;
-
-}
-
-
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
-.hero {
-
+.hero{
     background:
-
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
         linear-gradient(
-
             135deg,
-
-            #EAF9FF,
-
-            #FFFFFF
-
+            var(--primary),
+            var(--secondary)
         );
 
-    padding: 90px 20px;
-
+    color:var(--white);
+    padding:70px 5%;
+    text-align:center;
 }
 
-
-.hero-container {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1.2fr 0.8fr;
-
-    align-items: center;
-
-    gap: 60px;
-
+.hero-inner{
+    max-width:850px;
+    margin:auto;
 }
 
-
-.hero-label {
-
-    color: var(--primary-color);
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    font-size: 14px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 15px;
-
+.eyebrow{
+    display:inline-block;
+    color:var(--accent);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
 }
 
-
-.hero h1 {
-
-    font-size: 58px;
-
-    line-height: 1.1;
-
-    margin-bottom: 20px;
-
+.hero h1{
+    font-size:clamp(38px,5vw,56px);
+    line-height:1.05;
+    margin-bottom:15px;
 }
 
-
-.hero h1 span {
-
-    color: var(--primary-color);
-
+.hero p{
+    max-width:720px;
+    margin:auto;
+    color:rgba(255,255,255,.88);
+    font-size:16px;
 }
-
-
-.hero p {
-
-    color: var(--text-color);
-
-    font-size: 18px;
-
-    max-width: 650px;
-
-    margin-bottom: 30px;
-
-}
-
-
-.hero-buttons {
-
-    display: flex;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.primary-btn {
-
-    display: inline-block;
-
-    background: var(--primary-color);
-
-    color: white;
-
-    padding: 14px 25px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-    transition: 0.3s;
-
-}
-
-
-.primary-btn:hover {
-
-    background: var(--primary-dark);
-
-    transform: translateY(-2px);
-
-}
-
-
-.secondary-btn {
-
-    display: inline-block;
-
-    background: white;
-
-    color: var(--primary-color);
-
-    padding: 12px 25px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-    border: 2px solid var(--primary-color);
-
-}
-
-
-.secondary-btn:hover {
-
-    background: var(--primary-color);
-
-    color: white;
-
-}
-
-
-.hero-card {
-
-    background: white;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 20px;
-
-    padding: 45px;
-
-    text-align: center;
-
-    box-shadow:
-
-        0 20px 50px
-
-        rgba(0, 0, 0, 0.08);
-
-}
-
-
-.fibre-icon {
-
-    width: 120px;
-
-    height: 120px;
-
-    margin: auto auto 25px;
-
-    border-radius: 50%;
-
-    background: #E0F7FF;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 55px;
-
-}
-
-
-.hero-card h3 {
-
-    font-size: 26px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.hero-card p {
-
-    color: var(--text-color);
-
-}
-
-
 
 /* =========================================================
-   GENERAL SECTION
-========================================================= */
+   MAIN
+   ========================================================= */
 
-.section {
-
-    padding: 85px 20px;
-
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 5%;
 }
 
-
-.section-container {
-
-    max-width: 1200px;
-
-    margin: auto;
-
+.section-heading{
+    text-align:center;
+    margin-bottom:35px;
 }
 
-
-.section-header {
-
-    text-align: center;
-
-    max-width: 750px;
-
-    margin: 0 auto 50px;
-
+.section-heading h2{
+    color:var(--primary);
+    font-size:32px;
+    margin-bottom:6px;
 }
 
-
-.section-label {
-
-    color: var(--primary-color);
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    font-size: 14px;
-
-    letter-spacing: 1px;
-
-    margin-bottom: 10px;
-
+.section-heading p{
+    color:var(--gray);
+    font-size:14px;
 }
-
-
-.section-header h2 {
-
-    font-size: 38px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.section-header p {
-
-    color: var(--text-color);
-
-    font-size: 17px;
-
-}
-
-
 
 /* =========================================================
-   COVERAGE CHECKER
-========================================================= */
+   ERROR
+   ========================================================= */
 
-.coverage-section {
-
-    background: #F8FAFC;
-
-    padding: 85px 20px;
-
+.error-message{
+    display:none;
+    background:#FFF4F4;
+    border:1px solid #E7BDBD;
+    color:#8B2929;
+    padding:15px;
+    border-radius:9px;
+    margin-bottom:20px;
+    font-size:13px;
 }
 
-
-.coverage-container {
-
-    max-width: 1000px;
-
-    margin: auto;
-
+.error-message.show{
+    display:block;
 }
-
-
-.coverage-box {
-
-    background: white;
-
-    border-radius: 20px;
-
-    padding: 45px;
-
-    box-shadow:
-
-        0 15px 40px
-
-        rgba(0, 0, 0, 0.08);
-
-    border: 1px solid #E5E7EB;
-
-}
-
-
-.coverage-form {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr auto;
-
-    gap: 15px;
-
-    align-items: end;
-
-}
-
-
-.form-group {
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-
-.form-group label {
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    margin-bottom: 8px;
-
-    color: #111827;
-
-}
-
-
-.form-group input,
-
-.form-group select {
-
-    width: 100%;
-
-    padding: 14px 16px;
-
-    border: 1px solid #D1D5DB;
-
-    border-radius: 7px;
-
-    font-size: 15px;
-
-    outline: none;
-
-    transition: 0.3s;
-
-}
-
-
-.form-group input:focus,
-
-.form-group select:focus {
-
-    border-color: #00A8E8;
-
-    box-shadow:
-
-        0 0 0 3px
-
-        rgba(0, 168, 232, 0.1);
-
-}
-
-
-.coverage-btn {
-
-    background: #00A8E8;
-
-    color: white;
-
-    border: none;
-
-    padding: 14px 25px;
-
-    border-radius: 7px;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    white-space: nowrap;
-
-}
-
-
-.coverage-btn:hover {
-
-    background: #0086BA;
-
-    transform: translateY(-2px);
-
-}
-
-
 
 /* =========================================================
-   COVERAGE LOADING
-========================================================= */
+   PROVIDER GRID
+   ========================================================= */
 
-.coverage-loading {
-
-    display: none;
-
-    text-align: center;
-
-    padding: 30px;
-
+.provider-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
-
-
-.loading-spinner {
-
-    width: 40px;
-
-    height: 40px;
-
-    border: 4px solid #E5E7EB;
-
-    border-top: 4px solid #00A8E8;
-
-    border-radius: 50%;
-
-    margin: 0 auto 15px;
-
-    animation: spin 1s linear infinite;
-
-}
-
-
-@keyframes spin {
-
-    0% {
-
-        transform: rotate(0deg);
-
-    }
-
-    100% {
-
-        transform: rotate(360deg);
-
-    }
-
-}
-
-
 
 /* =========================================================
-   COVERAGE RESULT
-========================================================= */
+   PROVIDER CARD
+   ========================================================= */
 
-.coverage-result {
+.provider-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:25px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
 
-    display: none;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
 
-    margin-top: 30px;
-
-    padding: 30px;
-
-    border-radius: 12px;
-
-    background: #F0FAFF;
-
-    border: 1px solid #BFEFFF;
-
+    text-align:center;
 }
 
-
-.result-header {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    margin-bottom: 20px;
-
+.provider-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-hover);
+    border-color:var(--secondary);
 }
 
-
-.result-icon {
-
-    width: 55px;
-
-    height: 55px;
-
-    border-radius: 50%;
-
-    background: #00A8E8;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 25px;
-
+.provider-card.active{
+    border:2px solid var(--secondary);
+    box-shadow:var(--shadow-hover);
 }
-
-
-.result-header h3 {
-
-    margin: 0;
-
-    font-size: 22px;
-
-}
-
-
-.result-location {
-
-    color: #6B7280;
-
-    font-size: 14px;
-
-}
-
-
-.recommendation {
-
-    background: white;
-
-    border-radius: 10px;
-
-    padding: 25px;
-
-    margin-top: 20px;
-
-    border: 1px solid #E5E7EB;
-
-}
-
-
-.recommendation h4 {
-
-    color: #00A8E8;
-
-    font-size: 14px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 8px;
-
-}
-
-
-.recommendation h3 {
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.recommendation p {
-
-    color: #4B5563;
-
-    margin-bottom: 15px;
-
-}
-
-
-.recommendation ul {
-
-    list-style: none;
-
-    padding: 0;
-
-    margin-bottom: 20px;
-
-}
-
-
-.recommendation li {
-
-    margin-bottom: 8px;
-
-    color: #4B5563;
-
-}
-
-
-.recommendation li::before {
-
-    content: "✓";
-
-    color: #16A34A;
-
-    font-weight: bold;
-
-    margin-right: 10px;
-
-}
-
-
-.recommendation-btn {
-
-    display: inline-block;
-
-    background: #00A8E8;
-
-    color: white;
-
-    padding: 12px 22px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-}
-
-
 
 /* =========================================================
-   WHY FIBRE
-========================================================= */
+   PROVIDER IMAGE
+   ========================================================= */
 
-.why-section {
+.provider-image{
+    width:80px;
+    height:80px;
+    margin:0 auto 18px;
+    border-radius:15px;
+    background:#F5F1F6;
 
-    background: white;
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-
-.feature-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-
+.provider-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    padding:10px;
 }
 
-
-.feature-card {
-
-    background: white;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 12px;
-
-    padding: 30px;
-
-    transition: 0.3s;
-
+.provider-placeholder{
+    color:var(--secondary);
+    font-size:24px;
+    font-weight:900;
 }
-
-
-.feature-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-
-        0 15px 35px
-
-        rgba(0, 0, 0, 0.08);
-
-}
-
-
-.feature-icon {
-
-    width: 55px;
-
-    height: 55px;
-
-    border-radius: 10px;
-
-    background: #E0F7FF;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 26px;
-
-    margin-bottom: 20px;
-
-}
-
-
-.feature-card h3 {
-
-    font-size: 19px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.feature-card p {
-
-    color: var(--text-color);
-
-    font-size: 15px;
-
-}
-
-
 
 /* =========================================================
-   FIBRE PACKAGES
-========================================================= */
+   PROVIDER NAME
+   ========================================================= */
 
-.packages-section {
-
-    background: var(--light-color);
-
+.provider-card h3{
+    color:var(--primary);
+    font-size:20px;
+    margin-bottom:6px;
 }
 
-
-.package-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
-
+.provider-card p{
+    color:var(--gray);
+    font-size:13px;
+    margin-bottom:18px;
 }
-
-
-.package-card {
-
-    background: white;
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 14px;
-
-    padding: 35px;
-
-    position: relative;
-
-    transition: 0.3s;
-
-}
-
-
-.package-card:hover {
-
-    transform: translateY(-5px);
-
-    box-shadow:
-
-        0 15px 35px
-
-        rgba(0, 0, 0, 0.08);
-
-}
-
-
-.package-card.featured {
-
-    border: 2px solid var(--primary-color);
-
-}
-
-
-.popular {
-
-    position: absolute;
-
-    top: -14px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background: var(--primary-color);
-
-    color: white;
-
-    padding: 5px 15px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-}
-
-
-.package-card h3 {
-
-    font-size: 25px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.speed {
-
-    color: var(--primary-color);
-
-    font-size: 28px;
-
-    font-weight: 700;
-
-    margin-bottom: 10px;
-
-}
-
-
-.package-description {
-
-    color: var(--text-color);
-
-    margin-bottom: 25px;
-
-}
-
-
-.package-features {
-
-    list-style: none;
-
-    margin-bottom: 25px;
-
-}
-
-
-.package-features li {
-
-    margin-bottom: 12px;
-
-    color: var(--text-color);
-
-}
-
-
-.package-features li::before {
-
-    content: "✓";
-
-    color: #16A34A;
-
-    font-weight: bold;
-
-    margin-right: 10px;
-
-}
-
-
-.package-btn {
-
-    display: block;
-
-    text-align: center;
-
-    background: var(--primary-color);
-
-    color: white;
-
-    padding: 12px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-}
-
-
 
 /* =========================================================
-   PERFECT FOR
-========================================================= */
+   PROVIDER BUTTON
+   ========================================================= */
 
-.perfect-section {
-
-    background: white;
-
+.provider-button{
+    width:100%;
+    border:0;
+    background:var(--primary);
+    color:var(--white);
+    padding:10px 15px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s ease;
 }
 
-
-.perfect-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
+.provider-card:hover .provider-button,
+.provider-card.active .provider-button{
+    background:var(--secondary);
 }
-
-
-.perfect-card {
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 12px;
-
-    padding: 30px;
-
-    text-align: center;
-
-}
-
-
-.perfect-icon {
-
-    font-size: 38px;
-
-    margin-bottom: 15px;
-
-}
-
-
-.perfect-card h3 {
-
-    margin-bottom: 8px;
-
-}
-
-
-.perfect-card p {
-
-    color: var(--text-color);
-
-    font-size: 14px;
-
-}
-
-
 
 /* =========================================================
-   WHY DINGES
-========================================================= */
+   PACKAGES AREA
+   ========================================================= */
 
-.why-dinges {
-
-    background: var(--dark-color);
-
-    color: white;
-
+.packages-section{
+    margin-top:55px;
+    display:none;
 }
 
-
-.why-dinges-container {
-
-    max-width: 1000px;
-
-    margin: auto;
-
-    text-align: center;
-
+.packages-section.show{
+    display:block;
 }
 
+.packages-header{
+    background:var(--primary);
+    color:var(--white);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
 
-.why-dinges-container h2 {
-
-    font-size: 38px;
-
-    margin-bottom: 15px;
-
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-
-.why-dinges-container > p {
-
-    color: #D1D5DB;
-
-    max-width: 700px;
-
-    margin: auto auto 40px;
-
+.packages-header h2{
+    font-size:26px;
 }
 
-
-.dinges-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 20px;
-
+.packages-header p{
+    color:rgba(255,255,255,.75);
+    font-size:13px;
 }
 
-
-.dinges-card {
-
-    background: #1F2937;
-
-    padding: 25px;
-
-    border-radius: 10px;
-
+.close-packages{
+    border:1px solid rgba(255,255,255,.3);
+    background:transparent;
+    color:var(--white);
+    padding:9px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:700;
 }
 
-
-.dinges-card h3 {
-
-    font-size: 18px;
-
-    margin-bottom: 8px;
-
+.close-packages:hover{
+    background:rgba(255,255,255,.1);
 }
-
-
-.dinges-card p {
-
-    color: #D1D5DB;
-
-    font-size: 14px;
-
-}
-
-
 
 /* =========================================================
-   HOW IT WORKS
-========================================================= */
+   PACKAGE GRID
+   ========================================================= */
 
-.steps-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 25px;
-
+.package-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
-
-
-.step {
-
-    text-align: center;
-
-}
-
-
-.step-number {
-
-    width: 60px;
-
-    height: 60px;
-
-    margin: 0 auto 20px;
-
-    border-radius: 50%;
-
-    background: var(--primary-color);
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-}
-
-
-.step h3 {
-
-    margin-bottom: 8px;
-
-}
-
-
-.step p {
-
-    color: var(--text-color);
-
-    font-size: 14px;
-
-}
-
-
 
 /* =========================================================
-   FAQ
-========================================================= */
+   PACKAGE CARD
+   ========================================================= */
 
-.faq-section {
-
-    background: white;
-
+.package-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    transition:.2s ease;
 }
 
-
-.faq-container {
-
-    max-width: 850px;
-
-    margin: auto;
-
+.package-card:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-hover);
 }
 
-
-.faq-item {
-
-    border: 1px solid var(--border-color);
-
-    border-radius: 8px;
-
-    margin-bottom: 12px;
-
-    overflow: hidden;
-
+.package-card h3{
+    color:var(--primary);
+    font-size:18px;
+    margin-bottom:15px;
 }
 
-
-.faq-question {
-
-    width: 100%;
-
-    padding: 20px;
-
-    background: white;
-
-    border: none;
-
-    text-align: left;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
+.package-speed{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:18px;
 }
 
-
-.faq-question span {
-
-    color: var(--primary-color);
-
-    font-size: 22px;
-
+.speed-box{
+    background:#F8F5F8;
+    border-radius:8px;
+    padding:10px;
 }
 
-
-.faq-answer {
-
-    display: none;
-
-    padding: 0 20px 20px;
-
-    color: var(--text-color);
-
+.speed-box small{
+    display:block;
+    color:var(--gray);
+    font-size:10px;
+    margin-bottom:2px;
 }
 
-
-.faq-item.active .faq-answer {
-
-    display: block;
-
+.speed-box strong{
+    color:var(--primary);
+    font-size:15px;
 }
 
+.package-info{
+    border-top:1px solid var(--border);
+    padding-top:13px;
+    display:grid;
+    gap:7px;
+    margin-bottom:18px;
+}
 
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:12px;
+}
+
+.info-label{
+    color:var(--gray);
+}
+
+.info-value{
+    color:#333;
+    font-weight:700;
+    text-align:right;
+}
+
+.package-price{
+    border-top:1px solid var(--border);
+    padding-top:15px;
+
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.price-label{
+    color:var(--gray);
+    font-size:11px;
+}
+
+.price{
+    color:var(--secondary);
+    font-size:24px;
+    font-weight:900;
+}
+
+.price-period{
+    color:var(--gray);
+    font-size:11px;
+}
+
+.select-package{
+    width:100%;
+    margin-top:17px;
+    background:var(--accent);
+    color:var(--black);
+    border:0;
+    border-radius:8px;
+    padding:11px;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.select-package:hover{
+    opacity:.9;
+}
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading{
+    text-align:center;
+    padding:35px;
+    color:var(--gray);
+    font-size:14px;
+}
+
+/* =========================================================
+   EMPTY
+   ========================================================= */
+
+.empty-message{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:30px;
+    text-align:center;
+    color:var(--gray);
+    grid-column:1/-1;
+}
+
+/* =========================================================
+   DATABASE NOTE
+   ========================================================= */
+
+.database-note{
+    margin-top:40px;
+    padding:16px 18px;
+    border-left:4px solid var(--accent);
+    background:var(--white);
+    border-radius:9px;
+    color:var(--gray);
+    font-size:12px;
+}
+
+.database-note strong{
+    color:var(--primary);
+}
 
 /* =========================================================
    CTA
-========================================================= */
+   ========================================================= */
 
-.cta {
-
-    background:
-
-        linear-gradient(
-
-            135deg,
-
-            #00A8E8,
-
-            #0086BA
-
-        );
-
-    color: white;
-
-    text-align: center;
-
-    padding: 85px 20px;
-
+.cta{
+    background:var(--primary);
+    color:var(--white);
+    text-align:center;
+    padding:60px 5%;
 }
 
-
-.cta-container {
-
-    max-width: 800px;
-
-    margin: auto;
-
+.cta-inner{
+    max-width:750px;
+    margin:auto;
 }
 
-
-.cta h2 {
-
-    font-size: 42px;
-
-    margin-bottom: 15px;
-
+.cta h2{
+    font-size:30px;
+    margin-bottom:10px;
 }
 
-
-.cta p {
-
-    margin-bottom: 30px;
-
-    font-size: 17px;
-
+.cta p{
+    color:rgba(255,255,255,.8);
+    font-size:14px;
+    margin-bottom:22px;
 }
 
-
-.cta-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-
+.cta a{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--black);
+    font-weight:800;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:9px;
 }
-
-
-.cta-btn {
-
-    background: white;
-
-    color: var(--primary-color);
-
-    padding: 14px 25px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-}
-
-
-.cta-btn-outline {
-
-    background: transparent;
-
-    color: white;
-
-    border: 2px solid white;
-
-    padding: 12px 25px;
-
-    border-radius: 6px;
-
-    font-weight: 700;
-
-}
-
-
-
-/* =========================================================
-   OTHER CONNECTIVITY
-========================================================= */
-
-.other-section {
-
-    background: white;
-
-}
-
-
-.other-grid {
-
-    max-width: 900px;
-
-    margin: 40px auto 0;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-
-}
-
-
-.other-card {
-
-    border: 1px solid var(--border-color);
-
-    padding: 30px 22px;
-
-    border-radius: 12px;
-
-    text-align: center;
-
-    color: var(--dark-color);
-
-    font-weight: 600;
-
-    transition: 0.3s;
-
-}
-
-
-.other-card:hover {
-
-    border-color: var(--primary-color);
-
-    color: var(--primary-color);
-
-    transform: translateY(-5px);
-
-    box-shadow:
-
-        0 12px 30px
-
-        rgba(0, 0, 0, 0.08);
-
-}
-
-
-.other-card-icon {
-
-    font-size: 35px;
-
-    margin-bottom: 12px;
-
-}
-
-
-.other-card-title {
-
-    display: block;
-
-    font-size: 18px;
-
-    margin-bottom: 8px;
-
-}
-
-
-.other-card-text {
-
-    display: block;
-
-    color: var(--text-color);
-
-    font-size: 14px;
-
-    font-weight: 400;
-
-}
-
-
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-footer {
-
-    background: #0B1120;
-
-    color: white;
-
-    padding: 35px 20px;
-
-    text-align: center;
-
+footer{
+    background:#16091A;
+    color:rgba(255,255,255,.75);
+    text-align:center;
+    padding:30px 5%;
+    font-size:12px;
 }
-
-
-footer p {
-
-    color: #9CA3AF;
-
-    font-size: 14px;
-
-}
-
-
 
 /* =========================================================
-   RESPONSIVE
-========================================================= */
+   TABLET
+   ========================================================= */
 
-@media (max-width: 950px) {
+@media(max-width:1000px){
 
-    .hero-container {
-
-        grid-template-columns: 1fr;
-
+    .provider-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-
-    .hero-content {
-
-        text-align: center;
-
+    .package-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-
-    .hero p {
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-    }
-
-
-    .hero-buttons {
-
-        justify-content: center;
-
-    }
-
-
-    .feature-grid,
-
-    .package-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .perfect-grid,
-
-    .dinges-grid,
-
-    .steps-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-    .coverage-form {
-
-        grid-template-columns: 1fr;
-
+    .nav-links{
+        gap:14px;
     }
 
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-@media (max-width: 700px) {
+@media(max-width:650px){
 
-    .nav-links {
-
-        display: none;
-
+    .provider-grid{
+        grid-template-columns:1fr;
     }
 
-
-    .logo {
-
-        font-size: 22px;
-
+    .package-grid{
+        grid-template-columns:1fr;
     }
 
-
-    .nav-actions {
-
-        gap: 5px;
-
+    .nav-links{
+        display:none;
     }
 
-
-    .login-btn {
-
-        padding: 8px;
-
+    .topbar-inner{
+        justify-content:center;
+        text-align:center;
     }
 
-
-    .register-btn,
-
-    .cart-btn {
-
-        padding: 8px 10px;
-
-        font-size: 13px;
-
+    .topbar-inner span:last-child{
+        display:none;
     }
 
-
-    .hero {
-
-        padding: 60px 20px;
-
+    .hero{
+        padding:55px 5%;
     }
 
-
-    .hero h1 {
-
-        font-size: 42px;
-
+    .hero h1{
+        font-size:40px;
     }
 
-
-    .section {
-
-        padding: 65px 20px;
-
+    .main{
+        padding:50px 5%;
     }
 
-
-    .section-header h2 {
-
-        font-size: 30px;
-
+    .section-heading h2{
+        font-size:28px;
     }
 
-
-    .feature-grid,
-
-    .package-grid,
-
-    .perfect-grid,
-
-    .dinges-grid,
-
-    .steps-grid,
-
-    .other-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .coverage-box {
-
-        padding: 25px;
-
-    }
-
-
-    .cta h2 {
-
-        font-size: 32px;
-
+    .packages-header{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
 }
@@ -1863,2313 +686,1138 @@ footer p {
 
 </head>
 
-
 <body>
 
-<!-- =========================================================
-     BREADCRUMB
-========================================================= -->
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
 
-<section class="breadcrumb-section">
+<div class="topbar">
 
-<div class="breadcrumb">
+    <div class="topbar-inner">
 
-<a href="index.html">
+        <span>
+            Reliable Technology & Connectivity Solutions
+        </span>
 
-Home
+        <span>
+            South Africa
+        </span>
 
-</a>
-
-&nbsp; / &nbsp;
-
-
-<a href="services.html">
-
-Services
-
-</a>
-
-&nbsp; / &nbsp;
-
-
-<a href="internet-connectivity.html">
-
-Internet Connectivity
-
-</a>
-
-&nbsp; / &nbsp;
-
-
-Fibre Internet
+    </div>
 
 </div>
 
-</section>
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                DT
+            </span>
+
+            <span>
+                Dinges TechHub
+            </span>
+
+        </a>
 
 
+        <div class="nav-links">
 
-<!-- =========================================================
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="fibre.html" class="active">
+                Fibre
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="cart.html" class="nav-cta">
+                Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
      HERO
-========================================================= -->
+     ===================================================== -->
 
 <section class="hero">
 
-<div class="hero-container">
+    <div class="hero-inner">
 
+        <span class="eyebrow">
+            Internet Connectivity
+        </span>
 
-<div class="hero-content">
+        <h1>
+            Fibre Internet
+        </h1>
 
+        <p>
+            Choose your fibre provider and explore the available
+            packages, speeds and pricing.
+        </p>
 
-<div class="hero-label">
-
-Dinges TechHub Fibre
-
-</div>
-
-
-<h1>
-
-Fast, Reliable <span>Fibre Internet.</span>
-
-</h1>
-
-
-<p>
-
-Experience fast and reliable fibre internet
-for your home or business. Stream, work,
-learn, game and connect with confidence
-using a connectivity solution designed
-around your needs.
-
-</p>
-
-
-<div class="hero-buttons">
-
-
-<a href="#packages" class="primary-btn">
-
-View Fibre Packages
-
-</a>
-
-
-<a href="#coverage" class="secondary-btn">
-
-Check Availability
-
-</a>
-
-
-</div>
-
-</div>
-
-
-
-<div class="hero-card">
-
-
-<div class="fibre-icon">
-
-🌐
-
-</div>
-
-
-<h3>
-
-Stay Connected
-
-</h3>
-
-
-<p>
-
-Reliable internet for everything you do,
-from everyday browsing to business-critical
-online services.
-
-</p>
-
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
 
-<!-- =========================================================
-     COVERAGE CHECKER
-========================================================= -->
+<main class="main">
 
-<section class="coverage-section" id="coverage">
+    <div class="section-heading">
 
-<div class="coverage-container">
+        <h2>
+            Choose Your Fibre Provider
+        </h2>
 
+        <p>
+            Select a provider below to view the available fibre packages.
+        </p>
 
-<div class="section-header">
+    </div>
 
 
-<div class="section-label">
+    <!-- ERROR -->
 
-Check Your Coverage
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
 
-</div>
 
+    <!-- =================================================
+         PROVIDER GRID
+         ================================================= -->
 
-<h2>
+    <div
+        id="providerGrid"
+        class="provider-grid"
+    >
 
-Is Fibre Available At Your Location?
+        <!-- DNATEL -->
 
-</h2>
+        <article
+            class="provider-card"
+            data-provider="Dnatel"
+            data-provider-id="1"
+            onclick="selectProvider(this)"
+        >
 
+            <div class="provider-image">
 
-<p>
+                <img
+                    src="images/dnatel.png"
+                    alt="Dnatel"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
-Enter your location below and we'll recommend
-the best connectivity solution for your area.
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    D
+                </span>
 
-</p>
+            </div>
 
-</div>
+            <h3>Dnatel</h3>
 
+            <p>Dnatel Fibre</p>
 
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
-<div class="coverage-box">
+        </article>
 
 
-<div class="coverage-form">
+        <!-- OPENSERVE -->
 
+        <article
+            class="provider-card"
+            data-provider="Openserve"
+            data-provider-id="2"
+            onclick="selectProvider(this)"
+        >
 
-<div class="form-group">
+            <div class="provider-image">
 
-<label for="location">
+                <img
+                    src="images/openserve.png"
+                    alt="Openserve"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
-Location / Suburb
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    O
+                </span>
 
-</label>
+            </div>
 
+            <h3>Openserve</h3>
 
-<input
+            <p>Openserve Fibre</p>
 
-type="text"
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
-id="location"
+        </article>
 
-placeholder="e.g. Mbombela"
 
->
+        <!-- FROGFOOT -->
 
-</div>
+        <article
+            class="provider-card"
+            data-provider="Frogfoot"
+            data-provider-id="3"
+            onclick="selectProvider(this)"
+        >
 
+            <div class="provider-image">
 
+                <img
+                    src="images/frogfoot.png"
+                    alt="Frogfoot"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
-<div class="form-group">
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    F
+                </span>
 
-<label for="province">
+            </div>
 
-Province
+            <h3>Frogfoot</h3>
 
-</label>
+            <p>Frogfoot Fibre</p>
 
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
-<select id="province">
+        </article>
 
 
-<option value="">
+        <!-- VUMATEL -->
 
-Select Province
+        <article
+            class="provider-card"
+            data-provider="Vumatel"
+            data-provider-id="4"
+            onclick="selectProvider(this)"
+        >
 
-</option>
+            <div class="provider-image">
 
+                <img
+                    src="images/vumatel.png"
+                    alt="Vumatel"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
-<option value="gauteng">
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    V
+                </span>
 
-Gauteng
+            </div>
 
-</option>
+            <h3>Vumatel</h3>
 
+            <p>Vumatel Fibre</p>
 
-<option value="mpumalanga">
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
-Mpumalanga
+        </article>
 
-</option>
 
+        <!-- CLEARACCESS -->
 
-<option value="limpopo">
+        <article
+            class="provider-card"
+            data-provider="ClearAccess"
+            data-provider-id="5"
+            onclick="selectProvider(this)"
+        >
 
-Limpopo
+            <div class="provider-image">
 
-</option>
+                <img
+                    src="images/clearaccess.png"
+                    alt="ClearAccess"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    C
+                </span>
 
-<option value="north-west">
+            </div>
 
-North West
+            <h3>ClearAccess</h3>
 
-</option>
+            <p>ClearAccess Fibre</p>
 
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
-<option value="free-state">
+        </article>
 
-Free State
 
-</option>
+        <!-- VOLLIES -->
 
+        <article
+            class="provider-card"
+            data-provider="Vollies"
+            data-provider-id="6"
+            onclick="selectProvider(this)"
+        >
 
-<option value="kwazulu-natal">
+            <div class="provider-image">
 
-KwaZulu-Natal
+                <img
+                    src="images/vollies.png"
+                    alt="Vollies"
+                    onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+                >
 
-</option>
+                <span
+                    class="provider-placeholder"
+                    style="display:none;"
+                >
+                    V
+                </span>
 
+            </div>
 
-<option value="eastern-cape">
+            <h3>Vollies</h3>
 
-Eastern Cape
+            <p>Vollies Fibre</p>
 
-</option>
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
 
+        </article>
 
-<option value="western-cape">
+    </div>
 
-Western Cape
 
-</option>
+    <!-- =================================================
+         PACKAGES
+         ================================================= -->
 
+    <section
+        id="packagesSection"
+        class="packages-section"
+    >
 
-<option value="northern-cape">
+        <div class="packages-header">
 
-Northern Cape
+            <div>
 
-</option>
+                <h2 id="selectedProviderName">
+                    Fibre Packages
+                </h2>
 
+                <p id="selectedProviderDescription">
+                    Available packages from this provider.
+                </p>
 
-</select>
+            </div>
 
-</div>
+            <button
+                type="button"
+                class="close-packages"
+                onclick="closePackages()"
+            >
+                ← Back to Providers
+            </button>
 
+        </div>
 
 
-<button
+        <div
+            id="packagesLoading"
+            class="loading"
+        >
+            Loading packages from database...
+        </div>
 
-type="button"
 
-class="coverage-btn"
+        <div
+            id="packageGrid"
+            class="package-grid"
+        ></div>
 
-onclick="checkCoverage()"
+    </section>
 
->
 
-Check Coverage
+    <!-- =================================================
+         DATABASE NOTE
+         ================================================= -->
 
-</button>
+    <div class="database-note">
 
+        <strong>
+            Live database:
+        </strong>
 
-</div>
+        Fibre packages are loaded directly from the
+        WHMCS database through the PHP API. Prices,
+        speeds and package details are therefore
+        controlled from the backend.
 
+    </div>
 
+</main>
 
-<!-- LOADING -->
 
-<div
-
-class="coverage-loading"
-
-id="coverageLoading"
-
->
-
-<div class="loading-spinner"></div>
-
-
-<p>
-
-Checking your location...
-
-</p>
-
-
-</div>
-
-
-
-<!-- RESULT -->
-
-<div
-
-class="coverage-result"
-
-id="coverageResult"
-
->
-
-
-<div class="result-header">
-
-
-<div class="result-icon">
-
-📍
-
-</div>
-
-
-<div>
-
-<h3 id="resultTitle">
-
-Location Found
-
-</h3>
-
-
-<div
-
-class="result-location"
-
-id="resultLocation"
-
->
-
-</div>
-
-</div>
-
-
-</div>
-
-
-
-<div class="recommendation">
-
-
-<h4>
-
-Our Recommendation
-
-</h4>
-
-
-<h3 id="recommendationTitle">
-
-</h3>
-
-
-<p id="recommendationDescription">
-
-</p>
-
-
-<ul id="recommendationFeatures">
-
-</ul>
-
-
-<a
-
-href="#packages"
-
-class="recommendation-btn"
-
-id="recommendationButton"
-
->
-
-View Recommended Plans
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     WHY FIBRE
-========================================================= -->
-
-<section class="section why-section">
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-Why Choose Fibre?
-
-</div>
-
-
-<h2>
-
-Internet That Keeps Up With You
-
-</h2>
-
-
-<p>
-
-Fibre provides a fast and reliable connection
-for modern homes and businesses.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-grid">
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-⚡
-
-</div>
-
-
-<h3>
-
-High-Speed Internet
-
-</h3>
-
-
-<p>
-
-Enjoy fast connectivity for streaming,
-downloads, uploads and everyday browsing.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-📶
-
-</div>
-
-
-<h3>
-
-Reliable Connection
-
-</h3>
-
-
-<p>
-
-A dependable connection designed to keep
-your home or business online.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-💻
-
-</div>
-
-
-<h3>
-
-Work From Home
-
-</h3>
-
-
-<p>
-
-Support video meetings, cloud applications
-and remote work with a reliable connection.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-🎬
-
-</div>
-
-
-<h3>
-
-Stream Without Limits
-
-</h3>
-
-
-<p>
-
-Enjoy your favourite online entertainment
-and streaming services.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-🎮
-
-</div>
-
-
-<h3>
-
-Gaming Ready
-
-</h3>
-
-
-<p>
-
-Stay connected while enjoying your
-favourite online gaming experiences.
-
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-🏢
-
-</div>
-
-
-<h3>
-
-Business Connectivity
-
-</h3>
-
-
-<p>
-
-Keep your team connected to the tools
-and services your business depends on.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FIBRE PACKAGES
-========================================================= -->
-
-<section
-
-class="section packages-section"
-
-id="packages"
-
->
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-Our Fibre Packages
-
-</div>
-
-
-<h2>
-
-Choose Your Fibre Package
-
-</h2>
-
-
-<p>
-
-Choose a package based on your household
-or business connectivity requirements.
-
-</p>
-
-</div>
-
-
-
-<div class="package-grid">
-
-
-<div class="package-card">
-
-
-<h3>
-
-Essential
-
-</h3>
-
-
-<div class="speed">
-
-Entry Level
-
-</div>
-
-
-<p class="package-description">
-
-Ideal for smaller households and everyday
-internet usage.
-
-</p>
-
-
-<ul class="package-features">
-
-<li>
-
-Web browsing
-
-</li>
-
-
-<li>
-
-Social media
-
-</li>
-
-
-<li>
-
-Email
-
-</li>
-
-
-<li>
-
-Everyday streaming
-
-</li>
-
-</ul>
-
-
-<a
-
-href="contact.html"
-
-class="package-btn"
-
->
-
-Enquire Now
-
-</a>
-
-
-</div>
-
-
-
-<div class="package-card featured">
-
-
-<div class="popular">
-
-POPULAR
-
-</div>
-
-
-<h3>
-
-Family
-
-</h3>
-
-
-<div class="speed">
-
-High Speed
-
-</div>
-
-
-<p class="package-description">
-
-Perfect for busy households with multiple
-users and connected devices.
-
-</p>
-
-
-<ul class="package-features">
-
-<li>
-
-Multiple connected devices
-
-</li>
-
-
-<li>
-
-HD streaming
-
-</li>
-
-
-<li>
-
-Remote work
-
-</li>
-
-
-<li>
-
-Online learning
-
-</li>
-
-</ul>
-
-
-<a
-
-href="contact.html"
-
-class="package-btn"
-
->
-
-Enquire Now
-
-</a>
-
-
-</div>
-
-
-
-<div class="package-card">
-
-
-<h3>
-
-Business
-
-</h3>
-
-
-<div class="speed">
-
-Business Ready
-
-</div>
-
-
-<p class="package-description">
-
-Designed for businesses that depend on
-reliable internet connectivity.
-
-</p>
-
-
-<ul class="package-features">
-
-<li>
-
-Cloud applications
-
-</li>
-
-
-<li>
-
-Video conferencing
-
-</li>
-
-
-<li>
-
-Business systems
-
-</li>
-
-
-<li>
-
-Reliable connectivity
-
-</li>
-
-</ul>
-
-
-<a
-
-href="contact.html"
-
-class="package-btn"
-
->
-
-Enquire Now
-
-</a>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     PERFECT FOR
-========================================================= -->
-
-<section class="section perfect-section">
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-Perfect For
-
-</div>
-
-
-<h2>
-
-Fibre for Every Need
-
-</h2>
-
-</div>
-
-
-
-<div class="perfect-grid">
-
-
-<div class="perfect-card">
-
-
-<div class="perfect-icon">
-
-🏠
-
-</div>
-
-
-<h3>
-
-Home Users
-
-</h3>
-
-
-<p>
-
-Reliable internet for browsing,
-streaming and everyday online activities.
-
-</p>
-
-</div>
-
-
-
-<div class="perfect-card">
-
-
-<div class="perfect-icon">
-
-👨‍👩‍👧‍👦
-
-</div>
-
-
-<h3>
-
-Families
-
-</h3>
-
-
-<p>
-
-Keep multiple family members and devices
-connected at the same time.
-
-</p>
-
-</div>
-
-
-
-<div class="perfect-card">
-
-
-<div class="perfect-icon">
-
-💼
-
-</div>
-
-
-<h3>
-
-Remote Workers
-
-</h3>
-
-
-<p>
-
-Stay productive with reliable access
-to online work tools and meetings.
-
-</p>
-
-</div>
-
-
-
-<div class="perfect-card">
-
-
-<div class="perfect-icon">
-
-🏢
-
-</div>
-
-
-<h3>
-
-Businesses
-
-</h3>
-
-
-<p>
-
-Support your team's daily operations
-with dependable internet connectivity.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     WHY DINGES TECHHUB
-========================================================= -->
-
-<section class="section why-dinges">
-
-<div class="why-dinges-container">
-
-
-<div class="section-label">
-
-Why Dinges TechHub?
-
-</div>
-
-
-<h2>
-
-More Than Just Internet
-
-</h2>
-
-
-<p>
-
-We help you choose the right connectivity
-solution while providing local support and
-technology services for your home or business.
-
-</p>
-
-
-
-<div class="dinges-grid">
-
-
-<div class="dinges-card">
-
-<h3>
-
-Local Support
-
-</h3>
-
-
-<p>
-
-Friendly assistance when you need it.
-
-</p>
-
-</div>
-
-
-
-<div class="dinges-card">
-
-<h3>
-
-Flexible Solutions
-
-</h3>
-
-
-<p>
-
-Solutions designed around your needs.
-
-</p>
-
-</div>
-
-
-
-<div class="dinges-card">
-
-<h3>
-
-Business Ready
-
-</h3>
-
-
-<p>
-
-Connectivity that supports your business.
-
-</p>
-
-</div>
-
-
-
-<div class="dinges-card">
-
-<h3>
-
-One Technology Partner
-
-</h3>
-
-
-<p>
-
-Connect your internet with other technology services.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     HOW IT WORKS
-========================================================= -->
-
-<section class="section">
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-How It Works
-
-</div>
-
-
-<h2>
-
-Get Connected in Four Simple Steps
-
-</h2>
-
-</div>
-
-
-
-<div class="steps-grid">
-
-
-<div class="step">
-
-
-<div class="step-number">
-
-1
-
-</div>
-
-
-<h3>
-
-Check Availability
-
-</h3>
-
-
-<p>
-
-Contact us to check whether fibre
-is available at your location.
-
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-
-<div class="step-number">
-
-2
-
-</div>
-
-
-<h3>
-
-Choose Your Package
-
-</h3>
-
-
-<p>
-
-Select a package that matches
-your internet requirements.
-
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-
-<div class="step-number">
-
-3
-
-</div>
-
-
-<h3>
-
-Place Your Order
-
-</h3>
-
-
-<p>
-
-Complete your order and provide
-the required information.
-
-</p>
-
-</div>
-
-
-
-<div class="step">
-
-
-<div class="step-number">
-
-4
-
-</div>
-
-
-<h3>
-
-Get Connected
-
-</h3>
-
-
-<p>
-
-We'll guide you through the next
-steps to get your fibre service active.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section class="section faq-section">
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-Frequently Asked Questions
-
-</div>
-
-
-<h2>
-
-Fibre Internet FAQs
-
-</h2>
-
-</div>
-
-
-
-<div class="faq-container">
-
-
-<div class="faq-item">
-
-
-<button class="faq-question">
-
-Is fibre available at my address?
-
-<span>+</span>
-
-</button>
-
-
-<div class="faq-answer">
-
-Fibre availability depends on your location.
-Use our coverage checker above or contact
-Dinges TechHub and we can assist you with
-checking availability.
-
-</div>
-
-</div>
-
-
-
-<div class="faq-item">
-
-
-<button class="faq-question">
-
-How fast is fibre internet?
-
-<span>+</span>
-
-</button>
-
-
-<div class="faq-answer">
-
-Fibre speeds depend on the package selected.
-Contact us to discuss the available packages
-and speeds for your location.
-
-</div>
-
-</div>
-
-
-
-<div class="faq-item">
-
-
-<button class="faq-question">
-
-Can I use fibre for business?
-
-<span>+</span>
-
-</button>
-
-
-<div class="faq-answer">
-
-Yes. Fibre is suitable for businesses that need
-reliable internet for cloud applications,
-video conferencing, communication and
-daily business operations.
-
-</div>
-
-</div>
-
-
-
-<div class="faq-item">
-
-
-<button class="faq-question">
-
-How do I order fibre?
-
-<span>+</span>
-
-</button>
-
-
-<div class="faq-answer">
-
-Start by checking your coverage above or
-contact Dinges TechHub to check availability
-at your address. Our team can then assist you
-with choosing the right package.
-
-</div>
-
-</div>
-
-
-
-<div class="faq-item">
-
-
-<button class="faq-question">
-
-What happens if fibre is not available?
-
-<span>+</span>
-
-</button>
-
-
-<div class="faq-answer">
-
-If fibre is not available at your location,
-we can help you explore alternative solutions
-such as Wireless Broadband or LTE 4G/5G.
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- =====================================================
      CTA
-========================================================= -->
+     ===================================================== -->
 
 <section class="cta">
 
-<div class="cta-container">
+    <div class="cta-inner">
 
+        <h2>
+            Need Help Choosing Fibre?
+        </h2>
 
-<h2>
+        <p>
+            Contact Dinges TechHub and we can help you find
+            the right fibre package for your location and needs.
+        </p>
 
-Ready to Get Connected?
+        <a href="contact.html">
+            Contact Us
+        </a>
 
-</h2>
-
-
-<p>
-
-Check fibre availability and find the right
-internet solution for your home or business.
-
-</p>
-
-
-
-<div class="cta-buttons">
-
-
-<a
-
-href="#coverage"
-
-class="cta-btn"
-
->
-
-Check Availability
-
-</a>
-
-
-<a
-
-href="contact.html"
-
-class="cta-btn-outline"
-
->
-
-Contact Us
-
-</a>
-
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-
-<!-- =========================================================
-     OTHER CONNECTIVITY
-========================================================= -->
-
-<section class="section other-section">
-
-<div class="section-container">
-
-
-<div class="section-header">
-
-
-<div class="section-label">
-
-Explore More
-
-</div>
-
-
-<h2>
-
-Complete Your Connectivity Solution
-
-</h2>
-
-
-<p>
-
-Fibre isn't the only way to stay connected.
-Explore our other connectivity options.
-
-</p>
-
-</div>
-
-
-
-<div class="other-grid">
-
-
-<!-- MOBILE -->
-
-<a
-
-href="melon-mobile.html"
-
-class="other-card"
-
->
-
-
-<div class="other-card-icon">
-
-📱
-
-</div>
-
-
-<span class="other-card-title">
-
-Melon Mobile
-
-</span>
-
-
-<span class="other-card-text">
-
-Affordable mobile plans, airtime and data.
-
-</span>
-
-
-</a>
-
-
-
-<!-- WIRELESS -->
-
-<a
-
-href="wireless-broadband.html"
-
-class="other-card"
-
->
-
-
-<div class="other-card-icon">
-
-📡
-
-</div>
-
-
-<span class="other-card-title">
-
-Wireless Broadband
-
-</span>
-
-
-<span class="other-card-text">
-
-Flexible wireless internet connectivity.
-
-</span>
-
-
-</a>
-
-
-
-<!-- LTE -->
-
-<a
-
-href="lte.html"
-
-class="other-card"
-
->
-
-
-<div class="other-card-icon">
-
-📶
-
-</div>
-
-
-<span class="other-card-title">
-
-Wireless LTE 4G/5G
-
-</span>
-
-
-<span class="other-card-text">
-
-Fast wireless connectivity for your needs.
-
-</span>
-
-
-</a>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+     ===================================================== -->
 
 <footer>
 
-<p>
-
-© 2026 Dinges TechHub. All Rights Reserved.
-
-</p>
+    <p>
+        &copy;
+        <span id="year"></span>
+        Dinges TechHub. All rights reserved.
+    </p>
 
 </footer>
 
 
-
-<!-- =========================================================
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+     ===================================================== -->
 
 <script>
 
-
 /* =========================================================
-   FAQ ACCORDION
-========================================================= */
-
-
-const faqQuestions =
-
-document.querySelectorAll(".faq-question");
-
-
-
-faqQuestions.forEach(function(question) {
-
-
-question.addEventListener(
-
-"click",
-
-function() {
-
-
-const currentItem =
-
-this.parentElement;
-
-
-
-document
-
-.querySelectorAll(".faq-item")
-
-.forEach(function(item) {
-
-
-if (item !== currentItem) {
-
-
-item.classList.remove("active");
-
-
-item
-
-.querySelector(".faq-question span")
-
-.textContent = "+";
-
-
-}
-
-});
-
-
-
-currentItem
-
-.classList
-
-.toggle("active");
-
-
-
-const icon =
-
-this.querySelector("span");
-
-
-
-if (
-
-currentItem
-
-.classList
-
-.contains("active")
-
-) {
-
-
-icon.textContent = "−";
-
-
-} else {
-
-
-icon.textContent = "+";
-
-
-}
-
-
-}
-
-);
-
-});
-
-
-
-/* =========================================================
-   FIBRE COVERAGE CHECKER
-========================================================= */
-
-
-function checkCoverage() {
-
-
-const locationInput =
-
-document
-
-.getElementById("location")
-
-.value
-
-.trim();
-
-
-
-const province =
-
-document
-
-.getElementById("province")
-
-.value;
-
-
-
-const loading =
-
-document
-
-.getElementById("coverageLoading");
-
-
-
-const result =
-
-document
-
-.getElementById("coverageResult");
-
-
-
-const resultTitle =
-
-document
-
-.getElementById("resultTitle");
-
-
-
-const resultLocation =
-
-document
-
-.getElementById("resultLocation");
-
-
-
-const recommendationTitle =
-
-document
-
-.getElementById("recommendationTitle");
-
-
-
-const recommendationDescription =
-
-document
-
-.getElementById("recommendationDescription");
-
-
-
-const recommendationFeatures =
-
-document
-
-.getElementById("recommendationFeatures");
-
-
-
-const recommendationButton =
-
-document
-
-.getElementById("recommendationButton");
-
-
-
-/* CHECK INPUT */
-
-
-if (
-
-locationInput === "" ||
-
-province === ""
-
-) {
-
-
-alert(
-
-"Please enter your location and select your province."
-
-);
-
-
-return;
-
-}
-
-
-
-/* SHOW LOADING */
-
-
-result.style.display = "none";
-
-
-loading.style.display = "block";
-
-
-
-/* SIMULATE COVERAGE CHECK */
-
-
-setTimeout(function() {
-
-
-loading.style.display = "none";
-
-
-result.style.display = "block";
-
-
-
-/* SHOW LOCATION */
-
-
-resultLocation.textContent =
-
-locationInput +
-
-", " +
-
-getProvinceName(province);
-
-
+   API CONFIGURATION
+   ========================================================= */
 
 /*
-=========================================================
-FIBRE COVERAGE RULES
+    IMPORTANT:
 
-These are example rules for testing.
+    Change this ONLY if your PHP API is located somewhere else.
 
-Replace these with real provider coverage
-information when your Fibre provider/API
-is connected.
-=========================================================
+    Example:
+
+    If your structure is:
+
+    public_html/
+        fibre.html
+        api/
+            fibre-packages.php
+
+    then this is correct:
 */
 
-
-const fibreLocations = [
-
-
-"mbombela",
-
-
-"nelspruit",
-
-
-"white river",
-
-
-"pretoria",
-
-
-"johannesburg",
-
-
-"centurion",
-
-
-"cape town",
-
-
-"durban",
-
-
-"bloemfontein"
-
-
-];
-
-
-
-const locationLower =
-
-locationInput.toLowerCase();
-
-
-
-const fibreAvailable =
-
-fibreLocations.some(function(area) {
-
-
-return locationLower.includes(area);
-
-
-});
-
-
-
-/* =====================================================
-   FIBRE AVAILABLE
-===================================================== */
-
-
-if (fibreAvailable) {
-
-
-resultTitle.textContent =
-
-"Fibre may be available!";
-
-
-
-recommendationTitle.textContent =
-
-"Fibre Internet";
-
-
-
-recommendationDescription.textContent =
-
-"Based on the location you entered, Fibre Internet is our recommended connectivity solution. Final availability should be confirmed for your exact address.";
-
-
-
-recommendationFeatures.innerHTML = `
-
-
-<li>
-
-Fast and reliable internet
-
-</li>
-
-
-<li>
-
-Great for streaming and entertainment
-
-</li>
-
-
-<li>
-
-Ideal for remote work and online learning
-
-</li>
-
-
-<li>
-
-Suitable for homes and businesses
-
-</li>
-
-
-`;
-
-
-
-recommendationButton.textContent =
-
-"View Fibre Plans";
-
-
-
-recommendationButton.href =
-
-"#packages";
-
-
-}
-
-
-/* =====================================================
-   FIBRE NOT AVAILABLE / ALTERNATIVE
-===================================================== */
-
-
-else {
-
-
-resultTitle.textContent =
-
-"Let's find the best option for you";
-
-
-
-recommendationTitle.textContent =
-
-"Wireless Broadband or LTE 4G/5G";
-
-
-
-recommendationDescription.textContent =
-
-"Fibre availability depends on the exact address. Based on the location entered, we recommend exploring our wireless connectivity solutions as an alternative.";
-
-
-
-recommendationFeatures.innerHTML = `
-
-
-<li>
-
-Quick connectivity options
-
-</li>
-
-
-<li>
-
-No fibre infrastructure required
-
-</li>
-
-
-<li>
-
-Suitable for areas without fibre
-
-</li>
-
-
-<li>
-
-Flexible internet solutions
-
-</li>
-
-
-`;
-
-
-
-recommendationButton.textContent =
-
-"Explore Wireless Options";
-
-
-
-recommendationButton.href =
-
-"wireless-broadband.html";
-
-
-}
-
-
-
-/* SCROLL TO RESULT */
-
-
-result.scrollIntoView({
-
-behavior: "smooth",
-
-block: "center"
-
-});
-
-
-}, 1500);
-
-}
-
+const API_URL = "api/fibre-packages.php";
 
 
 /* =========================================================
-   PROVINCE NAME
-========================================================= */
+   CURRENT YEAR
+   ========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-function getProvinceName(province) {
+/* =========================================================
+   SELECT PROVIDER
+   ========================================================= */
+
+async function selectProvider(card){
+
+    /* Remove active state */
+
+    document
+        .querySelectorAll(".provider-card")
+        .forEach(function(item){
+
+            item.classList.remove("active");
+
+        });
 
 
-const provinces = {
+    /* Add active state */
+
+    card.classList.add("active");
 
 
-"gauteng":
+    /* Provider information */
 
-"Gauteng",
+    const providerName =
+        card.dataset.provider;
 
-
-"mpumalanga":
-
-"Mpumalanga",
-
-
-"limpopo":
-
-"Limpopo",
+    const providerId =
+        card.dataset.providerId;
 
 
-"north-west":
+    /* Elements */
 
-"North West",
+    const packagesSection =
+        document.getElementById("packagesSection");
 
+    const packageGrid =
+        document.getElementById("packageGrid");
 
-"free-state":
+    const loading =
+        document.getElementById("packagesLoading");
 
-"Free State",
-
-
-"kwazulu-natal":
-
-"KwaZulu-Natal",
-
-
-"eastern-cape":
-
-"Eastern Cape",
+    const errorMessage =
+        document.getElementById("errorMessage");
 
 
-"western-cape":
+    /* Hide previous error */
 
-"Western Cape",
+    errorMessage.classList.remove("show");
 
-
-"northern-cape":
-
-"Northern Cape"
+    errorMessage.textContent = "";
 
 
-};
+    /* Show packages */
+
+    packagesSection.classList.add("show");
 
 
-return provinces[province] || province;
+    /* Update heading */
+
+    document.getElementById(
+        "selectedProviderName"
+    ).textContent =
+        providerName + " Fibre";
+
+
+    document.getElementById(
+        "selectedProviderDescription"
+    ).textContent =
+        "Loading available fibre packages from " +
+        providerName + ".";
+
+
+    /* Clear packages */
+
+    packageGrid.innerHTML = "";
+
+
+    /* Show loading */
+
+    loading.style.display = "block";
+
+
+    /* Scroll */
+
+    packagesSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    /* Load real packages */
+
+    await loadPackages(
+        providerName,
+        providerId
+    );
 
 }
 
+
+/* =========================================================
+   LOAD PACKAGES FROM PHP API
+   ========================================================= */
+
+async function loadPackages(providerName, providerId){
+
+    const loading =
+        document.getElementById("packagesLoading");
+
+    const grid =
+        document.getElementById("packageGrid");
+
+    const errorMessage =
+        document.getElementById("errorMessage");
+
+
+    try{
+
+        /*
+            Call your PHP API.
+
+            Example request:
+
+            api/fibre-packages.php?provider_id=2
+        */
+
+        const url =
+            API_URL +
+            "?provider_id=" +
+            encodeURIComponent(providerId);
+
+
+        console.log(
+            "Loading packages from:",
+            url
+        );
+
+
+        const response =
+            await fetch(url, {
+                method:"GET",
+                headers:{
+                    "Accept":"application/json"
+                },
+                cache:"no-store"
+            });
+
+
+        /*
+            Check HTTP status
+        */
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP error " +
+                response.status
+            );
+
+        }
+
+
+        /*
+            Convert response to JSON
+        */
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "API response:",
+            data
+        );
+
+
+        /*
+            Hide loading
+        */
+
+        loading.style.display = "none";
+
+
+        /*
+            Check API success
+        */
+
+        if(!data.success){
+
+            throw new Error(
+                data.error ||
+                "The API returned an unsuccessful response."
+            );
+
+        }
+
+
+        /*
+            Make sure packages exists
+        */
+
+        if(
+            !Array.isArray(data.packages) ||
+            data.packages.length === 0
+        ){
+
+            document.getElementById(
+                "selectedProviderDescription"
+            ).textContent =
+                "No fibre packages are currently available for " +
+                providerName + ".";
+
+
+            grid.innerHTML = `
+                <div class="empty-message">
+
+                    <h3>
+                        No Packages Found
+                    </h3>
+
+                    <p>
+                        There are currently no packages
+                        available for ${escapeHTML(providerName)}.
+                    </p>
+
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        /*
+            Update description
+        */
+
+        document.getElementById(
+            "selectedProviderDescription"
+        ).textContent =
+            data.packages.length +
+            " fibre package" +
+            (data.packages.length === 1 ? "" : "s") +
+            " available from " +
+            providerName +
+            ".";
+
+
+        /*
+            Create package cards
+        */
+
+        data.packages.forEach(function(pkg){
+
+            grid.appendChild(
+                createPackageCard(pkg)
+            );
+
+        });
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Fibre API Error:",
+            error
+        );
+
+
+        loading.style.display = "none";
+
+
+        /*
+            Show error box
+        */
+
+        errorMessage.textContent =
+            "Unable to load fibre packages. " +
+            error.message;
+
+
+        errorMessage.classList.add("show");
+
+
+        /*
+            Show message inside package area
+        */
+
+        grid.innerHTML = `
+
+            <div class="empty-message">
+
+                <h3>
+                    Unable to Load Packages
+                </h3>
+
+                <p>
+                    We could not retrieve the fibre packages
+                    from the database.
+                </p>
+
+                <p style="margin-top:10px;font-size:12px;">
+                    Please check that the PHP API is running
+                    and that the API URL is correct.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   CREATE PACKAGE CARD
+   ========================================================= */
+
+function createPackageCard(pkg){
+
+    const card =
+        document.createElement("article");
+
+    card.className =
+        "package-card";
+
+
+    /*
+        Get values safely
+    */
+
+    const packageName =
+        pkg.package_name || "Fibre Package";
+
+    const downloadSpeed =
+        pkg.download_speed || "-";
+
+    const uploadSpeed =
+        pkg.upload_speed || "-";
+
+    const connectionType =
+        pkg.connection_type || "-";
+
+    const internetType =
+        pkg.internet_type || "-";
+
+    const streamingUsers =
+        pkg.streaming_users || "-";
+
+    const setupFee =
+        pkg.setup_fee || "0";
+
+    const monthlyPrice =
+        pkg.monthly_price || "0";
+
+
+    /*
+        Package ID
+
+        We keep this because later
+        we will connect the package
+        to the WHMCS cart.
+    */
+
+    const packageId =
+        pkg.id || "";
+
+
+    card.innerHTML = `
+
+        <h3>
+            ${escapeHTML(packageName)}
+        </h3>
+
+
+        <div class="package-speed">
+
+            <div class="speed-box">
+
+                <small>
+                    Download
+                </small>
+
+                <strong>
+                    ${escapeHTML(downloadSpeed)}
+                </strong>
+
+            </div>
+
+
+            <div class="speed-box">
+
+                <small>
+                    Upload
+                </small>
+
+                <strong>
+                    ${escapeHTML(uploadSpeed)}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="package-info">
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Connection
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(connectionType)}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Internet
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(internetType)}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Streaming
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(streamingUsers)}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Setup Fee
+                </span>
+
+                <span class="info-value">
+                    R${formatPrice(setupFee)}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="package-price">
+
+            <div>
+
+                <div class="price-label">
+                    Monthly
+                </div>
+
+                <div class="price">
+                    R${formatPrice(monthlyPrice)}
+                </div>
+
+            </div>
+
+            <div class="price-period">
+                per month
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="select-package"
+            onclick='selectPackage(${JSON.stringify(pkg)})'
+        >
+            Select Package
+        </button>
+
+    `;
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   SELECT PACKAGE
+   ========================================================= */
+
+function selectPackage(pkg){
+
+    console.log(
+        "Selected package:",
+        pkg
+    );
+
+
+    /*
+        Temporary test.
+
+        Later this button can send the
+        WHMCS product/package ID to your
+        cart/order system.
+    */
+
+    alert(
+        "Package selected:\n\n" +
+        (pkg.package_name || "Fibre Package") +
+        "\n\n" +
+        "Monthly: R" +
+        formatPrice(pkg.monthly_price)
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE PACKAGES
+   ========================================================= */
+
+function closePackages(){
+
+    document
+        .getElementById("packagesSection")
+        .classList.remove("show");
+
+
+    document
+        .querySelectorAll(".provider-card")
+        .forEach(function(card){
+
+            card.classList.remove("active");
+
+        });
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   PRICE FORMAT
+   ========================================================= */
+
+function formatPrice(value){
+
+    const number =
+        Number(value);
+
+
+    if(Number.isNaN(number)){
+        return "0.00";
+    }
+
+
+    return number.toLocaleString(
+        "en-ZA",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
 
 </script>
 
-
 </body>
-
 </html>

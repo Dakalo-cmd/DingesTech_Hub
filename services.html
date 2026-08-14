@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Services | Dinges TechHub</title>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB - SERVICES PAGE
+   ========================================================= */
+
+:root{
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+    --black:#020202;
+    --gray:#949393;
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+    --border:#E5E1E7;
+
+    --shadow:0 10px 25px rgba(60,21,66,.08);
+    --shadow-hover:0 16px 30px rgba(60,21,66,.14);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--black);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+    background:var(--primary);
+    color:var(--white);
+
+    padding:8px 5%;
+
+    font-size:13px;
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.nav-inner{
+    max-width:1200px;
+
+    min-height:72px;
+
+    margin:auto;
+
+    padding:0 5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+
+    gap:9px;
+
+    color:var(--primary);
+
+    font-size:20px;
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:40px;
+    height:40px;
+
+    border-radius:9px;
+
+    background:var(--primary);
+
+    color:var(--accent);
+
+    display:grid;
+    place-items:center;
+
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    gap:22px;
+}
+
+.nav-links a{
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--secondary);
+}
+
+.nav-cta{
+    background:var(--accent);
+
+    color:var(--black)!important;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:var(--white);
+
+    padding:70px 5%;
+
+    text-align:center;
+}
+
+.hero-inner{
+    max-width:800px;
+
+    margin:auto;
+}
+
+.eyebrow{
+    display:inline-block;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:clamp(38px,5vw,56px);
+
+    line-height:1.05;
+
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,.88);
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   SERVICES SECTION
+   ========================================================= */
+
+.services-section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:60px 5%;
+}
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.section-heading h2{
+    color:var(--primary);
+
+    font-size:32px;
+
+    margin-bottom:6px;
+}
+
+.section-heading p{
+    color:var(--gray);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   SERVICES GRID
+   3 CARDS PER ROW
+   ========================================================= */
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+   ========================================================= */
+
+.service-card{
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.service-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+}
+
+
+/* =========================================================
+   SERVICE ICON
+   ========================================================= */
+
+.service-icon{
+    width:48px;
+    height:48px;
+
+    border-radius:12px;
+
+    display:grid;
+    place-items:center;
+
+    background:rgba(122,44,120,.10);
+
+    color:var(--secondary);
+
+    font-size:21px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+}
+
+
+/* =========================================================
+   SERVICE TITLE
+   ========================================================= */
+
+.service-card h3{
+    color:var(--primary);
+
+    font-size:20px;
+
+    line-height:1.25;
+
+    margin-bottom:7px;
+}
+
+
+/* =========================================================
+   SERVICE DESCRIPTION
+   ========================================================= */
+
+.service-description{
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    margin-bottom:17px;
+
+    min-height:39px;
+}
+
+
+/* =========================================================
+   SUB SERVICES
+   ========================================================= */
+
+.subservices{
+    display:grid;
+
+    gap:8px;
+}
+
+.subservice{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    padding:10px 12px;
+
+    background:#FCFBFC;
+
+    transition:.2s ease;
+}
+
+.subservice:hover{
+    border-color:var(--secondary);
+
+    background:#FAF5FA;
+
+    transform:translateX(2px);
+}
+
+.subservice-name{
+    color:#2b2b2b;
+
+    font-size:12.5px;
+
+    line-height:1.35;
+
+    font-weight:700;
+}
+
+.subservice-arrow{
+    color:var(--secondary);
+
+    font-size:16px;
+
+    font-weight:900;
+
+    flex-shrink:0;
+}
+
+
+/* =========================================================
+   CRM SOFTWARE
+   ========================================================= */
+
+.crm-box{
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    overflow:hidden;
+}
+
+.crm-toggle{
+    width:100%;
+
+    border:0;
+
+    background:#FCFBFC;
+
+    color:var(--primary);
+
+    padding:11px 12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    cursor:pointer;
+
+    font-size:12.5px;
+
+    font-weight:800;
+
+    text-align:left;
+
+    transition:.2s ease;
+}
+
+.crm-toggle:hover{
+    background:#FAF5FA;
+}
+
+.crm-arrow{
+    transition:transform .2s ease;
+
+    font-size:12px;
+}
+
+.crm-toggle.open .crm-arrow{
+    transform:rotate(180deg);
+}
+
+.crm-features{
+    display:none;
+
+    padding:0 12px 10px;
+
+    background:#FCFBFC;
+}
+
+.crm-features.open{
+    display:block;
+}
+
+.crm-feature{
+    padding:7px 0;
+
+    border-top:1px solid var(--border);
+
+    color:var(--gray);
+
+    font-size:11.5px;
+}
+
+
+/* =========================================================
+   SERVICE BUTTON
+   ========================================================= */
+
+.service-button{
+    width:100%;
+
+    margin-top:17px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:10px 12px;
+
+    cursor:pointer;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    transition:.2s ease;
+
+    margin-top:auto;
+}
+
+.service-button:hover{
+    background:var(--secondary);
+}
+
+
+/* =========================================================
+   INFORMATION NOTE
+   ========================================================= */
+
+.note{
+    margin-top:35px;
+
+    padding:16px 18px;
+
+    border-left:4px solid var(--accent);
+
+    background:var(--white);
+
+    border-radius:9px;
+
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+.note strong{
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+    background:var(--primary);
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:60px 5%;
+}
+
+.cta-inner{
+    max-width:750px;
+
+    margin:auto;
+}
+
+.cta h2{
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:rgba(255,255,255,.8);
+
+    font-size:14px;
+
+    margin-bottom:22px;
+}
+
+.cta a{
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    padding:11px 22px;
+
+    border-radius:9px;
+
+    transition:.2s ease;
+}
+
+.cta a:hover{
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    background:#16091A;
+
+    color:rgba(255,255,255,.75);
+
+    text-align:center;
+
+    padding:30px 5%;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-links{
+        gap:14px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:650px){
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .topbar-inner{
+        justify-content:center;
+
+        text-align:center;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 5%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .services-section{
+        padding:50px 5%;
+    }
+
+    .section-heading h2{
+        font-size:28px;
+    }
+
+    .service-card{
+        padding:20px;
+    }
+
+    .cta h2{
+        font-size:27px;
+    }
+
+}
+
+.image-icon{
+    width:150px;
+    height:150px;
+
+    overflow:hidden;
+
+    background:transparent;
+
+    padding:0;
+
+    margin-bottom:15px;
+}
+
+.image-icon img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    display:block;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>
+            Reliable Technology & Connectivity Solutions
+        </span>
+
+        <span>
+            South Africa
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                DT
+            </span>
+
+            <span>
+                Dinges TechHub
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a
+                href="services.html"
+                class="active"
+            >
+                Services
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+            <a
+                href="cart.html"
+                class="nav-cta"
+            >
+                Cart
+            </a>
+
+        </div>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            Dinges TechHub
+        </span>
+
+        <h1>
+            Our Services
+        </h1>
+
+        <p>
+            Technology, connectivity, software and smart business
+            solutions designed to keep you connected, productive
+            and secure.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+     ===================================================== -->
+
+<main class="services-section">
+
+
+    <div class="section-heading">
+
+        <h2>
+            What We Offer
+        </h2>
+
+        <p>
+            Explore our complete range of technology and business solutions.
+        </p>
+
+    </div>
+
+
+
+    <div class="services-grid">
+
+
+        <!-- =================================================
+             1. INTERNET CONNECTIVITY
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="internet-connectivity"
+        >
+
+            <div class="service-icon image-icon">
+             <img src="internet connectivity.jpg" alt="Internet Connectivity">
+            </div> 
+
+            <h3>
+                Internet Connectivity
+            </h3>
+
+            <p class="service-description">
+                Reliable connectivity solutions for homes,
+                businesses and organisations.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <a
+                    href="fibre.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Fibre
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="wireless-broadband.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Wireless Broadband
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="melon-mobile.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Melon Mobile
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="wireless-lte.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Wireless LTE 4G/5G
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="internet-connectivity.html"
+                class="service-button"
+            >
+                Explore Internet Connectivity →
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             2. VOIP / TELEPHONY
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="voip-telephony"
+        >
+
+            <div class="service-icon image-icon">
+             <img src="voip.png" alt="VOIP / Telephony">
+            </div>
+
+            <h3>
+                VOIP / Telephony
+            </h3>
+
+            <p class="service-description">
+                Modern voice communication solutions designed
+                for individuals and businesses.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <a
+                    href="smart-number.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Smart Number
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="advanced-pbx.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Advanced PBX
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="call-centre-solution.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Call Centre Solution
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="voip.html"
+                class="service-button"
+            >
+                Explore VOIP / Telephony →
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             3. WEB & EMAIL HOSTING
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="web-email-hosting"
+        >
+
+            <div class="service-icon image-icon">
+              <img src="hosting.png" alt="Web and Email Hosting">
+            </div>
+
+            <h3>
+                Web & Email Hosting
+            </h3>
+
+            <p class="service-description">
+                Everything you need to establish and manage
+                your online presence.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <a
+                    href="domain.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Domain
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="email-hosting.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Email Hosting
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="web-development.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Web Development
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="shared-hosting.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Shared Hosting
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="hosting.html"
+                class="service-button"
+            >
+                Explore Web & Email Hosting →
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             4. INTERNET OF THINGS
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="internet-of-things"
+        >
+
+            <div class="service-icon image-icon">
+               <img src="iot.png" alt="Internet of Things">
+            </div>
+
+            <h3>
+                Internet of Things
+            </h3>
+
+            <p class="service-description">
+                Connected devices, automation and monitoring
+                solutions for smarter environments.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <a
+                    href="smart-appliances-devices.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Smart Appliances & Devices
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="automation-software.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Automation Software
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="remote-monitoring.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Remote Monitoring
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="smart-security.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Smart Security
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="iot.html"
+                class="service-button"
+            >
+                Explore Internet of Things →
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             5. SOFTWARE
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="software"
+        >
+
+            <div class="service-icon image-icon">
+              <img src="software.png" alt="Software">
+            </div>
+
+            <h3>
+                Software
+            </h3>
+
+            <p class="service-description">
+                Business and productivity software to streamline
+                operations and protect your systems.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <!-- CRM SOFTWARE -->
+
+                <div class="crm-box">
+
+                    <button
+                        type="button"
+                        class="crm-toggle"
+                        id="crmToggle"
+                    >
+
+                        <span>
+                            CRM Software
+                        </span>
+
+                        <span
+                            class="crm-arrow"
+                            id="crmArrow"
+                        >
+                            ▼
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="crm-features"
+                        id="crmFeatures"
+                    >
+
+                        <div class="crm-feature">
+                            • Smart Process Automation
+                        </div>
+
+                        <div class="crm-feature">
+                            • Workflows
+                        </div>
+
+                        <div class="crm-feature">
+                            • API Integrations
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHATSAPP -->
+
+                <a
+                    href="whatsapp-business-api.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        WhatsApp Business API
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- CLEANING SOFTWARE -->
+
+                <a
+                    href="cleaning-software.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Cleaning Software
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- ANTIVIRUS -->
+
+                <a
+                    href="antivirus-software.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Antivirus Software
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <!-- MICROSOFT 365 -->
+
+                <a
+                    href="microsoft-365.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Microsoft 365
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="software.html"
+                class="service-button"
+            >
+                Explore Software →
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             6. SMART SOLUTIONS
+             ================================================= -->
+
+        <article
+            class="service-card"
+            id="smart-solutions"
+        >
+
+            <div class="service-icon image-icon">
+                <img src="smart solutions.png" alt="Smart Solutions">
+            </div>
+
+            <h3>
+                Smart Solutions
+            </h3>
+
+            <p class="service-description">
+                Practical IT support, monitoring and technology
+                assistance for your business.
+            </p>
+
+
+            <div class="subservices">
+
+
+                <a
+                    href="network-monitoring.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Proactive & Network Monitoring
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="printer-support.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Printers Setup & Issues
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="it-support.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Technical Assistance & IT Support
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="software-support.html"
+                    class="subservice"
+                >
+
+                    <span class="subservice-name">
+                        Cleaning, Antivirus & Microsoft Software
+                    </span>
+
+                    <span class="subservice-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <a
+                href="smart-solutions.html"
+                class="service-button"
+            >
+                Explore Smart Solutions →
+            </a>
+
+        </article>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         WHMCS NOTE
+         ===================================================== -->
+
+    <div class="note">
+
+        <strong>Service information:</strong>
+
+        Our website is being connected to our existing WHMCS
+        backend. Product information, availability and pricing
+        will be loaded from the existing system rather than
+        being recreated manually on the website.
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <h2>
+            Need Help Choosing a Service?
+        </h2>
+
+        <p>
+            Contact Dinges TechHub and let us help you find
+            the right technology solution for your needs.
+        </p>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <p>
+        &copy;
+        <span id="year"></span>
+        Dinges TechHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script>
+
+/*
+=========================================================
+CURRENT YEAR
+=========================================================
+*/
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+/*
+=========================================================
+CRM SOFTWARE DROPDOWN
+=========================================================
+*/
+
+const crmToggle =
+    document.getElementById("crmToggle");
+
+const crmFeatures =
+    document.getElementById("crmFeatures");
+
+
+crmToggle.addEventListener("click", function(){
+
+    crmFeatures.classList.toggle("open");
+
+    crmToggle.classList.toggle("open");
+
+});
+
+</script>
+
+
+</body>
+</html>

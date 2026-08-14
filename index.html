@@ -2191,6 +2191,313 @@ img {
     }
 
 }
+<!-- our PARTNER-->
+.partners-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.partner-card{
+
+    display:flex;
+    align-items:center;
+    gap:35px;
+
+    max-width:900px;      /* Smaller card */
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    margin-bottom:50px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+/* Stagger effect */
+.partner-card.reverse{
+
+    margin-left:220px;
+
+}
+
+/* Image */
+
+.partner-image{
+
+    flex:0 0 260px;
+
+}
+
+.partner-image img{
+
+    width:100%;
+    height:220px;
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+/* Content */
+
+.partner-content{
+
+    flex:1;
+
+}
+
+.partner-tag{
+
+    display:inline-block;
+
+    padding:6px 16px;
+
+    font-size:11px;
+
+    border-radius:30px;
+
+}
+
+.partner-content h2{
+
+    font-size:26px;
+    margin:12px 0;
+
+}
+
+.partner-content p{
+
+    font-size:15px;
+    line-height:1.7;
+
+}
+
+.partner-features li{
+
+    margin-bottom:8px;
+    font-size:15px;
+
+}
+
+.primary-btn{
+
+    padding:11px 24px;
+
+}
+
+/* Mobile */
+
+@media (max-width: 992px){
+
+    .partner-card,
+    .partner-card.reverse{
+
+        max-width:100%;
+        margin-left:0;
+        flex-direction:column;
+
+    }
+
+    .partner-image{
+
+        flex:unset;
+        width:100%;
+
+    }
+
+    .partner-image img{
+
+        height:220px;
+
+    }
+
+}
+
+/* =====================================================
+   SERVICES INTRO
+===================================================== */
+
+.services-intro {
+    background: #F7F6F8;
+    padding: 90px 5%;
+}
+
+
+.services-intro-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+.services-intro-content {
+    max-width: 680px;
+}
+
+
+.services-eyebrow {
+    display: inline-block;
+
+    color: #7A2C78;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+
+.services-intro-content h2 {
+    color: #3C1542;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+
+.services-intro-content p {
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 14px;
+}
+
+
+.services-intro-button {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 13px 24px;
+
+    background: #FFBB42;
+
+    color: #020202;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition: .25s ease;
+}
+
+
+.services-intro-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(60,21,66,.15);
+}
+
+
+/* =====================================================
+   SERVICE HIGHLIGHTS
+===================================================== */
+
+.services-intro-highlights {
+    display: grid;
+
+    gap: 15px;
+}
+
+
+.service-highlight {
+    background: #FFFFFF;
+
+    border: 1px solid #E5E1E7;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    box-shadow: 0 8px 20px rgba(60,21,66,.06);
+
+    transition: .25s ease;
+}
+
+
+.service-highlight:hover {
+    transform: translateX(5px);
+
+    box-shadow: 0 12px 25px rgba(60,21,66,.1);
+}
+
+
+.service-highlight span {
+    display: block;
+
+    color: #FFBB42;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    margin-bottom: 5px;
+}
+
+
+.service-highlight strong {
+    display: block;
+
+    color: #3C1542;
+
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+
+.service-highlight p {
+    color: #949393;
+
+    font-size: 13px;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .services-intro {
+        padding: 65px 5%;
+    }
+
+
+    .services-intro-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    .services-intro-content h2 {
+        font-size: 34px;
+    }
+
+}
 </style> 
 
 </head>
@@ -2210,7 +2517,7 @@ img {
 
         <div class="top-links">
 
-            <a href="#contact">
+            <a href="status.html">
                 Status
             </a>
 
@@ -2908,161 +3215,186 @@ img {
 </section>
 
 <!-- =====================================================
-     SERVICES
+     SERVICES INTRO
 ====================================================== -->
 
-<section
-    class="services-section"
-    id="services">
+<section class="services-intro" id="services">
 
+    <div class="services-intro-container">
 
-    <div class="container">
+        <div class="services-intro-content">
 
-
-        <div class="section-heading">
+            <span class="services-eyebrow">
+                OUR SERVICES
+            </span>
 
             <h2>
-                Our Services
+                Technology Solutions Built Around Your Needs
             </h2>
 
             <p>
-                Complete technology solutions designed
-                to keep you connected, productive and secure.
+                From reliable internet connectivity and business
+                communication to hosting, software and IT support,
+                Dinges TechHub provides technology solutions for
+                homes and businesses.
             </p>
+
+            <p>
+                Explore our services and discover the right solution
+                for your connectivity, communication and technology needs.
+            </p>
+
+            <a
+                href="services.html"
+                class="services-intro-button"
+            >
+                Explore Our Services →
+            </a>
 
         </div>
 
 
+        <div class="services-intro-highlights">
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <img src="internet connectivity.jpg" alt="internet icon">
-                </div>
+            <div class="service-highlight">
+                <span>01</span>
+                <strong>Connectivity</strong>
+                <p>Fibre, LTE, 4G/5G & wireless solutions.</p>
+            </div>
 
-                <h3>
-                    Internet Connectivity
-                </h3>
+            <div class="service-highlight">
+                <span>02</span>
+                <strong>Business Technology</strong>
+                <p>Software, hosting and communication solutions.</p>
+            </div>
+
+            <div class="service-highlight">
+                <span>03</span>
+                <strong>IT Support</strong>
+                <p>Technology support and smart IT solutions.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =====================================================
+     OUR PARTNERS
+====================================================== -->
+
+<section class="partners-section" id="partners">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Our Technology Partners</h2>
+            <p>
+                We proudly partner with industry-leading technology providers
+                to deliver reliable communication and business solutions.
+            </p>
+        </div>
+
+        <!-- ==========================
+             EUPHORIA
+        =========================== -->
+
+        <div class="partner-card">
+
+            <div class="partner-image">
+
+                <!-- Replace with Euphoria Logo -->
+                <img src="images/euphoria-logo.png"
+                     alt="Euphoria Logo">
+
+            </div>
+
+            <div class="partner-content">
+
+                <span class="partner-tag">
+                    VOIP / TELEPHONY PARTNER
+                </span>
+
+                <h2>
+                    We are a Proud Euphoria Partner
+                </h2>
 
                 <p>
-                    Stay connected with mobile,
-                    LTE, 4G, 5G, Fibre and wireless broadband.
+
+                    Dinges TechHub delivers modern VoIP and Cloud Telephony
+                    solutions through our partnership with Euphoria.
+                    We help businesses improve communication while reducing
+                    operational costs with scalable phone systems.
+
                 </p>
 
-                <a href="internet-connectivity.html" class="service-link">
-                    Explore Connectivity →
+                <ul class="partner-features">
+
+                    <li>✔ Business VoIP Solutions</li>
+                    <li>✔ Cloud PBX</li>
+                    <li>✔ Call Recording</li>
+                    <li>✔ SIP Trunks</li>
+                    <li>✔ Remote Office Calling</li>
+
+                </ul>
+
+                <a href="voip.html" class="primary-btn">
+                    Learn More
                 </a>
 
             </div>
 
-            <div class="service-card">
+        </div>
 
-                <div class="service-icon">
-                 <img src="voip.png" alt="Voip icon">
-                </div>
 
-                <h3>
-                    VOIP & Telephony
-                </h3>
+        <!-- ==========================
+             BITRIX24
+        =========================== -->
+
+        <div class="partner-card reverse">
+
+            <div class="partner-content">
+
+                <span class="partner-tag">
+                    CRM SOFTWARE PARTNER
+                </span>
+
+                <h2>
+                    Your Bitrix24 Silver Partner
+                </h2>
 
                 <p>
-                    Modern communication solutions
-                    for businesses of every size.
+
+                    As a Bitrix24 Silver Partner, Dinges TechHub helps businesses
+                    implement CRM, task management, online collaboration,
+                    automation and customer engagement tools tailored to
+                    improve productivity.
+
                 </p>
 
-                <a href="voip_telephony.html" class="service-link">
-                    View Telephony →
+                <ul class="partner-features">
+
+                    <li>✔ CRM Implementation</li>
+                    <li>✔ Workflow Automation</li>
+                    <li>✔ Online Meetings</li>
+                    <li>✔ Project Management</li>
+                    <li>✔ Staff Training & Support</li>
+
+                </ul>
+
+                <a href="bitrix24.html" class="primary-btn">
+                    Learn More
                 </a>
 
             </div>
 
+            <div class="partner-image">
 
-
-            <div class="service-card">
-
-                <div class="service-icon">
-                    ☁️
-                </div>
-
-                <h3>
-                    Web & Email Hosting
-                </h3>
-
-                <p>
-                    Domains, email hosting, website development
-                    and reliable shared hosting.
-                </p>
-
-                <a href="web&hosting.html" class="service-link">
-                    View Hosting →
-                </a>
+                <!-- Replace with Bitrix24 Image -->
+                <img src="bitrix24.png"
+                     alt="Bitrix24">
 
             </div>
-
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-                    📡
-                </div>
-
-                <h3>
-                    Internet of Things
-                </h3>
-
-                <p>
-                    Smart devices, automation,
-                    monitoring and security solutions.
-                </p>
-
-                <a href="internet of things.html" class="service-link">
-                    Explore IoT →
-                </a>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-                    <img src="software.png" alt="Software icon">
-                </div>
-
-                <h3>
-                    Software Solutions
-                </h3>
-                <p>
-                    CRM, automation, WhatsApp Business API,
-                    Microsoft 365 and security software.
-                </p>
-                <a href="software-solution.html" class="service-link">
-                    View Software →
-                </a>
-            </div>
-
-            <div class="service-card">
-
-                <div class="service-icon">
-                    <img src="smart solutions.png" alt="Smart Solutions icon">
-                </div>
-
-                <h3>
-                    Smart IT Solutions
-                </h3>
-
-                <p>
-                    Network monitoring, technical assistance,
-                    IT support and business technology solutions.
-                </p>
-
-                <a href="Smart IT solution.html" class="service-link">
-                    Get IT Support →
-                </a>
-
-            </div>
-
 
         </div>
 
@@ -3070,180 +3402,37 @@ img {
 
 </section>
 
-
-
 <!-- =====================================================
-     DOMAIN EXTENSIONS
-====================================================== -->
-
-<section
-    class="services-section"
-    id="domains">
-
-
-    <div class="container">
-
-
-        <div class="section-heading">
-
-            <h2>
-                Register Your Domain
-            </h2>
-
-            <p>
-                Build your online presence with
-                a professional domain name.
-            </p>
-
-        </div>
-
-
-
-        <div class="services-grid">
-
-
-            <div class="service-card">
-
-                <div class="domain-extension">
-                    .co.za
-                </div>
-
-                <h3>
-                    South African Domain
-                </h3>
-
-                <p>
-                    Perfect for South African businesses
-                    and organizations.
-                </p>
-
-                <h3>
-                    $8.99 / year
-                </h3>
-
-                <br>
-
-                <button
-                    class="primary-btn"
-                    onclick="addDomain('.co.za', 8.99)">
-
-                    Register Now
-
-                </button>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="domain-extension">
-                    .com
-                </div>
-
-                <h3>
-                    Global Business
-                </h3>
-
-                <p>
-                    The world's most recognized
-                    domain extension.
-                </p>
-
-                <h3>
-                    $12.99 / year
-                </h3>
-
-                <br>
-
-                <button
-                    class="primary-btn"
-                    onclick="addDomain('.com', 12.99)">
-
-                    Register Now
-
-                </button>
-
-            </div>
-
-
-
-            <div class="service-card">
-
-                <div class="domain-extension">
-                    .net
-                </div>
-
-                <h3>
-                    Technology
-                </h3>
-
-                <p>
-                    Great for technology
-                    and internet businesses.
-                </p>
-
-                <h3>
-                    $11.99 / year
-                </h3>
-
-                <br>
-
-                <button
-                    class="primary-btn"
-                    onclick="addDomain('.net', 11.99)">
-
-                    Register Now
-
-                </button>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     HOSTING
+     WHY CHOOSE DINGES TECH
 ====================================================== -->
 
 <section
     class="hosting-section"
-    id="hosting">
-
+    id="why-choose">
 
     <div class="container hosting-content">
-
 
         <div class="hosting-text">
 
             <span class="section-tag">
-                WEB & EMAIL HOSTING
+                WHY CHOOSE DINGES TECH?
             </span>
 
-
             <h2>
-                Build Your Online Presence
+                Your Trusted Technology Partner
             </h2>
 
-
             <p>
-                Get reliable web hosting, professional email,
-                domains and website development services
-                for your business.
+                We provide reliable internet connectivity, cloud services,
+                business communications and professional IT solutions that
+                help homes and businesses stay connected, productive and secure.
             </p>
-
 
             <button
                 class="primary-btn"
-                onclick="showMessage('Hosting plans coming soon')">
+                onclick="window.location.href='about.html'">
 
-                View Hosting Plans
+                About Us & Reviews
 
             </button>
 
@@ -3253,78 +3442,81 @@ img {
 
         <div class="hosting-features">
 
-
             <div class="feature">
 
                 <div class="feature-icon">
-                    🚀
+                    🌐
                 </div>
 
                 <h3>
-                    Fast Hosting
+                    Reliable Connectivity
                 </h3>
 
                 <p>
-                    High-performance hosting
-                    for your website.
+                    Fast, reliable internet and communication services
+                    you can depend on.
                 </p>
 
             </div>
 
 
+
             <div class="feature">
 
                 <div class="feature-icon">
-                    🔒
+                    💼
                 </div>
 
                 <h3>
-                    SSL Security
+                    Complete Technology Solutions
                 </h3>
 
                 <p>
-                    Protect your website
-                    and visitors.
+                    Internet, software, cloud services and IT support—
+                    all from one trusted provider.
                 </p>
 
             </div>
 
 
+
             <div class="feature">
 
                 <div class="feature-icon">
-                    📧
+                    🤝
                 </div>
 
                 <h3>
-                    Business Email
+                    Personal Service You Can Trust
                 </h3>
 
                 <p>
-                    Professional email
-                    for your business.
+                    Friendly, knowledgeable technicians providing
+                    fast remote support and on-site assistance
+                    across the Lowveld.
                 </p>
 
             </div>
 
 
+
             <div class="feature">
 
                 <div class="feature-icon">
-                    🛠️
+                    ⚙️
                 </div>
 
                 <h3>
-                    IT Support
+                    Tailored for Your Needs
                 </h3>
 
                 <p>
-                    Technical help when
-                    you need it.
+                    Every solution is designed around your home
+                    or business to ensure the best performance
+                    and value.
                 </p>
 
             </div>
-
 
         </div>
 
@@ -3332,29 +3524,29 @@ img {
 
 </section>
 
-
-
 <!-- =====================================================
-     ABOUT
+     CALL TO ACTION
 ====================================================== -->
 
 <section
     class="about-section"
-    id="about">
-
+    id="get-started">
 
     <div class="container">
 
-
         <div class="section-heading">
 
+            <span class="section-tag">
+                GET STARTED
+            </span>
+
             <h2>
-                Why Choose DomainHub?
+                Don't Know Where to Start?
             </h2>
 
             <p>
-                We provide reliable technology
-                solutions for homes and businesses.
+                We've made it simple. Follow these three easy steps and
+                our team will guide you from enquiry to installation.
             </p>
 
         </div>
@@ -3363,7 +3555,6 @@ img {
 
         <div class="benefits">
 
-
             <div class="benefit">
 
                 <div class="benefit-number">
@@ -3371,12 +3562,13 @@ img {
                 </div>
 
                 <h3>
-                    Reliable Connectivity
+                    Make Contact
                 </h3>
 
                 <p>
-                    Stay connected with reliable
-                    internet and communication services.
+                    Reach out to us through our contact form,
+                    phone, WhatsApp or email and tell us what
+                    you're looking for.
                 </p>
 
             </div>
@@ -3390,12 +3582,13 @@ img {
                 </div>
 
                 <h3>
-                    Complete IT Solutions
+                    Get Expert Advice
                 </h3>
 
                 <p>
-                    Get hosting, software, security
-                    and IT support in one place.
+                    Our experienced team will assess your
+                    requirements and recommend the best
+                    technology solutions for your needs.
                 </p>
 
             </div>
@@ -3409,24 +3602,36 @@ img {
                 </div>
 
                 <h3>
-                    Professional Support
+                    Finalize Your Setup
                 </h3>
 
                 <p>
-                    Our team is ready to help
-                    you solve your technology challenges.
+                    We'll help you provide the required
+                    information and ensure your service is
+                    set up quickly and efficiently.
                 </p>
 
             </div>
 
+        </div>
+
+
+
+        <div class="cta-buttons">
+
+            <a href="contact.html" class="primary-btn">
+                Contact Us
+            </a>
+
+            <a href="tel:+270000000000" class="secondary-btn">
+                Call Us
+            </a>
 
         </div>
 
     </div>
 
 </section>
-
-
 
 <!-- =====================================================
      CONTACT
@@ -4178,7 +4383,7 @@ function(event) {
 
 </script>
 
-
+<script src="cart.js"></script>
 </body>
 
 </html>
