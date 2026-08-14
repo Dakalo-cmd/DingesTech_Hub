@@ -3,17 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fibre Internet | Dinges TechHub</title>
 
 <style>
-
-/* =========================================================
-   DINGES TECHHUB
-   LIVE WHMCS FIBRE PAGE
-   ========================================================= */
 
 :root{
     --primary:#3C1542;
@@ -29,18 +23,15 @@
     --shadow-hover:0 18px 35px rgba(60,21,66,.15);
 }
 
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-
 html{
     scroll-behavior:smooth;
 }
-
 
 body{
     font-family:Arial, Helvetica, sans-serif;
@@ -49,21 +40,18 @@ body{
     line-height:1.6;
 }
 
-
 a{
     text-decoration:none;
     color:inherit;
 }
 
-
 button{
     font-family:inherit;
 }
 
-
 /* =========================================================
    TOP BAR
-   ========================================================= */
+========================================================= */
 
 .topbar{
     background:var(--primary);
@@ -71,7 +59,6 @@ button{
     padding:8px 5%;
     font-size:13px;
 }
-
 
 .topbar-inner{
     max-width:1200px;
@@ -84,10 +71,9 @@ button{
     gap:20px;
 }
 
-
 /* =========================================================
    NAVIGATION
-   ========================================================= */
+========================================================= */
 
 .navbar{
     background:var(--white);
@@ -95,10 +81,8 @@ button{
 
     position:sticky;
     top:0;
-
     z-index:1000;
 }
-
 
 .nav-inner{
     max-width:1200px;
@@ -114,7 +98,6 @@ button{
     gap:30px;
 }
 
-
 .logo{
     display:flex;
     align-items:center;
@@ -127,7 +110,6 @@ button{
 
     white-space:nowrap;
 }
-
 
 .logo-mark{
     width:40px;
@@ -144,13 +126,11 @@ button{
     font-weight:900;
 }
 
-
 .nav-links{
     display:flex;
     align-items:center;
     gap:22px;
 }
-
 
 .nav-links a{
     color:#333;
@@ -161,16 +141,13 @@ button{
     transition:.2s ease;
 }
 
-
 .nav-links a:hover,
 .nav-links a.active{
     color:var(--secondary);
 }
 
-
 .nav-cta{
     background:var(--accent);
-
     color:var(--black)!important;
 
     padding:9px 16px;
@@ -178,10 +155,9 @@ button{
     border-radius:8px;
 }
 
-
 /* =========================================================
    HERO
-   ========================================================= */
+========================================================= */
 
 .hero{
     background:
@@ -203,12 +179,10 @@ button{
     text-align:center;
 }
 
-
 .hero-inner{
     max-width:850px;
     margin:auto;
 }
-
 
 .eyebrow{
     display:inline-block;
@@ -224,7 +198,6 @@ button{
     margin-bottom:12px;
 }
 
-
 .hero h1{
     font-size:clamp(38px,5vw,56px);
 
@@ -232,7 +205,6 @@ button{
 
     margin-bottom:15px;
 }
-
 
 .hero p{
     max-width:720px;
@@ -244,10 +216,9 @@ button{
     font-size:16px;
 }
 
-
 /* =========================================================
    MAIN
-   ========================================================= */
+========================================================= */
 
 .main{
     max-width:1200px;
@@ -257,13 +228,11 @@ button{
     padding:60px 5%;
 }
 
-
 .section-heading{
     text-align:center;
 
     margin-bottom:35px;
 }
-
 
 .section-heading h2{
     color:var(--primary);
@@ -273,57 +242,49 @@ button{
     margin-bottom:6px;
 }
 
-
 .section-heading p{
     color:var(--gray);
 
     font-size:14px;
 }
 
-
 /* =========================================================
-   API STATUS
-   ========================================================= */
+   STATUS
+========================================================= */
 
 .api-status{
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-
     margin-bottom:25px;
 
-    font-size:12px;
+    padding:13px 16px;
+
+    border-radius:9px;
+
+    background:#F8F5F8;
+
+    border:1px solid var(--border);
 
     color:var(--gray);
+
+    text-align:center;
+
+    font-size:13px;
 }
 
-
-.status-dot{
-    width:9px;
-    height:9px;
-
-    border-radius:50%;
-
-    background:#999;
+.api-status.success{
+    background:#F1FAF4;
+    border-color:#B9DEC4;
+    color:#236638;
 }
 
-
-.status-dot.online{
-    background:#2e9d58;
+.api-status.error{
+    background:#FFF4F4;
+    border-color:#E7BDBD;
+    color:#8B2929;
 }
-
-
-.status-dot.offline{
-    background:#c43d3d;
-}
-
 
 /* =========================================================
    ERROR
-   ========================================================= */
+========================================================= */
 
 .error-message{
     display:none;
@@ -334,31 +295,36 @@ button{
 
     color:#8B2929;
 
-    padding:18px;
+    padding:15px;
 
     border-radius:9px;
 
-    margin-bottom:25px;
+    margin-bottom:20px;
 
     font-size:13px;
 }
-
 
 .error-message.show{
     display:block;
 }
 
+/* =========================================================
+   LOADING
+========================================================= */
 
-.error-message strong{
-    display:block;
+.loading{
+    text-align:center;
 
-    margin-bottom:5px;
+    padding:35px;
+
+    color:var(--gray);
+
+    font-size:14px;
 }
-
 
 /* =========================================================
    PROVIDER GRID
-   ========================================================= */
+========================================================= */
 
 .provider-grid{
     display:grid;
@@ -368,10 +334,9 @@ button{
     gap:18px;
 }
 
-
 /* =========================================================
    PROVIDER CARD
-   ========================================================= */
+========================================================= */
 
 .provider-card{
     background:var(--white);
@@ -394,7 +359,6 @@ button{
     text-align:center;
 }
 
-
 .provider-card:hover{
     transform:translateY(-5px);
 
@@ -403,17 +367,15 @@ button{
     border-color:var(--secondary);
 }
 
-
 .provider-card.active{
     border:2px solid var(--secondary);
 
     box-shadow:var(--shadow-hover);
 }
 
-
 /* =========================================================
-   PROVIDER IMAGE
-   ========================================================= */
+   PROVIDER ICON
+========================================================= */
 
 .provider-image{
     width:80px;
@@ -433,38 +395,25 @@ button{
     overflow:hidden;
 }
 
-
-.provider-image img{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    padding:10px;
-}
-
-
-.provider-placeholder{
+.provider-letter{
     color:var(--secondary);
 
-    font-size:24px;
+    font-size:28px;
 
     font-weight:900;
 }
 
-
 /* =========================================================
    PROVIDER NAME
-   ========================================================= */
+========================================================= */
 
 .provider-card h3{
     color:var(--primary);
 
-    font-size:18px;
+    font-size:19px;
 
     margin-bottom:6px;
 }
-
 
 .provider-card p{
     color:var(--gray);
@@ -474,10 +423,27 @@ button{
     margin-bottom:18px;
 }
 
+.provider-count{
+    display:inline-block;
+
+    margin-bottom:16px;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    background:#F5F1F6;
+
+    color:var(--secondary);
+
+    font-size:11px;
+
+    font-weight:700;
+}
 
 /* =========================================================
    PROVIDER BUTTON
-   ========================================================= */
+========================================================= */
 
 .provider-button{
     width:100%;
@@ -501,16 +467,14 @@ button{
     transition:.2s ease;
 }
 
-
 .provider-card:hover .provider-button,
 .provider-card.active .provider-button{
     background:var(--secondary);
 }
 
-
 /* =========================================================
    PACKAGES AREA
-   ========================================================= */
+========================================================= */
 
 .packages-section{
     margin-top:55px;
@@ -518,11 +482,9 @@ button{
     display:none;
 }
 
-
 .packages-section.show{
     display:block;
 }
-
 
 .packages-header{
     background:var(--primary);
@@ -544,18 +506,15 @@ button{
     gap:20px;
 }
 
-
 .packages-header h2{
     font-size:26px;
 }
-
 
 .packages-header p{
     color:rgba(255,255,255,.75);
 
     font-size:13px;
 }
-
 
 .close-packages{
     border:1px solid rgba(255,255,255,.3);
@@ -575,15 +534,13 @@ button{
     font-weight:700;
 }
 
-
 .close-packages:hover{
     background:rgba(255,255,255,.1);
 }
 
-
 /* =========================================================
    PACKAGE GRID
-   ========================================================= */
+========================================================= */
 
 .package-grid{
     display:grid;
@@ -593,10 +550,9 @@ button{
     gap:18px;
 }
 
-
 /* =========================================================
    PACKAGE CARD
-   ========================================================= */
+========================================================= */
 
 .package-card{
     background:var(--white);
@@ -610,15 +566,17 @@ button{
     box-shadow:var(--shadow);
 
     transition:.2s ease;
-}
 
+    display:flex;
+
+    flex-direction:column;
+}
 
 .package-card:hover{
     transform:translateY(-3px);
 
     box-shadow:var(--shadow-hover);
 }
-
 
 .package-card h3{
     color:var(--primary);
@@ -628,10 +586,13 @@ button{
     margin-bottom:15px;
 }
 
+.package-id{
+    font-size:10px;
 
-/* =========================================================
-   SPEED
-   ========================================================= */
+    color:var(--gray);
+
+    margin-bottom:12px;
+}
 
 .package-speed{
     display:grid;
@@ -643,7 +604,6 @@ button{
     margin-bottom:18px;
 }
 
-
 .speed-box{
     background:#F8F5F8;
 
@@ -651,7 +611,6 @@ button{
 
     padding:10px;
 }
-
 
 .speed-box small{
     display:block;
@@ -663,17 +622,11 @@ button{
     margin-bottom:2px;
 }
 
-
 .speed-box strong{
     color:var(--primary);
 
     font-size:15px;
 }
-
-
-/* =========================================================
-   PACKAGE INFO
-   ========================================================= */
 
 .package-info{
     border-top:1px solid var(--border);
@@ -682,11 +635,10 @@ button{
 
     display:grid;
 
-    gap:7px;
+    gap:8px;
 
     margin-bottom:18px;
 }
-
 
 .info-row{
     display:flex;
@@ -698,11 +650,9 @@ button{
     font-size:12px;
 }
 
-
 .info-label{
     color:var(--gray);
 }
-
 
 .info-value{
     color:#333;
@@ -712,29 +662,21 @@ button{
     text-align:right;
 }
 
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
-
-.package-description{
+.description{
     border-top:1px solid var(--border);
 
     padding-top:13px;
 
     margin-bottom:18px;
 
-    color:var(--gray);
+    color:#555;
 
     font-size:12px;
 
+    line-height:1.5;
+
     white-space:pre-line;
 }
-
-
-/* =========================================================
-   PRICE
-   ========================================================= */
 
 .package-price{
     border-top:1px solid var(--border);
@@ -750,13 +692,11 @@ button{
     gap:10px;
 }
 
-
 .price-label{
     color:var(--gray);
 
     font-size:11px;
 }
-
 
 .price{
     color:var(--secondary);
@@ -766,17 +706,11 @@ button{
     font-weight:900;
 }
 
-
 .price-period{
     color:var(--gray);
 
     font-size:11px;
 }
-
-
-/* =========================================================
-   SELECT BUTTON
-   ========================================================= */
 
 .select-package{
     width:100%;
@@ -799,37 +733,16 @@ button{
 
     cursor:pointer;
 
-    transition:.2s ease;
+    margin-top:auto;
 }
-
 
 .select-package:hover{
     opacity:.9;
-
-    transform:translateY(-1px);
 }
-
-
-/* =========================================================
-   LOADING
-   ========================================================= */
-
-.loading{
-    text-align:center;
-
-    padding:35px;
-
-    color:var(--gray);
-
-    font-size:14px;
-
-    grid-column:1/-1;
-}
-
 
 /* =========================================================
    EMPTY
-   ========================================================= */
+========================================================= */
 
 .empty-message{
     background:var(--white);
@@ -847,17 +760,15 @@ button{
     grid-column:1/-1;
 }
 
-
 .empty-message h3{
     color:var(--primary);
 
     margin-bottom:8px;
 }
 
-
 /* =========================================================
    DATABASE NOTE
-   ========================================================= */
+========================================================= */
 
 .database-note{
     margin-top:40px;
@@ -875,15 +786,13 @@ button{
     font-size:12px;
 }
 
-
 .database-note strong{
     color:var(--primary);
 }
 
-
 /* =========================================================
    CTA
-   ========================================================= */
+========================================================= */
 
 .cta{
     background:var(--primary);
@@ -895,20 +804,17 @@ button{
     padding:60px 5%;
 }
 
-
 .cta-inner{
     max-width:750px;
 
     margin:auto;
 }
 
-
 .cta h2{
     font-size:30px;
 
     margin-bottom:10px;
 }
-
 
 .cta p{
     color:rgba(255,255,255,.8);
@@ -917,7 +823,6 @@ button{
 
     margin-bottom:22px;
 }
-
 
 .cta a{
     display:inline-block;
@@ -935,10 +840,9 @@ button{
     border-radius:9px;
 }
 
-
 /* =========================================================
    FOOTER
-   ========================================================= */
+========================================================= */
 
 footer{
     background:#16091A;
@@ -952,10 +856,9 @@ footer{
     font-size:12px;
 }
 
-
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -973,10 +876,9 @@ footer{
 
 }
 
-
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media(max-width:650px){
 
@@ -1030,13 +932,11 @@ footer{
 
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      TOP BAR
-     ===================================================== -->
+===================================================== -->
 
 <div class="topbar">
 
@@ -1057,7 +957,7 @@ footer{
 
 <!-- =====================================================
      NAVIGATION
-     ===================================================== -->
+===================================================== -->
 
 <nav class="navbar">
 
@@ -1111,7 +1011,7 @@ footer{
 
 <!-- =====================================================
      HERO
-     ===================================================== -->
+===================================================== -->
 
 <section class="hero">
 
@@ -1126,9 +1026,9 @@ footer{
         </h1>
 
         <p>
-            Explore fibre packages from our available providers,
-            with live pricing and package information from our
-            backend system.
+            Choose your fibre provider and explore live
+            packages, speeds and pricing directly from
+            our database.
         </p>
 
     </div>
@@ -1138,7 +1038,7 @@ footer{
 
 <!-- =====================================================
      MAIN
-     ===================================================== -->
+===================================================== -->
 
 <main class="main">
 
@@ -1157,27 +1057,17 @@ footer{
     </div>
 
 
-    <!-- =================================================
-         API STATUS
-         ================================================= -->
+    <!-- API STATUS -->
 
-    <div class="api-status">
-
-        <span
-            id="statusDot"
-            class="status-dot"
-        ></span>
-
-        <span id="apiStatusText">
-            Connecting to fibre database...
-        </span>
-
+    <div
+        id="apiStatus"
+        class="api-status"
+    >
+        Connecting to fibre database...
     </div>
 
 
-    <!-- =================================================
-         ERROR
-         ================================================= -->
+    <!-- ERROR -->
 
     <div
         id="errorMessage"
@@ -1187,17 +1077,14 @@ footer{
 
     <!-- =================================================
          PROVIDER GRID
-         ================================================= -->
+    ================================================= -->
 
     <div
         id="providerGrid"
         class="provider-grid"
     >
 
-        <div
-            class="loading"
-            id="providersLoading"
-        >
+        <div class="loading">
             Loading fibre providers...
         </div>
 
@@ -1206,7 +1093,7 @@ footer{
 
     <!-- =================================================
          PACKAGES
-         ================================================= -->
+    ================================================= -->
 
     <section
         id="packagesSection"
@@ -1257,7 +1144,7 @@ footer{
 
     <!-- =================================================
          DATABASE NOTE
-         ================================================= -->
+    ================================================= -->
 
     <div class="database-note">
 
@@ -1265,20 +1152,19 @@ footer{
             Live database:
         </strong>
 
-        Fibre package information is loaded from the
-        WHMCS database through the Dinges TechHub PHP API.
-        Prices and package information are therefore
-        controlled from the backend.
+        Fibre packages are loaded directly from the
+        Dinges TechHub PHP API and retrieved from the
+        WHMCS database. Package information is therefore
+        not hard-coded into this page.
 
     </div>
-
 
 </main>
 
 
 <!-- =====================================================
      CTA
-     ===================================================== -->
+===================================================== -->
 
 <section class="cta">
 
@@ -1304,7 +1190,7 @@ footer{
 
 <!-- =====================================================
      FOOTER
-     ===================================================== -->
+===================================================== -->
 
 <footer>
 
@@ -1317,30 +1203,19 @@ footer{
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
-
 <script>
 
 /* =========================================================
    LIVE API
-   ========================================================= */
+========================================================= */
 
 const API_URL =
     "https://register.web.za/api/fibre-packages.php";
 
 
 /* =========================================================
-   GLOBAL PACKAGE DATA
-   ========================================================= */
-
-let allPackages = [];
-
-
-/* =========================================================
    CURRENT YEAR
-   ========================================================= */
+========================================================= */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
@@ -1348,44 +1223,38 @@ document.getElementById("year").textContent =
 
 /* =========================================================
    PAGE START
-   ========================================================= */
+========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        loadAllPackages();
+        loadFibreData();
 
     }
 );
 
 
 /* =========================================================
-   LOAD ALL PACKAGES
-   ========================================================= */
+   LOAD ALL FIBRE DATA
+========================================================= */
 
-async function loadAllPackages(){
+async function loadFibreData(){
 
     const providerGrid =
         document.getElementById("providerGrid");
 
-    const loading =
-        document.getElementById("providersLoading");
+    const status =
+        document.getElementById("apiStatus");
 
     const errorMessage =
         document.getElementById("errorMessage");
 
-    const statusDot =
-        document.getElementById("statusDot");
-
-    const statusText =
-        document.getElementById("apiStatusText");
-
 
     try{
 
-        statusText.textContent =
-            "Connecting to live fibre database...";
+        status.textContent =
+            "Connecting to fibre database...";
 
 
         const response =
@@ -1403,16 +1272,10 @@ async function loadAllPackages(){
             );
 
 
-        console.log(
-            "API HTTP status:",
-            response.status
-        );
-
-
         if(!response.ok){
 
             throw new Error(
-                "API returned HTTP " +
+                "HTTP error " +
                 response.status
             );
 
@@ -1424,7 +1287,7 @@ async function loadAllPackages(){
 
 
         console.log(
-            "LIVE FIBRE API RESPONSE:",
+            "Fibre API response:",
             data
         );
 
@@ -1433,13 +1296,15 @@ async function loadAllPackages(){
 
             throw new Error(
                 data.error ||
-                "The API returned success=false."
+                "The API returned an unsuccessful response."
             );
 
         }
 
 
-        if(!Array.isArray(data.packages)){
+        if(
+            !Array.isArray(data.packages)
+        ){
 
             throw new Error(
                 "The API did not return a packages array."
@@ -1448,60 +1313,69 @@ async function loadAllPackages(){
         }
 
 
-        allPackages =
+        /*
+            Save all packages globally.
+
+            This allows us to filter the packages
+            when the user clicks a provider.
+        */
+
+        window.allFibrePackages =
             data.packages;
 
 
-        /* API online */
+        /*
+            Create provider groups.
+        */
 
-        statusDot.classList.add("online");
-
-        statusText.textContent =
-            "Live fibre database connected • " +
-            allPackages.length +
-            " packages available";
-
-
-        /* Remove loading */
-
-        loading.remove();
+        const providerGroups =
+            groupPackagesByProvider(
+                data.packages
+            );
 
 
-        /* Build providers */
+        /*
+            Display providers.
+        */
 
-        buildProviderCards(
-            allPackages
+        renderProviders(
+            providerGroups
         );
+
+
+        /*
+            Update status.
+        */
+
+        status.classList.add("success");
+
+        status.textContent =
+            "Connected successfully • " +
+            data.packages.length +
+            " fibre packages available";
 
 
     }
     catch(error){
 
         console.error(
-            "FIBRE API ERROR:",
+            "Fibre database error:",
             error
         );
 
 
-        statusDot.classList.add(
-            "offline"
-        );
+        status.classList.add("error");
 
-
-        statusText.textContent =
+        status.textContent =
             "Unable to connect to fibre database";
 
 
-        if(loading){
-
-            loading.remove();
-
-        }
+        errorMessage.textContent =
+            "Unable to load fibre packages. " +
+            error.message;
 
 
-        showError(
-            error
-        );
+        errorMessage.classList.add("show");
 
 
         providerGrid.innerHTML = `
@@ -1513,25 +1387,13 @@ async function loadAllPackages(){
                 </h3>
 
                 <p>
-                    We could not retrieve the live fibre
-                    packages from the database.
+                    We could not retrieve the fibre
+                    packages from the live database.
                 </p>
 
                 <p style="margin-top:10px;font-size:12px;">
-
-                    API:
-                    ${escapeHTML(API_URL)}
-
+                    Please check the PHP API and try again.
                 </p>
-
-                <button
-                    type="button"
-                    class="select-package"
-                    style="max-width:200px;margin-top:20px;"
-                    onclick="loadAllPackages()"
-                >
-                    Try Again
-                </button>
 
             </div>
 
@@ -1543,10 +1405,178 @@ async function loadAllPackages(){
 
 
 /* =========================================================
-   BUILD PROVIDER CARDS
-   ========================================================= */
+   GROUP PACKAGES BY PROVIDER
+========================================================= */
 
-function buildProviderCards(packages){
+function groupPackagesByProvider(packages){
+
+    const groups = {};
+
+
+    packages.forEach(function(pkg){
+
+        const provider =
+            cleanProviderName(
+                pkg.provider
+            );
+
+
+        if(!provider){
+            return;
+        }
+
+
+        if(!groups[provider]){
+
+            groups[provider] = [];
+
+        }
+
+
+        groups[provider].push(pkg);
+
+    });
+
+
+    return groups;
+
+}
+
+
+/* =========================================================
+   CLEAN PROVIDER NAME
+========================================================= */
+
+function cleanProviderName(provider){
+
+    let name =
+        String(provider || "")
+            .trim();
+
+
+    /*
+        Convert common database names
+        into cleaner customer-facing names.
+    */
+
+    if(
+        name.toLowerCase().includes("clearaccess")
+    ){
+
+        return "ClearAccess";
+
+    }
+
+
+    if(
+        name.toLowerCase().includes("dnatel") ||
+        name.toLowerCase().includes("dnatel")
+    ){
+
+        return "DNATel";
+
+    }
+
+
+    if(
+        name.toLowerCase().includes("frogfoot")
+    ){
+
+        return "Frogfoot";
+
+    }
+
+
+    if(
+        name.toLowerCase().includes("openserve")
+    ){
+
+        return "Openserve";
+
+    }
+
+
+    if(
+        name.toLowerCase().includes("vollies")
+    ){
+
+        return "Vollies";
+
+    }
+
+
+    if(
+        name.toLowerCase().includes("vuma")
+    ){
+
+        return "Vuma";
+
+    }
+
+
+    return name;
+
+}
+
+
+/* =========================================================
+   PROVIDER DESCRIPTION
+========================================================= */
+
+function getProviderDescription(provider){
+
+    const descriptions = {
+
+        "ClearAccess":
+            "ClearAccess Fibre to the Home",
+
+        "DNATel":
+            "DNATel Fibre",
+
+        "Frogfoot":
+            "Frogfoot Fibre to the Home",
+
+        "Openserve":
+            "Openserve Fibre",
+
+        "Vollies":
+            "Vollies Fibre to the Home",
+
+        "Vuma":
+            "Vuma Fibre to the Home"
+
+    };
+
+
+    return descriptions[provider] ||
+        "Fibre Internet Provider";
+
+}
+
+
+/* =========================================================
+   PROVIDER LETTER
+========================================================= */
+
+function getProviderLetter(provider){
+
+    if(!provider){
+        return "F";
+    }
+
+
+    return provider
+        .charAt(0)
+        .toUpperCase();
+
+}
+
+
+/* =========================================================
+   RENDER PROVIDERS
+========================================================= */
+
+function renderProviders(providerGroups){
 
     const providerGrid =
         document.getElementById(
@@ -1557,93 +1587,9 @@ function buildProviderCards(packages){
     providerGrid.innerHTML = "";
 
 
-    /*
-        Create unique providers.
-
-        We use the actual "provider"
-        value returned by the API.
-    */
-
-    const providerMap =
-        new Map();
-
-
-    packages.forEach(function(pkg){
-
-        const provider =
-            String(
-                pkg.provider || "Other Provider"
-            ).trim();
-
-
-        if(!providerMap.has(provider)){
-
-            providerMap.set(
-                provider,
-                []
-            );
-
-        }
-
-
-        providerMap
-            .get(provider)
-            .push(pkg);
-
-    });
-
-
-    /*
-        Sort providers alphabetically
-    */
-
     const providers =
-        Array.from(
-            providerMap.entries()
-        ).sort(
-            function(a,b){
+        Object.keys(providerGroups);
 
-                return a[0]
-                    .localeCompare(
-                        b[0]
-                    );
-
-            }
-        );
-
-
-    /*
-        Create card
-    */
-
-    providers.forEach(
-        function(entry){
-
-            const providerName =
-                entry[0];
-
-            const providerPackages =
-                entry[1];
-
-
-            const card =
-                createProviderCard(
-                    providerName,
-                    providerPackages
-                );
-
-
-            providerGrid.appendChild(
-                card
-            );
-
-        }
-    );
-
-
-    /*
-        If no providers
-    */
 
     if(!providers.length){
 
@@ -1652,163 +1598,144 @@ function buildProviderCards(packages){
             <div class="empty-message">
 
                 <h3>
-                    No Providers Found
+                    No Fibre Providers Found
                 </h3>
 
                 <p>
-                    The database returned no fibre providers.
+                    There are currently no fibre
+                    providers available.
                 </p>
 
             </div>
 
         `;
 
+        return;
+
     }
 
-}
+
+    providers.forEach(function(provider){
+
+        const packages =
+            providerGroups[provider];
 
 
-/* =========================================================
-   CREATE PROVIDER CARD
-   ========================================================= */
-
-function createProviderCard(
-    providerName,
-    packages
-){
-
-    const card =
-        document.createElement(
-            "article"
-        );
+        const card =
+            document.createElement("article");
 
 
-    card.className =
-        "provider-card";
+        card.className =
+            "provider-card";
 
 
-    /*
-        Generate provider initial
-    */
-
-    const initial =
-        providerName
-            .charAt(0)
-            .toUpperCase();
+        card.dataset.provider =
+            provider;
 
 
-    card.innerHTML = `
+        card.innerHTML = `
 
-        <div class="provider-image">
+            <div class="provider-image">
 
-            <span
-                class="provider-placeholder"
-            >
-                ${escapeHTML(initial)}
+                <span class="provider-letter">
+                    ${escapeHTML(
+                        getProviderLetter(provider)
+                    )}
+                </span>
+
+            </div>
+
+
+            <h3>
+                ${escapeHTML(provider)}
+            </h3>
+
+
+            <p>
+                ${escapeHTML(
+                    getProviderDescription(provider)
+                )}
+            </p>
+
+
+            <span class="provider-count">
+                ${packages.length}
+                ${packages.length === 1
+                    ? " Package"
+                    : " Packages"}
             </span>
 
-        </div>
+
+            <button
+                type="button"
+                class="provider-button"
+            >
+                View Packages
+            </button>
+
+        `;
 
 
-        <h3>
-            ${escapeHTML(providerName)}
-        </h3>
+        /*
+            Clicking anywhere on the card
+            opens its packages.
+        */
 
+        card.addEventListener(
+            "click",
+            function(){
 
-        <p>
-            ${packages.length}
-            fibre package${packages.length === 1 ? "" : "s"}
-        </p>
-
-
-        <button
-            type="button"
-            class="provider-button"
-        >
-            View Packages
-        </button>
-
-    `;
-
-
-    /*
-        Click event
-    */
-
-    card.addEventListener(
-        "click",
-        function(){
-
-            selectProvider(
-                providerName,
-                card
-            );
-
-        }
-    );
-
-
-    return card;
-
-}
-
-
-/* =========================================================
-   SELECT PROVIDER
-   ========================================================= */
-
-function selectProvider(
-    providerName,
-    selectedCard
-){
-
-    /*
-        Remove active cards
-    */
-
-    document
-        .querySelectorAll(
-            ".provider-card"
-        )
-        .forEach(
-            function(card){
-
-                card.classList.remove(
-                    "active"
+                selectProvider(
+                    card,
+                    provider,
+                    packages
                 );
 
             }
         );
 
 
+        providerGrid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   SELECT PROVIDER
+========================================================= */
+
+function selectProvider(
+    card,
+    providerName,
+    packages
+){
+
     /*
-        Activate selected card
+        Remove active cards.
     */
 
-    selectedCard.classList.add(
-        "active"
-    );
+    document
+        .querySelectorAll(".provider-card")
+        .forEach(function(item){
+
+            item.classList.remove(
+                "active"
+            );
+
+        });
 
 
     /*
-        Find packages
+        Activate selected card.
     */
 
-    const providerPackages =
-        allPackages.filter(
-            function(pkg){
-
-                return String(
-                    pkg.provider || ""
-                ).trim()
-                === providerName;
-
-            }
-        );
+    card.classList.add("active");
 
 
     /*
-        Show package section
+        Show packages section.
     */
 
     const packagesSection =
@@ -1823,63 +1750,56 @@ function selectProvider(
 
 
     /*
-        Heading
+        Update heading.
     */
 
     document.getElementById(
         "selectedProviderName"
     ).textContent =
-        providerName;
+        providerName + " Fibre";
 
 
     document.getElementById(
         "selectedProviderDescription"
     ).textContent =
-        providerPackages.length +
+        packages.length +
         " fibre package" +
         (
-            providerPackages.length === 1
+            packages.length === 1
                 ? ""
                 : "s"
         ) +
-        " available.";
+        " available from " +
+        providerName +
+        ".";
 
 
     /*
-        Load cards
+        Display packages.
     */
 
-    displayPackages(
-        providerPackages
+    renderPackages(
+        packages
     );
 
 
     /*
-        Scroll
+        Scroll to packages.
     */
 
-    setTimeout(
-        function(){
-
-            packagesSection.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
-
-        },
-        100
-    );
+    packagesSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
 
 }
 
 
 /* =========================================================
-   DISPLAY PACKAGES
-   ========================================================= */
+   RENDER PACKAGES
+========================================================= */
 
-function displayPackages(
-    packages
-){
+function renderPackages(packages){
 
     const loading =
         document.getElementById(
@@ -1897,8 +1817,7 @@ function displayPackages(
         "none";
 
 
-    grid.innerHTML =
-        "";
+    grid.innerHTML = "";
 
 
     if(!packages.length){
@@ -1925,28 +1844,22 @@ function displayPackages(
     }
 
 
-    packages.forEach(
-        function(pkg){
+    packages.forEach(function(pkg){
 
-            grid.appendChild(
-                createPackageCard(
-                    pkg
-                )
-            );
+        grid.appendChild(
+            createPackageCard(pkg)
+        );
 
-        }
-    );
+    });
 
 }
 
 
 /* =========================================================
    CREATE PACKAGE CARD
-   ========================================================= */
+========================================================= */
 
-function createPackageCard(
-    pkg
-){
+function createPackageCard(pkg){
 
     const card =
         document.createElement(
@@ -1959,91 +1872,77 @@ function createPackageCard(
 
 
     /*
-        Basic API fields
+        Extract speed.
     */
 
-    const packageName =
-        pkg.package_name ||
-        "Fibre Package";
+    const speed =
+        extractSpeed(
+            pkg
+        );
 
 
-    const provider =
-        pkg.provider ||
-        "Fibre Provider";
+    const download =
+        speed.download;
 
+
+    const upload =
+        speed.upload;
+
+
+    /*
+        Extract description details.
+    */
 
     const description =
-        pkg.description ||
-        "";
-
-
-    const productId =
-        pkg.product_id ||
-        "";
-
-
-    /*
-        Price comes from:
-
-        pricing.monthly
-    */
-
-    const monthlyPrice =
-        pkg.pricing &&
-        pkg.pricing.monthly !== null &&
-        pkg.pricing.monthly !== undefined
-            ? pkg.pricing.monthly
-            : null;
-
-
-    /*
-        Extract speed
-    */
-
-    const speeds =
-        extractSpeeds(
-            description,
-            packageName
+        decodeHTML(
+            pkg.description || ""
         );
 
-
-    /*
-        Extract connection details
-    */
 
     const connection =
-        extractDescriptionValue(
-            description,
-            [
-                "connection",
-                "connection type"
-            ]
+        extractConnection(
+            description
+        );
+
+
+    const streaming =
+        extractStreaming(
+            description
         );
 
 
     /*
-        Extract ideal users
+        Monthly price.
     */
 
-    const idealUsers =
-        extractDescriptionValue(
-            description,
-            [
-                "ideal for",
-                "people"
-            ]
-        );
+    const monthly =
+        pkg.pricing &&
+        pkg.pricing.monthly !== null
+            ? pkg.pricing.monthly
+            : 0;
 
 
     /*
-        Create card
+        Product ID.
     */
+
+    const productId =
+        pkg.product_id || "";
+
 
     card.innerHTML = `
 
         <h3>
-            ${escapeHTML(packageName)}
+            ${escapeHTML(
+                pkg.package_name ||
+                "Fibre Package"
+            )}
         </h3>
+
+
+        <div class="package-id">
+            Product ID: ${escapeHTML(productId)}
+        </div>
 
 
         <div class="package-speed">
@@ -2055,9 +1954,7 @@ function createPackageCard(
                 </small>
 
                 <strong>
-                    ${escapeHTML(
-                        speeds.download
-                    )}
+                    ${escapeHTML(download)}
                 </strong>
 
             </div>
@@ -2070,9 +1967,7 @@ function createPackageCard(
                 </small>
 
                 <strong>
-                    ${escapeHTML(
-                        speeds.upload
-                    )}
+                    ${escapeHTML(upload)}
                 </strong>
 
             </div>
@@ -2089,35 +1984,37 @@ function createPackageCard(
                 </span>
 
                 <span class="info-value">
-                    ${escapeHTML(provider)}
-                </span>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    Product ID
-                </span>
-
-                <span class="info-value">
-                    ${escapeHTML(productId)}
-                </span>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    Users
-                </span>
-
-                <span class="info-value">
                     ${escapeHTML(
-                        idealUsers || "See details"
+                        cleanProviderName(
+                            pkg.provider
+                        )
                     )}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Connection
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(connection)}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Streaming
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(streaming)}
                 </span>
 
             </div>
@@ -2125,21 +2022,11 @@ function createPackageCard(
         </div>
 
 
-        ${
-            description
-                ? `
-                    <div class="package-description">
+        <div class="description">
 
-                        ${escapeHTML(
-                            cleanDescription(
-                                description
-                            )
-                        )}
+            ${escapeHTML(description)}
 
-                    </div>
-                  `
-                : ""
-        }
+        </div>
 
 
         <div class="package-price">
@@ -2151,29 +2038,14 @@ function createPackageCard(
                 </div>
 
                 <div class="price">
-
-                    ${
-                        monthlyPrice !== null
-                            ? "R" +
-                              formatPrice(
-                                  monthlyPrice
-                              )
-                            : "Contact Us"
-                    }
-
+                    R${formatPrice(monthly)}
                 </div>
 
             </div>
 
 
             <div class="price-period">
-
-                ${
-                    monthlyPrice !== null
-                        ? "per month"
-                        : ""
-                }
-
+                per month
             </div>
 
         </div>
@@ -2190,10 +2062,7 @@ function createPackageCard(
 
 
     /*
-        Button event
-
-        We deliberately use the
-        product_id from WHMCS.
+        Package button.
     */
 
     const button =
@@ -2204,7 +2073,10 @@ function createPackageCard(
 
     button.addEventListener(
         "click",
-        function(){
+        function(event){
+
+            event.stopPropagation();
+
 
             selectPackage(
                 pkg
@@ -2220,17 +2092,334 @@ function createPackageCard(
 
 
 /* =========================================================
-   EXTRACT SPEEDS
-   ========================================================= */
+   EXTRACT SPEED
+========================================================= */
 
-function extractSpeeds(
-    description,
-    packageName
-){
+function extractSpeed(pkg){
 
     const text =
         (
-            description ||
-            ""
-        ) +
-        " "
+            (pkg.package_name || "") +
+            " " +
+            (pkg.description || "")
+        );
+
+
+    /*
+        Look for:
+
+        25/25 Mbps
+        50/50 Mbps
+        100/50 Mbps
+        1000/1000 Mbps
+    */
+
+    const match =
+        text.match(
+            /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*\(?\s*Mbps/i
+        );
+
+
+    if(match){
+
+        return {
+
+            download:
+                match[1] +
+                " Mbps",
+
+            upload:
+                match[2] +
+                " Mbps"
+
+        };
+
+    }
+
+
+    return {
+
+        download:"-",
+
+        upload:"-"
+
+    };
+
+}
+
+
+/* =========================================================
+   EXTRACT CONNECTION
+========================================================= */
+
+function extractConnection(description){
+
+    const text =
+        String(description || "");
+
+
+    if(
+        /symmetrical\s*:\s*yes/i.test(text) ||
+        /^symmetrical$/im.test(text)
+    ){
+
+        return "Symmetrical";
+
+    }
+
+
+    if(
+        /asymmetrical\s*:\s*yes/i.test(text) ||
+        /^asymmetrical$/im.test(text)
+    ){
+
+        return "Asymmetrical";
+
+    }
+
+
+    if(
+        /uncapped/i.test(text)
+    ){
+
+        return "Uncapped";
+
+    }
+
+
+    return "Fibre";
+
+}
+
+
+/* =========================================================
+   EXTRACT STREAMING
+========================================================= */
+
+function extractStreaming(description){
+
+    const text =
+        String(description || "");
+
+
+    const match =
+        text.match(
+            /Ideal\s+For\s*\(People\)\s*:?\s*([^\n]+)/i
+        );
+
+
+    if(match){
+
+        return match[1]
+            .replace(/\s+/g," ")
+            .trim();
+
+    }
+
+
+    /*
+        Alternative format.
+    */
+
+    const alternative =
+        text.match(
+            /Ideal For.*?:\s*([^\n]+)/i
+        );
+
+
+    if(alternative){
+
+        return alternative[1]
+            .replace(/\s+/g," ")
+            .trim();
+
+    }
+
+
+    return "See description";
+
+}
+
+
+/* =========================================================
+   SELECT PACKAGE
+========================================================= */
+
+function selectPackage(pkg){
+
+    console.log(
+        "Selected package:",
+        pkg
+    );
+
+
+    const packageName =
+        pkg.package_name ||
+        "Fibre Package";
+
+
+    const monthly =
+        pkg.pricing &&
+        pkg.pricing.monthly !== null
+            ? pkg.pricing.monthly
+            : 0;
+
+
+    /*
+        Temporary test.
+
+        The next stage can connect this
+        product_id to your WHMCS cart.
+    */
+
+    alert(
+
+        "Package selected:\n\n" +
+
+        packageName +
+
+        "\n\n" +
+
+        "Monthly: R" +
+        formatPrice(monthly) +
+
+        "\n\n" +
+
+        "Product ID: " +
+        (pkg.product_id || "-")
+
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE PACKAGES
+========================================================= */
+
+function closePackages(){
+
+    document
+        .getElementById(
+            "packagesSection"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .querySelectorAll(
+            ".provider-card"
+        )
+        .forEach(function(card){
+
+            card.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   PRICE FORMAT
+========================================================= */
+
+function formatPrice(value){
+
+    const number =
+        Number(value);
+
+
+    if(
+        Number.isNaN(number)
+    ){
+
+        return "0.00";
+
+    }
+
+
+    return number.toLocaleString(
+        "en-ZA",
+        {
+            minimumFractionDigits:2,
+
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DECODE HTML
+========================================================= */
+
+function decodeHTML(value){
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.innerHTML =
+        String(value || "");
+
+
+    return textarea.value;
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+</body>
+</html>
