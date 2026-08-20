@@ -1,0 +1,3078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Remote Monitoring | Dinges TechHub
+</title>
+
+<meta
+    name="description"
+    content="Dinges TechHub Remote Monitoring solutions help homes and businesses monitor connected systems, equipment and environments remotely."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   REMOTE MONITORING PAGE
+   ========================================================= */
+
+:root {
+
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+    --gold: #FFBB42;
+
+    --black: #020202;
+
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+
+    --background: #f7f5f8;
+
+    --container: 1200px;
+
+    --radius: 20px;
+
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--black);
+
+    overflow-x:
+        hidden;
+}
+
+
+a {
+
+    text-decoration:
+        none;
+
+    color:
+        inherit;
+}
+
+
+img {
+
+    max-width:
+        100%;
+
+    display:
+        block;
+}
+
+
+.container {
+
+    width:
+        min(92%, var(--container));
+
+    margin:
+        auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+
+    position:
+        fixed;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    z-index:
+        1000;
+
+    background:
+        rgba(2, 2, 2, 0.94);
+
+    backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
+}
+
+
+.nav-container {
+
+    min-height:
+        78px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+}
+
+
+.logo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    flex-shrink:
+        0;
+}
+
+
+.logo img {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        8px;
+}
+
+
+.logo-text {
+
+    color:
+        var(--white);
+
+    font-size:
+        19px;
+
+    font-weight:
+        800;
+}
+
+
+.logo-text span {
+
+    color:
+        var(--gold);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        27px;
+
+    list-style:
+        none;
+}
+
+
+.nav-links a {
+
+    color:
+        var(--white);
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    position:
+        relative;
+
+    transition:
+        var(--transition);
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -8px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+        var(--gold);
+
+    transition:
+        var(--transition);
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--gold);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+.nav-cta {
+
+    padding:
+        11px 19px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black) !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+.nav-cta::after {
+
+    display:
+        none;
+}
+
+
+.nav-cta:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+
+    display:
+        none;
+
+    background:
+        none;
+
+    border:
+        none;
+
+    color:
+        var(--white);
+
+    font-size:
+        28px;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height:
+        700px;
+
+    padding:
+        150px 0 90px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(122, 44, 120, 0.45),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 48%,
+            #3C1542 100%
+        );
+
+    color:
+        var(--white);
+}
+
+
+.hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        450px;
+
+    height:
+        450px;
+
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.15);
+
+    border-radius:
+        50%;
+
+    right:
+        -180px;
+
+    top:
+        100px;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+}
+
+
+.hero::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        260px;
+
+    height:
+        260px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        50%;
+
+    right:
+        20px;
+
+    top:
+        190px;
+
+    animation:
+        rotateCircleReverse
+        14s linear infinite;
+}
+
+
+@keyframes rotateCircle {
+
+    from {
+
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes rotateCircleReverse {
+
+    from {
+
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+
+        transform:
+            rotate(0deg);
+    }
+}
+
+
+.hero-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items:
+        center;
+
+    gap:
+        70px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.breadcrumb {
+
+    color:
+        var(--gold);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        20px;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(42px, 6vw, 72px);
+
+    line-height:
+        1.02;
+
+    margin-bottom:
+        25px;
+
+    max-width:
+        750px;
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--gold);
+}
+
+
+.hero-description {
+
+    max-width:
+        650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size:
+        18px;
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        35px;
+}
+
+
+.hero-buttons {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        15px;
+}
+
+
+.btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        14px 23px;
+
+    border-radius:
+        999px;
+
+    font-weight:
+        800;
+
+    transition:
+        var(--transition);
+}
+
+
+.btn-primary {
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+}
+
+
+.btn-outline {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color:
+        var(--white);
+}
+
+
+.btn-outline:hover {
+
+    border-color:
+        var(--gold);
+
+    color:
+        var(--gold);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   MONITORING VISUAL
+   ========================================================= */
+
+.monitoring-visual {
+
+    position:
+        relative;
+
+    min-height:
+        430px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+
+.monitoring-core {
+
+    width:
+        210px;
+
+    height:
+        210px;
+
+    border-radius:
+        50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,187,66,0.95) 0%,
+            rgba(122,44,120,0.9) 38%,
+            rgba(60,21,66,0.9) 65%,
+            rgba(2,2,2,0.2) 70%
+        );
+
+    box-shadow:
+
+        0 0 50px
+        rgba(255,187,66,0.25),
+
+        0 0 100px
+        rgba(122,44,120,0.3);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    animation:
+        pulseCore
+        3s ease-in-out infinite;
+}
+
+
+.monitoring-core-inner {
+
+    width:
+        115px;
+
+    height:
+        115px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--black);
+
+    border:
+        2px solid
+        rgba(255,187,66,0.7);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        45px;
+}
+
+
+@keyframes pulseCore {
+
+    0%, 100% {
+
+        transform:
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            scale(1.05);
+    }
+}
+
+
+.monitoring-node {
+
+    position:
+        absolute;
+
+    width:
+        80px;
+
+    height:
+        80px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-radius:
+        20px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        30px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    animation:
+        floatDevice
+        4s ease-in-out infinite;
+}
+
+
+.monitoring-node-1 {
+
+    top:
+        20px;
+
+    left:
+        18%;
+}
+
+
+.monitoring-node-2 {
+
+    top:
+        28%;
+
+    right:
+        5%;
+
+    animation-delay:
+        0.7s;
+}
+
+
+.monitoring-node-3 {
+
+    bottom:
+        15%;
+
+    right:
+        15%;
+
+    animation-delay:
+        1.4s;
+}
+
+
+.monitoring-node-4 {
+
+    bottom:
+        8%;
+
+    left:
+        10%;
+
+    animation-delay:
+        2.1s;
+}
+
+
+@keyframes floatDevice {
+
+    0%, 100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+
+    padding:
+        100px 0 60px;
+
+    background:
+        var(--white);
+}
+
+
+.section-heading {
+
+    text-align:
+        center;
+
+    max-width:
+        760px;
+
+    margin:
+        0 auto 55px;
+}
+
+
+.eyebrow {
+
+    color:
+        var(--purple);
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        13px;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        18px;
+
+    color:
+        var(--purple-dark);
+}
+
+
+.section-heading p {
+
+    color:
+        #666;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   MONITORING SOLUTIONS
+   ========================================================= */
+
+.monitoring-solutions {
+
+    padding:
+        60px 0 100px;
+
+    background:
+        var(--white);
+}
+
+
+.monitoring-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        24px;
+}
+
+
+.monitoring-card {
+
+    padding:
+        30px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius:
+        var(--radius);
+
+    transition:
+        var(--transition);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.monitoring-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        var(--transition);
+}
+
+
+.monitoring-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+}
+
+
+.monitoring-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+
+.monitoring-icon {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color:
+        var(--purple);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        29px;
+
+    margin-bottom:
+        22px;
+}
+
+
+.monitoring-card h3 {
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        21px;
+
+    margin-bottom:
+        12px;
+}
+
+
+.monitoring-card p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   FEATURE SECTION
+   ========================================================= */
+
+.monitoring-section {
+
+    padding:
+        100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:
+        var(--white);
+}
+
+
+.monitoring-feature-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap:
+        70px;
+
+    align-items:
+        center;
+}
+
+
+.monitoring-image {
+
+    min-height:
+        430px;
+
+    border-radius:
+        30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,187,66,0.22),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #241027,
+            #0a080b
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.monitoring-image::before,
+.monitoring-image::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    border:
+        1px solid
+        rgba(255,187,66,0.15);
+
+    border-radius:
+        50%;
+}
+
+
+.monitoring-image::before {
+
+    width:
+        300px;
+
+    height:
+        300px;
+}
+
+
+.monitoring-image::after {
+
+    width:
+        180px;
+
+    height:
+        180px;
+}
+
+
+.monitor-symbol {
+
+    width:
+        115px;
+
+    height:
+        115px;
+
+    border-radius:
+        28px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        48px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    box-shadow:
+        0 20px 60px
+        rgba(255,187,66,0.2);
+}
+
+
+.monitoring-content .eyebrow {
+
+    color:
+        var(--gold);
+}
+
+
+.monitoring-content h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        20px;
+}
+
+
+.monitoring-content > p {
+
+    color:
+        rgba(255,255,255,0.75);
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        30px;
+}
+
+
+.feature-list {
+
+    list-style:
+        none;
+
+    display:
+        grid;
+
+    gap:
+        15px;
+}
+
+
+.feature-list li {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    color:
+        rgba(255,255,255,0.9);
+
+    line-height:
+        1.5;
+}
+
+
+.feature-list li span {
+
+    color:
+        var(--gold);
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+
+    padding:
+        100px 0;
+
+    background:
+        var(--background);
+}
+
+
+.steps {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+}
+
+
+.step {
+
+    background:
+        var(--white);
+
+    padding:
+        32px;
+
+    border-radius:
+        var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    position:
+        relative;
+}
+
+
+.step-number {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--purple);
+
+    color:
+        var(--white);
+
+    font-weight:
+        900;
+
+    margin-bottom:
+        22px;
+}
+
+
+.step h3 {
+
+    color:
+        var(--purple-dark);
+
+    margin-bottom:
+        12px;
+}
+
+
+.step p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+
+    padding:
+        80px 0;
+
+    background:
+        var(--white);
+}
+
+
+.cta-box {
+
+    padding:
+        65px 40px;
+
+    border-radius:
+        30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align:
+        center;
+
+    color:
+        var(--white);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.cta-box h2 {
+
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom:
+        15px;
+}
+
+
+.cta-box p {
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    background:
+        #020202;
+
+    color:
+        var(--white);
+
+    padding:
+        70px 0 25px;
+}
+
+
+.footer-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:
+        45px;
+
+    padding-bottom:
+        50px;
+}
+
+
+.footer-brand .logo {
+
+    margin-bottom:
+        20px;
+}
+
+
+.footer-description {
+
+    color:
+        #a9a9a9;
+
+    line-height:
+        1.7;
+
+    max-width:
+        340px;
+
+    font-size:
+        14px;
+}
+
+
+.footer-column h4 {
+
+    color:
+        var(--gold);
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        15px;
+}
+
+
+.footer-column ul {
+
+    list-style:
+        none;
+}
+
+
+.footer-column li {
+
+    margin-bottom:
+        12px;
+}
+
+
+.footer-column a {
+
+    color:
+        #a9a9a9;
+
+    font-size:
+        14px;
+
+    transition:
+        var(--transition);
+}
+
+
+.footer-column a:hover {
+
+    color:
+        var(--gold);
+
+    padding-left:
+        4px;
+}
+
+
+.footer-bottom {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top:
+        22px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    color:
+        #777;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+
+        position:
+            absolute;
+
+        top:
+            78px;
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        display:
+            none;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        background:
+            #020202;
+
+        padding:
+            25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+    }
+
+
+    .nav-links.active {
+
+        display:
+            flex;
+    }
+
+
+    .nav-links a {
+
+        display:
+            block;
+
+        padding:
+            12px 0;
+    }
+
+
+    .menu-toggle {
+
+        display:
+            block;
+    }
+
+
+    .hero-grid,
+    .monitoring-feature-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .hero {
+
+        padding-top:
+            130px;
+    }
+
+
+    .monitoring-visual {
+
+        min-height:
+            350px;
+    }
+
+
+    .monitoring-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .steps {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+
+        min-height:
+            70px;
+    }
+
+
+    .logo img {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .logo-text {
+
+        font-size:
+            16px;
+    }
+
+
+    .hero {
+
+        min-height:
+            auto;
+
+        padding:
+            120px 0 70px;
+    }
+
+
+    .hero-description {
+
+        font-size:
+            16px;
+    }
+
+
+    .monitoring-visual {
+
+        min-height:
+            300px;
+    }
+
+
+    .monitoring-core {
+
+        width:
+            160px;
+
+        height:
+            160px;
+    }
+
+
+    .monitoring-core-inner {
+
+        width:
+            90px;
+
+        height:
+            90px;
+
+        font-size:
+            36px;
+    }
+
+
+    .monitoring-node {
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+        font-size:
+            23px;
+    }
+
+
+    .monitoring-node-1 {
+
+        left:
+            3%;
+    }
+
+
+    .monitoring-node-2 {
+
+        right:
+            0;
+    }
+
+
+    .monitoring-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .monitoring-image {
+
+        min-height:
+            300px;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+    }
+
+
+    .cta-box {
+
+        padding:
+            50px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <!-- YOUR COMPANY LOGO -->
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+
+                Dinges
+                <span>TechHub</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+        >
+
+            ☰
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+
+                INTERNET OF THINGS /
+                REMOTE MONITORING
+
+            </div>
+
+
+            <h1>
+
+                Stay Connected.
+                <span>Stay Informed.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Monitor your home, business, equipment and
+                connected environments remotely with smart
+                monitoring solutions designed to keep you
+                informed wherever you are.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#monitoring"
+                    class="btn btn-primary"
+                >
+
+                    Explore Monitoring
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn btn-outline"
+                >
+
+                    Talk to Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MONITORING VISUAL -->
+
+        <div class="monitoring-visual reveal">
+
+
+            <div
+                class="monitoring-node monitoring-node-1"
+            >
+                📹
+            </div>
+
+
+            <div
+                class="monitoring-node monitoring-node-2"
+            >
+                📱
+            </div>
+
+
+            <div
+                class="monitoring-node monitoring-node-3"
+            >
+                📊
+            </div>
+
+
+            <div
+                class="monitoring-node monitoring-node-4"
+            >
+                🔔
+            </div>
+
+
+            <div class="monitoring-core">
+
+                <div class="monitoring-core-inner">
+
+                    👁
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+
+                Connected Visibility
+
+            </div>
+
+
+            <h2>
+
+                Remote Monitoring
+
+            </h2>
+
+
+            <p>
+
+                Remote monitoring allows you to stay aware of
+                important environments, equipment and connected
+                systems without always needing to be physically
+                present.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MONITORING SOLUTIONS
+     ========================================================= -->
+
+<section
+    class="monitoring-solutions"
+    id="monitoring"
+>
+
+    <div class="container">
+
+
+        <div class="monitoring-grid">
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    📹
+
+                </div>
+
+
+                <h3>
+
+                    Security Monitoring
+
+                </h3>
+
+
+                <p>
+
+                    Monitor connected cameras and security
+                    devices remotely to maintain greater
+                    awareness of your environment.
+
+                </p>
+
+            </article>
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    🏢
+
+                </div>
+
+
+                <h3>
+
+                    Business Monitoring
+
+                </h3>
+
+
+                <p>
+
+                    Keep track of important business
+                    environments, connected equipment and
+                    operational conditions.
+
+                </p>
+
+            </article>
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    ⚙️
+
+                </div>
+
+
+                <h3>
+
+                    Equipment Monitoring
+
+                </h3>
+
+
+                <p>
+
+                    Monitor connected equipment and receive
+                    information that can help identify issues
+                    or unusual conditions.
+
+                </p>
+
+            </article>
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    🌡️
+
+                </div>
+
+
+                <h3>
+
+                    Environment Monitoring
+
+                </h3>
+
+
+                <p>
+
+                    Track environmental information such as
+                    temperature and other supported conditions
+                    using connected sensors.
+
+                </p>
+
+            </article>
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    📱
+
+                </div>
+
+
+                <h3>
+
+                    Mobile Access
+
+                </h3>
+
+
+                <p>
+
+                    Access monitoring information remotely
+                    through compatible devices and connected
+                    management platforms.
+
+                </p>
+
+            </article>
+
+
+            <article class="monitoring-card reveal">
+
+                <div class="monitoring-icon">
+
+                    🔔
+
+                </div>
+
+
+                <h3>
+
+                    Smart Alerts
+
+                </h3>
+
+
+                <p>
+
+                    Receive notifications when configured
+                    conditions or events require your
+                    attention.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURE SECTION
+     ========================================================= -->
+
+<section class="monitoring-section">
+
+    <div
+        class="container monitoring-feature-grid"
+    >
+
+
+        <div class="monitoring-image reveal">
+
+            <div class="monitor-symbol">
+
+                👁
+
+            </div>
+
+        </div>
+
+
+        <div class="monitoring-content reveal">
+
+
+            <div class="eyebrow">
+
+                Visibility Anywhere
+
+            </div>
+
+
+            <h2>
+
+                Know What's Happening,
+                Even When You're Away
+
+            </h2>
+
+
+            <p>
+
+                Remote monitoring connects supported devices
+                and sensors to monitoring platforms, giving you
+                useful information without requiring you to be
+                physically present.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Monitor connected environments remotely
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Receive alerts and notifications
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Access information from supported devices
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Identify unusual conditions earlier
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Create monitoring solutions for homes
+                    and businesses
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="eyebrow">
+
+                Our Approach
+
+            </div>
+
+
+            <h2>
+
+                From Connected Device
+                to Remote Visibility
+
+            </h2>
+
+
+            <p>
+
+                We help create monitoring solutions that connect
+                supported devices and provide useful information
+                when you need it.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+
+                    01
+
+                </div>
+
+
+                <h3>
+
+                    Connect
+
+                </h3>
+
+
+                <p>
+
+                    Connect compatible cameras, sensors,
+                    equipment or other supported devices
+                    to the monitoring environment.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+
+                    02
+
+                </div>
+
+
+                <h3>
+
+                    Monitor
+
+                </h3>
+
+
+                <p>
+
+                    Connected information is collected and
+                    made available through the appropriate
+                    monitoring platform.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+
+                    03
+
+                </div>
+
+
+                <h3>
+
+                    Respond
+
+                </h3>
+
+
+                <p>
+
+                    Receive relevant information or alerts
+                    so you can respond when something
+                    requires your attention.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <h2>
+
+                Want Better Visibility?
+
+            </h2>
+
+
+            <p>
+
+                Let's explore how remote monitoring can help
+                you stay informed about your home, business
+                or connected environment.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+
+                Contact Dinges TechHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+
+                        Dinges
+                        <span>TechHub</span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the future.
+
+                </p>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="footer-column">
+
+
+                <h4>
+
+                    Services
+
+                </h4>
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a href="services.html">
+
+                            All Services
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="fibre.html">
+
+                            Fibre
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="wireless-broadband.html">
+
+                            Wireless Broadband
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="iot.html">
+
+                            Internet of Things
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="hosting.html">
+
+                            Web & Email Hosting
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="footer-column">
+
+
+                <h4>
+
+                    Company
+
+                </h4>
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a href="about.html">
+
+                            About Us
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact Us
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="help-centre.html">
+
+                            Help Centre
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="login.html">
+
+                            Login
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="register.html">
+
+                            Register
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-column">
+
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+
+                <ul>
+
+
+                    <li>
+
+                        <a
+                            href="mailto:support@dingestechhub.co.za"
+                        >
+
+                            support@dingestechhub.co.za
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact Support
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a href="#">
+
+                            Mon - Fri: 09:00 - 16:00
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+
+            <div>
+
+                © 2026 Dinges TechHub.
+                All rights reserved.
+
+            </div>
+
+
+            <div>
+
+                Smart Technology •
+                Connectivity •
+                Innovation
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MENU WHEN LINK IS CLICKED
+   ========================================================= */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(
+        element
+    );
+
+});
+
+</script>
+
+
+</body>
+</html>

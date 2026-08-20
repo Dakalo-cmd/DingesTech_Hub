@@ -1,0 +1,2740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cleaning, Antivirus & Microsoft 365 | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Dinges TechHub provides computer cleaning, antivirus assistance and Microsoft 365 setup and support for homes and businesses."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   CLEANING • ANTIVIRUS • MICROSOFT 365
+   ========================================================= */
+
+:root {
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+    --gold: #FFBB42;
+
+    --black: #020202;
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+    --background: #f7f5f8;
+
+    --container: 1200px;
+    --radius: 20px;
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--black);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(92%, var(--container));
+    margin: auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(2, 2, 2, 0.94);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 187, 66, 0.12);
+}
+
+.nav-container {
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    color: var(--white);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.logo-text span {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 600;
+
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 11px 19px;
+    border-radius: 999px;
+
+    background: var(--gold);
+    color: var(--black) !important;
+
+    font-weight: 800 !important;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(255, 187, 66, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+
+    color: var(--white);
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 690px;
+
+    padding: 150px 0 90px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(122, 44, 120, 0.45),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 48%,
+            #3C1542 100%
+        );
+
+    color: var(--white);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -250px;
+    top: 80px;
+
+    border: 1px solid rgba(255, 187, 66, 0.14);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    right: -90px;
+    top: 190px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircleReverse
+        13s linear infinite;
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateCircleReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.breadcrumb {
+    color: var(--gold);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.5px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(42px, 6vw, 70px);
+
+    line-height: 1.02;
+
+    margin-bottom: 25px;
+
+    max-width: 720px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 23px;
+
+    border-radius: 999px;
+
+    font-weight: 800;
+
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+}
+
+.btn-outline {
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color: var(--white);
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.security-visual {
+    min-height: 430px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CENTRAL SECURITY PANEL
+   ========================================================= */
+
+.security-panel {
+    width: 330px;
+    min-height: 340px;
+
+    position: relative;
+
+    padding: 28px;
+
+    border-radius: 28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,0.45);
+
+    animation:
+        panelFloat
+        4s ease-in-out infinite;
+}
+
+@keyframes panelFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+.panel-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.panel-top strong {
+    font-size: 15px;
+}
+
+.panel-status {
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   SHIELD
+   ========================================================= */
+
+.shield {
+    width: 110px;
+    height: 125px;
+
+    margin: 5px auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    clip-path:
+        polygon(
+            50% 0%,
+            92% 15%,
+            85% 70%,
+            50% 100%,
+            15% 70%,
+            8% 15%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    animation:
+        shieldPulse
+        2.5s ease-in-out infinite;
+}
+
+.shield::after {
+    content: "✓";
+
+    color: var(--white);
+
+    font-size: 48px;
+
+    font-weight: 900;
+}
+
+@keyframes shieldPulse {
+
+    0%, 100% {
+        filter:
+            drop-shadow(
+                0 0 0
+                rgba(255,187,66,0)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 22px
+                rgba(255,187,66,0.35)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   PANEL ITEMS
+   ========================================================= */
+
+.security-item {
+    padding: 12px 14px;
+
+    margin-top: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.06);
+
+    font-size: 12px;
+}
+
+.security-item span:last-child {
+    color: var(--gold);
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   FLOATING ICONS
+   ========================================================= */
+
+.floating-icon {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 29px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    animation:
+        iconFloat
+        4s ease-in-out infinite;
+}
+
+.icon-clean {
+    top: 15px;
+    left: 7%;
+}
+
+.icon-microsoft {
+    top: 27%;
+    right: 0;
+
+    animation-delay: .8s;
+}
+
+.icon-security {
+    bottom: 8%;
+    right: 12%;
+
+    animation-delay: 1.5s;
+}
+
+.icon-support {
+    bottom: 13%;
+    left: 3%;
+
+    animation-delay: 2.1s;
+}
+
+@keyframes iconFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-11px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+    padding: 100px 0 60px;
+
+    background: var(--white);
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 760px;
+
+    margin:
+        0 auto 55px;
+}
+
+.eyebrow {
+    color: var(--purple);
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+    color: var(--purple-dark);
+}
+
+.section-heading p {
+    color: #666;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MAIN SERVICES
+   ========================================================= */
+
+.services {
+    padding: 60px 0 100px;
+
+    background: var(--white);
+}
+
+.service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.service-card {
+    padding: 32px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color: var(--purple);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 29px;
+
+    margin-bottom: 22px;
+}
+
+.service-card h3 {
+    color: var(--purple-dark);
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   SECURITY FEATURE
+   ========================================================= */
+
+.security-section {
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color: var(--white);
+}
+
+.security-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   SECURITY CONTENT
+   ========================================================= */
+
+.security-content .eyebrow {
+    color: var(--gold);
+}
+
+.security-content h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+.security-content > p {
+    color:
+        rgba(255,255,255,0.76);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    list-style: none;
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.feature-list li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color:
+        rgba(255,255,255,0.92);
+
+    line-height: 1.5;
+}
+
+.feature-list li span {
+    color: var(--gold);
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   365 PANEL
+   ========================================================= */
+
+.office-panel {
+    min-height: 400px;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(255,187,66,0.12),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            145deg,
+            #241027,
+            #090709
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.office-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.office-header strong {
+    font-size: 17px;
+}
+
+.office-header span {
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.apps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+.app-card {
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255,187,66,0.35);
+}
+
+.app-icon {
+    font-size: 31px;
+
+    margin-bottom: 10px;
+}
+
+.app-card strong {
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.app-card small {
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.benefits {
+    padding: 100px 0;
+
+    background: var(--background);
+}
+
+.benefit-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.benefit-card {
+    padding: 28px 22px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e5e0e6;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    transition: var(--transition);
+}
+
+.benefit-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(60,21,66,0.10);
+}
+
+.benefit-number {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    color: var(--purple-dark);
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    color: #707070;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+    padding: 100px 0;
+
+    background: var(--white);
+}
+
+.steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.step {
+    background: var(--background);
+
+    padding: 32px;
+
+    border-radius: var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+}
+
+.step-number {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--purple);
+
+    color: var(--white);
+
+    font-weight: 900;
+
+    margin-bottom: 22px;
+}
+
+.step h3 {
+    color: var(--purple-dark);
+
+    margin-bottom: 12px;
+}
+
+.step p {
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+    padding: 80px 0;
+
+    background: var(--white);
+}
+
+.cta-box {
+    padding: 65px 40px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align: center;
+
+    color: var(--white);
+}
+
+.cta-box h2 {
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    max-width: 650px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #020202;
+
+    color: var(--white);
+
+    padding: 70px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap: 45px;
+
+    padding-bottom: 50px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-description {
+    color: #a9a9a9;
+
+    line-height: 1.7;
+
+    max-width: 340px;
+
+    font-size: 14px;
+}
+
+.footer-column h4 {
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
+    font-size: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #a9a9a9;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background: #020202;
+
+        padding: 25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-grid,
+    .security-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .benefit-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        min-height: 70px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            120px 0 70px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .security-visual {
+        min-height: 350px;
+    }
+
+    .security-panel {
+        width: 290px;
+    }
+
+    .floating-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 22px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .office-panel {
+        padding: 22px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .cta-box {
+        padding: 50px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+
+                Dinges
+                <span>TechHub</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+
+                SMART SOLUTIONS /
+                DEVICE & SOFTWARE CARE
+
+            </div>
+
+
+            <h1>
+
+                Keep Your Technology
+                <span>Clean, Secure & Productive.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Dinges TechHub provides computer cleaning,
+                antivirus assistance and Microsoft 365 setup
+                and support to help keep your devices secure,
+                organised and ready for everyday work.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#services"
+                    class="btn btn-primary"
+                >
+
+                    Explore Solutions
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn btn-outline"
+                >
+
+                    Get Assistance
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VISUAL -->
+
+        <div class="security-visual reveal">
+
+
+            <div class="floating-icon icon-clean">
+                🧹
+            </div>
+
+
+            <div class="floating-icon icon-microsoft">
+                📊
+            </div>
+
+
+            <div class="floating-icon icon-security">
+                🛡️
+            </div>
+
+
+            <div class="floating-icon icon-support">
+                💻
+            </div>
+
+
+            <div class="security-panel">
+
+
+                <div class="panel-top">
+
+                    <strong>
+                        Device Protection
+                    </strong>
+
+                    <span class="panel-status">
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="shield"></div>
+
+
+                <div class="security-item">
+
+                    <span>
+                        Device Health
+                    </span>
+
+                    <span>
+                        ✓ Good
+                    </span>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <span>
+                        Security
+                    </span>
+
+                    <span>
+                        ✓ Protected
+                    </span>
+
+                </div>
+
+
+                <div class="security-item">
+
+                    <span>
+                        Software
+                    </span>
+
+                    <span>
+                        ✓ Ready
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Smart Solutions
+            </div>
+
+
+            <h2>
+                Better Care For Your Technology
+            </h2>
+
+
+            <p>
+
+                Computers and business devices need regular
+                attention. From keeping devices clean and
+                responsive to maintaining security software and
+                productivity applications, Dinges TechHub can
+                assist with the technology that supports your
+                everyday work.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
+
+<section
+    class="services"
+    id="services"
+>
+
+    <div class="container">
+
+
+        <div class="service-grid">
+
+
+            <!-- CLEANING -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🧹
+                </div>
+
+
+                <h3>
+                    Computer Cleaning
+                </h3>
+
+
+                <p>
+
+                    Assistance with keeping computer equipment
+                    clean and maintaining a better environment
+                    for everyday device use.
+
+                </p>
+
+            </article>
+
+
+            <!-- ANTIVIRUS -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🛡️
+                </div>
+
+
+                <h3>
+                    Antivirus Assistance
+                </h3>
+
+
+                <p>
+
+                    Help with antivirus installation,
+                    configuration, updates and basic security
+                    checks for supported devices.
+
+                </p>
+
+            </article>
+
+
+            <!-- MICROSOFT 365 -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    ☁️
+                </div>
+
+
+                <h3>
+                    Microsoft 365
+                </h3>
+
+
+                <p>
+
+                    Assistance with Microsoft 365 setup,
+                    account configuration and productivity
+                    application support.
+
+                </p>
+
+            </article>
+
+
+            <!-- SOFTWARE -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+
+                <h3>
+                    Software Setup
+                </h3>
+
+
+                <p>
+
+                    Support with installing and configuring
+                    supported applications and software on your
+                    devices.
+
+                </p>
+
+            </article>
+
+
+            <!-- UPDATES -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔄
+                </div>
+
+
+                <h3>
+                    Updates & Maintenance
+                </h3>
+
+
+                <p>
+
+                    Assistance with keeping supported software
+                    and security tools updated and properly
+                    configured.
+
+                </p>
+
+            </article>
+
+
+            <!-- PERFORMANCE -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Device Performance
+                </h3>
+
+
+                <p>
+
+                    Basic assistance with identifying software
+                    and configuration issues that may affect
+                    everyday device performance.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SECURITY SECTION
+     ========================================================= -->
+
+<section class="security-section">
+
+    <div class="container security-grid">
+
+
+        <!-- CONTENT -->
+
+        <div class="security-content reveal">
+
+
+            <div class="eyebrow">
+                Security & Productivity
+            </div>
+
+
+            <h2>
+                Protect Your Devices While Staying Productive.
+            </h2>
+
+
+            <p>
+
+                A secure computer is only one part of a good
+                technology environment. Your software,
+                productivity tools and device configuration also
+                need to work together.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Antivirus installation and configuration
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Basic device security checks
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Microsoft 365 setup assistance
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Productivity application configuration
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Software update assistance
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+
+        <!-- MICROSOFT PANEL -->
+
+        <div class="office-panel reveal">
+
+
+            <div class="office-header">
+
+                <strong>
+                    Productivity Workspace
+                </strong>
+
+                <span>
+                    MICROSOFT 365
+                </span>
+
+            </div>
+
+
+            <div class="apps">
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        📝
+                    </div>
+
+                    <strong>
+                        Documents
+                    </strong>
+
+                    <small>
+                        Productivity
+                    </small>
+
+                </div>
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        📊
+                    </div>
+
+                    <strong>
+                        Spreadsheets
+                    </strong>
+
+                    <small>
+                        Data & Analysis
+                    </small>
+
+                </div>
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        📧
+                    </div>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <small>
+                        Communication
+                    </small>
+
+                </div>
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        ☁️
+                    </div>
+
+                    <strong>
+                        Cloud Storage
+                    </strong>
+
+                    <small>
+                        File Access
+                    </small>
+
+                </div>
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        📅
+                    </div>
+
+                    <strong>
+                        Calendar
+                    </strong>
+
+                    <small>
+                        Scheduling
+                    </small>
+
+                </div>
+
+
+                <div class="app-card">
+
+                    <div class="app-icon">
+                        👥
+                    </div>
+
+                    <strong>
+                        Collaboration
+                    </strong>
+
+                    <small>
+                        Teamwork
+                    </small>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BENEFITS
+     ========================================================= -->
+
+<section class="benefits">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Why It Matters
+            </div>
+
+
+            <h2>
+                A Healthier Technology Environment
+            </h2>
+
+
+            <p>
+
+                Keeping devices maintained, protected and
+                properly configured can make everyday technology
+                easier to manage.
+
+            </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-number">
+                    01
+                </div>
+
+                <h3>
+                    Cleaner Devices
+                </h3>
+
+                <p>
+                    Maintain a cleaner environment around your
+                    technology equipment.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-number">
+                    02
+                </div>
+
+                <h3>
+                    Better Protection
+                </h3>
+
+                <p>
+                    Keep supported security software configured
+                    and up to date.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-number">
+                    03
+                </div>
+
+                <h3>
+                    Productive Work
+                </h3>
+
+                <p>
+                    Get your productivity software configured for
+                    everyday business use.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-number">
+                    04
+                </div>
+
+                <h3>
+                    Ongoing Support
+                </h3>
+
+                <p>
+                    Get assistance when you need help with your
+                    technology environment.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Process
+            </div>
+
+
+            <h2>
+                Simple Technology Maintenance
+            </h2>
+
+
+            <p>
+
+                We keep the process straightforward so you can
+                get back to using your technology.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Assess
+                </h3>
+
+
+                <p>
+
+                    We identify the device, software or security
+                    requirement and understand what assistance is
+                    needed.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Configure
+                </h3>
+
+
+                <p>
+
+                    Supported software, security tools and
+                    settings are configured according to the
+                    requirement.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Maintain
+                </h3>
+
+
+                <p>
+
+                    We help keep your technology environment
+                    organised and ready for everyday use.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <h2>
+                Need Help With Your Computer?
+            </h2>
+
+
+            <p>
+
+                Whether you need device cleaning, antivirus
+                assistance or Microsoft 365 support, Dinges
+                TechHub can help you get your technology ready.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+
+                Contact Dinges TechHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+
+                        Dinges
+                        <span>TechHub</span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the
+                    future.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="services.html">
+                            All Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless-broadband.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iot.html">
+                            Internet of Things
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-solutions.html">
+                            Smart Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="help-centre.html">
+                            Help Centre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="mailto:support@dingestechhub.co.za">
+                            support@dingestechhub.co.za
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Support
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Mon - Fri: 09:00 - 16:00
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+                © 2026 Dinges TechHub.
+                All rights reserved.
+            </div>
+
+
+            <div>
+                Smart Technology •
+                Connectivity •
+                Innovation
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+/* Close menu after navigation */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove("active");
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+</script>
+
+
+</body>
+</html>

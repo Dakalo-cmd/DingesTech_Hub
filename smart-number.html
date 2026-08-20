@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Number | Dinges TechHub</title>
+
+<style>
+:root{
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+    --black:#020202;
+    --gray:#949393;
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+    --border:#E5E1E7;
+    --success:#24652F;
+    --success-bg:#F1FAF3;
+    --error:#8B2929;
+    --error-bg:#FFF4F4;
+    --shadow:0 10px 25px rgba(60,21,66,.08);
+    --shadow-hover:0 18px 35px rgba(60,21,66,.15);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:var(--black);
+    line-height:1.6;
+}
+
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+.topbar{
+    background:var(--primary);
+    color:var(--white);
+    padding:8px 5%;
+    font-size:13px;
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.navbar{
+    background:var(--white);
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-inner{
+    max-width:1200px;
+    min-height:72px;
+    margin:auto;
+    padding:0 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    color:var(--primary);
+    font-size:20px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.logo-mark{
+    width:40px;
+    height:40px;
+    border-radius:9px;
+    background:var(--primary);
+    color:var(--accent);
+    display:grid;
+    place-items:center;
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    color:#333;
+    font-size:14px;
+    font-weight:600;
+    transition:.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{color:var(--secondary)}
+
+.nav-cta{
+    background:var(--accent);
+    color:var(--black)!important;
+    padding:9px 16px;
+    border-radius:8px;
+}
+
+.hero{
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,187,66,.18),transparent 28%),
+        linear-gradient(135deg,var(--primary),var(--secondary));
+    color:var(--white);
+    padding:75px 5%;
+    text-align:center;
+}
+
+.hero-inner{
+    max-width:850px;
+    margin:auto;
+}
+
+.eyebrow{
+    display:inline-block;
+    color:var(--accent);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-size:clamp(38px,5vw,56px);
+    line-height:1.05;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:720px;
+    margin:auto;
+    color:rgba(255,255,255,.88);
+    font-size:16px;
+}
+
+.main{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 5%;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-heading h2{
+    color:var(--primary);
+    font-size:32px;
+    margin-bottom:6px;
+}
+
+.section-heading p{
+    color:var(--gray);
+    font-size:14px;
+}
+
+.error-message{
+    display:none;
+    background:var(--error-bg);
+    border:1px solid #E7BDBD;
+    color:var(--error);
+    padding:16px;
+    border-radius:9px;
+    margin:0 auto 20px;
+    max-width:900px;
+    font-size:13px;
+}
+
+.error-message.show{display:block}
+
+.product-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.product-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:35px;
+    box-shadow:var(--shadow);
+    transition:.25s ease;
+}
+
+.product-card:hover{box-shadow:var(--shadow-hover)}
+
+.product-icon{
+    width:75px;
+    height:75px;
+    border-radius:16px;
+    background:#F5F1F6;
+    color:var(--secondary);
+    display:grid;
+    place-items:center;
+    font-size:30px;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.product-card h2{
+    color:var(--primary);
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.product-description{
+    color:#555;
+    font-size:14px;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.feature{
+    background:#F8F5F8;
+    border-radius:10px;
+    padding:15px;
+}
+
+.feature strong{
+    display:block;
+    color:var(--primary);
+    font-size:13px;
+    margin-bottom:4px;
+}
+
+.feature span{
+    color:var(--gray);
+    font-size:12px;
+}
+
+.price-area{
+    border-top:1px solid var(--border);
+    padding-top:25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.price-label{
+    color:var(--gray);
+    font-size:12px;
+}
+
+.price{
+    color:var(--secondary);
+    font-size:36px;
+    font-weight:900;
+}
+
+.price-period{
+    color:var(--gray);
+    font-size:12px;
+}
+
+.add-cart{
+    border:0;
+    background:var(--accent);
+    color:var(--black);
+    padding:14px 25px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.add-cart:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(255,187,66,.25);
+}
+
+.add-cart:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:var(--gray);
+    font-size:14px;
+}
+
+.cart-message{
+    display:none;
+    background:var(--success-bg);
+    border:1px solid #B8DCC0;
+    color:var(--success);
+    padding:14px;
+    border-radius:9px;
+    margin-top:20px;
+    font-size:13px;
+}
+
+.cart-message.show{display:block}
+
+.cart-link{
+    color:var(--secondary);
+    font-weight:800;
+}
+
+.cta{
+    background:var(--primary);
+    color:var(--white);
+    text-align:center;
+    padding:60px 5%;
+}
+
+.cta-inner{
+    max-width:750px;
+    margin:auto;
+}
+
+.cta h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.cta p{
+    color:rgba(255,255,255,.8);
+    font-size:14px;
+    margin-bottom:22px;
+}
+
+.cta a{
+    display:inline-block;
+    background:var(--accent);
+    color:var(--black);
+    font-weight:800;
+    font-size:13px;
+    padding:11px 22px;
+    border-radius:9px;
+}
+
+footer{
+    background:#16091A;
+    color:rgba(255,255,255,.75);
+    text-align:center;
+    padding:30px 5%;
+    font-size:12px;
+}
+
+@media(max-width:700px){
+    .nav-links{display:none}
+
+    .topbar-inner{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .topbar-inner span:last-child{display:none}
+
+    .hero{padding:55px 5%}
+    .main{padding:45px 5%}
+
+    .product-card{padding:25px}
+
+    .features{grid-template-columns:1fr}
+
+    .price-area{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .add-cart{width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <div class="topbar-inner">
+        <span>Reliable Technology &amp; Connectivity Solutions</span>
+        <span>South Africa</span>
+    </div>
+</div>
+
+<nav class="navbar">
+    <div class="nav-inner">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">DT</span>
+            <span>Dinges TechHub</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="smart-number.html" class="active">Smart Number</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="login.html">Login</a>
+            <a href="cart.html" class="nav-cta">Cart</a>
+        </div>
+
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <span class="eyebrow">VOIP &amp; Telephony</span>
+
+        <h1>Smart Number</h1>
+
+        <p>
+            Get a professional Smart Number for your business
+            and manage your monthly service through Dinges TechHub.
+        </p>
+    </div>
+</section>
+
+<main class="main">
+
+    <div class="section-heading">
+        <h2>Smart Number</h2>
+        <p>Live pricing and product information from our backend.</p>
+    </div>
+
+    <div id="errorMessage" class="error-message"></div>
+
+    <div id="loading" class="loading">
+        Loading Smart Number...
+    </div>
+
+    <div id="productContainer" class="product-container"></div>
+
+</main>
+
+<section class="cta">
+    <div class="cta-inner">
+        <h2>Need Help With Your Smart Number?</h2>
+
+        <p>
+            Contact Dinges TechHub if you need assistance
+            choosing or setting up your Smart Number service.
+        </p>
+
+        <a href="contact.html">Contact Us</a>
+    </div>
+</section>
+
+<footer>
+    <p>
+        &copy; <span id="year"></span>
+        Dinges TechHub. All rights reserved.
+    </p>
+</footer>
+
+<script>
+/*
+    IMPORTANT:
+    The PHP API must be the URL that actually exists on your
+    register.web.za hosting account.
+
+    Current API used by your working backend:
+*/
+const API_URL = "https://register.web.za/api/smart-number.php";
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+async function loadSmartNumber(){
+
+    const loading =
+        document.getElementById("loading");
+
+    const container =
+        document.getElementById("productContainer");
+
+    const error =
+        document.getElementById("errorMessage");
+
+    try{
+
+        const response = await fetch(
+            API_URL + "?t=" + Date.now(),
+            {
+                method:"GET",
+                headers:{
+                    "Accept":"application/json"
+                },
+                cache:"no-store"
+            }
+        );
+
+        if(!response.ok){
+            throw new Error(
+                "HTTP error " + response.status
+            );
+        }
+
+        const data = await response.json();
+
+        console.log(
+            "Smart Number API response:",
+            data
+        );
+
+        if(!data.success){
+            throw new Error(
+                data.error ||
+                "The API returned an error."
+            );
+        }
+
+        if(!data.product){
+            throw new Error(
+                "No Smart Number product was returned."
+            );
+        }
+
+        /*
+            IMPORTANT FIX:
+
+            Your API returns:
+
+            {
+                "product": {...},
+                "pricing": {
+                    "monthly": 95
+                }
+            }
+
+            Pricing is NOT inside data.product.
+        */
+
+        loading.style.display = "none";
+
+        renderProduct(
+            data.product,
+            data.pricing || {}
+        );
+
+    }
+    catch(err){
+
+        console.error(
+            "Smart Number error:",
+            err
+        );
+
+        loading.style.display = "none";
+
+        error.innerHTML = `
+            <strong>Unable to Load Smart Number</strong>
+            <br><br>
+            ${escapeHTML(err.message)}
+        `;
+
+        error.classList.add("show");
+    }
+}
+
+function renderProduct(product, pricing){
+
+    const container =
+        document.getElementById(
+            "productContainer"
+        );
+
+    const monthly =
+        Number(pricing?.monthly);
+
+    const safeMonthly =
+        Number.isFinite(monthly)
+            ? monthly
+            : 0;
+
+    const description =
+        product.description ||
+        "Professional Smart Number service from Dinges TechHub.";
+
+    container.innerHTML = `
+
+        <article class="product-card">
+
+            <div class="product-icon">
+                ☎
+            </div>
+
+            <h2>
+                ${escapeHTML(product.name)}
+            </h2>
+
+            <div class="product-description">
+                ${formatDescription(description)}
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <strong>
+                        Professional Number
+                    </strong>
+
+                    <span>
+                        Present a professional business identity.
+                    </span>
+                </div>
+
+                <div class="feature">
+                    <strong>
+                        Monthly Service
+                    </strong>
+
+                    <span>
+                        Recurring monthly billing.
+                    </span>
+                </div>
+
+                <div class="feature">
+                    <strong>
+                        Dinges TechHub
+                    </strong>
+
+                    <span>
+                        Managed through your service account.
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="price-area">
+
+                <div>
+                    <div class="price-label">
+                        Monthly
+                    </div>
+
+                    <div class="price">
+                        R${formatPrice(safeMonthly)}
+                    </div>
+
+                    <div class="price-period">
+                        per month
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="add-cart"
+                    onclick="addToCart(
+                        ${Number(product.id)},
+                        '${escapeJS(product.name)}',
+                        ${safeMonthly}
+                    )"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+            <div
+                id="cartMessage"
+                class="cart-message"
+            ></div>
+
+        </article>
+    `;
+}
+
+function addToCart(productId, productName, monthlyPrice){
+
+    const cartItem = {
+        product_id:Number(productId),
+        name:String(productName || "Monthly Smart Number"),
+        quantity:1,
+        price:Number(monthlyPrice || 0),
+        billing:"monthly",
+        currency:"ZAR",
+        added_at:new Date().toISOString()
+    };
+
+    let cart = [];
+
+    try{
+        cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "dingesCart"
+                )
+            ) || [];
+
+        if(!Array.isArray(cart)){
+            cart = [];
+        }
+    }
+    catch(e){
+        cart = [];
+    }
+
+    const existing =
+        cart.find(
+            item =>
+                Number(item.product_id) ===
+                Number(productId)
+        );
+
+    if(existing){
+
+        existing.quantity =
+            Number(existing.quantity || 1) + 1;
+
+        /*
+            Keep the live price available
+            in the cart as well.
+        */
+        existing.price =
+            Number(monthlyPrice || existing.price || 0);
+
+        existing.billing = "monthly";
+        existing.currency = "ZAR";
+    }
+    else{
+        cart.push(cartItem);
+    }
+
+    localStorage.setItem(
+        "dingesCart",
+        JSON.stringify(cart)
+    );
+
+    const message =
+        document.getElementById(
+            "cartMessage"
+        );
+
+    if(message){
+
+        message.innerHTML = `
+            <strong>Added to cart.</strong>
+            Smart Number has been added to your cart.
+
+            <br><br>
+
+            <a
+                href="cart.html"
+                class="cart-link"
+            >
+                View Cart →
+            </a>
+        `;
+
+        message.classList.add("show");
+    }
+}
+
+function formatPrice(value){
+
+    const number = Number(value);
+
+    if(!Number.isFinite(number)){
+        return "0.00";
+    }
+
+    return number.toLocaleString(
+        "en-ZA",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    );
+}
+
+/*
+    Convert the backend description into safe HTML.
+
+    The database description contains <br> and <strong>/<u>
+    markup, so preserve the supported formatting while escaping
+    everything else.
+*/
+function formatDescription(value){
+
+    let text = String(value ?? "");
+
+    text = text
+        .replace(/<br\s*\/?>/gi,"\n")
+        .replace(/<\/?strong>/gi,"")
+        .replace(/<\/?u>/gi,"")
+        .replace(/<\/?p>/gi,"\n");
+
+    return escapeHTML(text)
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .replace(/\n/g,"<br>");
+}
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+function escapeJS(value){
+
+    return String(value ?? "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\r/g,"\\r")
+        .replace(/\n/g,"\\n");
+}
+
+loadSmartNumber();
+</script>
+
+</body>
+</html>

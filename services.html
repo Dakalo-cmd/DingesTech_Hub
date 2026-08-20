@@ -6,24 +6,44 @@
 
 <title>Services | Dinges TechHub</title>
 
+<meta
+    name="description"
+    content="Explore Dinges TechHub internet connectivity, VoIP, hosting, IoT, software and smart technology solutions."
+>
+
 <style>
 
 /* =========================================================
-   DINGES TECHHUB - SERVICES PAGE
+   DINGES TECHHUB — SERVICES PAGE
    ========================================================= */
 
 :root{
-    --primary:#3C1542;
-    --secondary:#7A2C78;
-    --accent:#FFBB42;
-    --black:#020202;
-    --gray:#949393;
-    --light:#F7F6F8;
-    --white:#FFFFFF;
-    --border:#E5E1E7;
+    --primary:#12091C;
+    --primary-2:#1B0C29;
 
-    --shadow:0 10px 25px rgba(60,21,66,.08);
-    --shadow-hover:0 16px 30px rgba(60,21,66,.14);
+    --purple:#5B1FA3;
+    --purple-light:#8B3DFF;
+    --purple-soft:#B66CFF;
+
+    --orange:#FF7A24;
+    --orange-light:#FF9B57;
+
+    --black:#020202;
+    --white:#FFFFFF;
+
+    --text:#26212B;
+    --muted:#77727B;
+
+    --light:#F7F6F8;
+    --card:#FFFFFF;
+    --border:#E7E2EA;
+
+    --green:#39D98A;
+
+    --shadow:0 10px 26px rgba(18,9,28,.065);
+    --shadow-hover:0 18px 38px rgba(18,9,28,.12);
+
+    --radius:15px;
 }
 
 
@@ -42,15 +62,26 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:var(--light);
-    color:var(--black);
+    color:var(--text);
+
     line-height:1.6;
+    overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 button{
@@ -63,16 +94,25 @@ button{
    ========================================================= */
 
 .topbar{
-    background:var(--primary);
-    color:var(--white);
+    background:
+        linear-gradient(
+            90deg,
+            #100719,
+            #261036,
+            #100719
+        );
+
+    color:white;
 
     padding:8px 5%;
 
-    font-size:13px;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 .topbar-inner{
-    max-width:1200px;
+    max-width:1240px;
     margin:auto;
 
     display:flex;
@@ -82,29 +122,59 @@ button{
     gap:20px;
 }
 
+.topbar-inner span{
+    color:rgba(255,255,255,.72);
+    font-size:12px;
+}
+
+.topbar-inner span:first-child{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.topbar-inner span:first-child::before{
+    content:"";
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 10px
+        rgba(255,122,36,.8);
+}
+
 
 /* =========================================================
    NAVIGATION
    ========================================================= */
 
 .navbar{
-    background:var(--white);
-
-    border-bottom:1px solid var(--border);
-
     position:sticky;
     top:0;
 
-    z-index:1000;
+    z-index:1500;
+
+    background:
+        rgba(255,255,255,.94);
+
+    border-bottom:
+        1px solid
+        rgba(18,9,28,.08);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
 }
 
 .nav-inner{
-    max-width:1200px;
-
-    min-height:72px;
+    max-width:1240px;
+    min-height:76px;
 
     margin:auto;
-
     padding:0 5%;
 
     display:flex;
@@ -114,66 +184,218 @@ button{
     gap:30px;
 }
 
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
 .logo{
     display:flex;
     align-items:center;
 
-    gap:9px;
+    gap:12px;
 
     color:var(--primary);
 
-    font-size:20px;
-    font-weight:800;
+    font-size:19px;
+    font-weight:900;
 
     white-space:nowrap;
 }
 
 .logo-mark{
-    width:40px;
-    height:40px;
+    width:52px;
+    height:52px;
 
-    border-radius:9px;
+    border-radius:50%;
 
-    background:var(--primary);
-
-    color:var(--accent);
+    overflow:hidden;
 
     display:grid;
     place-items:center;
 
+    background:
+        linear-gradient(
+            145deg,
+            var(--primary),
+            #32104D
+        );
+
+    border:
+        2px solid
+        rgba(91,31,163,.18);
+
+    box-shadow:
+        0 7px 20px
+        rgba(18,9,28,.15),
+        0 0 0 4px
+        rgba(91,31,163,.05);
+
+    flex-shrink:0;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.logo:hover .logo-mark{
+    transform:
+        scale(1.06)
+        rotate(-3deg);
+
+    box-shadow:
+        0 10px 26px
+        rgba(18,9,28,.20),
+        0 0 0 5px
+        rgba(91,31,163,.07);
+}
+
+.logo-mark img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.logo-fallback{
+    color:var(--orange);
+    font-size:13px;
     font-weight:900;
 }
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
 
 .nav-links{
     display:flex;
     align-items:center;
-
-    gap:22px;
+    gap:5px;
 }
 
 .nav-links a{
-    color:#333;
+    color:#38333C;
 
-    font-size:14px;
+    font-size:13px;
+    font-weight:700;
 
-    font-weight:600;
+    padding:10px 13px;
 
-    transition:.2s ease;
+    border-radius:9px;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        transform .25s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover{
+    color:var(--purple);
+
+    background:
+        rgba(91,31,163,.06);
+
+    transform:
+        translateY(-1px);
+}
+
 .nav-links a.active{
-    color:var(--secondary);
+    color:var(--purple);
+
+    background:
+        rgba(91,31,163,.08);
 }
 
-.nav-cta{
-    background:var(--accent);
-
+.nav-links .nav-cta{
     color:var(--black)!important;
 
-    padding:9px 16px;
+    background:var(--orange);
 
-    border-radius:8px;
+    padding:10px 18px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(255,122,36,.18);
+}
+
+.nav-links .nav-cta:hover{
+    background:var(--orange-light);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(255,122,36,.28);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.menu-toggle{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:11px;
+
+    background:white;
+
+    cursor:pointer;
+
+    position:relative;
+
+    z-index:1600;
+}
+
+.menu-toggle span{
+    position:absolute;
+
+    left:11px;
+
+    width:21px;
+    height:2px;
+
+    background:var(--primary);
+
+    border-radius:10px;
+
+    transition:.25s ease;
+}
+
+.menu-toggle span:nth-child(1){
+    top:14px;
+}
+
+.menu-toggle span:nth-child(2){
+    top:21px;
+}
+
+.menu-toggle span:nth-child(3){
+    top:28px;
+}
+
+.menu-toggle.open span:nth-child(1){
+    top:21px;
+    transform:rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.open span:nth-child(3){
+    top:21px;
+    transform:rotate(-45deg);
 }
 
 
@@ -182,63 +404,1202 @@ button{
    ========================================================= */
 
 .hero{
+    position:relative;
+
+    min-height:610px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:
+        90px
+        5%
+        80px;
+
+    isolation:isolate;
+
+    color:white;
+
     background:
+
         radial-gradient(
-            circle at 85% 20%,
-            rgba(255,187,66,.18),
+            circle at 78% 50%,
+            rgba(139,61,255,.44),
+            transparent 31%
+        ),
+
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,122,36,.13),
             transparent 28%
         ),
+
         linear-gradient(
             135deg,
-            var(--primary),
-            var(--secondary)
+            #0D0715 0%,
+            #160A24 46%,
+            #2B0D46 100%
         );
-
-    color:var(--white);
-
-    padding:70px 5%;
-
-    text-align:center;
 }
 
-.hero-inner{
-    max-width:800px;
 
-    margin:auto;
+/* =========================================================
+   HERO VIDEO
+   ========================================================= */
+
+.hero-video{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:-5;
+
+    opacity:.32;
+
+    pointer-events:none;
+
+    filter:
+        saturate(.9)
+        contrast(1.08)
+        brightness(.72);
+}
+
+.hero-video-overlay{
+    position:absolute;
+
+    inset:0;
+
+    z-index:-4;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13,7,21,.96) 0%,
+            rgba(22,10,36,.88) 42%,
+            rgba(43,13,70,.62) 100%
+        );
+}
+
+.hero-video-glow{
+    position:absolute;
+
+    inset:0;
+
+    z-index:-3;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            circle at 76% 48%,
+            rgba(139,61,255,.28),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,122,36,.12),
+            transparent 25%
+        );
+}
+
+
+/* =========================================================
+   HERO GRID
+   ========================================================= */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:42px 42px;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 45%,
+            black 100%
+        );
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+
+/* =========================================================
+   HERO GLOW
+   ========================================================= */
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:750px;
+    height:750px;
+
+    right:-220px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139,61,255,.23),
+            transparent 64%
+        );
+
+    filter:blur(8px);
+
+    pointer-events:none;
+
+    z-index:-2;
+}
+
+
+/* =========================================================
+   HERO CIRCLES
+   ========================================================= */
+
+.hero-circles{
+    position:absolute;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+.hero-circle{
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(182,108,255,.18);
+
+    box-shadow:
+        0 0 55px
+        rgba(139,61,255,.07),
+
+        inset 0 0 45px
+        rgba(139,61,255,.03);
+
+    animation:
+        floatCircle
+        12s
+        ease-in-out
+        infinite;
+}
+
+.circle-1{
+    width:620px;
+    height:620px;
+
+    right:-90px;
+    top:-50px;
+
+    border-color:
+        rgba(182,108,255,.24);
+
+    animation-duration:16s;
+}
+
+.circle-2{
+    width:510px;
+    height:510px;
+
+    right:-30px;
+    top:10px;
+
+    border-color:
+        rgba(139,61,255,.24);
+
+    animation-duration:13s;
+    animation-delay:-3s;
+}
+
+.circle-3{
+    width:400px;
+    height:400px;
+
+    right:25px;
+    top:65px;
+
+    border-color:
+        rgba(255,255,255,.11);
+
+    animation-duration:11s;
+    animation-delay:-5s;
+}
+
+.circle-4{
+    width:285px;
+    height:285px;
+
+    right:82px;
+    top:122px;
+
+    border-color:
+        rgba(255,122,36,.23);
+
+    animation-duration:9s;
+    animation-delay:-2s;
+}
+
+.circle-5{
+    width:770px;
+    height:770px;
+
+    right:-160px;
+    top:-125px;
+
+    border-color:
+        rgba(255,255,255,.05);
+
+    animation-duration:20s;
+    animation-delay:-8s;
+}
+
+@keyframes floatCircle{
+
+    0%,100%{
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    25%{
+        transform:
+            translate3d(10px,-8px,0)
+            scale(1.015);
+    }
+
+    50%{
+        transform:
+            translate3d(-8px,12px,0)
+            scale(.99);
+    }
+
+    75%{
+        transform:
+            translate3d(8px,5px,0)
+            scale(1.01);
+    }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-inner{
+    width:min(620px,100%);
+
+    position:relative;
+
+    z-index:20;
+
+    animation:
+        heroContentIn
+        .9s
+        ease
+        both;
+}
+
+@keyframes heroContentIn{
+
+    from{
+        opacity:0;
+        transform:translateY(22px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .eyebrow{
-    display:inline-block;
+    display:inline-flex;
 
-    color:var(--accent);
+    align-items:center;
+
+    gap:9px;
+
+    color:#E6D9EC;
 
     font-size:11px;
-
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
 
-    margin-bottom:12px;
+    margin-bottom:20px;
+
+    padding:7px 11px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    backdrop-filter:blur(8px);
+}
+
+.eyebrow::before{
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 12px
+        rgba(255,122,36,.8);
 }
 
 .hero h1{
-    font-size:clamp(38px,5vw,56px);
+    max-width:620px;
 
-    line-height:1.05;
+    font-size:
+        clamp(
+            45px,
+            6vw,
+            74px
+        );
 
-    margin-bottom:15px;
+    line-height:.98;
+
+    letter-spacing:-3.5px;
+
+    margin-bottom:25px;
+}
+
+.hero-highlight{
+    display:block;
+
+    color:var(--orange);
+
+    text-shadow:
+        0 0 28px
+        rgba(255,122,36,.12);
 }
 
 .hero p{
-    max-width:700px;
+    max-width:600px;
 
-    margin:auto;
-
-    color:rgba(255,255,255,.88);
+    color:
+        rgba(255,255,255,.76);
 
     font-size:16px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-actions{
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:30px;
+}
+
+.hero-primary,
+.hero-secondary{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    border-radius:10px;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease,
+        color .25s ease;
+}
+
+.hero-primary{
+    padding:14px 20px;
+
+    background:var(--orange);
+
+    color:#160B1B;
+
+    box-shadow:
+        0 12px 28px
+        rgba(255,122,36,.18);
+}
+
+.hero-primary:hover{
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 17px 34px
+        rgba(255,122,36,.28);
+}
+
+.hero-secondary{
+    padding:13px 16px;
+
+    color:white;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.hero-secondary:hover{
+    color:var(--orange);
+
+    border-color:
+        rgba(255,122,36,.25);
+
+    transform:
+        translateY(-2px)
+        scale(1.02);
+}
+
+
+/* =========================================================
+   HERO TRUST
+   ========================================================= */
+
+.hero-trust{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:30px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.11);
+
+    color:
+        rgba(255,255,255,.62);
+
+    font-size:10px;
+}
+
+.hero-trust span::before{
+    content:"✓";
+
+    margin-right:6px;
+
+    color:var(--orange);
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   NETWORK GRAPHIC
+   ========================================================= */
+
+.network-system{
+    position:absolute;
+
+    right:1.5%;
+    top:50%;
+
+    width:650px;
+    height:650px;
+
+    transform:
+        translateY(-50%);
+
+    pointer-events:none;
+
+    z-index:5;
+}
+
+
+/* =========================================================
+   NETWORK ORBIT
+   ========================================================= */
+
+.network-orbit{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:510px;
+    height:305px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(182,108,255,.22);
+
+    box-shadow:
+        0 0 55px
+        rgba(139,61,255,.12),
+
+        inset 0 0 35px
+        rgba(139,61,255,.06);
+
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT ON NETWORK LINE
+   ========================================================= */
+
+.network-system:hover .network-orbit{
+    border-color:
+        rgba(182,108,255,.55);
+
+    box-shadow:
+        0 0 28px
+        rgba(139,61,255,.28),
+
+        0 0 75px
+        rgba(139,61,255,.15),
+
+        inset 0 0 45px
+        rgba(139,61,255,.12);
+}
+
+.network-system:hover .network-orbit::before{
+    border-color:
+        rgba(182,108,255,.36);
+}
+
+.network-system:hover .network-orbit::after{
+    border-color:
+        rgba(255,255,255,.20);
+}
+
+
+/* =========================================================
+   INNER NETWORK LINES
+   ========================================================= */
+
+.network-orbit::before,
+.network-orbit::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(182,108,255,.14);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(22deg);
+
+    transition:
+        border-color .35s ease;
+}
+
+.network-orbit::after{
+    width:78%;
+    height:78%;
+
+    border-color:
+        rgba(255,255,255,.08);
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-28deg);
+}
+
+
+/* =========================================================
+   NETWORK BEAM
+   ========================================================= */
+
+.network-beam{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:460px;
+    height:80px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-7deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(139,61,255,.04) 10%,
+            rgba(139,61,255,.55) 48%,
+            rgba(182,108,255,.16) 78%,
+            transparent
+        );
+
+    filter:blur(7px);
+
+    animation:
+        beamPulse
+        4s
+        ease-in-out
+        infinite;
+
+    transition:
+        filter .35s ease,
+        opacity .35s ease;
+}
+
+.network-system:hover .network-beam{
+    filter:
+        blur(5px)
+        drop-shadow(
+            0 0 12px
+            rgba(182,108,255,.65)
+        );
+
+    opacity:1.35;
+}
+
+
+/* =========================================================
+   ORBIT DOTS
+   ========================================================= */
+
+.orbit-dot{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,122,36,.9);
+
+    animation:
+        dotPulse
+        2.5s
+        ease-in-out
+        infinite;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.network-system:hover .orbit-dot{
+    box-shadow:
+        0 0 20px
+        rgba(255,122,36,1);
+}
+
+.dot-1{
+    left:20%;
+    top:18%;
+}
+
+.dot-2{
+    right:12%;
+    top:48%;
+
+    background:var(--purple-soft);
+
+    box-shadow:
+        0 0 15px
+        rgba(182,108,255,.9);
+
+    animation-delay:-.8s;
+}
+
+.dot-3{
+    left:42%;
+    bottom:8%;
+
+    background:white;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,255,255,.8);
+
+    animation-delay:-1.5s;
+}
+
+@keyframes dotPulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.75;
+    }
+
+    50%{
+        transform:scale(1.5);
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   ORBITING LABELS
+   IMPORTANT:
+   THE WHOLE RING ROTATES, BUT EACH LABEL COUNTER-ROTATES
+   SO THE TEXT ALWAYS REMAINS LEVEL / UPRIGHT.
+   ========================================================= */
+
+.orbiting-labels{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:100%;
+    height:100%;
+
+    transform:
+        translate(-50%,-50%);
+
+    animation:
+        networkSpin
+        18s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   ORBIT ROTATION
+   ========================================================= */
+
+@keyframes networkSpin{
+
+    from{
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg);
+    }
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   ORBIT NODES
+   ========================================================= */
+
+.orbit-node{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:76px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.11);
+
+    border-radius:8px;
+
+    background:
+        rgba(15,7,25,.9);
+
+    box-shadow:
+        0 8px 24px
+        rgba(0,0,0,.28);
+
+    backdrop-filter:blur(10px);
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+}
+
+
+/* =========================================================
+   KEEP LABELS LEVEL
+   ========================================================= */
+
+.node-fibre{
+    transform:
+        translate(-50%,-50%)
+        translateY(-248px);
+}
+
+.node-lte{
+    transform:
+        translate(-50%,-50%)
+        rotate(90deg)
+        translateY(-248px);
+}
+
+.node-voice{
+    transform:
+        translate(-50%,-50%)
+        rotate(180deg)
+        translateY(-248px);
+}
+
+.node-cloud{
+    transform:
+        translate(-50%,-50%)
+        rotate(270deg)
+        translateY(-248px);
+}
+
+
+/*
+   Counter rotation.
+
+   Because the parent rotates clockwise,
+   these nodes rotate in the opposite direction
+   by the same amount, keeping their text level.
+
+   CSS custom property is controlled by JS below.
+*/
+
+.orbit-node{
+    --counter-rotation:0deg;
+}
+
+.node-fibre{
+    transform:
+        translate(-50%,-50%)
+        translateY(-248px)
+        rotate(var(--counter-rotation));
+}
+
+.node-lte{
+    transform:
+        translate(-50%,-50%)
+        rotate(90deg)
+        translateY(-248px)
+        rotate(var(--counter-rotation));
+}
+
+.node-voice{
+    transform:
+        translate(-50%,-50%)
+        rotate(180deg)
+        translateY(-248px)
+        rotate(var(--counter-rotation));
+}
+
+.node-cloud{
+    transform:
+        translate(-50%,-50%)
+        rotate(270deg)
+        translateY(-248px)
+        rotate(var(--counter-rotation));
+}
+
+
+/* =========================================================
+   LABEL HOVER
+   ========================================================= */
+
+.orbit-node:hover{
+    background:
+        rgba(91,31,163,.92);
+
+    border-color:
+        rgba(182,108,255,.45);
+
+    box-shadow:
+        0 0 25px
+        rgba(139,61,255,.42);
+
+    cursor:pointer;
+}
+
+.orbit-node::before{
+    content:"";
+
+    width:5px;
+    height:5px;
+
+    margin-right:6px;
+
+    border-radius:50%;
+
+    background:var(--orange);
+
+    box-shadow:
+        0 0 9px
+        rgba(255,122,36,.85);
+}
+
+.orbit-node span{
+    color:#E9DDF2;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   CENTER LOGO
+   ========================================================= */
+
+.network-core{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:112px;
+    height:112px;
+
+    transform:
+        translate(-50%,-50%);
+
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+        0 0 0 12px
+        rgba(139,61,255,.08),
+
+        0 0 50px
+        rgba(139,61,255,.30);
+
+    z-index:10;
+
+    animation:
+        corePulse
+        4s
+        ease-in-out
+        infinite;
+
+    overflow:hidden;
+}
+
+.network-core img{
+    width:86px;
+    height:86px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    padding:4px;
+
+    background:white;
+
+    display:block;
+}
+
+@keyframes corePulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 0 12px
+            rgba(139,61,255,.08),
+
+            0 0 50px
+            rgba(139,61,255,.30);
+    }
+
+    50%{
+        box-shadow:
+            0 0 0 18px
+            rgba(139,61,255,.05),
+
+            0 0 70px
+            rgba(139,61,255,.45);
+    }
+}
+
+
+/* =========================================================
+   NETWORK STATUS
+   ========================================================= */
+
+.network-status{
+    position:absolute;
+
+    right:0;
+    bottom:40px;
+
+    width:175px;
+
+    padding:15px 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:13px;
+
+    background:
+        rgba(18,8,29,.88);
+
+    box-shadow:
+        0 18px 38px
+        rgba(0,0,0,.25);
+
+    backdrop-filter:blur(12px);
+
+    z-index:12;
+}
+
+.status-top{
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:#BFB3C9;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+}
+
+.status-live{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 10px
+        rgba(57,217,138,.8);
+}
+
+.network-status strong{
+    display:block;
+
+    margin-top:8px;
+
+    color:white;
+
+    font-size:25px;
+
+    line-height:1;
+}
+
+.network-status small{
+    display:block;
+
+    margin-top:8px;
+
+    color:#8F8199;
+
+    font-size:8px;
+
+    letter-spacing:.7px;
+
+    text-transform:uppercase;
 }
 
 
@@ -247,133 +1608,319 @@ button{
    ========================================================= */
 
 .services-section{
-    max-width:1200px;
+    max-width:1240px;
 
     margin:auto;
 
-    padding:60px 5%;
+    padding:
+        75px
+        5%
+        65px;
 }
 
-.section-heading{
-    text-align:center;
 
-    margin-bottom:35px;
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading{
+    max-width:720px;
+
+    margin:
+        0
+        auto
+        38px;
+
+    text-align:center;
+}
+
+.section-label{
+    display:inline-block;
+
+    margin-bottom:9px;
+
+    color:var(--purple);
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
 }
 
 .section-heading h2{
     color:var(--primary);
 
-    font-size:32px;
+    font-size:
+        clamp(
+            28px,
+            4vw,
+            40px
+        );
 
-    margin-bottom:6px;
+    line-height:1.1;
+
+    letter-spacing:-1.4px;
+
+    margin-bottom:10px;
 }
 
 .section-heading p{
-    color:var(--gray);
+    color:var(--muted);
 
     font-size:14px;
+
+    line-height:1.7;
 }
 
 
 /* =========================================================
-   SERVICES GRID
-   3 CARDS PER ROW
+   SERVICE GRID
    ========================================================= */
 
 .services-grid{
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(3,1fr);
 
-    gap:18px;
+    gap:17px;
+
+    align-items:stretch;
 }
 
 
 /* =========================================================
-   SERVICE CARD
+   SMALLER SERVICE CARD
    ========================================================= */
 
 .service-card{
-    background:var(--white);
+    position:relative;
 
-    border:1px solid var(--border);
+    display:flex;
+    flex-direction:column;
 
-    border-radius:16px;
+    overflow:hidden;
 
-    padding:22px;
+    padding:18px;
+
+    background:
+        rgba(255,255,255,.98);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:15px;
 
     box-shadow:var(--shadow);
 
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform .3s cubic-bezier(.2,.8,.2,1),
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
 
-    display:flex;
+.service-card::before{
+    content:"";
 
-    flex-direction:column;
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-75px;
+    top:-75px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(91,31,163,.08),
+            transparent 70%
+        );
+
+    transition:
+        transform .45s ease,
+        opacity .45s ease;
+}
+
+.service-card::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--orange)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:left;
+
+    transition:
+        transform .35s ease;
 }
 
 .service-card:hover{
-    transform:translateY(-4px);
+    transform:
+        translateY(-6px);
 
-    box-shadow:var(--shadow-hover);
+    box-shadow:
+        var(--shadow-hover);
+
+    border-color:
+        rgba(91,31,163,.22);
+}
+
+.service-card:hover::before{
+    transform:scale(1.5);
+}
+
+.service-card:hover::after{
+    transform:scaleX(1);
 }
 
 
 /* =========================================================
-   SERVICE ICON
+   SERVICE IMAGE — SMALLER
    ========================================================= */
 
-.service-icon{
-    width:48px;
-    height:48px;
+.image-icon{
+    position:relative;
+
+    width:100%;
+    height:112px;
+
+    overflow:hidden;
+
+    margin-bottom:15px;
 
     border-radius:12px;
 
-    display:grid;
-    place-items:center;
+    border:
+        1px solid
+        rgba(91,31,163,.08);
 
-    background:rgba(122,44,120,.10);
+    background:
+        linear-gradient(
+            145deg,
+            #F8F3FA,
+            #F1ECF6
+        );
 
-    color:var(--secondary);
+    z-index:2;
 
-    font-size:21px;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
 
-    font-weight:900;
+.image-icon::after{
+    content:"";
 
-    margin-bottom:15px;
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.25),
+            transparent 50%
+        );
+
+    pointer-events:none;
+}
+
+.image-icon img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    padding:10px;
+
+    display:block;
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        filter .3s ease;
+}
+
+.service-card:hover .image-icon{
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 9px 20px
+        rgba(91,31,163,.09);
+}
+
+.service-card:hover .image-icon img{
+    transform:
+        scale(1.06);
+
+    filter:
+        saturate(1.08);
 }
 
 
 /* =========================================================
-   SERVICE TITLE
+   CARD TEXT
    ========================================================= */
 
 .service-card h3{
+    position:relative;
+    z-index:2;
+
     color:var(--primary);
 
-    font-size:20px;
+    font-size:18px;
 
     line-height:1.25;
 
-    margin-bottom:7px;
+    letter-spacing:-.3px;
+
+    margin-bottom:6px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
 }
 
+.service-card:hover h3{
+    color:var(--purple);
 
-/* =========================================================
-   SERVICE DESCRIPTION
-   ========================================================= */
+    transform:
+        translateX(2px);
+}
 
 .service-description{
-    color:var(--gray);
+    position:relative;
+    z-index:2;
 
-    font-size:13px;
+    color:var(--muted);
 
-    line-height:1.5;
+    font-size:12px;
 
-    margin-bottom:17px;
+    line-height:1.55;
 
-    min-height:39px;
+    margin-bottom:14px;
+
+    min-height:38px;
 }
 
 
@@ -382,73 +1929,136 @@ button{
    ========================================================= */
 
 .subservices{
+    position:relative;
+    z-index:2;
+
     display:grid;
 
-    gap:8px;
+    gap:6px;
 }
 
 .subservice{
+    min-height:38px;
+
     display:flex;
 
     align-items:center;
     justify-content:space-between;
 
-    gap:10px;
+    gap:8px;
 
-    border:1px solid var(--border);
-
-    border-radius:9px;
-
-    padding:10px 12px;
+    padding:
+        7px
+        10px;
 
     background:#FCFBFC;
 
-    transition:.2s ease;
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:8px;
+
+    transition:
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease;
 }
 
 .subservice:hover{
-    border-color:var(--secondary);
-
     background:#FAF5FA;
 
-    transform:translateX(2px);
+    border-color:
+        rgba(91,31,163,.30);
+
+    transform:
+        translateX(4px);
+
+    box-shadow:
+        0 5px 14px
+        rgba(91,31,163,.07);
 }
 
 .subservice-name{
-    color:#2b2b2b;
+    color:#2B2730;
 
-    font-size:12.5px;
+    font-size:11px;
 
-    line-height:1.35;
+    line-height:1.3;
 
     font-weight:700;
+
+    transition:
+        color .2s ease;
+}
+
+.subservice:hover .subservice-name{
+    color:var(--purple);
 }
 
 .subservice-arrow{
-    color:var(--secondary);
+    flex-shrink:0;
 
-    font-size:16px;
+    color:var(--purple);
+
+    font-size:13px;
 
     font-weight:900;
 
-    flex-shrink:0;
+    transition:
+        color .2s ease,
+        transform .22s ease;
+}
+
+.subservice:hover .subservice-arrow{
+    color:var(--orange);
+
+    transform:
+        translateX(4px);
 }
 
 
 /* =========================================================
-   CRM SOFTWARE
+   CRM
    ========================================================= */
 
 .crm-box{
-    border:1px solid var(--border);
-
-    border-radius:9px;
-
     overflow:hidden;
+
+    background:#FCFBFC;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:8px;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+.crm-box:hover{
+    border-color:
+        rgba(91,31,163,.25);
+
+    box-shadow:
+        0 6px 16px
+        rgba(91,31,163,.06);
 }
 
 .crm-toggle{
     width:100%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    padding:
+        9px
+        10px;
 
     border:0;
 
@@ -456,32 +2066,24 @@ button{
 
     color:var(--primary);
 
-    padding:11px 12px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-
-    cursor:pointer;
-
-    font-size:12.5px;
+    font-size:11px;
 
     font-weight:800;
 
-    text-align:left;
+    cursor:pointer;
 
-    transition:.2s ease;
+    text-align:left;
 }
 
 .crm-toggle:hover{
+    color:var(--purple);
+
     background:#FAF5FA;
 }
 
 .crm-arrow{
-    transition:transform .2s ease;
-
-    font-size:12px;
+    transition:
+        transform .25s ease;
 }
 
 .crm-toggle.open .crm-arrow{
@@ -491,9 +2093,10 @@ button{
 .crm-features{
     display:none;
 
-    padding:0 12px 10px;
-
-    background:#FCFBFC;
+    padding:
+        0
+        10px
+        8px;
 }
 
 .crm-features.open{
@@ -501,13 +2104,15 @@ button{
 }
 
 .crm-feature{
-    padding:7px 0;
+    padding:6px 0;
 
-    border-top:1px solid var(--border);
+    border-top:
+        1px solid
+        var(--border);
 
-    color:var(--gray);
+    color:var(--muted);
 
-    font-size:11.5px;
+    font-size:10px;
 }
 
 
@@ -516,16 +2121,22 @@ button{
    ========================================================= */
 
 .service-button{
-    width:100%;
+    position:relative;
+    z-index:2;
 
-    margin-top:17px;
+    width:100%;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    gap:6px;
+    gap:7px;
+
+    margin-top:14px;
+
+    padding:
+        10px;
 
     border:0;
 
@@ -533,23 +2144,27 @@ button{
 
     background:var(--primary);
 
-    color:var(--white);
+    color:white;
 
-    padding:10px 12px;
-
-    cursor:pointer;
-
-    font-size:12px;
+    font-size:11px;
 
     font-weight:800;
 
-    transition:.2s ease;
-
-    margin-top:auto;
+    transition:
+        background .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease;
 }
 
 .service-button:hover{
-    background:var(--secondary);
+    background:var(--purple);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 19px
+        rgba(91,31,163,.20);
 }
 
 
@@ -558,19 +2173,42 @@ button{
    ========================================================= */
 
 .note{
-    margin-top:35px;
+    margin-top:34px;
 
-    padding:16px 18px;
+    padding:
+        16px
+        18px;
 
-    border-left:4px solid var(--accent);
+    border-left:
+        4px solid
+        var(--orange);
 
-    background:var(--white);
+    border-radius:10px;
 
-    border-radius:9px;
+    background:white;
 
-    color:var(--gray);
+    color:var(--muted);
 
-    font-size:12px;
+    font-size:11px;
+
+    line-height:1.7;
+
+    box-shadow:
+        0 6px 20px
+        rgba(18,9,28,.04);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.note:hover{
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(18,9,28,.08);
 }
 
 .note strong{
@@ -583,55 +2221,161 @@ button{
    ========================================================= */
 
 .cta{
-    background:var(--primary);
+    position:relative;
 
-    color:var(--white);
+    overflow:hidden;
+
+    padding:
+        75px
+        5%;
+
+    color:white;
 
     text-align:center;
 
-    padding:60px 5%;
+    isolation:isolate;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(255,122,36,.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 40%,
+            rgba(139,61,255,.20),
+            transparent 28%
+        ),
+
+        var(--primary);
+}
+
+.cta::before,
+.cta::after{
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    pointer-events:none;
+
+    animation:
+        ctaCircle
+        12s
+        ease-in-out
+        infinite;
+}
+
+.cta::before{
+    width:380px;
+    height:380px;
+
+    left:-180px;
+    top:-190px;
+}
+
+.cta::after{
+    width:270px;
+    height:270px;
+
+    right:-100px;
+    bottom:-140px;
+
+    border-color:
+        rgba(255,122,36,.18);
+
+    animation-delay:-4s;
+}
+
+@keyframes ctaCircle{
+
+    0%,100%{
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(15px,-15px)
+            scale(1.04);
+    }
 }
 
 .cta-inner{
     max-width:750px;
 
     margin:auto;
+
+    position:relative;
+
+    z-index:2;
 }
 
 .cta h2{
-    font-size:30px;
+    font-size:
+        clamp(
+            27px,
+            4vw,
+            38px
+        );
 
-    margin-bottom:10px;
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    margin-bottom:12px;
 }
 
 .cta p{
-    color:rgba(255,255,255,.8);
+    color:
+        rgba(255,255,255,.76);
 
     font-size:14px;
 
-    margin-bottom:22px;
+    line-height:1.7;
+
+    margin-bottom:25px;
 }
 
 .cta a{
-    display:inline-block;
+    display:inline-flex;
 
-    background:var(--accent);
+    align-items:center;
+    justify-content:center;
+
+    padding:
+        13px
+        24px;
+
+    border-radius:10px;
+
+    background:var(--orange);
 
     color:var(--black);
 
-    font-weight:800;
-
     font-size:13px;
 
-    padding:11px 22px;
+    font-weight:900;
 
-    border-radius:9px;
-
-    transition:.2s ease;
+    transition:.25s ease;
 }
 
 .cta a:hover{
-    transform:translateY(-2px);
+    transform:
+        translateY(-3px)
+        scale(1.03);
+
+    box-shadow:
+        0 10px 24px
+        rgba(0,0,0,.2);
 }
 
 
@@ -639,16 +2383,204 @@ button{
    FOOTER
    ========================================================= */
 
-footer{
-    background:#16091A;
+.footer{
+    background:#0D0612;
 
-    color:rgba(255,255,255,.75);
+    color:
+        rgba(255,255,255,.62);
 
-    text-align:center;
+    padding:
+        65px
+        5%
+        25px;
+}
 
-    padding:30px 5%;
+.footer-container{
+    max-width:1240px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap:45px;
+
+    padding-bottom:45px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+.footer-brand{
+    max-width:330px;
+}
+
+.footer-logo{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:16px;
+
+    color:white;
+
+    font-size:19px;
+
+    font-weight:900;
+}
+
+.footer-logo-mark{
+    width:50px;
+    height:50px;
+
+    overflow:hidden;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:
+        2px solid
+        rgba(255,255,255,.12);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.footer-logo:hover .footer-logo-mark{
+    transform:
+        scale(1.06);
+
+    box-shadow:
+        0 0 20px
+        rgba(139,61,255,.25);
+}
+
+.footer-logo-mark img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+.footer-brand p{
+    font-size:12px;
+
+    line-height:1.8;
+
+    color:
+        rgba(255,255,255,.52);
+}
+
+.footer-column h4{
+    margin-bottom:16px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:900;
+}
+
+.footer-column a{
+    display:block;
+
+    width:max-content;
+
+    margin-bottom:10px;
+
+    color:
+        rgba(255,255,255,.55);
 
     font-size:12px;
+
+    transition:.2s ease;
+}
+
+.footer-column a:hover{
+    color:var(--orange);
+
+    transform:
+        translateX(3px);
+}
+
+.footer-contact{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.footer-contact span{
+    color:
+        rgba(255,255,255,.55);
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+.footer-contact strong{
+    color:white;
+}
+
+.footer-bottom{
+    max-width:1240px;
+
+    margin:auto;
+
+    padding-top:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-bottom p{
+    font-size:11px;
+
+    color:
+        rgba(255,255,255,.42);
+}
+
+.footer-bottom strong{
+    color:white;
+}
+
+.footer-links{
+    display:flex;
+
+    gap:18px;
+}
+
+.footer-links a{
+    color:
+        rgba(255,255,255,.42);
+
+    font-size:11px;
+
+    transition:.2s ease;
+}
+
+.footer-links a:hover{
+    color:var(--orange);
 }
 
 
@@ -656,21 +2588,295 @@ footer{
    TABLET
    ========================================================= */
 
-@media(max-width:1000px){
+@media(max-width:1100px){
+
+    .network-system{
+        right:-10%;
+
+        transform:
+            translateY(-50%)
+            scale(.82);
+
+        opacity:.72;
+    }
+
+    .hero-inner{
+        max-width:560px;
+    }
 
     .services-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .nav-links{
-        gap:14px;
+    .footer-container{
+        grid-template-columns:
+            repeat(2,1fr);
     }
-
 }
 
 
 /* =========================================================
-   MOBILE
+   MOBILE NAV
+   ========================================================= */
+
+@media(max-width:850px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-links{
+        position:fixed;
+
+        top:0;
+        right:0;
+
+        width:min(320px,85vw);
+
+        height:100vh;
+
+        padding:
+            105px
+            25px
+            30px;
+
+        background:white;
+
+        box-shadow:
+            -20px 0 50px
+            rgba(0,0,0,.12);
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:7px;
+
+        transform:
+            translateX(110%);
+
+        transition:
+            transform .3s ease;
+
+        z-index:1550;
+    }
+
+    .nav-links.open{
+        transform:
+            translateX(0);
+    }
+
+    .nav-links a{
+        padding:14px;
+
+        font-size:14px;
+    }
+
+    .nav-links .nav-cta{
+        margin-left:0;
+
+        margin-top:8px;
+
+        text-align:center;
+    }
+
+    .nav-links::before{
+        content:"Dinges TechHub";
+
+        position:absolute;
+
+        top:34px;
+        left:25px;
+
+        color:var(--primary);
+
+        font-size:18px;
+
+        font-weight:900;
+    }
+}
+
+
+/* =========================================================
+   HERO MOBILE
+   ========================================================= */
+
+@media(max-width:760px){
+
+    .topbar{
+        padding:
+            8px
+            4%;
+    }
+
+    .topbar-inner{
+        justify-content:center;
+    }
+
+    .topbar-inner span:last-child{
+        display:none;
+    }
+
+    .nav-inner{
+        min-height:72px;
+        padding:0 5%;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    .logo-mark{
+        width:47px;
+        height:47px;
+    }
+
+    .hero{
+        min-height:760px;
+
+        align-items:flex-start;
+
+        padding:
+            65px
+            5%
+            80px;
+    }
+
+    .hero::before{
+        mask-image:
+            linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 45%,
+                black 100%
+            );
+    }
+
+    .hero-video{
+        opacity:.27;
+    }
+
+    .hero-video-overlay{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(13,7,21,.94),
+                rgba(22,10,36,.84)
+            );
+    }
+
+    .hero-inner{
+        width:100%;
+        max-width:none;
+    }
+
+    .hero h1{
+        font-size:
+            clamp(
+                42px,
+                11vw,
+                60px
+            );
+
+        letter-spacing:-2.5px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .network-system{
+        width:450px;
+        height:450px;
+
+        right:50%;
+
+        top:auto;
+        bottom:-25px;
+
+        transform:
+            translateX(50%)
+            scale(.9);
+
+        opacity:.9;
+    }
+
+    .network-orbit{
+        width:400px;
+        height:245px;
+    }
+
+    .node-fibre{
+        transform:
+            translate(-50%,-50%)
+            translateY(-192px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-lte{
+        transform:
+            translate(-50%,-50%)
+            rotate(90deg)
+            translateY(-192px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-voice{
+        transform:
+            translate(-50%,-50%)
+            rotate(180deg)
+            translateY(-192px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-cloud{
+        transform:
+            translate(-50%,-50%)
+            rotate(270deg)
+            translateY(-192px)
+            rotate(var(--counter-rotation));
+    }
+
+    .network-core{
+        width:90px;
+        height:90px;
+    }
+
+    .network-core img{
+        width:70px;
+        height:70px;
+    }
+
+    .network-status{
+        right:-5px;
+        bottom:5px;
+
+        width:145px;
+
+        padding:13px;
+    }
+
+    .network-status strong{
+        font-size:21px;
+    }
+
+    .services-section{
+        padding:
+            60px
+            5%;
+    }
+
+    .footer{
+        padding-top:50px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE CARDS
    ========================================================= */
 
 @media(max-width:650px){
@@ -679,82 +2885,224 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .nav-links{
-        display:none;
+    .service-card{
+        padding:18px;
     }
 
-    .topbar-inner{
-        justify-content:center;
-
-        text-align:center;
+    .image-icon{
+        height:140px;
     }
 
-    .topbar-inner span:last-child{
-        display:none;
-    }
-
-    .hero{
-        padding:55px 5%;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .services-section{
-        padding:50px 5%;
+    .section-heading{
+        margin-bottom:30px;
     }
 
     .section-heading h2{
         font-size:28px;
     }
 
-    .service-card{
-        padding:20px;
+    .section-heading p{
+        font-size:13px;
     }
 
-    .cta h2{
-        font-size:27px;
+    .cta{
+        padding:
+            65px
+            5%;
     }
 
+    .footer-container{
+        grid-template-columns:1fr;
+
+        gap:35px;
+
+        padding-bottom:35px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
 }
 
-.image-icon{
-    width:150px;
-    height:150px;
 
-    overflow:hidden;
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
 
-    background:transparent;
+@media(max-width:500px){
 
-    padding:0;
+    .logo span:last-child{
+        font-size:15px;
+    }
 
-    margin-bottom:15px;
+    .logo-mark{
+        width:44px;
+        height:44px;
+    }
+
+    .hero{
+        min-height:730px;
+
+        padding:
+            55px
+            5%
+            70px;
+    }
+
+    .hero h1{
+        font-size:42px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .hero-primary,
+    .hero-secondary{
+        width:100%;
+    }
+
+    .hero-trust{
+        gap:
+            9px
+            13px;
+
+        font-size:9px;
+    }
+
+    .network-system{
+        width:350px;
+        height:350px;
+
+        bottom:-2px;
+
+        transform:
+            translateX(50%)
+            scale(.86);
+    }
+
+    .network-orbit{
+        width:320px;
+        height:200px;
+    }
+
+    .orbit-node{
+        width:66px;
+        height:29px;
+    }
+
+    .node-fibre{
+        transform:
+            translate(-50%,-50%)
+            translateY(-155px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-lte{
+        transform:
+            translate(-50%,-50%)
+            rotate(90deg)
+            translateY(-155px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-voice{
+        transform:
+            translate(-50%,-50%)
+            rotate(180deg)
+            translateY(-155px)
+            rotate(var(--counter-rotation));
+    }
+
+    .node-cloud{
+        transform:
+            translate(-50%,-50%)
+            rotate(270deg)
+            translateY(-155px)
+            rotate(var(--counter-rotation));
+    }
+
+    .network-core{
+        width:78px;
+        height:78px;
+    }
+
+    .network-core img{
+        width:62px;
+        height:62px;
+        padding:3px;
+    }
+
+    .network-status{
+        right:-10px;
+        bottom:4px;
+
+        width:125px;
+    }
+
+    .network-status .status-top{
+        font-size:7px;
+    }
+
+    .network-status strong{
+        font-size:18px;
+    }
+
+    .network-status small{
+        font-size:7px;
+    }
+
+    .services-section{
+        padding:
+            52px
+            5%;
+    }
+
+    .image-icon{
+        height:130px;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
 }
 
-.image-icon img{
-    width:100%;
-    height:100%;
 
-    object-fit:contain;
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
-    display:block;
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+
+        animation-iteration-count:1!important;
+
+        transition-duration:.01ms!important;
+
+        scroll-behavior:auto!important;
+    }
 }
+
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      TOP BAR
-     ===================================================== -->
+     ========================================================= -->
 
 <div class="topbar">
 
@@ -773,20 +3121,34 @@ footer{
 </div>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-     ===================================================== -->
+     ========================================================= -->
 
 <nav class="navbar">
 
     <div class="nav-inner">
 
-
         <a href="index.html" class="logo">
 
             <span class="logo-mark">
-                DT
+
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub Logo"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='block';
+                    "
+                >
+
+                <span
+                    class="logo-fallback"
+                    style="display:none;"
+                >
+                    DT
+                </span>
+
             </span>
 
             <span>
@@ -796,11 +3158,10 @@ footer{
         </a>
 
 
-        <div class="nav-links">
-
-            <a href="index.html">
-                Home
-            </a>
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
 
             <a
                 href="services.html"
@@ -809,98 +3170,291 @@ footer{
                 Services
             </a>
 
+            <a href="internet-connectivity.html">
+                Internet
+            </a>
+
+            <a href="hosting.html">
+                Hosting
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
             <a href="contact.html">
-                Contact Us
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
-
-            <a href="register.html">
-                Register
-            </a>
-
-            <a
-                href="cart.html"
-                class="nav-cta"
-            >
-                Cart
+                Contact
             </a>
 
         </div>
 
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
 
     </div>
 
 </nav>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      HERO
-     ===================================================== -->
+     ========================================================= -->
 
 <section class="hero">
+
+
+    <!-- LOOPING VIDEO -->
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+    >
+
+        <source
+            src="dingestech-loop.mp4"
+            type="video/mp4"
+        >
+
+    </video>
+
+
+    <div
+        class="hero-video-overlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <div
+        class="hero-video-glow"
+        aria-hidden="true"
+    ></div>
+
+
+    <div
+        class="hero-circles"
+        aria-hidden="true"
+    >
+
+        <div class="hero-circle circle-1"></div>
+        <div class="hero-circle circle-2"></div>
+        <div class="hero-circle circle-3"></div>
+        <div class="hero-circle circle-4"></div>
+        <div class="hero-circle circle-5"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NETWORK GRAPHIC
+         ===================================================== -->
+
+    <div
+        class="network-system"
+        id="networkSystem"
+        aria-hidden="true"
+    >
+
+        <div class="network-orbit">
+
+            <div class="network-beam"></div>
+
+            <span class="orbit-dot dot-1"></span>
+            <span class="orbit-dot dot-2"></span>
+            <span class="orbit-dot dot-3"></span>
+
+        </div>
+
+
+        <div
+            class="orbiting-labels"
+            id="orbitingLabels"
+        >
+
+            <div class="orbit-node node-fibre">
+                <span>FIBRE</span>
+            </div>
+
+            <div class="orbit-node node-lte">
+                <span>LTE</span>
+            </div>
+
+            <div class="orbit-node node-voice">
+                <span>VOICE</span>
+            </div>
+
+            <div class="orbit-node node-cloud">
+                <span>CLOUD</span>
+            </div>
+
+        </div>
+
+
+        <div class="network-core">
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub"
+            >
+
+        </div>
+
+
+        <div class="network-status">
+
+            <div class="status-top">
+
+                <span class="status-live"></span>
+
+                Network Live
+
+            </div>
+
+            <strong>
+                Optimal
+            </strong>
+
+            <small>
+                Low latency connection
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HERO CONTENT
+         ===================================================== -->
 
     <div class="hero-inner">
 
         <span class="eyebrow">
-            Dinges TechHub
+            Technology that fits your world
         </span>
 
         <h1>
-            Our Services
+
+            Better technology.
+
+            <span class="hero-highlight">
+                Simply connected.
+            </span>
+
         </h1>
 
         <p>
-            Technology, connectivity, software and smart business
-            solutions designed to keep you connected, productive
-            and secure.
+            Reliable connectivity, hosting, software and smart
+            technology solutions for your home or business —
+            with friendly local support when you need it.
         </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#internet-connectivity"
+                class="hero-primary"
+            >
+                Explore our services
+                <span>→</span>
+            </a>
+
+            <a
+                href="#what-we-offer"
+                class="hero-secondary"
+            >
+                View all solutions
+                <span>↓</span>
+            </a>
+
+        </div>
+
+
+        <div class="hero-trust">
+
+            <span>
+                Reliable solutions
+            </span>
+
+            <span>
+                Local support
+            </span>
+
+            <span>
+                Trusted technology
+            </span>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      SERVICES
-     ===================================================== -->
+     ========================================================= -->
 
-<main class="services-section">
-
+<main
+    class="services-section"
+    id="what-we-offer"
+>
 
     <div class="section-heading">
 
+        <span class="section-label">
+            Our Services
+        </span>
+
         <h2>
-            What We Offer
+            Technology built around you.
         </h2>
 
         <p>
-            Explore our complete range of technology and business solutions.
+            Explore our complete range of connectivity,
+            communication, hosting, IoT, software and
+            smart technology solutions.
         </p>
 
     </div>
 
 
-
     <div class="services-grid">
 
 
-        <!-- =================================================
-             1. INTERNET CONNECTIVITY
-             ================================================= -->
+        <!-- INTERNET CONNECTIVITY -->
 
         <article
             class="service-card"
             id="internet-connectivity"
         >
 
-            <div class="service-icon image-icon">
-             <img src="internet connectivity.jpg" alt="Internet Connectivity">
-            </div> 
+            <div class="image-icon">
+
+                <img
+                    src="internet connectivity.jpg"
+                    alt="Internet Connectivity"
+                    loading="lazy"
+                >
+
+            </div>
 
             <h3>
                 Internet Connectivity
@@ -911,15 +3465,12 @@ footer{
                 businesses and organisations.
             </p>
 
-
             <div class="subservices">
-
 
                 <a
                     href="fibre.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Fibre
                     </span>
@@ -927,15 +3478,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="wireless-broadband.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Wireless Broadband
                     </span>
@@ -943,15 +3491,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="melon-mobile.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Melon Mobile
                     </span>
@@ -959,15 +3504,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="wireless-lte-4g-5g.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Wireless LTE 4G/5G
                     </span>
@@ -975,12 +3517,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="internet-connectivity.html"
@@ -992,18 +3531,21 @@ footer{
         </article>
 
 
-
-        <!-- =================================================
-             2. VOIP / TELEPHONY
-             ================================================= -->
+        <!-- VOIP -->
 
         <article
             class="service-card"
             id="voip-telephony"
         >
 
-            <div class="service-icon image-icon">
-             <img src="voip.png" alt="VOIP / Telephony">
+            <div class="image-icon">
+
+                <img
+                    src="voip.png"
+                    alt="VOIP and Telephony"
+                    loading="lazy"
+                >
+
             </div>
 
             <h3>
@@ -1015,15 +3557,12 @@ footer{
                 for individuals and businesses.
             </p>
 
-
             <div class="subservices">
-
 
                 <a
                     href="smart-number.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Smart Number
                     </span>
@@ -1031,15 +3570,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="advanced-pbx.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Advanced PBX
                     </span>
@@ -1047,15 +3583,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="call-centre-solution.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Call Centre Solution
                     </span>
@@ -1063,12 +3596,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="voip.html"
@@ -1080,18 +3610,21 @@ footer{
         </article>
 
 
-
-        <!-- =================================================
-             3. WEB & EMAIL HOSTING
-             ================================================= -->
+        <!-- HOSTING -->
 
         <article
             class="service-card"
             id="web-email-hosting"
         >
 
-            <div class="service-icon image-icon">
-              <img src="hosting.png" alt="Web and Email Hosting">
+            <div class="image-icon">
+
+                <img
+                    src="hosting.png"
+                    alt="Web and Email Hosting"
+                    loading="lazy"
+                >
+
             </div>
 
             <h3>
@@ -1103,15 +3636,12 @@ footer{
                 your online presence.
             </p>
 
-
             <div class="subservices">
-
 
                 <a
                     href="domain.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Domain
                     </span>
@@ -1119,15 +3649,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="email-hosting.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Email Hosting
                     </span>
@@ -1135,15 +3662,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="web-development.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Web Development
                     </span>
@@ -1151,15 +3675,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="shared-hosting.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Shared Hosting
                     </span>
@@ -1167,12 +3688,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="hosting.html"
@@ -1184,18 +3702,21 @@ footer{
         </article>
 
 
-
-        <!-- =================================================
-             4. INTERNET OF THINGS
-             ================================================= -->
+        <!-- INTERNET OF THINGS -->
 
         <article
             class="service-card"
             id="internet-of-things"
         >
 
-            <div class="service-icon image-icon">
-               <img src="iot.png" alt="Internet of Things">
+            <div class="image-icon">
+
+                <img
+                    src="iot.png"
+                    alt="Internet of Things"
+                    loading="lazy"
+                >
+
             </div>
 
             <h3>
@@ -1207,15 +3728,12 @@ footer{
                 solutions for smarter environments.
             </p>
 
-
             <div class="subservices">
-
 
                 <a
                     href="smart-appliances-devices.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Smart Appliances & Devices
                     </span>
@@ -1223,15 +3741,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="automation-software.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Automation Software
                     </span>
@@ -1239,15 +3754,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="remote-monitoring.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Remote Monitoring
                     </span>
@@ -1255,15 +3767,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="smart-security.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Smart Security
                     </span>
@@ -1271,12 +3780,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="iot.html"
@@ -1288,18 +3794,21 @@ footer{
         </article>
 
 
-
-        <!-- =================================================
-             5. SOFTWARE
-             ================================================= -->
+        <!-- SOFTWARE -->
 
         <article
             class="service-card"
             id="software"
         >
 
-            <div class="service-icon image-icon">
-              <img src="software.png" alt="Software">
+            <div class="image-icon">
+
+                <img
+                    src="software.png"
+                    alt="Software Solutions"
+                    loading="lazy"
+                >
+
             </div>
 
             <h3>
@@ -1311,11 +3820,7 @@ footer{
                 operations and protect your systems.
             </p>
 
-
             <div class="subservices">
-
-
-                <!-- CRM SOFTWARE -->
 
                 <div class="crm-box">
 
@@ -1323,21 +3828,18 @@ footer{
                         type="button"
                         class="crm-toggle"
                         id="crmToggle"
+                        aria-expanded="false"
                     >
 
                         <span>
                             CRM Software
                         </span>
 
-                        <span
-                            class="crm-arrow"
-                            id="crmArrow"
-                        >
+                        <span class="crm-arrow">
                             ▼
                         </span>
 
                     </button>
-
 
                     <div
                         class="crm-features"
@@ -1361,13 +3863,10 @@ footer{
                 </div>
 
 
-                <!-- WHATSAPP -->
-
                 <a
                     href="whatsapp-business-api.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         WhatsApp Business API
                     </span>
@@ -1375,17 +3874,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
-                <!-- CLEANING SOFTWARE -->
-
                 <a
-                    href="cleaning-software.html"
+                    href="software-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Cleaning Software
                     </span>
@@ -1393,17 +3887,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
-                <!-- ANTIVIRUS -->
-
                 <a
-                    href="antivirus-software.html"
+                    href="software-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Antivirus Software
                     </span>
@@ -1411,17 +3900,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
-                <!-- MICROSOFT 365 -->
-
                 <a
-                    href="microsoft-365.html"
+                    href="software-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Microsoft 365
                     </span>
@@ -1429,12 +3913,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="software.html"
@@ -1446,18 +3927,21 @@ footer{
         </article>
 
 
-
-        <!-- =================================================
-             6. SMART SOLUTIONS
-             ================================================= -->
+        <!-- SMART SOLUTIONS -->
 
         <article
             class="service-card"
             id="smart-solutions"
         >
 
-            <div class="service-icon image-icon">
-                <img src="smart solutions.png" alt="Smart Solutions">
+            <div class="image-icon">
+
+                <img
+                    src="smart solutions.png"
+                    alt="Smart Solutions"
+                    loading="lazy"
+                >
+
             </div>
 
             <h3>
@@ -1469,15 +3953,12 @@ footer{
                 assistance for your business.
             </p>
 
-
             <div class="subservices">
-
 
                 <a
                     href="network-monitoring.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Proactive & Network Monitoring
                     </span>
@@ -1485,15 +3966,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="printer-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Printers Setup & Issues
                     </span>
@@ -1501,15 +3979,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="it-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Technical Assistance & IT Support
                     </span>
@@ -1517,15 +3992,12 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
-
 
                 <a
                     href="software-support.html"
                     class="subservice"
                 >
-
                     <span class="subservice-name">
                         Cleaning, Antivirus & Microsoft Software
                     </span>
@@ -1533,12 +4005,9 @@ footer{
                     <span class="subservice-arrow">
                         →
                     </span>
-
                 </a>
 
-
             </div>
-
 
             <a
                 href="smart-solutions.html"
@@ -1549,34 +4018,31 @@ footer{
 
         </article>
 
-
     </div>
 
 
-
-    <!-- =====================================================
-         WHMCS NOTE
-         ===================================================== -->
+    <!-- INFORMATION NOTE -->
 
     <div class="note">
 
-        <strong>Service information:</strong>
+        <strong>
+            Service information:
+        </strong>
 
-        Our website is being connected to our existing WHMCS
-        backend. Product information, availability and pricing
-        will be loaded from the existing system rather than
-        being recreated manually on the website.
+        Dinges Tech is connecting its website frontend
+        to the existing backend infrastructure. Where applicable,
+        product information, availability, customer information
+        and pricing can be managed through the existing
+        backend rather than being manually recreated on every page.
 
     </div>
-
 
 </main>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      CTA
-     ===================================================== -->
+     ========================================================= -->
 
 <section class="cta">
 
@@ -1587,12 +4053,13 @@ footer{
         </h2>
 
         <p>
-            Contact Dinges TechHub and let us help you find
-            the right technology solution for your needs.
+            Not sure which technology solution is right for you?
+            Contact Dinges Tech and let us help you find
+            the right solution for your home or business.
         </p>
 
         <a href="contact.html">
-            Contact Us
+            Contact Us →
         </a>
 
     </div>
@@ -1600,45 +4067,241 @@ footer{
 </section>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-     ===================================================== -->
+     ========================================================= -->
 
-<footer>
+<footer class="footer">
 
-    <p>
-        &copy;
-        <span id="year"></span>
-        Dinges TechHub. All rights reserved.
-    </p>
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+
+                <span class="footer-logo-mark">
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+                </span>
+
+                <span>
+                    Dinges Tech
+                </span>
+
+            </div>
+
+            <p>
+                Reliable technology, connectivity and smart
+                business solutions designed to help homes,
+                businesses and organisations stay connected,
+                productive and secure.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                Internet
+            </h3>
+
+            <a href="fibre.html">
+                Fibre
+            </a>
+
+            <a href="wireless-broadband.html">
+                Wireless Broadband
+            </a>
+
+            <a href="wireless-lte-4g-5g.html">
+                LTE / 4G / 5G
+            </a>
+
+            <a href="melon-mobile.html">
+                Mobile
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="internet-connectivity.html">
+                Internet
+            </a>
+
+            <a href="hosting.html">
+                Hosting
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Contact
+            </h4>
+
+            <div class="footer-contact">
+
+                <span>
+                    <strong>Email</strong><br>
+                    support@dingestechhub.co.za
+                </span>
+
+                <span>
+                    <strong>Location</strong><br>
+                    South Africa
+                </span>
+
+                <span>
+                    <strong>Business Hours</strong><br>
+                    Mon – Fri: 09:00 – 16:00
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            &copy;
+            <span id="year"></span>
+            <strong>Dinges Tech</strong>.
+            All rights reserved.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+    </div>
 
 </footer>
 
 
-
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-     ===================================================== -->
+     ========================================================= -->
 
 <script>
 
-/*
-=========================================================
-CURRENT YEAR
-=========================================================
-*/
+/* =========================================================
+   CURRENT YEAR
+   ========================================================= */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
 
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
 
-/*
-=========================================================
-CRM SOFTWARE DROPDOWN
-=========================================================
-*/
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function(){
+
+        const isOpen =
+            navLinks.classList.toggle("open");
+
+        menuToggle.classList.toggle(
+            "open",
+            isOpen
+        );
+
+        document.body.classList.toggle(
+            "menu-open",
+            isOpen
+        );
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+   ========================================================= */
+
+navLinks
+    .querySelectorAll("a")
+    .forEach(
+        function(link){
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    navLinks.classList.remove("open");
+
+                    menuToggle.classList.remove("open");
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   CRM DROPDOWN
+   ========================================================= */
 
 const crmToggle =
     document.getElementById("crmToggle");
@@ -1647,16 +4310,221 @@ const crmFeatures =
     document.getElementById("crmFeatures");
 
 
-crmToggle.addEventListener("click", function(){
+if(crmToggle && crmFeatures){
 
-    crmFeatures.classList.toggle("open");
+    crmToggle.addEventListener(
+        "click",
+        function(){
 
-    crmToggle.classList.toggle("open");
+            const isOpen =
+                crmFeatures.classList.toggle("open");
 
-});
+            crmToggle.classList.toggle(
+                "open",
+                isOpen
+            );
+
+            crmToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HERO PARALLAX
+   ========================================================= */
+
+const hero =
+    document.querySelector(".hero");
+
+const circles =
+    document.querySelectorAll(".hero-circle");
+
+
+if(
+    hero &&
+    circles.length &&
+    window.matchMedia("(pointer:fine)").matches
+){
+
+    hero.addEventListener(
+        "mousemove",
+        function(event){
+
+            const rect =
+                hero.getBoundingClientRect();
+
+            const x =
+                (
+                    (event.clientX - rect.left)
+                    /
+                    rect.width
+                ) - .5;
+
+            const y =
+                (
+                    (event.clientY - rect.top)
+                    /
+                    rect.height
+                ) - .5;
+
+
+            circles.forEach(
+                function(circle,index){
+
+                    const strength =
+                        (index + 1) * 3;
+
+                    circle.style.marginLeft =
+                        `${x * strength}px`;
+
+                    circle.style.marginTop =
+                        `${y * strength}px`;
+
+                }
+            );
+
+        }
+    );
+
+
+    hero.addEventListener(
+        "mouseleave",
+        function(){
+
+            circles.forEach(
+                function(circle){
+
+                    circle.style.marginLeft =
+                        "0px";
+
+                    circle.style.marginTop =
+                        "0px";
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HERO VIDEO
+   ========================================================= */
+
+const heroVideo =
+    document.querySelector(".hero-video");
+
+
+if(heroVideo){
+
+    heroVideo.play().catch(
+        function(){
+            /*
+             * Muted autoplay is normally allowed.
+             */
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NETWORK LABEL ROTATION
+   =========================================================
+
+   The orbit itself rotates normally.
+
+   JavaScript reads the current rotation and applies
+   the opposite rotation to every label.
+
+   Result:
+   FIBRE stays upright.
+   LTE stays upright.
+   VOICE stays upright.
+   CLOUD stays upright.
+
+   The labels still travel around the orbit.
+   ========================================================= */
+
+const orbitingLabels =
+    document.getElementById("orbitingLabels");
+
+const orbitNodes =
+    document.querySelectorAll(".orbit-node");
+
+let networkAngle = 0;
+
+function animateNetworkLabels(){
+
+    networkAngle += 360 / (18 * 60);
+
+    if(networkAngle >= 360){
+        networkAngle -= 360;
+    }
+
+    const counterRotation =
+        `${-networkAngle}deg`;
+
+    orbitNodes.forEach(
+        function(node){
+
+            node.style.setProperty(
+                "--counter-rotation",
+                counterRotation
+            );
+
+        }
+    );
+
+    requestAnimationFrame(
+        animateNetworkLabels
+    );
+}
+
+if(orbitingLabels){
+
+    animateNetworkLabels();
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            navLinks.classList.remove("open");
+
+            menuToggle.classList.remove("open");
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+);
 
 </script>
-
 
 </body>
 </html>

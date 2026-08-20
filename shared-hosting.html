@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Shared Hosting | Dinges TechHub</title>
+
+<style>
+
+:root{
+
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+
+    --black:#020202;
+    --gray:#949393;
+    --light:#D9D9D9;
+    --white:#ffffff;
+
+    --background:#f7f7f8;
+
+    --success:#198754;
+    --danger:#dc3545;
+
+}
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+    padding:0;
+
+}
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--background);
+
+    color:var(--black);
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:18px 6%;
+
+}
+
+.nav{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+    font-weight:800;
+
+}
+
+.logo span{
+
+    color:var(--accent);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:25px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--accent);
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(60,21,66,.97),
+            rgba(122,44,120,.97)
+        );
+
+    color:white;
+
+    text-align:center;
+
+    padding:85px 20px 110px;
+
+}
+
+.hero h1{
+
+    font-size:46px;
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#eeeeee;
+
+    font-size:18px;
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    max-width:900px;
+
+    margin:-45px auto 60px;
+
+    padding:0 20px;
+
+    position:relative;
+
+}
+
+.intro-card{
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.12);
+
+}
+
+.intro-card h2{
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+.intro-card p{
+
+    color:#555;
+
+}
+
+
+/* =====================================================
+   PACKAGES
+===================================================== */
+
+.packages{
+
+    max-width:1150px;
+
+    margin:0 auto 80px;
+
+    padding:0 20px;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.section-title h2{
+
+    color:var(--primary);
+
+    font-size:32px;
+
+}
+
+.section-title p{
+
+    color:var(--gray);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+
+    display:none;
+
+    max-width:850px;
+
+    margin:0 auto 30px;
+
+    padding:15px;
+
+    border-radius:8px;
+
+    text-align:center;
+
+}
+
+.status.loading{
+
+    display:block;
+
+    background:#eeeeee;
+
+    color:#555;
+
+}
+
+.status.success{
+
+    display:block;
+
+    background:#e9f7ef;
+
+    color:var(--success);
+
+}
+
+.status.error{
+
+    display:block;
+
+    background:#fdecec;
+
+    color:var(--danger);
+
+}
+
+
+/* =====================================================
+   PACKAGE GRID
+===================================================== */
+
+.package-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+.package-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    box-shadow:
+        0 5px 22px rgba(0,0,0,.08);
+
+    border:1px solid #eeeeee;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:.2s;
+
+}
+
+.package-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.package-card.featured{
+
+    border:
+        2px solid var(--accent);
+
+}
+
+.badge{
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    align-self:flex-start;
+
+    margin-bottom:15px;
+
+}
+
+.package-name{
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+.package-description{
+
+    color:#666;
+
+    min-height:70px;
+
+    margin-bottom:20px;
+
+}
+
+.package-price{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:var(--secondary);
+
+}
+
+.package-price span{
+
+    font-size:14px;
+
+    color:var(--gray);
+
+    font-weight:normal;
+
+}
+
+.package-features{
+
+    list-style:none;
+
+    margin:25px 0;
+
+    flex:1;
+
+}
+
+.package-features li{
+
+    padding:8px 0;
+
+    border-bottom:
+        1px solid #eeeeee;
+
+    color:#444;
+
+}
+
+.package-features li::before{
+
+    content:"✓";
+
+    color:var(--success);
+
+    font-weight:bold;
+
+    margin-right:8px;
+
+}
+
+.order-button{
+
+    display:block;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    background:var(--primary);
+
+    color:white;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+.order-button:hover{
+
+    background:var(--secondary);
+
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.features-section{
+
+    background:white;
+
+    padding:70px 20px;
+
+}
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+    margin-top:35px;
+
+}
+
+.feature{
+
+    padding:25px;
+
+    background:var(--background);
+
+    border-radius:12px;
+
+    text-align:center;
+
+}
+
+.feature-icon{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.feature h3{
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+}
+
+.feature p{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+
+    background:var(--primary);
+
+    color:white;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.cta h2{
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+}
+
+.cta p{
+
+    max-width:650px;
+
+    margin:0 auto 25px;
+
+    color:#eeeeee;
+
+}
+
+.cta a{
+
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    padding:14px 28px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:var(--black);
+
+    color:white;
+
+    padding:45px 20px 20px;
+
+}
+
+.footer-grid{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+    gap:35px;
+
+}
+
+.footer-brand h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+}
+
+.footer-brand span{
+
+    color:var(--accent);
+
+}
+
+.footer-brand p{
+
+    color:#aaaaaa;
+
+    font-size:14px;
+
+}
+
+.footer-column h4{
+
+    margin-bottom:12px;
+
+}
+
+.footer-column ul{
+
+    list-style:none;
+
+}
+
+.footer-column li{
+
+    margin-bottom:8px;
+
+    color:#aaaaaa;
+
+    font-size:14px;
+
+}
+
+.footer-column a{
+
+    color:#aaaaaa;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+}
+
+.footer-column a:hover{
+
+    color:var(--accent);
+
+}
+
+.footer-bottom{
+
+    max-width:1150px;
+
+    margin:30px auto 0;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid #333;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading-spinner{
+
+    width:30px;
+
+    height:30px;
+
+    border:
+        3px solid #ddd;
+
+    border-top:
+        3px solid var(--secondary);
+
+    border-radius:50%;
+
+    animation:
+        spin .8s linear infinite;
+
+    margin:0 auto 10px;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:900px){
+
+    .package-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .feature-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+    .package-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .feature-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+
+Dinges<span>TechHub</span>
+
+</div>
+
+
+<ul class="nav-links">
+
+<li>
+<a href="/">Home</a>
+</li>
+
+<li>
+<a href="/services.php">Services</a>
+</li>
+
+<li>
+<a href="/domains.php">Domains</a>
+</li>
+
+<li>
+<a href="/hosting.php">Hosting</a>
+</li>
+
+<li>
+<a href="/contact.php">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<h1>
+Shared Hosting
+</h1>
+
+<p>
+
+Reliable, secure and affordable shared hosting
+for your website, business or online store.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+<div class="intro-card">
+
+<h2>
+Web Hosting for Your Business
+</h2>
+
+<p>
+
+Launch your website with reliable shared hosting
+and a package designed to fit your business needs.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PACKAGES
+===================================================== -->
+
+<section class="packages">
+
+<div class="section-title">
+
+<h2>
+Shared Hosting Plans
+</h2>
+
+<p>
+Choose the shared hosting plan that fits your website and business needs.
+</p>
+
+</div>
+
+
+<div id="status" class="status"></div>
+
+
+<div
+    id="packageGrid"
+    class="package-grid"
+></div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section class="features-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Choose Our Shared Hosting?
+</h2>
+
+<p>
+Everything you need to get your website online.
+</p>
+
+</div>
+
+
+<div class="feature-grid">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🌐
+</div>
+
+<h3>
+Reliable Hosting
+</h3>
+
+<p>
+Dependable hosting for business websites, portfolios and online stores.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<h3>
+Secure
+</h3>
+
+<p>
+Your website is hosted on a professionally managed hosting platform.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Fast Performance
+</h3>
+
+<p>
+Enjoy responsive hosting performance for your website visitors.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🛠️
+</div>
+
+<h3>
+Support
+</h3>
+
+<p>
+Get assistance when you need help with your hosting service.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+<h2>
+Need Help Choosing Hosting?
+</h2>
+
+<p>
+
+Contact Dinges TechHub and we can help you choose
+the right hosting package for your website or business.
+
+</p>
+
+<a href="/contact.php">
+Contact Us
+</a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h3>
+Dinges<span>TechHub</span>
+</h3>
+
+<p>
+
+Internet connectivity, hosting, domains, email hosting,
+VOIP and business technology solutions.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Services
+</h4>
+
+<ul>
+
+<li>
+<a href="/fibre.php">
+Fibre
+</a>
+</li>
+
+<li>
+<a href="/wireless-broadband.php">
+Wireless Broadband
+</a>
+</li>
+
+<li>
+<a href="/domains.php">
+Domains
+</a>
+</li>
+
+<li>
+<a href="/hosting.php">
+Web Hosting & Email Hosting
+</a>
+</li>
+
+<li>
+<a href="/wireless-ite-4g-5g.html">
+5G/LTE
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Company
+</h4>
+
+<ul>
+
+<li>
+<a href="/">
+Home
+</a>
+</li>
+
+<li>
+<a href="/services.php">
+Services
+</a>
+</li>
+
+<li>
+<a href="/contact.php">
+Contact Us
+</a>
+</li>
+
+<li>
+<a href="/privacy.php">
+Privacy Policy
+</a>
+</li>
+
+<li>
+<a href="/terms.php">
+Terms &amp; Conditions
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="footer-column">
+
+<h4>
+Contact
+</h4>
+
+<ul>
+
+<li>
+
+<a href="mailto:support@dingestechhub.co.za">
+
+support@dingestechhub.co.za
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/contact.php">
+
+Contact Support
+
+</a>
+
+</li>
+
+<li>
+
+Mon - Fri: 09:00 - 16:00
+
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Dinges TechHub. All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/*
+|--------------------------------------------------------------------------
+| SHARED HOSTING API
+|--------------------------------------------------------------------------
+|
+| This PHP file lives in cPanel on register.web.za.
+|
+*/
+
+const API_URL =
+    "https://register.web.za/api/hosting.php";
+
+
+/*
+|--------------------------------------------------------------------------
+| LOAD SHARED HOSTING PACKAGES
+|--------------------------------------------------------------------------
+*/
+
+async function loadHostingPackages(){
+
+    const status =
+        document.getElementById("status");
+
+    const grid =
+        document.getElementById("packageGrid");
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Loading state
+    |--------------------------------------------------------------------------
+    */
+
+    status.className =
+        "status loading";
+
+    status.innerHTML = `
+        <div class="loading-spinner"></div>
+        Loading shared hosting packages...
+    `;
+
+    grid.innerHTML = "";
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL +
+                "?t=" +
+                Date.now(),
+                {
+                    method:"GET",
+
+                    cache:"no-store",
+
+                    headers:{
+                        "Accept":"application/json"
+                    }
+                }
+            );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | HTTP ERROR
+        |--------------------------------------------------------------------------
+        */
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP " +
+                response.status +
+                " - " +
+                response.statusText
+            );
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Read response as text first
+        |--------------------------------------------------------------------------
+        */
+
+        const text =
+            await response.text();
+
+
+        console.log(
+            "Dinges TechHub Shared Hosting API:",
+            text
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Parse JSON
+        |--------------------------------------------------------------------------
+        */
+
+        let data;
+
+        try{
+
+            data =
+                JSON.parse(text);
+
+        }catch(error){
+
+            console.error(
+                "Invalid API response:",
+                text
+            );
+
+            throw new Error(
+                "The hosting API did not return valid JSON."
+            );
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | API FAILURE
+        |--------------------------------------------------------------------------
+        */
+
+        if(data.success !== true){
+
+            throw new Error(
+
+                data.message ||
+
+                "The hosting API returned an error."
+
+            );
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Packages
+        |--------------------------------------------------------------------------
+        */
+
+        const packages =
+            Array.isArray(data.packages)
+                ? data.packages
+                : [];
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | No packages
+        |--------------------------------------------------------------------------
+        */
+
+        if(packages.length === 0){
+
+            status.className =
+                "status error";
+
+            status.textContent =
+                "The hosting API is working, but no shared hosting packages were found.";
+
+            return;
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Create cards
+        |--------------------------------------------------------------------------
+        */
+
+        packages.forEach(
+            function(product,index){
+
+                createHostingCard(
+                    product,
+                    index
+                );
+
+            }
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Success
+        |--------------------------------------------------------------------------
+        */
+
+        status.className =
+            "status success";
+
+        status.textContent =
+            packages.length +
+            " shared hosting package" +
+            (
+                packages.length === 1
+                    ? ""
+                    : "s"
+            ) +
+            " loaded successfully.";
+
+
+    }catch(error){
+
+        console.error(
+            "Shared Hosting API Error:",
+            error
+        );
+
+
+        status.className =
+            "status error";
+
+        status.textContent =
+            "Unable to load shared hosting packages. " +
+            error.message;
+
+
+        grid.innerHTML = `
+
+            <div
+                style="
+                    grid-column:1/-1;
+                    background:white;
+                    padding:40px;
+                    border-radius:15px;
+                    text-align:center;
+                    box-shadow:0 5px 22px rgba(0,0,0,.08);
+                "
+            >
+
+                <h3
+                    style="
+                        color:#3C1542;
+                        margin-bottom:10px;
+                    "
+                >
+                    Shared Hosting Unavailable
+                </h3>
+
+                <p
+                    style="
+                        color:#666;
+                        margin-bottom:20px;
+                    "
+                >
+
+                    We could not retrieve the Shared Hosting plans.
+
+                </p>
+
+                <p
+                    style="
+                        color:#888;
+                        font-size:13px;
+                        margin-bottom:20px;
+                    "
+                >
+
+                    API:
+                    ${API_URL}
+
+                </p>
+
+                <a
+                    href="/contact.php"
+                    style="
+                        display:inline-block;
+                        background:#3C1542;
+                        color:white;
+                        padding:12px 22px;
+                        border-radius:8px;
+                        text-decoration:none;
+                        font-weight:bold;
+                    "
+                >
+                    Contact Dinges TechHub
+                </a>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| CREATE HOSTING CARD
+|--------------------------------------------------------------------------
+*/
+
+function createHostingCard(
+    product,
+    index
+){
+
+    const grid =
+        document.getElementById(
+            "packageGrid"
+        );
+
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "package-card";
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Popular package
+    |--------------------------------------------------------------------------
+    */
+
+    if(index === 1){
+
+        card.classList.add(
+            "featured"
+        );
+
+
+        const badge =
+            document.createElement("div");
+
+        badge.className =
+            "badge";
+
+        badge.textContent =
+            "POPULAR";
+
+        card.appendChild(
+            badge
+        );
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Product name
+    |--------------------------------------------------------------------------
+    */
+
+    const name =
+        document.createElement("div");
+
+    name.className =
+        "package-name";
+
+    name.textContent =
+        product.name ||
+        "Shared Hosting";
+
+
+    card.appendChild(
+        name
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Description
+    |--------------------------------------------------------------------------
+    */
+
+    const description =
+        document.createElement("div");
+
+    description.className =
+        "package-description";
+
+    description.textContent =
+        cleanDescription(
+            product.description
+        );
+
+
+    card.appendChild(
+        description
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Price
+    |--------------------------------------------------------------------------
+    */
+
+    const price =
+        document.createElement("div");
+
+    price.className =
+        "package-price";
+
+
+    const amount =
+        getMonthlyPrice(product);
+
+
+    if(amount !== null){
+
+        price.textContent =
+            formatCurrency(
+                amount,
+                product.currency
+            );
+
+
+        const period =
+            document.createElement("span");
+
+        period.textContent =
+            " / month";
+
+
+        price.appendChild(
+            period
+        );
+
+    }else{
+
+        price.textContent =
+            "Contact us";
+
+    }
+
+
+    card.appendChild(
+        price
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Features
+    |--------------------------------------------------------------------------
+    */
+
+    const features =
+        document.createElement("ul");
+
+    features.className =
+        "package-features";
+
+
+    addFeature(
+        features,
+        "Website hosting"
+    );
+
+
+    addFeature(
+        features,
+        "Professional hosting environment"
+    );
+
+
+    addFeature(
+        features,
+        "Domain support"
+    );
+
+
+    addFeature(
+        features,
+        "Web hosting management"
+    );
+
+
+    addFeature(
+        features,
+        "Technical support"
+    );
+
+
+    card.appendChild(
+        features
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Order button
+    |--------------------------------------------------------------------------
+    */
+
+    const button =
+        document.createElement("a");
+
+    button.className =
+        "order-button";
+
+    button.textContent =
+        "Get Started";
+
+
+    button.href =
+        "/contact.php?service=shared-hosting&product_id=" +
+        encodeURIComponent(
+            product.id || ""
+        );
+
+
+    card.appendChild(
+        button
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Add card
+    |--------------------------------------------------------------------------
+    */
+
+    grid.appendChild(
+        card
+    );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| GET MONTHLY PRICE
+|--------------------------------------------------------------------------
+*/
+
+function getMonthlyPrice(product){
+
+    /*
+    |--------------------------------------------------------------------------
+    | New API format
+    |--------------------------------------------------------------------------
+    */
+
+    if(
+        product.price !== undefined &&
+        product.price !== null
+    ){
+
+        const value =
+            Number(product.price);
+
+
+        if(
+            Number.isFinite(value) &&
+            value >= 0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Alternative pricing format
+    |--------------------------------------------------------------------------
+    */
+
+    if(
+        product.pricing &&
+        product.pricing.monthly !== undefined
+    ){
+
+        const value =
+            Number(
+                product.pricing.monthly
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value >= 0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| CLEAN DESCRIPTION
+|--------------------------------------------------------------------------
+*/
+
+function cleanDescription(description){
+
+    if(!description){
+
+        return "Reliable shared hosting for your website.";
+
+    }
+
+
+    const temp =
+        document.createElement("div");
+
+    temp.innerHTML =
+        description;
+
+
+    const text =
+        temp.textContent ||
+        temp.innerText ||
+        "";
+
+
+    return text.trim() ||
+        "Reliable shared hosting for your website.";
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| FORMAT CURRENCY
+|--------------------------------------------------------------------------
+*/
+
+function formatCurrency(
+    amount,
+    currency
+){
+
+    if(
+        !currency ||
+        currency.toUpperCase() === "ZAR"
+    ){
+
+        return "R" +
+            amount.toFixed(2);
+
+    }
+
+
+    return currency.toUpperCase() +
+        " " +
+        amount.toFixed(2);
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| ADD FEATURE
+|--------------------------------------------------------------------------
+*/
+
+function addFeature(
+    list,
+    text
+){
+
+    const item =
+        document.createElement("li");
+
+    item.textContent =
+        text;
+
+    list.appendChild(
+        item
+    );
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| START
+|--------------------------------------------------------------------------
+*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadHostingPackages();
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

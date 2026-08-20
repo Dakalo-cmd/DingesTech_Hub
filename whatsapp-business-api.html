@@ -1,0 +1,3329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WhatsApp Business API | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="WhatsApp Business API solutions from Dinges TechHub for business communication, customer support, notifications, automation and smarter customer engagement."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   WHATSAPP BUSINESS API
+   SMART SOLUTIONS PAGE
+   ========================================================= */
+
+:root {
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+    --gold: #FFBB42;
+
+    --black: #020202;
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+    --background: #f7f5f8;
+
+    --container: 1200px;
+    --radius: 20px;
+
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--black);
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(92%, var(--container));
+    margin: auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(2, 2, 2, 0.94);
+
+    backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
+}
+
+.nav-container {
+    min-height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+.logo-text {
+    color: var(--white);
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+.logo-text span {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition:
+        var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition:
+        var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding:
+        11px 19px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black) !important;
+
+    font-weight:
+        800 !important;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.nav-cta:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 700px;
+
+    padding:
+        150px 0 90px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 82% 25%,
+            rgba(122, 44, 120, 0.48),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 50%,
+            #3C1542 100%
+        );
+
+    color: var(--white);
+}
+
+
+/* Decorative circles */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 560px;
+
+    right: -270px;
+    top: 80px;
+
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.14);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    right: -100px;
+    top: 195px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircleReverse
+        13s linear infinite;
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateCircleReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.breadcrumb {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.8px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(42px, 6vw, 70px);
+
+    line-height: 1.02;
+
+    margin-bottom: 25px;
+
+    max-width: 720px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        14px 23px;
+
+    border-radius:
+        999px;
+
+    font-weight:
+        800;
+
+    transition:
+        var(--transition);
+}
+
+.btn-primary {
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+}
+
+.btn-primary:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+}
+
+.btn-outline {
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color:
+        var(--white);
+}
+
+.btn-outline:hover {
+    border-color:
+        var(--gold);
+
+    color:
+        var(--gold);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO WHATSAPP VISUAL
+   ========================================================= */
+
+.whatsapp-visual {
+    min-height: 450px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CENTRAL PHONE
+   ========================================================= */
+
+.phone {
+    width: 300px;
+
+    min-height: 430px;
+
+    padding: 14px;
+
+    border-radius: 36px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #050505
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,0.55);
+
+    position: relative;
+
+    z-index: 4;
+
+    animation:
+        phoneFloat
+        4.5s ease-in-out infinite;
+}
+
+@keyframes phoneFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(1deg);
+    }
+
+}
+
+
+/* Phone top */
+
+.phone-notch {
+    width: 90px;
+    height: 20px;
+
+    background:
+        #020202;
+
+    border-radius:
+        0 0 14px 14px;
+
+    margin:
+        -14px auto 10px;
+}
+
+
+/* WhatsApp window */
+
+.chat-window {
+    height: 370px;
+
+    border-radius:
+        24px;
+
+    overflow: hidden;
+
+    background:
+        #f1ebf2;
+
+    position: relative;
+}
+
+
+/* Chat header */
+
+.chat-header {
+    padding:
+        14px 16px;
+
+    background:
+        var(--purple-dark);
+
+    color:
+        var(--white);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.chat-avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--gold);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+.chat-header strong {
+    font-size: 12px;
+}
+
+.chat-header small {
+    display: block;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    font-size: 9px;
+
+    margin-top: 3px;
+}
+
+
+/* Chat messages */
+
+.chat-body {
+    padding:
+        18px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+
+    padding:
+        9px 11px;
+
+    border-radius:
+        12px;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.06);
+}
+
+.message.received {
+    align-self:
+        flex-start;
+
+    background:
+        var(--white);
+
+    border-top-left-radius:
+        4px;
+}
+
+.message.sent {
+    align-self:
+        flex-end;
+
+    background:
+        #ead8e9;
+
+    border-top-right-radius:
+        4px;
+}
+
+
+/* Chat automation */
+
+.automation-message {
+    padding:
+        10px;
+
+    margin:
+        4px 12px;
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(122,44,120,0.10);
+
+    border:
+        1px solid
+        rgba(122,44,120,0.15);
+
+    font-size: 9px;
+
+    color:
+        var(--purple-dark);
+}
+
+
+/* =========================================================
+   FLOATING ELEMENTS
+   ========================================================= */
+
+.floating-card {
+    position: absolute;
+
+    z-index: 5;
+
+    min-width: 145px;
+
+    padding:
+        15px 17px;
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,0.28);
+
+    animation:
+        floatingCard
+        4s ease-in-out infinite;
+}
+
+.floating-card strong {
+    display: block;
+
+    font-size: 12px;
+
+    color:
+        var(--white);
+
+    margin-bottom: 5px;
+}
+
+.floating-card span {
+    font-size: 10px;
+
+    color:
+        var(--gold);
+}
+
+.card-api {
+    left: 0;
+
+    top: 35px;
+}
+
+.card-message {
+    right: -5px;
+
+    top: 30%;
+
+    animation-delay:
+        0.9s;
+}
+
+.card-automation {
+    left: 2%;
+
+    bottom: 45px;
+
+    animation-delay:
+        1.6s;
+}
+
+.card-security {
+    right: 5%;
+
+    bottom: 20px;
+
+    animation-delay:
+        2.2s;
+}
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+    padding:
+        100px 0 60px;
+
+    background:
+        var(--white);
+}
+
+.section-heading {
+    text-align:
+        center;
+
+    max-width:
+        780px;
+
+    margin:
+        0 auto 55px;
+}
+
+.eyebrow {
+    color:
+        var(--purple);
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        13px;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        18px;
+
+    color:
+        var(--purple-dark);
+}
+
+.section-heading p {
+    color:
+        #666;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services {
+    padding:
+        60px 0 100px;
+
+    background:
+        var(--white);
+}
+
+.service-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        24px;
+}
+
+.service-card {
+    padding:
+        32px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius:
+        var(--radius);
+
+    transition:
+        var(--transition);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+.service-card::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        var(--transition);
+}
+
+.service-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+}
+
+.service-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+.service-icon {
+    width:
+        64px;
+
+    height:
+        64px;
+
+    border-radius:
+        17px;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color:
+        var(--purple);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        29px;
+
+    margin-bottom:
+        22px;
+}
+
+.service-card h3 {
+    color:
+        var(--purple-dark);
+
+    font-size:
+        21px;
+
+    margin-bottom:
+        12px;
+}
+
+.service-card p {
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   API SECTION
+   ========================================================= */
+
+.api-section {
+    padding:
+        100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:
+        var(--white);
+}
+
+.api-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    gap:
+        70px;
+
+    align-items:
+        center;
+}
+
+
+/* =========================================================
+   API CONTENT
+   ========================================================= */
+
+.api-content .eyebrow {
+    color:
+        var(--gold);
+}
+
+.api-content h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        20px;
+}
+
+.api-content > p {
+    color:
+        rgba(255,255,255,0.76);
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        30px;
+}
+
+.feature-list {
+    list-style:
+        none;
+
+    display:
+        grid;
+
+    gap:
+        15px;
+}
+
+.feature-list li {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    color:
+        rgba(255,255,255,0.92);
+
+    line-height:
+        1.5;
+}
+
+.feature-list li span {
+    color:
+        var(--gold);
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   API DASHBOARD
+   ========================================================= */
+
+.api-dashboard {
+    min-height:
+        420px;
+
+    padding:
+        27px;
+
+    border-radius:
+        28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #211024,
+            #080608
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,0.25);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+.dashboard-header {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-bottom:
+        25px;
+}
+
+.dashboard-header strong {
+    font-size:
+        15px;
+}
+
+.dashboard-status {
+    color:
+        var(--gold);
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    padding:
+        6px 9px;
+
+    border:
+        1px solid
+        rgba(255,187,66,0.25);
+
+    border-radius:
+        999px;
+}
+
+
+/* API endpoint */
+
+.endpoint {
+    padding:
+        15px;
+
+    border-radius:
+        13px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    margin-bottom:
+        20px;
+}
+
+.endpoint-label {
+    color:
+        #929292;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        1px;
+
+    margin-bottom:
+        8px;
+}
+
+.endpoint-url {
+    color:
+        var(--gold);
+
+    font-family:
+        monospace;
+
+    font-size:
+        11px;
+
+    word-break:
+        break-all;
+}
+
+
+/* API metrics */
+
+.api-metrics {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        12px;
+
+    margin-bottom:
+        20px;
+}
+
+.metric {
+    padding:
+        18px;
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+.metric-number {
+    color:
+        var(--white);
+
+    font-size:
+        24px;
+
+    font-weight:
+        900;
+
+    margin-bottom:
+        4px;
+}
+
+.metric-label {
+    color:
+        #888;
+
+    font-size:
+        9px;
+}
+
+
+/* API events */
+
+.api-events {
+    display:
+        grid;
+
+    gap:
+        9px;
+}
+
+.api-event {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding:
+        10px 12px;
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    font-size:
+        10px;
+}
+
+.api-event span:last-child {
+    color:
+        var(--gold);
+}
+
+
+/* =========================================================
+   USE CASES
+   ========================================================= */
+
+.use-cases {
+    padding:
+        100px 0;
+
+    background:
+        var(--background);
+}
+
+.use-case-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        20px;
+}
+
+.use-case {
+    padding:
+        28px 22px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        #e5e0e6;
+
+    border-radius:
+        20px;
+
+    transition:
+        var(--transition);
+}
+
+.use-case:hover {
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(60,21,66,0.10);
+}
+
+.use-case-icon {
+    width:
+        50px;
+
+    height:
+        50px;
+
+    border-radius:
+        14px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(122,44,120,0.10);
+
+    font-size:
+        22px;
+
+    margin-bottom:
+        18px;
+}
+
+.use-case h3 {
+    color:
+        var(--purple-dark);
+
+    font-size:
+        18px;
+
+    margin-bottom:
+        10px;
+}
+
+.use-case p {
+    color:
+        #707070;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+    padding:
+        100px 0;
+
+    background:
+        var(--white);
+}
+
+.steps {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+}
+
+.step {
+    background:
+        var(--background);
+
+    padding:
+        32px;
+
+    border-radius:
+        var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+}
+
+.step-number {
+    width:
+        46px;
+
+    height:
+        46px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--purple);
+
+    color:
+        var(--white);
+
+    font-weight:
+        900;
+
+    margin-bottom:
+        22px;
+}
+
+.step h3 {
+    color:
+        var(--purple-dark);
+
+    margin-bottom:
+        12px;
+}
+
+.step p {
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+    padding:
+        80px 0;
+
+    background:
+        var(--white);
+}
+
+.cta-box {
+    padding:
+        65px 40px;
+
+    border-radius:
+        30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align:
+        center;
+
+    color:
+        var(--white);
+}
+
+.cta-box h2 {
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom:
+        15px;
+}
+
+.cta-box p {
+    max-width:
+        680px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background:
+        #020202;
+
+    color:
+        var(--white);
+
+    padding:
+        70px 0 25px;
+}
+
+.footer-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:
+        45px;
+
+    padding-bottom:
+        50px;
+}
+
+.footer-brand .logo {
+    margin-bottom:
+        20px;
+}
+
+.footer-description {
+    color:
+        #a9a9a9;
+
+    line-height:
+        1.7;
+
+    max-width:
+        340px;
+
+    font-size:
+        14px;
+}
+
+.footer-column h4 {
+    color:
+        var(--gold);
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        15px;
+}
+
+.footer-column ul {
+    list-style:
+        none;
+}
+
+.footer-column li {
+    margin-bottom:
+        12px;
+}
+
+.footer-column a {
+    color:
+        #a9a9a9;
+
+    font-size:
+        14px;
+
+    transition:
+        var(--transition);
+}
+
+.footer-column a:hover {
+    color:
+        var(--gold);
+
+    padding-left:
+        4px;
+}
+
+.footer-bottom {
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top:
+        22px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    color:
+        #777;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        position:
+            absolute;
+
+        top:
+            78px;
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        display:
+            none;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        background:
+            #020202;
+
+        padding:
+            25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+    }
+
+    .nav-links.active {
+        display:
+            flex;
+    }
+
+    .nav-links a {
+        display:
+            block;
+
+        padding:
+            12px 0;
+    }
+
+    .menu-toggle {
+        display:
+            block;
+    }
+
+    .hero-grid,
+    .api-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .use-case-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns:
+            1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        min-height:
+            70px;
+    }
+
+    .logo img {
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+    .logo-text {
+        font-size:
+            16px;
+    }
+
+    .hero {
+        min-height:
+            auto;
+
+        padding:
+            120px 0 70px;
+    }
+
+    .hero-description {
+        font-size:
+            16px;
+    }
+
+    .whatsapp-visual {
+        min-height:
+            390px;
+    }
+
+    .phone {
+        width:
+            270px;
+    }
+
+    .floating-card {
+        min-width:
+            120px;
+
+        padding:
+            11px 13px;
+    }
+
+    .card-api {
+        left:
+            -5px;
+    }
+
+    .card-message {
+        right:
+            -8px;
+    }
+
+    .card-automation {
+        left:
+            -5px;
+    }
+
+    .card-security {
+        right:
+            -5px;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .use-case-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .api-metrics {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .footer-bottom {
+        flex-direction:
+            column;
+    }
+
+    .cta-box {
+        padding:
+            50px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+
+                Dinges
+                <span>TechHub</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+        >
+            ☰
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+
+                SMART SOLUTIONS /
+                BUSINESS COMMUNICATION
+
+            </div>
+
+
+            <h1>
+
+                Connect With Your
+                Customers
+                <span>Where They Already Are.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Use WhatsApp Business API solutions to create
+                professional customer communication, automated
+                notifications, support workflows and smarter
+                business engagement.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#solutions"
+                    class="btn btn-primary"
+                >
+
+                    Explore Solutions
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn btn-outline"
+                >
+
+                    Talk To Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             WHATSAPP VISUAL
+             ================================================= -->
+
+        <div class="whatsapp-visual reveal">
+
+
+            <div class="floating-card card-api">
+
+                <strong>
+                    WhatsApp API
+                </strong>
+
+                <span>
+                    CONNECTED
+                </span>
+
+            </div>
+
+
+            <div class="floating-card card-message">
+
+                <strong>
+                    Message Delivered
+                </strong>
+
+                <span>
+                    ✓ Successfully
+                </span>
+
+            </div>
+
+
+            <div class="floating-card card-automation">
+
+                <strong>
+                    Automation
+                </strong>
+
+                <span>
+                    Running
+                </span>
+
+            </div>
+
+
+            <div class="floating-card card-security">
+
+                <strong>
+                    Business Account
+                </strong>
+
+                <span>
+                    Protected
+                </span>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="phone">
+
+
+                <div class="phone-notch"></div>
+
+
+                <div class="chat-window">
+
+
+                    <div class="chat-header">
+
+
+                        <div class="chat-avatar">
+                            DT
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Dinges TechHub
+                            </strong>
+
+                            <small>
+                                Business Account
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chat-body">
+
+
+                        <div class="message received">
+
+                            Hello! 👋 How can we help
+                            you today?
+
+                        </div>
+
+
+                        <div class="message sent">
+
+                            I'd like to enquire about
+                            your services.
+
+                        </div>
+
+
+                        <div class="message received">
+
+                            Absolutely. We can help
+                            with connectivity and
+                            smart technology solutions.
+
+                        </div>
+
+
+                        <div class="automation-message">
+
+                            ⚡ Automated business
+                            response
+
+                        </div>
+
+
+                        <div class="message sent">
+
+                            Thank you!
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                WhatsApp Business API
+            </div>
+
+
+            <h2>
+                Turn WhatsApp Into A Business Communication Tool
+            </h2>
+
+
+            <p>
+
+                Give customers a convenient way to communicate
+                with your business while creating structured
+                workflows for notifications, support and
+                customer engagement.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOLUTIONS
+     ========================================================= -->
+
+<section
+    class="services"
+    id="solutions"
+>
+
+    <div class="container">
+
+
+        <div class="service-grid">
+
+
+            <!-- CUSTOMER COMMUNICATION -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    💬
+                </div>
+
+
+                <h3>
+                    Customer Communication
+                </h3>
+
+
+                <p>
+
+                    Create a professional communication channel
+                    where customers can interact with your
+                    business through WhatsApp.
+
+                </p>
+
+            </article>
+
+
+            <!-- AUTOMATED MESSAGES -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    ⚡
+                </div>
+
+
+                <h3>
+                    Automated Messages
+                </h3>
+
+
+                <p>
+
+                    Build automated communication workflows for
+                    supported business events and customer
+                    interactions.
+
+                </p>
+
+            </article>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔔
+                </div>
+
+
+                <h3>
+                    Business Notifications
+                </h3>
+
+
+                <p>
+
+                    Send useful customer notifications such as
+                    updates, reminders and service information.
+
+                </p>
+
+            </article>
+
+
+            <!-- CUSTOMER SUPPORT -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🎧
+                </div>
+
+
+                <h3>
+                    Customer Support
+                </h3>
+
+
+                <p>
+
+                    Create structured WhatsApp support workflows
+                    that make it easier for customers to reach
+                    your business.
+
+                </p>
+
+            </article>
+
+
+            <!-- LEAD ENGAGEMENT -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🎯
+                </div>
+
+
+                <h3>
+                    Lead Engagement
+                </h3>
+
+
+                <p>
+
+                    Connect potential customers with your
+                    business and create more organised
+                    communication workflows.
+
+                </p>
+
+            </article>
+
+
+            <!-- SYSTEM INTEGRATION -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔗
+                </div>
+
+
+                <h3>
+                    System Integration
+                </h3>
+
+
+                <p>
+
+                    Connect supported business systems and APIs
+                    to create more efficient communication
+                    processes.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     API SECTION
+     ========================================================= -->
+
+<section class="api-section">
+
+    <div class="container api-grid">
+
+
+        <div class="api-content reveal">
+
+
+            <div class="eyebrow">
+                Business API Integration
+            </div>
+
+
+            <h2>
+                Build Smarter Communication Workflows.
+            </h2>
+
+
+            <p>
+
+                WhatsApp Business API can become part of a
+                broader business technology environment, helping
+                your systems communicate with customers through
+                structured messaging workflows.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Business messaging workflows
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Automated customer notifications
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Customer support communication
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    API-based system integration
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Structured business communication
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Scalable communication workflows
+
+                </li>
+
+
+            </ul>
+
+        </div>
+
+
+        <!-- =================================================
+             API DASHBOARD
+             ================================================= -->
+
+        <div class="api-dashboard reveal">
+
+
+            <div class="dashboard-header">
+
+                <strong>
+                    Communication Dashboard
+                </strong>
+
+                <span class="dashboard-status">
+                    ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="endpoint">
+
+                <div class="endpoint-label">
+                    API Endpoint
+                </div>
+
+                <div class="endpoint-url">
+                    /api/whatsapp/messages
+                </div>
+
+            </div>
+
+
+            <div class="api-metrics">
+
+
+                <div class="metric">
+
+                    <div class="metric-number">
+                        248
+                    </div>
+
+                    <div class="metric-label">
+                        Messages
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <div class="metric-number">
+                        96%
+                    </div>
+
+                    <div class="metric-label">
+                        Delivery
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <div class="metric-number">
+                        32
+                    </div>
+
+                    <div class="metric-label">
+                        Conversations
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <div class="metric-number">
+                        24/7
+                    </div>
+
+                    <div class="metric-label">
+                        Automation
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="api-events">
+
+
+                <div class="api-event">
+
+                    <span>
+                        Customer notification
+                    </span>
+
+                    <span>
+                        SENT
+                    </span>
+
+                </div>
+
+
+                <div class="api-event">
+
+                    <span>
+                        Support message
+                    </span>
+
+                    <span>
+                        DELIVERED
+                    </span>
+
+                </div>
+
+
+                <div class="api-event">
+
+                    <span>
+                        Automated response
+                    </span>
+
+                    <span>
+                        ACTIVE
+                    </span>
+
+                </div>
+
+
+                <div class="api-event">
+
+                    <span>
+                        Business workflow
+                    </span>
+
+                    <span>
+                        RUNNING
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     USE CASES
+     ========================================================= -->
+
+<section class="use-cases">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Business Use Cases
+            </div>
+
+
+            <h2>
+                Where WhatsApp Business API Can Help
+            </h2>
+
+
+            <p>
+
+                Different businesses can use structured
+                WhatsApp communication for different customer
+                and operational requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="use-case-grid">
+
+
+            <div class="use-case reveal">
+
+                <div class="use-case-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Online Businesses
+                </h3>
+
+                <p>
+
+                    Communicate with customers around orders,
+                    enquiries and service updates.
+
+                </p>
+
+            </div>
+
+
+            <div class="use-case reveal">
+
+                <div class="use-case-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Service Businesses
+                </h3>
+
+                <p>
+
+                    Create communication workflows for customer
+                    support and service interactions.
+
+                </p>
+
+            </div>
+
+
+            <div class="use-case reveal">
+
+                <div class="use-case-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Appointments
+                </h3>
+
+                <p>
+
+                    Build notification and reminder workflows for
+                    supported appointment systems.
+
+                </p>
+
+            </div>
+
+
+            <div class="use-case reveal">
+
+                <div class="use-case-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    Customer Support
+                </h3>
+
+                <p>
+
+                    Give customers another convenient channel
+                    for contacting your support team.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Process
+            </div>
+
+
+            <h2>
+                From Setup To Business Communication
+            </h2>
+
+
+            <p>
+
+                Dinges TechHub can help you plan and configure a
+                WhatsApp Business communication solution around
+                your business requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Understand
+                </h3>
+
+
+                <p>
+
+                    We look at your business, customer
+                    communication requirements and existing
+                    systems.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Configure
+                </h3>
+
+
+                <p>
+
+                    We plan the appropriate WhatsApp Business
+                    API workflow and supported integrations.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Connect
+                </h3>
+
+
+                <p>
+
+                    Your communication workflow can then be
+                    connected to the relevant business systems
+                    and customer processes.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <h2>
+                Ready To Improve Customer Communication?
+            </h2>
+
+
+            <p>
+
+                Talk to Dinges TechHub about WhatsApp Business
+                API solutions for your business, customer
+                support, notifications and communication
+                workflows.
+
+            </p>
+
+
+            <a
+                href="contact.html"
+                class="btn btn-primary"
+            >
+
+                Contact Dinges TechHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+
+                        Dinges
+                        <span>TechHub</span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the
+                    future.
+
+                </p>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="services.html">
+                            All Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless-broadband.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iot.html">
+                            Internet of Things
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-solutions.html">
+                            Smart Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="help-centre.html">
+                            Help Centre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="mailto:support@dingestechhub.co.za">
+                            support@dingestechhub.co.za
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Support
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Mon - Fri: 09:00 - 16:00
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                © 2026 Dinges TechHub.
+                All rights reserved.
+
+            </div>
+
+
+            <div>
+
+                Smart Technology •
+                Connectivity •
+                Innovation
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+/* Close mobile menu */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
