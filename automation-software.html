@@ -1,69 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IoT Automation Software | Dinges TechHub</title>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Automation Software | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Explore IoT Automation Software from Dinges TechHub. Automate workflows, connect systems and create smarter technology solutions for your home or business."
+    content="Dinges TechHub Automation Software helps businesses automate repetitive processes, connect systems, improve workflows and operate more efficiently."
 >
 
 <style>
 
 /* =========================================================
    DINGES TECHHUB
-   IoT AUTOMATION SOFTWARE PAGE
+   AUTOMATION SOFTWARE
    ========================================================= */
 
 :root {
+
     --purple-dark: #3C1542;
     --purple: #7A2C78;
     --purple-light: #9d4c9b;
+
     --gold: #FFBB42;
+
     --black: #020202;
+
     --grey: #949393;
     --light-grey: #D9D9D9;
+
     --white: #ffffff;
+
     --background: #f7f5f8;
 
     --container: 1200px;
+
     --radius: 20px;
+
     --transition: 0.35s ease;
 }
 
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
+
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
+
 html {
+
     scroll-behavior: smooth;
 }
 
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--background);
-    color: var(--black);
-    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--black);
+
+    overflow-x:
+        hidden;
 }
 
+
 a {
+
     text-decoration: none;
+
     color: inherit;
 }
 
+
 img {
+
     max-width: 100%;
+
     display: block;
 }
 
+
+button,
+input,
+select,
+textarea {
+
+    font-family: inherit;
+}
+
+
 .container {
-    width: min(92%, var(--container));
-    margin: auto;
+
+    width:
+        min(92%, var(--container));
+
+    margin:
+        auto;
 }
 
 
@@ -72,113 +125,216 @@ img {
    ========================================================= */
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
 
-    background: rgba(2, 2, 2, 0.94);
-    backdrop-filter: blur(14px);
+    position:
+        fixed;
 
-    border-bottom: 1px solid rgba(255, 187, 66, 0.12);
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    z-index:
+        1000;
+
+    background:
+        rgba(2, 2, 2, 0.94);
+
+    backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
 }
+
 
 .nav-container {
-    min-height: 78px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    min-height:
+        78px;
 
-    gap: 30px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
 }
+
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    flex-shrink:
+        0;
 }
+
 
 .logo img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 8px;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        8px;
 }
+
 
 .logo-text {
-    color: var(--white);
-    font-size: 19px;
-    font-weight: 800;
+
+    color:
+        var(--white);
+
+    font-size:
+        19px;
+
+    font-weight:
+        800;
 }
+
 
 .logo-text span {
-    color: var(--gold);
+
+    color:
+        var(--gold);
 }
+
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 27px;
-    list-style: none;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        27px;
+
+    list-style:
+        none;
 }
+
 
 .nav-links a {
-    color: var(--white);
-    font-size: 14px;
-    font-weight: 600;
 
-    position: relative;
+    color:
+        var(--white);
 
-    transition: var(--transition);
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    position:
+        relative;
+
+    transition:
+        var(--transition);
 }
+
 
 .nav-links a::after {
-    content: "";
 
-    position: absolute;
-    left: 0;
-    bottom: -8px;
+    content:
+        "";
 
-    width: 0;
-    height: 2px;
+    position:
+        absolute;
 
-    background: var(--gold);
+    left:
+        0;
 
-    transition: var(--transition);
+    bottom:
+        -8px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+        var(--gold);
+
+    transition:
+        var(--transition);
 }
+
 
 .nav-links a:hover {
-    color: var(--gold);
+
+    color:
+        var(--gold);
 }
+
 
 .nav-links a:hover::after {
-    width: 100%;
+
+    width:
+        100%;
 }
+
 
 .nav-cta {
-    padding: 11px 19px;
 
-    border-radius: 999px;
+    padding:
+        11px 19px;
 
-    background: var(--gold);
+    border-radius:
+        999px;
 
-    color: var(--black) !important;
+    background:
+        var(--gold);
 
-    font-weight: 800 !important;
+    color:
+        var(--black) !important;
+
+    font-weight:
+        800 !important;
 }
+
 
 .nav-cta::after {
-    display: none;
+
+    display:
+        none;
 }
 
+
 .nav-cta:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 
     box-shadow:
-        0 8px 25px rgba(255, 187, 66, 0.25);
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
 }
 
 
@@ -187,16 +343,24 @@ img {
    ========================================================= */
 
 .menu-toggle {
-    display: none;
 
-    background: none;
-    border: none;
+    display:
+        none;
 
-    color: var(--white);
+    background:
+        none;
 
-    font-size: 28px;
+    border:
+        none;
 
-    cursor: pointer;
+    color:
+        var(--white);
+
+    font-size:
+        28px;
+
+    cursor:
+        pointer;
 }
 
 
@@ -205,24 +369,33 @@ img {
    ========================================================= */
 
 .hero {
-    min-height: 700px;
 
-    padding: 150px 0 90px;
+    min-height:
+        700px;
 
-    position: relative;
-    overflow: hidden;
+    padding:
+        150px 0 90px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
 
     background:
+
         radial-gradient(
             circle at 85% 20%,
             rgba(122, 44, 120, 0.45),
             transparent 35%
         ),
+
         radial-gradient(
             circle at 10% 90%,
             rgba(255, 187, 66, 0.12),
             transparent 30%
         ),
+
         linear-gradient(
             135deg,
             #020202 0%,
@@ -230,165 +403,241 @@ img {
             #3C1542 100%
         );
 
-    color: var(--white);
+    color:
+        var(--white);
 }
+
 
 .hero::before {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    width: 450px;
-    height: 450px;
+    position:
+        absolute;
 
-    border: 1px solid rgba(255, 187, 66, 0.15);
+    width:
+        450px;
 
-    border-radius: 50%;
+    height:
+        450px;
 
-    right: -180px;
-    top: 100px;
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.15);
 
-    animation: rotateCircle 18s linear infinite;
+    border-radius:
+        50%;
+
+    right:
+        -180px;
+
+    top:
+        100px;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
 }
+
 
 .hero::after {
-    content: "";
 
-    position: absolute;
+    content:
+        "";
 
-    width: 260px;
-    height: 260px;
+    position:
+        absolute;
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    width:
+        260px;
 
-    border-radius: 50%;
+    height:
+        260px;
 
-    right: 20px;
-    top: 190px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
 
-    animation: rotateCircleReverse 14s linear infinite;
+    border-radius:
+        50%;
+
+    right:
+        20px;
+
+    top:
+        190px;
+
+    animation:
+        rotateCircleReverse
+        14s linear infinite;
 }
+
 
 @keyframes rotateCircle {
 
     from {
-        transform: rotate(0deg);
+
+        transform:
+            rotate(0deg);
     }
 
     to {
-        transform: rotate(360deg);
+
+        transform:
+            rotate(360deg);
     }
 
 }
+
 
 @keyframes rotateCircleReverse {
 
     from {
-        transform: rotate(360deg);
+
+        transform:
+            rotate(360deg);
     }
 
     to {
-        transform: rotate(0deg);
+
+        transform:
+            rotate(0deg);
     }
 
 }
 
+
 .hero-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1.05fr 0.95fr;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 70px;
+    gap:
+        70px;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        2;
 }
+
 
 .breadcrumb {
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 700;
+    font-weight:
+        700;
 
-    margin-bottom: 20px;
+    margin-bottom:
+        20px;
 
-    letter-spacing: 0.5px;
+    letter-spacing:
+        0.5px;
 }
+
 
 .hero h1 {
 
     font-size:
         clamp(42px, 6vw, 72px);
 
-    line-height: 1.02;
+    line-height:
+        1.02;
 
-    margin-bottom: 25px;
+    margin-bottom:
+        25px;
 
-    max-width: 750px;
+    max-width:
+        750px;
 }
+
 
 .hero h1 span {
 
-    color: var(--gold);
+    color:
+        var(--gold);
 }
+
 
 .hero-description {
 
-    max-width: 650px;
+    max-width:
+        650px;
 
     color:
         rgba(255,255,255,0.78);
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 
-    margin-bottom: 35px;
+    margin-bottom:
+        35px;
 }
+
 
 .hero-buttons {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 15px;
+    gap:
+        15px;
 }
+
 
 .btn {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    padding: 14px 23px;
+    padding:
+        14px 23px;
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
-    font-weight: 800;
+    font-weight:
+        800;
 
-    transition: var(--transition);
-
-    border: none;
-
-    cursor: pointer;
+    transition:
+        var(--transition);
 }
+
 
 .btn-primary {
 
-    background: var(--gold);
+    background:
+        var(--gold);
 
-    color: var(--black);
+    color:
+        var(--black);
 }
+
 
 .btn-primary:hover {
 
@@ -400,21 +649,25 @@ img {
         rgba(255,187,66,0.25);
 }
 
+
 .btn-outline {
 
     border:
         1px solid
         rgba(255,255,255,0.35);
 
-    color: var(--white);
+    color:
+        var(--white);
 }
+
 
 .btn-outline:hover {
 
     border-color:
         var(--gold);
 
-    color: var(--gold);
+    color:
+        var(--gold);
 
     transform:
         translateY(-3px);
@@ -427,25 +680,36 @@ img {
 
 .automation-visual {
 
-    position: relative;
+    position:
+        relative;
 
-    min-height: 430px;
+    min-height:
+        430px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 }
+
 
 .automation-core {
 
-    width: 210px;
-    height: 210px;
+    width:
+        210px;
 
-    border-radius: 50%;
+    height:
+        210px;
+
+    border-radius:
+        50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(255,187,66,0.95) 0%,
@@ -455,63 +719,88 @@ img {
         );
 
     box-shadow:
+
         0 0 50px
         rgba(255,187,66,0.25),
 
         0 0 100px
         rgba(122,44,120,0.3);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
     animation:
         pulseCore
         3s ease-in-out infinite;
 }
 
+
 .automation-core-inner {
 
-    width: 115px;
-    height: 115px;
+    width:
+        115px;
 
-    border-radius: 50%;
+    height:
+        115px;
 
-    background: var(--black);
+    border-radius:
+        50%;
+
+    background:
+        var(--black);
 
     border:
         2px solid
         rgba(255,187,66,0.7);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    font-size: 45px;
+    font-size:
+        45px;
 }
+
 
 @keyframes pulseCore {
 
-    0%, 100% {
-        transform: scale(1);
+    0%,
+    100% {
+
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.05);
+
+        transform:
+            scale(1.05);
     }
 
 }
 
+
 .automation-node {
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 80px;
-    height: 80px;
+    width:
+        80px;
+
+    height:
+        80px;
 
     background:
         rgba(255,255,255,0.07);
@@ -523,15 +812,20 @@ img {
     backdrop-filter:
         blur(10px);
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    font-size: 30px;
+    font-size:
+        30px;
 
     box-shadow:
         0 15px 35px
@@ -542,50 +836,67 @@ img {
         4s ease-in-out infinite;
 }
 
+
 .automation-node-1 {
 
-    top: 20px;
+    top:
+        20px;
 
-    left: 18%;
+    left:
+        18%;
 }
+
 
 .automation-node-2 {
 
-    top: 28%;
+    top:
+        28%;
 
-    right: 5%;
+    right:
+        5%;
 
     animation-delay:
         0.7s;
 }
 
+
 .automation-node-3 {
 
-    bottom: 15%;
+    bottom:
+        15%;
 
-    right: 15%;
+    right:
+        15%;
 
     animation-delay:
         1.4s;
 }
 
+
 .automation-node-4 {
 
-    bottom: 8%;
+    bottom:
+        8%;
 
-    left: 10%;
+    left:
+        10%;
 
     animation-delay:
         2.1s;
 }
 
+
 @keyframes floatDevice {
 
-    0%, 100% {
-        transform: translateY(0);
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
     }
 
     50% {
+
         transform:
             translateY(-12px);
     }
@@ -599,56 +910,72 @@ img {
 
 .intro {
 
-    padding: 100px 0 60px;
+    padding:
+        100px 0 60px;
 
     background:
         var(--white);
 }
 
+
 .section-heading {
 
-    text-align: center;
+    text-align:
+        center;
 
-    max-width: 760px;
+    max-width:
+        760px;
 
     margin:
         0 auto 55px;
 }
 
+
 .eyebrow {
 
-    color: var(--purple);
+    color:
+        var(--purple);
 
     text-transform:
         uppercase;
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
-    margin-bottom: 13px;
+    margin-bottom:
+        13px;
 }
+
 
 .section-heading h2 {
 
     font-size:
         clamp(32px, 4vw, 48px);
 
-    line-height: 1.15;
+    line-height:
+        1.15;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        18px;
 
     color:
         var(--purple-dark);
 }
 
+
 .section-heading p {
 
-    color: #666;
+    color:
+        #666;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 
@@ -658,25 +985,31 @@ img {
 
 .solutions {
 
-    padding: 60px 0 100px;
+    padding:
+        60px 0 100px;
 
     background:
         var(--white);
 }
 
+
 .solution-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 24px;
+    gap:
+        24px;
 }
+
 
 .solution-card {
 
-    padding: 30px;
+    padding:
+        30px;
 
     background:
         #ffffff;
@@ -691,22 +1024,33 @@ img {
     transition:
         var(--transition);
 
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 }
+
 
 .solution-card::before {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    top: 0;
-    left: 0;
+    top:
+        0;
 
-    width: 100%;
-    height: 4px;
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
 
     background:
         linear-gradient(
@@ -725,6 +1069,7 @@ img {
         var(--transition);
 }
 
+
 .solution-card:hover {
 
     transform:
@@ -738,18 +1083,24 @@ img {
         rgba(60,21,66,0.10);
 }
 
+
 .solution-card:hover::before {
 
     transform:
         scaleX(1);
 }
 
+
 .solution-icon {
 
-    width: 62px;
-    height: 62px;
+    width:
+        62px;
 
-    border-radius: 16px;
+    height:
+        62px;
+
+    border-radius:
+        16px;
 
     background:
         rgba(122,44,120,0.1);
@@ -757,35 +1108,46 @@ img {
     color:
         var(--purple);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    font-size: 29px;
+    font-size:
+        29px;
 
-    margin-bottom: 22px;
+    margin-bottom:
+        22px;
 }
+
 
 .solution-card h3 {
 
     color:
         var(--purple-dark);
 
-    font-size: 21px;
+    font-size:
+        21px;
 
-    margin-bottom: 12px;
+    margin-bottom:
+        12px;
 }
+
 
 .solution-card p {
 
     color:
         #686868;
 
-    line-height: 1.7;
+    line-height:
+        1.7;
 
-    font-size: 15px;
+    font-size:
+        15px;
 }
 
 
@@ -795,7 +1157,8 @@ img {
 
 .automation-section {
 
-    padding: 100px 0;
+    padding:
+        100px 0;
 
     background:
         linear-gradient(
@@ -808,9 +1171,11 @@ img {
         var(--white);
 }
 
+
 .automation-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         0.9fr 1.1fr;
@@ -822,18 +1187,23 @@ img {
         center;
 }
 
+
 .automation-image {
 
-    min-height: 430px;
+    min-height:
+        430px;
 
-    border-radius: 30px;
+    border-radius:
+        30px;
 
     background:
+
         radial-gradient(
             circle at 50% 40%,
             rgba(255,187,66,0.22),
             transparent 35%
         ),
+
         linear-gradient(
             145deg,
             #241027,
@@ -844,23 +1214,31 @@ img {
         1px solid
         rgba(255,255,255,0.1);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 }
+
 
 .automation-image::before,
 .automation-image::after {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
     border:
         1px solid
@@ -870,24 +1248,37 @@ img {
         50%;
 }
 
+
 .automation-image::before {
 
-    width: 300px;
-    height: 300px;
+    width:
+        300px;
+
+    height:
+        300px;
 }
+
 
 .automation-image::after {
 
-    width: 180px;
-    height: 180px;
+    width:
+        180px;
+
+    height:
+        180px;
 }
+
 
 .software-symbol {
 
-    width: 115px;
-    height: 115px;
+    width:
+        115px;
 
-    border-radius: 28px;
+    height:
+        115px;
+
+    border-radius:
+        28px;
 
     background:
         var(--gold);
@@ -895,28 +1286,36 @@ img {
     color:
         var(--black);
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
-    font-size: 48px;
+    font-size:
+        48px;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        2;
 
     box-shadow:
         0 20px 60px
         rgba(255,187,66,0.2);
 }
 
+
 .automation-content .eyebrow {
 
     color:
         var(--gold);
 }
+
 
 .automation-content h2 {
 
@@ -930,6 +1329,7 @@ img {
         20px;
 }
 
+
 .automation-content > p {
 
     color:
@@ -942,6 +1342,7 @@ img {
         30px;
 }
 
+
 .feature-list {
 
     list-style:
@@ -953,6 +1354,7 @@ img {
     gap:
         15px;
 }
+
 
 .feature-list li {
 
@@ -971,6 +1373,7 @@ img {
     line-height:
         1.5;
 }
+
 
 .feature-list li span {
 
@@ -995,6 +1398,7 @@ img {
         var(--background);
 }
 
+
 .steps {
 
     display:
@@ -1006,6 +1410,7 @@ img {
     gap:
         25px;
 }
+
 
 .step {
 
@@ -1026,18 +1431,26 @@ img {
         relative;
 }
 
+
 .step-number {
 
-    width: 46px;
-    height: 46px;
+    width:
+        46px;
 
-    border-radius: 50%;
+    height:
+        46px;
 
-    display: flex;
+    border-radius:
+        50%;
 
-    align-items: center;
+    display:
+        flex;
 
-    justify-content: center;
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     background:
         var(--purple);
@@ -1052,6 +1465,7 @@ img {
         22px;
 }
 
+
 .step h3 {
 
     color:
@@ -1060,6 +1474,7 @@ img {
     margin-bottom:
         12px;
 }
+
 
 .step p {
 
@@ -1078,109 +1493,120 @@ img {
    AUTOMATION ENQUIRY
    ========================================================= */
 
-.enquiry {
+.enquiry-section {
 
     padding:
         100px 0;
 
     background:
-        var(--white);
+        linear-gradient(
+            180deg,
+            var(--background),
+            #ffffff
+        );
 }
 
-.enquiry-wrapper {
+
+.enquiry-grid {
 
     display:
         grid;
 
     grid-template-columns:
-        0.75fr 1.25fr;
+        0.85fr 1.15fr;
 
     gap:
-        60px;
+        70px;
 
     align-items:
-        start;
+        center;
 }
 
-.enquiry-info {
 
-    padding-top:
-        15px;
-}
-
-.enquiry-info .eyebrow {
+.enquiry-content .eyebrow {
 
     color:
         var(--purple);
 }
 
-.enquiry-info h2 {
+
+.enquiry-content h2 {
 
     color:
         var(--purple-dark);
 
     font-size:
-        clamp(32px, 4vw, 48px);
+        clamp(34px, 4vw, 50px);
 
     line-height:
-        1.15;
+        1.1;
 
     margin-bottom:
         20px;
 }
 
-.enquiry-info > p {
+
+.enquiry-content > p {
 
     color:
-        #666;
+        #686868;
 
     line-height:
         1.8;
 
+    font-size:
+        16px;
+
+    max-width:
+        520px;
+
     margin-bottom:
-        30px;
+        35px;
 }
 
-.enquiry-points {
 
-    list-style:
-        none;
+.enquiry-points {
 
     display:
         grid;
 
     gap:
-        16px;
+        20px;
 }
 
-.enquiry-points li {
+
+.enquiry-point {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    align-items:
+        flex-start;
+}
+
+
+.enquiry-point > span {
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    flex-shrink:
+        0;
 
     display:
         flex;
 
     align-items:
-        flex-start;
+        center;
 
-    gap:
-        12px;
-
-    color:
-        #555;
-
-    line-height:
-        1.6;
-}
-
-.enquiry-points span {
-
-    width:
-        28px;
-
-    height:
-        28px;
-
-    flex-shrink:
-        0;
+    justify-content:
+        center;
 
     border-radius:
         50%;
@@ -1191,66 +1617,25 @@ img {
     color:
         var(--purple);
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
     font-weight:
         900;
-
-    font-size:
-        13px;
 }
 
 
-/* =========================================================
-   FORM
-   ========================================================= */
+.enquiry-point strong {
 
-.enquiry-form {
-
-    background:
-        var(--background);
-
-    border:
-        1px solid
-        #e5dfe7;
-
-    border-radius:
-        28px;
-
-    padding:
-        38px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(60,21,66,0.08);
-}
-
-.form-heading {
-
-    margin-bottom:
-        28px;
-}
-
-.form-heading h3 {
+    display:
+        block;
 
     color:
         var(--purple-dark);
 
-    font-size:
-        25px;
-
     margin-bottom:
-        8px;
+        5px;
 }
 
-.form-heading p {
+
+.enquiry-point p {
 
     color:
         #777;
@@ -1259,59 +1644,73 @@ img {
         14px;
 
     line-height:
-        1.6;
+        1.5;
 }
 
-.form-grid {
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.enquiry-card {
+
+    background:
+        var(--white);
+
+    padding:
+        38px;
+
+    border-radius:
+        24px;
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    box-shadow:
+        0 20px 60px
+        rgba(60,21,66,0.10);
+}
+
+
+.form-row {
 
     display:
         grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        1fr 1fr;
 
     gap:
         18px;
 }
 
+
 .form-group {
 
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    gap:
-        8px;
+    margin-bottom:
+        20px;
 }
 
-.form-group.full {
-
-    grid-column:
-        1 / -1;
-}
 
 .form-group label {
+
+    display:
+        block;
 
     color:
         var(--purple-dark);
 
     font-size:
-        13px;
+        14px;
 
     font-weight:
         800;
+
+    margin-bottom:
+        8px;
 }
 
-.form-group label span {
-
-    color:
-        #999;
-
-    font-weight:
-        500;
-}
 
 .form-group input,
 .form-group select,
@@ -1322,13 +1721,13 @@ img {
 
     border:
         1px solid
-        #d8d1da;
+        #ded9df;
 
     border-radius:
         12px;
 
     background:
-        var(--white);
+        #faf9fb;
 
     color:
         var(--black);
@@ -1337,7 +1736,7 @@ img {
         inherit;
 
     font-size:
-        14px;
+        15px;
 
     padding:
         14px 15px;
@@ -1346,24 +1745,21 @@ img {
         none;
 
     transition:
-        var(--transition);
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
 
-.form-group input,
-.form-group select {
-
-    min-height:
-        48px;
-}
 
 .form-group textarea {
 
-    min-height:
-        125px;
-
     resize:
         vertical;
+
+    min-height:
+        145px;
 }
+
 
 .form-group input:focus,
 .form-group select:focus,
@@ -1372,51 +1768,118 @@ img {
     border-color:
         var(--purple);
 
+    background:
+        var(--white);
+
     box-shadow:
-        0 0 0 3px
+        0 0 0 4px
         rgba(122,44,120,0.08);
 }
 
+
 .form-submit {
 
-    margin-top:
-        24px;
+    width:
+        100%;
 
-    display:
-        flex;
+    border:
+        none;
 
-    align-items:
-        center;
+    border-radius:
+        999px;
 
-    justify-content:
-        space-between;
+    padding:
+        15px 22px;
 
-    gap:
-        20px;
-
-    flex-wrap:
-        wrap;
-}
-
-.form-note {
+    background:
+        var(--gold);
 
     color:
-        #888;
+        var(--black);
 
     font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+}
+
+
+.form-submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,187,66,0.25);
+}
+
+
+.form-submit:disabled {
+
+    opacity:
+        0.65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+}
+
+
+.form-message {
+
+    display:
+        none;
+
+    margin-top:
+        18px;
+
+    padding:
+        14px 16px;
+
+    border-radius:
         12px;
+
+    font-size:
+        14px;
 
     line-height:
         1.5;
-
-    max-width:
-        330px;
 }
 
-.form-submit .btn {
 
-    min-width:
-        180px;
+.form-message.success {
+
+    display:
+        block;
+
+    background:
+        rgba(46,125,50,0.10);
+
+    color:
+        #236b28;
+}
+
+
+.form-message.error {
+
+    display:
+        block;
+
+    background:
+        rgba(190,40,40,0.10);
+
+    color:
+        #9b2525;
 }
 
 
@@ -1433,6 +1896,7 @@ img {
         var(--white);
 }
 
+
 .cta-box {
 
     padding:
@@ -1442,11 +1906,13 @@ img {
         30px;
 
     background:
+
         radial-gradient(
             circle at 90% 10%,
             rgba(255,187,66,0.15),
             transparent 30%
         ),
+
         linear-gradient(
             135deg,
             #3C1542,
@@ -1466,6 +1932,7 @@ img {
         hidden;
 }
 
+
 .cta-box h2 {
 
     font-size:
@@ -1474,6 +1941,7 @@ img {
     margin-bottom:
         15px;
 }
+
 
 .cta-box p {
 
@@ -1507,6 +1975,7 @@ footer {
         70px 0 25px;
 }
 
+
 .footer-grid {
 
     display:
@@ -1522,11 +1991,13 @@ footer {
         50px;
 }
 
+
 .footer-brand .logo {
 
     margin-bottom:
         20px;
 }
+
 
 .footer-description {
 
@@ -1543,6 +2014,7 @@ footer {
         14px;
 }
 
+
 .footer-column h4 {
 
     color:
@@ -1555,17 +2027,20 @@ footer {
         15px;
 }
 
+
 .footer-column ul {
 
     list-style:
         none;
 }
 
+
 .footer-column li {
 
     margin-bottom:
         12px;
 }
+
 
 .footer-column a {
 
@@ -1579,6 +2054,7 @@ footer {
         var(--transition);
 }
 
+
 .footer-column a:hover {
 
     color:
@@ -1587,6 +2063,7 @@ footer {
     padding-left:
         4px;
 }
+
 
 .footer-bottom {
 
@@ -1630,6 +2107,7 @@ footer {
         opacity 0.8s ease,
         transform 0.8s ease;
 }
+
 
 .reveal.visible {
 
@@ -1681,11 +2159,13 @@ footer {
             rgba(255,255,255,0.08);
     }
 
+
     .nav-links.active {
 
         display:
             flex;
     }
+
 
     .nav-links a {
 
@@ -1696,19 +2176,22 @@ footer {
             12px 0;
     }
 
+
     .menu-toggle {
 
         display:
             block;
     }
 
+
     .hero-grid,
     .automation-grid,
-    .enquiry-wrapper {
+    .enquiry-grid {
 
         grid-template-columns:
             1fr;
     }
+
 
     .hero {
 
@@ -1716,11 +2199,13 @@ footer {
             130px;
     }
 
+
     .automation-visual {
 
         min-height:
             350px;
     }
+
 
     .solution-grid {
 
@@ -1728,17 +2213,27 @@ footer {
             repeat(2, 1fr);
     }
 
+
     .steps {
 
         grid-template-columns:
             1fr;
     }
 
+
     .footer-grid {
 
         grid-template-columns:
             repeat(2, 1fr);
     }
+
+
+    .enquiry-grid {
+
+        gap:
+            45px;
+    }
+
 }
 
 
@@ -1750,6 +2245,7 @@ footer {
             70px;
     }
 
+
     .logo img {
 
         width:
@@ -1759,11 +2255,13 @@ footer {
             42px;
     }
 
+
     .logo-text {
 
         font-size:
             16px;
     }
+
 
     .hero {
 
@@ -1774,17 +2272,20 @@ footer {
             120px 0 70px;
     }
 
+
     .hero-description {
 
         font-size:
             16px;
     }
 
+
     .automation-visual {
 
         min-height:
             300px;
     }
+
 
     .automation-core {
 
@@ -1794,6 +2295,7 @@ footer {
         height:
             160px;
     }
+
 
     .automation-core-inner {
 
@@ -1807,6 +2309,7 @@ footer {
             36px;
     }
 
+
     .automation-node {
 
         width:
@@ -1819,11 +2322,13 @@ footer {
             23px;
     }
 
+
     .automation-node-1 {
 
         left:
             3%;
     }
+
 
     .automation-node-2 {
 
@@ -1831,11 +2336,13 @@ footer {
             0;
     }
 
+
     .solution-grid {
 
         grid-template-columns:
             1fr;
     }
+
 
     .automation-image {
 
@@ -1843,47 +2350,20 @@ footer {
             300px;
     }
 
-    .enquiry {
 
-        padding:
-            70px 0;
-    }
-
-    .enquiry-form {
+    .enquiry-card {
 
         padding:
             25px 20px;
-
-        border-radius:
-            22px;
     }
 
-    .form-grid {
+
+    .form-row {
 
         grid-template-columns:
             1fr;
     }
 
-    .form-group.full {
-
-        grid-column:
-            auto;
-    }
-
-    .form-submit {
-
-        align-items:
-            stretch;
-
-        flex-direction:
-            column;
-    }
-
-    .form-submit .btn {
-
-        width:
-            100%;
-    }
 
     .footer-grid {
 
@@ -1891,21 +2371,26 @@ footer {
             1fr;
     }
 
+
     .footer-bottom {
 
         flex-direction:
             column;
     }
 
+
     .cta-box {
 
         padding:
             50px 25px;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -1918,7 +2403,10 @@ footer {
 
     <div class="container nav-container">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
 
             <img
                 src="dingestech-logo.png"
@@ -1936,13 +2424,16 @@ footer {
             class="menu-toggle"
             id="menuToggle"
             aria-label="Open menu"
-            aria-expanded="false"
+            type="button"
         >
             ☰
         </button>
 
 
-        <ul class="nav-links" id="navLinks">
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
 
             <li>
                 <a href="services.html">
@@ -2011,16 +2502,23 @@ footer {
                 INTERNET OF THINGS / AUTOMATION SOFTWARE
             </div>
 
+
             <h1>
+
                 Automate Your
                 <span>Business.</span>
+
             </h1>
 
+
             <p class="hero-description">
-                Connect your technology, simplify repetitive processes
-                and create smarter workflows with IoT automation
-                software designed around the way your business works.
+
+                Use intelligent automation software to simplify
+                repetitive processes, connect your systems and
+                help your business operate more efficiently.
+
             </p>
+
 
             <div class="hero-buttons">
 
@@ -2031,11 +2529,12 @@ footer {
                     Explore Automation
                 </a>
 
+
                 <a
                     href="#automation-enquiry"
                     class="btn btn-outline"
                 >
-                    Request a Solution
+                    Get Started
                 </a>
 
             </div>
@@ -2093,15 +2592,18 @@ footer {
                 Intelligent Automation
             </div>
 
+
             <h2>
-                IoT Automation Software
+                Automation Software
             </h2>
 
+
             <p>
-                Modern homes and businesses use multiple devices,
-                systems and applications. Automation software can
-                connect these technologies and help processes happen
-                automatically with less manual intervention.
+
+                Modern businesses handle many repetitive tasks every
+                day. Automation software can help connect those tasks,
+                reduce manual work and create more efficient workflows.
+
             </p>
 
         </div>
@@ -2136,9 +2638,11 @@ footer {
                 </h3>
 
                 <p>
+
                     Automate repetitive business processes and create
-                    workflows that move tasks between people, devices
-                    and systems with less manual effort.
+                    workflows that move tasks between people and
+                    systems with less manual effort.
+
                 </p>
 
             </article>
@@ -2155,8 +2659,10 @@ footer {
                 </h3>
 
                 <p>
+
                     Simplify routine tasks such as notifications,
                     approvals, reminders and information processing.
+
                 </p>
 
             </article>
@@ -2173,9 +2679,11 @@ footer {
                 </h3>
 
                 <p>
-                    Connect compatible software platforms, IoT devices
-                    and services so information can move between
-                    systems more efficiently.
+
+                    Connect compatible software platforms and services
+                    so information can move between systems more
+                    efficiently.
+
                 </p>
 
             </article>
@@ -2192,9 +2700,11 @@ footer {
                 </h3>
 
                 <p>
+
                     Create automated monitoring and reporting processes
                     that help you stay informed about important
-                    activities and connected systems.
+                    business activities.
+
                 </p>
 
             </article>
@@ -2211,8 +2721,10 @@ footer {
                 </h3>
 
                 <p>
+
                     Trigger notifications and alerts when specific
-                    events, conditions or device activities occur.
+                    events or conditions occur within your workflows.
+
                 </p>
 
             </article>
@@ -2229,9 +2741,10 @@ footer {
                 </h3>
 
                 <p>
+
                     Explore intelligent automation approaches that
-                    combine software, data, IoT devices and connected
-                    technologies.
+                    combine software, data and connected technologies.
+
                 </p>
 
             </article>
@@ -2268,15 +2781,18 @@ footer {
                 Smarter Operations
             </div>
 
+
             <h2>
                 Let Technology Handle the Repetitive Work
             </h2>
 
+
             <p>
+
                 Automation gives your team more time to focus on
-                meaningful work by allowing software and connected
-                technology to handle repetitive and predictable
-                processes.
+                meaningful work by allowing software to handle
+                repetitive and predictable processes.
+
             </p>
 
 
@@ -2295,11 +2811,6 @@ footer {
                 <li>
                     <span>✓</span>
                     Connect compatible business systems
-                </li>
-
-                <li>
-                    <span>✓</span>
-                    Connect selected IoT devices and services
                 </li>
 
                 <li>
@@ -2336,14 +2847,17 @@ footer {
                 Our Approach
             </div>
 
+
             <h2>
                 From Manual Tasks to Automated Workflows
             </h2>
 
+
             <p>
+
                 We help identify opportunities where automation can
-                make your business processes simpler, more connected
-                and more efficient.
+                make your business processes simpler and more efficient.
+
             </p>
 
         </div>
@@ -2363,9 +2877,10 @@ footer {
                 </h3>
 
                 <p>
-                    We look at repetitive processes, systems and
-                    connected devices to identify areas where
-                    automation could provide value.
+
+                    We look at repetitive processes and identify
+                    areas where automation could provide value.
+
                 </p>
 
             </div>
@@ -2382,9 +2897,10 @@ footer {
                 </h3>
 
                 <p>
-                    Compatible systems, applications, services and
-                    IoT technologies can then be connected into an
-                    automated workflow.
+
+                    Compatible systems, applications and services
+                    can then be connected into an automated workflow.
+
                 </p>
 
             </div>
@@ -2401,9 +2917,11 @@ footer {
                 </h3>
 
                 <p>
+
                     The workflow is configured to perform tasks,
                     trigger actions and provide useful information
                     with less manual intervention.
+
                 </p>
 
             </div>
@@ -2417,347 +2935,300 @@ footer {
 
 
 <!-- =========================================================
-     AUTOMATION ENQUIRY
+     AUTOMATION SOFTWARE ENQUIRY
      ========================================================= -->
 
 <section
-    class="enquiry"
+    class="enquiry-section"
     id="automation-enquiry"
 >
 
-    <div class="container enquiry-wrapper">
+    <div class="container">
+
+        <div class="enquiry-grid">
 
 
-        <!-- INFORMATION -->
+            <!-- LEFT -->
 
-        <div class="enquiry-info reveal">
+            <div class="enquiry-content reveal">
 
-            <div class="eyebrow">
-                Start Your Project
-            </div>
-
-            <h2>
-                Tell Us What You Want to Automate
-            </h2>
-
-            <p>
-                Every business operates differently. Tell us about
-                your current process, systems or devices and our team
-                can help you explore a suitable automation approach.
-            </p>
+                <div class="eyebrow">
+                    Automation Software
+                </div>
 
 
-            <ul class="enquiry-points">
+                <h2>
+                    Let's Automate Your Business
+                </h2>
 
-                <li>
-
-                    <span>✓</span>
-
-                    <div>
-                        Discuss your current workflow and challenges.
-                    </div>
-
-                </li>
-
-
-                <li>
-
-                    <span>✓</span>
-
-                    <div>
-                        Identify systems, software or devices that may
-                        need to work together.
-                    </div>
-
-                </li>
-
-
-                <li>
-
-                    <span>✓</span>
-
-                    <div>
-                        Explore an automation solution suited to your
-                        requirements.
-                    </div>
-
-                </li>
-
-
-                <li>
-
-                    <span>✓</span>
-
-                    <div>
-                        Receive guidance from Dinges TechHub before
-                        moving forward.
-                    </div>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-
-        <!-- FORM -->
-
-        <div class="enquiry-form reveal">
-
-            <div class="form-heading">
-
-                <h3>
-                    Automation Enquiry
-                </h3>
 
                 <p>
-                    Complete the form below and tell us a little
-                    about the automation solution you are looking for.
+
+                    Tell us about the processes you would like to
+                    automate, the systems you currently use, or the
+                    challenges you want to solve.
+
                 </p>
+
+
+                <div class="enquiry-points">
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Workflow Automation
+                            </strong>
+
+                            <p>
+                                Reduce repetitive manual processes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                System Integration
+                            </strong>
+
+                            <p>
+                                Connect your business applications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Business Automation
+                            </strong>
+
+                            <p>
+                                Create smarter and more efficient workflows.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
 
             </div>
 
 
-            <form
-                action="#"
-                method="POST"
-                id="automationForm"
-            >
+            <!-- FORM -->
 
-                <div class="form-grid">
+            <div class="enquiry-card reveal">
+
+                <form id="automationEnquiryForm">
+
+                    <!-- These values are sent automatically to Bitrix24 -->
+
+                    <input
+                        type="hidden"
+                        name="service"
+                        value="Automation Software"
+                    >
 
 
-                    <!-- NAME -->
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="Dinges TechHub - Automation Software"
+                    >
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="automationName">
+                                Full Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="automationName"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="automationEmail">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="automationEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="automationPhone">
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="automationPhone"
+                                name="phone"
+                                placeholder="Your phone number"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="automationType">
+                                Enquiry Type *
+                            </label>
+
+                            <select
+                                id="automationType"
+                                name="enquiry_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select enquiry type
+                                </option>
+
+                                <option value="General Enquiry">
+                                    General Enquiry
+                                </option>
+
+                                <option value="Workflow Automation">
+                                    Workflow Automation
+                                </option>
+
+                                <option value="System Integration">
+                                    System Integration
+                                </option>
+
+                                <option value="Task Automation">
+                                    Task Automation
+                                </option>
+
+                                <option value="Business Monitoring">
+                                    Business Monitoring
+                                </option>
+
+                                <option value="Smart Notifications">
+                                    Smart Notifications
+                                </option>
+
+                                <option value="Custom Automation">
+                                    Custom Automation
+                                </option>
+
+                                <option value="Automation Consultation">
+                                    Automation Consultation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
 
                     <div class="form-group">
 
-                        <label for="fullName">
-                            Full Name
+                        <label for="automationSubject">
+                            Subject *
                         </label>
 
                         <input
                             type="text"
-                            id="fullName"
-                            name="full_name"
-                            placeholder="Enter your full name"
-                            autocomplete="name"
+                            id="automationSubject"
+                            name="subject"
+                            placeholder="What would you like to automate?"
                             required
                         >
 
                     </div>
 
 
-                    <!-- COMPANY -->
-
                     <div class="form-group">
 
-                        <label for="company">
-                            Company / Organisation
-                            <span>(Optional)</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            placeholder="Company or organisation"
-                            autocomplete="organization"
-                        >
-
-                    </div>
-
-
-                    <!-- EMAIL -->
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- PHONE -->
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="e.g. 082 123 4567"
-                            autocomplete="tel"
-                            required
-                        >
-
-                    </div>
-
-
-                    <!-- SOLUTION TYPE -->
-
-                    <div class="form-group">
-
-                        <label for="solutionType">
-                            What are you interested in?
-                        </label>
-
-                        <select
-                            id="solutionType"
-                            name="solution_type"
-                            required
-                        >
-
-                            <option value="">
-                                Select an option
-                            </option>
-
-                            <option value="workflow">
-                                Workflow Automation
-                            </option>
-
-                            <option value="task">
-                                Task Automation
-                            </option>
-
-                            <option value="integration">
-                                System Integration
-                            </option>
-
-                            <option value="monitoring">
-                                Business Monitoring
-                            </option>
-
-                            <option value="notifications">
-                                Smart Notifications
-                            </option>
-
-                            <option value="iot">
-                                IoT Device Automation
-                            </option>
-
-                            <option value="other">
-                                Other / Not Sure
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- BUSINESS TYPE -->
-
-                    <div class="form-group">
-
-                        <label for="businessType">
-                            Business / Environment
-                        </label>
-
-                        <select
-                            id="businessType"
-                            name="business_type"
-                            required
-                        >
-
-                            <option value="">
-                                Select an option
-                            </option>
-
-                            <option value="small-business">
-                                Small Business
-                            </option>
-
-                            <option value="medium-business">
-                                Medium Business
-                            </option>
-
-                            <option value="enterprise">
-                                Enterprise
-                            </option>
-
-                            <option value="home">
-                                Home / Residential
-                            </option>
-
-                            <option value="other">
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- CURRENT SYSTEMS -->
-
-                    <div class="form-group full">
-
-                        <label for="systems">
-                            Current Systems / Devices
-                            <span>(Optional)</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="systems"
-                            name="systems"
-                            placeholder="e.g. CRM, website, sensors, smart devices, accounting software..."
-                        >
-
-                    </div>
-
-
-                    <!-- REQUIREMENTS -->
-
-                    <div class="form-group full">
-
-                        <label for="requirements">
-                            Tell Us About Your Automation Requirements
+                        <label for="automationMessage">
+                            Tell Us About Your Requirements *
                         </label>
 
                         <textarea
-                            id="requirements"
-                            name="requirements"
-                            placeholder="Tell us what you currently do manually, what you would like to automate, or what problem you are trying to solve..."
+                            id="automationMessage"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell us about your current process, software systems, or the task you would like to automate..."
                             required
                         ></textarea>
 
                     </div>
 
 
-                </div>
-
-
-                <div class="form-submit">
-
-                    <div class="form-note">
-                        Your information will be used to understand
-                        your requirements and respond to your enquiry.
-                    </div>
-
                     <button
                         type="submit"
-                        class="btn btn-primary"
+                        class="form-submit"
+                        id="automationSubmit"
                     >
-                        Send Enquiry
+                        Send Automation Enquiry
                     </button>
 
-                </div>
 
-            </form>
+                    <div
+                        id="automationFormMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+            </div>
 
         </div>
 
@@ -2780,11 +3251,15 @@ footer {
                 Ready to Work Smarter?
             </h2>
 
+
             <p>
-                Let's explore how IoT automation software can help
-                simplify your business processes, connect your
-                technology and reduce repetitive work.
+
+                Let's explore how automation software can help
+                simplify your business processes and connect
+                your technology.
+
             </p>
+
 
             <a
                 href="#automation-enquiry"
@@ -2825,16 +3300,20 @@ footer {
                         alt="Dinges TechHub Logo"
                     >
 
+
                     <div class="logo-text">
                         Dinges <span>TechHub</span>
                     </div>
 
                 </a>
 
+
                 <p class="footer-description">
+
                     Technology, connectivity and smart solutions
                     designed to help homes and businesses stay
                     connected, productive and ready for the future.
+
                 </p>
 
             </div>
@@ -2847,6 +3326,7 @@ footer {
                 <h4>
                     Services
                 </h4>
+
 
                 <ul>
 
@@ -2876,7 +3356,7 @@ footer {
 
                     <li>
                         <a href="automation-software.html">
-                            IoT Automation Software
+                            Automation Software
                         </a>
                     </li>
 
@@ -2898,6 +3378,7 @@ footer {
                 <h4>
                     Company
                 </h4>
+
 
                 <ul>
 
@@ -2944,6 +3425,7 @@ footer {
                     Contact
                 </h4>
 
+
                 <ul>
 
                     <li>
@@ -2978,6 +3460,7 @@ footer {
                 © 2026 Dinges TechHub. All rights reserved.
             </div>
 
+
             <div>
                 Smart Technology • Connectivity • Innovation
             </div>
@@ -3006,39 +3489,44 @@ const navLinks =
     document.getElementById("navLinks");
 
 
-menuToggle.addEventListener("click", () => {
+if (menuToggle && navLinks) {
 
-    navLinks.classList.toggle("active");
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-    const isOpen =
-        navLinks.classList.contains("active");
+            navLinks.classList.toggle(
+                "active"
+            );
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        isOpen
+        }
     );
 
-});
+}
 
 
 /* =========================================================
-   CLOSE MENU WHEN LINK IS CLICKED
+   CLOSE MOBILE MENU
    ========================================================= */
 
 document
     .querySelectorAll(".nav-links a")
     .forEach(link => {
 
-        link.addEventListener("click", () => {
+        link.addEventListener(
+            "click",
+            () => {
 
-            navLinks.classList.remove("active");
+                if (navLinks) {
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                    navLinks.classList.remove(
+                        "active"
+                    );
 
-        });
+                }
+
+            }
+        );
 
     });
 
@@ -3051,80 +3539,312 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+if ("IntersectionObserver" in window) {
 
-            entries.forEach(entry => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                if (entry.isIntersecting) {
+                entries.forEach(entry => {
 
-                    entry.target.classList.add(
-                        "visible"
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add(
+            "visible"
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   AUTOMATION SOFTWARE
+   → BITRIX24 ENQUIRY
+   ========================================================= */
+
+const automationForm =
+    document.getElementById(
+        "automationEnquiryForm"
+    );
+
+
+const automationSubmit =
+    document.getElementById(
+        "automationSubmit"
+    );
+
+
+const automationFormMessage =
+    document.getElementById(
+        "automationFormMessage"
+    );
+
+
+if (automationForm) {
+
+    automationForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            /* -------------------------------------------------
+               DISABLE BUTTON WHILE SUBMITTING
+               ------------------------------------------------- */
+
+            automationSubmit.disabled =
+                true;
+
+            automationSubmit.textContent =
+                "Sending Enquiry...";
+
+
+            automationFormMessage.className =
+                "form-message";
+
+            automationFormMessage.textContent =
+                "";
+
+
+            /* -------------------------------------------------
+               COLLECT FORM DATA
+               ------------------------------------------------- */
+
+            const formData =
+                new FormData(
+                    automationForm
+                );
+
+
+            const data = {
+
+                name:
+                    String(
+                        formData.get("name") || ""
+                    ).trim(),
+
+                email:
+                    String(
+                        formData.get("email") || ""
+                    ).trim(),
+
+                phone:
+                    String(
+                        formData.get("phone") || ""
+                    ).trim(),
+
+                service:
+                    String(
+                        formData.get("service") || ""
+                    ).trim(),
+
+                source:
+                    String(
+                        formData.get("source") || ""
+                    ).trim(),
+
+                enquiry_type:
+                    String(
+                        formData.get("enquiry_type") || ""
+                    ).trim(),
+
+                subject:
+                    String(
+                        formData.get("subject") || ""
+                    ).trim(),
+
+                message:
+                    String(
+                        formData.get("message") || ""
+                    ).trim()
+
+            };
+
+
+            /* -------------------------------------------------
+               SEND TO NETLIFY FUNCTION
+               ------------------------------------------------- */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    data
+                                )
+
+                        }
                     );
 
-                    revealObserver.unobserve(
-                        entry.target
+
+                /* -------------------------------------------------
+                   SAFELY READ RESPONSE
+                   ------------------------------------------------- */
+
+                const responseText =
+                    await response.text();
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch {
+
+                    throw new Error(
+                        "The server returned an invalid response."
                     );
 
                 }
 
-            });
 
-        },
-        {
-            threshold: 0.12
+                /* -------------------------------------------------
+                   SUCCESS
+                   ------------------------------------------------- */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    automationFormMessage.className =
+                        "form-message success";
+
+
+                    automationFormMessage.textContent =
+                        "Thank you! Your automation enquiry has been received successfully. Our team will contact you shortly.";
+
+
+                    automationForm.reset();
+
+
+                    /* Keep hidden values after reset */
+
+                    automationForm
+                        .querySelector(
+                            'input[name="service"]'
+                        )
+                        .value =
+                        "Automation Software";
+
+
+                    automationForm
+                        .querySelector(
+                            'input[name="source"]'
+                        )
+                        .value =
+                        "Dinges TechHub - Automation Software";
+
+
+                    automationFormMessage
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "nearest"
+                        });
+
+                } else {
+
+                    throw new Error(
+                        result.message ||
+                        "Unable to send your enquiry."
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Automation enquiry error:",
+                    error
+                );
+
+
+                automationFormMessage.className =
+                    "form-message error";
+
+
+                automationFormMessage.textContent =
+                    error.message ||
+                    "Something went wrong while sending your enquiry. Please try again.";
+
+            }
+
+
+            /* -------------------------------------------------
+               RESTORE BUTTON
+               ------------------------------------------------- */
+
+            automationSubmit.disabled =
+                false;
+
+            automationSubmit.textContent =
+                "Send Automation Enquiry";
+
         }
     );
 
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* =========================================================
-   AUTOMATION FORM
-   ========================================================= */
-
-const automationForm =
-    document.getElementById("automationForm");
-
-
-automationForm.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const submitButton =
-        automationForm.querySelector(
-            'button[type="submit"]'
-        );
-
-    submitButton.textContent =
-        "Enquiry Ready ✓";
-
-    submitButton.disabled = true;
-
-    setTimeout(() => {
-
-        alert(
-            "Thank you for your automation enquiry. Dinges TechHub will be in touch."
-        );
-
-        automationForm.reset();
-
-        submitButton.textContent =
-            "Send Enquiry";
-
-        submitButton.disabled = false;
-
-    }, 500);
-
-});
+}
 
 </script>
+
 
 </body>
 </html>
