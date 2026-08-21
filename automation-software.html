@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -13,14 +14,15 @@
 
 <meta
     name="description"
-    content="Dinges TechHub Automation Software helps businesses automate repetitive processes, connect systems, improve workflows and operate more efficiently."
+    content="Discover automation software solutions from Dinges TechHub designed to simplify processes, improve productivity and connect your business."
 >
+
 
 <style>
 
 /* =========================================================
    DINGES TECHHUB
-   AUTOMATION SOFTWARE
+   AUTOMATION SOFTWARE PAGE
    ========================================================= */
 
 :root {
@@ -47,10 +49,6 @@
     --transition: 0.35s ease;
 }
 
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 * {
 
@@ -80,8 +78,7 @@ body {
     color:
         var(--black);
 
-    overflow-x:
-        hidden;
+    overflow-x: hidden;
 }
 
 
@@ -98,15 +95,6 @@ img {
     max-width: 100%;
 
     display: block;
-}
-
-
-button,
-input,
-select,
-textarea {
-
-    font-family: inherit;
 }
 
 
@@ -129,17 +117,12 @@ textarea {
     position:
         fixed;
 
-    top:
-        0;
+    top: 0;
+    left: 0;
 
-    left:
-        0;
+    width: 100%;
 
-    width:
-        100%;
-
-    z-index:
-        1000;
+    z-index: 1000;
 
     background:
         rgba(2, 2, 2, 0.94);
@@ -149,7 +132,7 @@ textarea {
 
     border-bottom:
         1px solid
-        rgba(255, 187, 66, 0.12);
+        rgba(255,187,66,0.12);
 }
 
 
@@ -334,7 +317,7 @@ textarea {
 
     box-shadow:
         0 8px 25px
-        rgba(255, 187, 66, 0.25);
+        rgba(255,187,66,0.25);
 }
 
 
@@ -386,13 +369,13 @@ textarea {
 
         radial-gradient(
             circle at 85% 20%,
-            rgba(122, 44, 120, 0.45),
+            rgba(122,44,120,0.45),
             transparent 35%
         ),
 
         radial-gradient(
             circle at 10% 90%,
-            rgba(255, 187, 66, 0.12),
+            rgba(255,187,66,0.12),
             transparent 30%
         ),
 
@@ -424,7 +407,7 @@ textarea {
 
     border:
         1px solid
-        rgba(255, 187, 66, 0.15);
+        rgba(255,187,66,0.15);
 
     border-radius:
         50%;
@@ -457,7 +440,7 @@ textarea {
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.08);
+        rgba(255,255,255,0.08);
 
     border-radius:
         50%;
@@ -477,13 +460,11 @@ textarea {
 @keyframes rotateCircle {
 
     from {
-
         transform:
             rotate(0deg);
     }
 
     to {
-
         transform:
             rotate(360deg);
     }
@@ -494,13 +475,11 @@ textarea {
 @keyframes rotateCircleReverse {
 
     from {
-
         transform:
             rotate(360deg);
     }
 
     to {
-
         transform:
             rotate(0deg);
     }
@@ -775,15 +754,12 @@ textarea {
 
 @keyframes pulseCore {
 
-    0%,
-    100% {
-
+    0%, 100% {
         transform:
             scale(1);
     }
 
     50% {
-
         transform:
             scale(1.05);
     }
@@ -888,17 +864,18 @@ textarea {
 
 @keyframes floatDevice {
 
-    0%,
-    100% {
+    0%, 100% {
 
         transform:
             translateY(0);
+
     }
 
     50% {
 
         transform:
             translateY(-12px);
+
     }
 
 }
@@ -1493,17 +1470,13 @@ textarea {
    AUTOMATION ENQUIRY
    ========================================================= */
 
-.enquiry-section {
+.automation-enquiry {
 
     padding:
         100px 0;
 
     background:
-        linear-gradient(
-            180deg,
-            var(--background),
-            #ffffff
-        );
+        var(--white);
 }
 
 
@@ -1519,18 +1492,25 @@ textarea {
         70px;
 
     align-items:
-        center;
+        start;
 }
 
 
-.enquiry-content .eyebrow {
+.enquiry-info {
+
+    padding-top:
+        20px;
+}
+
+
+.enquiry-info .eyebrow {
 
     color:
         var(--purple);
 }
 
 
-.enquiry-content h2 {
+.enquiry-info h2 {
 
     color:
         var(--purple-dark);
@@ -1539,14 +1519,14 @@ textarea {
         clamp(34px, 4vw, 50px);
 
     line-height:
-        1.1;
+        1.12;
 
     margin-bottom:
         20px;
 }
 
 
-.enquiry-content > p {
+.enquiry-info > p {
 
     color:
         #686868;
@@ -1554,14 +1534,11 @@ textarea {
     line-height:
         1.8;
 
-    font-size:
-        16px;
+    margin-bottom:
+        32px;
 
     max-width:
-        520px;
-
-    margin-bottom:
-        35px;
+        540px;
 }
 
 
@@ -1863,10 +1840,14 @@ textarea {
         block;
 
     background:
-        rgba(46,125,50,0.10);
+        rgba(38,140,83,0.10);
+
+    border:
+        1px solid
+        rgba(38,140,83,0.20);
 
     color:
-        #236b28;
+        #237548;
 }
 
 
@@ -1876,10 +1857,14 @@ textarea {
         block;
 
     background:
-        rgba(190,40,40,0.10);
+        rgba(190,50,50,0.08);
+
+    border:
+        1px solid
+        rgba(190,50,50,0.18);
 
     color:
-        #9b2525;
+        #a62d2d;
 }
 
 
@@ -1893,7 +1878,7 @@ textarea {
         80px 0;
 
     background:
-        var(--white);
+        var(--background);
 }
 
 
@@ -2228,10 +2213,10 @@ footer {
     }
 
 
-    .enquiry-grid {
+    .enquiry-info {
 
-        gap:
-            45px;
+        padding-top:
+            0;
     }
 
 }
@@ -2362,6 +2347,9 @@ footer {
 
         grid-template-columns:
             1fr;
+
+        gap:
+            0;
     }
 
 
@@ -2495,30 +2483,22 @@ footer {
 
     <div class="container hero-grid">
 
-
         <div class="hero-content reveal">
 
             <div class="breadcrumb">
                 INTERNET OF THINGS / AUTOMATION SOFTWARE
             </div>
 
-
             <h1>
-
                 Automate Your
                 <span>Business.</span>
-
             </h1>
 
-
             <p class="hero-description">
-
                 Use intelligent automation software to simplify
                 repetitive processes, connect your systems and
                 help your business operate more efficiently.
-
             </p>
-
 
             <div class="hero-buttons">
 
@@ -2529,20 +2509,17 @@ footer {
                     Explore Automation
                 </a>
 
-
                 <a
                     href="#automation-enquiry"
                     class="btn btn-outline"
                 >
-                    Get Started
+                    Request Consultation
                 </a>
 
             </div>
 
         </div>
 
-
-        <!-- AUTOMATION VISUAL -->
 
         <div class="automation-visual reveal">
 
@@ -2592,18 +2569,14 @@ footer {
                 Intelligent Automation
             </div>
 
-
             <h2>
                 Automation Software
             </h2>
 
-
             <p>
-
                 Modern businesses handle many repetitive tasks every
                 day. Automation software can help connect those tasks,
                 reduce manual work and create more efficient workflows.
-
             </p>
 
         </div>
@@ -2638,11 +2611,9 @@ footer {
                 </h3>
 
                 <p>
-
                     Automate repetitive business processes and create
                     workflows that move tasks between people and
                     systems with less manual effort.
-
                 </p>
 
             </article>
@@ -2659,10 +2630,8 @@ footer {
                 </h3>
 
                 <p>
-
                     Simplify routine tasks such as notifications,
                     approvals, reminders and information processing.
-
                 </p>
 
             </article>
@@ -2679,11 +2648,9 @@ footer {
                 </h3>
 
                 <p>
-
                     Connect compatible software platforms and services
-                    so information can move between systems more
+                    so that information can move between systems more
                     efficiently.
-
                 </p>
 
             </article>
@@ -2700,11 +2667,9 @@ footer {
                 </h3>
 
                 <p>
-
                     Create automated monitoring and reporting processes
-                    that help you stay informed about important
-                    business activities.
-
+                    that help you stay informed about important business
+                    activities.
                 </p>
 
             </article>
@@ -2721,10 +2686,8 @@ footer {
                 </h3>
 
                 <p>
-
                     Trigger notifications and alerts when specific
                     events or conditions occur within your workflows.
-
                 </p>
 
             </article>
@@ -2741,10 +2704,8 @@ footer {
                 </h3>
 
                 <p>
-
                     Explore intelligent automation approaches that
                     combine software, data and connected technologies.
-
                 </p>
 
             </article>
@@ -2781,18 +2742,14 @@ footer {
                 Smarter Operations
             </div>
 
-
             <h2>
                 Let Technology Handle the Repetitive Work
             </h2>
 
-
             <p>
-
                 Automation gives your team more time to focus on
                 meaningful work by allowing software to handle
                 repetitive and predictable processes.
-
             </p>
 
 
@@ -2847,17 +2804,13 @@ footer {
                 Our Approach
             </div>
 
-
             <h2>
                 From Manual Tasks to Automated Workflows
             </h2>
 
-
             <p>
-
                 We help identify opportunities where automation can
                 make your business processes simpler and more efficient.
-
             </p>
 
         </div>
@@ -2877,10 +2830,8 @@ footer {
                 </h3>
 
                 <p>
-
                     We look at repetitive processes and identify
                     areas where automation could provide value.
-
                 </p>
 
             </div>
@@ -2897,10 +2848,8 @@ footer {
                 </h3>
 
                 <p>
-
                     Compatible systems, applications and services
                     can then be connected into an automated workflow.
-
                 </p>
 
             </div>
@@ -2917,11 +2866,9 @@ footer {
                 </h3>
 
                 <p>
-
                     The workflow is configured to perform tasks,
                     trigger actions and provide useful information
                     with less manual intervention.
-
                 </p>
 
             </div>
@@ -2935,11 +2882,11 @@ footer {
 
 
 <!-- =========================================================
-     AUTOMATION SOFTWARE ENQUIRY
+     AUTOMATION ENQUIRY
      ========================================================= -->
 
 <section
-    class="enquiry-section"
+    class="automation-enquiry"
     id="automation-enquiry"
 >
 
@@ -2948,26 +2895,23 @@ footer {
         <div class="enquiry-grid">
 
 
-            <!-- LEFT -->
+            <!-- INFORMATION -->
 
-            <div class="enquiry-content reveal">
+            <div class="enquiry-info reveal">
 
                 <div class="eyebrow">
-                    Automation Software
+                    Start Your Automation Journey
                 </div>
 
-
                 <h2>
-                    Let's Automate Your Business
+                    Tell Us What You Want to Automate
                 </h2>
 
-
                 <p>
-
-                    Tell us about the processes you would like to
-                    automate, the systems you currently use, or the
-                    challenges you want to solve.
-
+                    Every business is different. Tell us about the
+                    process, task or system you would like to improve
+                    and our team can help identify the right automation
+                    approach.
                 </p>
 
 
@@ -2976,16 +2920,19 @@ footer {
 
                     <div class="enquiry-point">
 
-                        <span>✓</span>
+                        <span>
+                            ✓
+                        </span>
 
                         <div>
 
                             <strong>
-                                Workflow Automation
+                                Business Process Automation
                             </strong>
 
                             <p>
-                                Reduce repetitive manual processes.
+                                Reduce repetitive manual work and
+                                improve everyday workflows.
                             </p>
 
                         </div>
@@ -2995,16 +2942,19 @@ footer {
 
                     <div class="enquiry-point">
 
-                        <span>✓</span>
+                        <span>
+                            ✓
+                        </span>
 
                         <div>
 
                             <strong>
-                                System Integration
+                                Software Integration
                             </strong>
 
                             <p>
-                                Connect your business applications.
+                                Connect compatible systems and services
+                                together.
                             </p>
 
                         </div>
@@ -3014,16 +2964,19 @@ footer {
 
                     <div class="enquiry-point">
 
-                        <span>✓</span>
+                        <span>
+                            ✓
+                        </span>
 
                         <div>
 
                             <strong>
-                                Business Automation
+                                Custom Automation
                             </strong>
 
                             <p>
-                                Create smarter and more efficient workflows.
+                                Discuss an automation solution designed
+                                around your business.
                             </p>
 
                         </div>
@@ -3040,9 +2993,16 @@ footer {
 
             <div class="enquiry-card reveal">
 
-                <form id="automationEnquiryForm">
+                <form
+                    id="automationEnquiryForm"
+                    novalidate
+                >
 
-                    <!-- These values are sent automatically to Bitrix24 -->
+
+                    <!--
+                        These hidden values are sent directly
+                        to the Netlify Bitrix24 function.
+                    -->
 
                     <input
                         type="hidden"
@@ -3057,6 +3017,8 @@ footer {
                         value="Dinges TechHub - Automation Software"
                     >
 
+
+                    <!-- NAME + PHONE -->
 
                     <div class="form-row">
 
@@ -3081,30 +3043,6 @@ footer {
 
                         <div class="form-group">
 
-                            <label for="automationEmail">
-                                Email Address *
-                            </label>
-
-                            <input
-                                type="email"
-                                id="automationEmail"
-                                name="email"
-                                placeholder="you@example.com"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="form-row">
-
-
-                        <div class="form-group">
-
                             <label for="automationPhone">
                                 Phone Number *
                             </label>
@@ -3119,6 +3057,34 @@ footer {
                             >
 
                         </div>
+
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="automationEmail">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="automationEmail"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ENQUIRY TYPE + SUBJECT -->
+
+                    <div class="form-row">
 
 
                         <div class="form-group">
@@ -3137,8 +3103,8 @@ footer {
                                     Select enquiry type
                                 </option>
 
-                                <option value="General Enquiry">
-                                    General Enquiry
+                                <option value="Automation Consultation">
+                                    Automation Consultation
                                 </option>
 
                                 <option value="Workflow Automation">
@@ -3149,24 +3115,12 @@ footer {
                                     System Integration
                                 </option>
 
-                                <option value="Task Automation">
-                                    Task Automation
-                                </option>
-
-                                <option value="Business Monitoring">
-                                    Business Monitoring
-                                </option>
-
-                                <option value="Smart Notifications">
-                                    Smart Notifications
+                                <option value="Business Process Automation">
+                                    Business Process Automation
                                 </option>
 
                                 <option value="Custom Automation">
                                     Custom Automation
-                                </option>
-
-                                <option value="Automation Consultation">
-                                    Automation Consultation
                                 </option>
 
                             </select>
@@ -3174,25 +3128,27 @@ footer {
                         </div>
 
 
+                        <div class="form-group">
+
+                            <label for="automationSubject">
+                                Subject *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="automationSubject"
+                                name="subject"
+                                placeholder="What would you like to automate?"
+                                required
+                            >
+
+                        </div>
+
+
                     </div>
 
 
-                    <div class="form-group">
-
-                        <label for="automationSubject">
-                            Subject *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="automationSubject"
-                            name="subject"
-                            placeholder="What would you like to automate?"
-                            required
-                        >
-
-                    </div>
-
+                    <!-- MESSAGE -->
 
                     <div class="form-group">
 
@@ -3211,6 +3167,8 @@ footer {
                     </div>
 
 
+                    <!-- SUBMIT -->
+
                     <button
                         type="submit"
                         class="form-submit"
@@ -3220,11 +3178,14 @@ footer {
                     </button>
 
 
+                    <!-- STATUS -->
+
                     <div
                         id="automationFormMessage"
                         class="form-message"
                         aria-live="polite"
                     ></div>
+
 
                 </form>
 
@@ -3251,21 +3212,17 @@ footer {
                 Ready to Work Smarter?
             </h2>
 
-
             <p>
-
                 Let's explore how automation software can help
                 simplify your business processes and connect
                 your technology.
-
             </p>
-
 
             <a
                 href="#automation-enquiry"
                 class="btn btn-primary"
             >
-                Start Your Enquiry
+                Start Your Automation Enquiry
             </a>
 
         </div>
@@ -3300,7 +3257,6 @@ footer {
                         alt="Dinges TechHub Logo"
                     >
 
-
                     <div class="logo-text">
                         Dinges <span>TechHub</span>
                     </div>
@@ -3309,11 +3265,9 @@ footer {
 
 
                 <p class="footer-description">
-
                     Technology, connectivity and smart solutions
                     designed to help homes and businesses stay
                     connected, productive and ready for the future.
-
                 </p>
 
             </div>
@@ -3326,7 +3280,6 @@ footer {
                 <h4>
                     Services
                 </h4>
-
 
                 <ul>
 
@@ -3355,14 +3308,8 @@ footer {
                     </li>
 
                     <li>
-                        <a href="automation-software.html">
-                            Automation Software
-                        </a>
-                    </li>
-
-                    <li>
                         <a href="hosting.html">
-                            Web & Email Hosting
+                            Web &amp; Email Hosting
                         </a>
                     </li>
 
@@ -3378,7 +3325,6 @@ footer {
                 <h4>
                     Company
                 </h4>
-
 
                 <ul>
 
@@ -3425,7 +3371,6 @@ footer {
                     Contact
                 </h4>
 
-
                 <ul>
 
                     <li>
@@ -3459,7 +3404,6 @@ footer {
             <div>
                 © 2026 Dinges TechHub. All rights reserved.
             </div>
-
 
             <div>
                 Smart Technology • Connectivity • Innovation
@@ -3592,8 +3536,7 @@ if ("IntersectionObserver" in window) {
 
 
 /* =========================================================
-   AUTOMATION SOFTWARE
-   → BITRIX24 ENQUIRY
+   AUTOMATION ENQUIRY → BITRIX24
    ========================================================= */
 
 const automationForm =
@@ -3601,12 +3544,10 @@ const automationForm =
         "automationEnquiryForm"
     );
 
-
 const automationSubmit =
     document.getElementById(
         "automationSubmit"
     );
-
 
 const automationFormMessage =
     document.getElementById(
@@ -3623,9 +3564,24 @@ if (automationForm) {
             event.preventDefault();
 
 
-            /* -------------------------------------------------
-               DISABLE BUTTON WHILE SUBMITTING
-               ------------------------------------------------- */
+            /* ---------------------------------------------
+               CLIENT-SIDE VALIDATION
+               --------------------------------------------- */
+
+            if (
+                !automationForm.checkValidity()
+            ) {
+
+                automationForm.reportValidity();
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               DISABLE BUTTON
+               --------------------------------------------- */
 
             automationSubmit.disabled =
                 true;
@@ -3641,9 +3597,9 @@ if (automationForm) {
                 "";
 
 
-            /* -------------------------------------------------
-               COLLECT FORM DATA
-               ------------------------------------------------- */
+            /* ---------------------------------------------
+               READ FORM
+               --------------------------------------------- */
 
             const formData =
                 new FormData(
@@ -3680,25 +3636,31 @@ if (automationForm) {
 
                 enquiry_type:
                     String(
-                        formData.get("enquiry_type") || ""
+                        formData.get(
+                            "enquiry_type"
+                        ) || ""
                     ).trim(),
 
                 subject:
                     String(
-                        formData.get("subject") || ""
+                        formData.get(
+                            "subject"
+                        ) || ""
                     ).trim(),
 
                 message:
                     String(
-                        formData.get("message") || ""
+                        formData.get(
+                            "message"
+                        ) || ""
                     ).trim()
 
             };
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                SEND TO NETLIFY FUNCTION
-               ------------------------------------------------- */
+               --------------------------------------------- */
 
             try {
 
@@ -3706,6 +3668,7 @@ if (automationForm) {
                     await fetch(
                         "/.netlify/functions/bitrix-contact",
                         {
+
                             method:
                                 "POST",
 
@@ -3728,9 +3691,9 @@ if (automationForm) {
                     );
 
 
-                /* -------------------------------------------------
-                   SAFELY READ RESPONSE
-                   ------------------------------------------------- */
+                /* -----------------------------------------
+                   READ RESPONSE
+                   ----------------------------------------- */
 
                 const responseText =
                     await response.text();
@@ -3746,7 +3709,12 @@ if (automationForm) {
                             responseText
                         );
 
-                } catch {
+                } catch (jsonError) {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
 
                     throw new Error(
                         "The server returned an invalid response."
@@ -3755,9 +3723,9 @@ if (automationForm) {
                 }
 
 
-                /* -------------------------------------------------
+                /* -----------------------------------------
                    SUCCESS
-                   ------------------------------------------------- */
+                   ----------------------------------------- */
 
                 if (
                     response.ok &&
@@ -3767,7 +3735,6 @@ if (automationForm) {
                     automationFormMessage.className =
                         "form-message success";
 
-
                     automationFormMessage.textContent =
                         "Thank you! Your automation enquiry has been received successfully. Our team will contact you shortly.";
 
@@ -3775,31 +3742,59 @@ if (automationForm) {
                     automationForm.reset();
 
 
-                    /* Keep hidden values after reset */
+                    /*
+                     * FormData reset does not affect
+                     * these hidden values permanently,
+                     * but we explicitly restore them.
+                     */
 
-                    automationForm
-                        .querySelector(
+                    const serviceField =
+                        automationForm.querySelector(
                             'input[name="service"]'
-                        )
-                        .value =
-                        "Automation Software";
+                        );
 
 
-                    automationForm
-                        .querySelector(
+                    const sourceField =
+                        automationForm.querySelector(
                             'input[name="source"]'
-                        )
-                        .value =
-                        "Dinges TechHub - Automation Software";
+                        );
 
 
-                    automationFormMessage
-                        .scrollIntoView({
-                            behavior: "smooth",
-                            block: "nearest"
-                        });
+                    if (serviceField) {
 
-                } else {
+                        serviceField.value =
+                            "Automation Software";
+
+                    }
+
+
+                    if (sourceField) {
+
+                        sourceField.value =
+                            "Dinges TechHub - Automation Software";
+
+                    }
+
+
+                    /* Scroll status into view */
+
+                    automationFormMessage.scrollIntoView({
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "nearest"
+                    });
+
+
+                }
+
+
+                /* -----------------------------------------
+                   ERROR FROM NETLIFY / BITRIX
+                   ----------------------------------------- */
+
+                else {
 
                     throw new Error(
                         result.message ||
@@ -3828,9 +3823,9 @@ if (automationForm) {
             }
 
 
-            /* -------------------------------------------------
+            /* ---------------------------------------------
                RESTORE BUTTON
-               ------------------------------------------------- */
+               --------------------------------------------- */
 
             automationSubmit.disabled =
                 false;
@@ -3847,4 +3842,5 @@ if (automationForm) {
 
 
 </body>
+
 </html>
