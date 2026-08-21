@@ -1,40 +1,69 @@
-exports.handler = async function (event) {
+exports.handler = async (event) => {
+    console.log("bitrix-contact function started");
+    console.log("HTTP Method:", event.httpMethod);
 
     // =========================================================
-    // ONLY ALLOW POST REQUESTS
+    // ONLY ALLOW POST
     // =========================================================
 
     if (event.httpMethod !== "POST") {
-
         return {
             statusCode: 405,
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
                 success: false,
                 message: "Method not allowed"
             })
         };
-
     }
-
 
     try {
 
-        // =========================================================
-        // READ JSON REQUEST
-        // =========================================================
+        // =====================================================
+        // CHECK REQUEST BODY
+        // =====================================================
 
-        const data =
-            JSON.parse(event.body || "{}");
+        if (!event.body) {
+            return {
+                statusCode: 400,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    success: false,
+                    message: "No enquiry data was received."
+                })
+            };
+        }
 
+        // =====================================================
+        // PARSE JSON
+        // =====================================================
 
-        // =========================================================
-        // GET FORM DATA
-        // =========================================================
+        let data;
+
+        try {
+            data = JSON.parse(event.body);
+        } catch (parseError) {
+            console.error("JSON Parse Error:", parseError);
+
+            return {
+                statusCode: 400,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    success: false,
+                    message: "Invalid request data."
+                })
+            };
+        }
+
+        // =====================================================
+        // READ FORM DATA
+        // =====================================================
 
         const name =
             String(data.name || "").trim();
@@ -60,10 +89,9 @@ exports.handler = async function (event) {
         const message =
             String(data.message || "").trim();
 
-
-        // =========================================================
+        // =====================================================
         // VALIDATION
-        // =========================================================
+        // =====================================================
 
         if (
             !name ||
@@ -73,239 +101,191 @@ exports.handler = async function (event) {
             !subject ||
             !message
         ) {
-
             return {
-
                 statusCode: 400,
-
                 headers: {
-                    "Content-Type":
-                        "application/json"
+                    "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-
                     success: false,
-
-                    message:
-                        "Please complete all required fields."
-
+                    message: "Please complete all required fields."
                 })
-
             };
-
         }
 
-
-        // =========================================================
-        // BASIC EMAIL VALIDATION
-        // =========================================================
+        // =====================================================
+        // EMAIL VALIDATION
+        // =====================================================
 
         const emailPattern =
             /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-
         if (!emailPattern.test(email)) {
-
             return {
-
                 statusCode: 400,
-
                 headers: {
-                    "Content-Type":
-                        "application/json"
+                    "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-
                     success: false,
-
-                    message:
-                        "Please enter a valid email address."
-
+                    message: "Please enter a valid email address."
                 })
-
             };
-
         }
 
-
-        // =========================================================
-        // GET BITRIX24 WEBHOOK
-        // =========================================================
+        // =====================================================
+        // GET BITRIX WEBHOOK
+        // =====================================================
 
         const bitrixWebhookUrl =
             process.env.BITRIX_WEBHOOK_URL;
 
-
         if (!bitrixWebhookUrl) {
 
             console.error(
-                "BITRIX_WEBHOOK_URL is not configured."
+                "ERROR: BITRIX_WEBHOOK_URL environment variable is missing."
             );
 
-
             return {
-
                 statusCode: 500,
-
                 headers: {
-                    "Content-Type":
-                        "application/json"
+                    "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-
                     success: false,
-
-                    message:
-                        "Bitrix24 connection is not configured."
-
+                    message: "Bitrix24 connection is not configured."
                 })
-
             };
-
         }
 
-
-        // =========================================================
+        // =====================================================
         // CLEAN WEBHOOK URL
-        // =========================================================
+        // =====================================================
 
         const webhook =
             bitrixWebhookUrl.endsWith("/")
                 ? bitrixWebhookUrl
                 : bitrixWebhookUrl + "/";
 
+        console.log("Bitrix webhook configured:", true);
 
-        // =========================================================
-        // CREATE BITRIX24 LEAD
-        // =========================================================
+        // =====================================================
+        // CREATE BITRIX LEAD
+        // =====================================================
 
-        const bitrixResponse =
-            await fetch(
-                webhook + "crm.lead.add.json",
-                {
+        const bitrixResponse = await fetch(
+            webhook + "crm.lead.add.json",
+            {
+                method: "POST",
 
-                    method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
 
-                    headers: {
-                        "Content-Type":
-                            "application/json",
+                body: JSON.stringify({
+                    fields: {
 
-                        "Accept":
-                            "application/json"
-                    },
+                        TITLE:
+                            "Dinges TechHub Enquiry - " +
+                            subject,
 
-                    body: JSON.stringify({
+                        NAME:
+                            name,
 
-                        fields: {
+                        EMAIL: [
+                            {
+                                VALUE: email,
+                                VALUE_TYPE: "WORK"
+                            }
+                        ],
 
-                            // ---------------------------------
-                            // TITLE
-                            // ---------------------------------
+                        PHONE: [
+                            {
+                                VALUE: phone,
+                                VALUE_TYPE: "WORK"
+                            }
+                        ],
 
-                            TITLE:
-                                "Smart Appliances Enquiry - " +
-                                subject,
+                        COMMENTS:
+                            "DINGES TECHHUB WEBSITE ENQUIRY\n\n" +
 
+                            "Customer Name: " +
+                            name +
 
-                            // ---------------------------------
-                            // CUSTOMER NAME
-                            // ---------------------------------
+                            "\nEmail: " +
+                            email +
 
-                            NAME:
-                                name,
+                            "\nPhone: " +
+                            phone +
 
+                            "\nService: " +
+                            (service || "Not specified") +
 
-                            // ---------------------------------
-                            // EMAIL
-                            // ---------------------------------
+                            "\nEnquiry Type: " +
+                            enquiryType +
 
-                            EMAIL: [
+                            "\nSubject: " +
+                            subject +
 
-                                {
-                                    VALUE:
-                                        email,
+                            "\n\nMessage:\n" +
+                            message +
 
-                                    VALUE_TYPE:
-                                        "WORK"
-                                }
+                            "\n\nSource: " +
+                            (source || "Dinges TechHub Website"),
 
-                            ],
+                        SOURCE_DESCRIPTION:
+                            source ||
+                            "Dinges TechHub Website"
+                    }
+                })
+            }
+        );
 
+        // =====================================================
+        // READ BITRIX RESPONSE SAFELY
+        // =====================================================
 
-                            // ---------------------------------
-                            // PHONE
-                            // ---------------------------------
+        const responseText =
+            await bitrixResponse.text();
 
-                            PHONE: [
+        console.log(
+            "Bitrix HTTP Status:",
+            bitrixResponse.status
+        );
 
-                                {
-                                    VALUE:
-                                        phone,
+        console.log(
+            "Bitrix Response:",
+            responseText
+        );
 
-                                    VALUE_TYPE:
-                                        "WORK"
-                                }
+        let result;
 
-                            ],
+        try {
+            result = JSON.parse(responseText);
+        } catch (jsonError) {
 
-
-                            // ---------------------------------
-                            // COMMENTS
-                            // ---------------------------------
-
-                            COMMENTS:
-
-                                "Dinges TechHub Website Enquiry\n\n" +
-
-                                "Service: " +
-                                (service ||
-                                    "Smart Appliances & Devices") +
-
-                                "\n\nEnquiry Type: " +
-                                enquiryType +
-
-                                "\n\nSubject: " +
-                                subject +
-
-                                "\n\nMessage:\n" +
-                                message +
-
-                                "\n\nSource: " +
-                                (source ||
-                                    "Website"),
-
-
-                            // ---------------------------------
-                            // SOURCE
-                            // ---------------------------------
-
-                            SOURCE_DESCRIPTION:
-                                source ||
-                                "Dinges TechHub Website"
-
-
-                        }
-
-                    })
-
-                }
+            console.error(
+                "Bitrix returned non-JSON response:",
+                responseText
             );
 
+            return {
+                statusCode: 502,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    success: false,
+                    message:
+                        "Bitrix24 returned an invalid response."
+                })
+            };
+        }
 
-        // =========================================================
-        // READ BITRIX RESPONSE
-        // =========================================================
-
-        const result =
-            await bitrixResponse.json();
-
-
-        // =========================================================
-        // CHECK BITRIX RESPONSE
-        // =========================================================
+        // =====================================================
+        // CHECK BITRIX ERROR
+        // =====================================================
 
         if (
             !bitrixResponse.ok ||
@@ -313,97 +293,63 @@ exports.handler = async function (event) {
         ) {
 
             console.error(
-                "Bitrix24 Error:",
+                "Bitrix24 API Error:",
                 result
             );
 
-
             return {
-
-                statusCode: 500,
-
+                statusCode: 502,
                 headers: {
-                    "Content-Type":
-                        "application/json"
+                    "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify({
-
                     success: false,
-
                     message:
                         "Unable to send your enquiry to Bitrix24."
-
                 })
-
             };
-
         }
 
-
-        // =========================================================
+        // =====================================================
         // SUCCESS
-        // =========================================================
+        // =====================================================
 
         console.log(
             "Bitrix24 Lead Created:",
             result.result
         );
 
-
         return {
-
             statusCode: 200,
-
             headers: {
-                "Content-Type":
-                    "application/json"
+                "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
-
                 success: true,
-
                 message:
-                    "Thank you. Your enquiry has been received successfully."
-
+                    "Thank you. Your enquiry has been received successfully.",
+                leadId:
+                    result.result || null
             })
-
         };
-
 
     } catch (error) {
 
-        // =========================================================
-        // SERVER ERROR
-        // =========================================================
-
         console.error(
-            "Bitrix24 Function Error:",
+            "BITRIX CONTACT FUNCTION ERROR:",
             error
         );
 
-
         return {
-
             statusCode: 500,
-
             headers: {
-                "Content-Type":
-                    "application/json"
+                "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
-
                 success: false,
-
                 message:
                     "Something went wrong while processing your enquiry."
-
             })
-
         };
-
     }
-
 };
