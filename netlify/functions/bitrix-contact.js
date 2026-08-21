@@ -1,3850 +1,708 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Automation Software | Dinges TechHub</title>
-
-<meta
-    name="description"
-    content="Dinges TechHub Automation Software helps businesses automate repetitive processes, connect systems, improve workflows and operate more efficiently."
->
-
-<style>
-
-/* =========================================================
-   DINGES TECHHUB
-   AUTOMATION SOFTWARE
-   ========================================================= */
-
-:root {
-
-    --purple-dark: #3C1542;
-    --purple: #7A2C78;
-    --purple-light: #9d4c9b;
-
-    --gold: #FFBB42;
-
-    --black: #020202;
-
-    --grey: #949393;
-    --light-grey: #D9D9D9;
-
-    --white: #ffffff;
-
-    --background: #f7f5f8;
-
-    --container: 1200px;
-
-    --radius: 20px;
-
-    --transition: 0.35s ease;
-}
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
-
-* {
-
-    margin: 0;
-    padding: 0;
-
-    box-sizing: border-box;
-}
-
-
-html {
-
-    scroll-behavior: smooth;
-}
-
-
-body {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:
-        var(--background);
-
-    color:
-        var(--black);
-
-    overflow-x:
-        hidden;
-}
-
-
-a {
-
-    text-decoration: none;
-
-    color: inherit;
-}
-
-
-img {
-
-    max-width: 100%;
-
-    display: block;
-}
-
-
-button,
-input,
-select,
-textarea {
-
-    font-family: inherit;
-}
-
-
-.container {
-
-    width:
-        min(92%, var(--container));
-
-    margin:
-        auto;
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-.navbar {
-
-    position:
-        fixed;
-
-    top:
-        0;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    z-index:
-        1000;
-
-    background:
-        rgba(2, 2, 2, 0.94);
-
-    backdrop-filter:
-        blur(14px);
-
-    border-bottom:
-        1px solid
-        rgba(255, 187, 66, 0.12);
-}
-
-
-.nav-container {
-
-    min-height:
-        78px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        30px;
-}
-
-
-.logo {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        12px;
-
-    flex-shrink:
-        0;
-}
-
-
-.logo img {
-
-    width:
-        48px;
-
-    height:
-        48px;
-
-    object-fit:
-        contain;
-
-    border-radius:
-        8px;
-}
-
-
-.logo-text {
-
-    color:
-        var(--white);
-
-    font-size:
-        19px;
-
-    font-weight:
-        800;
-}
-
-
-.logo-text span {
-
-    color:
-        var(--gold);
-}
-
-
-.nav-links {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        27px;
-
-    list-style:
-        none;
-}
-
-
-.nav-links a {
-
-    color:
-        var(--white);
-
-    font-size:
-        14px;
-
-    font-weight:
-        600;
-
-    position:
-        relative;
-
-    transition:
-        var(--transition);
-}
-
-
-.nav-links a::after {
-
-    content:
+/**
+ * ============================================================
+ * DINGES TECHHUB
+ * BITRIX24 CONTACT / ENQUIRY FUNCTION
+ * ============================================================
+ *
+ * Netlify Function:
+ *
+ * /.netlify/functions/bitrix-contact
+ *
+ * Required Netlify environment variable:
+ *
+ * B24_HOOK
+ *
+ * Example:
+ *
+ * https://your-company.bitrix24.com/rest/1/YOUR_WEBHOOK_TOKEN/
+ *
+ * IMPORTANT:
+ * Never put the Bitrix24 webhook directly inside the
+ * HTML/JavaScript frontend.
+ * ============================================================
+ */
+
+exports.handler = async (event) => {
+
+    console.log("========================================");
+    console.log("Dinges TechHub - bitrix-contact started");
+    console.log("HTTP Method:", event.httpMethod);
+    console.log("========================================");
+
+
+    /* ========================================================
+       CORS
+       ======================================================== */
+
+    const headers = {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Accept"
+    };
+
+
+    /* ========================================================
+       HELPER: JSON RESPONSE
+       ======================================================== */
+
+    const response = (statusCode, data) => {
+
+        return {
+            statusCode,
+            headers,
+            body: JSON.stringify(data)
+        };
+
+    };
+
+
+    /* ========================================================
+       OPTIONS REQUEST
+       ======================================================== */
+
+    if (event.httpMethod === "OPTIONS") {
+
+        return response(
+            204,
+            {
+                success: true
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       ONLY POST ALLOWED
+       ======================================================== */
+
+    if (event.httpMethod !== "POST") {
+
+        console.error(
+            "Rejected request. Method:",
+            event.httpMethod
+        );
+
+        return response(
+            405,
+            {
+                success: false,
+                message:
+                    "Method not allowed. Please submit the enquiry using POST."
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       BITRIX WEBHOOK
+       ======================================================== */
+
+    const rawHook =
+        process.env.B24_HOOK ||
+        process.env.BITRIX_WEBHOOK_URL ||
+        process.env.BITRIX24_WEBHOOK_URL ||
         "";
 
-    position:
-        absolute;
 
-    left:
-        0;
+    if (!rawHook) {
 
-    bottom:
-        -8px;
-
-    width:
-        0;
-
-    height:
-        2px;
-
-    background:
-        var(--gold);
-
-    transition:
-        var(--transition);
-}
-
-
-.nav-links a:hover {
-
-    color:
-        var(--gold);
-}
-
-
-.nav-links a:hover::after {
-
-    width:
-        100%;
-}
-
-
-.nav-cta {
-
-    padding:
-        11px 19px;
-
-    border-radius:
-        999px;
-
-    background:
-        var(--gold);
-
-    color:
-        var(--black) !important;
-
-    font-weight:
-        800 !important;
-}
-
-
-.nav-cta::after {
-
-    display:
-        none;
-}
-
-
-.nav-cta:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 8px 25px
-        rgba(255, 187, 66, 0.25);
-}
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-.menu-toggle {
-
-    display:
-        none;
-
-    background:
-        none;
-
-    border:
-        none;
-
-    color:
-        var(--white);
-
-    font-size:
-        28px;
-
-    cursor:
-        pointer;
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-
-    min-height:
-        700px;
-
-    padding:
-        150px 0 90px;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(122, 44, 120, 0.45),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 10% 90%,
-            rgba(255, 187, 66, 0.12),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            135deg,
-            #020202 0%,
-            #16091a 48%,
-            #3C1542 100%
+        console.error(
+            "Bitrix24 webhook environment variable is missing."
         );
 
-    color:
-        var(--white);
-}
-
-
-.hero::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        450px;
-
-    height:
-        450px;
-
-    border:
-        1px solid
-        rgba(255, 187, 66, 0.15);
-
-    border-radius:
-        50%;
-
-    right:
-        -180px;
-
-    top:
-        100px;
-
-    animation:
-        rotateCircle
-        18s linear infinite;
-}
-
-
-.hero::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        260px;
-
-    height:
-        260px;
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-    border-radius:
-        50%;
-
-    right:
-        20px;
-
-    top:
-        190px;
-
-    animation:
-        rotateCircleReverse
-        14s linear infinite;
-}
-
-
-@keyframes rotateCircle {
-
-    from {
-
-        transform:
-            rotate(0deg);
-    }
-
-    to {
-
-        transform:
-            rotate(360deg);
-    }
-
-}
-
-
-@keyframes rotateCircleReverse {
-
-    from {
-
-        transform:
-            rotate(360deg);
-    }
-
-    to {
-
-        transform:
-            rotate(0deg);
-    }
-
-}
-
-
-.hero-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1.05fr 0.95fr;
-
-    align-items:
-        center;
-
-    gap:
-        70px;
-
-    position:
-        relative;
-
-    z-index:
-        2;
-}
-
-
-.breadcrumb {
-
-    color:
-        var(--gold);
-
-    font-size:
-        13px;
-
-    font-weight:
-        700;
-
-    margin-bottom:
-        20px;
-
-    letter-spacing:
-        0.5px;
-}
-
-
-.hero h1 {
-
-    font-size:
-        clamp(42px, 6vw, 72px);
-
-    line-height:
-        1.02;
-
-    margin-bottom:
-        25px;
-
-    max-width:
-        750px;
-}
-
-
-.hero h1 span {
-
-    color:
-        var(--gold);
-}
-
-
-.hero-description {
-
-    max-width:
-        650px;
-
-    color:
-        rgba(255,255,255,0.78);
-
-    font-size:
-        18px;
-
-    line-height:
-        1.8;
-
-    margin-bottom:
-        35px;
-}
-
-
-.hero-buttons {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        15px;
-}
-
-
-.btn {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        14px 23px;
-
-    border-radius:
-        999px;
-
-    font-weight:
-        800;
-
-    transition:
-        var(--transition);
-}
-
-
-.btn-primary {
-
-    background:
-        var(--gold);
-
-    color:
-        var(--black);
-}
-
-
-.btn-primary:hover {
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 12px 30px
-        rgba(255,187,66,0.25);
-}
-
-
-.btn-outline {
-
-    border:
-        1px solid
-        rgba(255,255,255,0.35);
-
-    color:
-        var(--white);
-}
-
-
-.btn-outline:hover {
-
-    border-color:
-        var(--gold);
-
-    color:
-        var(--gold);
-
-    transform:
-        translateY(-3px);
-}
-
-
-/* =========================================================
-   AUTOMATION VISUAL
-   ========================================================= */
-
-.automation-visual {
-
-    position:
-        relative;
-
-    min-height:
-        430px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-}
-
-
-.automation-core {
-
-    width:
-        210px;
-
-    height:
-        210px;
-
-    border-radius:
-        50%;
-
-    background:
-
-        radial-gradient(
-            circle,
-            rgba(255,187,66,0.95) 0%,
-            rgba(122,44,120,0.9) 38%,
-            rgba(60,21,66,0.9) 65%,
-            rgba(2,2,2,0.2) 70%
+        return response(
+            500,
+            {
+                success: false,
+                message:
+                    "Bitrix24 is not configured on the server. Please contact the website administrator."
+            }
         );
 
-    box-shadow:
-
-        0 0 50px
-        rgba(255,187,66,0.25),
-
-        0 0 100px
-        rgba(122,44,120,0.3);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    animation:
-        pulseCore
-        3s ease-in-out infinite;
-}
-
-
-.automation-core-inner {
-
-    width:
-        115px;
-
-    height:
-        115px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--black);
-
-    border:
-        2px solid
-        rgba(255,187,66,0.7);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        45px;
-}
-
-
-@keyframes pulseCore {
-
-    0%,
-    100% {
-
-        transform:
-            scale(1);
-    }
-
-    50% {
-
-        transform:
-            scale(1.05);
-    }
-
-}
-
-
-.automation-node {
-
-    position:
-        absolute;
-
-    width:
-        80px;
-
-    height:
-        80px;
-
-    background:
-        rgba(255,255,255,0.07);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.18);
-
-    backdrop-filter:
-        blur(10px);
-
-    border-radius:
-        20px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        30px;
-
-    box-shadow:
-        0 15px 35px
-        rgba(0,0,0,0.25);
-
-    animation:
-        floatDevice
-        4s ease-in-out infinite;
-}
-
-
-.automation-node-1 {
-
-    top:
-        20px;
-
-    left:
-        18%;
-}
-
-
-.automation-node-2 {
-
-    top:
-        28%;
-
-    right:
-        5%;
-
-    animation-delay:
-        0.7s;
-}
-
-
-.automation-node-3 {
-
-    bottom:
-        15%;
-
-    right:
-        15%;
-
-    animation-delay:
-        1.4s;
-}
-
-
-.automation-node-4 {
-
-    bottom:
-        8%;
-
-    left:
-        10%;
-
-    animation-delay:
-        2.1s;
-}
-
-
-@keyframes floatDevice {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0);
-    }
-
-    50% {
-
-        transform:
-            translateY(-12px);
-    }
-
-}
-
-
-/* =========================================================
-   INTRO
-   ========================================================= */
-
-.intro {
-
-    padding:
-        100px 0 60px;
-
-    background:
-        var(--white);
-}
-
-
-.section-heading {
-
-    text-align:
-        center;
-
-    max-width:
-        760px;
-
-    margin:
-        0 auto 55px;
-}
-
-
-.eyebrow {
-
-    color:
-        var(--purple);
-
-    text-transform:
-        uppercase;
-
-    font-size:
-        12px;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        2px;
-
-    margin-bottom:
-        13px;
-}
-
-
-.section-heading h2 {
-
-    font-size:
-        clamp(32px, 4vw, 48px);
-
-    line-height:
-        1.15;
-
-    margin-bottom:
-        18px;
-
-    color:
-        var(--purple-dark);
-}
-
-
-.section-heading p {
-
-    color:
-        #666;
-
-    line-height:
-        1.8;
-}
-
-
-/* =========================================================
-   AUTOMATION SOLUTIONS
-   ========================================================= */
-
-.solutions {
-
-    padding:
-        60px 0 100px;
-
-    background:
-        var(--white);
-}
-
-
-.solution-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        24px;
-}
-
-
-.solution-card {
-
-    padding:
-        30px;
-
-    background:
-        #ffffff;
-
-    border:
-        1px solid
-        #e9e5ea;
-
-    border-radius:
-        var(--radius);
-
-    transition:
-        var(--transition);
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-
-.solution-card::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        0;
-
-    width:
-        100%;
-
-    height:
-        4px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--purple),
-            var(--gold)
-        );
-
-    transform:
-        scaleX(0);
-
-    transform-origin:
-        left;
-
-    transition:
-        var(--transition);
-}
-
-
-.solution-card:hover {
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(122,44,120,0.25);
-
-    box-shadow:
-        0 20px 50px
-        rgba(60,21,66,0.10);
-}
-
-
-.solution-card:hover::before {
-
-    transform:
-        scaleX(1);
-}
-
-
-.solution-icon {
-
-    width:
-        62px;
-
-    height:
-        62px;
-
-    border-radius:
-        16px;
-
-    background:
-        rgba(122,44,120,0.1);
-
-    color:
-        var(--purple);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        29px;
-
-    margin-bottom:
-        22px;
-}
-
-
-.solution-card h3 {
-
-    color:
-        var(--purple-dark);
-
-    font-size:
-        21px;
-
-    margin-bottom:
-        12px;
-}
-
-
-.solution-card p {
-
-    color:
-        #686868;
-
-    line-height:
-        1.7;
-
-    font-size:
-        15px;
-}
-
-
-/* =========================================================
-   FEATURE SECTION
-   ========================================================= */
-
-.automation-section {
-
-    padding:
-        100px 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple-dark),
-            var(--purple)
-        );
-
-    color:
-        var(--white);
-}
-
-
-.automation-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        0.9fr 1.1fr;
-
-    gap:
-        70px;
-
-    align-items:
-        center;
-}
-
-
-.automation-image {
-
-    min-height:
-        430px;
-
-    border-radius:
-        30px;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(255,187,66,0.22),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            145deg,
-            #241027,
-            #0a080b
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.1);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-
-.automation-image::before,
-.automation-image::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    border:
-        1px solid
-        rgba(255,187,66,0.15);
-
-    border-radius:
-        50%;
-}
-
-
-.automation-image::before {
-
-    width:
-        300px;
-
-    height:
-        300px;
-}
-
-
-.automation-image::after {
-
-    width:
-        180px;
-
-    height:
-        180px;
-}
-
-
-.software-symbol {
-
-    width:
-        115px;
-
-    height:
-        115px;
-
-    border-radius:
-        28px;
-
-    background:
-        var(--gold);
-
-    color:
-        var(--black);
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    font-size:
-        48px;
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    box-shadow:
-        0 20px 60px
-        rgba(255,187,66,0.2);
-}
-
-
-.automation-content .eyebrow {
-
-    color:
-        var(--gold);
-}
-
-
-.automation-content h2 {
-
-    font-size:
-        clamp(32px, 4vw, 48px);
-
-    line-height:
-        1.15;
-
-    margin-bottom:
-        20px;
-}
-
-
-.automation-content > p {
-
-    color:
-        rgba(255,255,255,0.75);
-
-    line-height:
-        1.8;
-
-    margin-bottom:
-        30px;
-}
-
-
-.feature-list {
-
-    list-style:
-        none;
-
-    display:
-        grid;
-
-    gap:
-        15px;
-}
-
-
-.feature-list li {
-
-    display:
-        flex;
-
-    align-items:
-        flex-start;
-
-    gap:
-        12px;
-
-    color:
-        rgba(255,255,255,0.9);
-
-    line-height:
-        1.5;
-}
-
-
-.feature-list li span {
-
-    color:
-        var(--gold);
-
-    font-weight:
-        900;
-}
-
-
-/* =========================================================
-   HOW IT WORKS
-   ========================================================= */
-
-.how-it-works {
-
-    padding:
-        100px 0;
-
-    background:
-        var(--background);
-}
-
-
-.steps {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        25px;
-}
-
-
-.step {
-
-    background:
-        var(--white);
-
-    padding:
-        32px;
-
-    border-radius:
-        var(--radius);
-
-    border:
-        1px solid
-        #e6e1e7;
-
-    position:
-        relative;
-}
-
-
-.step-number {
-
-    width:
-        46px;
-
-    height:
-        46px;
-
-    border-radius:
-        50%;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        var(--purple);
-
-    color:
-        var(--white);
-
-    font-weight:
-        900;
-
-    margin-bottom:
-        22px;
-}
-
-
-.step h3 {
-
-    color:
-        var(--purple-dark);
-
-    margin-bottom:
-        12px;
-}
-
-
-.step p {
-
-    color:
-        #686868;
-
-    line-height:
-        1.7;
-
-    font-size:
-        15px;
-}
-
-
-/* =========================================================
-   AUTOMATION ENQUIRY
-   ========================================================= */
-
-.enquiry-section {
-
-    padding:
-        100px 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--background),
-            #ffffff
-        );
-}
-
-
-.enquiry-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        0.85fr 1.15fr;
-
-    gap:
-        70px;
-
-    align-items:
-        center;
-}
-
-
-.enquiry-content .eyebrow {
-
-    color:
-        var(--purple);
-}
-
-
-.enquiry-content h2 {
-
-    color:
-        var(--purple-dark);
-
-    font-size:
-        clamp(34px, 4vw, 50px);
-
-    line-height:
-        1.1;
-
-    margin-bottom:
-        20px;
-}
-
-
-.enquiry-content > p {
-
-    color:
-        #686868;
-
-    line-height:
-        1.8;
-
-    font-size:
-        16px;
-
-    max-width:
-        520px;
-
-    margin-bottom:
-        35px;
-}
-
-
-.enquiry-points {
-
-    display:
-        grid;
-
-    gap:
-        20px;
-}
-
-
-.enquiry-point {
-
-    display:
-        flex;
-
-    gap:
-        15px;
-
-    align-items:
-        flex-start;
-}
-
-
-.enquiry-point > span {
-
-    width:
-        32px;
-
-    height:
-        32px;
-
-    flex-shrink:
-        0;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(122,44,120,0.1);
-
-    color:
-        var(--purple);
-
-    font-weight:
-        900;
-}
-
-
-.enquiry-point strong {
-
-    display:
-        block;
-
-    color:
-        var(--purple-dark);
-
-    margin-bottom:
-        5px;
-}
-
-
-.enquiry-point p {
-
-    color:
-        #777;
-
-    font-size:
-        14px;
-
-    line-height:
-        1.5;
-}
-
-
-/* =========================================================
-   FORM CARD
-   ========================================================= */
-
-.enquiry-card {
-
-    background:
-        var(--white);
-
-    padding:
-        38px;
-
-    border-radius:
-        24px;
-
-    border:
-        1px solid
-        #e6e1e7;
-
-    box-shadow:
-        0 20px 60px
-        rgba(60,21,66,0.10);
-}
-
-
-.form-row {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:
-        18px;
-}
-
-
-.form-group {
-
-    margin-bottom:
-        20px;
-}
-
-
-.form-group label {
-
-    display:
-        block;
-
-    color:
-        var(--purple-dark);
-
-    font-size:
-        14px;
-
-    font-weight:
-        800;
-
-    margin-bottom:
-        8px;
-}
-
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-
-    width:
-        100%;
-
-    border:
-        1px solid
-        #ded9df;
-
-    border-radius:
-        12px;
-
-    background:
-        #faf9fb;
-
-    color:
-        var(--black);
-
-    font-family:
-        inherit;
-
-    font-size:
-        15px;
-
-    padding:
-        14px 15px;
-
-    outline:
-        none;
-
-    transition:
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-}
-
-
-.form-group textarea {
-
-    resize:
-        vertical;
-
-    min-height:
-        145px;
-}
-
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-
-    border-color:
-        var(--purple);
-
-    background:
-        var(--white);
-
-    box-shadow:
-        0 0 0 4px
-        rgba(122,44,120,0.08);
-}
-
-
-.form-submit {
-
-    width:
-        100%;
-
-    border:
-        none;
-
-    border-radius:
-        999px;
-
-    padding:
-        15px 22px;
-
-    background:
-        var(--gold);
-
-    color:
-        var(--black);
-
-    font-size:
-        15px;
-
-    font-weight:
-        900;
-
-    cursor:
-        pointer;
-
-    transition:
-        var(--transition);
-}
-
-
-.form-submit:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 10px 25px
-        rgba(255,187,66,0.25);
-}
-
-
-.form-submit:disabled {
-
-    opacity:
-        0.65;
-
-    cursor:
-        not-allowed;
-
-    transform:
-        none;
-}
-
-
-.form-message {
-
-    display:
-        none;
-
-    margin-top:
-        18px;
-
-    padding:
-        14px 16px;
-
-    border-radius:
-        12px;
-
-    font-size:
-        14px;
-
-    line-height:
-        1.5;
-}
-
-
-.form-message.success {
-
-    display:
-        block;
-
-    background:
-        rgba(46,125,50,0.10);
-
-    color:
-        #236b28;
-}
-
-
-.form-message.error {
-
-    display:
-        block;
-
-    background:
-        rgba(190,40,40,0.10);
-
-    color:
-        #9b2525;
-}
-
-
-/* =========================================================
-   CTA
-   ========================================================= */
-
-.cta {
-
-    padding:
-        80px 0;
-
-    background:
-        var(--white);
-}
-
-
-.cta-box {
-
-    padding:
-        65px 40px;
-
-    border-radius:
-        30px;
-
-    background:
-
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(255,187,66,0.15),
-            transparent 30%
-        ),
-
-        linear-gradient(
-            135deg,
-            #3C1542,
-            #7A2C78
-        );
-
-    text-align:
-        center;
-
-    color:
-        var(--white);
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-}
-
-
-.cta-box h2 {
-
-    font-size:
-        clamp(30px, 4vw, 46px);
-
-    margin-bottom:
-        15px;
-}
-
-
-.cta-box p {
-
-    max-width:
-        650px;
-
-    margin:
-        0 auto 28px;
-
-    color:
-        rgba(255,255,255,0.78);
-
-    line-height:
-        1.7;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-
-    background:
-        #020202;
-
-    color:
-        var(--white);
-
-    padding:
-        70px 0 25px;
-}
-
-
-.footer-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1.4fr 1fr 1fr 1fr;
-
-    gap:
-        45px;
-
-    padding-bottom:
-        50px;
-}
-
-
-.footer-brand .logo {
-
-    margin-bottom:
-        20px;
-}
-
-
-.footer-description {
-
-    color:
-        #a9a9a9;
-
-    line-height:
-        1.7;
-
-    max-width:
-        340px;
-
-    font-size:
-        14px;
-}
-
-
-.footer-column h4 {
-
-    color:
-        var(--gold);
-
-    margin-bottom:
-        20px;
-
-    font-size:
-        15px;
-}
-
-
-.footer-column ul {
-
-    list-style:
-        none;
-}
-
-
-.footer-column li {
-
-    margin-bottom:
-        12px;
-}
-
-
-.footer-column a {
-
-    color:
-        #a9a9a9;
-
-    font-size:
-        14px;
-
-    transition:
-        var(--transition);
-}
-
-
-.footer-column a:hover {
-
-    color:
-        var(--gold);
-
-    padding-left:
-        4px;
-}
-
-
-.footer-bottom {
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.08);
-
-    padding-top:
-        22px;
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
-
-    color:
-        #777;
-
-    font-size:
-        13px;
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
-
-.reveal {
-
-    opacity:
-        0;
-
-    transform:
-        translateY(35px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-
-.reveal.visible {
-
-    opacity:
-        1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 950px) {
-
-    .nav-links {
-
-        position:
-            absolute;
-
-        top:
-            78px;
-
-        left:
-            0;
-
-        width:
-            100%;
-
-        display:
-            none;
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-
-        background:
-            #020202;
-
-        padding:
-            25px;
-
-        border-top:
-            1px solid
-            rgba(255,255,255,0.08);
     }
 
 
-    .nav-links.active {
+    /*
+     * Remove accidental whitespace and trailing slash.
+     */
 
-        display:
-            flex;
-    }
+    const bitrixHook =
+        rawHook.trim().replace(/\/+$/, "");
 
 
-    .nav-links a {
+    console.log(
+        "Bitrix webhook configured:",
+        bitrixHook
+            .replace(/\/rest\/.*$/i, "/rest/***")
+    );
 
-        display:
-            block;
 
-        padding:
-            12px 0;
-    }
+    /* ========================================================
+       READ REQUEST BODY
+       ======================================================== */
 
+    let body;
 
-    .menu-toggle {
 
-        display:
-            block;
-    }
+    try {
 
+        if (!event.body) {
 
-    .hero-grid,
-    .automation-grid,
-    .enquiry-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .hero {
-
-        padding-top:
-            130px;
-    }
-
-
-    .automation-visual {
-
-        min-height:
-            350px;
-    }
-
-
-    .solution-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .steps {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .enquiry-grid {
-
-        gap:
-            45px;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .nav-container {
-
-        min-height:
-            70px;
-    }
-
-
-    .logo img {
-
-        width:
-            42px;
-
-        height:
-            42px;
-    }
-
-
-    .logo-text {
-
-        font-size:
-            16px;
-    }
-
-
-    .hero {
-
-        min-height:
-            auto;
-
-        padding:
-            120px 0 70px;
-    }
-
-
-    .hero-description {
-
-        font-size:
-            16px;
-    }
-
-
-    .automation-visual {
-
-        min-height:
-            300px;
-    }
-
-
-    .automation-core {
-
-        width:
-            160px;
-
-        height:
-            160px;
-    }
-
-
-    .automation-core-inner {
-
-        width:
-            90px;
-
-        height:
-            90px;
-
-        font-size:
-            36px;
-    }
-
-
-    .automation-node {
-
-        width:
-            60px;
-
-        height:
-            60px;
-
-        font-size:
-            23px;
-    }
-
-
-    .automation-node-1 {
-
-        left:
-            3%;
-    }
-
-
-    .automation-node-2 {
-
-        right:
-            0;
-    }
-
-
-    .solution-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .automation-image {
-
-        min-height:
-            300px;
-    }
-
-
-    .enquiry-card {
-
-        padding:
-            25px 20px;
-    }
-
-
-    .form-row {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .footer-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .footer-bottom {
-
-        flex-direction:
-            column;
-    }
-
-
-    .cta-box {
-
-        padding:
-            50px 25px;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- =========================================================
-     NAVIGATION
-     ========================================================= -->
-
-<header class="navbar">
-
-    <div class="container nav-container">
-
-        <a
-            href="index.html"
-            class="logo"
-        >
-
-            <img
-                src="dingestech-logo.png"
-                alt="Dinges TechHub Logo"
-            >
-
-            <div class="logo-text">
-                Dinges <span>TechHub</span>
-            </div>
-
-        </a>
-
-
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open menu"
-            type="button"
-        >
-            ☰
-        </button>
-
-
-        <ul
-            class="nav-links"
-            id="navLinks"
-        >
-
-            <li>
-                <a href="services.html">
-                    Services
-                </a>
-            </li>
-
-            <li>
-                <a href="domains.html">
-                    Domains
-                </a>
-            </li>
-
-            <li>
-                <a href="hosting.html">
-                    Hosting
-                </a>
-            </li>
-
-            <li>
-                <a href="contact.html">
-                    Contact Us
-                </a>
-            </li>
-
-            <li>
-                <a href="login.html">
-                    Login
-                </a>
-            </li>
-
-            <li>
-                <a href="register.html">
-                    Register
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="cart.html"
-                    class="nav-cta"
-                >
-                    Cart
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-
-<section class="hero">
-
-    <div class="container hero-grid">
-
-
-        <div class="hero-content reveal">
-
-            <div class="breadcrumb">
-                INTERNET OF THINGS / AUTOMATION SOFTWARE
-            </div>
-
-
-            <h1>
-
-                Automate Your
-                <span>Business.</span>
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                Use intelligent automation software to simplify
-                repetitive processes, connect your systems and
-                help your business operate more efficiently.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#solutions"
-                    class="btn btn-primary"
-                >
-                    Explore Automation
-                </a>
-
-
-                <a
-                    href="#automation-enquiry"
-                    class="btn btn-outline"
-                >
-                    Get Started
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- AUTOMATION VISUAL -->
-
-        <div class="automation-visual reveal">
-
-            <div class="automation-node automation-node-1">
-                ⚙️
-            </div>
-
-            <div class="automation-node automation-node-2">
-                🔄
-            </div>
-
-            <div class="automation-node automation-node-3">
-                📊
-            </div>
-
-            <div class="automation-node automation-node-4">
-                🤖
-            </div>
-
-
-            <div class="automation-core">
-
-                <div class="automation-core-inner">
-                    ⚙
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     INTRO
-     ========================================================= -->
-
-<section class="intro">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <div class="eyebrow">
-                Intelligent Automation
-            </div>
-
-
-            <h2>
-                Automation Software
-            </h2>
-
-
-            <p>
-
-                Modern businesses handle many repetitive tasks every
-                day. Automation software can help connect those tasks,
-                reduce manual work and create more efficient workflows.
-
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     AUTOMATION SOLUTIONS
-     ========================================================= -->
-
-<section
-    class="solutions"
-    id="solutions"
->
-
-    <div class="container">
-
-        <div class="solution-grid">
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    ⚙️
-                </div>
-
-                <h3>
-                    Workflow Automation
-                </h3>
-
-                <p>
-
-                    Automate repetitive business processes and create
-                    workflows that move tasks between people and
-                    systems with less manual effort.
-
-                </p>
-
-            </article>
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    📋
-                </div>
-
-                <h3>
-                    Task Automation
-                </h3>
-
-                <p>
-
-                    Simplify routine tasks such as notifications,
-                    approvals, reminders and information processing.
-
-                </p>
-
-            </article>
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    🔗
-                </div>
-
-                <h3>
-                    System Integration
-                </h3>
-
-                <p>
-
-                    Connect compatible software platforms and services
-                    so information can move between systems more
-                    efficiently.
-
-                </p>
-
-            </article>
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    📊
-                </div>
-
-                <h3>
-                    Business Monitoring
-                </h3>
-
-                <p>
-
-                    Create automated monitoring and reporting processes
-                    that help you stay informed about important
-                    business activities.
-
-                </p>
-
-            </article>
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    🔔
-                </div>
-
-                <h3>
-                    Smart Notifications
-                </h3>
-
-                <p>
-
-                    Trigger notifications and alerts when specific
-                    events or conditions occur within your workflows.
-
-                </p>
-
-            </article>
-
-
-            <article class="solution-card reveal">
-
-                <div class="solution-icon">
-                    🤖
-                </div>
-
-                <h3>
-                    Intelligent Solutions
-                </h3>
-
-                <p>
-
-                    Explore intelligent automation approaches that
-                    combine software, data and connected technologies.
-
-                </p>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FEATURE SECTION
-     ========================================================= -->
-
-<section class="automation-section">
-
-    <div class="container automation-grid">
-
-
-        <div class="automation-image reveal">
-
-            <div class="software-symbol">
-                ⚙
-            </div>
-
-        </div>
-
-
-        <div class="automation-content reveal">
-
-            <div class="eyebrow">
-                Smarter Operations
-            </div>
-
-
-            <h2>
-                Let Technology Handle the Repetitive Work
-            </h2>
-
-
-            <p>
-
-                Automation gives your team more time to focus on
-                meaningful work by allowing software to handle
-                repetitive and predictable processes.
-
-            </p>
-
-
-            <ul class="feature-list">
-
-                <li>
-                    <span>✓</span>
-                    Reduce repetitive manual tasks
-                </li>
-
-                <li>
-                    <span>✓</span>
-                    Improve workflow consistency
-                </li>
-
-                <li>
-                    <span>✓</span>
-                    Connect compatible business systems
-                </li>
-
-                <li>
-                    <span>✓</span>
-                    Receive automated notifications and alerts
-                </li>
-
-                <li>
-                    <span>✓</span>
-                    Create scalable workflows for growing businesses
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     HOW IT WORKS
-     ========================================================= -->
-
-<section class="how-it-works">
-
-    <div class="container">
-
-
-        <div class="section-heading reveal">
-
-            <div class="eyebrow">
-                Our Approach
-            </div>
-
-
-            <h2>
-                From Manual Tasks to Automated Workflows
-            </h2>
-
-
-            <p>
-
-                We help identify opportunities where automation can
-                make your business processes simpler and more efficient.
-
-            </p>
-
-        </div>
-
-
-        <div class="steps">
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    01
-                </div>
-
-                <h3>
-                    Identify
-                </h3>
-
-                <p>
-
-                    We look at repetitive processes and identify
-                    areas where automation could provide value.
-
-                </p>
-
-            </div>
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    02
-                </div>
-
-                <h3>
-                    Connect
-                </h3>
-
-                <p>
-
-                    Compatible systems, applications and services
-                    can then be connected into an automated workflow.
-
-                </p>
-
-            </div>
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    03
-                </div>
-
-                <h3>
-                    Automate
-                </h3>
-
-                <p>
-
-                    The workflow is configured to perform tasks,
-                    trigger actions and provide useful information
-                    with less manual intervention.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     AUTOMATION SOFTWARE ENQUIRY
-     ========================================================= -->
-
-<section
-    class="enquiry-section"
-    id="automation-enquiry"
->
-
-    <div class="container">
-
-        <div class="enquiry-grid">
-
-
-            <!-- LEFT -->
-
-            <div class="enquiry-content reveal">
-
-                <div class="eyebrow">
-                    Automation Software
-                </div>
-
-
-                <h2>
-                    Let's Automate Your Business
-                </h2>
-
-
-                <p>
-
-                    Tell us about the processes you would like to
-                    automate, the systems you currently use, or the
-                    challenges you want to solve.
-
-                </p>
-
-
-                <div class="enquiry-points">
-
-
-                    <div class="enquiry-point">
-
-                        <span>✓</span>
-
-                        <div>
-
-                            <strong>
-                                Workflow Automation
-                            </strong>
-
-                            <p>
-                                Reduce repetitive manual processes.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="enquiry-point">
-
-                        <span>✓</span>
-
-                        <div>
-
-                            <strong>
-                                System Integration
-                            </strong>
-
-                            <p>
-                                Connect your business applications.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="enquiry-point">
-
-                        <span>✓</span>
-
-                        <div>
-
-                            <strong>
-                                Business Automation
-                            </strong>
-
-                            <p>
-                                Create smarter and more efficient workflows.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-            <!-- FORM -->
-
-            <div class="enquiry-card reveal">
-
-                <form id="automationEnquiryForm">
-
-                    <!-- These values are sent automatically to Bitrix24 -->
-
-                    <input
-                        type="hidden"
-                        name="service"
-                        value="Automation Software"
-                    >
-
-
-                    <input
-                        type="hidden"
-                        name="source"
-                        value="Dinges TechHub - Automation Software"
-                    >
-
-
-                    <div class="form-row">
-
-
-                        <div class="form-group">
-
-                            <label for="automationName">
-                                Full Name *
-                            </label>
-
-                            <input
-                                type="text"
-                                id="automationName"
-                                name="name"
-                                placeholder="Your full name"
-                                autocomplete="name"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="automationEmail">
-                                Email Address *
-                            </label>
-
-                            <input
-                                type="email"
-                                id="automationEmail"
-                                name="email"
-                                placeholder="you@example.com"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="form-row">
-
-
-                        <div class="form-group">
-
-                            <label for="automationPhone">
-                                Phone Number *
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="automationPhone"
-                                name="phone"
-                                placeholder="Your phone number"
-                                autocomplete="tel"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="automationType">
-                                Enquiry Type *
-                            </label>
-
-                            <select
-                                id="automationType"
-                                name="enquiry_type"
-                                required
-                            >
-
-                                <option value="">
-                                    Select enquiry type
-                                </option>
-
-                                <option value="General Enquiry">
-                                    General Enquiry
-                                </option>
-
-                                <option value="Workflow Automation">
-                                    Workflow Automation
-                                </option>
-
-                                <option value="System Integration">
-                                    System Integration
-                                </option>
-
-                                <option value="Task Automation">
-                                    Task Automation
-                                </option>
-
-                                <option value="Business Monitoring">
-                                    Business Monitoring
-                                </option>
-
-                                <option value="Smart Notifications">
-                                    Smart Notifications
-                                </option>
-
-                                <option value="Custom Automation">
-                                    Custom Automation
-                                </option>
-
-                                <option value="Automation Consultation">
-                                    Automation Consultation
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="automationSubject">
-                            Subject *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="automationSubject"
-                            name="subject"
-                            placeholder="What would you like to automate?"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="automationMessage">
-                            Tell Us About Your Requirements *
-                        </label>
-
-                        <textarea
-                            id="automationMessage"
-                            name="message"
-                            rows="6"
-                            placeholder="Tell us about your current process, software systems, or the task you would like to automate..."
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="form-submit"
-                        id="automationSubmit"
-                    >
-                        Send Automation Enquiry
-                    </button>
-
-
-                    <div
-                        id="automationFormMessage"
-                        class="form-message"
-                        aria-live="polite"
-                    ></div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CTA
-     ========================================================= -->
-
-<section class="cta">
-
-    <div class="container">
-
-        <div class="cta-box reveal">
-
-            <h2>
-                Ready to Work Smarter?
-            </h2>
-
-
-            <p>
-
-                Let's explore how automation software can help
-                simplify your business processes and connect
-                your technology.
-
-            </p>
-
-
-            <a
-                href="#automation-enquiry"
-                class="btn btn-primary"
-            >
-                Start Your Enquiry
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <a
-                    href="index.html"
-                    class="logo"
-                >
-
-                    <img
-                        src="dingestech-logo.png"
-                        alt="Dinges TechHub Logo"
-                    >
-
-
-                    <div class="logo-text">
-                        Dinges <span>TechHub</span>
-                    </div>
-
-                </a>
-
-
-                <p class="footer-description">
-
-                    Technology, connectivity and smart solutions
-                    designed to help homes and businesses stay
-                    connected, productive and ready for the future.
-
-                </p>
-
-            </div>
-
-
-            <!-- SERVICES -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Services
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="services.html">
-                            All Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="fibre.html">
-                            Fibre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="wireless-broadband.html">
-                            Wireless Broadband
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="iot.html">
-                            Internet of Things
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="automation-software.html">
-                            Automation Software
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="hosting.html">
-                            Web & Email Hosting
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- COMPANY -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Company
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="about.html">
-                            About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="help-centre.html">
-                            Help Centre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="register.html">
-                            Register
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- CONTACT -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Contact
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="mailto:support@dingestechhub.co.za">
-                            support@dingestechhub.co.za
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact Support
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            Mon - Fri: 09:00 - 16:00
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div>
-                © 2026 Dinges TechHub. All rights reserved.
-            </div>
-
-
-            <div>
-                Smart Technology • Connectivity • Innovation
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-     ========================================================= -->
-
-<script>
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener(
-        "click",
-        () => {
-
-            navLinks.classList.toggle(
-                "active"
+            throw new Error(
+                "Request body is empty."
             );
 
         }
-    );
-
-}
 
 
-/* =========================================================
-   CLOSE MOBILE MENU
-   ========================================================= */
+        /*
+         * Netlify normally gives us the body as a string.
+         * Handle base64 just in case.
+         */
 
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
+        const bodyText =
+            event.isBase64Encoded
+                ? Buffer
+                    .from(
+                        event.body,
+                        "base64"
+                    )
+                    .toString("utf8")
+                : event.body;
 
-        link.addEventListener(
-            "click",
-            () => {
 
-                if (navLinks) {
+        body =
+            JSON.parse(bodyText);
 
-                    navLinks.classList.remove(
-                        "active"
-                    );
 
-                }
+    } catch (error) {
 
-            }
+        console.error(
+            "Invalid JSON received:",
+            error.message
         );
 
-    });
 
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-if ("IntersectionObserver" in window) {
-
-    const revealObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        revealObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
+        return response(
+            400,
             {
-                threshold: 0.12
-            }
-        );
-
-
-    revealElements.forEach(element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    });
-
-} else {
-
-    revealElements.forEach(element => {
-
-        element.classList.add(
-            "visible"
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   AUTOMATION SOFTWARE
-   → BITRIX24 ENQUIRY
-   ========================================================= */
-
-const automationForm =
-    document.getElementById(
-        "automationEnquiryForm"
-    );
-
-
-const automationSubmit =
-    document.getElementById(
-        "automationSubmit"
-    );
-
-
-const automationFormMessage =
-    document.getElementById(
-        "automationFormMessage"
-    );
-
-
-if (automationForm) {
-
-    automationForm.addEventListener(
-        "submit",
-        async event => {
-
-            event.preventDefault();
-
-
-            /* -------------------------------------------------
-               DISABLE BUTTON WHILE SUBMITTING
-               ------------------------------------------------- */
-
-            automationSubmit.disabled =
-                true;
-
-            automationSubmit.textContent =
-                "Sending Enquiry...";
-
-
-            automationFormMessage.className =
-                "form-message";
-
-            automationFormMessage.textContent =
-                "";
-
-
-            /* -------------------------------------------------
-               COLLECT FORM DATA
-               ------------------------------------------------- */
-
-            const formData =
-                new FormData(
-                    automationForm
-                );
-
-
-            const data = {
-
-                name:
-                    String(
-                        formData.get("name") || ""
-                    ).trim(),
-
-                email:
-                    String(
-                        formData.get("email") || ""
-                    ).trim(),
-
-                phone:
-                    String(
-                        formData.get("phone") || ""
-                    ).trim(),
-
-                service:
-                    String(
-                        formData.get("service") || ""
-                    ).trim(),
-
-                source:
-                    String(
-                        formData.get("source") || ""
-                    ).trim(),
-
-                enquiry_type:
-                    String(
-                        formData.get("enquiry_type") || ""
-                    ).trim(),
-
-                subject:
-                    String(
-                        formData.get("subject") || ""
-                    ).trim(),
-
+                success: false,
                 message:
-                    String(
-                        formData.get("message") || ""
-                    ).trim()
-
-            };
-
-
-            /* -------------------------------------------------
-               SEND TO NETLIFY FUNCTION
-               ------------------------------------------------- */
-
-            try {
-
-                const response =
-                    await fetch(
-                        "/.netlify/functions/bitrix-contact",
-                        {
-                            method:
-                                "POST",
-
-                            headers: {
-
-                                "Content-Type":
-                                    "application/json",
-
-                                "Accept":
-                                    "application/json"
-
-                            },
-
-                            body:
-                                JSON.stringify(
-                                    data
-                                )
-
-                        }
-                    );
-
-
-                /* -------------------------------------------------
-                   SAFELY READ RESPONSE
-                   ------------------------------------------------- */
-
-                const responseText =
-                    await response.text();
-
-
-                let result;
-
-
-                try {
-
-                    result =
-                        JSON.parse(
-                            responseText
-                        );
-
-                } catch {
-
-                    throw new Error(
-                        "The server returned an invalid response."
-                    );
-
-                }
-
-
-                /* -------------------------------------------------
-                   SUCCESS
-                   ------------------------------------------------- */
-
-                if (
-                    response.ok &&
-                    result.success
-                ) {
-
-                    automationFormMessage.className =
-                        "form-message success";
-
-
-                    automationFormMessage.textContent =
-                        "Thank you! Your automation enquiry has been received successfully. Our team will contact you shortly.";
-
-
-                    automationForm.reset();
-
-
-                    /* Keep hidden values after reset */
-
-                    automationForm
-                        .querySelector(
-                            'input[name="service"]'
-                        )
-                        .value =
-                        "Automation Software";
-
-
-                    automationForm
-                        .querySelector(
-                            'input[name="source"]'
-                        )
-                        .value =
-                        "Dinges TechHub - Automation Software";
-
-
-                    automationFormMessage
-                        .scrollIntoView({
-                            behavior: "smooth",
-                            block: "nearest"
-                        });
-
-                } else {
-
-                    throw new Error(
-                        result.message ||
-                        "Unable to send your enquiry."
-                    );
-
-                }
-
-
-            } catch (error) {
-
-                console.error(
-                    "Automation enquiry error:",
-                    error
-                );
-
-
-                automationFormMessage.className =
-                    "form-message error";
-
-
-                automationFormMessage.textContent =
-                    error.message ||
-                    "Something went wrong while sending your enquiry. Please try again.";
-
+                    "Invalid enquiry data was received."
             }
+        );
+
+    }
 
 
-            /* -------------------------------------------------
-               RESTORE BUTTON
-               ------------------------------------------------- */
+    /* ========================================================
+       READ FORM VALUES
+       ======================================================== */
 
-            automationSubmit.disabled =
-                false;
+    const name =
+        clean(body.name);
 
-            automationSubmit.textContent =
-                "Send Automation Enquiry";
+    const email =
+        clean(body.email);
 
+    const phone =
+        clean(body.phone);
+
+    const service =
+        clean(body.service) ||
+        "Automation Software";
+
+    const source =
+        clean(body.source) ||
+        "Dinges TechHub - Automation Software";
+
+    const enquiryType =
+        clean(body.enquiry_type);
+
+    const subject =
+        clean(body.subject);
+
+    const message =
+        clean(body.message);
+
+
+    console.log(
+        "Enquiry received:",
+        {
+            name,
+            email,
+            phone,
+            service,
+            enquiryType,
+            subject
         }
     );
 
+
+    /* ========================================================
+       SERVER-SIDE VALIDATION
+       ======================================================== */
+
+    if (!name) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please provide your full name."
+            }
+        );
+
+    }
+
+
+    if (!email) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please provide your email address."
+            }
+        );
+
+    }
+
+
+    if (!isValidEmail(email)) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please provide a valid email address."
+            }
+        );
+
+    }
+
+
+    if (!phone) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please provide your phone number."
+            }
+        );
+
+    }
+
+
+    if (!enquiryType) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please select an enquiry type."
+            }
+        );
+
+    }
+
+
+    if (!subject) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please provide a subject."
+            }
+        );
+
+    }
+
+
+    if (!message) {
+
+        return response(
+            400,
+            {
+                success: false,
+                message:
+                    "Please describe your automation requirements."
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       CREATE BITRIX LEAD TITLE
+       ======================================================== */
+
+    const leadTitle =
+        `${service} - ${subject}`;
+
+
+    /* ========================================================
+       SPLIT FULL NAME
+       ======================================================== */
+
+    const nameParts =
+        name
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+    const firstName =
+        nameParts.shift() ||
+        name;
+
+
+    const lastName =
+        nameParts.join(" ");
+
+
+    /* ========================================================
+       CREATE COMMENTS
+       ======================================================== */
+
+    const comments = [
+
+        "DINGES TECHHUB WEBSITE ENQUIRY",
+
+        "",
+
+        `Service: ${service}`,
+
+        `Enquiry Type: ${enquiryType}`,
+
+        `Source: ${source}`,
+
+        `Subject: ${subject}`,
+
+        "",
+
+        "Customer Requirements:",
+
+        message,
+
+        "",
+
+        "Submitted through Dinges TechHub Automation Software page."
+
+    ].join("\n");
+
+
+    /* ========================================================
+       BITRIX24 CRM ITEM
+       ========================================================
+       
+       entityTypeId 1 = Lead
+
+       Current Bitrix24 documentation recommends crm.item.add
+       for new lead integrations.
+       ======================================================== */
+
+    const bitrixPayload = {
+
+        entityTypeId: 1,
+
+        fields: {
+
+            title:
+                leadTitle,
+
+            name:
+                firstName,
+
+            lastName:
+                lastName,
+
+            fm: [
+
+                {
+                    VALUE_TYPE: "PHONE",
+                    VALUE: phone,
+                    TYPE_ID: "PHONE"
+                },
+
+                {
+                    VALUE_TYPE: "EMAIL",
+                    VALUE: email,
+                    TYPE_ID: "EMAIL"
+                }
+
+            ],
+
+            sourceId:
+                "WEB",
+
+            sourceDescription:
+                source,
+
+            comments:
+                comments,
+
+            opened:
+                "Y"
+
+        }
+
+    };
+
+
+    /* ========================================================
+       BITRIX24 API URL
+       ======================================================== */
+
+    const bitrixUrl =
+        `${bitrixHook}/crm.item.add.json`;
+
+
+    console.log(
+        "Sending enquiry to Bitrix24..."
+    );
+
+
+    /* ========================================================
+       SEND TO BITRIX24
+       ======================================================== */
+
+    let bitrixResponse;
+
+
+    try {
+
+        bitrixResponse =
+            await fetch(
+                bitrixUrl,
+                {
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Accept":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            bitrixPayload
+                        )
+
+                }
+            );
+
+
+    } catch (error) {
+
+        console.error(
+            "Could not connect to Bitrix24:",
+            error
+        );
+
+
+        return response(
+            502,
+            {
+                success: false,
+                message:
+                    "We could not connect to Bitrix24. Please try again shortly."
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       READ BITRIX RESPONSE
+       ======================================================== */
+
+    const bitrixText =
+        await bitrixResponse.text();
+
+
+    console.log(
+        "Bitrix24 HTTP status:",
+        bitrixResponse.status
+    );
+
+
+    let bitrixData;
+
+
+    try {
+
+        bitrixData =
+            JSON.parse(
+                bitrixText
+            );
+
+    } catch (error) {
+
+        console.error(
+            "Bitrix24 returned invalid JSON:",
+            bitrixText
+        );
+
+
+        return response(
+            502,
+            {
+                success: false,
+                message:
+                    "Bitrix24 returned an invalid response. Please try again later."
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       BITRIX ERROR
+       ======================================================== */
+
+    if (
+        !bitrixResponse.ok ||
+        bitrixData.error
+    ) {
+
+        console.error(
+            "Bitrix24 API error:",
+            {
+                httpStatus:
+                    bitrixResponse.status,
+
+                error:
+                    bitrixData.error,
+
+                description:
+                    bitrixData.error_description
+            }
+        );
+
+
+        /*
+         * Do NOT expose the webhook URL or token.
+         *
+         * Return a useful but safe message to the frontend.
+         */
+
+        let safeMessage =
+            "Bitrix24 could not create the enquiry.";
+
+
+        if (
+            bitrixData.error_description
+        ) {
+
+            safeMessage =
+                bitrixData.error_description;
+
+        } else if (
+            bitrixData.error
+        ) {
+
+            safeMessage =
+                `Bitrix24 error: ${bitrixData.error}`;
+
+        }
+
+
+        return response(
+            502,
+            {
+                success: false,
+                message:
+                    safeMessage
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       GET CREATED LEAD ID
+       ======================================================== */
+
+    const leadId =
+        bitrixData.result &&
+        (
+            bitrixData.result.item ||
+            bitrixData.result.id
+        );
+
+
+    console.log(
+        "Bitrix24 enquiry created successfully.",
+        "Lead ID:",
+        leadId || "unknown"
+    );
+
+
+    /* ========================================================
+       SUCCESS
+       ======================================================== */
+
+    return response(
+        200,
+        {
+            success: true,
+
+            message:
+                "Your enquiry was successfully sent to Dinges TechHub.",
+
+            id:
+                leadId || null
+        }
+    );
+
+};
+
+
+/* ============================================================
+   CLEAN VALUE
+   ============================================================ */
+
+function clean(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+        .trim()
+        .replace(/\u0000/g, "");
+
 }
 
-</script>
 
+/* ============================================================
+   EMAIL VALIDATION
+   ============================================================ */
 
-</body>
-</html>
+function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        .test(email);
+
+}
