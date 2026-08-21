@@ -3196,7 +3196,7 @@
      */
 
     const API_ENDPOINT =
-        "/api/bitrix-lead.php";
+    "/.netlify/functions/bitrix-lead";
 
 
     if (serviceEnquiryForm) {
@@ -3243,32 +3243,29 @@
                     /* -------------------------------------
                        COLLECT FORM DATA
                        ------------------------------------- */
+const formData =
+    new FormData(serviceEnquiryForm);
 
-                    const formData =
-                        new FormData(
-                            serviceEnquiryForm
-                        );
+const data =
+    Object.fromEntries(formData.entries());
 
+const response =
+    await fetch(
+        API_ENDPOINT,
+        {
+            method: "POST",
 
-                    /* -------------------------------------
-                       SEND TO OUR BACKEND
-                       ------------------------------------- */
+            headers: {
+                "Content-Type":
+                    "application/json",
 
-                    const response =
-                        await fetch(
-                            API_ENDPOINT,
-                            {
-                                method: "POST",
+                "Accept":
+                    "application/json"
+            },
 
-                                body: formData,
-
-                                headers: {
-                                    "Accept":
-                                        "application/json"
-                                }
-                            }
-                        );
-
+            body: JSON.stringify(data)
+        }
+    );
 
                     let result = null;
 
