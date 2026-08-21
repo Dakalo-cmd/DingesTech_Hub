@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Smart Appliances & Devices | Dinges TechHub</title>
 
@@ -35,15 +39,18 @@
             --transition: 0.35s ease;
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -52,20 +59,24 @@
             overflow-x: hidden;
         }
 
+
         a {
             text-decoration: none;
             color: inherit;
         }
+
 
         img {
             max-width: 100%;
             display: block;
         }
 
+
         .container {
             width: min(92%, var(--container));
             margin: auto;
         }
+
 
 
         /* =========================================================
@@ -85,90 +96,131 @@
             border-bottom: 1px solid rgba(255, 187, 66, 0.12);
         }
 
+
         .nav-container {
             min-height: 78px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 30px;
         }
+
 
         .logo {
             display: flex;
             align-items: center;
+
             gap: 12px;
+
             flex-shrink: 0;
         }
+
 
         .logo img {
             width: 48px;
             height: 48px;
+
             object-fit: contain;
+
             border-radius: 8px;
         }
 
+
         .logo-text {
             color: var(--white);
+
             font-size: 19px;
             font-weight: 800;
+
             letter-spacing: 0.3px;
         }
+
 
         .logo-text span {
             color: var(--gold);
         }
 
+
         .nav-links {
             display: flex;
             align-items: center;
+
             gap: 27px;
+
             list-style: none;
         }
 
+
         .nav-links a {
             color: #ffffff;
+
             font-size: 14px;
             font-weight: 600;
+
             transition: var(--transition);
+
             position: relative;
         }
 
+
         .nav-links a::after {
             content: "";
+
             position: absolute;
+
             left: 0;
             bottom: -8px;
+
             width: 0;
             height: 2px;
+
             background: var(--gold);
+
             transition: var(--transition);
         }
+
 
         .nav-links a:hover {
             color: var(--gold);
         }
 
+
         .nav-links a:hover::after {
             width: 100%;
         }
 
+
         .nav-cta {
-            padding: 11px 19px;
+            padding: 11px 21px;
+
             border-radius: 999px;
+
             background: var(--gold);
+
             color: var(--black) !important;
+
             font-weight: 800 !important;
+
+            transition: var(--transition);
         }
+
 
         .nav-cta::after {
             display: none;
         }
 
+
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 187, 66, 0.25);
+
+            color: var(--black) !important;
+
+            box-shadow:
+                0 8px 25px rgba(255, 187, 66, 0.25);
         }
+
 
 
         /* =========================================================
@@ -177,12 +229,17 @@
 
         .menu-toggle {
             display: none;
+
             background: none;
             border: none;
+
             color: var(--white);
+
             font-size: 28px;
+
             cursor: pointer;
         }
+
 
 
         /* =========================================================
@@ -191,9 +248,11 @@
 
         .hero {
             min-height: 700px;
+
             padding: 150px 0 90px;
 
             position: relative;
+
             overflow: hidden;
 
             background:
@@ -217,39 +276,55 @@
             color: var(--white);
         }
 
+
         .hero::before {
             content: "";
 
             position: absolute;
+
             width: 450px;
             height: 450px;
 
             border: 1px solid rgba(255, 187, 66, 0.15);
+
             border-radius: 50%;
 
             right: -180px;
             top: 100px;
 
-            animation: rotateCircle 18s linear infinite;
+            animation:
+                rotateCircle
+                18s
+                linear
+                infinite;
         }
+
 
         .hero::after {
             content: "";
 
             position: absolute;
+
             width: 260px;
             height: 260px;
 
             border: 1px solid rgba(255, 255, 255, 0.08);
+
             border-radius: 50%;
 
             right: 20px;
             top: 190px;
 
-            animation: rotateCircleReverse 14s linear infinite;
+            animation:
+                rotateCircleReverse
+                14s
+                linear
+                infinite;
         }
+
 
         @keyframes rotateCircle {
+
             from {
                 transform: rotate(0deg);
             }
@@ -257,9 +332,12 @@
             to {
                 transform: rotate(360deg);
             }
+
         }
+
 
         @keyframes rotateCircleReverse {
+
             from {
                 transform: rotate(360deg);
             }
@@ -267,82 +345,147 @@
             to {
                 transform: rotate(0deg);
             }
+
         }
+
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
+
+            grid-template-columns:
+                1.05fr
+                0.95fr;
+
             align-items: center;
+
             gap: 70px;
+
             position: relative;
+
             z-index: 2;
         }
 
+
         .breadcrumb {
             color: var(--gold);
+
             font-size: 13px;
             font-weight: 700;
+
             margin-bottom: 20px;
+
             letter-spacing: 0.5px;
         }
 
+
         .hero h1 {
-            font-size: clamp(42px, 6vw, 72px);
+            font-size:
+                clamp(
+                    42px,
+                    6vw,
+                    72px
+                );
+
             line-height: 1.02;
+
             margin-bottom: 25px;
+
             max-width: 750px;
         }
+
 
         .hero h1 span {
             color: var(--gold);
         }
 
+
         .hero-description {
             max-width: 650px;
-            color: rgba(255,255,255,0.78);
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.78
+                );
+
             font-size: 18px;
+
             line-height: 1.8;
+
             margin-bottom: 35px;
         }
 
+
         .hero-buttons {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 15px;
         }
 
+
         .btn {
             display: inline-flex;
+
             align-items: center;
             justify-content: center;
 
             padding: 14px 23px;
+
             border-radius: 999px;
 
             font-weight: 800;
+
             transition: var(--transition);
         }
 
+
         .btn-primary {
             background: var(--gold);
+
             color: var(--black);
         }
 
+
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255,187,66,0.25);
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    255,
+                    187,
+                    66,
+                    0.25
+                );
         }
 
+
         .btn-outline {
-            border: 1px solid rgba(255,255,255,0.35);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.35
+                );
+
             color: var(--white);
         }
 
+
         .btn-outline:hover {
             border-color: var(--gold);
+
             color: var(--gold);
+
             transform: translateY(-3px);
         }
+
 
 
         /* =========================================================
@@ -351,12 +494,15 @@
 
         .iot-visual {
             position: relative;
+
             min-height: 430px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
         }
+
 
         .iot-core {
             width: 210px;
@@ -374,15 +520,24 @@
                 );
 
             box-shadow:
-                0 0 50px rgba(255,187,66,0.25),
-                0 0 100px rgba(122,44,120,0.3);
+                0 0 50px
+                rgba(255,187,66,0.25),
+
+                0 0 100px
+                rgba(122,44,120,0.3);
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            animation: pulseCore 3s ease-in-out infinite;
+            animation:
+                pulseCore
+                3s
+                ease-in-out
+                infinite;
         }
+
 
         .iot-core-inner {
             width: 115px;
@@ -392,24 +547,37 @@
 
             background: var(--black);
 
-            border: 2px solid rgba(255,187,66,0.7);
+            border:
+                2px solid
+                rgba(
+                    255,
+                    187,
+                    66,
+                    0.7
+                );
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             font-size: 48px;
         }
 
+
         @keyframes pulseCore {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
 
             50% {
                 transform: scale(1.05);
             }
+
         }
+
 
         .device-node {
             position: absolute;
@@ -417,56 +585,89 @@
             width: 80px;
             height: 80px;
 
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.18);
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.07
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                );
 
             backdrop-filter: blur(10px);
 
             border-radius: 20px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             font-size: 30px;
 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.25);
 
-            animation: floatDevice 4s ease-in-out infinite;
+            animation:
+                floatDevice
+                4s
+                ease-in-out
+                infinite;
         }
+
 
         .node-1 {
             top: 20px;
             left: 18%;
         }
 
+
         .node-2 {
             top: 28%;
             right: 5%;
+
             animation-delay: 0.7s;
         }
+
 
         .node-3 {
             bottom: 15%;
             right: 15%;
+
             animation-delay: 1.4s;
         }
+
 
         .node-4 {
             bottom: 8%;
             left: 10%;
+
             animation-delay: 2.1s;
         }
 
+
         @keyframes floatDevice {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
 
             50% {
                 transform: translateY(-12px);
             }
+
         }
+
 
 
         /* =========================================================
@@ -475,35 +676,58 @@
 
         .intro {
             padding: 100px 0 60px;
+
             background: var(--white);
         }
 
+
         .section-heading {
             text-align: center;
+
             max-width: 760px;
-            margin: 0 auto 55px;
+
+            margin:
+                0 auto
+                55px;
         }
+
 
         .eyebrow {
             color: var(--purple);
+
             text-transform: uppercase;
+
             font-size: 12px;
             font-weight: 900;
+
             letter-spacing: 2px;
+
             margin-bottom: 13px;
         }
 
+
         .section-heading h2 {
-            font-size: clamp(32px, 4vw, 48px);
+            font-size:
+                clamp(
+                    32px,
+                    4vw,
+                    48px
+                );
+
             line-height: 1.15;
+
             margin-bottom: 18px;
+
             color: var(--purple-dark);
         }
 
+
         .section-heading p {
             color: #666;
+
             line-height: 1.8;
         }
+
 
 
         /* =========================================================
@@ -512,62 +736,92 @@
 
         .devices {
             padding: 60px 0 100px;
+
             background: var(--white);
         }
 
+
         .device-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 24px;
         }
+
 
         .device-card {
             padding: 30px;
 
             background: #ffffff;
-            border: 1px solid #e9e5ea;
+
+            border:
+                1px solid
+                #e9e5ea;
 
             border-radius: var(--radius);
 
             transition: var(--transition);
 
             position: relative;
+
             overflow: hidden;
         }
+
 
         .device-card::before {
             content: "";
 
             position: absolute;
+
             top: 0;
             left: 0;
 
             width: 100%;
             height: 4px;
 
-            background: linear-gradient(
-                90deg,
-                var(--purple),
-                var(--gold)
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--purple),
+                    var(--gold)
+                );
 
             transform: scaleX(0);
+
             transform-origin: left;
 
             transition: var(--transition);
         }
 
+
         .device-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(122,44,120,0.25);
+
+            border-color:
+                rgba(
+                    122,
+                    44,
+                    120,
+                    0.25
+                );
 
             box-shadow:
-                0 20px 50px rgba(60,21,66,0.10);
+                0 20px 50px
+                rgba(
+                    60,
+                    21,
+                    66,
+                    0.10
+                );
         }
+
 
         .device-card:hover::before {
             transform: scaleX(1);
         }
+
 
         .device-icon {
             width: 62px;
@@ -575,10 +829,18 @@
 
             border-radius: 16px;
 
-            background: rgba(122,44,120,0.1);
+            background:
+                rgba(
+                    122,
+                    44,
+                    120,
+                    0.1
+                );
+
             color: var(--purple);
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -587,17 +849,24 @@
             margin-bottom: 22px;
         }
 
+
         .device-card h3 {
             color: var(--purple-dark);
+
             font-size: 21px;
+
             margin-bottom: 12px;
         }
 
+
         .device-card p {
             color: #686868;
+
             line-height: 1.7;
+
             font-size: 15px;
         }
+
 
 
         /* =========================================================
@@ -617,12 +886,19 @@
             color: var(--white);
         }
 
+
         .smart-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+
+            grid-template-columns:
+                0.9fr
+                1.1fr;
+
             gap: 70px;
+
             align-items: center;
         }
+
 
         .smart-image {
             min-height: 430px;
@@ -641,34 +917,56 @@
                     #0a080b
                 );
 
-            border: 1px solid rgba(255,255,255,0.1);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.1
+                );
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             position: relative;
+
             overflow: hidden;
         }
+
 
         .smart-image::before,
         .smart-image::after {
             content: "";
+
             position: absolute;
 
-            border: 1px solid rgba(255,187,66,0.15);
+            border:
+                1px solid
+                rgba(
+                    255,
+                    187,
+                    66,
+                    0.15
+                );
+
             border-radius: 50%;
         }
+
 
         .smart-image::before {
             width: 300px;
             height: 300px;
         }
 
+
         .smart-image::after {
             width: 180px;
             height: 180px;
         }
+
 
         .smart-symbol {
             width: 115px;
@@ -677,54 +975,99 @@
             border-radius: 28px;
 
             background: var(--gold);
+
             color: var(--black);
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             font-size: 48px;
 
             position: relative;
+
             z-index: 2;
 
-            box-shadow: 0 20px 60px rgba(255,187,66,0.2);
+            box-shadow:
+                0 20px 60px
+                rgba(
+                    255,
+                    187,
+                    66,
+                    0.2
+                );
         }
+
 
         .smart-content .eyebrow {
             color: var(--gold);
         }
 
+
         .smart-content h2 {
-            font-size: clamp(32px, 4vw, 48px);
+            font-size:
+                clamp(
+                    32px,
+                    4vw,
+                    48px
+                );
+
             line-height: 1.15;
+
             margin-bottom: 20px;
         }
 
+
         .smart-content > p {
-            color: rgba(255,255,255,0.75);
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.75
+                );
+
             line-height: 1.8;
+
             margin-bottom: 30px;
         }
 
+
         .feature-list {
             list-style: none;
+
             display: grid;
+
             gap: 15px;
         }
 
+
         .feature-list li {
             display: flex;
+
             align-items: flex-start;
+
             gap: 12px;
-            color: rgba(255,255,255,0.9);
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
             line-height: 1.5;
         }
 
+
         .feature-list li span {
             color: var(--gold);
+
             font-weight: 900;
         }
+
 
 
         /* =========================================================
@@ -733,22 +1076,35 @@
 
         .how-it-works {
             padding: 100px 0;
+
             background: var(--background);
         }
 
+
         .steps {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
+
         .step {
             background: var(--white);
+
             padding: 32px;
+
             border-radius: var(--radius);
-            border: 1px solid #e6e1e7;
+
+            border:
+                1px solid
+                #e6e1e7;
+
             position: relative;
         }
+
 
         .step-number {
             width: 46px;
@@ -757,10 +1113,12 @@
             border-radius: 50%;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             background: var(--purple);
+
             color: var(--white);
 
             font-weight: 900;
@@ -768,16 +1126,382 @@
             margin-bottom: 22px;
         }
 
+
         .step h3 {
             color: var(--purple-dark);
+
             margin-bottom: 12px;
         }
 
+
         .step p {
             color: #686868;
+
             line-height: 1.7;
+
             font-size: 15px;
         }
+
+
+
+        /* =========================================================
+           SERVICE ENQUIRY
+           ========================================================= */
+
+        .service-enquiry {
+            padding: 100px 0;
+
+            background: var(--white);
+        }
+
+
+        .enquiry-wrapper {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            background: #ffffff;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                #e7e1e8;
+
+            box-shadow:
+                0 25px 70px
+                rgba(
+                    60,
+                    21,
+                    66,
+                    0.10
+                );
+        }
+
+
+        .enquiry-info {
+            padding: 55px 45px;
+
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(255,187,66,0.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    var(--purple-dark),
+                    var(--purple)
+                );
+
+            color: var(--white);
+        }
+
+
+        .enquiry-info .eyebrow {
+            color: var(--gold);
+        }
+
+
+        .enquiry-info h2 {
+            font-size:
+                clamp(
+                    30px,
+                    4vw,
+                    43px
+                );
+
+            line-height: 1.15;
+
+            margin-bottom: 18px;
+        }
+
+
+        .enquiry-info > p {
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.78
+                );
+
+            line-height: 1.75;
+
+            margin-bottom: 30px;
+        }
+
+
+        .enquiry-points {
+            list-style: none;
+
+            display: grid;
+
+            gap: 17px;
+        }
+
+
+        .enquiry-points li {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.9
+                );
+
+            line-height: 1.5;
+        }
+
+
+        .enquiry-points li span {
+            color: var(--gold);
+
+            font-weight: 900;
+        }
+
+
+
+        /* =========================================================
+           ENQUIRY FORM
+           ========================================================= */
+
+        .enquiry-form {
+            padding: 55px 45px;
+        }
+
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            color: var(--purple-dark);
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+
+        .form-required {
+            color: #d33;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            border:
+                1px solid
+                #ddd7df;
+
+            background: #faf9fb;
+
+            border-radius: 12px;
+
+            padding: 14px 15px;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 14px;
+
+            color: var(--black);
+
+            outline: none;
+
+            transition: var(--transition);
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: var(--purple);
+
+            background: var(--white);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    122,
+                    44,
+                    120,
+                    0.08
+                );
+        }
+
+
+        .form-group textarea {
+            min-height: 145px;
+
+            resize: vertical;
+        }
+
+
+        .form-submit {
+            margin-top: 5px;
+        }
+
+
+        .form-submit button {
+            border: none;
+
+            cursor: pointer;
+
+            width: 100%;
+
+            padding: 15px 24px;
+
+            border-radius: 999px;
+
+            background: var(--gold);
+
+            color: var(--black);
+
+            font-size: 15px;
+
+            font-weight: 900;
+
+            transition: var(--transition);
+        }
+
+
+        .form-submit button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(
+                    255,
+                    187,
+                    66,
+                    0.25
+                );
+        }
+
+
+        .form-submit button:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        .form-note {
+            margin-top: 14px;
+
+            color: #888;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+
+            text-align: center;
+        }
+
+
+        .form-message {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 14px 16px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .form-message.success {
+            display: block;
+
+            background:
+                rgba(
+                    40,
+                    167,
+                    69,
+                    0.10
+                );
+
+            color: #176b2d;
+
+            border:
+                1px solid
+                rgba(
+                    40,
+                    167,
+                    69,
+                    0.18
+                );
+        }
+
+
+        .form-message.error {
+            display: block;
+
+            background:
+                rgba(
+                    211,
+                    51,
+                    51,
+                    0.08
+                );
+
+            color: #9b2525;
+
+            border:
+                1px solid
+                rgba(
+                    211,
+                    51,
+                    51,
+                    0.15
+                );
+        }
+
 
 
         /* =========================================================
@@ -786,8 +1510,10 @@
 
         .cta {
             padding: 80px 0;
+
             background: var(--white);
         }
+
 
         .cta-box {
             padding: 65px 40px;
@@ -807,23 +1533,45 @@
                 );
 
             text-align: center;
+
             color: var(--white);
 
             position: relative;
+
             overflow: hidden;
         }
 
+
         .cta-box h2 {
-            font-size: clamp(30px, 4vw, 46px);
+            font-size:
+                clamp(
+                    30px,
+                    4vw,
+                    46px
+                );
+
             margin-bottom: 15px;
         }
 
+
         .cta-box p {
             max-width: 650px;
-            margin: 0 auto 28px;
-            color: rgba(255,255,255,0.78);
+
+            margin:
+                0 auto
+                28px;
+
+            color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.78
+                );
+
             line-height: 1.7;
         }
+
 
 
         /* =========================================================
@@ -832,64 +1580,102 @@
 
         footer {
             background: #020202;
+
             color: var(--white);
+
             padding: 70px 0 25px;
         }
 
+
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+
+            grid-template-columns:
+                1.4fr
+                1fr
+                1fr
+                1fr;
+
             gap: 45px;
+
             padding-bottom: 50px;
         }
+
 
         .footer-brand .logo {
             margin-bottom: 20px;
         }
 
+
         .footer-description {
             color: #a9a9a9;
+
             line-height: 1.7;
+
             max-width: 340px;
+
             font-size: 14px;
         }
 
+
         .footer-column h4 {
             color: var(--gold);
+
             margin-bottom: 20px;
+
             font-size: 15px;
         }
+
 
         .footer-column ul {
             list-style: none;
         }
 
+
         .footer-column li {
             margin-bottom: 12px;
         }
 
+
         .footer-column a {
             color: #a9a9a9;
+
             font-size: 14px;
+
             transition: var(--transition);
         }
 
+
         .footer-column a:hover {
             color: var(--gold);
+
             padding-left: 4px;
         }
 
+
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.08);
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
             padding-top: 22px;
 
             display: flex;
+
             justify-content: space-between;
+
             gap: 20px;
 
             color: #777;
+
             font-size: 13px;
         }
+
 
 
         /* =========================================================
@@ -898,14 +1684,23 @@
 
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
         }
+
 
         .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+
+            transform:
+                translateY(0);
         }
+
 
 
         /* =========================================================
@@ -916,59 +1711,102 @@
 
             .nav-links {
                 position: absolute;
+
                 top: 78px;
                 left: 0;
+
                 width: 100%;
 
                 display: none;
+
                 flex-direction: column;
+
                 align-items: stretch;
 
                 background: #020202;
 
                 padding: 25px;
 
-                border-top: 1px solid rgba(255,255,255,0.08);
+                border-top:
+                    1px solid
+                    rgba(
+                        255,
+                        255,
+                        255,
+                        0.08
+                    );
             }
+
 
             .nav-links.active {
                 display: flex;
             }
 
+
             .nav-links a {
                 display: block;
+
                 padding: 12px 0;
             }
+
+
+            .nav-links .nav-cta {
+                display: inline-flex;
+
+                width: fit-content;
+
+                padding:
+                    11px 21px;
+
+                margin-top: 5px;
+            }
+
 
             .menu-toggle {
                 display: block;
             }
+
 
             .hero-grid,
             .smart-grid {
                 grid-template-columns: 1fr;
             }
 
+
             .hero {
                 padding-top: 130px;
             }
+
 
             .iot-visual {
                 min-height: 350px;
             }
 
+
             .device-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
+
 
             .steps {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            .enquiry-wrapper {
+                grid-template-columns: 1fr;
             }
+
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
         }
+
+
 
         @media (max-width: 600px) {
 
@@ -976,76 +1814,122 @@
                 min-height: 70px;
             }
 
+
             .logo img {
                 width: 42px;
                 height: 42px;
             }
 
+
             .logo-text {
                 font-size: 16px;
             }
 
+
             .hero {
                 min-height: auto;
-                padding: 120px 0 70px;
+
+                padding:
+                    120px
+                    0
+                    70px;
             }
+
 
             .hero-description {
                 font-size: 16px;
             }
 
+
             .iot-visual {
                 min-height: 300px;
             }
+
 
             .iot-core {
                 width: 160px;
                 height: 160px;
             }
 
+
             .iot-core-inner {
                 width: 90px;
                 height: 90px;
+
                 font-size: 36px;
             }
+
 
             .device-node {
                 width: 60px;
                 height: 60px;
+
                 font-size: 23px;
             }
+
 
             .node-1 {
                 left: 3%;
             }
 
+
             .node-2 {
                 right: 0;
             }
+
 
             .device-grid {
                 grid-template-columns: 1fr;
             }
 
+
             .smart-image {
                 min-height: 300px;
             }
+
+
+            .service-enquiry {
+                padding: 70px 0;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            .enquiry-info,
+            .enquiry-form {
+                padding:
+                    35px
+                    22px;
+            }
+
 
             .footer-grid {
                 grid-template-columns: 1fr;
             }
 
+
             .footer-bottom {
                 flex-direction: column;
             }
 
+
             .cta-box {
-                padding: 50px 25px;
+                padding:
+                    50px
+                    25px;
             }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
@@ -1058,10 +1942,15 @@
 
     <div class="container nav-container">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+        >
 
-            <!-- CHANGE THIS TO YOUR REAL LOGO FILE -->
-            <img src="dingestech-logo.png" alt="Dinges TechHub Logo">
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
 
             <div class="logo-text">
                 Dinges <span>TechHub</span>
@@ -1070,39 +1959,56 @@
         </a>
 
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            type="button"
+        >
             ☰
         </button>
 
 
-        <ul class="nav-links" id="navLinks">
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
 
             <li>
-                <a href="services.html">Services</a>
+                <a href="services.html">
+                    Services
+                </a>
             </li>
 
-            <li>
-                <a href="domains.html">Domains</a>
-            </li>
 
             <li>
-                <a href="hosting.html">Hosting</a>
+                <a href="domains.html">
+                    Domains
+                </a>
             </li>
 
-            <li>
-                <a href="contact.html">Contact Us</a>
-            </li>
 
             <li>
-                <a href="login.html">Login</a>
+                <a href="hosting.html">
+                    Hosting
+                </a>
             </li>
 
-            <li>
-                <a href="register.html">Register</a>
-            </li>
 
             <li>
-                <a href="cart.html" class="nav-cta">Cart</a>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+
+            <li>
+                <a
+                    href="login.html"
+                    class="nav-cta"
+                >
+                    Login
+                </a>
             </li>
 
         </ul>
@@ -1110,6 +2016,7 @@
     </div>
 
 </header>
+
 
 
 <!-- =========================================================
@@ -1120,30 +2027,48 @@
 
     <div class="container hero-grid">
 
+
         <div class="hero-content reveal">
 
             <div class="breadcrumb">
                 INTERNET OF THINGS / SMART DEVICES
             </div>
 
+
             <h1>
+
                 Make Your World
-                <span>Smarter.</span>
+
+                <span>
+                    Smarter.
+                </span>
+
             </h1>
 
+
             <p class="hero-description">
+
                 Connect your home or business with smart appliances
                 and intelligent devices designed to make everyday
                 life simpler, safer and more efficient.
+
             </p>
+
 
             <div class="hero-buttons">
 
-                <a href="#devices" class="btn btn-primary">
+                <a
+                    href="#devices"
+                    class="btn btn-primary"
+                >
                     Explore Smart Devices
                 </a>
 
-                <a href="contact.html" class="btn btn-outline">
+
+                <a
+                    href="#service-enquiry"
+                    class="btn btn-outline"
+                >
                     Talk to Us
                 </a>
 
@@ -1152,23 +2077,29 @@
         </div>
 
 
+
         <div class="iot-visual reveal">
+
 
             <div class="device-node node-1">
                 💡
             </div>
 
+
             <div class="device-node node-2">
                 📷
             </div>
+
 
             <div class="device-node node-3">
                 🔌
             </div>
 
+
             <div class="device-node node-4">
                 🏠
             </div>
+
 
             <div class="iot-core">
 
@@ -1185,6 +2116,7 @@
 </section>
 
 
+
 <!-- =========================================================
      INTRODUCTION
      ========================================================= -->
@@ -1193,20 +2125,25 @@
 
     <div class="container">
 
+
         <div class="section-heading reveal">
 
             <div class="eyebrow">
                 Connected Technology
             </div>
 
+
             <h2>
                 Smart Appliances & Devices
             </h2>
 
+
             <p>
+
                 IoT technology allows everyday appliances and devices
                 to communicate, automate tasks and provide smarter
                 ways to manage your home or business.
+
             </p>
 
         </div>
@@ -1216,11 +2153,15 @@
 </section>
 
 
+
 <!-- =========================================================
      DEVICE CATEGORIES
      ========================================================= -->
 
-<section class="devices" id="devices">
+<section
+    class="devices"
+    id="devices"
+>
 
     <div class="container">
 
@@ -1233,17 +2174,22 @@
                     💡
                 </div>
 
+
                 <h3>
                     Smart Lighting
                 </h3>
 
+
                 <p>
+
                     Create smarter lighting environments with
                     connected lights that can be controlled and
                     automated according to your needs.
+
                 </p>
 
             </article>
+
 
 
             <article class="device-card reveal">
@@ -1252,16 +2198,21 @@
                     📷
                 </div>
 
+
                 <h3>
                     Smart Security
                 </h3>
 
+
                 <p>
+
                     Improve visibility and awareness with connected
                     cameras, sensors and smart security devices.
+
                 </p>
 
             </article>
+
 
 
             <article class="device-card reveal">
@@ -1270,16 +2221,21 @@
                     🔌
                 </div>
 
+
                 <h3>
                     Smart Plugs
                 </h3>
 
+
                 <p>
+
                     Turn ordinary appliances into connected devices
                     and manage their operation through smart controls.
+
                 </p>
 
             </article>
+
 
 
             <article class="device-card reveal">
@@ -1288,16 +2244,21 @@
                     🌡️
                 </div>
 
+
                 <h3>
                     Smart Climate
                 </h3>
 
+
                 <p>
+
                     Monitor and manage temperature and environmental
                     conditions using intelligent connected devices.
+
                 </p>
 
             </article>
+
 
 
             <article class="device-card reveal">
@@ -1306,16 +2267,21 @@
                     ⚡
                 </div>
 
+
                 <h3>
                     Smart Energy
                 </h3>
 
+
                 <p>
+
                     Gain better visibility into energy usage and
                     create smarter ways to manage connected appliances.
+
                 </p>
 
             </article>
+
 
 
             <article class="device-card reveal">
@@ -1324,13 +2290,17 @@
                     🏠
                 </div>
 
+
                 <h3>
                     Smart Home Controls
                 </h3>
 
+
                 <p>
+
                     Bring your connected devices together and create
                     a more convenient and automated environment.
+
                 </p>
 
             </article>
@@ -1341,6 +2311,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1351,6 +2322,7 @@
 
     <div class="container smart-grid">
 
+
         <div class="smart-image reveal">
 
             <div class="smart-symbol">
@@ -1360,50 +2332,61 @@
         </div>
 
 
+
         <div class="smart-content reveal">
 
             <div class="eyebrow">
                 Smarter Living
             </div>
 
+
             <h2>
                 Technology That Works Around You
             </h2>
 
+
             <p>
+
                 Smart devices are more than gadgets. When connected
                 correctly, they can work together to create an
                 environment that is easier to manage and more
                 responsive to your everyday needs.
+
             </p>
 
 
             <ul class="feature-list">
+
 
                 <li>
                     <span>✓</span>
                     Connected devices designed around your needs
                 </li>
 
+
                 <li>
                     <span>✓</span>
                     Greater convenience and automation
                 </li>
+
 
                 <li>
                     <span>✓</span>
                     Smarter monitoring and control
                 </li>
 
+
                 <li>
                     <span>✓</span>
                     Solutions suitable for homes and businesses
                 </li>
 
+
                 <li>
                     <span>✓</span>
                     Scalable technology for future expansion
                 </li>
+
 
             </ul>
 
@@ -1414,6 +2397,7 @@
 </section>
 
 
+
 <!-- =========================================================
      HOW IT WORKS
      ========================================================= -->
@@ -1422,22 +2406,28 @@
 
     <div class="container">
 
+
         <div class="section-heading reveal">
 
             <div class="eyebrow">
                 Simple Process
             </div>
 
+
             <h2>
                 From Device to Connected Solution
             </h2>
 
+
             <p>
+
                 We help you move from individual smart devices to
                 a connected technology solution.
+
             </p>
 
         </div>
+
 
 
         <div class="steps">
@@ -1449,16 +2439,21 @@
                     01
                 </div>
 
+
                 <h3>
                     Choose Your Devices
                 </h3>
 
+
                 <p>
+
                     Identify the appliances and devices that can
                     benefit from smart technology.
+
                 </p>
 
             </div>
+
 
 
             <div class="step reveal">
@@ -1467,16 +2462,21 @@
                     02
                 </div>
 
+
                 <h3>
                     Connect & Configure
                 </h3>
 
+
                 <p>
+
                     Connect compatible devices and configure them
                     for your environment.
+
                 </p>
 
             </div>
+
 
 
             <div class="step reveal">
@@ -1485,13 +2485,17 @@
                     03
                 </div>
 
+
                 <h3>
                     Manage Smarter
                 </h3>
 
+
                 <p>
+
                     Use your connected technology to simplify
                     everyday tasks and manage your environment.
+
                 </p>
 
             </div>
@@ -1502,6 +2506,341 @@
     </div>
 
 </section>
+
+
+
+<!-- =========================================================
+     SERVICE ENQUIRY
+     ========================================================= -->
+
+<section
+    class="service-enquiry"
+    id="service-enquiry"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Smart Appliances & Devices
+            </div>
+
+
+            <h2>
+                Need Help With a Smart Solution?
+            </h2>
+
+
+            <p>
+
+                Tell us what you need, what you're experiencing,
+                or what you would like to achieve. Our team will
+                review your enquiry and get back to you.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="enquiry-wrapper reveal">
+
+
+            <!-- =================================================
+                 ENQUIRY INFORMATION
+                 ================================================= -->
+
+            <div class="enquiry-info">
+
+                <div class="eyebrow">
+                    Get In Touch
+                </div>
+
+
+                <h2>
+                    Let's Make Your Space Smarter.
+                </h2>
+
+
+                <p>
+
+                    Whether you need a smart device, installation
+                    assistance, troubleshooting or advice on the
+                    right solution, send us your enquiry.
+
+                </p>
+
+
+                <ul class="enquiry-points">
+
+
+                    <li>
+                        <span>✓</span>
+                        Smart device enquiries
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        Installation and configuration
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        Technical support
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        Smart home and business solutions
+                    </li>
+
+
+                    <li>
+                        <span>✓</span>
+                        General complaints and assistance
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ENQUIRY FORM
+                 ================================================= -->
+
+            <div class="enquiry-form">
+
+                <form
+                    id="serviceEnquiryForm"
+                    method="POST"
+                    novalidate
+                >
+
+                    <!-- SERVICE IDENTIFICATION -->
+
+                    <input
+                        type="hidden"
+                        name="service"
+                        value="Smart Appliances & Devices"
+                    >
+
+
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="Smart Appliances & Devices Page"
+                    >
+
+
+
+                    <!-- NAME + EMAIL -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Full Name
+                                <span class="form-required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="customerEmail">
+                                Email Address
+                                <span class="form-required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="customerEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PHONE + TYPE -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="customerPhone">
+                                Phone / WhatsApp
+                                <span class="form-required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="customerPhone"
+                                name="phone"
+                                placeholder="e.g. 072 123 4567"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="enquiryType">
+                                Enquiry Type
+                                <span class="form-required">*</span>
+                            </label>
+
+                            <select
+                                id="enquiryType"
+                                name="enquiry_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select enquiry type
+                                </option>
+
+                                <option value="General Enquiry">
+                                    General Enquiry
+                                </option>
+
+                                <option value="Product Enquiry">
+                                    Product Enquiry
+                                </option>
+
+                                <option value="Installation">
+                                    Installation
+                                </option>
+
+                                <option value="Technical Support">
+                                    Technical Support
+                                </option>
+
+                                <option value="Complaint">
+                                    Complaint
+                                </option>
+
+                                <option value="Quotation Request">
+                                    Quotation Request
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SUBJECT -->
+
+                    <div class="form-group">
+
+                        <label for="enquirySubject">
+                            Subject
+                            <span class="form-required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="enquirySubject"
+                            name="subject"
+                            placeholder="What can we help you with?"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group">
+
+                        <label for="enquiryMessage">
+                            Message
+                            <span class="form-required">*</span>
+                        </label>
+
+                        <textarea
+                            id="enquiryMessage"
+                            name="message"
+                            placeholder="Tell us more about your request, problem or requirements..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <div class="form-submit">
+
+                        <button
+                            type="submit"
+                            id="submitEnquiry"
+                        >
+                            Send Enquiry
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- RESPONSE MESSAGE -->
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                        role="alert"
+                    ></div>
+
+
+                    <p class="form-note">
+
+                        Your enquiry will be securely sent to
+                        the Dinges TechHub support team.
+
+                    </p>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 <!-- =========================================================
@@ -1518,13 +2857,20 @@
                 Ready to Make Your Space Smarter?
             </h2>
 
+
             <p>
+
                 Let's explore smart appliances and connected
                 devices that can work for your home or business.
+
             </p>
 
-            <a href="contact.html" class="btn btn-primary">
-                Contact Dinges TechHub
+
+            <a
+                href="#service-enquiry"
+                class="btn btn-primary"
+            >
+                Send an Enquiry
             </a>
 
         </div>
@@ -1532,6 +2878,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1545,9 +2892,14 @@
         <div class="footer-grid">
 
 
+            <!-- BRAND -->
+
             <div class="footer-brand">
 
-                <a href="index.html" class="logo">
+                <a
+                    href="index.html"
+                    class="logo"
+                >
 
                     <img
                         src="dingestech-logo.png"
@@ -1560,14 +2912,20 @@
 
                 </a>
 
+
                 <p class="footer-description">
+
                     Technology, connectivity and smart solutions
                     designed to help homes and businesses stay
                     connected and productive.
+
                 </p>
 
             </div>
 
+
+
+            <!-- SERVICES -->
 
             <div class="footer-column">
 
@@ -1612,6 +2970,9 @@
             </div>
 
 
+
+            <!-- COMPANY -->
+
             <div class="footer-column">
 
                 <h4>
@@ -1644,16 +3005,13 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="register.html">
-                            Register
-                        </a>
-                    </li>
-
                 </ul>
 
             </div>
 
+
+
+            <!-- CONTACT -->
 
             <div class="footer-column">
 
@@ -1706,44 +3064,58 @@
 </footer>
 
 
+
 <!-- =========================================================
      JAVASCRIPT
      ========================================================= -->
 
 <script>
 
-    /* ---------------------------------------------------------
+    /* =========================================================
        MOBILE MENU
-       --------------------------------------------------------- */
+       ========================================================= */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    const menuToggle =
+        document.getElementById("menuToggle");
 
-    menuToggle.addEventListener("click", () => {
-
-        navLinks.classList.toggle("active");
-
-    });
+    const navLinks =
+        document.getElementById("navLinks");
 
 
-    /* ---------------------------------------------------------
-       CLOSE MOBILE MENU AFTER CLICK
-       --------------------------------------------------------- */
+    if (menuToggle && navLinks) {
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+        menuToggle.addEventListener(
+            "click",
+            () => {
 
-        link.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
 
-            navLinks.classList.remove("active");
+            }
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove("active");
+
+                }
+            );
 
         });
 
-    });
 
 
-    /* ---------------------------------------------------------
+    /* =========================================================
        SCROLL REVEAL
-       --------------------------------------------------------- */
+       ========================================================= */
 
     const revealElements =
         document.querySelectorAll(".reveal");
@@ -1751,24 +3123,31 @@
 
     const revealObserver =
         new IntersectionObserver(
+
             entries => {
 
                 entries.forEach(entry => {
 
                     if (entry.isIntersecting) {
 
-                        entry.target.classList.add("visible");
+                        entry.target.classList.add(
+                            "visible"
+                        );
 
-                        revealObserver.unobserve(entry.target);
+                        revealObserver.unobserve(
+                            entry.target
+                        );
 
                     }
 
                 });
 
             },
+
             {
                 threshold: 0.12
             }
+
         );
 
 
@@ -1777,6 +3156,209 @@
         revealObserver.observe(element);
 
     });
+
+
+
+    /* =========================================================
+       SMART APPLIANCES ENQUIRY
+       ========================================================= */
+
+    const serviceEnquiryForm =
+        document.getElementById(
+            "serviceEnquiryForm"
+        );
+
+
+    const formMessage =
+        document.getElementById(
+            "formMessage"
+        );
+
+
+    const submitButton =
+        document.getElementById(
+            "submitEnquiry"
+        );
+
+
+    /*
+     * IMPORTANT:
+     *
+     * DO NOT put the Bitrix24 webhook URL here.
+     *
+     * The browser will send the form to your own
+     * backend endpoint.
+     *
+     * Your backend will then securely communicate
+     * with Bitrix24.
+     *
+     * This keeps the Bitrix24 secret hidden.
+     */
+
+    const API_ENDPOINT =
+        "/api/bitrix-lead.php";
+
+
+    if (serviceEnquiryForm) {
+
+        serviceEnquiryForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                /* -----------------------------------------
+                   BROWSER VALIDATION
+                   ----------------------------------------- */
+
+                if (!serviceEnquiryForm.checkValidity()) {
+
+                    serviceEnquiryForm.reportValidity();
+
+                    return;
+
+                }
+
+
+                /* -----------------------------------------
+                   LOADING STATE
+                   ----------------------------------------- */
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Sending Enquiry...";
+
+
+                formMessage.className =
+                    "form-message";
+
+                formMessage.style.display =
+                    "none";
+
+
+                try {
+
+                    /* -------------------------------------
+                       COLLECT FORM DATA
+                       ------------------------------------- */
+
+                    const formData =
+                        new FormData(
+                            serviceEnquiryForm
+                        );
+
+
+                    /* -------------------------------------
+                       SEND TO OUR BACKEND
+                       ------------------------------------- */
+
+                    const response =
+                        await fetch(
+                            API_ENDPOINT,
+                            {
+                                method: "POST",
+
+                                body: formData,
+
+                                headers: {
+                                    "Accept":
+                                        "application/json"
+                                }
+                            }
+                        );
+
+
+                    let result = null;
+
+
+                    try {
+
+                        result =
+                            await response.json();
+
+                    } catch (jsonError) {
+
+                        result = null;
+
+                    }
+
+
+                    /* -------------------------------------
+                       HANDLE SERVER RESPONSE
+                       ------------------------------------- */
+
+                    if (
+                        !response.ok ||
+                        !result ||
+                        !result.success
+                    ) {
+
+                        throw new Error(
+                            result &&
+                            result.message
+                                ? result.message
+                                : "We could not send your enquiry."
+                        );
+
+                    }
+
+
+                    /* -------------------------------------
+                       SUCCESS
+                       ------------------------------------- */
+
+                    formMessage.className =
+                        "form-message success";
+
+                    formMessage.style.display =
+                        "block";
+
+                    formMessage.textContent =
+                        result.message ||
+                        "Thank you. Your enquiry has been received. Our team will get back to you shortly.";
+
+
+                    serviceEnquiryForm.reset();
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Enquiry submission error:",
+                        error
+                    );
+
+
+                    /* -------------------------------------
+                       ERROR
+                       ------------------------------------- */
+
+                    formMessage.className =
+                        "form-message error";
+
+                    formMessage.style.display =
+                        "block";
+
+                    formMessage.textContent =
+                        error.message ||
+                        "Something went wrong while sending your enquiry. Please try again.";
+
+
+                } finally {
+
+                    submitButton.disabled = false;
+
+                    submitButton.textContent =
+                        "Send Enquiry";
+
+                }
+
+            }
+        );
+
+    }
 
 </script>
 
