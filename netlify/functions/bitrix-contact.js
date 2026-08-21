@@ -25,7 +25,7 @@ exports.handler = async function (event) {
     try {
 
         // =========================================================
-        // GET FORM DATA
+        // READ JSON REQUEST
         // =========================================================
 
         const data =
@@ -33,38 +33,43 @@ exports.handler = async function (event) {
 
 
         // =========================================================
-        // GET ALL CONTACT FORM FIELDS
+        // GET FORM DATA
         // =========================================================
 
         const name =
-            (data.name || "").trim();
+            String(data.name || "").trim();
 
         const email =
-            (data.email || "").trim();
+            String(data.email || "").trim();
 
         const phone =
-            (data.phone || "").trim();
+            String(data.phone || "").trim();
+
+        const service =
+            String(data.service || "").trim();
+
+        const source =
+            String(data.source || "").trim();
+
+        const enquiryType =
+            String(data.enquiry_type || "").trim();
 
         const subject =
-            (data.subject || "").trim();
-
-        const reason =
-            (data.reason || "").trim();
-
-        const contactLocation =
-            (data.contactLocation || "").trim();
+            String(data.subject || "").trim();
 
         const message =
-            (data.message || "").trim();
+            String(data.message || "").trim();
 
 
         // =========================================================
-        // CHECK REQUIRED FIELDS
+        // VALIDATION
         // =========================================================
 
         if (
             !name ||
             !email ||
+            !phone ||
+            !enquiryType ||
             !subject ||
             !message
         ) {
@@ -93,14 +98,46 @@ exports.handler = async function (event) {
 
 
         // =========================================================
-        // GET BITRIX24 WEBHOOK FROM NETLIFY ENVIRONMENT VARIABLE
+        // BASIC EMAIL VALIDATION
+        // =========================================================
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!emailPattern.test(email)) {
+
+            return {
+
+                statusCode: 400,
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    success: false,
+
+                    message:
+                        "Please enter a valid email address."
+
+                })
+
+            };
+
+        }
+
+
+        // =========================================================
+        // GET BITRIX24 WEBHOOK
         // =========================================================
 
         const bitrixWebhookUrl =
             process.env.BITRIX_WEBHOOK_URL;
 
 
-        // Check if webhook exists
         if (!bitrixWebhookUrl) {
 
             console.error(
@@ -132,21 +169,32 @@ exports.handler = async function (event) {
 
 
         // =========================================================
-        // CREATE BITRIX24 CRM LEAD
+        // CLEAN WEBHOOK URL
+        // =========================================================
+
+        const webhook =
+            bitrixWebhookUrl.endsWith("/")
+                ? bitrixWebhookUrl
+                : bitrixWebhookUrl + "/";
+
+
+        // =========================================================
+        // CREATE BITRIX24 LEAD
         // =========================================================
 
         const bitrixResponse =
             await fetch(
-                bitrixWebhookUrl + "crm.lead.add.json",
+                webhook + "crm.lead.add.json",
                 {
 
                     method: "POST",
 
                     headers: {
-
                         "Content-Type":
-                            "application/json"
+                            "application/json",
 
+                        "Accept":
+                            "application/json"
                     },
 
                     body: JSON.stringify({
@@ -154,11 +202,11 @@ exports.handler = async function (event) {
                         fields: {
 
                             // ---------------------------------
-                            // LEAD TITLE
+                            // TITLE
                             // ---------------------------------
 
                             TITLE:
-                                "Website Enquiry - " +
+                                "Smart Appliances Enquiry - " +
                                 subject,
 
 
@@ -171,74 +219,73 @@ exports.handler = async function (event) {
 
 
                             // ---------------------------------
-                            // CUSTOMER EMAIL
+                            // EMAIL
                             // ---------------------------------
 
                             EMAIL: [
 
                                 {
-
                                     VALUE:
                                         email,
 
                                     VALUE_TYPE:
                                         "WORK"
-
                                 }
 
                             ],
 
 
                             // ---------------------------------
-                            // CUSTOMER PHONE
+                            // PHONE
                             // ---------------------------------
 
-                            PHONE:
-                                phone
-                                    ? [
+                            PHONE: [
 
-                                        {
+                                {
+                                    VALUE:
+                                        phone,
 
-                                            VALUE:
-                                                phone,
+                                    VALUE_TYPE:
+                                        "WORK"
+                                }
 
-                                            VALUE_TYPE:
-                                                "WORK"
-
-                                        }
-
-                                    ]
-
-                                    : [],
+                            ],
 
 
                             // ---------------------------------
-                            // LEAD COMMENTS
+                            // COMMENTS
                             // ---------------------------------
 
                             COMMENTS:
 
-                                "Dinges TechHub Website Contact Form\n\n" +
+                                "Dinges TechHub Website Enquiry\n\n" +
 
-                                "Subject: " +
+                                "Service: " +
+                                (service ||
+                                    "Smart Appliances & Devices") +
+
+                                "\n\nEnquiry Type: " +
+                                enquiryType +
+
+                                "\n\nSubject: " +
                                 subject +
 
-                                "\n\nReason for Contact: " +
-                                (reason || "Not specified") +
-
-                                "\n\nLocation / Address: " +
-                                (contactLocation || "Not specified") +
-
                                 "\n\nMessage:\n" +
-                                message,
+                                message +
+
+                                "\n\nSource: " +
+                                (source ||
+                                    "Website"),
 
 
                             // ---------------------------------
-                            // LEAD SOURCE
+                            // SOURCE
                             // ---------------------------------
 
                             SOURCE_DESCRIPTION:
-                                "Dinges TechHub Website Contact Form"
+                                source ||
+                                "Dinges TechHub Website"
+
 
                         }
 
@@ -249,7 +296,7 @@ exports.handler = async function (event) {
 
 
         // =========================================================
-        // GET BITRIX24 RESPONSE
+        // READ BITRIX RESPONSE
         // =========================================================
 
         const result =
@@ -257,7 +304,7 @@ exports.handler = async function (event) {
 
 
         // =========================================================
-        // CHECK BITRIX24 RESPONSE
+        // CHECK BITRIX RESPONSE
         // =========================================================
 
         if (
@@ -285,7 +332,7 @@ exports.handler = async function (event) {
                     success: false,
 
                     message:
-                        "Unable to send your message to Bitrix24."
+                        "Unable to send your enquiry to Bitrix24."
 
                 })
 
@@ -318,7 +365,7 @@ exports.handler = async function (event) {
                 success: true,
 
                 message:
-                    "Your message has been sent successfully."
+                    "Thank you. Your enquiry has been received successfully."
 
             })
 
@@ -327,13 +374,12 @@ exports.handler = async function (event) {
 
     } catch (error) {
 
-
         // =========================================================
-        // ERROR HANDLING
+        // SERVER ERROR
         // =========================================================
 
         console.error(
-            "Server Error:",
+            "Bitrix24 Function Error:",
             error
         );
 
@@ -352,7 +398,7 @@ exports.handler = async function (event) {
                 success: false,
 
                 message:
-                    "Something went wrong. Please try again later."
+                    "Something went wrong while processing your enquiry."
 
             })
 
