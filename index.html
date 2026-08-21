@@ -1,689 +1,1292 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Professional internet connectivity, hosting, domains, software and IT solutions.">
+      content="Dinges TechHub - Internet connectivity, fibre, hosting, domains, software, communication and IT solutions.">
 
-<title>DingesTech Hub | Internet & IT Solutions</title>
+<title>Dinges TechHub | Connect. Host. Grow.</title>
 
 <style>
 
 /* =========================================================
-   COLOR SETTINGS
-   DINGES TECHHUB OFFICIAL COLOR PALETTE
+   DINGES TECHHUB
+   HOMEPAGE
+   ========================================================= */
 
-   A - #3C1542  Dark Purple
-   B - #7A2C78  Main Purple
-   C - #949493  Grey
-   D - #D9D9D9  Light Grey
-   E - #020202  Black
-   F - #FFBB42  Gold
-========================================================= */
+:root{
 
-:root {
+    --purple-dark:#3C1542;
+    --purple:#7A2C78;
+    --purple-light:#A84FA5;
 
-    /* A - Dark Purple */
-    --primary-dark: #3C1542;
+    --gold:#FFBB42;
+    --gold-light:#FFD77A;
 
-    /* B - Main Purple */
-    --primary-color: #7A2C78;
+    --black:#020202;
+    --white:#FFFFFF;
 
-    /* C - Grey */
-    --grey-color: #949493;
+    --grey:#949493;
+    --light:#F5F3F6;
 
-    /* D - Light Grey */
-    --light-color: #D9D9D9;
+    --border:#E7E1E8;
 
-    /* E - Black */
-    --dark-color: #020202;
+    --success:#16A34A;
 
-    /* F - Gold */
-    --accent-color: #FFBB42;
+    --shadow:
+        0 20px 60px rgba(60,21,66,.12);
 
-    /* Supporting Colors */
-    --white-color: #FFFFFF;
+    --shadow-dark:
+        0 25px 70px rgba(0,0,0,.25);
 
-    --text-color: #020202;
+    --container:1240px;
 
-    --success-color: #16A34A;
-
-    --danger-color: #DC2626;
-
-    --border-color: #D9D9D9;
+    --radius:20px;
 }
 
 
 /* =========================================================
    RESET
-========================================================= */
+   ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
+body{
+
     font-family:
+        Inter,
         Arial,
         Helvetica,
         sans-serif;
 
-    background:
-        var(--light-color);
+    background:#FFFFFF;
 
-    color:
-        var(--text-color);
+    color:var(--black);
 
-    line-height: 1.6;
+    line-height:1.6;
+
+    overflow-x:hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+body.menu-open{
+    overflow:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 button,
-input,
-select {
-    font-family: inherit;
+input{
+    font:inherit;
 }
 
-.container {
-    width: 90%;
-    max-width: 1400px;
-    margin: auto;
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(92%,var(--container));
+    margin:auto;
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+   ========================================================= */
+
+.scroll-progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+
+    height:4px;
+
+    background:var(--gold);
+
+    z-index:99999;
 }
 
 
 /* =========================================================
    TOP BAR
-========================================================= */
+   ========================================================= */
 
-.top-bar {
-    background:
-        var(--dark-color);
+.top-bar{
 
-    color:
-        var(--white-color);
+    background:var(--black);
 
-    font-size:
-        14px;
+    color:white;
+
+    font-size:12px;
 }
 
-.top-bar-content {
-    min-height:
-        40px;
+.top-bar-inner{
 
-    display:
-        flex;
+    min-height:38px;
 
-    align-items:
-        center;
+    display:flex;
 
-    justify-content:
-        space-between;
+    align-items:center;
+
+    justify-content:space-between;
 }
 
-.top-links {
-    display:
-        flex;
+.top-left,
+.top-right{
 
-    gap:
-        25px;
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
 }
 
-.top-links a:hover {
-    color:
-        var(--accent-color);
+.top-bar a{
+
+    transition:.25s ease;
+}
+
+.top-bar a:hover{
+    color:var(--gold);
+}
+
+.status-dot{
+
+    width:8px;
+    height:8px;
+
+    display:inline-block;
+
+    margin-right:7px;
+
+    border-radius:50%;
+
+    background:#22C55E;
+
+    box-shadow:
+        0 0 0 5px rgba(34,197,94,.12);
 }
 
 
 /* =========================================================
    HEADER
-========================================================= */
+   ========================================================= */
 
-.header {
+.header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:5000;
+
     background:
-        var(--white-color);
+        rgba(255,255,255,.92);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
 
     border-bottom:
-        1px solid var(--border-color);
+        1px solid rgba(60,21,66,.08);
 
-    position:
-        sticky;
-
-    top:
-        0;
-
-    z-index:
-        1000;
+    transition:.3s ease;
 }
 
-.nav-container {
-    width:
-        90%;
+.header.scrolled{
 
-    max-width:
-        1400px;
+    box-shadow:
+        0 12px 35px rgba(60,21,66,.10);
+}
 
-    height:
-        75px;
+.nav{
 
-    margin:
-        auto;
+    height:76px;
 
-    display:
-        flex;
+    display:flex;
 
-    align-items:
-        center;
+    align-items:center;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
+
+    gap:30px;
 }
 
 
 /* =========================================================
    LOGO
-========================================================= */
-
-.logo {
-    font-size:
-        27px;
-
-    font-weight:
-        800;
-
-    white-space:
-        nowrap;
+   ========================================================= */
+.logo{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
 }
 
-.logo a {
-    color:
-        var(--dark-color);
+.logo a{
+    display:flex;
+    align-items:center;
 }
 
-.logo span {
-    color:
-        var(--primary-color);
+.logo img{
+    width:auto;
+    height:68px;
+    max-width:260px;
+    object-fit:contain;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navigation{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    margin-left:auto;
+}
+
+.nav-link{
+
+    padding:11px 13px;
+
+    border-radius:10px;
+
+    color:#28202A;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.nav-link:hover{
+
+    background:var(--light);
+
+    color:var(--purple);
 }
 
 
 /* =========================================================
-   MAIN NAVIGATION
-========================================================= */
+   DROPDOWN
+   ========================================================= */
 
-.navigation {
-    display:
-        flex;
+.nav-dropdown{
 
-    align-items:
-        center;
-
-    gap:
-        5px;
+    position:relative;
 }
 
-.nav-link {
-    display:
-        flex;
+.nav-dropdown-menu{
 
-    align-items:
-        center;
+    position:absolute;
 
-    gap:
-        6px;
+    top:calc(100% + 10px);
 
-    padding:
-        28px 14px;
+    left:0;
 
-    color:
-        var(--dark-color);
+    min-width:245px;
 
-    font-size:
-        15px;
+    padding:8px;
 
-    font-weight:
-        600;
+    background:white;
 
-    transition:
-        0.3s;
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(8px);
+
+    transition:.25s ease;
 }
 
-.nav-link:hover {
-    color:
-        var(--primary-color);
+.nav-dropdown:hover
+.nav-dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
 }
 
-.dropdown {
-    position:
-        relative;
+.nav-dropdown-menu a{
+
+    display:block;
+
+    padding:11px 13px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.2s ease;
 }
 
-.dropdown-toggle span {
-    font-size:
-        9px;
-}
+.nav-dropdown-menu a:hover{
 
+    background:var(--light);
 
-/* =========================================================
-   FIRST LEVEL DROPDOWN
-========================================================= */
-
-.dropdown-menu {
-    position:
-        absolute;
-
-    top:
-        100%;
-
-    left:
-        0;
-
-    min-width:
-        250px;
-
-    background:
-        var(--white-color);
-
-    border:
-        1px solid var(--border-color);
-
-    border-radius:
-        0 0 8px 8px;
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.12);
-
-    padding:
-        10px 0;
-
-    opacity:
-        0;
-
-    visibility:
-        hidden;
-
-    transform:
-        translateY(10px);
-
-    transition:
-        0.25s;
-}
-
-.dropdown:hover > .dropdown-menu {
-    opacity:
-        1;
-
-    visibility:
-        visible;
-
-    transform:
-        translateY(0);
+    color:var(--purple);
 }
 
 
 /* =========================================================
-   DROPDOWN ITEMS
-========================================================= */
+   MOBILE MENU
+   ========================================================= */
 
-.dropdown-item {
-    position:
-        relative;
-}
+.menu-btn{
 
-.dropdown-menu > a,
-.dropdown-item > a {
-    display:
-        flex;
+    display:none;
 
-    align-items:
-        center;
+    width:44px;
+    height:44px;
 
-    justify-content:
-        space-between;
+    border:1px solid var(--border);
 
-    padding:
-        12px 18px;
+    background:white;
 
-    color:
-        var(--text-color);
+    color:var(--purple);
 
-    font-size:
-        14px;
+    border-radius:10px;
 
-    white-space:
-        nowrap;
-}
-
-.dropdown-menu > a:hover,
-.dropdown-item > a:hover {
-    background:
-        var(--light-color);
-
-    color:
-        var(--primary-color);
-}
-
-
-/* =========================================================
-   SECOND LEVEL SUBMENU
-========================================================= */
-
-.submenu {
-    position:
-        absolute;
-
-    left:
-        100%;
-
-    top:
-        -10px;
-
-    min-width:
-        270px;
-
-    background:
-        var(--white-color);
-
-    border:
-        1px solid var(--border-color);
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.12);
-
-    padding:
-        10px 0;
-
-    opacity:
-        0;
-
-    visibility:
-        hidden;
-
-    transform:
-        translateX(10px);
-
-    transition:
-        0.25s;
-}
-
-.dropdown-item:hover > .submenu {
-    opacity:
-        1;
-
-    visibility:
-        visible;
-
-    transform:
-        translateX(0);
-}
-
-.submenu a {
-    display:
-        block;
-
-    padding:
-        11px 18px;
-
-    color:
-        var(--text-color);
-
-    font-size:
-        14px;
-}
-
-.submenu a:hover {
-    background:
-        var(--light-color);
-
-    color:
-        var(--primary-color);
-}
-
-
-/* =========================================================
-   THIRD LEVEL
-========================================================= */
-
-.nested-dropdown {
-    position:
-        relative;
-}
-
-.nested-dropdown > a {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    padding:
-        11px 18px;
-
-    color:
-        var(--text-color);
-}
-
-.nested-submenu {
-    position:
-        absolute;
-
-    left:
-        100%;
-
-    top:
-        -10px;
-
-    min-width:
-        270px;
-
-    background:
-        var(--white-color);
-
-    border:
-        1px solid var(--border-color);
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.12);
-
-    padding:
-        10px 0;
-
-    opacity:
-        0;
-
-    visibility:
-        hidden;
-
-    transform:
-        translateX(10px);
-
-    transition:
-        0.25s;
-}
-
-.nested-dropdown:hover > .nested-submenu {
-    opacity:
-        1;
-
-    visibility:
-        visible;
-
-    transform:
-        translateX(0);
-}
-
-.nested-submenu a {
-    display:
-        block;
-
-    padding:
-        11px 18px;
-
-    color:
-        var(--text-color);
-}
-
-.nested-submenu a:hover {
-    background:
-        var(--light-color);
-
-    color:
-        var(--primary-color);
-}
-
-
-/* =========================================================
-   NAVIGATION BUTTONS
-========================================================= */
-
-.nav-actions {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        8px;
-}
-
-.nav-actions button {
-    border:
-        none;
-
-    cursor:
-        pointer;
-
-    padding:
-        10px 15px;
-
-    border-radius:
-        6px;
-
-    font-weight:
-        600;
-}
-
-
-/* LOGIN */
-.login-btn {
-    background: var(--primary-color);
-    color: var(--white-color);
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.login-btn:hover {
-    background: var(--primary-dark);
-    color: var(--white-color);
-}
-
-
-/* REGISTER */
-
-.register-btn {
-    background:
-        var(--primary-color);
-
-    color:
-        var(--white-color);
-}
-
-.register-btn:hover {
-    background:
-        var(--primary-dark);
-}
-
-
-/* CART */
-
-.cart-btn {
-    background:
-        var(--dark-color);
-
-    color:
-        var(--white-color);
-}
-
-.cart-btn:hover {
-    background:
-        var(--primary-dark);
-}
-
-
-/* CART COUNT */
-
-#cartCount {
-    background:
-        var(--accent-color);
-
-    color:
-        var(--dark-color);
-
-    padding:
-        2px 7px;
-
-    border-radius:
-        20px;
-
-    font-size:
-        11px;
-
-    margin-left:
-        4px;
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-========================================================= */
-
-.menu-btn {
-    display:
-        none;
-
-    background:
-        none;
-
-    border:
-        none;
-
-    font-size:
-        27px;
-
-    cursor:
-        pointer;
-
-    color:
-        var(--primary-color);
+    font-size:20px;
 }
 
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
-.hero {
+.hero{
+
+    min-height:
+        calc(100vh - 114px);
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+
+    background:
+
+        radial-gradient(
+            circle at 78% 20%,
+            rgba(168,79,165,.40),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            135deg,
+            #24102A 0%,
+            #3C1542 45%,
+            #7A2C78 100%
+        );
+
+    display:flex;
+
+    align-items:center;
+}
+
+
+/* =========================================================
+   OPTIONAL LOOP VIDEO
+   ========================================================= */
+
+.hero-video{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.18;
+
+    z-index:0;
+
+    pointer-events:none;
+}
+
+.hero-video-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(36,16,42,.96),
+            rgba(60,21,66,.82),
+            rgba(122,44,120,.65)
+        );
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+   ========================================================= */
+
+.bg-orb{
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.18;
+
+    pointer-events:none;
+
+    animation:
+        orbFloat 12s ease-in-out infinite;
+
+    z-index:1;
+}
+
+.bg-orb.one{
+
+    background:#A84FA5;
+
+    top:-180px;
+
+    right:-120px;
+}
+
+.bg-orb.two{
+
+    background:#FFBB42;
+
+    bottom:-200px;
+
+    left:-150px;
+
+    animation-delay:-5s;
+}
+
+@keyframes orbFloat{
+
+    0%,100%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(30px,-25px) scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   HERO GRID
+   ========================================================= */
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:3;
+
+    padding:100px 0;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.hero-eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:7px 12px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    background:
+        rgba(255,255,255,.07);
+
+    border-radius:50px;
+
+    color:var(--gold);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1.7px;
+
+    margin-bottom:22px;
+
+    animation:
+        fadeUp .8s ease both;
+}
+
+.hero-eyebrow-dot{
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 0 5px rgba(255,187,66,.12);
+}
+
+.hero h1{
+
+    max-width:760px;
+
+    font-size:
+        clamp(48px,6vw,78px);
+
+    line-height:.98;
+
+    letter-spacing:-3px;
+
+    margin-bottom:25px;
+
+    animation:
+        fadeUp .9s .1s ease both;
+}
+
+.hero h1 span{
+
+    display:block;
+
+    color:var(--gold);
+}
+
+.hero-description{
+
+    max-width:650px;
+
+    color:#E9DFEB;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+    animation:
+        fadeUp .9s .2s ease both;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    animation:
+        fadeUp .9s .3s ease both;
+}
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:14px 22px;
+
+    background:var(--gold);
+
+    color:var(--black);
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    transition:.3s ease;
+}
+
+.primary-btn:hover{
+
+    background:white;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.2);
+}
+
+.secondary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:13px 22px;
+
+    border:
+        1px solid rgba(255,255,255,.3);
+
+    background:
+        rgba(255,255,255,.04);
+
+    color:white;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    transition:.3s ease;
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    color:var(--purple-dark);
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO TRUST
+   ========================================================= */
+
+.hero-trust{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin-top:30px;
+
+    color:#DCCFDF;
+
+    font-size:12px;
+}
+
+.hero-trust span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+}
+
+.hero-trust strong{
+
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   HERO NETWORK GRAPHIC
+   ========================================================= */
+
+.hero-visual{
+
+    position:relative;
+
+    min-height:520px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* Main glow */
+
+.hero-glow{
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,187,66,.20),
+            transparent 65%
+        );
+
+    animation:
+        pulseGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+
+    0%,100%{
+        transform:scale(.95);
+        opacity:.7;
+    }
+
+    50%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   NETWORK GRAPH
+   ========================================================= */
+
+.network-graphic{
+
+    position:relative;
+
+    width:520px;
+    height:520px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+
+/* Orbit rings */
+
+.network-ring{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:
+        1px solid rgba(255,255,255,.16);
+
+    border-radius:50%;
+
+    animation:
+        ringFloat 8s ease-in-out infinite;
+}
+
+.network-ring.ring-one{
+
+    width:450px;
+    height:450px;
+}
+
+.network-ring.ring-two{
+
+    width:350px;
+    height:350px;
+
+    border-color:
+        rgba(255,187,66,.25);
+
+    animation-delay:-2s;
+}
+
+.network-ring.ring-three{
+
+    width:250px;
+    height:250px;
+
+    border-color:
+        rgba(255,255,255,.25);
+
+    animation-delay:-4s;
+}
+
+@keyframes ringFloat{
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            rotate(3deg)
+            scale(1.025);
+    }
+}
+
+
+/* Core */
+
+.network-core{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:grid;
+
+    place-items:center;
+
+    box-shadow:
+        0 0 0 12px rgba(255,187,66,.08),
+        0 0 60px rgba(255,187,66,.30);
+
+    z-index:10;
+
+    animation:
+        corePulse 4s ease-in-out infinite;
+
+    overflow:hidden;
+}
+
+.network-core img{
+
+    width:92px;
+    height:92px;
+
+    object-fit:contain;
+
+    padding:5px;
+}
+
+@keyframes corePulse{
+
+    0%,100%{
+        box-shadow:
+            0 0 0 12px rgba(255,187,66,.08),
+            0 0 55px rgba(255,187,66,.25);
+    }
+
+    50%{
+        box-shadow:
+            0 0 0 20px rgba(255,187,66,.05),
+            0 0 80px rgba(255,187,66,.42);
+    }
+}
+
+
+/* =========================================================
+   NETWORK NODES
+   ========================================================= */
+
+.network-node{
+
+    position:absolute;
+
+    width:105px;
+
+    padding:10px 8px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        rgba(20,7,26,.88);
+
+    border-radius:12px;
+
+    color:white;
+
+    text-align:center;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.22);
+
+    transition:.3s ease;
+
+    z-index:7;
+}
+
+.network-node:hover{
+
+    transform:scale(1.08);
+
+    border-color:
+        rgba(255,187,66,.45);
+
+    color:var(--gold);
+}
+
+.node-top{
+
+    top:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.node-right{
+
+    right:-10px;
+    top:50%;
+
+    transform:translateY(-50%);
+}
+
+.node-bottom{
+
+    bottom:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.node-left{
+
+    left:-10px;
+    top:50%;
+
+    transform:translateY(-50%);
+}
+
+
+/* =========================================================
+   FLOATING CHIPS
+   ========================================================= */
+
+.floating-chip{
+
+    position:absolute;
+
+    padding:10px 13px;
+
+    background:white;
+
+    color:var(--purple-dark);
+
+    border-radius:11px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18);
+
+    z-index:12;
+
+    animation:
+        floatChip 5s ease-in-out infinite;
+}
+
+
+/*
+   Moved farther outward so they do not overlap
+   the network graph.
+*/
+
+.chip-one{
+
+    top:5px;
+
+    right:-55px;
+}
+
+.chip-two{
+
+    bottom:10px;
+
+    left:-65px;
+
+    animation-delay:-2s;
+}
+
+@keyframes floatChip{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-9px);
+    }
+}
+
+
+/* =========================================================
+   HERO STATUS
+   ========================================================= */
+
+.network-status{
+
+    position:absolute;
+
+    right:-60px;
+
+    bottom:80px;
+
+    width:175px;
+
+    padding:15px;
+
+    background:
+        rgba(20,7,26,.90);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius:14px;
+
+    backdrop-filter:blur(12px);
+
+    z-index:12;
+}
+
+.status-title{
+
+    color:#CFC2D2;
+
+    font-size:9px;
+
+    letter-spacing:1.3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:7px;
+}
+
+.status-value{
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+.status-value span{
+
+    color:var(--gold);
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+
+.marquee{
+
+    overflow:hidden;
+
+    background:var(--black);
+
+    color:white;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.marquee-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        marquee 28s linear infinite;
+}
+
+.marquee-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:18px 30px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    white-space:nowrap;
+}
+
+.marquee-item span{
+
+    color:var(--gold);
+
+    font-size:15px;
+}
+
+@keyframes marquee{
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   COVERAGE
+   ========================================================= */
+
+.coverage-section{
+
+    padding:100px 0;
+
+    background:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.section-eyebrow{
+
+    display:block;
+
+    color:var(--purple);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:12px;
+}
+
+.section-heading{
+
+    max-width:750px;
+
+    margin-bottom:45px;
+}
+
+.section-heading h2{
+
+    color:var(--purple-dark);
+
+    font-size:
+        clamp(34px,4vw,53px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    margin-bottom:15px;
+}
+
+.section-heading p{
+
+    color:#777;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+.coverage-card{
+
     background:
         linear-gradient(
             135deg,
@@ -691,1814 +1294,2066 @@ select {
             #7A2C78
         );
 
-    color:
-        var(--white-color);
+    border-radius:25px;
 
-    padding:
-        90px 0;
+    padding:35px;
+
+    color:white;
+
+    box-shadow:var(--shadow-dark);
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.hero-content {
-    display:
-        grid;
+.coverage-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,187,66,.12);
+
+    right:-100px;
+    top:-150px;
+}
+
+.coverage-content{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
 
     grid-template-columns:
-        1fr 1fr;
+        1fr 1.2fr;
 
-    gap:
-        70px;
+    gap:45px;
 
-    align-items:
-        center;
+    align-items:center;
 }
 
-.hero-text h1 {
-    font-size:
-        50px;
+.coverage-title{
 
-    line-height:
-        1.15;
+    font-size:30px;
 
-    margin-bottom:
-        20px;
+    line-height:1.15;
+
+    margin-bottom:12px;
 }
 
-.hero-text h1 span {
-    color:
-        var(--accent-color);
+.coverage-text{
+
+    color:#DDD0E0;
+
+    font-size:14px;
 }
 
-.hero-text p {
-    color:
-        var(--light-color);
+.coverage-form{
 
-    font-size:
-        18px;
+    background:white;
 
-    max-width:
-        600px;
+    padding:8px;
 
-    margin-bottom:
-        30px;
+    border-radius:13px;
+
+    display:flex;
+
+    gap:7px;
 }
 
+.coverage-form input{
 
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
+    flex:1;
 
-.hero-buttons {
-    display:
-        flex;
+    min-width:0;
 
-    gap:
-        12px;
+    border:0;
 
-    flex-wrap:
-        wrap;
+    outline:0;
+
+    padding:14px;
+
+    color:#222;
 }
 
+.coverage-form button{
 
-/* PRIMARY BUTTON */
+    border:0;
 
-.primary-btn {
-    background:
-        var(--accent-color);
+    background:var(--gold);
 
-    color:
-        var(--dark-color);
+    color:#020202;
 
-    border:
-        none;
+    padding:0 20px;
 
-    padding:
-        14px 24px;
+    border-radius:9px;
 
-    border-radius:
-        7px;
+    font-weight:900;
 
-    cursor:
-        pointer;
-
-    font-weight:
-        bold;
-
-    transition:
-        0.3s;
+    transition:.25s;
 }
 
-.primary-btn:hover {
-    background:
-        var(--primary-color);
+.coverage-form button:hover{
 
-    color:
-        var(--white-color);
+    background:var(--purple-dark);
+
+    color:white;
 }
 
+.coverage-note{
 
-/* SECONDARY BUTTON */
+    margin-top:10px;
 
-.secondary-btn {
-    background:
-        transparent;
+    color:#CFC0D2;
 
-    color:
-        var(--white-color);
-
-    border:
-        1px solid rgba(255, 255, 255, 0.5);
-
-    padding:
-        13px 24px;
-
-    border-radius:
-        7px;
-
-    cursor:
-        pointer;
-
-    font-weight:
-        bold;
-
-    transition:
-        0.3s;
-}
-
-.secondary-btn:hover {
-    background:
-        var(--white-color);
-
-    color:
-        var(--primary-color);
-}
-
-
-/* =========================================================
-   DOMAIN SEARCH
-========================================================= */
-
-.domain-search-box {
-    background:
-        var(--white-color);
-
-    padding:
-        10px;
-
-    border-radius:
-        12px;
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.25);
-}
-
-.domain-search-box h3 {
-    color:
-        var(--dark-color);
-
-    padding:
-        15px 15px 5px;
-}
-
-.search-input-wrapper {
-    display:
-        flex;
-
-    gap:
-        8px;
-}
-
-.search-input-wrapper input {
-    flex:
-        1;
-
-    border:
-        1px solid var(--border-color);
-
-    outline:
-        none;
-
-    padding:
-        16px;
-
-    border-radius:
-        6px;
-
-    font-size:
-        15px;
-
-    color:
-        var(--text-color);
-}
-
-.search-input-wrapper select {
-    border:
-        1px solid var(--border-color);
-
-    border-radius:
-        6px;
-
-    padding:
-        0 12px;
-
-    background:
-        var(--white-color);
-
-    cursor:
-        pointer;
-}
-
-.search-input-wrapper button {
-    background:
-        var(--accent-color);
-
-    color:
-        var(--dark-color);
-
-    border:
-        none;
-
-    padding:
-        0 22px;
-
-    border-radius:
-        6px;
-
-    cursor:
-        pointer;
-
-    font-weight:
-        bold;
-}
-
-.search-input-wrapper button:hover {
-    background:
-        var(--primary-color);
-
-    color:
-        var(--white-color);
-}
-
-
-/* =========================================================
-   QUICK SERVICES
-========================================================= */
-
-.quick-services {
-    background:
-        var(--white-color);
-
-    padding:
-        25px 0;
-
-    border-bottom:
-        1px solid var(--border-color);
-}
-
-.quick-grid {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap:
-        15px;
-}
-
-.quick-item {
-    padding:
-        18px;
-
-    border-right:
-        1px solid var(--border-color);
-}
-
-.quick-item:last-child {
-    border:
-        none;
-}
-
-.quick-icon {
-    font-size:
-        28px;
-
-    margin-bottom:
-        5px;
-}
-
-.quick-item h3 {
-    font-size:
-        16px;
-
-    color:
-        var(--primary-dark);
-}
-
-.quick-item p {
-    color:
-        var(--grey-color);
-
-    font-size:
-        13px;
-}
-
-
-/* =========================================================
-   SEARCH RESULTS
-========================================================= */
-
-.search-results-section {
-    padding:
-        70px 0;
-
-    background:
-        var(--white-color);
-}
-
-.search-results-section h2 {
-    text-align:
-        center;
-
-    margin-bottom:
-        35px;
-
-    color:
-        var(--primary-dark);
-}
-
-#searchResults {
-    max-width:
-        900px;
-
-    margin:
-        auto;
-}
-
-.empty-results {
-    text-align:
-        center;
-
-    padding:
-        40px;
-
-    color:
-        var(--grey-color);
-}
-
-.empty-icon {
-    font-size:
-        50px;
-
-    margin-bottom:
-        10px;
-}
-
-.result-card {
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-
-    padding:
-        20px;
-
-    border:
-        1px solid var(--border-color);
-
-    border-radius:
-        10px;
-
-    margin-bottom:
-        12px;
-}
-
-.result-domain {
-    font-size:
-        18px;
-
-    font-weight:
-        bold;
-}
-
-.available {
-    color:
-        var(--success-color);
-
-    font-size:
-        14px;
-}
-
-.unavailable {
-    color:
-        var(--danger-color);
-
-    font-size:
-        14px;
-}
-
-.result-actions {
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        15px;
-}
-
-.result-price {
-    font-weight:
-        bold;
-
-    color:
-        var(--primary-color);
-}
-
-.add-cart {
-    background:
-        var(--primary-color);
-
-    color:
-        var(--white-color);
-
-    border:
-        none;
-
-    padding:
-        10px 18px;
-
-    border-radius:
-        6px;
-
-    cursor:
-        pointer;
-}
-
-.add-cart:hover {
-    background:
-        var(--primary-dark);
+    font-size:10px;
 }
 
 
 /* =========================================================
    SERVICES
-========================================================= */
+   ========================================================= */
 
-.services-section {
-    padding:
-        90px 0;
+.services{
 
-    background:
-        var(--light-color);
+    background:var(--light);
+
+    padding:100px 0;
 }
 
-.section-heading {
-    text-align:
-        center;
+.services-top{
 
-    margin-bottom:
-        50px;
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+
+    margin-bottom:45px;
 }
 
-.section-heading h2 {
-    font-size:
-        36px;
+.services-top
+.section-heading{
 
-    margin-bottom:
-        10px;
-
-    color:
-        var(--primary-dark);
+    margin-bottom:0;
 }
 
-.section-heading p {
-    max-width:
-        700px;
+.view-all{
 
-    margin:
-        auto;
+    display:inline-flex;
 
-    color:
-        var(--grey-color);
+    align-items:center;
+
+    gap:7px;
+
+    color:var(--purple);
+
+    font-size:13px;
+
+    font-weight:900;
+
+    white-space:nowrap;
 }
 
-.services-grid {
-    display:
-        grid;
+.view-all span{
+
+    transition:.25s;
+}
+
+.view-all:hover span{
+
+    transform:translateX(5px);
+}
+
+.services-grid{
+
+    display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
-    gap:
-        25px;
+    gap:18px;
 }
 
-.service-card {
-    background:
-        var(--white-color);
+.service-card{
 
-    padding:
-        30px;
+    position:relative;
+
+    background:white;
+
+    padding:28px;
+
+    min-height:235px;
 
     border:
-        1px solid var(--border-color);
+        1px solid var(--border);
 
-    border-radius:
-        12px;
+    border-radius:19px;
+
+    overflow:hidden;
 
     transition:
-        0.3s;
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
-.service-card:hover {
-    transform:
-        translateY(-5px);
+.service-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122,44,120,.08),
+            transparent 70%
+        );
+
+    right:-45px;
+    bottom:-50px;
+
+    transition:.35s;
+}
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,.35);
 
     box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.08);
-
-    border-color:
-        var(--primary-color);
+        0 20px 45px rgba(60,21,66,.1);
 }
 
-.service-icon {
-    font-size:
-        35px;
+.service-card:hover::after{
 
-    margin-bottom:
-        15px;
+    transform:scale(1.5);
 }
 
-.service-card h3 {
-    margin-bottom:
-        10px;
+.service-number{
 
-    color:
-        var(--primary-dark);
+    color:var(--gold);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    margin-bottom:25px;
 }
 
-.service-card p {
-    color:
-        var(--grey-color);
+.service-icon{
 
-    margin-bottom:
-        20px;
+    width:48px;
+    height:48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(122,44,120,.08);
+
+    color:var(--purple);
+
+    font-size:23px;
+
+    margin-bottom:18px;
 }
 
-.service-link {
-    color:
-        var(--primary-color);
+.service-card h3{
 
-    font-weight:
-        bold;
+    color:var(--purple-dark);
+
+    font-size:19px;
+
+    margin-bottom:8px;
 }
 
-.service-link:hover {
-    color:
-        var(--primary-dark);
+.service-card p{
+
+    color:#777;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:18px;
+}
+
+.service-arrow{
+
+    color:var(--purple);
+
+    font-weight:900;
+
+    font-size:13px;
 }
 
 
 /* =========================================================
-   HOSTING
-========================================================= */
+   FIBRE PROVIDERS
+   REPLACES OLD POPULAR PACKAGES
+   ========================================================= */
 
-.hosting-section {
-    padding:
-        90px 0;
+.providers{
+
+    padding:100px 0;
+
+    background:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.providers::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    border-radius:50%;
 
     background:
-        var(--primary-dark);
+        radial-gradient(
+            circle,
+            rgba(122,44,120,.06),
+            transparent 70%
+        );
 
-    color:
-        var(--white-color);
+    left:-250px;
+
+    top:100px;
+
+    pointer-events:none;
 }
 
-.hosting-content {
-    display:
-        grid;
+.providers-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+
+    margin-bottom:42px;
+}
+
+.providers-top
+.section-heading{
+
+    margin-bottom:0;
+}
+
+
+/* =========================================================
+   PROVIDER GRID
+   3 COLUMNS
+   ========================================================= */
+
+.provider-grid{
+
+    display:grid;
 
     grid-template-columns:
-        1fr 1fr;
+        repeat(3,1fr);
 
-    gap:
-        60px;
+    gap:18px;
 
-    align-items:
-        center;
+    position:relative;
+
+    z-index:2;
 }
 
-.section-tag {
-    color:
-        var(--accent-color);
 
-    font-size:
-        13px;
+/* =========================================================
+   PROVIDER CARD
+   ========================================================= */
 
-    font-weight:
-        bold;
+.provider-card{
 
-    letter-spacing:
-        2px;
-}
+    position:relative;
 
-.hosting-text h2 {
-    font-size:
-        38px;
+    min-height:225px;
 
-    margin:
-        15px 0;
-}
+    padding:20px;
 
-.hosting-text p {
-    color:
-        var(--light-color);
-
-    margin-bottom:
-        25px;
-}
-
-.hosting-features {
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        20px;
-}
-
-.feature {
-    padding:
-        25px;
+    background:white;
 
     border:
-        1px solid rgba(255, 255, 255, 0.2);
+        1px solid var(--border);
 
-    border-radius:
-        10px;
+    border-radius:17px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
 
     transition:
-        0.3s;
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
-.feature:hover {
+.provider-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s ease;
+}
+
+.provider-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-80px;
+    bottom:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(122,44,120,.08),
+            transparent 70%
+        );
+
+    transition:.45s ease;
+}
+
+.provider-card:hover{
+
+    transform:translateY(-7px);
+
     border-color:
-        var(--accent-color);
+        rgba(122,44,120,.30);
+
+    box-shadow:
+        0 18px 42px rgba(60,21,66,.11);
 }
 
-.feature-icon {
-    font-size:
-        30px;
+.provider-card:hover::before{
 
-    margin-bottom:
-        10px;
+    transform:scaleX(1);
 }
 
-.feature p {
-    color:
-        #D9D9D9;
+.provider-card:hover::after{
 
-    font-size:
-        14px;
+    transform:scale(1.4);
 }
 
 
 /* =========================================================
-   WHY US
-========================================================= */
+   PROVIDER LOGO
+   ========================================================= */
 
-.about-section {
-    padding:
-        90px 0;
+.provider-logo{
 
-    background:
-        var(--white-color);
-}
+    width:100%;
 
-.benefits {
-    display:
-        grid;
+    height:82px;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    border-radius:12px;
 
-    gap:
-        25px;
-}
-
-.benefit {
-    padding:
-        30px;
+    background:#FAF8FB;
 
     border:
-        1px solid var(--border-color);
+        1px solid rgba(60,21,66,.06);
 
-    border-radius:
-        10px;
+    display:grid;
+
+    place-items:center;
+
+    margin-bottom:15px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.provider-logo img{
+
+    width:78%;
+
+    height:68px;
+
+    object-fit:contain;
 
     transition:
-        0.3s;
+        transform .35s ease;
 }
 
-.benefit:hover {
-    border-color:
-        var(--primary-color);
+.provider-card:hover
+.provider-logo img{
 
-    transform:
-        translateY(-4px);
+    transform:scale(1.06);
 }
 
-.benefit-number {
-    color:
-        var(--primary-color);
 
-    font-size:
-        18px;
+/* Fallback if image missing */
 
-    font-weight:
-        bold;
+.provider-fallback{
 
-    margin-bottom:
-        15px;
-}
+    display:none;
 
-.benefit p {
-    color:
-        var(--grey-color);
+    color:var(--purple);
+
+    font-size:15px;
+
+    font-weight:900;
+
+    text-align:center;
 }
 
 
 /* =========================================================
-   CONTACT
-========================================================= */
+   PROVIDER CONTENT
+   ========================================================= */
 
-.contact-section {
-    padding:
-        70px 0;
+.provider-card h3{
 
-    background:
-        var(--light-color);
+    position:relative;
+
+    z-index:2;
+
+    color:var(--purple-dark);
+
+    font-size:17px;
+
+    margin-bottom:3px;
 }
 
-.contact-content {
-    display:
-        flex;
+.provider-card p{
 
-    justify-content:
-        space-between;
+    position:relative;
 
-    align-items:
-        center;
+    z-index:2;
 
-    gap:
-        30px;
+    color:#777;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    margin-bottom:13px;
+}
+
+.provider-button{
+
+    margin-top:auto;
+
+    position:relative;
+
+    z-index:3;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:9px;
+
+    background:var(--purple);
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    transition:.25s ease;
+}
+
+.provider-button:hover{
+
+    background:var(--purple-dark);
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   PROVIDER MODAL
+   ========================================================= */
+
+.provider-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    background:
+        rgba(2,2,2,.72);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.provider-modal.show{
+
+    display:flex;
+
+    animation:
+        modalFade .2s ease;
+}
+
+.provider-modal-content{
+
+    width:100%;
+
+    max-width:760px;
+
+    max-height:88vh;
+
+    overflow-y:auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    position:relative;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.30);
+
+    animation:
+        modalUp .3s ease;
+}
+
+.provider-modal-close{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:36px;
+    height:36px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--light);
+
+    color:var(--purple-dark);
+
+    font-size:21px;
+}
+
+.provider-modal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding-right:40px;
+
+    margin-bottom:25px;
+}
+
+.provider-modal-logo{
+
+    width:75px;
+    height:75px;
+
+    padding:10px;
+
+    border-radius:14px;
+
+    background:var(--light);
+
+    display:grid;
+
+    place-items:center;
+}
+
+.provider-modal-logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+.provider-modal-header h2{
+
+    color:var(--purple-dark);
+
+    font-size:28px;
+
+    line-height:1.1;
+}
+
+.provider-modal-header p{
+
+    color:#777;
+
+    font-size:12px;
+}
+
+.provider-packages{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+}
+
+.modal-package{
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    padding:18px;
+
+    transition:.25s ease;
+}
+
+.modal-package:hover{
+
+    border-color:
+        rgba(122,44,120,.35);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(60,21,66,.08);
+}
+
+.modal-package small{
+
+    color:var(--grey);
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.modal-package h3{
+
+    color:var(--purple-dark);
+
+    font-size:22px;
+
+    margin:5px 0;
+}
+
+.modal-package p{
+
+    color:#777;
+
+    font-size:11px;
+}
+
+.modal-package-price{
+
+    color:var(--purple);
+
+    font-size:19px;
+
+    font-weight:900;
+
+    margin-top:10px;
+}
+
+.modal-package-price span{
+
+    color:#777;
+
+    font-size:10px;
+
+    font-weight:600;
+}
+
+.modal-note{
+
+    margin-top:18px;
+
+    padding:13px;
+
+    border-left:
+        3px solid var(--gold);
+
+    background:var(--light);
+
+    color:#777;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes modalUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================================================
+   WHY DINGES TECH
+   ========================================================= */
+
+.why{
+
+    padding:100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #F6F2F7,
+            #fff
+        );
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr 1.1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.why-copy h2{
+
+    color:var(--purple-dark);
+
+    font-size:
+        clamp(35px,4vw,55px);
+
+    line-height:1.02;
+
+    letter-spacing:-2px;
+
+    margin-bottom:20px;
+}
+
+.why-copy p{
+
+    color:#707070;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+.why-list{
+
+    display:grid;
+
+    gap:13px;
+}
+
+.why-item{
+
+    display:flex;
+
+    gap:15px;
+
+    padding:17px;
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    transition:.3s;
+}
+
+.why-item:hover{
+
+    transform:translateX(5px);
+
+    box-shadow:
+        0 12px 30px rgba(60,21,66,.08);
+}
+
+.why-number{
+
+    flex-shrink:0;
+
+    width:36px;
+    height:36px;
+
+    border-radius:10px;
+
+    background:var(--purple);
+
+    color:var(--gold);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.why-item h3{
+
+    color:var(--purple-dark);
+
+    font-size:15px;
+
+    margin-bottom:2px;
+}
+
+.why-item p{
+
+    margin:0;
+
+    color:#777;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   PARTNERS
+   ========================================================= */
+
+.partners{
+
+    padding:85px 0;
+
+    background:white;
+}
+
+.partner-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:20px;
+}
+
+.partner-card{
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    transition:.3s;
+}
+
+.partner-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+}
+
+.partner-logo{
+
+    width:110px;
+    height:110px;
+
+    flex-shrink:0;
+
+    border-radius:17px;
+
+    background:var(--light);
+
+    display:grid;
+
+    place-items:center;
+
+    overflow:hidden;
+}
+
+.partner-logo img{
+
+    width:85%;
+    height:85%;
+
+    object-fit:contain;
+}
+
+.partner-card small{
+
+    color:var(--purple);
+
+    font-size:9px;
+
+    letter-spacing:1.4px;
+
+    font-weight:900;
+}
+
+.partner-card h3{
+
+    color:var(--purple-dark);
+
+    margin:7px 0;
+
+    font-size:20px;
+}
+
+.partner-card p{
+
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+
+    padding:100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    right:-170px;
+    top:-200px;
+}
+
+.cta-content{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:40px;
+}
+
+.cta h2{
+
+    font-size:
+        clamp(35px,4vw,56px);
+
+    line-height:1;
+
+    letter-spacing:-2px;
+
+    margin-bottom:15px;
+}
+
+.cta p{
+
+    color:#DDCFDF;
+
+    max-width:620px;
+
+    font-size:14px;
 }
 
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-.footer {
-    background:
-        var(--primary-dark);
+.footer{
 
-    color:
-        var(--white-color);
+    background:#160A19;
 
-    padding-top:
-        60px;
+    color:white;
+
+    padding-top:65px;
 }
 
-.footer-grid {
-    display:
-        grid;
+.footer-grid{
+
+    display:grid;
 
     grid-template-columns:
-        2fr 1fr 1fr 1fr;
+        1.7fr 1fr 1fr 1fr;
 
-    gap:
-        40px;
+    gap:40px;
 
-    padding-bottom:
-        50px;
+    padding-bottom:55px;
 }
 
-.footer-logo {
-    font-size:
-        25px;
+.footer-brand{
 
-    font-weight:
-        bold;
-
-    margin-bottom:
-        15px;
+    max-width:350px;
 }
 
-.footer-logo span {
-    color:
-        var(--accent-color);
+.footer-brand .brand{
+
+    display:block;
+
+    margin-bottom:18px;
 }
 
-.footer-column p {
-    color:
-        #D9D9D9;
+.footer-brand .brand img{
+
+    width:auto;
+
+    height:52px;
+
+    max-width:230px;
+
+    object-fit:contain;
 }
 
-.footer-column h3 {
-    margin-bottom:
-        15px;
+.footer-brand p{
+
+    color:#BFB0C1;
+
+    font-size:13px;
+
+    line-height:1.8;
 }
 
-.footer-column a {
-    display:
-        block;
+.footer-column h3{
 
-    color:
-        #D9D9D9;
+    color:white;
 
-    margin-bottom:
-        8px;
+    font-size:13px;
+
+    margin-bottom:17px;
 }
 
-.footer-column a:hover {
-    color:
-        var(--accent-color);
+.footer-column a{
+
+    display:block;
+
+    color:#BFB0C1;
+
+    font-size:12px;
+
+    margin-bottom:10px;
+
+    transition:.2s;
 }
 
-.footer-bottom {
+.footer-column a:hover{
+
+    color:var(--gold);
+
+    transform:translateX(3px);
+}
+
+.footer-bottom{
+
     border-top:
-        1px solid rgba(255, 255, 255, 0.2);
+        1px solid rgba(255,255,255,.08);
 
-    padding:
-        20px;
+    padding:20px 0;
 
-    text-align:
-        center;
+    color:#8E7E90;
 
-    color:
-        #D9D9D9;
+    font-size:11px;
+}
+
+.footer-bottom-inner{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
 }
 
 
 /* =========================================================
-   CART MODAL
-========================================================= */
+   REVEAL
+   ========================================================= */
 
-.modal {
-    display:
-        none;
+.reveal{
 
-    position:
-        fixed;
+    opacity:0;
 
-    inset:
-        0;
+    transform:
+        translateY(35px);
 
-    background:
-        rgba(2, 2, 2, 0.65);
-
-    z-index:
-        2000;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        20px;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.modal.show {
-    display:
-        flex;
+.reveal.active{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
 }
 
-.modal-content {
-    width:
-        100%;
+.reveal-left{
 
-    max-width:
-        600px;
+    opacity:0;
 
-    background:
-        var(--white-color);
+    transform:
+        translateX(-35px);
 
-    border-radius:
-        12px;
-
-    padding:
-        30px;
-
-    position:
-        relative;
-
-    max-height:
-        80vh;
-
-    overflow-y:
-        auto;
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.close-modal {
-    position:
-        absolute;
+.reveal-left.active{
 
-    top:
-        12px;
+    opacity:1;
 
-    right:
-        18px;
-
-    border:
-        none;
-
-    background:
-        none;
-
-    font-size:
-        28px;
-
-    cursor:
-        pointer;
-
-    color:
-        var(--dark-color);
+    transform:
+        translateX(0);
 }
 
-.close-modal:hover {
-    color:
-        var(--primary-color);
+.reveal-right{
+
+    opacity:0;
+
+    transform:
+        translateX(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
-.cart-item {
-    display:
-        flex;
+.reveal-right.active{
 
-    justify-content:
-        space-between;
+    opacity:1;
 
-    align-items:
-        center;
-
-    padding:
-        15px 0;
-
-    border-bottom:
-        1px solid var(--border-color);
+    transform:
+        translateX(0);
 }
 
-.remove-cart {
-    background:
-        #FEE2E2;
+@keyframes fadeUp{
 
-    color:
-        var(--danger-color);
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
 
-    border:
-        none;
-
-    padding:
-        7px 10px;
-
-    border-radius:
-        5px;
-
-    cursor:
-        pointer;
-}
-
-.cart-total {
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    padding:
-        20px 0;
-
-    font-size:
-        20px;
-}
-
-.checkout-btn {
-    width:
-        100%;
-
-    padding:
-        14px;
-
-    background:
-        var(--primary-color);
-
-    color:
-        var(--white-color);
-
-    border:
-        none;
-
-    border-radius:
-        7px;
-
-    font-weight:
-        bold;
-
-    cursor:
-        pointer;
-}
-
-.checkout-btn:hover {
-    background:
-        var(--primary-dark);
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
 /* =========================================================
    RESPONSIVE
-========================================================= */
+   ========================================================= */
 
-@media (max-width: 1150px) {
+@media(max-width:1100px){
 
-    .navigation {
-        display:
-            none;
+    .navigation{
+        display:none;
+    }
 
-        position:
-            absolute;
+    .menu-btn{
+        display:block;
+    }
 
-        top:
-            75px;
+    .navigation.mobile-open{
 
-        left:
-            0;
+        display:flex;
 
-        width:
-            100%;
+        position:fixed;
 
-        background:
-            var(--white-color);
+        top:114px;
 
-        flex-direction:
-            column;
+        left:0;
 
-        align-items:
-            stretch;
+        width:100%;
 
-        padding:
-            15px;
+        height:
+            calc(100vh - 114px);
+
+        background:white;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:20px;
+
+        overflow-y:auto;
 
         box-shadow:
-            0 10px 25px rgba(0, 0, 0, 0.12);
+            0 20px 40px rgba(0,0,0,.1);
     }
 
-    .navigation.show {
-        display:
-            flex;
+    .nav-link{
+        padding:15px;
     }
 
-    .nav-link {
-        padding:
-            15px;
+    .nav-dropdown-menu{
+
+        position:static;
+
+        display:block;
+
+        opacity:1;
+
+        visibility:visible;
+
+        transform:none;
+
+        box-shadow:none;
+
+        border:0;
+
+        padding-left:15px;
+
+        background:var(--light);
+
+        margin-bottom:5px;
     }
 
-    .dropdown-menu,
-    .submenu,
-    .nested-submenu {
-        position:
-            static;
+    .hero-grid{
 
-        display:
-            none;
+        grid-template-columns:1fr;
 
-        opacity:
-            1;
-
-        visibility:
-            visible;
-
-        transform:
-            none;
-
-        box-shadow:
-            none;
-
-        border:
-            none;
-
-        padding-left:
-            15px;
+        gap:50px;
     }
 
-    .dropdown:hover > .dropdown-menu {
-        display:
-            block;
+    .hero-visual{
+
+        min-height:470px;
     }
 
-    .dropdown-item:hover > .submenu {
-        display:
-            block;
-    }
+    .provider-grid{
 
-    .nested-dropdown:hover > .nested-submenu {
-        display:
-            block;
-    }
-
-    .nav-actions {
-        display:
-            none;
-    }
-
-    .menu-btn {
-        display:
-            block;
-    }
-
-    .hero-content {
         grid-template-columns:
-            1fr;
+            repeat(3,1fr);
+    }
+
+    .why-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 }
 
 
-@media (max-width: 900px) {
+@media(max-width:800px){
 
-    .services-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .top-right{
+        display:none;
     }
 
-    .hosting-content {
-        grid-template-columns:
-            1fr;
+    .top-bar-inner{
+        justify-content:center;
     }
 
-    .benefits {
-        grid-template-columns:
-            1fr;
+    .hero-grid{
+        padding:75px 0;
     }
 
-    .footer-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .hero-visual{
+        min-height:440px;
     }
 
-    .quick-grid {
+    .floating-chip{
+        display:none;
+    }
+
+    .coverage-content{
+        grid-template-columns:1fr;
+    }
+
+    .services-top,
+    .providers-top{
+
+        align-items:start;
+
+        flex-direction:column;
+    }
+
+    .services-grid{
+
         grid-template-columns:
-            repeat(2, 1fr);
+            repeat(2,1fr);
+    }
+
+    .provider-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .partner-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .cta-content{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .network-status{
+
+        right:-20px;
     }
 }
 
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    .top-bar-content {
-        justify-content:
-            center;
+    .logo img{
+
+        height:43px;
+
+        max-width:190px;
     }
 
-    .top-links {
-        display:
-            none;
+    .hero-grid{
+
+        padding:60px 0;
     }
 
-    .hero {
-        padding:
-            60px 0;
+    .hero h1{
+
+        font-size:46px;
     }
 
-    .hero-text h1 {
-        font-size:
-            36px;
+    .hero-description{
+
+        font-size:15px;
     }
 
-    .search-input-wrapper {
-        flex-direction:
-            column;
+    .hero-buttons{
+
+        flex-direction:column;
     }
 
-    .search-input-wrapper input,
-    .search-input-wrapper select,
-    .search-input-wrapper button {
-        padding:
-            14px;
+    .hero-buttons a{
+
+        width:100%;
     }
 
-    .services-grid {
-        grid-template-columns:
-            1fr;
+    .network-graphic{
+
+        width:360px;
+        height:360px;
     }
 
-    .hosting-features {
-        grid-template-columns:
-            1fr;
+    .network-ring.ring-one{
+
+        width:320px;
+        height:320px;
     }
 
-    .contact-content {
-        flex-direction:
-            column;
+    .network-ring.ring-two{
 
-        align-items:
-            flex-start;
+        width:250px;
+        height:250px;
     }
 
-    .footer-grid {
-        grid-template-columns:
-            1fr;
+    .network-ring.ring-three{
+
+        width:180px;
+        height:180px;
     }
 
-    .quick-grid {
-        grid-template-columns:
-            1fr;
+    .network-core{
+
+        width:88px;
+        height:88px;
     }
 
-    .quick-item {
-        border:
-            none;
+    .network-core img{
 
-        border-bottom:
-            1px solid var(--border-color);
+        width:68px;
+        height:68px;
     }
 
-    .result-card {
-        flex-direction:
-            column;
+    .network-node{
 
-        align-items:
-            flex-start;
+        width:82px;
 
-        gap:
-            15px;
+        font-size:7px;
     }
 
-    .result-actions {
-        width:
-            100%;
+    .node-top{
+        top:0;
+    }
 
-        justify-content:
-            space-between;
+    .node-bottom{
+        bottom:0;
+    }
+
+    .node-left{
+        left:-25px;
+    }
+
+    .node-right{
+        right:-25px;
+    }
+
+    .network-status{
+
+        right:-10px;
+
+        bottom:35px;
+
+        width:145px;
+    }
+
+    .coverage-section,
+    .services,
+    .providers,
+    .why,
+    .partners,
+    .cta{
+
+        padding:70px 0;
+    }
+
+    .coverage-card{
+
+        padding:22px;
+    }
+
+    .coverage-form{
+
+        flex-direction:column;
+
+        background:white;
+    }
+
+    .coverage-form button{
+
+        padding:13px;
+    }
+
+    .services-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .provider-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .provider-card{
+
+        min-height:215px;
+    }
+
+    .provider-packages{
+
+        grid-template-columns:1fr;
+    }
+
+    .partner-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .partner-logo{
+
+        width:90px;
+        height:90px;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .footer-bottom-inner{
+
+        flex-direction:column;
+
+        align-items:flex-start;
     }
 }
 
 
 /* =========================================================
-   IMAGES
-========================================================= */
+   REDUCED MOTION
+   ========================================================= */
 
-img {
-    max-width:
-        100%;
+@media(prefers-reduced-motion:reduce){
 
-    height:
-        auto;
+    *,
+    *::before,
+    *::after{
 
-    display:
-        block;
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+    }
 }
 
 /* =====================================================
-   ABOUT DINGES TECH
-====================================================== */
-
-.about-overview-section {
-    padding: 85px 20px;
-    background: #ffffff;
-    position: relative;
-}
-
-
-/* Main Container */
-
-.about-overview {
-    max-width: 950px;
-    margin: 0 auto;
-}
-
-
-/* Content */
-
-.about-overview-content {
-    text-align: center;
-    padding: 55px 65px;
-
-    background: #f8f8f8;
-
-    border-radius: 18px;
-
-    border: 1px solid #e5e5e5;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
-
-    position: relative;
-    overflow: hidden;
-}
-
-
-/* Decorative Top Line */
-
-.about-overview-content::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 5px;
-
-    background: linear-gradient(
-        90deg,
-        #3C1542,
-        #7A2C78,
-        #FFBB42
-    );
-}
-
-
-/* About Label */
-
-.about-label {
-    display: inline-block;
-
-    margin-bottom: 18px;
-
-    color: #7A2C78;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-
-/* Heading */
-
-.about-overview-content h2 {
-    max-width: 750px;
-
-    margin: 0 auto 25px;
-
-    color: #3C1542;
-
-    font-size: 36px;
-
-    line-height: 1.3;
-
-    font-weight: 700;
-}
-
-
-/* Paragraphs */
-
-.about-overview-content p {
-    max-width: 780px;
-
-    margin: 0 auto 18px;
-
-    color: #666666;
-
-    font-size: 16px;
-
-    line-height: 1.8;
-}
-
-
-/* Strong Text */
-
-.about-overview-content strong {
-    color: #3C1542;
-
-    font-weight: 700;
-}
-
-
-/* Learn More Button */
-
-.about-learn-more {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-top: 15px;
-
-    padding: 13px 25px;
-
-    background: #7A2C78;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    border-radius: 6px;
-
-    transition: all 0.3s ease;
-}
-
-
-/* Arrow */
-
-.about-learn-more span {
-    font-size: 19px;
-
-    transition: transform 0.3s ease;
-}
-
-
-/* Hover */
-
-.about-learn-more:hover {
-    background: #3C1542;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 20px rgba(60, 21, 66, 0.2);
-}
-
-
-.about-learn-more:hover span {
-    transform: translateX(5px);
-}
-
-
-/* =====================================================
-   MOBILE
-====================================================== */
-
-@media (max-width: 768px) {
-
-    .about-overview-section {
-        padding: 60px 15px;
-    }
-
-
-    .about-overview-content {
-        padding: 45px 25px;
-    }
-
-
-    .about-overview-content h2 {
-        font-size: 28px;
-
-        line-height: 1.35;
-    }
-
-
-    .about-overview-content p {
-        font-size: 15px;
-
-        line-height: 1.7;
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .about-overview-content {
-        padding: 40px 20px;
-    }
-
-
-    .about-overview-content h2 {
-        font-size: 25px;
-    }
-
-
-    .about-learn-more {
-        width: 100%;
-
-        justify-content: center;
-    }
-
-}
-<!-- our PARTNER-->
-.partners-container{
-    max-width:1200px;
-    margin:auto;
-}
-
-.partner-card{
-
-    display:flex;
-    align-items:center;
-    gap:35px;
-
-    max-width:900px;      /* Smaller card */
-    background:#fff;
-
-    border-radius:18px;
-
-    padding:28px;
-
-    margin-bottom:50px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-}
-
-/* Stagger effect */
-.partner-card.reverse{
-
-    margin-left:220px;
-
-}
-
-/* Image */
-
-.partner-image{
-
-    flex:0 0 260px;
-
-}
-
-.partner-image img{
+   DINGES TECHHUB VIDEO SHOWCASE
+   ===================================================== */
+
+.video-showcase{
+    position:relative;
 
     width:100%;
-    height:220px;
+
+    min-height:430px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    isolation:isolate;
+
+    background:#0D0612;
+}
+
+
+/* VIDEO */
+
+.showcase-video{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
     object-fit:cover;
 
-    border-radius:15px;
+    z-index:-3;
 
+    opacity:.90;
+
+filter:
+    saturate(1.12)
+    contrast(1.05)
+    brightness(1.05);
 }
 
-/* Content */
 
-.partner-content{
+/* DARK / PURPLE OVERLAY */
 
-    flex:1;
+.showcase-overlay{
+    position:absolute;
 
+    inset:0;
+
+    z-index:-2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(13,6,18,.45),
+            rgba(18,9,28,.20),
+            rgba(43,13,70,.32)
+        ),
+
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(139,61,255,.12),
+            transparent 60%
+        );
+
+    pointer-events:none;
 }
 
-.partner-tag{
 
-    display:inline-block;
+/* GRID */
 
-    padding:6px 16px;
+.video-showcase::before{
+    content:"";
 
-    font-size:11px;
+    position:absolute;
 
-    border-radius:30px;
+    inset:0;
 
+    background:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:42px 42px;
+
+    opacity:.55;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 25%,
+            black 75%,
+            transparent
+        );
+
+    pointer-events:none;
+
+    z-index:-1;
 }
 
-.partner-content h2{
 
-    font-size:26px;
-    margin:12px 0;
+/* CONTENT */
 
+.showcase-content{
+    width:min(720px,90%);
+
+    text-align:center;
+
+    color:white;
+
+    position:relative;
+
+    z-index:3;
+
+    padding:70px 0;
 }
 
-.partner-content p{
 
-    font-size:15px;
-    line-height:1.7;
+/* LABEL */
 
+.showcase-label{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        7px
+        12px;
+
+    margin-bottom:18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    backdrop-filter:blur(10px);
+
+    color:
+        rgba(255,255,255,.72);
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
 }
 
-.partner-features li{
 
-    margin-bottom:8px;
-    font-size:15px;
+.showcase-label::before{
+    content:"";
 
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--orange,#FF7A24);
+
+    box-shadow:
+        0 0 12px
+        rgba(255,122,36,.9);
 }
 
-.primary-btn{
 
-    padding:11px 24px;
+/* HEADING */
 
+.showcase-content h2{
+    margin:0 0 15px;
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            54px
+        );
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    font-weight:900;
 }
 
-/* Mobile */
 
-@media (max-width: 992px){
+.showcase-content h2 span{
+    display:block;
 
-    .partner-card,
-    .partner-card.reverse{
+    color:
+        var(--orange,#FF7A24);
 
-        max-width:100%;
-        margin-left:0;
-        flex-direction:column;
-
-    }
-
-    .partner-image{
-
-        flex:unset;
-        width:100%;
-
-    }
-
-    .partner-image img{
-
-        height:220px;
-
-    }
-
+    text-shadow:
+        0 0 30px
+        rgba(255,122,36,.15);
 }
+
+
+/* DESCRIPTION */
+
+.showcase-content p{
+    max-width:580px;
+
+    margin:
+        0
+        auto;
+
+    color:
+        rgba(255,255,255,.68);
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
 
 /* =====================================================
-   SERVICES INTRO
-===================================================== */
+   VIDEO HOVER EFFECT
+   ===================================================== */
 
-.services-intro {
-    background: #F7F6F8;
-    padding: 90px 5%;
+.video-showcase::after{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(182,108,255,.16);
+
+    box-shadow:
+        0 0 80px
+        rgba(139,61,255,.10);
+
+    pointer-events:none;
+
+    opacity:.75;
+
+    transition:
+        transform .6s ease,
+        opacity .4s ease;
 }
 
 
-.services-intro-container {
-    max-width: 1200px;
-    margin: auto;
-
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-
-    gap: 70px;
-
-    align-items: center;
-}
-
-
-.services-intro-content {
-    max-width: 680px;
-}
-
-
-.services-eyebrow {
-    display: inline-block;
-
-    color: #7A2C78;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 12px;
-}
-
-
-.services-intro-content h2 {
-    color: #3C1542;
-
-    font-size: clamp(32px, 4vw, 48px);
-
-    line-height: 1.1;
-
-    margin-bottom: 20px;
-}
-
-
-.services-intro-content p {
-    color: #666;
-
-    font-size: 15px;
-
-    line-height: 1.8;
-
-    margin-bottom: 14px;
-}
-
-
-.services-intro-button {
-    display: inline-block;
-
-    margin-top: 18px;
-
-    padding: 13px 24px;
-
-    background: #FFBB42;
-
-    color: #020202;
-
-    border-radius: 8px;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition: .25s ease;
-}
-
-
-.services-intro-button:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 20px rgba(60,21,66,.15);
-}
-
-
-/* =====================================================
-   SERVICE HIGHLIGHTS
-===================================================== */
-
-.services-intro-highlights {
-    display: grid;
-
-    gap: 15px;
-}
-
-
-.service-highlight {
-    background: #FFFFFF;
-
-    border: 1px solid #E5E1E7;
-
-    border-radius: 14px;
-
-    padding: 22px;
-
-    box-shadow: 0 8px 20px rgba(60,21,66,.06);
-
-    transition: .25s ease;
-}
-
-
-.service-highlight:hover {
-    transform: translateX(5px);
-
-    box-shadow: 0 12px 25px rgba(60,21,66,.1);
-}
-
-
-.service-highlight span {
-    display: block;
-
-    color: #FFBB42;
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    margin-bottom: 5px;
-}
-
-
-.service-highlight strong {
-    display: block;
-
-    color: #3C1542;
-
-    font-size: 17px;
-
-    margin-bottom: 5px;
-}
-
-
-.service-highlight p {
-    color: #949393;
-
-    font-size: 13px;
-
-    margin: 0;
+.video-showcase:hover::after{
+    transform:
+        scale(1.12);
+
+    opacity:1;
 }
 
 
 /* =====================================================
    MOBILE
-===================================================== */
+   ===================================================== */
 
-@media(max-width:800px){
+@media(max-width:700px){
 
-    .services-intro {
-        padding: 65px 5%;
+    .video-showcase{
+        min-height:380px;
     }
 
-
-    .services-intro-container {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
+    .showcase-content{
+        padding:
+            60px 0;
     }
 
+    .showcase-content h2{
+        font-size:36px;
 
-    .services-intro-content h2 {
-        font-size: 34px;
+        letter-spacing:-1.5px;
+    }
+
+    .showcase-content p{
+        font-size:13px;
+
+        padding:
+            0 10px;
+    }
+
+    .showcase-video{
+        opacity:.52;
     }
 
 }
-</style> 
+
+</style>
 
 </head>
 
@@ -2507,26 +3362,48 @@ img {
 
 
 <!-- =====================================================
+     SCROLL PROGRESS
+     ===================================================== -->
+
+<div
+    class="scroll-progress"
+    id="scrollProgress">
+</div>
+
+
+<!-- =====================================================
      TOP BAR
-====================================================== -->
+     ===================================================== -->
 
 <div class="top-bar">
 
-    <div class="container top-bar-content">
+    <div class="container top-bar-inner">
 
-
-        <div class="top-links">
+        <div class="top-left">
 
             <a href="status.html">
-                Status
+
+                <span class="status-dot"></span>
+
+                Network Status
+
             </a>
 
-            <a href="#contact">
+            <a href="contact.html">
                 Contact Us
             </a>
-			
-			<a href="#contact">
-                More
+
+        </div>
+
+
+        <div class="top-right">
+
+            <span>
+                Local technology support
+            </span>
+
+            <a href="tel:+27101415650">
+                010 141 5650
             </a>
 
         </div>
@@ -2536,323 +3413,98 @@ img {
 </div>
 
 
-
 <!-- =====================================================
      HEADER
-====================================================== -->
+     ===================================================== -->
 
-<header class="header">
-    <div class="nav-container">
+<header
+    class="header"
+    id="siteHeader">
+
+    <div class="container nav">
+
+
         <!-- LOGO -->
+
         <div class="logo">
-            <a href="#">
-                DingesTech<span>Hub</span>
+
+            <a
+                href="index.html"
+                aria-label="Dinges TechHub Home">
+
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                    loading="eager"
+                >
+
             </a>
+
         </div>
-		
+
+
         <!-- NAVIGATION -->
-        <nav class="navigation" id="navigation">
 
-            <!-- HOME -->
+        <nav
+            class="navigation"
+            id="navigation">
 
-            <a href="#" class="nav-link">
+
+            <a
+                href="index.html"
+                class="nav-link">
+
                 Home
+
             </a>
 
-            <!-- SERVICES -->
-            <div class="dropdown">
-                <a href="#services"
-                   class="nav-link dropdown-toggle">
+
+            <div class="nav-dropdown">
+
+                <a
+                    href="services.html"
+                    class="nav-link">
 
                     Services
-					
-                    <span>▼</span>
-                </a>
-
-                <div class="dropdown-menu">
-
-                    <!-- INTERNET CONNECTIVITY -->
-
-                    <div class="dropdown-item">
-                        <a href="#">
-
-                            Internet Connectivity
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-                            <a href="#">
-                                Mobile
-                            </a>
-
-                            <a href="#">
-                                Wireless LTE 4G/5G
-                            </a>
-
-                            <a href="#">
-                                Fibre
-                            </a>
-
-                            <a href="#">
-                                Wireless Broadband
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- VOIP -->
-
-                    <div class="dropdown-item">
-
-                        <a href="#">
-
-                            VOIP / Telephony
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-                            <a href="#">
-                                Smart Numbers
-                            </a>
-
-                            <a href="#">
-                                Advanced PBX
-                            </a>
-
-                            <a href="#">
-                                Call Centre Solutions
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- WEB HOSTING -->
-
-                    <div class="dropdown-item">
-
-                        <a href="#">
-
-                            Web & Email Hosting
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-                            <a href="#domains">
-                                Domain
-                            </a>
-
-                            <a href="#">
-                                Email Hosting
-                            </a>
-
-                            <a href="#">
-                                Website Development
-                            </a>
-
-                            <a href="#hosting">
-                                Shared Hosting
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- IOT -->
-
-                    <div class="dropdown-item">
-
-                        <a href="#">
-
-                            Internet of Things
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-                            <a href="#">
-                                Smart Appliances & Devices
-                            </a>
-
-                            <a href="#">
-                                Automation Software
-                            </a>
-
-                            <a href="#">
-                                Remote Monitoring
-                            </a>
-
-                            <a href="#">
-                                Smart Security
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- SOFTWARE -->
-
-                    <div class="dropdown-item">
-
-                        <a href="#">
-
-                            Software
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-
-                            <!-- CRM -->
-
-                            <div class="nested-dropdown">
-
-                                <a href="#">
-
-                                    CRM Software
-
-                                    <span>›</span>
-
-                                </a>
-
-
-                                <div class="nested-submenu">
-
-                                    <a href="#">
-                                        Smart Process Automation
-                                    </a>
-
-                                    <a href="#">
-                                        Workflows
-                                    </a>
-
-                                    <a href="#">
-                                        API Integrations
-                                    </a>
-
-                                </div>
-
-                            </div>
-
-
-                            <a href="#">
-                                WhatsApp Business API
-                            </a>
-
-                            <a href="#">
-                                Cleaning Software
-                            </a>
-
-                            <a href="#">
-                                Antivirus Software
-                            </a>
-
-                            <a href="#">
-                                Microsoft 365
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- SMART SOLUTIONS -->
-
-                    <div class="dropdown-item">
-
-                        <a href="#">
-
-                            Smart Solutions
-
-                            <span>›</span>
-
-                        </a>
-
-
-                        <div class="submenu">
-
-                            <a href="#">
-                                Proactive & Network Monitoring
-                            </a>
-
-                            <a href="#">
-                                Printers Setup & Issues
-                            </a>
-
-                            <a href="#">
-                                Technical Assistance & IT Support
-                            </a>
-
-                            <a href="#">
-                                Cleaning, Antivirus & Microsoft Software
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- HELP CENTRE -->
-
-            <div class="dropdown">
-
-                <a href="#"
-                   class="nav-link dropdown-toggle">
-
-                    Help Centre
-
-                    <span>▼</span>
 
                 </a>
 
+                <div class="nav-dropdown-menu">
 
-                <div class="dropdown-menu">
-
-                    <a href="https://help.afrihost.com/"
-                       target="_blank">
-
-                        Knowledgebase
-
+                    <a href="internet-connectivity.html">
+                        Internet Connectivity
                     </a>
 
-                    <a href="contact.html">
+                    <a href="fibre.html">
+                        Fibre
+                    </a>
 
-                        Contact Support
+                    <a href="wireless-broadband.html">
+                        Wireless Broadband
+                    </a>
 
+                    <a href="wireless-lte-4g-5g.html">
+                        Mobile & LTE / 4G / 5G
+                    </a>
+
+                    <a href="voip.html">
+                        VOIP / Telephony
+                    </a>
+
+                    <a href="hosting.html">
+                        Web & Email Hosting
+                    </a>
+
+                    <a href="iot.html">
+                        Internet of Things
+                    </a>
+
+                    <a href="software.html">
+                        Software
+                    </a>
+
+                    <a href="smart-solutions.html">
+                        Smart Solutions
                     </a>
 
                 </div>
@@ -2860,183 +3512,339 @@ img {
             </div>
 
 
+            <div class="nav-dropdown">
 
-            <!-- CONTACT -->
+                <a
+                    href="#providers"
+                    class="nav-link">
 
-            <a href="contact.html"
-               class="nav-link">
+                    Internet
 
-                Contact Us
+                </a>
+
+                <div class="nav-dropdown-menu">
+
+                    <a href="fibre.html">
+                        Fibre Packages
+                    </a>
+
+                    <a href="wireless-broadband.html">
+                        Wireless Broadband
+                    </a>
+
+                    <a href="wireless-lte-4g-5g.html">
+                        LTE / 4G / 5G
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="nav-dropdown">
+
+                <a
+                    href="hosting.html"
+                    class="nav-link">
+
+                    Hosting
+
+                </a>
+
+                <div class="nav-dropdown-menu">
+
+                    <a href="domain.html">
+                        Domains
+                    </a>
+
+                    <a href="shared-hosting.html">
+                        Shared Hosting
+                    </a>
+
+                    <a href="email-hosting.html">
+                        Email Hosting
+                    </a>
+
+                    <a href="web-development.html">
+                        Website Development
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#why"
+                class="nav-link">
+
+                About
 
             </a>
 
+
+            <a
+                href="contact.html"
+                class="nav-link">
+
+                Contact
+
+            </a>
 
         </nav>
 
 
-
-        <!-- NAV ACTIONS -->
-
-        <div class="nav-actions">
-           
-		   <button type="button" class="login-btn" onclick="window.location.href='login.html'">
-                          Login
-            </button>
-
-          
-            <button
-                class="cart-btn"
-                onclick="openCart()">
-
-                🛒 Cart
-
-                <span id="cartCount">
-                    0
-                </span>
-
-            </button>
-
-        </div>
-
-
-
-        <!-- MOBILE MENU -->
+        <!-- MOBILE -->
 
         <button
             class="menu-btn"
-            onclick="toggleMenu()">
+            id="menuBtn"
+            type="button"
+            aria-label="Open menu">
 
             ☰
 
         </button>
-
 
     </div>
 
 </header>
 
 
-
 <!-- =====================================================
      HERO
-====================================================== -->
+     ===================================================== -->
 
 <section class="hero">
 
-    <div class="container hero-content">
+
+    <!-- OPTIONAL LOOP VIDEO -->
+
+    <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata">
+
+        <source
+            src="dingestech-loop.mp4"
+            type="video/mp4">
+
+    </video>
 
 
-        <div class="hero-text">
+    <div class="hero-video-overlay"></div>
 
-            <span class="section-tag">
+
+    <div class="bg-orb one"></div>
+    <div class="bg-orb two"></div>
+
+
+    <div class="container hero-grid">
+
+
+        <!-- HERO COPY -->
+
+        <div>
+
+            <div class="hero-eyebrow">
+
+                <span class="hero-eyebrow-dot"></span>
+
                 CONNECT • HOST • GROW
-            </span>
+
+            </div>
 
 
             <h1>
 
-                Everything You Need
-                <span>To Connect & Grow</span>
+                Better connected.
+
+                <span>
+                    Simply possible.
+                </span>
 
             </h1>
 
 
-            <p>
+            <p class="hero-description">
 
-                Get reliable internet connectivity,
-                domains, hosting, business email,
-                software and professional IT solutions
-                for your home or business.
+                Reliable internet, hosting, domains,
+                business communication, software and
+                IT solutions — backed by a team that
+                understands your technology needs.
 
             </p>
 
 
             <div class="hero-buttons">
 
-                <button
-                    class="primary-btn"
-                    onclick="document.getElementById('services').scrollIntoView()">
+                <a
+                    href="#coverage"
+                    class="primary-btn">
 
-                    Explore Our Services
+                    Check Coverage
 
-                </button>
+                    <span>→</span>
+
+                </a>
 
 
-                <button
-                    class="secondary-btn"
-                    onclick="document.getElementById('contact').scrollIntoView()">
+                <a
+                    href="#services"
+                    class="secondary-btn">
 
-                    Contact Us
+                    Explore Services
 
-                </button>
+                    <span>↓</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+                <span>
+
+                    <strong>✓</strong>
+
+                    Reliable networks
+
+                </span>
+
+
+                <span>
+
+                    <strong>✓</strong>
+
+                    Local support
+
+                </span>
+
+
+                <span>
+
+                    <strong>✓</strong>
+
+                    Clear pricing
+
+                </span>
 
             </div>
 
         </div>
 
 
+        <!-- HERO NETWORK -->
 
-        <!-- DOMAIN SEARCH -->
+        <div class="hero-visual">
 
-        <div class="domain-search-box">
-
-            <h3>
-                Find Your Perfect Domain
-            </h3>
+            <div class="hero-glow"></div>
 
 
-            <form id="domainSearchForm">
-
-                <div class="search-input-wrapper">
+            <div class="network-graphic">
 
 
-                    <input
-                        type="text"
-                        id="domainInput"
-                        placeholder="Enter your domain name"
-                        required
-                    >
+                <div
+                    class="network-ring ring-one">
+                </div>
+
+                <div
+                    class="network-ring ring-two">
+                </div>
+
+                <div
+                    class="network-ring ring-three">
+                </div>
 
 
-                    <select id="domainExtension">
+                <!-- NETWORK NODES -->
 
-                        <option value=".co.za">
-                            .co.za
-                        </option>
+                <div
+                    class="network-node node-top">
 
-                        <option value=".com">
-                            .com
-                        </option>
-
-                        <option value=".net">
-                            .net
-                        </option>
-
-                        <option value=".org">
-                            .org
-                        </option>
-
-                        <option value=".africa">
-                            .africa
-                        </option>
-
-                        <option value=".online">
-                            .online
-                        </option>
-
-                    </select>
-
-
-                    <button type="submit">
-
-                        Search
-
-                    </button>
-
+                    FIBRE
 
                 </div>
 
-            </form>
+
+                <div
+                    class="network-node node-right">
+
+                    LTE / 5G
+
+                </div>
+
+
+                <div
+                    class="network-node node-bottom">
+
+                    HOSTING
+
+                </div>
+
+
+                <div
+                    class="network-node node-left">
+
+                    VOICE
+
+                </div>
+
+
+                <!-- CENTER LOGO -->
+
+                <div class="network-core">
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub">
+
+                </div>
+
+
+                <!-- FLOATING LABELS -->
+
+                <div class="floating-chip chip-one">
+
+                    ⚡ OPTIMAL NETWORK
+
+                </div>
+
+
+                <div class="floating-chip chip-two">
+
+                    ✓ LOCAL SUPPORT
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="network-status">
+
+                    <div class="status-title">
+
+                        CONNECTION STATUS
+
+                    </div>
+
+                    <div class="status-value">
+
+                        Optimal
+
+                        <span>
+                            • LIVE
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -3045,168 +3853,179 @@ img {
 </section>
 
 
-
 <!-- =====================================================
-     QUICK SERVICES
-====================================================== -->
+     MARQUEE
+     ===================================================== -->
 
-<!-- =========================================================
-     QUICK CATEGORIES
-========================================================= -->
+<div class="marquee">
 
-<section class="quick-services">
-
-    <div class="container quick-grid">
+    <div class="marquee-track">
 
 
-        <!-- 1. INTERNET CONNECTIVITY -->
-        <div class="quick-item">
+        <div class="marquee-item">
+            FIBRE <span>✦</span>
+        </div>
 
-            <div class="quick-icon">
-                🌐
-            </div>
+        <div class="marquee-item">
+            WIRELESS <span>✦</span>
+        </div>
 
-            <h3>
-                Internet Connectivity
-            </h3>
+        <div class="marquee-item">
+            LTE & 5G <span>✦</span>
+        </div>
 
-            <p>
-                Reliable fibre, wireless, LTE, 5G and mobile connectivity solutions.
-            </p>
+        <div class="marquee-item">
+            VOICE <span>✦</span>
+        </div>
 
+        <div class="marquee-item">
+            HOSTING <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            DOMAINS <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            SOFTWARE <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            IT SUPPORT <span>✦</span>
         </div>
 
 
-        <!-- 2. COMMUNICATION SOLUTIONS -->
-        <div class="quick-item">
+        <!-- DUPLICATE FOR LOOP -->
 
-            <div class="quick-icon">
-                📞
-            </div>
-
-            <h3>
-                Communication Solutions
-            </h3>
-
-            <p>
-                Cloud PBX, smart numbers, mobile services and business communications.
-            </p>
-
+        <div class="marquee-item">
+            FIBRE <span>✦</span>
         </div>
 
-
-        <!-- 3. WEB & EMAIL HOSTING -->
-        <div class="quick-item">
-
-            <div class="quick-icon">
-                ☁️
-            </div>
-
-            <h3>
-                Web & Email Hosting
-            </h3>
-
-            <p>
-                Domains, websites, business email and reliable web hosting.
-            </p>
-
+        <div class="marquee-item">
+            WIRELESS <span>✦</span>
         </div>
 
-
-        <!-- 4. SOFTWARE SOLUTIONS -->
-        <div class="quick-item">
-
-            <div class="quick-icon">
-                💻
-            </div>
-
-            <h3>
-                Software Solutions
-            </h3>
-
-            <p>
-                Business software, Microsoft 365, CRM and security solutions.
-            </p>
-
+        <div class="marquee-item">
+            LTE & 5G <span>✦</span>
         </div>
 
-
-        <!-- 5. SMART LIVING & BUSINESS -->
-        <div class="quick-item">
-
-            <div class="quick-icon">
-                🏠
-            </div>
-
-            <h3>
-                Smart Living & Business
-            </h3>
-
-            <p>
-                Smart automation, security and connected technology for homes and businesses.
-            </p>
-
+        <div class="marquee-item">
+            VOICE <span>✦</span>
         </div>
 
-
-        <!-- 6. SMART SOLUTIONS -->
-        <div class="quick-item">
-
-            <div class="quick-icon">
-                🛠️
-            </div>
-
-            <h3>
-                Smart Solutions
-            </h3>
-
-            <p>
-                Professional IT support, monitoring and technology management.
-            </p>
-
+        <div class="marquee-item">
+            HOSTING <span>✦</span>
         </div>
 
+        <div class="marquee-item">
+            DOMAINS <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            SOFTWARE <span>✦</span>
+        </div>
+
+        <div class="marquee-item">
+            IT SUPPORT <span>✦</span>
+        </div>
 
     </div>
 
-</section>
+</div>
 
 
 <!-- =====================================================
-     ABOUT DINGES TECH
-====================================================== -->
+     COVERAGE
+     ===================================================== -->
 
-<section class="about-overview-section">
+<section
+    class="coverage-section"
+    id="coverage">
 
-    <div class="container about-overview">
+    <div class="container">
 
-        <div class="about-overview-content">
 
-            <span class="about-label">
-                ABOUT US
+        <div class="section-heading reveal">
+
+            <span class="section-eyebrow">
+                COVERAGE CHECKER
             </span>
 
             <h2>
-                Dinges Tech is a young, vibrant technology service provider...
+                What's available at your address?
             </h2>
 
             <p>
-                We resell internet connectivity, VOIP, CRM, and smart home/business
-                services from reputable providers. Founded under
-                <strong>Gracious Virtual Assistants (GVA)</strong> in 2012,
-                Dinges Tech began trading independently in late 2019.
+
+                Check your area and discover which
+                connectivity options may be available
+                for your home or business.
+
             </p>
 
-            <p>
-                By leveraging our suppliers' expertise, we stay updated with the
-                latest technology developments, offering our clients the
-                <strong>best solutions at the best prices.</strong>
-            </p>
+        </div>
 
-            <a href="#" class="about-learn-more">
-                Learn More
-                <span>→</span>
-            </a>
+
+        <div class="coverage-card reveal">
+
+
+            <div class="coverage-content">
+
+
+                <div>
+
+                    <h3 class="coverage-title">
+
+                        Find the right connection
+                        for where you live.
+
+                    </h3>
+
+
+                    <p class="coverage-text">
+
+                        Compare supported networks
+                        and connectivity options
+                        in one place.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <form
+                        class="coverage-form"
+                        onsubmit="checkCoverage(event)">
+
+                        <input
+                            id="coverageInput"
+                            type="text"
+                            placeholder="Enter your suburb or address"
+                            required
+                        >
+
+                        <button type="submit">
+
+                            Check Coverage →
+
+                        </button>
+
+                    </form>
+
+
+                    <div
+                        class="coverage-note"
+                        id="coverageMessage">
+
+                        Coverage depends on your exact location.
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -3214,418 +4033,818 @@ img {
 
 </section>
 
+
 <!-- =====================================================
-     SERVICES INTRO
-====================================================== -->
+     SERVICES
+     ===================================================== -->
 
-<section class="services-intro" id="services">
+<section
+    class="services"
+    id="services">
 
-    <div class="services-intro-container">
+    <div class="container">
 
-        <div class="services-intro-content">
 
-            <span class="services-eyebrow">
-                OUR SERVICES
-            </span>
+        <div class="services-top">
 
-            <h2>
-                Technology Solutions Built Around Your Needs
-            </h2>
 
-            <p>
-                From reliable internet connectivity and business
-                communication to hosting, software and IT support,
-                Dinges TechHub provides technology solutions for
-                homes and businesses.
-            </p>
+            <div class="section-heading reveal">
 
-            <p>
-                Explore our services and discover the right solution
-                for your connectivity, communication and technology needs.
-            </p>
+                <span class="section-eyebrow">
+                    OUR SERVICES
+                </span>
+
+                <h2>
+                    Everything you need
+                    to stay connected.
+                </h2>
+
+                <p>
+
+                    One technology partner for
+                    connectivity, communication,
+                    hosting, software and support.
+
+                </p>
+
+            </div>
+
 
             <a
                 href="services.html"
-                class="services-intro-button"
-            >
-                Explore Our Services →
+                class="view-all reveal">
+
+                View all services
+
+                <span>→</span>
+
             </a>
 
         </div>
 
 
-        <div class="services-intro-highlights">
+        <div class="services-grid">
 
-            <div class="service-highlight">
-                <span>01</span>
-                <strong>Connectivity</strong>
-                <p>Fibre, LTE, 4G/5G & wireless solutions.</p>
-            </div>
 
-            <div class="service-highlight">
-                <span>02</span>
-                <strong>Business Technology</strong>
-                <p>Software, hosting and communication solutions.</p>
-            </div>
+            <article class="service-card reveal">
 
-            <div class="service-highlight">
-                <span>03</span>
-                <strong>IT Support</strong>
-                <p>Technology support and smart IT solutions.</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- =====================================================
-     OUR PARTNERS
-====================================================== -->
-
-<section class="partners-section" id="partners">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>Our Technology Partners</h2>
-            <p>
-                We proudly partner with industry-leading technology providers
-                to deliver reliable communication and business solutions.
-            </p>
-        </div>
-
-        <!-- ==========================
-             EUPHORIA
-        =========================== -->
-
-        <div class="partner-card">
-
-            <div class="partner-image">
-
-                <!-- Replace with Euphoria Logo -->
-                <img src="images/euphoria-logo.png"
-                     alt="Euphoria Logo">
-
-            </div>
-
-            <div class="partner-content">
-
-                <span class="partner-tag">
-                    VOIP / TELEPHONY PARTNER
-                </span>
-
-                <h2>
-                    We are a Proud Euphoria Partner
-                </h2>
-
-                <p>
-
-                    Dinges TechHub delivers modern VoIP and Cloud Telephony
-                    solutions through our partnership with Euphoria.
-                    We help businesses improve communication while reducing
-                    operational costs with scalable phone systems.
-
-                </p>
-
-                <ul class="partner-features">
-
-                    <li>✔ Business VoIP Solutions</li>
-                    <li>✔ Cloud PBX</li>
-                    <li>✔ Call Recording</li>
-                    <li>✔ SIP Trunks</li>
-                    <li>✔ Remote Office Calling</li>
-
-                </ul>
-
-                <a href="voip.html" class="primary-btn">
-                    Learn More
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- ==========================
-             BITRIX24
-        =========================== -->
-
-        <div class="partner-card reverse">
-
-            <div class="partner-content">
-
-                <span class="partner-tag">
-                    CRM SOFTWARE PARTNER
-                </span>
-
-                <h2>
-                    Your Bitrix24 Silver Partner
-                </h2>
-
-                <p>
-
-                    As a Bitrix24 Silver Partner, Dinges TechHub helps businesses
-                    implement CRM, task management, online collaboration,
-                    automation and customer engagement tools tailored to
-                    improve productivity.
-
-                </p>
-
-                <ul class="partner-features">
-
-                    <li>✔ CRM Implementation</li>
-                    <li>✔ Workflow Automation</li>
-                    <li>✔ Online Meetings</li>
-                    <li>✔ Project Management</li>
-                    <li>✔ Staff Training & Support</li>
-
-                </ul>
-
-                <a href="bitrix24.html" class="primary-btn">
-                    Learn More
-                </a>
-
-            </div>
-
-            <div class="partner-image">
-
-                <!-- Replace with Bitrix24 Image -->
-                <img src="bitrix24.png"
-                     alt="Bitrix24">
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     WHY CHOOSE DINGES TECH
-====================================================== -->
-
-<section
-    class="hosting-section"
-    id="why-choose">
-
-    <div class="container hosting-content">
-
-        <div class="hosting-text">
-
-            <span class="section-tag">
-                WHY CHOOSE DINGES TECH?
-            </span>
-
-            <h2>
-                Your Trusted Technology Partner
-            </h2>
-
-            <p>
-                We provide reliable internet connectivity, cloud services,
-                business communications and professional IT solutions that
-                help homes and businesses stay connected, productive and secure.
-            </p>
-
-            <button
-                class="primary-btn"
-                onclick="window.location.href='about.html'">
-
-                About Us & Reviews
-
-            </button>
-
-        </div>
-
-
-
-        <div class="hosting-features">
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🌐
-                </div>
-
-                <h3>
-                    Reliable Connectivity
-                </h3>
-
-                <p>
-                    Fast, reliable internet and communication services
-                    you can depend on.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    💼
-                </div>
-
-                <h3>
-                    Complete Technology Solutions
-                </h3>
-
-                <p>
-                    Internet, software, cloud services and IT support—
-                    all from one trusted provider.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    🤝
-                </div>
-
-                <h3>
-                    Personal Service You Can Trust
-                </h3>
-
-                <p>
-                    Friendly, knowledgeable technicians providing
-                    fast remote support and on-site assistance
-                    across the Lowveld.
-                </p>
-
-            </div>
-
-
-
-            <div class="feature">
-
-                <div class="feature-icon">
-                    ⚙️
-                </div>
-
-                <h3>
-                    Tailored for Your Needs
-                </h3>
-
-                <p>
-                    Every solution is designed around your home
-                    or business to ensure the best performance
-                    and value.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =====================================================
-     CALL TO ACTION
-====================================================== -->
-
-<section
-    class="about-section"
-    id="get-started">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-tag">
-                GET STARTED
-            </span>
-
-            <h2>
-                Don't Know Where to Start?
-            </h2>
-
-            <p>
-                We've made it simple. Follow these three easy steps and
-                our team will guide you from enquiry to installation.
-            </p>
-
-        </div>
-
-
-
-        <div class="benefits">
-
-            <div class="benefit">
-
-                <div class="benefit-number">
+                <div class="service-number">
                     01
                 </div>
 
+                <div class="service-icon">
+                    ◉
+                </div>
+
                 <h3>
-                    Make Contact
+                    Fibre Internet
                 </h3>
 
                 <p>
-                    Reach out to us through our contact form,
-                    phone, WhatsApp or email and tell us what
-                    you're looking for.
+                    Fast, reliable fibre packages
+                    for homes and businesses.
                 </p>
 
-            </div>
+                <a
+                    href="fibre.html"
+                    class="service-arrow">
+
+                    View options →
+
+                </a>
+
+            </article>
 
 
+            <article class="service-card reveal">
 
-            <div class="benefit">
-
-                <div class="benefit-number">
+                <div class="service-number">
                     02
                 </div>
 
-                <h3>
-                    Get Expert Advice
-                </h3>
-
-                <p>
-                    Our experienced team will assess your
-                    requirements and recommend the best
-                    technology solutions for your needs.
-                </p>
-
-            </div>
-
-
-
-            <div class="benefit">
-
-                <div class="benefit-number">
-                    03
+                <div class="service-icon">
+                    ◇
                 </div>
 
                 <h3>
-                    Finalize Your Setup
+                    LTE & 5G
                 </h3>
 
                 <p>
-                    We'll help you provide the required
-                    information and ensure your service is
-                    set up quickly and efficiently.
+                    Flexible mobile connectivity
+                    wherever you need it.
+                </p>
+
+                <a
+                    href="wireless-lte-4g-5g.html"
+                    class="service-arrow">
+
+                    View options →
+
+                </a>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <div class="service-icon">
+                    ≋
+                </div>
+
+                <h3>
+                    Wireless Broadband
+                </h3>
+
+                <p>
+                    Wireless connectivity for
+                    selected coverage areas.
+                </p>
+
+                <a
+                    href="wireless-broadband.html"
+                    class="service-arrow">
+
+                    View options →
+
+                </a>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <div class="service-icon">
+                    ☎
+                </div>
+
+                <h3>
+                    VOIP & Telephony
+                </h3>
+
+                <p>
+                    Smart numbers, Cloud PBX
+                    and business communication.
+                </p>
+
+                <a
+                    href="voip.html"
+                    class="service-arrow">
+
+                    Explore voice →
+
+                </a>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    05
+                </div>
+
+                <div class="service-icon">
+                    ☁
+                </div>
+
+                <h3>
+                    Web & Email Hosting
+                </h3>
+
+                <p>
+                    Domains, hosting, websites
+                    and professional business email.
+                </p>
+
+                <a
+                    href="hosting.html"
+                    class="service-arrow">
+
+                    View hosting →
+
+                </a>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-number">
+                    06
+                </div>
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Smart IT Solutions
+                </h3>
+
+                <p>
+                    Software, automation,
+                    security and IT support.
+                </p>
+
+                <a
+                    href="services.html"
+                    class="service-arrow">
+
+                    Explore solutions →
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FIBRE PROVIDERS
+     REPLACES THE OLD PACKAGE SECTION
+     ===================================================== -->
+
+<section
+    class="providers"
+    id="providers">
+
+    <div class="container">
+
+
+        <div class="providers-top">
+
+            <div class="section-heading reveal">
+
+                <span class="section-eyebrow">
+                    FIBRE PROVIDERS
+                </span>
+
+                <h2>
+                    Choose your fibre network.
+                </h2>
+
+                <p>
+
+                    Dinges TechHub works with multiple
+                    fibre network providers so you can
+                    find the right connectivity option
+                    for your location.
+
                 </p>
 
             </div>
+
+
+            <a
+                href="fibre.html"
+                class="view-all reveal">
+
+                View all fibre packages
+
+                <span>→</span>
+
+            </a>
 
         </div>
 
 
+        <!-- =================================================
+             PROVIDER GRID — 3 × 3
+             ================================================= -->
 
-        <div class="cta-buttons">
+        <div class="provider-grid">
 
-            <a href="contact.html" class="primary-btn">
-                Contact Us
+
+            <!-- DNATEL -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="dnatel.png"
+                        alt="DNATel Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        DNATEL
+                    </span>
+
+                </div>
+
+                <h3>
+                    DNATel
+                </h3>
+
+                <p>
+                    Fibre connectivity with
+                    reliable local support.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('DNATel','dantel.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+            <!-- VUMATEL -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="vuma.png"
+                        alt="VumaTel Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        VUMATEL
+                    </span>
+
+                </div>
+
+                <h3>
+                    VumaTel
+                </h3>
+
+                <p>
+                    High-speed fibre connectivity
+                    across supported areas.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('VumaTel','vumatel.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+            <!-- CLEARACCESS -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="clearaccess.png"
+                        alt="ClearAccess Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        CLEARACCESS
+                    </span>
+
+                </div>
+
+                <h3>
+                    ClearAccess
+                </h3>
+
+                <p>
+                    Fibre options for homes
+                    and businesses.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('ClearAccess','clearaccess.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+            <!-- OPENSERVE -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="openserve.png"
+                        alt="Openserve Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        OPENSERVE
+                    </span>
+
+                </div>
+
+                <h3>
+                    Openserve
+                </h3>
+
+                <p>
+                    Established fibre network
+                    with broad coverage.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('Openserve','openserve.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+            <!-- FROGFOOT -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="frogfoot.png"
+                        alt="Frogfoot Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        FROGFOOT
+                    </span>
+
+                </div>
+
+                <h3>
+                    Frogfoot
+                </h3>
+
+                <p>
+                    Fast fibre connectivity
+                    for supported locations.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('Frogfoot','frogfoot.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+            <!-- VOLLIES -->
+
+            <article
+                class="provider-card reveal">
+
+                <div class="provider-logo">
+
+                    <img
+                        src="vollies.png"
+                        alt="Vollies Fibre"
+                        onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='block';
+                        "
+                    >
+
+                    <span
+                        class="provider-fallback">
+                        VOLLIES
+                    </span>
+
+                </div>
+
+                <h3>
+                    Vollies
+                </h3>
+
+                <p>
+                    Fibre connectivity available
+                    in selected coverage areas.
+                </p>
+
+                <button
+                    type="button"
+                    class="provider-button"
+                    onclick="openProvider('Vollies','vollies.png')">
+
+                    View Packages →
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY DINGES TECH
+     ===================================================== -->
+
+<section
+    class="why"
+    id="why">
+
+    <div class="container why-grid">
+
+
+        <div class="why-copy reveal-left">
+
+            <span class="section-eyebrow">
+                WHY DINGES TECH?
+            </span>
+
+            <h2>
+
+                Big capability.
+                Genuinely local care.
+
+            </h2>
+
+            <p>
+
+                We combine leading technology providers
+                with practical support, helping homes
+                and businesses choose technology that
+                actually works for them.
+
+            </p>
+
+            <a
+                href="about.html"
+                class="primary-btn">
+
+                About Dinges TechHub →
+
             </a>
 
-            <a href="tel:+270000000000" class="secondary-btn">
-                Call Us
-            </a>
+        </div>
+
+
+        <div class="why-list reveal-right">
+
+
+            <div class="why-item">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        One helpful team
+                    </h3>
+
+                    <p>
+                        Internet, voice, hosting,
+                        software and IT support
+                        in one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Local knowledge
+                    </h3>
+
+                    <p>
+                        Practical technology support
+                        for customers across South Africa.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Solutions that grow
+                    </h3>
+
+                    <p>
+                        Start with what you need
+                        and add services as your
+                        business grows.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="why-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Trusted technology
+                    </h3>
+
+                    <p>
+                        We work with reputable providers
+                        to deliver reliable solutions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PARTNERS
+     ===================================================== -->
+
+<section class="partners">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <span class="section-eyebrow">
+                TECHNOLOGY PARTNERS
+            </span>
+
+            <h2>
+                Technology backed by
+                trusted partners.
+            </h2>
+
+            <p>
+
+                We work with established technology
+                providers to give our customers
+                more choice and better solutions.
+
+            </p>
+
+        </div>
+
+
+        <div class="partner-grid">
+
+
+            <article class="partner-card reveal">
+
+                <div class="partner-logo">
+
+                    <img
+                        src="images/euphoria-logo.png"
+                        alt="Euphoria"
+                    >
+
+                </div>
+
+                <div>
+
+                    <small>
+                        VOIP / TELEPHONY PARTNER
+                    </small>
+
+                    <h3>
+                        Euphoria
+                    </h3>
+
+                    <p>
+
+                        Business VoIP, Cloud PBX,
+                        smart numbers and communication
+                        solutions.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="partner-card reveal">
+
+                <div class="partner-logo">
+
+                    <img
+                        src="bitrix24.png"
+                        alt="Bitrix24"
+                    >
+
+                </div>
+
+                <div>
+
+                    <small>
+                        CRM SOFTWARE PARTNER
+                    </small>
+
+                    <h3>
+                        Bitrix24
+                    </h3>
+
+                    <p>
+
+                        CRM, automation, collaboration,
+                        task management and business
+                        productivity tools.
+
+                    </p>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -3634,129 +4853,194 @@ img {
 </section>
 
 <!-- =====================================================
-     CONTACT
-====================================================== -->
+     DINGES TECHHUB VIDEO SHOWCASE
+     ===================================================== -->
 
-<section
-    class="contact-section"
-    id="contact">
+<section class="video-showcase">
 
+    <video
+        class="showcase-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+    >
+        <source
+            src="dingestech-loop.mp4"
+            type="video/mp4"
+        >
+    </video>
 
-    <div class="container contact-content">
+    <div class="showcase-overlay"></div>
+
+    <!--<div class="showcase-content">
+
+        <span class="showcase-label">
+            DINGES TECHHUB
+        </span>
+
+        <h2>
+            Technology.
+            <span>Simply connected.</span>
+        </h2>
+
+        <p>
+            Connectivity, hosting, communication and smart
+            technology solutions built around you.
+        </p>
+
+    </div> -->
+
+</section>
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta">
+
+    <div class="container cta-content">
 
 
         <div>
 
-            <span class="section-tag">
-                GET IN TOUCH
+            <span
+                class="section-eyebrow"
+                style="color:#FFBB42;">
+
+                READY WHEN YOU ARE
+
             </span>
 
 
             <h2>
-                Need Help With Your Technology?
+                Let's get you connected.
             </h2>
 
 
             <p>
-                Talk to our team about internet,
-                hosting, software or IT support.
+
+                Tell us where you are and what
+                you need. We'll help you find
+                the right technology solution.
+
             </p>
 
         </div>
 
 
-        <button
-            class="primary-btn"
-            onclick="showMessage('Contact form coming soon')">
+        <div class="hero-buttons">
 
-            Contact Support
+            <a
+                href="#coverage"
+                class="primary-btn">
 
-        </button>
+                Check Coverage →
 
+            </a>
+
+
+            <a
+                href="contact.html"
+                class="secondary-btn">
+
+                Talk to Us
+
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-
 <!-- =====================================================
      FOOTER
-====================================================== -->
+     ===================================================== -->
 
 <footer class="footer">
-
 
     <div class="container footer-grid">
 
 
-        <div class="footer-column">
+        <div class="footer-brand">
 
-            <div class="footer-logo">
 
-                Domain<span>Hub</span>
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="Dinges TechHub Home">
 
-            </div>
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
+
+            </a>
+
 
             <p>
-                Your trusted partner for internet,
-                hosting, software and IT solutions.
+
+                Your technology and connectivity
+                partner for internet, hosting,
+                communication, software and IT solutions.
+
             </p>
 
         </div>
 
 
+        <div class="footer-column">
+
+            <h3>
+                Internet
+            </h3>
+
+            <a href="fibre.html">
+                Fibre
+            </a>
+
+            <a href="wireless-broadband.html">
+                Wireless Broadband
+            </a>
+
+            <a href="wireless-lte-4g-5g.html">
+                LTE / 4G / 5G
+            </a>
+
+            <a href="melon-mobile.html">
+                Mobile
+            </a>
+
+        </div>
+
 
         <div class="footer-column">
 
             <h3>
-                Services
+                Hosting
             </h3>
 
-            <a href="#services">
-                Internet Connectivity
-            </a>
-
-            <a href="#services">
-                VOIP / Telephony
-            </a>
-
-            <a href="#hosting">
-                Web Hosting
-            </a>
-
-            <a href="#domains">
+            <a href="domain.html">
                 Domains
             </a>
 
-        </div>
-
-
-
-        <div class="footer-column">
-
-            <h3>
-                Solutions
-            </h3>
-
-            <a href="#services">
-                Software
+            <a href="shared-hosting.html">
+                Shared Hosting
             </a>
 
-            <a href="#services">
-                IoT Solutions
+            <a href="email-hosting.html">
+                Email Hosting
             </a>
 
-            <a href="#services">
-                Smart Solutions
-            </a>
-
-            <a href="#services">
-                IT Support
+            <a href="web-development.html">
+                Website Development
             </a>
 
         </div>
-
 
 
         <div class="footer-column">
@@ -3765,20 +5049,20 @@ img {
                 Support
             </h3>
 
-            <a href="#contact">
+            <a href="contact.html">
                 Contact Us
             </a>
 
-            <a
-                href="https://help.afrihost.com/"
-                target="_blank">
-
-                Knowledgebase
-
+            <a href="status.html">
+                Network Status
             </a>
 
-            <a href="#contact">
-                Technical Support
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="help-centre.html">
+                Help Centre
             </a>
 
         </div>
@@ -3787,603 +5071,591 @@ img {
     </div>
 
 
-
     <div class="footer-bottom">
 
-        <p>
-            © 2026 DomainHub.
-            All rights reserved.
-        </p>
+        <div class="container footer-bottom-inner">
+
+            <span>
+                © <span id="year"></span>
+                Dinges TechHub.
+                All rights reserved.
+            </span>
+
+            <span>
+                Connect. Host. Grow.
+            </span>
+
+        </div>
 
     </div>
-
 
 </footer>
 
 
-
 <!-- =====================================================
-     CART MODAL
-====================================================== -->
+     PROVIDER PACKAGE MODAL
+     ===================================================== -->
 
 <div
-    class="modal"
-    id="cartModal">
+    class="provider-modal"
+    id="providerModal">
 
-
-    <div class="modal-content">
+    <div class="provider-modal-content">
 
 
         <button
-            class="close-modal"
-            onclick="closeCart()">
+            type="button"
+            class="provider-modal-close"
+            onclick="closeProvider()"
+            aria-label="Close">
 
             ×
 
         </button>
 
 
-        <h2>
-            Your Shopping Cart
-        </h2>
+        <div class="provider-modal-header">
+
+            <div class="provider-modal-logo">
+
+                <img
+                    id="modalProviderLogo"
+                    src=""
+                    alt=""
+                >
+
+            </div>
 
 
-        <div id="cartItems">
+            <div>
 
-            <p>
-                Your cart is currently empty.
-            </p>
+                <h2 id="modalProviderName">
+                    Fibre Provider
+                </h2>
+
+                <p>
+                    Available fibre packages
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="cart-total">
+        <div
+            class="provider-packages"
+            id="providerPackages">
 
-            <span>
-                Total:
-            </span>
 
-            <strong id="cartTotal">
-                $0.00
-            </strong>
+            <!-- DEMO PACKAGE 1 -->
+
+            <div class="modal-package">
+
+                <small>
+                    Fibre Package
+                </small>
+
+                <h3>
+                    50 / 50 Mbps
+                </h3>
+
+                <p>
+                    Uncapped internet · Local support
+                </p>
+
+                <div class="modal-package-price">
+
+                    R699
+
+                    <span>
+                        /month
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEMO PACKAGE 2 -->
+
+            <div class="modal-package">
+
+                <small>
+                    Fibre Package
+                </small>
+
+                <h3>
+                    100 / 50 Mbps
+                </h3>
+
+                <p>
+                    Uncapped internet · Local support
+                </p>
+
+                <div class="modal-package-price">
+
+                    R799
+
+                    <span>
+                        /month
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEMO PACKAGE 3 -->
+
+            <div class="modal-package">
+
+                <small>
+                    Fibre Package
+                </small>
+
+                <h3>
+                    100 / 100 Mbps
+                </h3>
+
+                <p>
+                    Symmetrical high-speed fibre.
+                </p>
+
+                <div class="modal-package-price">
+
+                    R899
+
+                    <span>
+                        /month
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEMO PACKAGE 4 -->
+
+            <div class="modal-package">
+
+                <small>
+                    Fibre Package
+                </small>
+
+                <h3>
+                    200 / 200 Mbps
+                </h3>
+
+                <p>
+                    Premium fibre for demanding users.
+                </p>
+
+                <div class="modal-package-price">
+
+                    R999
+
+                    <span>
+                        /month
+                    </span>
+
+                </div>
+
+            </div>
+
 
         </div>
 
 
-        <button
-            class="checkout-btn"
-            onclick="checkout()">
+        <div class="modal-note">
 
-            Proceed to Checkout
+            Package information shown here is currently
+            a frontend placeholder. This section can
+            later be connected directly to your cPanel
+            / WHMCS fibre package API so that clicking
+            a provider loads its real packages and prices.
 
-        </button>
-
+        </div>
 
     </div>
 
 </div>
 
 
-
 <!-- =====================================================
      JAVASCRIPT
-====================================================== -->
+     ===================================================== -->
 
 <script>
 
 
-/* =====================================================
-   CART
-===================================================== */
+/* =========================================================
+   YEAR
+   ========================================================= */
 
-let cart = [];
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
+/* =========================================================
+   HEADER + SCROLL PROGRESS
+   ========================================================= */
 
-/* =====================================================
-   DOMAIN SEARCH
-===================================================== */
+const header =
+    document.getElementById("siteHeader");
 
-document
-.getElementById("domainSearchForm")
-.addEventListener(
-"submit",
-function(event) {
+const progress =
+    document.getElementById("scrollProgress");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(window.scrollY > 20){
+
+            header.classList.add("scrolled");
+
+        }else{
+
+            header.classList.remove("scrolled");
+
+        }
+
+
+        const scrollTop =
+            document.documentElement.scrollTop;
+
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        const percentage =
+            scrollHeight > 0
+            ? (scrollTop / scrollHeight) * 100
+            : 0;
+
+        progress.style.width =
+            percentage + "%";
+
+    }
+);
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const navigation =
+    document.getElementById("navigation");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+
+menuBtn.addEventListener(
+    "click",
+    function(){
+
+        navigation.classList.toggle(
+            "mobile-open"
+        );
+
+        document.body.classList.toggle(
+            "menu-open"
+        );
+
+
+        if(
+            navigation.classList.contains(
+                "mobile-open"
+            )
+        ){
+
+            menuBtn.textContent = "×";
+
+        }else{
+
+            menuBtn.textContent = "☰";
+
+        }
+
+    }
+);
+
+
+/* CLOSE MOBILE MENU */
+
+navigation
+.querySelectorAll("a")
+.forEach(
+    function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                navigation.classList.remove(
+                    "mobile-open"
+                );
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+                menuBtn.textContent = "☰";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+                function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target
+                            .classList
+                            .add("active");
+
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.12
+        }
+
+    );
+
+
+revealElements.forEach(
+    function(element){
+
+        revealObserver.observe(element);
+
+    }
+);
+
+
+/* =========================================================
+   COVERAGE CHECKER
+   ========================================================= */
+
+function checkCoverage(event){
 
     event.preventDefault();
 
 
-    let domainName =
-        document
-        .getElementById("domainInput")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    let extension =
-        document
-        .getElementById("domainExtension")
-        .value;
-
-
-    if (domainName === "") {
-
-        alert(
-            "Please enter a domain name."
+    const input =
+        document.getElementById(
+            "coverageInput"
         );
+
+    const message =
+        document.getElementById(
+            "coverageMessage"
+        );
+
+
+    const location =
+        input.value.trim();
+
+
+    if(!location){
+
+        message.textContent =
+            "Please enter your suburb or address.";
 
         return;
 
     }
 
 
-    domainName =
-        domainName.replace(
-            /\s+/g,
-            ""
-        );
+    message.innerHTML =
+        "Checking available options for <strong>"
+        +
+        escapeHtml(location)
+        +
+        "</strong>...";
 
 
-    domainName =
-        domainName.replace(
-            /\.(co\.za|com|net|org|africa|online)$/i,
-            ""
-        );
+    /*
+       This is intentionally frontend-only.
 
+       Later connect this function to your
+       cPanel fibre coverage API.
+    */
 
-    let mainDomain =
-        domainName + extension;
+    setTimeout(
 
+        function(){
 
-    displaySearchResults(
-        mainDomain
-    );
-
-});
-
-
-
-/* =====================================================
-   DISPLAY SEARCH RESULTS
-===================================================== */
-
-function displaySearchResults(
-    mainDomain
-) {
-
-
-    let results =
-        document
-        .getElementById(
-            "searchResults"
-        );
-
-
-    let baseName =
-        mainDomain.split(".")[0];
-
-
-    let alternativeDomains = [
-
-        {
-            name:
-            mainDomain,
-
-            price:
-            8.99
+            message.innerHTML =
+                "Coverage lookup ready for <strong>"
+                +
+                escapeHtml(location)
+                +
+                "</strong>. Your fibre coverage API can now be connected here.";
 
         },
 
-        {
+        800
 
-            name:
-            baseName + ".com",
+    );
 
-            price:
-            12.99
+}
 
-        },
 
-        {
+/* =========================================================
+   PROVIDER MODAL
+   ========================================================= */
 
-            name:
-            baseName + ".net",
+const providerModal =
+    document.getElementById(
+        "providerModal"
+    );
 
-            price:
-            11.99
 
-        },
+const modalProviderName =
+    document.getElementById(
+        "modalProviderName"
+    );
 
-        {
 
-            name:
-            baseName + ".org",
+const modalProviderLogo =
+    document.getElementById(
+        "modalProviderLogo"
+    );
 
-            price:
-            10.99
+
+function openProvider(
+    providerName,
+    logo
+){
+
+    modalProviderName.textContent =
+        providerName;
+
+
+    modalProviderLogo.src =
+        logo;
+
+
+    modalProviderLogo.alt =
+        providerName;
+
+
+    providerModal.classList.add(
+        "show"
+    );
+
+
+    document.body.classList.add(
+        "menu-open"
+    );
+
+}
+
+
+function closeProvider(){
+
+    providerModal.classList.remove(
+        "show"
+    );
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
+}
+
+
+/* CLOSE MODAL WHEN CLICKING BACKDROP */
+
+providerModal.addEventListener(
+
+    "click",
+
+    function(event){
+
+        if(
+            event.target === providerModal
+        ){
+
+            closeProvider();
 
         }
 
-    ];
+    }
+
+);
 
 
-    results.innerHTML = "";
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
 
+document.addEventListener(
 
-    alternativeDomains.forEach(
+    "keydown",
 
-        function(domain, index) {
+    function(event){
 
+        if(event.key === "Escape"){
 
-            let available =
-                index !== 2;
-
-
-            let resultCard =
-                document.createElement(
-                    "div"
-                );
-
-
-            resultCard.className =
-                "result-card";
-
-
-            resultCard.innerHTML = `
-
-                <div>
-
-                    <div class="result-domain">
-
-                        ${domain.name}
-
-                    </div>
-
-                    <div class="${
-                        available
-                        ? "available"
-                        : "unavailable"
-                    }">
-
-                        ${
-                            available
-                            ? "✓ Domain Available"
-                            : "✕ Domain Unavailable"
-                        }
-
-                    </div>
-
-                </div>
-
-
-                <div class="result-actions">
-
-                    <span class="result-price">
-
-                        $${domain.price.toFixed(2)}/year
-
-                    </span>
-
-
-                    ${
-                        available
-
-                        ?
-
-                        `<button
-                            class="add-cart"
-                            onclick="addToCart(
-                                '${domain.name}',
-                                ${domain.price}
-                            )">
-
-                            Add to Cart
-
-                        </button>`
-
-                        :
-
-                        `<button
-                            class="add-cart"
-                            disabled
-                            style="
-                            opacity:0.5;
-                            cursor:not-allowed;
-                            ">
-
-                            Unavailable
-
-                        </button>`
-                    }
-
-                </div>
-
-            `;
-
-
-            results.appendChild(
-                resultCard
-            );
+            closeProvider();
 
         }
 
-    );
-
-}
-
-
-
-/* =====================================================
-   ADD TO CART
-===================================================== */
-
-function addToCart(
-    domainName,
-    price
-) {
-
-
-    let existingItem =
-        cart.find(
-            item =>
-            item.name === domainName
-        );
-
-
-    if (existingItem) {
-
-        alert(
-            "This domain is already in your cart."
-        );
-
-        return;
-
     }
 
-
-    cart.push({
-
-        name:
-        domainName,
-
-        price:
-        price
-
-    });
+);
 
 
-    updateCart();
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
 
+function escapeHtml(value){
 
-    alert(
-        domainName +
-        " has been added to your cart."
-    );
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        value;
+
+    return div.innerHTML;
 
 }
-
-/* =====================================================
-   ADD DOMAIN
-===================================================== */
-function addDomain(
-    extension,
-    price
-) {
-    let domainName =
-        prompt(
-            "Enter the domain name you want to register:"
-        );
-
-    if (
-        !domainName ||
-        domainName.trim() === ""
-    ) {
-        return;
-    }
-
-    domainName =
-        domainName
-        .trim()
-        .toLowerCase();
-
-    domainName =
-        domainName.replace(
-            /\.(co\.za|com|net|org|africa|online)$/i,
-            ""
-        );
-
-    let fullDomain =
-        domainName +
-        extension;
-    addToCart(
-        fullDomain,
-        price
-    );
-}
-
-/* =====================================================
-   UPDATE CART
-===================================================== */
-function updateCart() {
-    let cartCount =
-        document
-        .getElementById(
-            "cartCount"
-        );
-    let cartItems =
-        document
-        .getElementById(
-            "cartItems"
-        );
-    let cartTotal =
-        document
-        .getElementById(
-            "cartTotal"
-        );
-    cartCount.textContent =
-        cart.length;
-    cartItems.innerHTML =
-        "";
-    if (
-        cart.length === 0
-    ) {
-        cartItems.innerHTML = `
-            <p>
-                Your cart is currently empty.
-            </p>
-        `;
-        cartTotal.textContent =
-            "$0.00";
-        return;
-    }
-    let total =
-        0;
-    cart.forEach(
-        function(item, index) {
-            total +=
-                item.price;
-            let cartItem =
-                document
-                .createElement(
-                    "div"
-                );
-            cartItem.className =
-                "cart-item";
-            cartItem.innerHTML = `
-                <div>
-                    <strong>
-                        ${item.name}
-                    </strong>
-                    <br>
-                    <small>
-                        $${item.price.toFixed(2)}/year
-                    </small>
-                </div>
-                <button
-                    class="remove-cart"
-                    onclick="removeFromCart(${index})">
-                    Remove
-                </button>
-            `;
-            cartItems.appendChild(
-                cartItem
-            );
-        }
-    );
-    cartTotal.textContent =
-        "$" +
-        total.toFixed(2);
-}
-
-/* =====================================================
-   REMOVE FROM CART
-===================================================== */
-function removeFromCart(
-    index
-) {
-    cart.splice(
-        index,
-        1
-    );
-    updateCart();
-}
-
-/* =====================================================
-   OPEN CART
-===================================================== */
-function openCart() {
-    document
-    .getElementById(
-        "cartModal"
-    )
-    .classList
-    .add(
-        "show"
-    );
-    updateCart();
-}
-
-/* =====================================================
-   CLOSE CART
-===================================================== */
-function closeCart() {
-    document
-    .getElementById(
-        "cartModal"
-    )
-    .classList
-    .remove(
-        "show"
-    );
-}
-
-/* =====================================================
-   CHECKOUT
-===================================================== */
-function checkout() {
-    if (
-        cart.length === 0
-    ) {
-        alert(
-            "Your cart is empty."
-        );
-        return;
-    }
-    alert(
-        "Checkout system will be connected to the backend later."
-    );
-}
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-function toggleMenu() {
-    document
-    .getElementById(
-        "navigation"
-    )
-    .classList
-    .toggle(
-        "show"
-    );
-}
-
-/* =====================================================
-   GENERAL MESSAGE
-===================================================== */
-function showMessage(
-    message
-) {
-
-    alert(
-        message
-    );
-}
-
-/* =====================================================
-   CLOSE CART OUTSIDE
-===================================================== */
-document
-.getElementById(
-    "cartModal"
-)
-.addEventListener(
-"click",
-function(event) {
-    if (
-        event.target ===
-        this
-    ) {
-        closeCart();
-    }
-
-});
-
 
 </script>
 
-<script src="cart.js"></script>
-</body>
 
+</body>
 </html>
