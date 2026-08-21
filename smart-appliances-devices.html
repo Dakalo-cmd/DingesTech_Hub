@@ -72,6 +72,14 @@
         }
 
 
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+
         .container {
             width: min(92%, var(--container));
             margin: auto;
@@ -1815,6 +1823,11 @@
             }
 
 
+            .nav-links {
+                top: 70px;
+            }
+
+
             .logo img {
                 width: 42px;
                 height: 42px;
@@ -2620,11 +2633,11 @@
 
                 <form
                     id="serviceEnquiryForm"
-                    method="POST"
                     novalidate
                 >
 
-                    <!-- SERVICE IDENTIFICATION -->
+
+                    <!-- SERVICE -->
 
                     <input
                         type="hidden"
@@ -2632,6 +2645,8 @@
                         value="Smart Appliances & Devices"
                     >
 
+
+                    <!-- SOURCE -->
 
                     <input
                         type="hidden"
@@ -2686,7 +2701,7 @@
 
 
 
-                    <!-- PHONE + TYPE -->
+                    <!-- PHONE + ENQUIRY TYPE -->
 
                     <div class="form-row">
 
@@ -2814,12 +2829,13 @@
 
 
 
-                    <!-- RESPONSE MESSAGE -->
+                    <!-- RESPONSE -->
 
                     <div
                         class="form-message"
                         id="formMessage"
                         role="alert"
+                        aria-live="polite"
                     ></div>
 
 
@@ -3104,7 +3120,9 @@
                 "click",
                 () => {
 
-                    navLinks.classList.remove("active");
+                    if (navLinks) {
+                        navLinks.classList.remove("active");
+                    }
 
                 }
             );
@@ -3121,41 +3139,53 @@
         document.querySelectorAll(".reveal");
 
 
-    const revealObserver =
-        new IntersectionObserver(
+    if ("IntersectionObserver" in window) {
 
-            entries => {
+        const revealObserver =
+            new IntersectionObserver(
 
-                entries.forEach(entry => {
+                entries => {
 
-                    if (entry.isIntersecting) {
+                    entries.forEach(entry => {
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
+                        if (entry.isIntersecting) {
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
-                    }
+                            revealObserver.unobserve(
+                                entry.target
+                            );
 
-                });
+                        }
 
-            },
+                    });
 
-            {
-                threshold: 0.12
-            }
+                },
 
-        );
+                {
+                    threshold: 0.12
+                }
+
+            );
 
 
-    revealElements.forEach(element => {
+        revealElements.forEach(element => {
 
-        revealObserver.observe(element);
+            revealObserver.observe(element);
 
-    });
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add("visible");
+
+        });
+
+    }
 
 
 
@@ -3182,21 +3212,19 @@
 
 
     /*
-     * IMPORTANT:
+     * NETLIFY FUNCTION
      *
-     * DO NOT put the Bitrix24 webhook URL here.
+     * The Bitrix24 webhook is NOT exposed here.
      *
-     * The browser will send the form to your own
-     * backend endpoint.
-     *
-     * Your backend will then securely communicate
-     * with Bitrix24.
-     *
-     * This keeps the Bitrix24 secret hidden.
+     * Browser
+     *    ↓
+     * Netlify Function
+     *    ↓
+     * Bitrix24
      */
 
     const API_ENDPOINT =
-    "/.netlify/functions/bitrix-lead";
+        "/.netlify/functions/bitrix-lead";
 
 
     if (serviceEnquiryForm) {
@@ -3209,7 +3237,7 @@
 
 
                 /* -----------------------------------------
-                   BROWSER VALIDATION
+                   VALIDATE FORM
                    ----------------------------------------- */
 
                 if (!serviceEnquiryForm.checkValidity()) {
@@ -3237,53 +3265,98 @@
                 formMessage.style.display =
                     "none";
 
+                formMessage.textContent = "";
+
 
                 try {
 
                     /* -------------------------------------
                        COLLECT FORM DATA
                        ------------------------------------- */
-const formData =
-    new FormData(serviceEnquiryForm);
 
-const data =
-    Object.fromEntries(formData.entries());
+                    const formData =
+                        new FormData(
+                            serviceEnquiryForm
+                        );
 
-const response =
-    await fetch(
-        API_ENDPOINT,
-        {
-            method: "POST",
 
-            headers: {
-                "Content-Type":
-                    "application/json",
+                    /*
+                     * Convert FormData into a normal
+                     * JavaScript object.
+                     *
+                     * This is important because the
+                     * Netlify Function expects JSON.
+                     */
 
-                "Accept":
-                    "application/json"
-            },
+                    const data =
+                        Object.fromEntries(
+                            formData.entries()
+                        );
 
-            body: JSON.stringify(data)
-        }
-    );
 
-                    let result = null;
+                    console.log(
+                        "Sending enquiry to Netlify Function..."
+                    );
+
+
+                    /* -------------------------------------
+                       SEND JSON TO NETLIFY FUNCTION
+                       ------------------------------------- */
+
+                    const response =
+                        await fetch(
+                            API_ENDPOINT,
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Accept":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify(data)
+                            }
+                        );
+
+
+                    /* -------------------------------------
+                       READ RESPONSE
+                       ------------------------------------- */
+
+                    const responseText =
+                        await response.text();
+
+
+                    let result;
 
 
                     try {
 
                         result =
-                            await response.json();
+                            JSON.parse(
+                                responseText
+                            );
 
-                    } catch (jsonError) {
+                    } catch (parseError) {
 
-                        result = null;
+                        console.error(
+                            "Invalid JSON from server:",
+                            responseText
+                        );
+
+                        throw new Error(
+                            "The server returned an invalid response."
+                        );
 
                     }
 
 
                     /* -------------------------------------
-                       HANDLE SERVER RESPONSE
+                       CHECK SERVER RESPONSE
                        ------------------------------------- */
 
                     if (
@@ -3295,7 +3368,9 @@ const response =
                         throw new Error(
                             result &&
                             result.message
+
                                 ? result.message
+
                                 : "We could not send your enquiry."
                         );
 
@@ -3314,10 +3389,24 @@ const response =
 
                     formMessage.textContent =
                         result.message ||
-                        "Thank you. Your enquiry has been received. Our team will get back to you shortly.";
+                        "Thank you. Your enquiry has been received successfully.";
 
+
+                    /* -------------------------------------
+                       RESET FORM
+                       ------------------------------------- */
 
                     serviceEnquiryForm.reset();
+
+
+                    /* -------------------------------------
+                       SCROLL TO MESSAGE
+                       ------------------------------------- */
+
+                    formMessage.scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest"
+                    });
 
 
                 } catch (error) {
@@ -3329,7 +3418,7 @@ const response =
 
 
                     /* -------------------------------------
-                       ERROR
+                       ERROR MESSAGE
                        ------------------------------------- */
 
                     formMessage.className =
@@ -3344,6 +3433,10 @@ const response =
 
 
                 } finally {
+
+                    /* -------------------------------------
+                       RESTORE BUTTON
+                       ------------------------------------- */
 
                     submitButton.disabled = false;
 
