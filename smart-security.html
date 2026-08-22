@@ -4,26 +4,31 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>Smart Security | Dinges Tech</title>
+<title>Smart Security | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Dinges TechHub Smart Security solutions for homes and businesses, including smart cameras, access control, alarms, sensors and connected security systems."
+    content="Dinges TechHub Smart Security solutions help protect homes and businesses with connected security technology, monitoring and intelligent security solutions."
 >
 
 <style>
 
 /* =========================================================
    DINGES TECHHUB
-   SMART SECURITY PAGE
+   SMART SECURITY
    ========================================================= */
 
 :root {
+
     --purple-dark: #3C1542;
     --purple: #7A2C78;
     --purple-light: #9d4c9b;
+
     --gold: #FFBB42;
 
     --black: #020202;
@@ -58,13 +63,16 @@ html {
 }
 
 body {
+
     font-family:
         Arial,
         Helvetica,
         sans-serif;
 
     background: var(--background);
+
     color: var(--black);
+
     overflow-x: hidden;
 }
 
@@ -78,8 +86,18 @@ img {
     display: block;
 }
 
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
 .container {
-    width: min(92%, var(--container));
+
+    width:
+        min(92%, var(--container));
+
     margin: auto;
 }
 
@@ -89,13 +107,18 @@ img {
    ========================================================= */
 
 .navbar {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     z-index: 1000;
 
-    background: rgba(2, 2, 2, 0.94);
+    background:
+        rgba(2, 2, 2, 0.94);
 
     backdrop-filter: blur(14px);
 
@@ -105,17 +128,22 @@ img {
 }
 
 .nav-container {
+
     min-height: 78px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     gap: 30px;
 }
 
 .logo {
+
     display: flex;
+
     align-items: center;
 
     gap: 12px;
@@ -124,6 +152,7 @@ img {
 }
 
 .logo img {
+
     width: 48px;
     height: 48px;
 
@@ -133,6 +162,7 @@ img {
 }
 
 .logo-text {
+
     color: var(--white);
 
     font-size: 19px;
@@ -145,7 +175,9 @@ img {
 }
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
 
     gap: 27px;
@@ -154,6 +186,7 @@ img {
 }
 
 .nav-links a {
+
     color: var(--white);
 
     font-size: 14px;
@@ -166,6 +199,7 @@ img {
 }
 
 .nav-links a::after {
+
     content: "";
 
     position: absolute;
@@ -190,6 +224,7 @@ img {
 }
 
 .nav-cta {
+
     padding: 11px 19px;
 
     border-radius: 999px;
@@ -206,6 +241,7 @@ img {
 }
 
 .nav-cta:hover {
+
     transform: translateY(-2px);
 
     box-shadow:
@@ -219,6 +255,7 @@ img {
    ========================================================= */
 
 .menu-toggle {
+
     display: none;
 
     background: none;
@@ -238,6 +275,7 @@ img {
    ========================================================= */
 
 .hero {
+
     min-height: 700px;
 
     padding: 150px 0 90px;
@@ -271,12 +309,13 @@ img {
 }
 
 .hero::before {
+
     content: "";
 
     position: absolute;
 
-    width: 460px;
-    height: 460px;
+    width: 450px;
+    height: 450px;
 
     border:
         1px solid
@@ -284,7 +323,7 @@ img {
 
     border-radius: 50%;
 
-    right: -190px;
+    right: -180px;
     top: 100px;
 
     animation:
@@ -293,12 +332,13 @@ img {
 }
 
 .hero::after {
+
     content: "";
 
     position: absolute;
 
-    width: 270px;
-    height: 270px;
+    width: 260px;
+    height: 260px;
 
     border:
         1px solid
@@ -307,7 +347,7 @@ img {
     border-radius: 50%;
 
     right: 20px;
-    top: 195px;
+    top: 190px;
 
     animation:
         rotateCircleReverse
@@ -315,6 +355,7 @@ img {
 }
 
 @keyframes rotateCircle {
+
     from {
         transform: rotate(0deg);
     }
@@ -325,6 +366,7 @@ img {
 }
 
 @keyframes rotateCircleReverse {
+
     from {
         transform: rotate(360deg);
     }
@@ -335,6 +377,7 @@ img {
 }
 
 .hero-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -350,6 +393,7 @@ img {
 }
 
 .breadcrumb {
+
     color: var(--gold);
 
     font-size: 13px;
@@ -362,6 +406,7 @@ img {
 }
 
 .hero h1 {
+
     font-size:
         clamp(42px, 6vw, 72px);
 
@@ -377,6 +422,7 @@ img {
 }
 
 .hero-description {
+
     max-width: 650px;
 
     color:
@@ -390,6 +436,7 @@ img {
 }
 
 .hero-buttons {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -398,6 +445,7 @@ img {
 }
 
 .btn {
+
     display: inline-flex;
 
     align-items: center;
@@ -414,12 +462,14 @@ img {
 }
 
 .btn-primary {
+
     background: var(--gold);
 
     color: var(--black);
 }
 
 .btn-primary:hover {
+
     transform: translateY(-3px);
 
     box-shadow:
@@ -428,6 +478,7 @@ img {
 }
 
 .btn-outline {
+
     border:
         1px solid
         rgba(255,255,255,0.35);
@@ -436,6 +487,7 @@ img {
 }
 
 .btn-outline:hover {
+
     border-color: var(--gold);
 
     color: var(--gold);
@@ -449,6 +501,7 @@ img {
    ========================================================= */
 
 .security-visual {
+
     position: relative;
 
     min-height: 430px;
@@ -461,8 +514,9 @@ img {
 }
 
 .security-core {
-    width: 220px;
-    height: 220px;
+
+    width: 215px;
+    height: 215px;
 
     border-radius: 50%;
 
@@ -496,8 +550,9 @@ img {
 }
 
 .security-core-inner {
-    width: 120px;
-    height: 120px;
+
+    width: 115px;
+    height: 115px;
 
     border-radius: 50%;
 
@@ -513,25 +568,27 @@ img {
 
     justify-content: center;
 
-    font-size: 50px;
+    font-size: 48px;
 }
 
 @keyframes pulseSecurity {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.06);
+        transform: scale(1.05);
     }
 }
 
 .security-node {
+
     position: absolute;
 
-    width: 82px;
-    height: 82px;
+    width: 80px;
+    height: 80px;
 
     background:
         rgba(255,255,255,0.07);
@@ -550,7 +607,7 @@ img {
 
     justify-content: center;
 
-    font-size: 31px;
+    font-size: 30px;
 
     box-shadow:
         0 15px 35px
@@ -562,11 +619,13 @@ img {
 }
 
 .security-node-1 {
+
     top: 20px;
-    left: 17%;
+    left: 18%;
 }
 
 .security-node-2 {
+
     top: 28%;
     right: 5%;
 
@@ -574,6 +633,7 @@ img {
 }
 
 .security-node-3 {
+
     bottom: 15%;
     right: 15%;
 
@@ -581,6 +641,7 @@ img {
 }
 
 .security-node-4 {
+
     bottom: 8%;
     left: 10%;
 
@@ -589,7 +650,8 @@ img {
 
 @keyframes floatSecurity {
 
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
 
@@ -604,21 +666,23 @@ img {
    ========================================================= */
 
 .intro {
+
     padding: 100px 0 60px;
 
     background: var(--white);
 }
 
 .section-heading {
+
     text-align: center;
 
     max-width: 760px;
 
-    margin:
-        0 auto 55px;
+    margin: 0 auto 55px;
 }
 
 .eyebrow {
+
     color: var(--purple);
 
     text-transform: uppercase;
@@ -633,6 +697,7 @@ img {
 }
 
 .section-heading h2 {
+
     font-size:
         clamp(32px, 4vw, 48px);
 
@@ -644,6 +709,7 @@ img {
 }
 
 .section-heading p {
+
     color: #666;
 
     line-height: 1.8;
@@ -654,13 +720,15 @@ img {
    SECURITY SOLUTIONS
    ========================================================= */
 
-.security-solutions {
+.solutions {
+
     padding: 60px 0 100px;
 
     background: var(--white);
 }
 
-.security-grid {
+.solution-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -669,7 +737,8 @@ img {
     gap: 24px;
 }
 
-.security-card {
+.solution-card {
+
     padding: 30px;
 
     background: #ffffff;
@@ -687,7 +756,8 @@ img {
     overflow: hidden;
 }
 
-.security-card::before {
+.solution-card::before {
+
     content: "";
 
     position: absolute;
@@ -712,7 +782,8 @@ img {
     transition: var(--transition);
 }
 
-.security-card:hover {
+.solution-card:hover {
+
     transform: translateY(-8px);
 
     border-color:
@@ -723,11 +794,12 @@ img {
         rgba(60,21,66,0.10);
 }
 
-.security-card:hover::before {
+.solution-card:hover::before {
     transform: scaleX(1);
 }
 
-.security-icon {
+.solution-icon {
+
     width: 62px;
     height: 62px;
 
@@ -749,7 +821,8 @@ img {
     margin-bottom: 22px;
 }
 
-.security-card h3 {
+.solution-card h3 {
+
     color: var(--purple-dark);
 
     font-size: 21px;
@@ -757,7 +830,8 @@ img {
     margin-bottom: 12px;
 }
 
-.security-card p {
+.solution-card p {
+
     color: #686868;
 
     line-height: 1.7;
@@ -771,6 +845,7 @@ img {
    ========================================================= */
 
 .security-section {
+
     padding: 100px 0;
 
     background:
@@ -783,7 +858,8 @@ img {
     color: var(--white);
 }
 
-.security-feature-grid {
+.security-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -795,6 +871,7 @@ img {
 }
 
 .security-image {
+
     min-height: 430px;
 
     border-radius: 30px;
@@ -830,6 +907,7 @@ img {
 
 .security-image::before,
 .security-image::after {
+
     content: "";
 
     position: absolute;
@@ -842,20 +920,23 @@ img {
 }
 
 .security-image::before {
-    width: 310px;
-    height: 310px;
+
+    width: 300px;
+    height: 300px;
 }
 
 .security-image::after {
-    width: 190px;
-    height: 190px;
+
+    width: 180px;
+    height: 180px;
 }
 
 .security-symbol {
-    width: 120px;
-    height: 120px;
 
-    border-radius: 30px;
+    width: 115px;
+    height: 115px;
+
+    border-radius: 28px;
 
     background: var(--gold);
 
@@ -867,7 +948,7 @@ img {
 
     justify-content: center;
 
-    font-size: 50px;
+    font-size: 48px;
 
     position: relative;
 
@@ -883,6 +964,7 @@ img {
 }
 
 .security-content h2 {
+
     font-size:
         clamp(32px, 4vw, 48px);
 
@@ -892,6 +974,7 @@ img {
 }
 
 .security-content > p {
+
     color:
         rgba(255,255,255,0.75);
 
@@ -901,6 +984,7 @@ img {
 }
 
 .feature-list {
+
     list-style: none;
 
     display: grid;
@@ -909,6 +993,7 @@ img {
 }
 
 .feature-list li {
+
     display: flex;
 
     align-items: flex-start;
@@ -922,6 +1007,7 @@ img {
 }
 
 .feature-list li span {
+
     color: var(--gold);
 
     font-weight: 900;
@@ -933,12 +1019,14 @@ img {
    ========================================================= */
 
 .how-it-works {
+
     padding: 100px 0;
 
     background: var(--background);
 }
 
 .steps {
+
     display: grid;
 
     grid-template-columns:
@@ -948,6 +1036,7 @@ img {
 }
 
 .step {
+
     background: var(--white);
 
     padding: 32px;
@@ -962,6 +1051,7 @@ img {
 }
 
 .step-number {
+
     width: 46px;
     height: 46px;
 
@@ -983,12 +1073,14 @@ img {
 }
 
 .step h3 {
+
     color: var(--purple-dark);
 
     margin-bottom: 12px;
 }
 
 .step p {
+
     color: #686868;
 
     line-height: 1.7;
@@ -998,16 +1090,308 @@ img {
 
 
 /* =========================================================
+   SMART SECURITY ENQUIRY
+   ========================================================= */
+
+.enquiry-section {
+
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--background),
+            #ffffff
+        );
+}
+
+.enquiry-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.enquiry-content .eyebrow {
+    color: var(--purple);
+}
+
+.enquiry-content h2 {
+
+    color: var(--purple-dark);
+
+    font-size:
+        clamp(34px, 4vw, 50px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.enquiry-content > p {
+
+    color: #686868;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+
+    max-width: 520px;
+
+    margin-bottom: 35px;
+}
+
+.enquiry-points {
+
+    display: grid;
+
+    gap: 20px;
+}
+
+.enquiry-point {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+.enquiry-point > span {
+
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color: var(--purple);
+
+    font-weight: 900;
+}
+
+.enquiry-point strong {
+
+    display: block;
+
+    color: var(--purple-dark);
+
+    margin-bottom: 5px;
+}
+
+.enquiry-point p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.enquiry-card {
+
+    background: var(--white);
+
+    padding: 38px;
+
+    border-radius: 24px;
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    box-shadow:
+        0 20px 60px
+        rgba(60,21,66,0.10);
+}
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+
+    display: block;
+
+    color: var(--purple-dark);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    border:
+        1px solid
+        #ded9df;
+
+    border-radius: 12px;
+
+    background: #faf9fb;
+
+    color: var(--black);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    padding: 14px 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.form-group textarea {
+
+    resize: vertical;
+
+    min-height: 145px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: var(--purple);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(122,44,120,0.08);
+}
+
+.form-submit {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 15px 22px;
+
+    background: var(--gold);
+
+    color: var(--black);
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.form-submit:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,187,66,0.25);
+}
+
+.form-submit:disabled {
+
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.form-message {
+
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.form-message.success {
+
+    display: block;
+
+    background:
+        rgba(46,125,50,0.10);
+
+    color: #236b28;
+}
+
+.form-message.error {
+
+    display: block;
+
+    background:
+        rgba(190,40,40,0.10);
+
+    color: #9b2525;
+}
+
+
+/* =========================================================
    CTA
    ========================================================= */
 
 .cta {
+
     padding: 80px 0;
 
     background: var(--white);
 }
 
 .cta-box {
+
     padding: 65px 40px;
 
     border-radius: 30px;
@@ -1036,6 +1420,7 @@ img {
 }
 
 .cta-box h2 {
+
     font-size:
         clamp(30px, 4vw, 46px);
 
@@ -1043,6 +1428,7 @@ img {
 }
 
 .cta-box p {
+
     max-width: 650px;
 
     margin:
@@ -1060,6 +1446,7 @@ img {
    ========================================================= */
 
 footer {
+
     background: #020202;
 
     color: var(--white);
@@ -1068,6 +1455,7 @@ footer {
 }
 
 .footer-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -1083,6 +1471,7 @@ footer {
 }
 
 .footer-description {
+
     color: #a9a9a9;
 
     line-height: 1.7;
@@ -1093,6 +1482,7 @@ footer {
 }
 
 .footer-column h4 {
+
     color: var(--gold);
 
     margin-bottom: 20px;
@@ -1109,6 +1499,7 @@ footer {
 }
 
 .footer-column a {
+
     color: #a9a9a9;
 
     font-size: 14px;
@@ -1117,12 +1508,14 @@ footer {
 }
 
 .footer-column a:hover {
+
     color: var(--gold);
 
     padding-left: 4px;
 }
 
 .footer-bottom {
+
     border-top:
         1px solid
         rgba(255,255,255,0.08);
@@ -1146,10 +1539,10 @@ footer {
    ========================================================= */
 
 .reveal {
+
     opacity: 0;
 
-    transform:
-        translateY(35px);
+    transform: translateY(35px);
 
     transition:
         opacity 0.8s ease,
@@ -1157,10 +1550,10 @@ footer {
 }
 
 .reveal.visible {
+
     opacity: 1;
 
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 
@@ -1171,6 +1564,7 @@ footer {
 @media (max-width: 950px) {
 
     .nav-links {
+
         position: absolute;
 
         top: 78px;
@@ -1198,6 +1592,7 @@ footer {
     }
 
     .nav-links a {
+
         display: block;
 
         padding: 12px 0;
@@ -1208,7 +1603,9 @@ footer {
     }
 
     .hero-grid,
-    .security-feature-grid {
+    .security-grid,
+    .enquiry-grid {
+
         grid-template-columns: 1fr;
     }
 
@@ -1220,7 +1617,7 @@ footer {
         min-height: 350px;
     }
 
-    .security-grid {
+    .solution-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1233,6 +1630,10 @@ footer {
         grid-template-columns:
             repeat(2, 1fr);
     }
+
+    .enquiry-grid {
+        gap: 45px;
+    }
 }
 
 
@@ -1243,6 +1644,7 @@ footer {
     }
 
     .logo img {
+
         width: 42px;
         height: 42px;
     }
@@ -1252,6 +1654,7 @@ footer {
     }
 
     .hero {
+
         min-height: auto;
 
         padding:
@@ -1267,11 +1670,13 @@ footer {
     }
 
     .security-core {
+
         width: 160px;
         height: 160px;
     }
 
     .security-core-inner {
+
         width: 90px;
         height: 90px;
 
@@ -1279,6 +1684,7 @@ footer {
     }
 
     .security-node {
+
         width: 60px;
         height: 60px;
 
@@ -1293,12 +1699,20 @@ footer {
         right: 0;
     }
 
-    .security-grid {
+    .solution-grid {
         grid-template-columns: 1fr;
     }
 
     .security-image {
         min-height: 300px;
+    }
+
+    .enquiry-card {
+        padding: 25px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
     }
 
     .footer-grid {
@@ -1330,24 +1744,18 @@ footer {
 
     <div class="container nav-container">
 
-
         <a
             href="index.html"
             class="logo"
         >
 
-            <!-- YOUR DINGES TECHHUB LOGO -->
-
             <img
                 src="dingestech-logo.png"
-                alt="Dinges Tech Logo"
+                alt="Dinges TechHub Logo"
             >
 
             <div class="logo-text">
-
-                Dinges
-                <span>Tech</span>
-
+                Dinges <span>TechHub</span>
             </div>
 
         </a>
@@ -1357,10 +1765,9 @@ footer {
             class="menu-toggle"
             id="menuToggle"
             aria-label="Open menu"
+            type="button"
         >
-
             ☰
-
         </button>
 
 
@@ -1433,27 +1840,23 @@ footer {
         <div class="hero-content reveal">
 
             <div class="breadcrumb">
-
-                INTERNET OF THINGS /
-                SMART SECURITY
-
+                SMART TECHNOLOGY / SMART SECURITY
             </div>
 
 
             <h1>
 
-                Smarter Security.
-                <span>Greater Peace of Mind.</span>
+                Protect What
+                <span>Matters.</span>
 
             </h1>
 
 
             <p class="hero-description">
 
-                Protect your home or business with connected
-                security solutions that help you monitor,
-                detect and respond to activity around your
-                property.
+                Smart security solutions help homes and businesses
+                improve visibility, awareness and control through
+                connected security technology.
 
             </p>
 
@@ -1461,22 +1864,18 @@ footer {
             <div class="hero-buttons">
 
                 <a
-                    href="#security"
+                    href="#solutions"
                     class="btn btn-primary"
                 >
-
                     Explore Smart Security
-
                 </a>
 
 
                 <a
-                    href="contact.html"
+                    href="#security-enquiry"
                     class="btn btn-outline"
                 >
-
-                    Talk to Us
-
+                    Get Started
                 </a>
 
             </div>
@@ -1488,31 +1887,19 @@ footer {
 
         <div class="security-visual reveal">
 
-
-            <div
-                class="security-node security-node-1"
-            >
+            <div class="security-node security-node-1">
                 📹
             </div>
 
-
-            <div
-                class="security-node security-node-2"
-            >
-                🔐
+            <div class="security-node security-node-2">
+                🔒
             </div>
 
-
-            <div
-                class="security-node security-node-3"
-            >
+            <div class="security-node security-node-3">
                 🚨
             </div>
 
-
-            <div
-                class="security-node security-node-4"
-            >
+            <div class="security-node security-node-4">
                 📱
             </div>
 
@@ -1520,9 +1907,7 @@ footer {
             <div class="security-core">
 
                 <div class="security-core-inner">
-
-                    🛡️
-
+                    🛡
                 </div>
 
             </div>
@@ -1542,30 +1927,24 @@ footer {
 
     <div class="container">
 
-
         <div class="section-heading reveal">
 
             <div class="eyebrow">
-
-                Connected Protection
-
+                Connected Security
             </div>
 
 
             <h2>
-
-                Smart Security for
-                Modern Spaces
-
+                Smart Security Solutions
             </h2>
 
 
             <p>
 
-                Smart security combines connected devices,
-                sensors and intelligent systems to give homes
-                and businesses better visibility and control
-                over their security environment.
+                Modern security technology can give you better
+                visibility and control over your home or business.
+                Our smart security solutions are designed around
+                connected devices and practical security needs.
 
             </p>
 
@@ -1581,185 +1960,133 @@ footer {
      ========================================================= -->
 
 <section
-    class="security-solutions"
-    id="security"
+    class="solutions"
+    id="solutions"
 >
 
     <div class="container">
 
+        <div class="solution-grid">
 
-        <div class="security-grid">
 
+            <article class="solution-card reveal">
 
-            <!-- CARD 1 -->
-
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
+                <div class="solution-icon">
                     📹
-
                 </div>
 
-
                 <h3>
-
                     Smart Cameras
-
                 </h3>
-
 
                 <p>
 
-                    Connected cameras can help you monitor
-                    important areas of your home or business
-                    and provide greater visibility when you
-                    are away.
+                    Connected camera solutions can provide visibility
+                    around important areas of your home or business
+                    and help you stay aware of activity.
 
                 </p>
 
             </article>
 
 
-            <!-- CARD 2 -->
+            <article class="solution-card reveal">
 
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
-                    🔐
-
+                <div class="solution-icon">
+                    🔔
                 </div>
 
-
                 <h3>
-
-                    Smart Access Control
-
+                    Smart Alerts
                 </h3>
-
 
                 <p>
 
-                    Manage access to selected areas using
-                    connected locks, access systems and
-                    other compatible smart security devices.
+                    Receive notifications when configured security
+                    events or activity require your attention.
 
                 </p>
 
             </article>
 
 
-            <!-- CARD 3 -->
+            <article class="solution-card reveal">
 
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
-                    🚨
-
+                <div class="solution-icon">
+                    🔒
                 </div>
 
-
                 <h3>
-
-                    Smart Alarms
-
+                    Smart Access
                 </h3>
-
 
                 <p>
 
-                    Connected alarm systems can provide
-                    notifications when configured security
-                    events or unusual activity are detected.
+                    Explore connected access and entry solutions
+                    designed to give you greater visibility and
+                    control.
 
                 </p>
 
             </article>
 
 
-            <!-- CARD 4 -->
+            <article class="solution-card reveal">
 
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
-                    🛎️
-
+                <div class="solution-icon">
+                    🛡
                 </div>
 
-
                 <h3>
-
-                    Smart Doorbells
-
+                    Security Monitoring
                 </h3>
-
 
                 <p>
 
-                    Connected doorbells can help you see and
-                    respond to visitors while providing useful
-                    information about activity at your entrance.
+                    Connected security technology can help monitor
+                    important areas and provide useful information
+                    when something requires attention.
 
                 </p>
 
             </article>
 
 
-            <!-- CARD 5 -->
+            <article class="solution-card reveal">
 
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
-                    👁️
-
-                </div>
-
-
-                <h3>
-
-                    Motion Detection
-
-                </h3>
-
-
-                <p>
-
-                    Smart motion sensors can detect activity
-                    and trigger configured alerts or connected
-                    security actions.
-
-                </p>
-
-            </article>
-
-
-            <!-- CARD 6 -->
-
-            <article class="security-card reveal">
-
-                <div class="security-icon">
-
+                <div class="solution-icon">
                     📱
-
                 </div>
 
-
                 <h3>
-
-                    Remote Security Access
-
+                    Remote Visibility
                 </h3>
-
 
                 <p>
 
-                    Stay connected to supported security
-                    systems and receive information through
-                    compatible mobile devices and platforms.
+                    Access supported security information remotely
+                    through compatible connected devices and
+                    applications.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    🚨
+                </div>
+
+                <h3>
+                    Smart Notifications
+                </h3>
+
+                <p>
+
+                    Configure useful alerts and notifications so
+                    important security events do not go unnoticed.
 
                 </p>
 
@@ -1779,15 +2106,13 @@ footer {
 
 <section class="security-section">
 
-    <div class="container security-feature-grid">
+    <div class="container security-grid">
 
 
         <div class="security-image reveal">
 
             <div class="security-symbol">
-
-                🛡️
-
+                🛡
             </div>
 
         </div>
@@ -1795,79 +2120,51 @@ footer {
 
         <div class="security-content reveal">
 
-
             <div class="eyebrow">
-
-                Connected Protection
-
+                Smarter Security
             </div>
 
 
             <h2>
-
-                Security That Works
-                With Your Connected World
-
+                Stay Connected to What Matters
             </h2>
 
 
             <p>
 
-                Smart security solutions bring connected
-                devices together to provide greater visibility,
-                convenient control and timely notifications
-                across your home or business environment.
+                Smart security technology can bring different
+                security devices together and make it easier to
+                understand what is happening around your property.
 
             </p>
 
 
             <ul class="feature-list">
 
-
                 <li>
-
                     <span>✓</span>
-
-                    Connected cameras and security devices
-
+                    Improve visibility around your property
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
-                    Smart access and entry solutions
-
+                    Receive useful security notifications
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
-                    Configurable security notifications
-
+                    Connect compatible security devices
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
-                    Motion and activity detection
-
+                    Monitor important areas remotely
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
-                    Remote access through supported platforms
-
+                    Build a security solution around your needs
                 </li>
-
 
             </ul>
 
@@ -1890,24 +2187,20 @@ footer {
         <div class="section-heading reveal">
 
             <div class="eyebrow">
-
                 Our Approach
-
             </div>
 
 
             <h2>
-
-                A Smarter Way to
-                Protect Your Space
-
+                Build a Smarter Security Solution
             </h2>
 
 
             <p>
 
-                We help connect the right security technologies
-                for your environment and requirements.
+                We help you identify the security technology that
+                best fits your property, requirements and desired
+                level of visibility.
 
             </p>
 
@@ -1917,92 +2210,384 @@ footer {
         <div class="steps">
 
 
-            <!-- STEP 1 -->
-
             <div class="step reveal">
 
                 <div class="step-number">
-
                     01
-
                 </div>
 
-
                 <h3>
-
                     Assess
-
                 </h3>
-
 
                 <p>
 
-                    We identify your security requirements,
-                    environment and the areas where connected
-                    security technology can help.
+                    We discuss your property, security requirements
+                    and the areas you would like to monitor or
+                    control.
 
                 </p>
 
             </div>
 
 
-            <!-- STEP 2 -->
-
             <div class="step reveal">
 
                 <div class="step-number">
-
                     02
-
                 </div>
 
-
                 <h3>
-
-                    Connect
-
+                    Design
                 </h3>
-
 
                 <p>
 
-                    Compatible cameras, sensors, access
-                    devices and other security technologies
-                    are connected to the appropriate system.
+                    We help identify suitable connected security
+                    technologies and create a solution around your
+                    requirements.
 
                 </p>
 
             </div>
 
-
-            <!-- STEP 3 -->
 
             <div class="step reveal">
 
                 <div class="step-number">
-
                     03
-
                 </div>
 
-
                 <h3>
-
-                    Protect
-
+                    Connect
                 </h3>
-
 
                 <p>
 
-                    Monitor your connected security environment
-                    and respond to relevant alerts and activity
-                    from supported devices.
+                    Compatible devices and security services can then
+                    be configured to work together as part of your
+                    smart security solution.
 
                 </p>
 
             </div>
 
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SMART SECURITY ENQUIRY
+     ========================================================= -->
+
+<section
+    class="enquiry-section"
+    id="security-enquiry"
+>
+
+    <div class="container">
+
+        <div class="enquiry-grid">
+
+
+            <!-- LEFT -->
+
+            <div class="enquiry-content reveal">
+
+                <div class="eyebrow">
+                    Smart Security
+                </div>
+
+
+                <h2>
+                    Let's Secure Your Space
+                </h2>
+
+
+                <p>
+
+                    Tell us about your home or business, the areas
+                    you would like to monitor, or the security
+                    technology you are interested in.
+
+                </p>
+
+
+                <div class="enquiry-points">
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Smart Cameras
+                            </strong>
+
+                            <p>
+                                Improve visibility around important areas.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Smart Monitoring
+                            </strong>
+
+                            <p>
+                                Stay informed about configured security events.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Connected Security
+                            </strong>
+
+                            <p>
+                                Build a security solution around your needs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="enquiry-card reveal">
+
+                <form id="smartSecurityEnquiryForm">
+
+
+                    <!--
+                        THESE VALUES ARE SENT AUTOMATICALLY
+                        TO THE NETLIFY BITRIX24 FUNCTION
+                    -->
+
+                    <input
+                        type="hidden"
+                        name="service"
+                        value="Smart Security"
+                    >
+
+
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="Dinges TechHub - Smart Security"
+                    >
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="securityName">
+                                Full Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="securityName"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="securityEmail">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="securityEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="securityPhone">
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="securityPhone"
+                                name="phone"
+                                placeholder="Your phone number"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="securityType">
+                                Enquiry Type *
+                            </label>
+
+                            <select
+                                id="securityType"
+                                name="enquiry_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select enquiry type
+                                </option>
+
+                                <option value="General Enquiry">
+                                    General Enquiry
+                                </option>
+
+                                <option value="Smart Cameras">
+                                    Smart Cameras
+                                </option>
+
+                                <option value="Smart Monitoring">
+                                    Smart Monitoring
+                                </option>
+
+                                <option value="Smart Access">
+                                    Smart Access
+                                </option>
+
+                                <option value="Security Alerts">
+                                    Security Alerts
+                                </option>
+
+                                <option value="Remote Security">
+                                    Remote Security
+                                </option>
+
+                                <option value="Business Security">
+                                    Business Security
+                                </option>
+
+                                <option value="Home Security">
+                                    Home Security
+                                </option>
+
+                                <option value="Custom Security Solution">
+                                    Custom Security Solution
+                                </option>
+
+                                <option value="Security Consultation">
+                                    Security Consultation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="securitySubject">
+                            Subject *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="securitySubject"
+                            name="subject"
+                            placeholder="What security solution are you interested in?"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="securityMessage">
+                            Tell Us About Your Requirements *
+                        </label>
+
+                        <textarea
+                            id="securityMessage"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell us about your property, the areas you would like to monitor, the security devices you are interested in, or the challenge you want to solve..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="form-submit"
+                        id="smartSecuritySubmit"
+                    >
+                        Send Smart Security Enquiry
+                    </button>
+
+
+                    <div
+                        id="smartSecurityFormMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+
+                </form>
+
+            </div>
 
         </div>
 
@@ -2019,32 +2604,27 @@ footer {
 
     <div class="container">
 
-
         <div class="cta-box reveal">
 
-
             <h2>
-
-                Ready to Make Security Smarter?
-
+                Ready for Smarter Security?
             </h2>
 
 
             <p>
 
-                Let's explore a connected security solution
-                that fits your home, business or property.
+                Let's explore how connected security technology can
+                help improve visibility, awareness and control for
+                your home or business.
 
             </p>
 
 
             <a
-                href="contact.html"
+                href="#security-enquiry"
                 class="btn btn-primary"
             >
-
-                Contact Dinges TechHub
-
+                Start Your Enquiry
             </a>
 
         </div>
@@ -2062,14 +2642,12 @@ footer {
 
     <div class="container">
 
-
         <div class="footer-grid">
 
 
             <!-- BRAND -->
 
             <div class="footer-brand">
-
 
                 <a
                     href="index.html"
@@ -2083,10 +2661,7 @@ footer {
 
 
                     <div class="logo-text">
-
-                        Dinges
-                        <span>TechHub</span>
-
+                        Dinges <span>TechHub</span>
                     </div>
 
                 </a>
@@ -2107,71 +2682,60 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Services
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
                         <a href="services.html">
-
                             All Services
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="fibre.html">
-
                             Fibre
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="wireless-broadband.html">
-
                             Wireless Broadband
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="iot.html">
-
                             Internet of Things
-
                         </a>
-
                     </li>
-
 
                     <li>
-
-                        <a href="hosting.html">
-
-                            Web & Email Hosting
-
+                        <a href="remote-monitoring.html">
+                            Remote Monitoring
                         </a>
-
                     </li>
 
+                    <li>
+                        <a href="automation-software.html">
+                            Automation Software
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-security.html">
+                            Smart Security
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
 
                 </ul>
 
@@ -2182,71 +2746,42 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Company
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
                         <a href="about.html">
-
                             About Us
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="contact.html">
-
                             Contact Us
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="help-centre.html">
-
                             Help Centre
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="login.html">
-
                             Login
-
                         </a>
-
                     </li>
-
 
                     <li>
-
                         <a href="register.html">
-
                             Register
-
                         </a>
-
                     </li>
-
 
                 </ul>
 
@@ -2257,51 +2792,30 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Contact
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
-                        <a
-                            href="mailto:support@dingestechhub.co.za"
-                        >
-
+                        <a href="mailto:support@dingestechhub.co.za">
                             support@dingestechhub.co.za
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="contact.html">
-
                             Contact Support
-
                         </a>
-
                     </li>
-
 
                     <li>
-
                         <a href="#">
-
                             Mon - Fri: 09:00 - 16:00
-
                         </a>
-
                     </li>
-
 
                 </ul>
 
@@ -2313,23 +2827,14 @@ footer {
 
         <div class="footer-bottom">
 
-
             <div>
-
-                © 2026 Dinges TechHub.
-                All rights reserved.
-
+                © 2026 Dinges TechHub. All rights reserved.
             </div>
 
 
             <div>
-
-                Smart Technology •
-                Connectivity •
-                Innovation
-
+                Smart Technology • Connectivity • Innovation
             </div>
-
 
         </div>
 
@@ -2354,16 +2859,21 @@ const menuToggle =
 const navLinks =
     document.getElementById("navLinks");
 
-menuToggle.addEventListener(
-    "click",
-    () => {
 
-        navLinks.classList.toggle(
-            "active"
-        );
+if (menuToggle && navLinks) {
 
-    }
-);
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
@@ -2378,9 +2888,13 @@ document
             "click",
             () => {
 
-                navLinks.classList.remove(
-                    "active"
-                );
+                if (navLinks) {
+
+                    navLinks.classList.remove(
+                        "active"
+                    );
+
+                }
 
             }
         );
@@ -2395,40 +2909,357 @@ document
 const revealElements =
     document.querySelectorAll(".reveal");
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
 
-            entries.forEach(entry => {
+if ("IntersectionObserver" in window) {
 
-                if (
-                    entry.isIntersecting
-                ) {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                    entry.target.classList.add(
-                        "visible"
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add(
+            "visible"
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   SMART SECURITY
+   → BITRIX24 ENQUIRY
+   ========================================================= */
+
+const smartSecurityForm =
+    document.getElementById(
+        "smartSecurityEnquiryForm"
+    );
+
+
+const smartSecuritySubmit =
+    document.getElementById(
+        "smartSecuritySubmit"
+    );
+
+
+const smartSecurityFormMessage =
+    document.getElementById(
+        "smartSecurityFormMessage"
+    );
+
+
+if (smartSecurityForm) {
+
+    smartSecurityForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            /* -------------------------------------------------
+               DISABLE BUTTON
+               ------------------------------------------------- */
+
+            smartSecuritySubmit.disabled =
+                true;
+
+            smartSecuritySubmit.textContent =
+                "Sending Enquiry...";
+
+
+            smartSecurityFormMessage.className =
+                "form-message";
+
+            smartSecurityFormMessage.textContent =
+                "";
+
+
+            /* -------------------------------------------------
+               COLLECT FORM DATA
+               ------------------------------------------------- */
+
+            const formData =
+                new FormData(
+                    smartSecurityForm
+                );
+
+
+            const data = {
+
+                name:
+                    String(
+                        formData.get("name") || ""
+                    ).trim(),
+
+                email:
+                    String(
+                        formData.get("email") || ""
+                    ).trim(),
+
+                phone:
+                    String(
+                        formData.get("phone") || ""
+                    ).trim(),
+
+                service:
+                    String(
+                        formData.get("service") || ""
+                    ).trim(),
+
+                source:
+                    String(
+                        formData.get("source") || ""
+                    ).trim(),
+
+                enquiry_type:
+                    String(
+                        formData.get("enquiry_type") || ""
+                    ).trim(),
+
+                subject:
+                    String(
+                        formData.get("subject") || ""
+                    ).trim(),
+
+                message:
+                    String(
+                        formData.get("message") || ""
+                    ).trim()
+
+            };
+
+
+            /* -------------------------------------------------
+               BASIC CLIENT VALIDATION
+               ------------------------------------------------- */
+
+            if (
+                !data.name ||
+                !data.email ||
+                !data.phone ||
+                !data.enquiry_type ||
+                !data.subject ||
+                !data.message
+            ) {
+
+                smartSecurityFormMessage.className =
+                    "form-message error";
+
+                smartSecurityFormMessage.textContent =
+                    "Please complete all required fields.";
+
+                smartSecuritySubmit.disabled =
+                    false;
+
+                smartSecuritySubmit.textContent =
+                    "Send Smart Security Enquiry";
+
+                return;
+
+            }
+
+
+            /* -------------------------------------------------
+               SEND TO NETLIFY FUNCTION
+               ------------------------------------------------- */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    data
+                                )
+
+                        }
                     );
 
-                    revealObserver.unobserve(
-                        entry.target
+
+                /* -------------------------------------------------
+                   SAFELY READ SERVER RESPONSE
+                   ------------------------------------------------- */
+
+                const responseText =
+                    await response.text();
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
+
+                    throw new Error(
+                        "The server returned an invalid response."
                     );
 
                 }
 
-            });
 
-        },
-        {
-            threshold: 0.12
+                /* -------------------------------------------------
+                   SUCCESS
+                   ------------------------------------------------- */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    smartSecurityFormMessage.className =
+                        "form-message success";
+
+
+                    smartSecurityFormMessage.textContent =
+                        "Thank you! Your smart security enquiry has been received successfully. Our team will contact you shortly.";
+
+
+                    smartSecurityForm.reset();
+
+
+                    /*
+                     * RESTORE HIDDEN VALUES AFTER FORM RESET
+                     */
+
+                    const serviceField =
+                        smartSecurityForm.querySelector(
+                            'input[name="service"]'
+                        );
+
+                    const sourceField =
+                        smartSecurityForm.querySelector(
+                            'input[name="source"]'
+                        );
+
+
+                    if (serviceField) {
+
+                        serviceField.value =
+                            "Smart Security";
+
+                    }
+
+
+                    if (sourceField) {
+
+                        sourceField.value =
+                            "Dinges TechHub - Smart Security";
+
+                    }
+
+
+                    smartSecurityFormMessage
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "nearest"
+                        });
+
+                } else {
+
+                    throw new Error(
+                        result.message ||
+                        "Unable to send your enquiry."
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Smart Security enquiry error:",
+                    error
+                );
+
+
+                smartSecurityFormMessage.className =
+                    "form-message error";
+
+
+                smartSecurityFormMessage.textContent =
+                    error.message ||
+                    "Something went wrong while sending your enquiry. Please try again.";
+
+            }
+
+
+            /* -------------------------------------------------
+               RESTORE BUTTON
+               ------------------------------------------------- */
+
+            smartSecuritySubmit.disabled =
+                false;
+
+            smartSecuritySubmit.textContent =
+                "Send Smart Security Enquiry";
+
         }
     );
 
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-});
+}
 
 </script>
 
