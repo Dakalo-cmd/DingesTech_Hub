@@ -30,6 +30,7 @@
     --purple-dark: #3C1542;
     --purple: #7A2C78;
     --purple-light: #9d4c9b;
+
     --gold: #FFBB42;
 
     --black: #020202;
@@ -54,23 +55,16 @@
    ========================================================= */
 
 * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
 }
 
-
 html {
-
     scroll-behavior: smooth;
 }
 
-
 body {
-
     font-family:
         Arial,
         Helvetica,
@@ -86,29 +80,24 @@ body {
         hidden;
 }
 
-
 a {
-
-    text-decoration:
-        none;
-
-    color:
-        inherit;
+    text-decoration: none;
+    color: inherit;
 }
-
 
 img {
-
-    max-width:
-        100%;
-
-    display:
-        block;
+    max-width: 100%;
+    display: block;
 }
 
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
 
 .container {
-
     width:
         min(92%, var(--container));
 
@@ -474,32 +463,30 @@ img {
 @keyframes rotateCircle {
 
     from {
-
         transform:
             rotate(0deg);
     }
 
     to {
-
         transform:
             rotate(360deg);
     }
+
 }
 
 
 @keyframes rotateCircleReverse {
 
     from {
-
         transform:
             rotate(360deg);
     }
 
     to {
-
         transform:
             rotate(0deg);
     }
+
 }
 
 
@@ -770,17 +757,17 @@ img {
 
 @keyframes pulseCore {
 
-    0%, 100% {
-
+    0%,
+    100% {
         transform:
             scale(1);
     }
 
     50% {
-
         transform:
             scale(1.05);
     }
+
 }
 
 
@@ -881,17 +868,17 @@ img {
 
 @keyframes floatDevice {
 
-    0%, 100% {
-
+    0%,
+    100% {
         transform:
             translateY(0);
     }
 
     50% {
-
         transform:
             translateY(-12px);
     }
+
 }
 
 
@@ -1481,6 +1468,400 @@ img {
 
 
 /* =========================================================
+   REMOTE MONITORING ENQUIRY
+   ========================================================= */
+
+.enquiry-section {
+
+    padding:
+        100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--background),
+            #ffffff
+        );
+}
+
+
+.enquiry-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap:
+        70px;
+
+    align-items:
+        center;
+}
+
+
+.enquiry-content .eyebrow {
+
+    color:
+        var(--purple);
+}
+
+
+.enquiry-content h2 {
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        clamp(34px, 4vw, 50px);
+
+    line-height:
+        1.1;
+
+    margin-bottom:
+        20px;
+}
+
+
+.enquiry-content > p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.8;
+
+    font-size:
+        16px;
+
+    max-width:
+        520px;
+
+    margin-bottom:
+        35px;
+}
+
+
+.enquiry-points {
+
+    display:
+        grid;
+
+    gap:
+        20px;
+}
+
+
+.enquiry-point {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    align-items:
+        flex-start;
+}
+
+
+.enquiry-point > span {
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color:
+        var(--purple);
+
+    font-weight:
+        900;
+}
+
+
+.enquiry-point strong {
+
+    display:
+        block;
+
+    color:
+        var(--purple-dark);
+
+    margin-bottom:
+        5px;
+}
+
+
+.enquiry-point p {
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.enquiry-card {
+
+    background:
+        var(--white);
+
+    padding:
+        38px;
+
+    border-radius:
+        24px;
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    box-shadow:
+        0 20px 60px
+        rgba(60,21,66,0.10);
+}
+
+
+.form-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        18px;
+}
+
+
+.form-group {
+
+    margin-bottom:
+        20px;
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        8px;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width:
+        100%;
+
+    border:
+        1px solid
+        #ded9df;
+
+    border-radius:
+        12px;
+
+    background:
+        #faf9fb;
+
+    color:
+        var(--black);
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    padding:
+        14px 15px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.form-group textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        145px;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--purple);
+
+    background:
+        var(--white);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(122,44,120,0.08);
+}
+
+
+.form-submit {
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    padding:
+        15px 22px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+}
+
+
+.form-submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,187,66,0.25);
+}
+
+
+.form-submit:disabled {
+
+    opacity:
+        0.65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+}
+
+
+.form-message {
+
+    display:
+        none;
+
+    margin-top:
+        18px;
+
+    padding:
+        14px 16px;
+
+    border-radius:
+        12px;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+}
+
+
+.form-message.success {
+
+    display:
+        block;
+
+    background:
+        rgba(46,125,50,0.10);
+
+    color:
+        #236b28;
+}
+
+
+.form-message.error {
+
+    display:
+        block;
+
+    background:
+        rgba(190,40,40,0.10);
+
+    color:
+        #9b2525;
+}
+
+
+/* =========================================================
    CTA
    ========================================================= */
 
@@ -1758,7 +2139,6 @@ footer {
 
 
     .nav-links.active {
-
         display:
             flex;
     }
@@ -1775,14 +2155,14 @@ footer {
 
 
     .menu-toggle {
-
         display:
             block;
     }
 
 
     .hero-grid,
-    .monitoring-feature-grid {
+    .monitoring-feature-grid,
+    .enquiry-grid {
 
         grid-template-columns:
             1fr;
@@ -1790,14 +2170,12 @@ footer {
 
 
     .hero {
-
         padding-top:
             130px;
     }
 
 
     .monitoring-visual {
-
         min-height:
             350px;
     }
@@ -1823,13 +2201,19 @@ footer {
             repeat(2, 1fr);
     }
 
+
+    .enquiry-grid {
+
+        gap:
+            45px;
+    }
+
 }
 
 
 @media (max-width: 600px) {
 
     .nav-container {
-
         min-height:
             70px;
     }
@@ -1846,7 +2230,6 @@ footer {
 
 
     .logo-text {
-
         font-size:
             16px;
     }
@@ -1863,7 +2246,6 @@ footer {
 
 
     .hero-description {
-
         font-size:
             16px;
     }
@@ -1913,14 +2295,12 @@ footer {
 
 
     .monitoring-node-1 {
-
         left:
             3%;
     }
 
 
     .monitoring-node-2 {
-
         right:
             0;
     }
@@ -1937,6 +2317,20 @@ footer {
 
         min-height:
             300px;
+    }
+
+
+    .enquiry-card {
+
+        padding:
+            25px 20px;
+    }
+
+
+    .form-row {
+
+        grid-template-columns:
+            1fr;
     }
 
 
@@ -1983,18 +2377,13 @@ footer {
             class="logo"
         >
 
-            <!-- YOUR COMPANY LOGO -->
-
             <img
                 src="dingestech-logo.png"
                 alt="Dinges TechHub Logo"
             >
 
             <div class="logo-text">
-
-                Dinges
-                <span>TechHub</span>
-
+                Dinges <span>TechHub</span>
             </div>
 
         </a>
@@ -2004,10 +2393,9 @@ footer {
             class="menu-toggle"
             id="menuToggle"
             aria-label="Open menu"
+            type="button"
         >
-
             ☰
-
         </button>
 
 
@@ -2053,14 +2441,12 @@ footer {
             </li>
 
             <li>
-
                 <a
                     href="cart.html"
                     class="nav-cta"
                 >
                     Cart
                 </a>
-
             </li>
 
         </ul>
@@ -2082,10 +2468,7 @@ footer {
         <div class="hero-content reveal">
 
             <div class="breadcrumb">
-
-                INTERNET OF THINGS /
-                REMOTE MONITORING
-
+                INTERNET OF THINGS / REMOTE MONITORING
             </div>
 
 
@@ -2113,19 +2496,15 @@ footer {
                     href="#monitoring"
                     class="btn btn-primary"
                 >
-
                     Explore Monitoring
-
                 </a>
 
 
                 <a
-                    href="contact.html"
+                    href="#remote-monitoring-enquiry"
                     class="btn btn-outline"
                 >
-
-                    Talk to Us
-
+                    Get Started
                 </a>
 
             </div>
@@ -2136,7 +2515,6 @@ footer {
         <!-- MONITORING VISUAL -->
 
         <div class="monitoring-visual reveal">
-
 
             <div
                 class="monitoring-node monitoring-node-1"
@@ -2169,9 +2547,7 @@ footer {
             <div class="monitoring-core">
 
                 <div class="monitoring-core-inner">
-
                     👁
-
                 </div>
 
             </div>
@@ -2191,20 +2567,15 @@ footer {
 
     <div class="container">
 
-
         <div class="section-heading reveal">
 
             <div class="eyebrow">
-
                 Connected Visibility
-
             </div>
 
 
             <h2>
-
                 Remote Monitoring
-
             </h2>
 
 
@@ -2235,25 +2606,18 @@ footer {
 
     <div class="container">
 
-
         <div class="monitoring-grid">
 
 
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     📹
-
                 </div>
 
-
                 <h3>
-
                     Security Monitoring
-
                 </h3>
-
 
                 <p>
 
@@ -2269,18 +2633,12 @@ footer {
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     🏢
-
                 </div>
 
-
                 <h3>
-
                     Business Monitoring
-
                 </h3>
-
 
                 <p>
 
@@ -2296,18 +2654,12 @@ footer {
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     ⚙️
-
                 </div>
 
-
                 <h3>
-
                     Equipment Monitoring
-
                 </h3>
-
 
                 <p>
 
@@ -2323,18 +2675,12 @@ footer {
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     🌡️
-
                 </div>
 
-
                 <h3>
-
                     Environment Monitoring
-
                 </h3>
-
 
                 <p>
 
@@ -2350,18 +2696,12 @@ footer {
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     📱
-
                 </div>
 
-
                 <h3>
-
                     Mobile Access
-
                 </h3>
-
 
                 <p>
 
@@ -2377,18 +2717,12 @@ footer {
             <article class="monitoring-card reveal">
 
                 <div class="monitoring-icon">
-
                     🔔
-
                 </div>
 
-
                 <h3>
-
                     Smart Alerts
-
                 </h3>
-
 
                 <p>
 
@@ -2414,17 +2748,13 @@ footer {
 
 <section class="monitoring-section">
 
-    <div
-        class="container monitoring-feature-grid"
-    >
+    <div class="container monitoring-feature-grid">
 
 
         <div class="monitoring-image reveal">
 
             <div class="monitor-symbol">
-
                 👁
-
             </div>
 
         </div>
@@ -2432,19 +2762,14 @@ footer {
 
         <div class="monitoring-content reveal">
 
-
             <div class="eyebrow">
-
                 Visibility Anywhere
-
             </div>
 
 
             <h2>
-
                 Know What's Happening,
                 Even When You're Away
-
             </h2>
 
 
@@ -2460,52 +2785,31 @@ footer {
 
             <ul class="feature-list">
 
-
                 <li>
-
                     <span>✓</span>
-
                     Monitor connected environments remotely
-
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
                     Receive alerts and notifications
-
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
                     Access information from supported devices
-
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
                     Identify unusual conditions earlier
-
                 </li>
 
-
                 <li>
-
                     <span>✓</span>
-
                     Create monitoring solutions for homes
                     and businesses
-
                 </li>
-
 
             </ul>
 
@@ -2527,19 +2831,14 @@ footer {
 
         <div class="section-heading reveal">
 
-
             <div class="eyebrow">
-
                 Our Approach
-
             </div>
 
 
             <h2>
-
                 From Connected Device
                 to Remote Visibility
-
             </h2>
 
 
@@ -2560,18 +2859,12 @@ footer {
             <div class="step reveal">
 
                 <div class="step-number">
-
                     01
-
                 </div>
 
-
                 <h3>
-
                     Connect
-
                 </h3>
-
 
                 <p>
 
@@ -2587,18 +2880,12 @@ footer {
             <div class="step reveal">
 
                 <div class="step-number">
-
                     02
-
                 </div>
 
-
                 <h3>
-
                     Monitor
-
                 </h3>
-
 
                 <p>
 
@@ -2614,18 +2901,12 @@ footer {
             <div class="step reveal">
 
                 <div class="step-number">
-
                     03
-
                 </div>
 
-
                 <h3>
-
                     Respond
-
                 </h3>
-
 
                 <p>
 
@@ -2646,6 +2927,350 @@ footer {
 
 
 <!-- =========================================================
+     REMOTE MONITORING ENQUIRY
+     ========================================================= -->
+
+<section
+    class="enquiry-section"
+    id="remote-monitoring-enquiry"
+>
+
+    <div class="container">
+
+        <div class="enquiry-grid">
+
+
+            <!-- =================================================
+                 LEFT CONTENT
+                 ================================================= -->
+
+            <div class="enquiry-content reveal">
+
+                <div class="eyebrow">
+                    Remote Monitoring
+                </div>
+
+
+                <h2>
+                    Let's Monitor What Matters
+                </h2>
+
+
+                <p>
+
+                    Tell us what you would like to monitor,
+                    where the monitoring will be used, or what
+                    type of connected environment you would
+                    like to manage remotely.
+
+                </p>
+
+
+                <div class="enquiry-points">
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Security Monitoring
+                            </strong>
+
+                            <p>
+                                Monitor compatible cameras and
+                                connected security devices.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Equipment Monitoring
+                            </strong>
+
+                            <p>
+                                Keep track of connected equipment
+                                and important operating conditions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Smart Alerts
+                            </strong>
+
+                            <p>
+                                Receive useful notifications when
+                                configured conditions require attention.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORM
+                 ================================================= -->
+
+            <div class="enquiry-card reveal">
+
+                <form
+                    id="remoteMonitoringEnquiryForm"
+                    novalidate
+                >
+
+                    <!-- =========================================
+                         BITRIX24 SERVICE INFORMATION
+                         ========================================= -->
+
+                    <input
+                        type="hidden"
+                        name="service"
+                        value="Remote Monitoring"
+                    >
+
+
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="Dinges TechHub - Remote Monitoring"
+                    >
+
+
+                    <!-- =========================================
+                         NAME + EMAIL
+                         ========================================= -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="remoteName">
+                                Full Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="remoteName"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="remoteEmail">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="remoteEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =========================================
+                         PHONE + TYPE
+                         ========================================= -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="remotePhone">
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="remotePhone"
+                                name="phone"
+                                placeholder="Your phone number"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="remoteType">
+                                Monitoring Type *
+                            </label>
+
+                            <select
+                                id="remoteType"
+                                name="enquiry_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select monitoring type
+                                </option>
+
+                                <option value="General Enquiry">
+                                    General Enquiry
+                                </option>
+
+                                <option value="Security Monitoring">
+                                    Security Monitoring
+                                </option>
+
+                                <option value="Business Monitoring">
+                                    Business Monitoring
+                                </option>
+
+                                <option value="Equipment Monitoring">
+                                    Equipment Monitoring
+                                </option>
+
+                                <option value="Environment Monitoring">
+                                    Environment Monitoring
+                                </option>
+
+                                <option value="Mobile Monitoring">
+                                    Mobile Monitoring
+                                </option>
+
+                                <option value="Smart Alerts">
+                                    Smart Alerts
+                                </option>
+
+                                <option value="Custom Monitoring">
+                                    Custom Monitoring
+                                </option>
+
+                                <option value="Monitoring Consultation">
+                                    Monitoring Consultation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =========================================
+                         SUBJECT
+                         ========================================= -->
+
+                    <div class="form-group">
+
+                        <label for="remoteSubject">
+                            Subject *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="remoteSubject"
+                            name="subject"
+                            placeholder="What would you like to monitor?"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- =========================================
+                         MESSAGE
+                         ========================================= -->
+
+                    <div class="form-group">
+
+                        <label for="remoteMessage">
+                            Tell Us About Your Requirements *
+                        </label>
+
+                        <textarea
+                            id="remoteMessage"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell us about your home, business, equipment, environment or devices you would like to monitor..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         SUBMIT
+                         ========================================= -->
+
+                    <button
+                        type="submit"
+                        class="form-submit"
+                        id="remoteMonitoringSubmit"
+                    >
+                        Send Monitoring Enquiry
+                    </button>
+
+
+                    <!-- =========================================
+                         RESPONSE MESSAGE
+                         ========================================= -->
+
+                    <div
+                        id="remoteMonitoringFormMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
      CTA
      ========================================================= -->
 
@@ -2653,14 +3278,10 @@ footer {
 
     <div class="container">
 
-
         <div class="cta-box reveal">
 
-
             <h2>
-
                 Want Better Visibility?
-
             </h2>
 
 
@@ -2674,12 +3295,10 @@ footer {
 
 
             <a
-                href="contact.html"
+                href="#remote-monitoring-enquiry"
                 class="btn btn-primary"
             >
-
-                Contact Dinges TechHub
-
+                Start Your Enquiry
             </a>
 
         </div>
@@ -2697,14 +3316,12 @@ footer {
 
     <div class="container">
 
-
         <div class="footer-grid">
 
 
             <!-- BRAND -->
 
             <div class="footer-brand">
-
 
                 <a
                     href="index.html"
@@ -2718,10 +3335,8 @@ footer {
 
 
                     <div class="logo-text">
-
                         Dinges
                         <span>TechHub</span>
-
                     </div>
 
                 </a>
@@ -2742,71 +3357,54 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Services
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
                         <a href="services.html">
-
                             All Services
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="fibre.html">
-
                             Fibre
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="wireless-broadband.html">
-
                             Wireless Broadband
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="iot.html">
-
                             Internet of Things
-
                         </a>
-
                     </li>
-
 
                     <li>
-
-                        <a href="hosting.html">
-
-                            Web & Email Hosting
-
+                        <a href="automation-software.html">
+                            Automation Software
                         </a>
-
                     </li>
 
+                    <li>
+                        <a href="remote-monitoring.html">
+                            Remote Monitoring
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
 
                 </ul>
 
@@ -2817,71 +3415,42 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Company
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
                         <a href="about.html">
-
                             About Us
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="contact.html">
-
                             Contact Us
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="help-centre.html">
-
                             Help Centre
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="login.html">
-
                             Login
-
                         </a>
-
                     </li>
-
 
                     <li>
-
                         <a href="register.html">
-
                             Register
-
                         </a>
-
                     </li>
-
 
                 </ul>
 
@@ -2892,51 +3461,32 @@ footer {
 
             <div class="footer-column">
 
-
                 <h4>
-
                     Contact
-
                 </h4>
 
 
                 <ul>
 
-
                     <li>
-
                         <a
                             href="mailto:support@dingestechhub.co.za"
                         >
-
                             support@dingestechhub.co.za
-
                         </a>
-
                     </li>
 
-
                     <li>
-
                         <a href="contact.html">
-
                             Contact Support
-
                         </a>
-
                     </li>
-
 
                     <li>
-
                         <a href="#">
-
                             Mon - Fri: 09:00 - 16:00
-
                         </a>
-
                     </li>
-
 
                 </ul>
 
@@ -2948,23 +3498,17 @@ footer {
 
         <div class="footer-bottom">
 
-
             <div>
-
                 © 2026 Dinges TechHub.
                 All rights reserved.
-
             </div>
 
 
             <div>
-
                 Smart Technology •
                 Connectivity •
                 Innovation
-
             </div>
-
 
         </div>
 
@@ -2979,6 +3523,7 @@ footer {
 
 <script>
 
+
 /* =========================================================
    MOBILE MENU
    ========================================================= */
@@ -2986,24 +3531,32 @@ footer {
 const menuToggle =
     document.getElementById("menuToggle");
 
+
 const navLinks =
     document.getElementById("navLinks");
 
 
-menuToggle.addEventListener(
-    "click",
-    () => {
+if (
+    menuToggle &&
+    navLinks
+) {
 
-        navLinks.classList.toggle(
-            "active"
-        );
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            navLinks.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
-   CLOSE MENU WHEN LINK IS CLICKED
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
    ========================================================= */
 
 document
@@ -3014,9 +3567,13 @@ document
             "click",
             () => {
 
-                navLinks.classList.remove(
-                    "active"
-                );
+                if (navLinks) {
+
+                    navLinks.classList.remove(
+                        "active"
+                    );
+
+                }
 
             }
         );
@@ -3034,42 +3591,404 @@ const revealElements =
     );
 
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+if (
+    "IntersectionObserver"
+    in window
+) {
 
-            entries.forEach(entry => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                if (
-                    entry.isIntersecting
-                ) {
+                entries.forEach(
+                    entry => {
 
-                    entry.target.classList.add(
-                        "visible"
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+                threshold:
+                    0.12
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+} else {
+
+    revealElements.forEach(
+        element => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REMOTE MONITORING
+   → BITRIX24 ENQUIRY
+   ========================================================= */
+
+const remoteMonitoringForm =
+    document.getElementById(
+        "remoteMonitoringEnquiryForm"
+    );
+
+
+const remoteMonitoringSubmit =
+    document.getElementById(
+        "remoteMonitoringSubmit"
+    );
+
+
+const remoteMonitoringFormMessage =
+    document.getElementById(
+        "remoteMonitoringFormMessage"
+    );
+
+
+if (
+    remoteMonitoringForm &&
+    remoteMonitoringSubmit &&
+    remoteMonitoringFormMessage
+) {
+
+    remoteMonitoringForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            /* =================================================
+               CLIENT-SIDE VALIDATION
+               ================================================= */
+
+            if (
+                !remoteMonitoringForm.checkValidity()
+            ) {
+
+                remoteMonitoringForm.reportValidity();
+
+                return;
+
+            }
+
+
+            /* =================================================
+               DISABLE BUTTON
+               ================================================= */
+
+            remoteMonitoringSubmit.disabled =
+                true;
+
+            remoteMonitoringSubmit.textContent =
+                "Sending Enquiry...";
+
+
+            remoteMonitoringFormMessage.className =
+                "form-message";
+
+            remoteMonitoringFormMessage.textContent =
+                "";
+
+
+            /* =================================================
+               COLLECT FORM DATA
+               ================================================= */
+
+            const formData =
+                new FormData(
+                    remoteMonitoringForm
+                );
+
+
+            const data = {
+
+                name:
+                    String(
+                        formData.get("name") || ""
+                    ).trim(),
+
+                email:
+                    String(
+                        formData.get("email") || ""
+                    ).trim(),
+
+                phone:
+                    String(
+                        formData.get("phone") || ""
+                    ).trim(),
+
+                service:
+                    String(
+                        formData.get("service") || ""
+                    ).trim(),
+
+                source:
+                    String(
+                        formData.get("source") || ""
+                    ).trim(),
+
+                enquiry_type:
+                    String(
+                        formData.get("enquiry_type") || ""
+                    ).trim(),
+
+                subject:
+                    String(
+                        formData.get("subject") || ""
+                    ).trim(),
+
+                message:
+                    String(
+                        formData.get("message") || ""
+                    ).trim()
+
+            };
+
+
+            /* =================================================
+               BASIC SAFETY CHECK
+               ================================================= */
+
+            if (
+                !data.name ||
+                !data.email ||
+                !data.phone ||
+                !data.enquiry_type ||
+                !data.subject ||
+                !data.message
+            ) {
+
+                remoteMonitoringFormMessage.className =
+                    "form-message error";
+
+                remoteMonitoringFormMessage.textContent =
+                    "Please complete all required fields.";
+
+                remoteMonitoringSubmit.disabled =
+                    false;
+
+                remoteMonitoringSubmit.textContent =
+                    "Send Monitoring Enquiry";
+
+                return;
+
+            }
+
+
+            /* =================================================
+               SEND TO NETLIFY FUNCTION
+               ================================================= */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    data
+                                )
+
+                        }
                     );
 
-                    revealObserver.unobserve(
-                        entry.target
+
+                /* =================================================
+                   READ SERVER RESPONSE
+                   ================================================= */
+
+                const responseText =
+                    await response.text();
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch (
+                    jsonError
+                ) {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
+
+                    throw new Error(
+                        "The server returned an invalid response."
                     );
 
                 }
 
-            });
 
-        },
-        {
-            threshold: 0.12
+                /* =================================================
+                   SUCCESS
+                   ================================================= */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    remoteMonitoringFormMessage.className =
+                        "form-message success";
+
+
+                    remoteMonitoringFormMessage.textContent =
+                        "Thank you! Your remote monitoring enquiry has been received successfully. Our team will contact you shortly.";
+
+
+                    remoteMonitoringForm.reset();
+
+
+                    /* =================================================
+                       RESTORE HIDDEN VALUES AFTER RESET
+                       ================================================= */
+
+                    const serviceField =
+                        remoteMonitoringForm.querySelector(
+                            'input[name="service"]'
+                        );
+
+
+                    const sourceField =
+                        remoteMonitoringForm.querySelector(
+                            'input[name="source"]'
+                        );
+
+
+                    if (
+                        serviceField
+                    ) {
+
+                        serviceField.value =
+                            "Remote Monitoring";
+
+                    }
+
+
+                    if (
+                        sourceField
+                    ) {
+
+                        sourceField.value =
+                            "Dinges TechHub - Remote Monitoring";
+
+                    }
+
+
+                    /* =================================================
+                       SCROLL TO MESSAGE
+                       ================================================= */
+
+                    remoteMonitoringFormMessage.scrollIntoView(
+                        {
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "nearest"
+                        }
+                    );
+
+                } else {
+
+                    throw new Error(
+                        result.message ||
+                        "Unable to send your enquiry."
+                    );
+
+                }
+
+
+            } catch (
+                error
+            ) {
+
+                console.error(
+                    "Remote monitoring enquiry error:",
+                    error
+                );
+
+
+                remoteMonitoringFormMessage.className =
+                    "form-message error";
+
+
+                remoteMonitoringFormMessage.textContent =
+                    error.message ||
+                    "Something went wrong while sending your enquiry. Please try again.";
+
+            }
+
+
+            /* =================================================
+               RESTORE BUTTON
+               ================================================= */
+
+            remoteMonitoringSubmit.disabled =
+                false;
+
+            remoteMonitoringSubmit.textContent =
+                "Send Monitoring Enquiry";
+
         }
     );
 
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(
-        element
-    );
-
-});
+}
 
 </script>
 
