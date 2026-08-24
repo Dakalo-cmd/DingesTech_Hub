@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cart | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Review your selected Dinges TechHub services and proceed to checkout."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB — CART PAGE
+   ========================================================= */
+
+:root{
+    --purple-dark:#3C1542;
+    --purple:#7A2C78;
+    --grey:#949393;
+    --light-grey:#D9D9D9;
+    --black:#020202;
+    --gold:#FFBB42;
+    --white:#ffffff;
+
+    --page-bg:#f7f7f8;
+    --border:#e9e9ec;
+    --muted:#707070;
+    --danger:#b00020;
+
+    --shadow:
+        0 10px 35px rgba(0,0,0,.07);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--page-bg);
+    color:var(--black);
+
+    min-height:100vh;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+
+    background:var(--purple-dark);
+
+    color:white;
+
+    padding:
+        8px
+        5%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    font-size:13px;
+}
+
+.topbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.2s ease;
+}
+
+.topbar a:hover{
+
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+
+    background:white;
+
+    min-height:76px;
+
+    padding:
+        12px
+        5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    border-bottom:
+        1px solid
+        #eeeeee;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+}
+
+.logo img{
+
+    width:135px;
+
+    max-width:135px;
+
+    height:auto;
+
+    display:block;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:26px;
+
+    margin-left:auto;
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:
+        color .2s ease;
+}
+
+.nav-links a:hover{
+
+    color:var(--purple);
+}
+
+.nav-links a.active{
+
+    color:var(--purple);
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   CART BUTTON
+   ========================================================= */
+
+.cart-button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    background:var(--purple-dark);
+
+    color:white !important;
+
+    padding:
+        10px
+        15px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.cart-button:hover{
+
+    background:var(--purple);
+
+    transform:translateY(-1px);
+}
+
+.cart-icon{
+
+    font-size:16px;
+
+    line-height:1;
+}
+
+.cart-count{
+
+    min-width:20px;
+
+    height:20px;
+
+    padding:
+        0
+        5px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--gold);
+
+    color:var(--black);
+
+    border-radius:50%;
+
+    font-size:11px;
+
+    font-weight:800;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.cart-hero{
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,187,66,.16),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:white;
+
+    padding:
+        65px
+        5%;
+
+    text-align:center;
+}
+
+.cart-hero h1{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+    font-weight:800;
+
+    letter-spacing:-.5px;
+}
+
+.cart-hero p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:#eeeeee;
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   CART CONTAINER
+   ========================================================= */
+
+.cart-container{
+
+    width:min(
+        1200px,
+        90%
+    );
+
+    margin:
+        50px
+        auto
+        0;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        350px;
+
+    gap:30px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   CART BOX
+   ========================================================= */
+
+.cart-box{
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+}
+
+.cart-box-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:5px;
+}
+
+.cart-box h2{
+
+    color:var(--purple-dark);
+
+    font-size:22px;
+}
+
+.cart-items-count{
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   CART ITEM
+   ========================================================= */
+
+.cart-item{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(180px,1fr)
+        minmax(100px,auto)
+        auto
+        auto;
+
+    gap:20px;
+
+    align-items:center;
+
+    padding:
+        22px
+        0;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+.cart-item:last-child{
+
+    border-bottom:none;
+
+    padding-bottom:5px;
+}
+
+
+/* =========================================================
+   ITEM INFORMATION
+   ========================================================= */
+
+.item-name{
+
+    font-weight:800;
+
+    color:var(--purple-dark);
+
+    font-size:15px;
+
+    line-height:1.4;
+}
+
+.item-type{
+
+    font-size:12px;
+
+    color:var(--grey);
+
+    margin-top:5px;
+}
+
+.item-setup{
+
+    font-size:12px;
+
+    color:#777;
+
+    margin-top:5px;
+}
+
+.item-price{
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    color:#222;
+}
+
+.item-price small{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:11px;
+
+    font-weight:400;
+
+    color:#888;
+}
+
+
+/* =========================================================
+   QUANTITY
+   ========================================================= */
+
+.quantity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.quantity button{
+
+    width:30px;
+
+    height:30px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#eeeeee;
+
+    color:#222;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+.quantity button:hover{
+
+    background:var(--light-grey);
+
+    transform:translateY(-1px);
+}
+
+.quantity button:active{
+
+    transform:translateY(0);
+}
+
+.quantity span{
+
+    min-width:25px;
+
+    text-align:center;
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   REMOVE
+   ========================================================= */
+
+.remove-btn{
+
+    border:none;
+
+    background:none;
+
+    color:var(--danger);
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    white-space:nowrap;
+
+    padding:5px;
+}
+
+.remove-btn:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   ORDER SUMMARY
+   ========================================================= */
+
+.summary{
+
+    background:white;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    height:max-content;
+
+    position:sticky;
+
+    top:100px;
+}
+
+.summary h2{
+
+    color:var(--purple-dark);
+
+    margin-bottom:22px;
+
+    font-size:22px;
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    padding:10px 0;
+
+    color:#555;
+
+    font-size:14px;
+}
+
+.summary-row strong{
+
+    color:#222;
+
+    white-space:nowrap;
+}
+
+.summary-row small{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#888;
+
+    font-size:11px;
+}
+
+.summary-total{
+
+    border-top:
+        1px solid
+        #dddddd;
+
+    margin-top:15px;
+
+    padding-top:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    color:var(--purple-dark);
+}
+
+
+/* =========================================================
+   CHECKOUT BUTTON
+   ========================================================= */
+
+.checkout-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
+
+    border:none;
+
+    background:var(--gold);
+
+    color:var(--black);
+
+    padding:15px;
+
+    margin-top:25px;
+
+    border-radius:8px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        opacity .2s ease;
+}
+
+.checkout-btn:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(.96);
+}
+
+.checkout-btn.disabled{
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+    pointer-events:none;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   CONTINUE SHOPPING
+   ========================================================= */
+
+.continue-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    margin-top:15px;
+
+    padding:13px;
+
+    border:
+        1px solid
+        var(--purple);
+
+    color:var(--purple);
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.continue-btn:hover{
+
+    background:var(--purple);
+
+    color:white;
+}
+
+
+/* =========================================================
+   EMPTY CART
+   ========================================================= */
+
+.empty-cart{
+
+    text-align:center;
+
+    padding:
+        55px
+        20px;
+}
+
+.empty-cart-icon{
+
+    width:70px;
+
+    height:70px;
+
+    margin:
+        0
+        auto
+        18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#f3edf4;
+
+    font-size:32px;
+}
+
+.empty-cart h2{
+
+    color:var(--purple-dark);
+
+    margin-bottom:10px;
+}
+
+.empty-cart p{
+
+    color:#777;
+
+    margin-bottom:22px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+
+    background:var(--purple-dark);
+
+    color:white;
+
+    padding:
+        45px
+        5%
+        25px;
+
+    margin-top:80px;
+}
+
+.footer-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr;
+
+    gap:40px;
+}
+
+
+/* =========================================================
+   FOOTER LOGO
+   ========================================================= */
+
+.footer-logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    margin-bottom:14px;
+}
+
+.footer-logo img{
+
+    width:105px;
+
+    max-width:105px;
+
+    height:auto;
+
+    display:block;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+footer h3{
+
+    margin-bottom:15px;
+
+    font-size:16px;
+}
+
+footer p{
+
+    color:#dddddd;
+
+    line-height:1.7;
+
+    font-size:14px;
+
+    max-width:400px;
+}
+
+footer a{
+
+    display:block;
+
+    color:#dddddd;
+
+    text-decoration:none;
+
+    margin:8px 0;
+
+    font-size:14px;
+
+    transition:
+        color .2s ease;
+}
+
+footer a:hover{
+
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:
+        35px
+        auto
+        0;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.15);
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:#bbbbbb;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media(max-width:850px){
+
+    .topbar{
+
+        display:none;
+    }
+
+    .navbar{
+
+        padding:
+            12px
+            5%;
+
+        min-height:68px;
+
+        gap:12px;
+    }
+
+    .logo img{
+
+        width:115px;
+
+        max-width:115px;
+    }
+
+    .nav-links{
+
+        display:none;
+    }
+
+    .cart-button{
+
+        margin-left:auto;
+
+        padding:
+            9px
+            12px;
+
+        font-size:13px;
+    }
+
+    .cart-hero{
+
+        padding:
+            50px
+            5%;
+    }
+
+    .cart-hero h1{
+
+        font-size:34px;
+    }
+
+    .cart-container{
+
+        width:94%;
+
+        grid-template-columns:1fr;
+
+        margin-top:35px;
+    }
+
+    .summary{
+
+        position:static;
+    }
+
+    .cart-item{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+
+        padding:
+            20px
+            0;
+    }
+
+    .item-price{
+
+        margin-top:0;
+    }
+
+    .quantity{
+
+        margin-top:2px;
+    }
+
+    .remove-btn{
+
+        justify-self:start;
+    }
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .footer-logo img{
+
+        width:95px;
+
+        max-width:95px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media(max-width:480px){
+
+    .logo img{
+
+        width:105px;
+
+        max-width:105px;
+    }
+
+    .cart-button{
+
+        padding:
+            8px
+            10px;
+    }
+
+    .cart-button .cart-label{
+
+        display:none;
+    }
+
+    .cart-count{
+
+        font-size:10px;
+    }
+
+    .cart-box,
+    .summary{
+
+        padding:20px;
+    }
+
+    .cart-hero h1{
+
+        font-size:30px;
+    }
+
+    .cart-hero p{
+
+        font-size:14px;
+    }
+
+    .summary-total{
+
+        font-size:18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+     ========================================================= -->
+
+<div class="topbar">
+
+    <div>
+        Dinges TechHub — Technology That Connects You
+    </div>
+
+    <div>
+
+        <a href="mailto:support@dingestechhub.co.za">
+            support@dingestechhub.co.za
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+        aria-label="Dinges TechHub Home"
+    >
+
+        <img
+            src="dingestech-logo.png"
+            alt="Dinges TechHub"
+        >
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="services.html">
+            Services
+        </a>
+
+        <a href="help-centre.html">
+            Help Centre
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </div>
+
+
+    <a
+        href="cart.html"
+        class="cart-button"
+        aria-label="Shopping Cart"
+    >
+
+        <span class="cart-icon">
+            🛒
+        </span>
+
+        <span class="cart-label">
+            Cart
+        </span>
+
+        <span
+            class="cart-count"
+            id="cartCount"
+        >
+            0
+        </span>
+
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="cart-hero">
+
+    <h1>
+        Your Cart
+    </h1>
+
+    <p>
+        Review your selected Dinges TechHub services before
+        proceeding to checkout.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     CART
+     ========================================================= -->
+
+<main class="cart-container">
+
+
+    <!-- =====================================================
+         CART ITEMS
+         ===================================================== -->
+
+    <section class="cart-box">
+
+        <div class="cart-box-header">
+
+            <h2>
+                Selected Services
+            </h2>
+
+            <span
+                class="cart-items-count"
+                id="cartItemsCount"
+            >
+                0 items
+            </span>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ORDER SUMMARY
+         ===================================================== -->
+
+    <aside class="summary">
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div class="summary-row">
+
+            <span>
+                Monthly / Service Total
+            </span>
+
+            <strong id="subtotal">
+                R0.00
+            </strong>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Setup / Once-off
+            </span>
+
+            <strong id="setupTotal">
+                R0.00
+            </strong>
+
+        </div>
+
+
+        <div class="summary-total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                R0.00
+            </span>
+
+        </div>
+
+
+        <a
+            href="checkout.html"
+            class="checkout-btn disabled"
+            id="checkoutButton"
+            aria-disabled="true"
+        >
+            Proceed to Checkout
+        </a>
+
+
+        <a
+            href="services.html"
+            class="continue-btn"
+        >
+            Continue Shopping
+        </a>
+
+    </aside>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div>
+
+            <a
+                href="index.html"
+                class="footer-logo"
+                aria-label="Dinges TechHub Home"
+            >
+
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
+
+            </a>
+
+
+            <p>
+                Technology, connectivity and smart business
+                solutions designed to keep you connected.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Services
+            </h3>
+
+            <a href="services.html">
+                Internet Connectivity
+            </a>
+
+            <a href="services.html">
+                VoIP & Telephony
+            </a>
+
+            <a href="services.html">
+                Hosting
+            </a>
+
+            <a href="services.html">
+                Smart Technology
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <a href="mailto:support@dingestechhub.co.za">
+                Email Support
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © <span id="footerYear"></span>
+        Dinges TechHub.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   DINGES TECHHUB — CART SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   STORAGE KEY
+   ========================================================= */
+
+const CART_KEY = "dingesTechHubCart";
+
+
+/* =========================================================
+   GET CART
+   ========================================================= */
+
+function getCart(){
+
+    try{
+
+        const savedCart =
+            localStorage.getItem(CART_KEY);
+
+        if(!savedCart){
+            return [];
+        }
+
+        const parsed =
+            JSON.parse(savedCart);
+
+        if(!Array.isArray(parsed)){
+            return [];
+        }
+
+        return parsed;
+
+    }catch(error){
+
+        console.error(
+            "Unable to load cart:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE CART
+   ========================================================= */
+
+function saveCart(cart){
+
+    try{
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+    }catch(error){
+
+        console.error(
+            "Unable to save cart:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   NUMBER NORMALISATION
+   ========================================================= */
+
+function toNumber(value){
+
+    if(
+        value === null ||
+        value === undefined ||
+        value === ""
+    ){
+
+        return 0;
+
+    }
+
+
+    if(typeof value === "number"){
+
+        return Number.isFinite(value)
+            ? value
+            : 0;
+
+    }
+
+
+    const cleaned =
+        String(value)
+            .replace(/[R,\s]/gi,"")
+            .replace(/[^0-9.-]/g,"");
+
+
+    const number =
+        Number(cleaned);
+
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =========================================================
+   GET ITEM QUANTITY
+   ========================================================= */
+
+function getQuantity(item){
+
+    const quantity =
+        parseInt(
+            item?.quantity,
+            10
+        );
+
+
+    if(
+        !Number.isFinite(quantity) ||
+        quantity < 1
+    ){
+
+        return 1;
+
+    }
+
+
+    return quantity;
+
+}
+
+
+/* =========================================================
+   GET MONTHLY / SERVICE PRICE
+   =========================================================
+
+   Supports:
+
+   monthlyPrice
+   monthly
+   monthly_price
+   servicePrice
+   price
+   amount
+
+   ========================================================= */
+
+function getMonthlyPrice(item){
+
+    const possiblePrices = [
+
+        item?.monthlyPrice,
+
+        item?.monthly,
+
+        item?.monthly_price,
+
+        item?.servicePrice,
+
+        item?.service_price,
+
+        item?.price,
+
+        item?.amount
+
+    ];
+
+
+    for(
+        const value of possiblePrices
+    ){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ){
+
+            return toNumber(value);
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   GET SETUP PRICE
+   =========================================================
+
+   Supports:
+
+   setupPrice
+   setup
+   setupFee
+   onceOff
+   onceOffPrice
+   onceOffFee
+
+   ========================================================= */
+
+function getSetupPrice(item){
+
+    const possiblePrices = [
+
+        item?.setupPrice,
+
+        item?.setup,
+
+        item?.setupFee,
+
+        item?.setup_fee,
+
+        item?.onceOff,
+
+        item?.onceOffPrice,
+
+        item?.onceOffFee,
+
+        item?.once_off,
+
+        item?.once_off_price
+
+    ];
+
+
+    for(
+        const value of possiblePrices
+    ){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ){
+
+            return toNumber(value);
+
+        }
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   GET BILLING TYPE
+   ========================================================= */
+
+function getBillingType(item){
+
+    const billing =
+        String(
+            item?.billing ||
+            item?.billingCycle ||
+            item?.billing_cycle ||
+            ""
+        ).toLowerCase();
+
+
+    if(
+        billing.includes("monthly") ||
+        billing.includes("month")
+    ){
+
+        return "monthly";
+
+    }
+
+
+    if(
+        billing.includes("once") ||
+        billing.includes("setup")
+    ){
+
+        return "once-off";
+
+    }
+
+
+    if(
+        getSetupPrice(item) > 0 ||
+        getMonthlyPrice(item) > 0
+    ){
+
+        return "monthly";
+
+    }
+
+
+    return "once-off";
+
+}
+
+
+/* =========================================================
+   GET ITEM NAME
+   ========================================================= */
+
+function getItemName(item){
+
+    return String(
+        item?.name ||
+        item?.title ||
+        item?.serviceName ||
+        item?.productName ||
+        "Dinges TechHub Service"
+    );
+
+}
+
+
+/* =========================================================
+   FORMAT RAND
+   ========================================================= */
+
+function formatRand(amount){
+
+    return new Intl.NumberFormat(
+        "en-ZA",
+        {
+            style:"currency",
+            currency:"ZAR",
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ).format(
+        toNumber(amount)
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value){
+
+    return String(
+        value ?? ""
+    )
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   UPDATE CART COUNT
+   ========================================================= */
+
+function updateCartCount(cart){
+
+    const countElement =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    if(!countElement){
+        return;
+    }
+
+
+    const count =
+        cart.reduce(
+            function(total,item){
+
+                return total +
+                    getQuantity(item);
+
+            },
+            0
+        );
+
+
+    countElement.textContent =
+        count;
+
+}
+
+
+/* =========================================================
+   UPDATE ITEM COUNT
+   ========================================================= */
+
+function updateItemCount(cart){
+
+    const element =
+        document.getElementById(
+            "cartItemsCount"
+        );
+
+
+    if(!element){
+        return;
+    }
+
+
+    const count =
+        cart.reduce(
+            function(total,item){
+
+                return total +
+                    getQuantity(item);
+
+            },
+            0
+        );
+
+
+    element.textContent =
+        count === 1
+            ? "1 item"
+            : `${count} items`;
+
+}
+
+
+/* =========================================================
+   RENDER EMPTY CART
+   ========================================================= */
+
+function renderEmptyCart(){
+
+    const container =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    container.innerHTML = `
+
+        <div class="empty-cart">
+
+            <div class="empty-cart-icon">
+                🛒
+            </div>
+
+            <h2>
+                Your cart is empty
+            </h2>
+
+            <p>
+                You haven't added any services yet.
+            </p>
+
+            <a
+                href="services.html"
+                class="checkout-btn"
+                style="
+                    display:inline-flex;
+                    width:auto;
+                    padding:13px 25px;
+                "
+            >
+                Browse Services
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ENABLE / DISABLE CHECKOUT
+   ========================================================= */
+
+function updateCheckoutState(cart){
+
+    const button =
+        document.getElementById(
+            "checkoutButton"
+        );
+
+
+    if(!button){
+        return;
+    }
+
+
+    if(cart.length === 0){
+
+        button.classList.add("disabled");
+
+        button.setAttribute(
+            "aria-disabled",
+            "true"
+        );
+
+        return;
+
+    }
+
+
+    button.classList.remove("disabled");
+
+    button.setAttribute(
+        "aria-disabled",
+        "false"
+    );
+
+}
+
+
+/* =========================================================
+   RENDER CART
+   ========================================================= */
+
+function renderCart(){
+
+    const cart =
+        getCart();
+
+
+    const container =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    const subtotalElement =
+        document.getElementById(
+            "subtotal"
+        );
+
+
+    const setupElement =
+        document.getElementById(
+            "setupTotal"
+        );
+
+
+    const totalElement =
+        document.getElementById(
+            "total"
+        );
+
+
+    if(!container){
+        return;
+    }
+
+
+    /* =====================================================
+       CART BADGE
+       ===================================================== */
+
+    updateCartCount(cart);
+
+    updateItemCount(cart);
+
+    updateCheckoutState(cart);
+
+
+    /* =====================================================
+       EMPTY CART
+       ===================================================== */
+
+    if(cart.length === 0){
+
+        renderEmptyCart();
+
+        subtotalElement.textContent =
+            formatRand(0);
+
+        setupElement.textContent =
+            formatRand(0);
+
+        totalElement.textContent =
+            formatRand(0);
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       TOTALS
+       ===================================================== */
+
+    let monthlyTotal = 0;
+
+    let setupTotal = 0;
+
+
+    /* =====================================================
+       BUILD CART ITEMS
+       ===================================================== */
+
+    container.innerHTML =
+        cart.map(
+            function(item,index){
+
+                const quantity =
+                    getQuantity(item);
+
+
+                const monthlyPrice =
+                    getMonthlyPrice(item);
+
+
+                const setupPrice =
+                    getSetupPrice(item);
+
+
+                const billing =
+                    getBillingType(item);
+
+
+                monthlyTotal +=
+                    monthlyPrice *
+                    quantity;
+
+
+                setupTotal +=
+                    setupPrice *
+                    quantity;
+
+
+                const name =
+                    getItemName(item);
+
+
+                let priceHtml;
+
+
+                if(billing === "monthly"){
+
+                    priceHtml = `
+
+                        ${formatRand(monthlyPrice)}
+
+                        <small>
+                            per month
+                        </small>
+
+                    `;
+
+                }else{
+
+                    priceHtml = `
+
+                        ${formatRand(monthlyPrice)}
+
+                        <small>
+                            once-off
+                        </small>
+
+                    `;
+
+                }
+
+
+                const setupHtml =
+                    setupPrice > 0
+                        ? `
+
+                            <div class="item-setup">
+                                Setup:
+                                ${formatRand(setupPrice)}
+                            </div>
+
+                          `
+                        : "";
+
+
+                return `
+
+                    <div
+                        class="cart-item"
+                        data-index="${index}"
+                    >
+
+
+                        <div>
+
+                            <div class="item-name">
+
+                                ${escapeHtml(name)}
+
+                            </div>
+
+
+                            <div class="item-type">
+
+                                ${
+                                    billing === "monthly"
+                                        ? "Monthly Service"
+                                        : "Once-off Service"
+                                }
+
+                            </div>
+
+
+                            ${setupHtml}
+
+                        </div>
+
+
+                        <div class="item-price">
+
+                            ${priceHtml}
+
+                        </div>
+
+
+                        <div class="quantity">
+
+                            <button
+                                type="button"
+                                class="quantity-minus"
+                                data-index="${index}"
+                                aria-label="Decrease quantity"
+                            >
+                                −
+                            </button>
+
+
+                            <span>
+                                ${quantity}
+                            </span>
+
+
+                            <button
+                                type="button"
+                                class="quantity-plus"
+                                data-index="${index}"
+                                aria-label="Increase quantity"
+                            >
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="remove-btn"
+                            data-index="${index}"
+                        >
+                            Remove
+                        </button>
+
+
+                    </div>
+
+                `;
+
+            }
+        ).join("");
+
+
+    /* =====================================================
+       DISPLAY TOTALS
+       ===================================================== */
+
+    subtotalElement.textContent =
+        formatRand(monthlyTotal);
+
+
+    setupElement.textContent =
+        formatRand(setupTotal);
+
+
+    totalElement.textContent =
+        formatRand(
+            monthlyTotal +
+            setupTotal
+        );
+
+
+    /* =====================================================
+       ADD BUTTON EVENTS
+       ===================================================== */
+
+    container
+        .querySelectorAll(".quantity-minus")
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const index =
+                            Number(
+                                button.dataset.index
+                            );
+
+                        changeQuantity(
+                            index,
+                            -1
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       ADD PLUS EVENTS
+       ===================================================== */
+
+    container
+        .querySelectorAll(".quantity-plus")
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const index =
+                            Number(
+                                button.dataset.index
+                            );
+
+                        changeQuantity(
+                            index,
+                            1
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    /* =====================================================
+       ADD REMOVE EVENTS
+       ===================================================== */
+
+    container
+        .querySelectorAll(".remove-btn")
+        .forEach(
+            function(button){
+
+                button.addEventListener(
+                    "click",
+                    function(){
+
+                        const index =
+                            Number(
+                                button.dataset.index
+                            );
+
+                        removeItem(index);
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+   ========================================================= */
+
+function changeQuantity(
+    index,
+    change
+){
+
+    const cart =
+        getCart();
+
+
+    if(
+        !cart[index]
+    ){
+
+        return;
+
+    }
+
+
+    const currentQuantity =
+        getQuantity(
+            cart[index]
+        );
+
+
+    const newQuantity =
+        currentQuantity +
+        Number(change);
+
+
+    if(newQuantity <= 0){
+
+        cart.splice(
+            index,
+            1
+        );
+
+    }else{
+
+        cart[index].quantity =
+            newQuantity;
+
+    }
+
+
+    saveCart(cart);
+
+    renderCart();
+
+}
+
+
+/* =========================================================
+   REMOVE ITEM
+   ========================================================= */
+
+function removeItem(index){
+
+    const cart =
+        getCart();
+
+
+    if(
+        !cart[index]
+    ){
+
+        return;
+
+    }
+
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    saveCart(cart);
+
+    renderCart();
+
+}
+
+
+/* =========================================================
+   CHECKOUT PROTECTION
+   ========================================================= */
+
+const checkoutButton =
+    document.getElementById(
+        "checkoutButton"
+    );
+
+
+if(checkoutButton){
+
+    checkoutButton.addEventListener(
+        "click",
+        function(event){
+
+            const cart =
+                getCart();
+
+
+            if(
+                cart.length === 0
+            ){
+
+                event.preventDefault();
+
+                alert(
+                    "Your cart is empty. Please add a service before checkout."
+                );
+
+                return;
+
+            }
+
+
+            /*
+             * Store a clean copy of the cart before
+             * moving to checkout.
+             *
+             * checkout.html can read the same
+             * dingesTechHubCart key.
+             */
+
+            saveCart(cart);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LISTEN FOR STORAGE CHANGES
+   ========================================================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === CART_KEY
+        ){
+
+            renderCart();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FOOTER YEAR
+   ========================================================= */
+
+const footerYear =
+    document.getElementById(
+        "footerYear"
+    );
+
+
+if(footerYear){
+
+    footerYear.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+renderCart();
+
+</script>
+
+</body>
+</html>

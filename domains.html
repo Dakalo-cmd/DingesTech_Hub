@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Domain Search | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Search and register your domain with Dinges TechHub."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB — DOMAIN PAGE
+========================================================= */
+
+:root{
+
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+
+    --black:#020202;
+    --gray:#949393;
+
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+
+    --border:#E5E1E7;
+
+    --success:#198754;
+    --danger:#dc3545;
+
+    --shadow:
+        0 10px 25px rgba(60,21,66,.08);
+
+    --shadow-hover:
+        0 18px 35px rgba(60,21,66,.15);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--light);
+
+    color:var(--black);
+
+    line-height:1.6;
+}
+
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:8px 5%;
+
+    font-size:13px;
+}
+
+
+.topbar-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar{
+
+    background:var(--white);
+
+    border-bottom:
+        1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.03);
+}
+
+
+.nav-inner{
+
+    max-width:1200px;
+
+    min-height:76px;
+
+    margin:auto;
+
+    padding:0 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    white-space:nowrap;
+}
+
+
+.logo img{
+
+    width:52px;
+
+    height:52px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+.logo-text{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+    font-weight:800;
+
+    letter-spacing:-.3px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+    list-style:none;
+}
+
+
+.nav-links a{
+
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.2s ease;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--secondary);
+}
+
+
+.nav-cta{
+
+    background:var(--accent);
+
+    color:var(--black)!important;
+
+    padding:9px 17px;
+
+    border-radius:8px;
+
+    font-weight:800!important;
+
+    box-shadow:
+        0 5px 12px rgba(255,187,66,.22);
+}
+
+
+.nav-cta:hover{
+
+    transform:translateY(-1px);
+
+    opacity:.92;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:78px 5%;
+}
+
+
+.hero-inner{
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+
+.eyebrow{
+
+    display:inline-block;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(38px,5vw,56px);
+
+    line-height:1.05;
+
+    margin-bottom:18px;
+
+    letter-spacing:-1px;
+}
+
+
+.hero p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    color:
+        rgba(255,255,255,.88);
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   SEARCH WRAPPER
+========================================================= */
+
+.search-wrapper{
+
+    max-width:1050px;
+
+    margin:-42px auto 50px;
+
+    padding:0 20px;
+
+    position:relative;
+
+    z-index:5;
+}
+
+
+.search-box{
+
+    background:var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:24px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   SEARCH ROW
+========================================================= */
+
+.search-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        220px
+        150px;
+
+    gap:12px;
+}
+
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px 15px;
+
+    border:
+        1px solid #dddddd;
+
+    border-radius:9px;
+
+    font-size:14px;
+
+    outline:none;
+
+    background:var(--white);
+
+    color:var(--black);
+
+    transition:.2s ease;
+}
+
+
+input::placeholder{
+
+    color:#999;
+}
+
+
+input:focus,
+select:focus{
+
+    border-color:
+        var(--secondary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(122,44,120,.08);
+}
+
+
+.search-btn{
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:14px;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.search-btn:hover{
+
+    transform:translateY(-1px);
+
+    opacity:.92;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status{
+
+    margin-top:15px;
+
+    padding:12px 14px;
+
+    border-radius:8px;
+
+    display:none;
+
+    font-size:13px;
+}
+
+
+.status.success{
+
+    display:block;
+
+    background:#e9f7ef;
+
+    color:var(--success);
+}
+
+
+.status.error{
+
+    display:block;
+
+    background:#fdecec;
+
+    color:var(--danger);
+}
+
+
+.status.loading{
+
+    display:block;
+
+    background:#f2f2f2;
+
+    color:var(--gray);
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result{
+
+    display:none;
+
+    max-width:1050px;
+
+    margin:0 auto 55px;
+
+    padding:0 20px;
+}
+
+
+.result-card{
+
+    background:var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+}
+
+
+.result-card h2{
+
+    color:var(--primary);
+
+    font-size:22px;
+
+    margin-bottom:14px;
+}
+
+
+.domain-name{
+
+    font-size:26px;
+
+    font-weight:900;
+
+    color:var(--secondary);
+
+    margin-bottom:14px;
+
+    word-break:break-word;
+}
+
+
+.price{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    color:var(--primary);
+
+    margin-bottom:2px;
+}
+
+
+.price-label{
+
+    color:var(--gray);
+
+    font-size:12px;
+
+    margin-bottom:18px;
+}
+
+
+.register-btn{
+
+    width:100%;
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:12px;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+
+.register-btn:hover{
+
+    transform:translateY(-1px);
+
+    opacity:.92;
+}
+
+
+/* =========================================================
+   DOMAIN SECTION
+========================================================= */
+
+.domains{
+
+    max-width:1100px;
+
+    margin:0 auto 75px;
+
+    padding:0 20px;
+}
+
+
+.domains h2{
+
+    text-align:center;
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+    font-size:30px;
+}
+
+
+.domains-subtitle{
+
+    text-align:center;
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    margin-bottom:28px;
+}
+
+
+/* =========================================================
+   DOMAIN GRID
+========================================================= */
+
+.domain-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+
+/* =========================================================
+   DOMAIN CARD
+========================================================= */
+
+.domain-card{
+
+    background:var(--white);
+
+    border:
+        1px solid var(--border);
+
+    padding:18px;
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s ease;
+
+    cursor:pointer;
+}
+
+
+.domain-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:
+        var(--secondary);
+}
+
+
+.extension{
+
+    font-size:20px;
+
+    font-weight:900;
+
+    color:var(--secondary);
+
+    margin-bottom:7px;
+}
+
+
+.domain-price{
+
+    font-size:17px;
+
+    font-weight:800;
+
+    color:var(--primary);
+}
+
+
+.domain-small{
+
+    color:var(--gray);
+
+    font-size:11px;
+
+    margin-top:3px;
+}
+
+
+.unavailable{
+
+    color:var(--danger)!important;
+}
+
+
+/* =========================================================
+   INFORMATION SECTION
+========================================================= */
+
+.domain-info{
+
+    max-width:1100px;
+
+    margin:0 auto 65px;
+
+    padding:0 20px;
+}
+
+
+.domain-info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+
+.info-card{
+
+    background:var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    padding:22px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+}
+
+
+.info-icon{
+
+    width:48px;
+
+    height:48px;
+
+    margin:0 auto 12px;
+
+    border-radius:12px;
+
+    background:#F5F1F6;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:22px;
+}
+
+
+.info-card h3{
+
+    color:var(--primary);
+
+    font-size:16px;
+
+    margin-bottom:6px;
+}
+
+
+.info-card p{
+
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:60px 5%;
+}
+
+
+.cta-inner{
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+
+.cta h2{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+
+.cta p{
+
+    color:
+        rgba(255,255,255,.8);
+
+    font-size:14px;
+
+    margin-bottom:22px;
+}
+
+
+.cta a{
+
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    padding:11px 22px;
+
+    border-radius:9px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    background:#16091A;
+
+    color:
+        rgba(255,255,255,.75);
+
+    padding:55px 5% 20px;
+}
+
+
+.footer-container{
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap:40px;
+
+    padding-bottom:35px;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+========================================================= */
+
+.footer-brand{
+
+    max-width:300px;
+}
+
+
+.footer-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    margin-bottom:15px;
+}
+
+
+.footer-logo img{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+}
+
+
+.footer-logo span{
+
+    color:var(--white);
+
+    font-size:19px;
+
+    font-weight:800;
+}
+
+
+.footer-brand p{
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.footer-column h3{
+
+    color:var(--white);
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+
+.footer-column a{
+
+    display:block;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size:12px;
+
+    margin-bottom:9px;
+
+    transition:.2s ease;
+}
+
+
+.footer-column a:hover{
+
+    color:var(--accent);
+
+    transform:translateX(2px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.10);
+
+    padding-top:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    font-size:11px;
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+
+.footer-bottom-links{
+
+    display:flex;
+
+    gap:18px;
+}
+
+
+.footer-bottom-links a:hover{
+
+    color:var(--accent);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobile-menu-button{
+
+    display:none;
+
+    border:0;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    background:var(--white);
+
+    border-top:
+        1px solid var(--border);
+
+    padding:15px 5%;
+}
+
+
+.mobile-menu a{
+
+    display:block;
+
+    padding:11px 0;
+
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:600;
+}
+
+
+.mobile-menu a:hover{
+
+    color:var(--secondary);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1000px){
+
+    .domain-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .topbar-inner{
+
+        justify-content:center;
+
+        text-align:center;
+    }
+
+
+    .topbar-inner span:last-child{
+
+        display:none;
+    }
+
+
+    .nav-links{
+
+        display:none;
+    }
+
+
+    .mobile-menu-button{
+
+        display:block;
+    }
+
+
+    .nav-inner{
+
+        min-height:68px;
+    }
+
+
+    .logo img{
+
+        width:48px;
+
+        height:48px;
+    }
+
+
+    .logo-text{
+
+        font-size:17px;
+    }
+
+
+    .hero{
+
+        padding:58px 5%;
+    }
+
+
+    .hero h1{
+
+        font-size:38px;
+    }
+
+
+    .hero p{
+
+        font-size:14px;
+    }
+
+
+    .search-wrapper{
+
+        margin-top:-30px;
+    }
+
+
+    .search-row{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .domain-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .domain-info-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .footer-grid{
+
+        grid-template-columns:1fr 1fr;
+
+        gap:30px;
+    }
+
+
+    .footer-brand{
+
+        grid-column:
+            1 / -1;
+
+        max-width:none;
+    }
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .domain-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+    }
+
+
+    .footer-brand{
+
+        grid-column:auto;
+    }
+
+
+    .hero h1{
+
+        font-size:32px;
+    }
+
+
+    .search-box{
+
+        padding:17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>
+            Reliable Technology & Connectivity Solutions
+        </span>
+
+        <span>
+            South Africa
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub"
+            >
+
+            <span class="logo-text">
+                Dinges TechHub
+            </span>
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a
+                href="domains.html"
+                class="active"
+            >
+                Domains
+            </a>
+
+            <a href="hosting.html">
+                Hosting
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a
+                href="cart.html"
+                class="nav-cta"
+            >
+                Cart
+            </a>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </div>
+
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="services.html">
+            Services
+        </a>
+
+        <a href="domains.html">
+            Domains
+        </a>
+
+        <a href="hosting.html">
+            Hosting
+        </a>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            Domain Registration
+        </span>
+
+        <h1>
+            Find Your Perfect Domain
+        </h1>
+
+        <p>
+            Search for your domain name and choose
+            from the available extensions offered
+            by Dinges TechHub.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SEARCH
+========================================================= -->
+
+<div class="search-wrapper">
+
+    <div class="search-box">
+
+        <div class="search-row">
+
+            <input
+                type="text"
+                id="domainName"
+                placeholder="Enter your domain name"
+                autocomplete="off"
+            >
+
+
+            <select id="domainExtension">
+
+                <option value="">
+                    Loading extensions...
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="search-btn"
+                id="searchButton"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <div
+            id="status"
+            class="status"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SELECTED DOMAIN
+========================================================= -->
+
+<section
+    id="result"
+    class="result"
+>
+
+    <div class="result-card">
+
+        <h2>
+            Domain Selected
+        </h2>
+
+
+        <div
+            id="resultDomain"
+            class="domain-name"
+        ></div>
+
+
+        <div
+            id="resultPrice"
+            class="price"
+        ></div>
+
+
+        <div class="price-label">
+            Registration price
+        </div>
+
+
+        <button
+            type="button"
+            class="register-btn"
+            id="registerButton"
+        >
+            Continue to Registration
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DOMAIN EXTENSIONS
+========================================================= -->
+
+<section class="domains">
+
+    <h2>
+        Available Domain Extensions
+    </h2>
+
+    <p class="domains-subtitle">
+        Choose an extension and search for your domain.
+    </p>
+
+
+    <div
+        id="domainGrid"
+        class="domain-grid"
+    ></div>
+
+</section>
+
+
+<!-- =========================================================
+     INFORMATION
+========================================================= -->
+
+<section class="domain-info">
+
+    <div class="domain-info-grid">
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                🌐
+            </div>
+
+            <h3>
+                Professional Domain
+            </h3>
+
+            <p>
+                Build a professional online identity
+                for your business or personal brand.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                🔒
+            </div>
+
+            <h3>
+                Reliable Management
+            </h3>
+
+            <p>
+                Manage your domain services through
+                your Dinges TechHub account.
+            </p>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <div class="info-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Easy Registration
+            </h3>
+
+            <p>
+                Search for your domain and continue
+                to registration when you're ready.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <h2>
+            Need Help Choosing a Domain?
+        </h2>
+
+        <p>
+            Not sure which domain extension is right
+            for you? Contact Dinges TechHub and we'll
+            help you choose a suitable option.
+        </p>
+
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- =================================================
+                 BRAND
+            ================================================== -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub"
+                    >
+
+                    <span>
+                        Dinges TechHub
+                    </span>
+
+                </a>
+
+
+                <p>
+
+                    Reliable technology,
+                    connectivity and digital
+                    solutions for homes,
+                    businesses and organisations
+                    across South Africa.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 INTERNET
+            ================================================== -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Internet
+                </h3>
+
+
+                <a href="internet-connectivity.html">
+                    Internet Connectivity
+                </a>
+
+                <a href="fibre.html">
+                    Fibre
+                </a>
+
+                <a href="wireless-broadband.html">
+                    Wireless Broadband
+                </a>
+
+                <a href="wireless-lte-4g-5g.html">
+                    LTE / 4G / 5G
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 HOSTING
+            ================================================== -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Hosting & Domains
+                </h3>
+
+
+                <a href="domains.html">
+                    Domain Registration
+                </a>
+
+                <a href="hosting.html">
+                    Web Hosting
+                </a>
+
+                <a href="email-hosting.html">
+                    Email Hosting
+                </a>
+
+                <a href="contact.html">
+                    Get Assistance
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUPPORT
+            ================================================== -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Support
+                </h3>
+
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="help-centre.html">
+                    Help Centre
+                </a>
+
+                <a href="cart.html">
+                    Cart
+                </a>
+
+                <a href="login.html">
+                    Client Login
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER BOTTOM
+        ================================================== -->
+
+        <div class="footer-bottom">
+
+            <span>
+
+                &copy;
+
+                <span id="year"></span>
+
+                Dinges TechHub.
+                All rights reserved.
+
+            </span>
+
+
+            <div class="footer-bottom-links">
+
+                <a href="privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   API CONFIGURATION
+========================================================= */
+
+const API_URL =
+    "https://register.web.za/api/domains.php";
+
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+const LOGIN_URL =
+    "login.html";
+
+
+/* =========================================================
+   GLOBAL DATA
+========================================================= */
+
+let domains = [];
+
+let selectedDomain = null;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const domainNameInput =
+    document.getElementById(
+        "domainName"
+    );
+
+
+const domainExtensionSelect =
+    document.getElementById(
+        "domainExtension"
+    );
+
+
+const searchButton =
+    document.getElementById(
+        "searchButton"
+    );
+
+
+const registerButton =
+    document.getElementById(
+        "registerButton"
+    );
+
+
+const statusElement =
+    document.getElementById(
+        "status"
+    );
+
+
+const resultElement =
+    document.getElementById(
+        "result"
+    );
+
+
+const resultDomainElement =
+    document.getElementById(
+        "resultDomain"
+    );
+
+
+const resultPriceElement =
+    document.getElementById(
+        "resultPrice"
+    );
+
+
+const domainGridElement =
+    document.getElementById(
+        "domainGrid"
+    );
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById(
+    "year"
+).textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileMenuButton =
+    document.getElementById(
+        "mobileMenuButton"
+    );
+
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+
+mobileMenuButton.addEventListener(
+    "click",
+    function(){
+
+        if(
+            mobileMenu.style.display ===
+            "block"
+        ){
+
+            mobileMenu.style.display =
+                "none";
+
+        }else{
+
+            mobileMenu.style.display =
+                "block";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   STATUS HELPER
+========================================================= */
+
+function showStatus(
+    type,
+    message
+){
+
+    statusElement.className =
+        "status " + type;
+
+
+    statusElement.textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   FORMAT PRICE
+========================================================= */
+
+function formatPrice(price){
+
+    if(
+        price === null ||
+        price === undefined ||
+        price === "" ||
+        Number(price) < 0
+    ){
+
+        return null;
+
+    }
+
+
+    const number =
+        Number(price);
+
+
+    if(
+        Number.isNaN(number)
+    ){
+
+        return null;
+
+    }
+
+
+    return "R" +
+        number.toLocaleString(
+            "en-ZA",
+            {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+            }
+        );
+
+}
+
+
+/* =========================================================
+   LOAD DOMAINS
+========================================================= */
+
+async function loadDomains(){
+
+    showStatus(
+        "loading",
+        "Loading domain extensions..."
+    );
+
+
+    try{
+
+        console.log(
+            "Loading domain API:",
+            API_URL
+        );
+
+
+        const response =
+            await fetch(
+                API_URL,
+                {
+                    method:"GET",
+
+                    headers:{
+                        "Accept":
+                            "application/json"
+                    },
+
+                    cache:"no-store"
+                }
+            );
+
+
+        console.log(
+            "API HTTP status:",
+            response.status
+        );
+
+
+        if(
+            !response.ok
+        ){
+
+            throw new Error(
+                "HTTP " +
+                response.status +
+                " returned by domain API."
+            );
+
+        }
+
+
+        const responseText =
+            await response.text();
+
+
+        console.log(
+            "Domain API response:",
+            responseText
+        );
+
+
+        if(
+            !responseText.trim()
+        ){
+
+            throw new Error(
+                "The domain API returned an empty response."
+            );
+
+        }
+
+
+        let data;
+
+
+        try{
+
+            data =
+                JSON.parse(
+                    responseText
+                );
+
+        }
+        catch(jsonError){
+
+            throw new Error(
+                "The domain API did not return valid JSON."
+            );
+
+        }
+
+
+        if(
+            !data.success
+        ){
+
+            throw new Error(
+                data.error ||
+                data.message ||
+                "Domain API returned an error."
+            );
+
+        }
+
+
+        if(
+            !Array.isArray(
+                data.domains
+            )
+        ){
+
+            throw new Error(
+                "The domain API did not return a valid domains array."
+            );
+
+        }
+
+
+        domains =
+            data.domains;
+
+
+        if(
+            domains.length === 0
+        ){
+
+            throw new Error(
+                "The API connected successfully, but no domain extensions were returned."
+            );
+
+        }
+
+
+        populateExtensions();
+
+        displayDomainCards();
+
+
+        showStatus(
+            "success",
+
+            domains.length +
+            " domain extensions loaded successfully."
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            "DOMAIN API ERROR:",
+            error
+        );
+
+
+        domainExtensionSelect.innerHTML =
+            `
+            <option value="">
+                Unable to load extensions
+            </option>
+            `;
+
+
+        showStatus(
+            "error",
+
+            "Unable to load domain extensions. " +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   POPULATE EXTENSIONS
+========================================================= */
+
+function populateExtensions(){
+
+    domainExtensionSelect.innerHTML =
+        `
+        <option value="">
+            Choose extension
+        </option>
+        `;
+
+
+    domains.forEach(
+        function(domain){
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                domain.extension;
+
+
+            const price =
+                formatPrice(
+                    domain.registration_price
+                );
+
+
+            option.textContent =
+                domain.extension +
+                (
+                    price
+                        ? " — " + price
+                        : " — Price unavailable"
+                );
+
+
+            domainExtensionSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DISPLAY DOMAIN CARDS
+========================================================= */
+
+function displayDomainCards(){
+
+    domainGridElement.innerHTML =
+        "";
+
+
+    domains.forEach(
+        function(domain){
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "domain-card";
+
+
+            const extension =
+                document.createElement(
+                    "div"
+                );
+
+
+            extension.className =
+                "extension";
+
+
+            extension.textContent =
+                domain.extension;
+
+
+            card.appendChild(
+                extension
+            );
+
+
+            const price =
+                document.createElement(
+                    "div"
+                );
+
+
+            price.className =
+                "domain-price";
+
+
+            const formattedPrice =
+                formatPrice(
+                    domain.registration_price
+                );
+
+
+            if(
+                formattedPrice
+            ){
+
+                price.textContent =
+                    formattedPrice;
+
+            }
+            else{
+
+                price.textContent =
+                    "Price unavailable";
+
+                price.classList.add(
+                    "unavailable"
+                );
+
+            }
+
+
+            card.appendChild(
+                price
+            );
+
+
+            const small =
+                document.createElement(
+                    "div"
+                );
+
+
+            small.className =
+                "domain-small";
+
+
+            if(
+                formattedPrice
+            ){
+
+                small.textContent =
+                    "Registration";
+
+            }
+            else{
+
+                small.textContent =
+                    "Currently unavailable";
+
+                small.classList.add(
+                    "unavailable"
+                );
+
+            }
+
+
+            card.appendChild(
+                small
+            );
+
+
+            card.addEventListener(
+                "click",
+                function(){
+
+                    domainExtensionSelect.value =
+                        domain.extension;
+
+
+                    domainNameInput.focus();
+
+
+                    window.scrollTo({
+
+                        top:0,
+
+                        behavior:"smooth"
+
+                    });
+
+                }
+            );
+
+
+            domainGridElement.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH DOMAIN
+========================================================= */
+
+function searchDomain(){
+
+    const name =
+        domainNameInput
+            .value
+            .trim();
+
+
+    const extension =
+        domainExtensionSelect
+            .value;
+
+
+    if(
+        !name
+    ){
+
+        showStatus(
+            "error",
+            "Please enter a domain name."
+        );
+
+
+        domainNameInput.focus();
+
+        return;
+
+    }
+
+
+    if(
+        !extension
+    ){
+
+        showStatus(
+            "error",
+            "Please choose a domain extension."
+        );
+
+
+        domainExtensionSelect.focus();
+
+        return;
+
+    }
+
+
+    let cleanName =
+        name
+            .replace(
+                /^https?:\/\//i,
+                ""
+            )
+
+            .replace(
+                /^www\./i,
+                ""
+            )
+
+            .trim();
+
+
+    cleanName =
+        cleanName
+            .split("/")[0]
+            .split(".")[0]
+            .trim();
+
+
+    cleanName =
+        cleanName
+            .replace(
+                /[^a-zA-Z0-9-]/g,
+                ""
+            );
+
+
+    if(
+        !cleanName
+    ){
+
+        showStatus(
+            "error",
+            "Please enter a valid domain name."
+        );
+
+        return;
+
+    }
+
+
+    const selected =
+        domains.find(
+            function(domain){
+
+                return (
+                    domain.extension ===
+                    extension
+                );
+
+            }
+        );
+
+
+    if(
+        !selected
+    ){
+
+        showStatus(
+            "error",
+            "That domain extension is unavailable."
+        );
+
+        return;
+
+    }
+
+
+    const price =
+        formatPrice(
+            selected.registration_price
+        );
+
+
+    if(
+        !price
+    ){
+
+        showStatus(
+            "error",
+
+            "This domain extension does not currently have a registration price."
+        );
+
+        return;
+
+    }
+
+
+    const fullDomain =
+        cleanName +
+        extension;
+
+
+    selectedDomain = {
+
+        name:
+            cleanName,
+
+        extension:
+            extension,
+
+        domain:
+            fullDomain,
+
+        price:
+            selected.registration_price
+
+    };
+
+
+    resultDomainElement.textContent =
+        fullDomain;
+
+
+    resultPriceElement.textContent =
+        price;
+
+
+    resultElement.style.display =
+        "block";
+
+
+    showStatus(
+        "success",
+        "Domain pricing loaded successfully from WHMCS."
+    );
+
+
+    resultElement.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"center"
+
+    });
+
+}
+
+
+/* =========================================================
+   CONTINUE TO REGISTRATION
+========================================================= */
+
+function registerDomain(){
+
+    if(
+        !selectedDomain
+    ){
+
+        showStatus(
+            "error",
+            "Please search for a domain first."
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Save the selected domain temporarily.
+     *
+     * This allows the login page to know which
+     * domain the client was trying to register.
+     */
+
+    try{
+
+        sessionStorage.setItem(
+            "selectedDomain",
+            JSON.stringify(
+                selectedDomain
+            )
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "Unable to save selected domain:",
+            error
+        );
+
+    }
+
+
+    /*
+     * Send client to login first.
+     */
+
+    window.location.href =
+        LOGIN_URL;
+
+}
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+searchButton.addEventListener(
+    "click",
+    searchDomain
+);
+
+
+registerButton.addEventListener(
+    "click",
+    registerDomain
+);
+
+
+domainNameInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            searchDomain();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadDomains();
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
