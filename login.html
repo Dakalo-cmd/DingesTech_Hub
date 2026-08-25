@@ -1821,29 +1821,48 @@ support@dingestechhub.co.za
 ========================================================= */
 
 /*
-    YOUR REAL REGISTRATION API:
-
-    https://register.web.za/api/register.php
-
-    Do NOT use /api/register here.
-
-    The PHP file is hosted on register.web.za,
-    while this HTML is hosted on Netlify.
-*/
+ * Registration API
+ *
+ * Hosted on register.web.za
+ */
 
 const REGISTER_API =
     "https://register.web.za/api/register.php";
 
 
 /*
-    Login endpoint.
-
-    Change this only if your actual login PHP file
-    has a different name.
-*/
+ * Login API
+ *
+ * Hosted on register.web.za
+ */
 
 const LOGIN_API =
     "https://register.web.za/api/login.php";
+
+
+/*
+ * CUSTOMER DASHBOARD
+ *
+ * IMPORTANT:
+ *
+ * customer-dashboard.php is inside the /api folder
+ * on register.web.za.
+ *
+ * Therefore we MUST send the customer here:
+ *
+ * https://register.web.za/api/customer-dashboard.php
+ *
+ * DO NOT use:
+ *
+ * /customer-dashboard.php
+ *
+ * DO NOT use:
+ *
+ * https://dingestech-hub.mathagudakalo362.workers.dev/customer-dashboard.php
+ */
+
+const CUSTOMER_DASHBOARD =
+    "https://register.web.za/api/customer-dashboard.php";
 
 
 /* =========================================================
@@ -2312,6 +2331,10 @@ loginForm.addEventListener(
                 );
 
 
+            /* =================================================
+               LOGIN SUCCESS
+            ================================================= */
+
             if(
                 response.ok &&
                 result.json &&
@@ -2325,6 +2348,12 @@ loginForm.addEventListener(
                     result.json.message ||
                     "Login successful.";
 
+
+                /*
+                 * Save customer information locally
+                 * so the dashboard can also read the
+                 * customer's returned information.
+                 */
 
                 if(result.json.customer){
 
@@ -2341,7 +2370,7 @@ loginForm.addEventListener(
                     catch(error){
 
                         console.warn(
-                            "Unable to save session.",
+                            "Unable to save customer session.",
                             error
                         );
 
@@ -2350,11 +2379,32 @@ loginForm.addEventListener(
                 }
 
 
+                /*
+                 * IMPORTANT:
+                 *
+                 * Redirect to the REAL PHP dashboard.
+                 *
+                 * customer-dashboard.php is located at:
+                 *
+                 * /home/register/public_html/api/customer-dashboard.php
+                 *
+                 * Therefore its public URL is:
+                 *
+                 * https://register.web.za/api/customer-dashboard.php
+                 */
+
+                console.log(
+                    "LOGIN SUCCESS — REDIRECTING TO:",
+                    CUSTOMER_DASHBOARD
+                );
+
+
                 setTimeout(
                     function(){
 
-                        window.location.href =
-                         "https://register.web.za/api/customer-dashboard.php";;
+                        window.location.assign(
+                            CUSTOMER_DASHBOARD
+                        );
 
                     },
                     800
@@ -2364,6 +2414,10 @@ loginForm.addEventListener(
 
             }
 
+
+            /* =================================================
+               LOGIN FAILED
+            ================================================= */
 
             showApiError(
                 message,
@@ -2604,14 +2658,10 @@ registerForm.addEventListener(
 
 
             /*
-             * IMPORTANT
+             * Do NOT manually set Content-Type.
              *
-             * Do NOT manually set:
-             *
-             * Content-Type
-             *
-             * because FormData automatically
-             * creates the multipart boundary.
+             * FormData automatically creates
+             * the multipart boundary.
              */
 
             const response =
@@ -2753,11 +2803,6 @@ registerForm.addEventListener(
                 "message error";
 
 
-            /*
-             * This specifically means the browser
-             * could not complete the fetch request.
-             */
-
             if(
                 error instanceof TypeError
             ){
@@ -2834,4 +2879,5 @@ if(
 </script>
 
 </body>
+
 </html>
