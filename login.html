@@ -20,7 +20,7 @@
    DINGES TECHHUB — LOGIN / REGISTER
 ========================================================= */
 
-:root {
+:root{
 
     --primary:#3C1542;
     --secondary:#7A2C78;
@@ -29,32 +29,32 @@
     --black:#020202;
     --white:#ffffff;
 
-    --light:#f6f4f7;
-    --gray:#949393;
+    --light:#f7f5f8;
+    --gray:#777477;
+
+    --border:#e4dfe6;
 
     --success:#198754;
     --danger:#dc3545;
 
 }
 
-* {
 
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
     margin:0;
     padding:0;
-
     box-sizing:border-box;
-
 }
 
-html,
-body {
-
-    width:100%;
-    min-height:100%;
-
+html{
+    scroll-behavior:smooth;
 }
 
-body {
+body{
 
     font-family:
         Inter,
@@ -71,7 +71,12 @@ body {
 
 }
 
-.page {
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page{
 
     min-height:100vh;
 
@@ -86,9 +91,9 @@ body {
    TOP BAR
 ========================================================= */
 
-.topbar {
+.topbar{
 
-    height:78px;
+    min-height:78px;
 
     background:var(--primary);
 
@@ -109,7 +114,8 @@ body {
 
 }
 
-.logo-link {
+
+.logo-link{
 
     display:flex;
 
@@ -119,29 +125,32 @@ body {
 
 }
 
-.logo {
 
-    height:58px;
+.logo{
 
     width:auto;
 
-    max-width:220px;
+    height:56px;
+
+    max-width:210px;
 
     object-fit:contain;
 
 }
 
-.nav-actions {
+
+.nav-actions{
 
     display:flex;
 
     align-items:center;
 
-    gap:12px;
+    gap:10px;
 
 }
 
-.nav-btn {
+
+.nav-btn{
 
     display:inline-flex;
 
@@ -149,10 +158,13 @@ body {
 
     justify-content:center;
 
-    padding:11px 18px;
+    min-height:40px;
+
+    padding:0 17px;
 
     border:
-        1px solid rgba(255,255,255,.18);
+        1px solid
+        rgba(255,255,255,.16);
 
     border-radius:9px;
 
@@ -160,15 +172,16 @@ body {
 
     text-decoration:none;
 
-    font-size:13px;
+    font-size:12px;
 
-    font-weight:700;
+    font-weight:800;
 
     transition:.25s ease;
 
 }
 
-.nav-btn:hover {
+
+.nav-btn:hover{
 
     background:
         rgba(255,255,255,.10);
@@ -177,11 +190,12 @@ body {
         rgba(255,187,66,.55);
 
     transform:
-        translateY(-2px);
+        translateY(-1px);
 
 }
 
-.nav-btn.home {
+
+.nav-btn.active{
 
     background:var(--accent);
 
@@ -196,7 +210,7 @@ body {
    MAIN
 ========================================================= */
 
-.main {
+.main{
 
     flex:1;
 
@@ -214,45 +228,51 @@ body {
 
 }
 
-.main::before {
+
+.main::before{
 
     content:"";
 
     position:absolute;
 
     width:500px;
+
     height:500px;
 
     border-radius:50%;
 
     background:
-        rgba(122,44,120,.10);
+        rgba(122,44,120,.09);
 
-    top:-220px;
+    top:-240px;
+
     left:-180px;
 
-    filter:blur(20px);
+    filter:blur(30px);
 
 }
 
-.main::after {
+
+.main::after{
 
     content:"";
 
     position:absolute;
 
     width:450px;
+
     height:450px;
 
     border-radius:50%;
 
     background:
-        rgba(255,187,66,.13);
+        rgba(255,187,66,.12);
 
-    bottom:-200px;
-    right:-150px;
+    bottom:-220px;
 
-    filter:blur(20px);
+    right:-160px;
+
+    filter:blur(30px);
 
 }
 
@@ -261,13 +281,13 @@ body {
    AUTH CONTAINER
 ========================================================= */
 
-.auth-container {
+.auth-container{
 
     width:1100px;
 
     max-width:100%;
 
-    min-height:650px;
+    min-height:640px;
 
     background:white;
 
@@ -278,11 +298,11 @@ body {
     display:grid;
 
     grid-template-columns:
-        .85fr 1.15fr;
+        .82fr 1.18fr;
 
     box-shadow:
         0 25px 70px
-        rgba(60,21,66,.16);
+        rgba(60,21,66,.15);
 
     position:relative;
 
@@ -295,7 +315,7 @@ body {
    BRAND PANEL
 ========================================================= */
 
-.brand-panel {
+.brand-panel{
 
     background:
         linear-gradient(
@@ -310,9 +330,7 @@ body {
 
     display:flex;
 
-    flex-direction:column;
-
-    justify-content:center;
+    align-items:center;
 
     position:relative;
 
@@ -320,14 +338,16 @@ body {
 
 }
 
-.brand-panel::before {
+
+.brand-panel::before{
 
     content:"";
 
     position:absolute;
 
-    width:350px;
-    height:350px;
+    width:400px;
+
+    height:400px;
 
     border:
         1px solid
@@ -335,32 +355,37 @@ body {
 
     border-radius:50%;
 
-    top:-160px;
-    right:-150px;
+    top:-190px;
+
+    right:-190px;
 
 }
 
-.brand-panel::after {
+
+.brand-panel::after{
 
     content:"";
 
     position:absolute;
 
-    width:250px;
-    height:250px;
+    width:300px;
+
+    height:300px;
 
     border:
         1px solid
-        rgba(255,187,66,.20);
+        rgba(255,187,66,.18);
 
     border-radius:50%;
 
-    bottom:-120px;
-    left:-100px;
+    bottom:-170px;
+
+    left:-150px;
 
 }
 
-.brand-panel-content {
+
+.brand-panel-content{
 
     position:relative;
 
@@ -368,7 +393,8 @@ body {
 
 }
 
-.panel-logo {
+
+.panel-logo{
 
     width:190px;
 
@@ -382,48 +408,54 @@ body {
 
 }
 
-.brand-eyebrow {
 
-    font-size:11px;
+.brand-eyebrow{
+
+    color:var(--accent);
+
+    font-size:10px;
 
     text-transform:uppercase;
 
     letter-spacing:3px;
 
-    color:var(--accent);
-
-    font-weight:800;
+    font-weight:900;
 
     margin-bottom:14px;
 
 }
 
-.brand-panel h1 {
 
-    font-size:42px;
+.brand-panel h1{
+
+    font-size:40px;
 
     line-height:1.1;
 
     margin-bottom:18px;
 
+    font-weight:900;
+
 }
 
-.brand-panel p {
+
+.brand-panel p{
 
     color:
         rgba(255,255,255,.78);
 
-    font-size:14px;
+    font-size:13px;
 
-    line-height:1.7;
+    line-height:1.75;
 
     max-width:390px;
 
 }
 
-.benefits {
 
-    margin-top:35px;
+.benefits{
+
+    margin-top:32px;
 
     display:grid;
 
@@ -431,7 +463,8 @@ body {
 
 }
 
-.benefit {
+
+.benefit{
 
     display:flex;
 
@@ -439,19 +472,23 @@ body {
 
     gap:12px;
 
-    font-size:13px;
+    font-size:12px;
 
     color:
-        rgba(255,255,255,.90);
+        rgba(255,255,255,.92);
 
 }
 
-.benefit-icon {
 
-    width:31px;
-    height:31px;
+.benefit-icon{
 
-    border-radius:9px;
+    width:30px;
+
+    height:30px;
+
+    flex:0 0 30px;
+
+    border-radius:8px;
 
     background:
         rgba(255,187,66,.14);
@@ -473,9 +510,9 @@ body {
    FORM PANEL
 ========================================================= */
 
-.form-panel {
+.form-panel{
 
-    padding:50px;
+    padding:45px;
 
     background:white;
 
@@ -483,13 +520,16 @@ body {
 
     align-items:center;
 
+    min-width:0;
+
 }
 
-.form-inner {
+
+.form-inner{
 
     width:100%;
 
-    max-width:500px;
+    max-width:510px;
 
     margin:auto;
 
@@ -500,21 +540,22 @@ body {
    TABS
 ========================================================= */
 
-.auth-tabs {
+.auth-tabs{
 
     display:flex;
 
-    background:#f3f1f4;
+    background:#f3f0f4;
 
     padding:5px;
 
     border-radius:11px;
 
-    margin-bottom:32px;
+    margin-bottom:30px;
 
 }
 
-.auth-tab {
+
+.auth-tab{
 
     flex:1;
 
@@ -526,9 +567,11 @@ body {
 
     border-radius:8px;
 
-    font-size:13px;
+    font-family:inherit;
 
-    font-weight:800;
+    font-size:12px;
+
+    font-weight:900;
 
     cursor:pointer;
 
@@ -538,156 +581,182 @@ body {
 
 }
 
-.auth-tab.active {
+
+.auth-tab.active{
 
     background:white;
 
     color:var(--primary);
 
     box-shadow:
-        0 3px 12px rgba(0,0,0,.08);
+        0 3px 12px
+        rgba(0,0,0,.08);
 
 }
 
 
 /* =========================================================
-   FORM HEAD
+   FORM
 ========================================================= */
 
-.form-eyebrow {
-
-    color:var(--secondary);
-
-    font-size:11px;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-weight:800;
-
-    margin-bottom:9px;
-
-}
-
-.form-title {
-
-    color:var(--primary);
-
-    font-size:32px;
-
-    line-height:1.15;
-
-    margin-bottom:10px;
-
-}
-
-.form-description {
-
-    color:var(--gray);
-
-    font-size:13px;
-
-    line-height:1.6;
-
-    margin-bottom:27px;
-
-}
-
-
-/* =========================================================
-   FORMS
-========================================================= */
-
-.auth-form {
+.auth-form{
 
     display:none;
 
 }
 
-.auth-form.active {
+
+.auth-form.active{
 
     display:block;
 
 }
 
-.form-group {
 
-    margin-bottom:17px;
+.form-eyebrow{
+
+    color:var(--secondary);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-weight:900;
+
+    margin-bottom:8px;
 
 }
 
-.form-grid {
+
+.form-title{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    line-height:1.15;
+
+    margin-bottom:9px;
+
+    font-weight:900;
+
+}
+
+
+.form-description{
+
+    color:var(--gray);
+
+    font-size:12px;
+
+    line-height:1.65;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group{
+
+    margin-bottom:15px;
+
+}
+
+
+.form-grid{
 
     display:grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:14px;
+    gap:13px;
 
 }
 
-.form-full {
 
-    grid-column:1 / -1;
+.form-full{
+
+    grid-column:
+        1 / -1;
 
 }
 
-label {
+
+label{
 
     display:block;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
 
-    color:#444;
+    color:#3f3a40;
 
     margin-bottom:7px;
 
 }
 
-.required {
+
+.required{
 
     color:var(--danger);
 
 }
 
+
 input,
 select,
-textarea {
+textarea{
 
     width:100%;
 
     border:
-        1px solid #dedbe0;
+        1px solid
+        var(--border);
 
     background:#faf9fb;
 
     border-radius:9px;
 
-    padding:13px;
+    padding:12px;
 
     font-family:inherit;
 
-    font-size:13px;
+    font-size:12px;
 
     color:#222;
 
     outline:none;
 
-    transition:.25s ease;
+    transition:.2s ease;
 
 }
 
-input {
 
-    height:46px;
+input{
+
+    height:45px;
 
 }
 
-textarea {
+
+select{
+
+    height:45px;
+
+    cursor:pointer;
+
+}
+
+
+textarea{
 
     min-height:90px;
 
@@ -695,18 +764,18 @@ textarea {
 
 }
 
+
 input:focus,
 select:focus,
-textarea:focus {
+textarea:focus{
 
-    border-color:
-        var(--secondary);
+    border-color:var(--secondary);
 
     background:white;
 
     box-shadow:
         0 0 0 4px
-        rgba(122,44,120,.09);
+        rgba(122,44,120,.08);
 
 }
 
@@ -715,28 +784,29 @@ textarea:focus {
    PASSWORD
 ========================================================= */
 
-.password-wrap {
+.password-wrap{
 
     position:relative;
 
 }
 
-.password-wrap input {
 
-    padding-right:65px;
+.password-wrap input{
+
+    padding-right:60px;
 
 }
 
-.password-toggle {
+
+.password-toggle{
 
     position:absolute;
 
-    right:12px;
+    right:11px;
 
     top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
 
     border:none;
 
@@ -744,13 +814,11 @@ textarea:focus {
 
     color:var(--secondary);
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
 
     cursor:pointer;
-
-    padding:4px;
 
 }
 
@@ -759,17 +827,18 @@ textarea:focus {
    PASSWORD STRENGTH
 ========================================================= */
 
-.password-strength {
+.password-strength{
 
-    margin-top:7px;
+    margin-top:6px;
 
-    font-size:10px;
+    font-size:9px;
 
     color:var(--gray);
 
 }
 
-.strength-bar {
+
+.strength-bar{
 
     width:100%;
 
@@ -785,7 +854,8 @@ textarea:focus {
 
 }
 
-.strength-fill {
+
+.strength-fill{
 
     width:0%;
 
@@ -802,17 +872,18 @@ textarea:focus {
    PHONE
 ========================================================= */
 
-.phone-wrap {
+.phone-wrap{
 
     display:flex;
 
 }
 
-.phone-code {
+
+.phone-code{
 
     min-width:52px;
 
-    height:46px;
+    height:45px;
 
     display:flex;
 
@@ -823,22 +894,24 @@ textarea:focus {
     background:#f0edf1;
 
     border:
-        1px solid #dedbe0;
+        1px solid
+        var(--border);
 
     border-right:none;
 
     border-radius:
         9px 0 0 9px;
 
-    font-size:12px;
-
-    font-weight:800;
-
     color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:900;
 
 }
 
-.phone-wrap input {
+
+.phone-wrap input{
 
     border-radius:
         0 9px 9px 0;
@@ -847,39 +920,67 @@ textarea:focus {
 
 
 /* =========================================================
-   SERVICE
+   SERVICE BOX
 ========================================================= */
 
-.service-box {
+.service-box{
 
     background:#faf7fb;
 
     border:
         1px solid #e7dfe9;
 
-    padding:16px;
+    padding:14px;
 
-    border-radius:12px;
+    border-radius:11px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
 
-.service-box label {
+
+.service-box label{
 
     color:var(--primary);
 
 }
 
-.service-info {
+
+.service-info{
 
     color:var(--gray);
 
-    font-size:10px;
+    font-size:9px;
 
-    margin-top:8px;
+    margin-top:7px;
 
     line-height:1.5;
+
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title{
+
+    font-size:10px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+
+    color:var(--primary);
+
+    padding-bottom:8px;
+
+    border-bottom:
+        1px solid #ece8ed;
+
+    margin:22px 0 14px;
 
 }
 
@@ -888,7 +989,7 @@ textarea:focus {
    FICA
 ========================================================= */
 
-.fica-notice {
+.fica-notice{
 
     display:none;
 
@@ -901,48 +1002,29 @@ textarea:focus {
 
     border-radius:9px;
 
-    padding:12px;
+    padding:11px;
 
-    font-size:11px;
+    font-size:10px;
 
     line-height:1.5;
 
-    margin-bottom:20px;
+    margin-bottom:17px;
 
 }
 
-.fica-notice strong {
+
+.fica-notice strong{
 
     color:#9b6500;
 
 }
 
-.fica-section {
+
+.fica-section{
 
     display:none;
 
-    margin-bottom:20px;
-
-}
-
-.section-title {
-
-    font-size:11px;
-
-    font-weight:900;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.4px;
-
-    color:var(--primary);
-
-    padding-bottom:9px;
-
-    border-bottom:
-        1px solid #ece8ed;
-
-    margin:25px 0 15px;
+    margin-bottom:15px;
 
 }
 
@@ -951,7 +1033,7 @@ textarea:focus {
    CHECKBOX
 ========================================================= */
 
-.checkbox-row {
+.checkbox-row{
 
     display:flex;
 
@@ -959,28 +1041,29 @@ textarea:focus {
 
     gap:8px;
 
-    margin:13px 0;
+    margin:12px 0;
 
 }
 
-.checkbox-row input {
 
-    width:16px;
+.checkbox-row input{
 
-    height:16px;
+    width:15px;
+
+    height:15px;
 
     margin-top:1px;
 
-    accent-color:
-        var(--secondary);
+    accent-color:var(--secondary);
 
 }
 
-.checkbox-row label {
+
+.checkbox-row label{
 
     margin:0;
 
-    font-size:11px;
+    font-size:10px;
 
     line-height:1.5;
 
@@ -988,13 +1071,21 @@ textarea:focus {
 
 }
 
-.checkbox-row a {
+
+.checkbox-row a{
 
     color:var(--secondary);
 
-    font-weight:700;
+    font-weight:800;
 
     text-decoration:none;
+
+}
+
+
+.checkbox-row a:hover{
+
+    text-decoration:underline;
 
 }
 
@@ -1003,11 +1094,11 @@ textarea:focus {
    BUTTON
 ========================================================= */
 
-.primary-btn {
+.primary-btn{
 
     width:100%;
 
-    height:48px;
+    height:47px;
 
     border:none;
 
@@ -1017,7 +1108,7 @@ textarea:focus {
 
     color:white;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:900;
 
@@ -1031,12 +1122,12 @@ textarea:focus {
 
 }
 
-.primary-btn:hover {
+
+.primary-btn:hover{
 
     background:var(--secondary);
 
-    transform:
-        translateY(-2px);
+    transform:translateY(-1px);
 
     box-shadow:
         0 8px 20px
@@ -1044,7 +1135,8 @@ textarea:focus {
 
 }
 
-.primary-btn:disabled {
+
+.primary-btn:disabled{
 
     opacity:.65;
 
@@ -1056,24 +1148,31 @@ textarea:focus {
 
 
 /* =========================================================
-   FORGOT
+   FORGOT PASSWORD
 ========================================================= */
 
-.forgot {
+.forgot{
 
     display:block;
 
     text-align:right;
 
-    margin:-5px 0 18px;
+    margin:-4px 0 17px;
 
     color:var(--secondary);
 
     text-decoration:none;
 
-    font-size:11px;
+    font-size:10px;
 
-    font-weight:700;
+    font-weight:800;
+
+}
+
+
+.forgot:hover{
+
+    text-decoration:underline;
 
 }
 
@@ -1082,25 +1181,24 @@ textarea:focus {
    MESSAGE
 ========================================================= */
 
-.message {
+.message{
 
     display:none;
 
-    margin-top:15px;
+    margin-top:13px;
 
-    padding:12px;
+    padding:11px;
 
     border-radius:8px;
 
-    font-size:11px;
+    font-size:10px;
 
     line-height:1.5;
 
-    word-break:break-word;
-
 }
 
-.message.success {
+
+.message.success{
 
     display:block;
 
@@ -1110,7 +1208,8 @@ textarea:focus {
 
 }
 
-.message.error {
+
+.message.error{
 
     display:block;
 
@@ -1120,7 +1219,8 @@ textarea:focus {
 
 }
 
-.message.info {
+
+.message.info{
 
     display:block;
 
@@ -1132,20 +1232,61 @@ textarea:focus {
 
 
 /* =========================================================
+   REGISTER SCROLL
+========================================================= */
+
+#registerForm{
+
+    max-height:555px;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+}
+
+
+#registerForm::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+
+#registerForm::-webkit-scrollbar-track{
+
+    background:#f1eef2;
+
+    border-radius:10px;
+
+}
+
+
+#registerForm::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
+
+    border-radius:10px;
+
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
-.footer {
+.footer{
 
     background:var(--black);
 
     color:white;
 
-    padding:22px 6%;
+    padding:28px 6%;
 
 }
 
-.footer-inner {
+
+.footer-inner{
 
     max-width:1200px;
 
@@ -1157,76 +1298,101 @@ textarea:focus {
 
     justify-content:space-between;
 
-    gap:20px;
+    gap:25px;
 
 }
 
-.footer p {
 
-    color:#aaa;
-
-    font-size:11px;
-
-}
-
-.footer-links {
+.footer-brand{
 
     display:flex;
 
-    gap:20px;
+    align-items:center;
+
+    gap:15px;
 
 }
 
-.footer-links a {
+
+.footer-logo{
+
+    width:135px;
+
+    height:auto;
+
+}
+
+
+.footer-description{
+
+    color:#aaa;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    max-width:330px;
+
+}
+
+
+.footer-links{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.footer-links a{
 
     color:#aaa;
 
     text-decoration:none;
 
-    font-size:11px;
+    font-size:10px;
 
 }
 
-.footer-links a:hover {
+
+.footer-links a:hover{
 
     color:var(--accent);
 
 }
 
 
-/* =========================================================
-   REGISTER SCROLL
-========================================================= */
+.footer-bottom{
 
-#registerForm {
+    max-width:1200px;
 
-    max-height:590px;
+    margin:20px auto 0;
 
-    overflow-y:auto;
+    padding-top:17px;
 
-    padding-right:8px;
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
 
-}
+    display:flex;
 
-#registerForm::-webkit-scrollbar {
+    align-items:center;
 
-    width:5px;
+    justify-content:space-between;
 
-}
-
-#registerForm::-webkit-scrollbar-track {
-
-    background:#f1eef2;
-
-    border-radius:10px;
+    gap:15px;
 
 }
 
-#registerForm::-webkit-scrollbar-thumb {
 
-    background:var(--secondary);
+.footer-bottom p{
 
-    border-radius:10px;
+    color:#777;
+
+    font-size:9px;
 
 }
 
@@ -1237,83 +1403,152 @@ textarea:focus {
 
 @media(max-width:850px){
 
-    .topbar {
+    .topbar{
 
-        height:70px;
+        min-height:70px;
 
         padding:0 20px;
 
     }
 
-    .logo {
 
-        height:48px;
+    .logo{
 
-    }
-
-    .nav-actions .nav-btn:not(.home) {
-
-        display:none;
+        height:47px;
 
     }
 
-    .main {
 
-        padding:30px 15px;
+    .nav-btn{
+
+        padding:0 11px;
+
+        font-size:10px;
 
     }
 
-    .auth-container {
+
+    .auth-container{
 
         grid-template-columns:1fr;
 
+        min-height:auto;
+
     }
 
-    .brand-panel {
+
+    .brand-panel{
 
         display:none;
 
     }
 
-    .form-panel {
+
+    .form-panel{
 
         padding:35px 25px;
 
     }
 
+
+    #registerForm{
+
+        max-height:none;
+
+        overflow:visible;
+
+        padding-right:0;
+
+    }
+
+
+    .main{
+
+        padding:30px 15px;
+
+    }
+
 }
+
 
 @media(max-width:520px){
 
-    .form-panel {
+    .topbar{
+
+        padding:0 15px;
+
+    }
+
+
+    .nav-actions{
+
+        gap:5px;
+
+    }
+
+
+    .nav-btn{
+
+        min-height:36px;
+
+        padding:0 9px;
+
+        font-size:9px;
+
+    }
+
+
+    .nav-btn:nth-child(2){
+
+        display:none;
+
+    }
+
+
+    .form-panel{
 
         padding:25px 18px;
 
     }
 
-    .form-grid {
+
+    .form-grid{
 
         grid-template-columns:1fr;
 
+        gap:0;
+
     }
 
-    .form-full {
+
+    .form-full{
 
         grid-column:auto;
 
     }
 
-    .form-title {
 
-        font-size:28px;
+    .form-title{
+
+        font-size:27px;
 
     }
 
-    .footer-inner {
+
+    .footer-inner{
 
         flex-direction:column;
 
-        text-align:center;
+        align-items:flex-start;
+
+    }
+
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
 
     }
 
@@ -1341,7 +1576,7 @@ textarea:focus {
 >
 
 <img
-    src="dingestech-logo.png"
+    src="/dingestech-logo.png"
     alt="Dinges TechHub"
     class="logo"
 >
@@ -1349,11 +1584,11 @@ textarea:focus {
 </a>
 
 
-<div class="nav-actions">
+<nav class="nav-actions">
 
 <a
     href="/"
-    class="nav-btn home"
+    class="nav-btn"
 >
     Home
 </a>
@@ -1372,7 +1607,14 @@ textarea:focus {
     Contact
 </a>
 
-</div>
+<a
+    href="/login.php"
+    class="nav-btn active"
+>
+    Login
+</a>
+
+</nav>
 
 </header>
 
@@ -1387,7 +1629,7 @@ textarea:focus {
 
 
 <!-- =========================================================
-     BRAND
+     BRAND PANEL
 ========================================================= -->
 
 <section class="brand-panel">
@@ -1395,7 +1637,7 @@ textarea:focus {
 <div class="brand-panel-content">
 
 <img
-    src="dingestech-logo.png"
+    src="/dingestech-logo.png"
     alt="Dinges TechHub"
     class="panel-logo"
 >
@@ -1421,9 +1663,7 @@ textarea:focus {
 
 <div class="benefit">
 
-<div class="benefit-icon">
-✓
-</div>
+<div class="benefit-icon">✓</div>
 
 <span>
 Manage your Dinges TechHub services
@@ -1434,9 +1674,7 @@ Manage your Dinges TechHub services
 
 <div class="benefit">
 
-<div class="benefit-icon">
-✓
-</div>
+<div class="benefit-icon">✓</div>
 
 <span>
 Access your customer dashboard
@@ -1447,9 +1685,7 @@ Access your customer dashboard
 
 <div class="benefit">
 
-<div class="benefit-icon">
-✓
-</div>
+<div class="benefit-icon">✓</div>
 
 <span>
 Manage domains and hosting
@@ -1460,9 +1696,7 @@ Manage domains and hosting
 
 <div class="benefit">
 
-<div class="benefit-icon">
-✓
-</div>
+<div class="benefit-icon">✓</div>
 
 <span>
 Get technical support
@@ -1512,7 +1746,7 @@ Get technical support
 
 
 <!-- =========================================================
-     LOGIN
+     LOGIN FORM
 ========================================================= -->
 
 <form
@@ -1521,7 +1755,7 @@ Get technical support
 >
 
 <div class="form-eyebrow">
-    Welcome back
+    Welcome Back
 </div>
 
 <h2 class="form-title">
@@ -1609,7 +1843,7 @@ Get technical support
 
 
 <!-- =========================================================
-     REGISTER
+     REGISTER FORM
 ========================================================= -->
 
 <form
@@ -1643,7 +1877,6 @@ Select the Service You Need
 <span class="required">*</span>
 
 </label>
-
 
 <select
     id="service"
@@ -1725,14 +1958,11 @@ ID document and proof of residence.
 
 <div class="form-grid">
 
-
 <div class="form-group">
 
 <label for="firstName">
-
 First Name
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1749,10 +1979,8 @@ First Name
 <div class="form-group">
 
 <label for="lastName">
-
 Last Name
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1769,10 +1997,8 @@ Last Name
 <div class="form-group">
 
 <label for="registerEmail">
-
 Email Address
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1789,10 +2015,8 @@ Email Address
 <div class="form-group">
 
 <label for="phone">
-
 Phone Number
 <span class="required">*</span>
-
 </label>
 
 <div class="phone-wrap">
@@ -1826,7 +2050,6 @@ Phone Number
 
 <div class="form-grid">
 
-
 <div class="form-group form-full">
 
 <label for="companyName">
@@ -1846,10 +2069,8 @@ Company Name
 <div class="form-group">
 
 <label for="streetAddress">
-
 Street Address
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1881,10 +2102,8 @@ Street Address 2
 <div class="form-group">
 
 <label for="city">
-
 City
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1901,10 +2120,8 @@ City
 <div class="form-group">
 
 <label for="province">
-
 Province
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -1921,10 +2138,8 @@ Province
 <div class="form-group">
 
 <label for="postcode">
-
 Postcode
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -2001,14 +2216,11 @@ Tax ID
 
 <div class="form-grid">
 
-
 <div class="form-group">
 
 <label for="identityNumber">
-
 Identity Number
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -2023,10 +2235,8 @@ Identity Number
 <div class="form-group">
 
 <label for="idProof">
-
 ID Document
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -2042,10 +2252,8 @@ ID Document
 <div class="form-group form-full">
 
 <label for="proofOfResidence">
-
 Proof of Residence
 <span class="required">*</span>
-
 </label>
 
 <input
@@ -2070,7 +2278,6 @@ Proof of Residence
 
 
 <div class="form-grid">
-
 
 <div class="form-group">
 
@@ -2142,16 +2349,12 @@ Additional Information
 
 <div class="form-grid">
 
-
 <div class="form-group">
 
 <label for="signupPassword">
-
 Password
 <span class="required">*</span>
-
 </label>
-
 
 <div class="password-wrap">
 
@@ -2182,7 +2385,6 @@ Password strength:
 Enter a password
 </span>
 
-
 <div class="strength-bar">
 
 <div
@@ -2200,12 +2402,9 @@ Enter a password
 <div class="form-group">
 
 <label for="confirmPassword">
-
 Confirm Password
 <span class="required">*</span>
-
 </label>
-
 
 <div class="password-wrap">
 
@@ -2319,14 +2518,37 @@ Terms of Service
 
 <div class="footer-inner">
 
-<p>
-© 2026 Dinges TechHub. All rights reserved.
-</p>
+<div class="footer-brand">
+
+<img
+    src="/dingestech-logo.png"
+    alt="Dinges TechHub"
+    class="footer-logo"
+>
+
+<div class="footer-description">
+
+Your technology, connected.
+
+<br>
+
+Dinges TechHub provides connectivity,
+hosting, technical support and technology
+solutions for homes and businesses.
+
+</div>
+
+</div>
+
 
 <div class="footer-links">
 
 <a href="/">
 Home
+</a>
+
+<a href="/services.php">
+Services
 </a>
 
 <a href="/privacy.php">
@@ -2345,6 +2567,19 @@ Contact
 
 </div>
 
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Dinges TechHub. All rights reserved.
+</p>
+
+<p>
+support@dingestechhub.co.za
+</p>
+
+</div>
+
 </footer>
 
 </div>
@@ -2353,7 +2588,7 @@ Contact
 <script>
 
 /* =========================================================
-   API CONFIGURATION
+   API
 ========================================================= */
 
 const API_BASE =
@@ -2364,17 +2599,6 @@ const LOGIN_API =
 
 const REGISTER_API =
     API_BASE + "/register.php";
-
-
-console.log(
-    "Dinges TechHub Login API:",
-    LOGIN_API
-);
-
-console.log(
-    "Dinges TechHub Register API:",
-    REGISTER_API
-);
 
 
 /* =========================================================
@@ -2425,7 +2649,7 @@ const strengthFill =
 
 
 /* =========================================================
-   TABS
+   SHOW LOGIN
 ========================================================= */
 
 function showLogin(){
@@ -2440,6 +2664,10 @@ function showLogin(){
 
 }
 
+
+/* =========================================================
+   SHOW REGISTER
+========================================================= */
 
 function showRegister(){
 
@@ -2480,9 +2708,7 @@ function togglePassword(
 
 
     if(!input){
-
         return;
-
     }
 
 
@@ -2544,9 +2770,9 @@ service.addEventListener(
 
 
         const needsFica =
-            option.value === "fibre" ||
-            option.value === "wireless" ||
-            option.value === "lte";
+            service.value === "fibre" ||
+            service.value === "wireless" ||
+            service.value === "lte";
 
 
         if(needsFica){
@@ -2670,27 +2896,76 @@ signupPassword.addEventListener(
 
 
 /* =========================================================
-   API ERROR HELPER
+   API RESPONSE
 ========================================================= */
 
-function showApiError(
-    messageElement,
-    data,
-    status
+async function parseApiResponse(response){
+
+    const text =
+        await response.text();
+
+    console.log(
+        "API STATUS:",
+        response.status
+    );
+
+    console.log(
+        "API RESPONSE:",
+        text
+    );
+
+
+    let json = null;
+
+
+    try{
+
+        json =
+            text ?
+            JSON.parse(text) :
+            null;
+
+    }
+    catch(error){
+
+        console.error(
+            "Invalid JSON response:",
+            error
+        );
+
+    }
+
+
+    return {
+        text:text.trim(),
+        json:json
+    };
+
+}
+
+
+/* =========================================================
+   API ERROR
+========================================================= */
+
+function displayApiError(
+    element,
+    response,
+    result,
+    fallback
 ){
 
-    messageElement.className =
+    element.className =
         "message error";
 
 
     if(
-        data &&
-        typeof data.message === "string" &&
-        data.message.trim()
+        result.json &&
+        result.json.message
     ){
 
-        messageElement.textContent =
-            data.message;
+        element.textContent =
+            result.json.message;
 
         return;
 
@@ -2698,34 +2973,29 @@ function showApiError(
 
 
     if(
-        data &&
-        typeof data.error === "string" &&
-        data.error.trim()
+        result.json &&
+        result.json.error
     ){
 
-        messageElement.textContent =
-            data.error;
+        element.textContent =
+            result.json.error;
 
         return;
 
     }
 
 
-    messageElement.textContent =
-        "Unable to complete the request." +
-        (
-            status
-                ? " HTTP " + status + "."
-                : ""
-        );
+    element.textContent =
+        fallback +
+        " (HTTP " +
+        response.status +
+        ")";
 
 }
 
 
 /* =========================================================
    LOGIN
-   IMPORTANT:
-   The working API expects JSON.
 ========================================================= */
 
 loginForm.addEventListener(
@@ -2746,53 +3016,8 @@ loginForm.addEventListener(
             );
 
 
-        const email =
-            document
-                .getElementById("loginEmail")
-                .value
-                .trim();
-
-        const password =
-            document
-                .getElementById("loginPassword")
-                .value;
-
-
-        /* -------------------------------------------------
-           VALIDATION
-        ------------------------------------------------- */
-
-        if(!email){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Please enter your email address.";
-
-            return;
-
-        }
-
-
-        if(!password){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Please enter your password.";
-
-            return;
-
-        }
-
-
-        /* -------------------------------------------------
-           UI
-        ------------------------------------------------- */
-
-        button.disabled = true;
+        button.disabled =
+            true;
 
         button.textContent =
             "Logging in...";
@@ -2807,36 +3032,11 @@ loginForm.addEventListener(
 
         try{
 
-            console.log(
-                "===================================="
-            );
+            const formData =
+                new FormData(
+                    loginForm
+                );
 
-            console.log(
-                "DINGES TECHHUB LOGIN"
-            );
-
-            console.log(
-                "POST:",
-                LOGIN_API
-            );
-
-            console.log(
-                "Email:",
-                email
-            );
-
-            console.log(
-                "Password: [hidden]"
-            );
-
-            console.log(
-                "===================================="
-            );
-
-
-            /* -------------------------------------------------
-               JSON LOGIN REQUEST
-            ------------------------------------------------- */
 
             const response =
                 await fetch(
@@ -2845,28 +3045,14 @@ loginForm.addEventListener(
 
                         method:"POST",
 
-                        headers:{
-
-                            "Content-Type":
-                                "application/json",
-
-                            "Accept":
-                                "application/json"
-
-                        },
-
-                        body:
-                            JSON.stringify({
-
-                                email:email,
-
-                                password:password
-
-                            }),
+                        body:formData,
 
                         credentials:"include",
 
-                        mode:"cors",
+                        headers:{
+                            "Accept":
+                                "application/json"
+                        },
 
                         cache:"no-store"
 
@@ -2874,104 +3060,43 @@ loginForm.addEventListener(
                 );
 
 
-            console.log(
-                "LOGIN HTTP STATUS:",
-                response.status
-            );
-
-
-            /* -------------------------------------------------
-               READ SERVER RESPONSE
-            ------------------------------------------------- */
-
-            const raw =
-                await response.text();
-
-
-            console.log(
-                "LOGIN RAW RESPONSE:",
-                raw
-            );
-
-
-            let data = null;
-
-
-            try{
-
-                data =
-                    JSON.parse(raw);
-
-            }
-            catch(error){
-
-                console.error(
-                    "Login API returned invalid JSON:",
-                    error
+            const result =
+                await parseApiResponse(
+                    response
                 );
 
-            }
 
-
-            /* -------------------------------------------------
-               INVALID RESPONSE
-            ------------------------------------------------- */
-
-            if(!data){
-
-                message.className =
-                    "message error";
-
-                message.textContent =
-                    "The login server returned an invalid response.";
-
-                button.disabled = false;
-
-                button.textContent =
-                    "Login";
-
-                return;
-
-            }
-
-
-            /* -------------------------------------------------
+            /* -----------------------------------------
                SUCCESS
-            ------------------------------------------------- */
+            ----------------------------------------- */
 
             if(
                 response.ok &&
-                data.success === true
+                result.json &&
+                result.json.success === true
             ){
-
-                console.log(
-                    "LOGIN SUCCESS:",
-                    data
-                );
-
 
                 message.className =
                     "message success";
 
                 message.textContent =
-                    data.message ||
+                    result.json.message ||
                     "Login successful. Redirecting...";
 
 
-                /* -------------------------------------------------
-                   SAVE NON-SENSITIVE CUSTOMER DATA
-                   
-                   We do NOT save the password.
-                ------------------------------------------------- */
+                /*
+                 * Store only non-sensitive customer
+                 * information needed by the frontend.
+                 */
 
-                if(data.customer){
+                if(result.json.customer){
 
                     try{
 
                         sessionStorage.setItem(
-                            "dinges_customer",
+                            "dingesTechCustomer",
                             JSON.stringify(
-                                data.customer
+                                result.json.customer
                             )
                         );
 
@@ -2979,7 +3104,7 @@ loginForm.addEventListener(
                     catch(storageError){
 
                         console.warn(
-                            "Session storage unavailable:",
+                            "Session storage unavailable.",
                             storageError
                         );
 
@@ -2988,41 +3113,9 @@ loginForm.addEventListener(
                 }
 
 
-                /* -------------------------------------------------
-                   OPTIONAL CLIENT SESSION TOKEN
-                   
-                   If login.php later returns a token/session
-                   value, this will preserve it without breaking
-                   the current API.
-                ------------------------------------------------- */
-
-                if(
-                    data.token &&
-                    typeof data.token === "string"
-                ){
-
-                    try{
-
-                        sessionStorage.setItem(
-                            "dinges_auth_token",
-                            data.token
-                        );
-
-                    }
-                    catch(error){
-
-                        console.warn(
-                            "Could not save auth token."
-                        );
-
-                    }
-
-                }
-
-
-                /* -------------------------------------------------
-                   REDIRECT
-                ------------------------------------------------- */
+                /*
+                 * Redirect.
+                 */
 
                 const params =
                     new URLSearchParams(
@@ -3030,41 +3123,29 @@ loginForm.addEventListener(
                     );
 
 
-                const requestedRedirect =
+                const redirect =
                     params.get("redirect");
-
-
-                let redirectUrl =
-                    "https://register.web.za/customer-dashboard.php";
-
-
-                /*
-                 * Only permit internal relative redirects.
-                 */
-
-                if(
-                    requestedRedirect &&
-                    requestedRedirect.startsWith("/") &&
-                    !requestedRedirect.startsWith("//")
-                ){
-
-                    redirectUrl =
-                        requestedRedirect;
-
-                }
-
-
-                console.log(
-                    "REDIRECT:",
-                    redirectUrl
-                );
 
 
                 setTimeout(
                     function(){
 
-                        window.location.href =
-                            redirectUrl;
+                        if(
+                            redirect &&
+                            redirect.startsWith("/") &&
+                            !redirect.startsWith("//")
+                        ){
+
+                            window.location.href =
+                                redirect;
+
+                        }
+                        else{
+
+                            window.location.href =
+                                "https://register.web.za/customer-dashboard.php";
+
+                        }
 
                     },
                     700
@@ -3076,18 +3157,20 @@ loginForm.addEventListener(
             }
 
 
-            /* -------------------------------------------------
+            /* -----------------------------------------
                LOGIN FAILED
-            ------------------------------------------------- */
+            ----------------------------------------- */
 
-            showApiError(
+            displayApiError(
                 message,
-                data,
-                response.status
+                response,
+                result,
+                "Incorrect email or password."
             );
 
 
-            button.disabled = false;
+            button.disabled =
+                false;
 
             button.textContent =
                 "Login";
@@ -3096,7 +3179,7 @@ loginForm.addEventListener(
         catch(error){
 
             console.error(
-                "LOGIN NETWORK ERROR:",
+                "LOGIN ERROR:",
                 error
             );
 
@@ -3104,14 +3187,12 @@ loginForm.addEventListener(
             message.className =
                 "message error";
 
-
-            message.innerHTML =
-                "<strong>Unable to connect to the login server.</strong>" +
-                "<br><br>" +
-                "Please check your internet connection and try again.";
+            message.textContent =
+                "Unable to connect to the login server. Please try again.";
 
 
-            button.disabled = false;
+            button.disabled =
+                false;
 
             button.textContent =
                 "Login";
@@ -3147,15 +3228,16 @@ registerForm.addEventListener(
         const password =
             signupPassword.value;
 
+
         const confirmPassword =
             document.getElementById(
                 "confirmPassword"
             ).value;
 
 
-        /* -------------------------------------------------
+        /* -----------------------------------------
            VALIDATION
-        ------------------------------------------------- */
+        ----------------------------------------- */
 
         if(!service.value){
 
@@ -3215,9 +3297,9 @@ registerForm.addEventListener(
         }
 
 
-        /* -------------------------------------------------
-           FICA VALIDATION
-        ------------------------------------------------- */
+        /* -----------------------------------------
+           FICA
+        ----------------------------------------- */
 
         const needsFica =
             service.value === "fibre" ||
@@ -3274,9 +3356,9 @@ registerForm.addEventListener(
         }
 
 
-        /* -------------------------------------------------
-           BUTTON
-        ------------------------------------------------- */
+        /* -----------------------------------------
+           SUBMIT
+        ----------------------------------------- */
 
         button.disabled =
             true;
@@ -3300,75 +3382,13 @@ registerForm.addEventListener(
                 );
 
 
-            console.log(
-                "===================================="
-            );
+            const registeredEmail =
+                document
+                    .getElementById(
+                        "registerEmail"
+                    )
+                    .value;
 
-            console.log(
-                "DINGES TECHHUB REGISTRATION"
-            );
-
-            console.log(
-                "POST:",
-                REGISTER_API
-            );
-
-
-            for(
-                const [
-                    key,
-                    value
-                ]
-                of formData.entries()
-            ){
-
-                if(
-                    key === "password" ||
-                    key === "confirm_password"
-                ){
-
-                    console.log(
-                        key,
-                        ": [hidden]"
-                    );
-
-                }
-                else if(
-                    value instanceof File
-                ){
-
-                    console.log(
-                        key,
-                        ":",
-                        value.name,
-                        "(" +
-                        value.size +
-                        " bytes)"
-                    );
-
-                }
-                else{
-
-                    console.log(
-                        key,
-                        ":",
-                        value
-                    );
-
-                }
-
-            }
-
-
-            console.log(
-                "===================================="
-            );
-
-
-            /*
-             * DO NOT manually set Content-Type.
-             * Browser creates multipart boundary.
-             */
 
             const response =
                 await fetch(
@@ -3380,15 +3400,11 @@ registerForm.addEventListener(
                         body:formData,
 
                         headers:{
-
                             "Accept":
                                 "application/json"
-
                         },
 
                         mode:"cors",
-
-                        credentials:"include",
 
                         cache:"no-store"
 
@@ -3396,65 +3412,28 @@ registerForm.addEventListener(
                 );
 
 
-            console.log(
-                "REGISTER HTTP STATUS:",
-                response.status
-            );
-
-
-            const raw =
-                await response.text();
-
-
-            console.log(
-                "REGISTER RAW RESPONSE:",
-                raw
-            );
-
-
-            let data = null;
-
-
-            try{
-
-                data =
-                    JSON.parse(raw);
-
-            }
-            catch(error){
-
-                console.error(
-                    "Invalid registration JSON:",
-                    error
+            const result =
+                await parseApiResponse(
+                    response
                 );
 
-            }
 
-
-            /* -------------------------------------------------
+            /* -----------------------------------------
                SUCCESS
-            ------------------------------------------------- */
+            ----------------------------------------- */
 
             if(
                 response.ok &&
-                data &&
-                data.success === true
+                result.json &&
+                result.json.success === true
             ){
-
-                const registeredEmail =
-                    document
-                        .getElementById(
-                            "registerEmail"
-                        )
-                        .value;
-
 
                 message.className =
                     "message success";
 
                 message.textContent =
-                    data.message ||
-                    "Registration successful! You can now log in.";
+                    result.json.message ||
+                    "Registration successful. You can now log in.";
 
 
                 registerForm.reset();
@@ -3483,16 +3462,8 @@ registerForm.addEventListener(
                 strengthText.textContent =
                     "Enter a password";
 
-
                 strengthFill.style.width =
                     "0%";
-
-
-                button.disabled =
-                    false;
-
-                button.textContent =
-                    "Create Account";
 
 
                 setTimeout(
@@ -3508,9 +3479,23 @@ registerForm.addEventListener(
                             .value =
                             registeredEmail;
 
+
+                        document
+                            .getElementById(
+                                "loginPassword"
+                            )
+                            .focus();
+
                     },
                     1200
                 );
+
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Create Account";
 
 
                 return;
@@ -3518,14 +3503,15 @@ registerForm.addEventListener(
             }
 
 
-            /* -------------------------------------------------
-               REGISTRATION ERROR
-            ------------------------------------------------- */
+            /* -----------------------------------------
+               ERROR
+            ----------------------------------------- */
 
-            showApiError(
+            displayApiError(
                 message,
-                data,
-                response.status
+                response,
+                result,
+                "Unable to create your account."
             );
 
 
@@ -3539,7 +3525,7 @@ registerForm.addEventListener(
         catch(error){
 
             console.error(
-                "REGISTER NETWORK ERROR:",
+                "REGISTER ERROR:",
                 error
             );
 
@@ -3547,11 +3533,8 @@ registerForm.addEventListener(
             message.className =
                 "message error";
 
-
-            message.innerHTML =
-                "<strong>Unable to connect to the registration server.</strong>" +
-                "<br><br>" +
-                "Please check your internet connection and try again.";
+            message.textContent =
+                "Unable to connect to the registration server. Please try again.";
 
 
             button.disabled =
@@ -3578,7 +3561,6 @@ document
 
             event.preventDefault();
 
-
             alert(
                 "Password reset will be connected to your Dinges TechHub customer account."
             );
@@ -3588,7 +3570,15 @@ document
 
 
 /* =========================================================
-   AUTO REGISTER
+   IMPORTANT:
+   LOGIN IS ALWAYS DEFAULT
+========================================================= */
+
+showLogin();
+
+
+/* =========================================================
+   OPEN REGISTER ONLY WHEN REQUESTED
 ========================================================= */
 
 const urlParams =
@@ -3604,11 +3594,6 @@ if(
     showRegister();
 
 }
-
-
-/* =========================================================
-   END
-========================================================= */
 
 </script>
 
