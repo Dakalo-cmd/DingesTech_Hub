@@ -7,17 +7,33 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Customer Login | Dinges TechHub</title>
+<title>Login | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Login or create your Dinges TechHub customer account."
+    content="Login to your Dinges TechHub customer account."
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
 >
 
 <style>
 
 /* =========================================================
-   DINGES TECHHUB — LOGIN / REGISTER
+   DINGES TECHHUB — LOGIN
 ========================================================= */
 
 :root{
@@ -53,6 +69,7 @@ html{
 }
 
 body{
+
     font-family:
         Inter,
         Manrope,
@@ -61,8 +78,11 @@ body{
         sans-serif;
 
     background:#f7f5f8;
+
     color:var(--black);
+
     min-height:100vh;
+
 }
 
 
@@ -71,96 +91,139 @@ body{
 ========================================================= */
 
 .page{
+
     min-height:100vh;
+
     display:flex;
+
     flex-direction:column;
+
 }
 
 
 /* =========================================================
-   TOP BAR
+   TOP NAVIGATION
 ========================================================= */
 
 .topbar{
+
+    width:100%;
+
     min-height:78px;
+
     background:var(--primary);
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:0 6%;
 
     position:relative;
+
     z-index:20;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,.12);
+        0 5px 25px rgba(0,0,0,.14);
+
 }
 
 
 .logo-link{
+
     display:flex;
+
     align-items:center;
+
     text-decoration:none;
+
 }
 
 
 .logo{
+
+    display:block;
+
     width:auto;
+
     height:56px;
+
     max-width:210px;
+
     object-fit:contain;
+
 }
 
 
 .nav-actions{
+
     display:flex;
+
     align-items:center;
-    gap:10px;
+
+    gap:9px;
+
 }
 
 
 .nav-btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
 
     min-height:40px;
+
     padding:0 17px;
 
     border:
         1px solid
-        rgba(255,255,255,.16);
+        rgba(255,255,255,.15);
 
     border-radius:9px;
 
-    color:white;
+    color:#fff;
+
     text-decoration:none;
 
     font-size:12px;
+
     font-weight:800;
 
-    transition:.25s ease;
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+
 }
 
 
 .nav-btn:hover{
+
     background:
-        rgba(255,255,255,.10);
+        rgba(255,255,255,.09);
 
     border-color:
         rgba(255,187,66,.55);
 
     transform:
         translateY(-1px);
+
 }
 
 
 .nav-btn.active{
+
     background:var(--accent);
+
     color:var(--black);
+
     border-color:var(--accent);
+
 }
 
 
@@ -169,70 +232,88 @@ body{
 ========================================================= */
 
 .main{
+
     flex:1;
 
+    min-height:
+        calc(100vh - 78px);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     padding:55px 20px;
 
     position:relative;
+
     overflow:hidden;
+
 }
 
 
 .main::before{
+
     content:"";
 
     position:absolute;
 
-    width:500px;
-    height:500px;
+    width:520px;
+
+    height:520px;
 
     border-radius:50%;
 
     background:
-        rgba(122,44,120,.09);
+        rgba(122,44,120,.10);
 
-    top:-240px;
-    left:-180px;
+    top:-260px;
 
-    filter:blur(30px);
+    left:-220px;
+
+    filter:blur(35px);
+
 }
 
 
 .main::after{
+
     content:"";
 
     position:absolute;
 
-    width:450px;
-    height:450px;
+    width:470px;
+
+    height:470px;
 
     border-radius:50%;
 
     background:
         rgba(255,187,66,.12);
 
-    bottom:-220px;
-    right:-160px;
+    right:-210px;
 
-    filter:blur(30px);
+    bottom:-240px;
+
+    filter:blur(35px);
+
 }
 
 
 /* =========================================================
-   AUTH CONTAINER
+   LOGIN CARD
 ========================================================= */
 
 .auth-container{
-    width:1100px;
+
+    width:1080px;
+
     max-width:100%;
 
-    min-height:640px;
+    min-height:620px;
 
-    background:white;
+    background:#fff;
 
     border-radius:24px;
 
@@ -243,12 +324,14 @@ body{
     grid-template-columns:
         .82fr 1.18fr;
 
+    position:relative;
+
+    z-index:2;
+
     box-shadow:
         0 25px 70px
-        rgba(60,21,66,.15);
+        rgba(60,21,66,.16);
 
-    position:relative;
-    z-index:2;
 }
 
 
@@ -257,6 +340,7 @@ body{
 ========================================================= */
 
 .brand-panel{
+
     background:
         linear-gradient(
             145deg,
@@ -264,25 +348,30 @@ body{
             var(--secondary)
         );
 
-    color:white;
+    color:#fff;
 
     padding:55px;
 
     display:flex;
+
     align-items:center;
 
     position:relative;
+
     overflow:hidden;
+
 }
 
 
 .brand-panel::before{
+
     content:"";
 
     position:absolute;
 
-    width:400px;
-    height:400px;
+    width:420px;
+
+    height:420px;
 
     border:
         1px solid
@@ -290,17 +379,21 @@ body{
 
     border-radius:50%;
 
-    top:-190px;
-    right:-190px;
+    top:-210px;
+
+    right:-210px;
+
 }
 
 
 .brand-panel::after{
+
     content:"";
 
     position:absolute;
 
     width:300px;
+
     height:300px;
 
     border:
@@ -309,29 +402,41 @@ body{
 
     border-radius:50%;
 
+    left:-160px;
+
     bottom:-170px;
-    left:-150px;
+
 }
 
 
-.brand-panel-content{
+.brand-content{
+
     position:relative;
+
     z-index:2;
+
 }
 
 
 .panel-logo{
+
     width:190px;
+
     max-width:100%;
+
     height:auto;
+
+    display:block;
+
+    object-fit:contain;
 
     margin-bottom:35px;
 
-    object-fit:contain;
 }
 
 
 .brand-eyebrow{
+
     color:var(--accent);
 
     font-size:10px;
@@ -343,20 +448,25 @@ body{
     font-weight:900;
 
     margin-bottom:14px;
+
 }
 
 
 .brand-panel h1{
+
     font-size:40px;
-    line-height:1.1;
+
+    line-height:1.08;
+
+    font-weight:900;
 
     margin-bottom:18px;
 
-    font-weight:900;
 }
 
 
 .brand-panel p{
+
     color:
         rgba(255,255,255,.78);
 
@@ -365,36 +475,50 @@ body{
     line-height:1.75;
 
     max-width:390px;
+
 }
 
 
 .benefits{
+
     margin-top:32px;
 
     display:grid;
 
     gap:14px;
+
 }
 
 
 .benefit{
+
     display:flex;
+
     align-items:center;
 
     gap:12px;
 
-    font-size:12px;
-
     color:
         rgba(255,255,255,.92);
+
+    font-size:12px;
+
 }
 
 
 .benefit-icon{
+
     width:30px;
+
     height:30px;
 
     flex:0 0 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     border-radius:8px;
 
@@ -403,12 +527,8 @@ body{
 
     color:var(--accent);
 
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
     font-weight:900;
+
 }
 
 
@@ -417,94 +537,35 @@ body{
 ========================================================= */
 
 .form-panel{
-    padding:45px;
 
-    background:white;
+    background:#fff;
+
+    padding:55px;
 
     display:flex;
+
     align-items:center;
 
-    min-width:0;
 }
 
 
 .form-inner{
+
     width:100%;
 
-    max-width:510px;
+    max-width:470px;
 
     margin:auto;
+
 }
 
 
 /* =========================================================
-   TABS
+   HEADER
 ========================================================= */
-
-.auth-tabs{
-    display:flex;
-
-    background:#f3f0f4;
-
-    padding:5px;
-
-    border-radius:11px;
-
-    margin-bottom:30px;
-}
-
-
-.auth-tab{
-    flex:1;
-
-    border:none;
-
-    background:transparent;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    font-family:inherit;
-
-    font-size:12px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    color:var(--gray);
-
-    transition:.25s ease;
-}
-
-
-.auth-tab.active{
-    background:white;
-
-    color:var(--primary);
-
-    box-shadow:
-        0 3px 12px
-        rgba(0,0,0,.08);
-}
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-.auth-form{
-    display:none;
-}
-
-
-.auth-form.active{
-    display:block;
-}
-
 
 .form-eyebrow{
+
     color:var(--secondary);
 
     font-size:10px;
@@ -516,80 +577,69 @@ body{
     font-weight:900;
 
     margin-bottom:8px;
+
 }
 
 
 .form-title{
+
     color:var(--primary);
 
-    font-size:30px;
+    font-size:32px;
 
     line-height:1.15;
 
-    margin-bottom:9px;
-
     font-weight:900;
+
+    margin-bottom:10px;
+
 }
 
 
 .form-description{
+
     color:var(--gray);
 
     font-size:12px;
 
-    line-height:1.65;
+    line-height:1.7;
 
-    margin-bottom:25px;
+    margin-bottom:30px;
+
 }
 
 
 /* =========================================================
-   FORM GROUP
+   FORM
 ========================================================= */
 
 .form-group{
-    margin-bottom:15px;
-}
 
+    margin-bottom:18px;
 
-.form-grid{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:13px;
-}
-
-
-.form-full{
-    grid-column:
-        1 / -1;
 }
 
 
 label{
+
     display:block;
+
+    color:#3f3a40;
 
     font-size:10px;
 
     font-weight:900;
 
-    color:#3f3a40;
-
     margin-bottom:7px;
+
 }
 
 
-.required{
-    color:var(--danger);
-}
+input{
 
-
-input,
-select,
-textarea{
     width:100%;
+
+    height:48px;
 
     border:
         1px solid
@@ -597,9 +647,9 @@ textarea{
 
     background:#faf9fb;
 
-    border-radius:9px;
+    border-radius:10px;
 
-    padding:12px;
+    padding:0 14px;
 
     font-family:inherit;
 
@@ -610,36 +660,20 @@ textarea{
     outline:none;
 
     transition:.2s ease;
+
 }
 
 
-input{
-    height:45px;
-}
+input:focus{
 
-
-select{
-    height:45px;
-    cursor:pointer;
-}
-
-
-textarea{
-    min-height:90px;
-    resize:vertical;
-}
-
-
-input:focus,
-select:focus,
-textarea:focus{
     border-color:var(--secondary);
 
-    background:white;
+    background:#fff;
 
     box-shadow:
         0 0 0 4px
         rgba(122,44,120,.08);
+
 }
 
 
@@ -648,19 +682,25 @@ textarea:focus{
 ========================================================= */
 
 .password-wrap{
+
     position:relative;
+
 }
 
 
 .password-wrap input{
-    padding-right:60px;
+
+    padding-right:65px;
+
 }
 
 
 .password-toggle{
+
     position:absolute;
 
-    right:11px;
+    right:12px;
+
     top:50%;
 
     transform:translateY(-50%);
@@ -671,252 +711,59 @@ textarea:focus{
 
     color:var(--secondary);
 
+    font-family:inherit;
+
     font-size:10px;
 
     font-weight:900;
 
     cursor:pointer;
+
 }
 
 
 /* =========================================================
-   PASSWORD STRENGTH
+   FORGOT
 ========================================================= */
 
-.password-strength{
-    margin-top:6px;
+.forgot{
 
-    font-size:9px;
+    display:block;
 
-    color:var(--gray);
-}
+    width:max-content;
 
+    margin:
+        -3px 0
+        20px
+        auto;
 
-.strength-bar{
-    width:100%;
-
-    height:4px;
-
-    background:#e8e5e9;
-
-    border-radius:10px;
-
-    margin-top:5px;
-
-    overflow:hidden;
-}
-
-
-.strength-fill{
-    width:0%;
-
-    height:100%;
-
-    background:var(--accent);
-
-    transition:.3s ease;
-}
-
-
-/* =========================================================
-   PHONE
-========================================================= */
-
-.phone-wrap{
-    display:flex;
-}
-
-
-.phone-code{
-    min-width:52px;
-
-    height:45px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:#f0edf1;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-right:none;
-
-    border-radius:
-        9px 0 0 9px;
-
-    color:var(--primary);
-
-    font-size:11px;
-
-    font-weight:900;
-}
-
-
-.phone-wrap input{
-    border-radius:
-        0 9px 9px 0;
-}
-
-
-/* =========================================================
-   SERVICE BOX
-========================================================= */
-
-.service-box{
-    background:#faf7fb;
-
-    border:
-        1px solid #e7dfe9;
-
-    padding:14px;
-
-    border-radius:11px;
-
-    margin-bottom:18px;
-}
-
-
-.service-box label{
-    color:var(--primary);
-}
-
-
-.service-info{
-    color:var(--gray);
-
-    font-size:9px;
-
-    margin-top:7px;
-
-    line-height:1.5;
-}
-
-
-/* =========================================================
-   SECTION TITLES
-========================================================= */
-
-.section-title{
-    font-size:10px;
-
-    font-weight:900;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.3px;
-
-    color:var(--primary);
-
-    padding-bottom:8px;
-
-    border-bottom:
-        1px solid #ece8ed;
-
-    margin:22px 0 14px;
-}
-
-
-/* =========================================================
-   FICA
-========================================================= */
-
-.fica-notice{
-    display:none;
-
-    background:
-        rgba(255,187,66,.12);
-
-    border:
-        1px solid
-        rgba(255,187,66,.45);
-
-    border-radius:9px;
-
-    padding:11px;
-
-    font-size:10px;
-
-    line-height:1.5;
-
-    margin-bottom:17px;
-}
-
-
-.fica-notice strong{
-    color:#9b6500;
-}
-
-
-.fica-section{
-    display:none;
-
-    margin-bottom:15px;
-}
-
-
-/* =========================================================
-   CHECKBOX
-========================================================= */
-
-.checkbox-row{
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:8px;
-
-    margin:12px 0;
-}
-
-
-.checkbox-row input{
-    width:15px;
-    height:15px;
-
-    margin-top:1px;
-
-    accent-color:var(--secondary);
-}
-
-
-.checkbox-row label{
-    margin:0;
-
-    font-size:10px;
-
-    line-height:1.5;
-
-    font-weight:500;
-}
-
-
-.checkbox-row a{
     color:var(--secondary);
+
+    text-decoration:none;
+
+    font-size:10px;
 
     font-weight:800;
 
-    text-decoration:none;
 }
 
 
-.checkbox-row a:hover{
+.forgot:hover{
+
     text-decoration:underline;
+
 }
 
 
 /* =========================================================
-   BUTTON
+   LOGIN BUTTON
 ========================================================= */
 
 .primary-btn{
+
     width:100%;
 
-    height:47px;
+    height:49px;
 
     border:none;
 
@@ -924,65 +771,98 @@ textarea:focus{
 
     background:var(--primary);
 
-    color:white;
+    color:#fff;
+
+    font-family:inherit;
 
     font-size:11px;
 
     font-weight:900;
 
-    text-transform:uppercase;
-
     letter-spacing:1px;
+
+    text-transform:uppercase;
 
     cursor:pointer;
 
     transition:.25s ease;
+
 }
 
 
 .primary-btn:hover{
+
     background:var(--secondary);
 
     transform:translateY(-1px);
 
     box-shadow:
         0 8px 20px
-        rgba(122,44,120,.20);
+        rgba(122,44,120,.22);
+
 }
 
 
 .primary-btn:disabled{
+
     opacity:.65;
 
     cursor:wait;
 
     transform:none;
+
 }
 
 
 /* =========================================================
-   FORGOT PASSWORD
+   CREATE ACCOUNT
 ========================================================= */
 
-.forgot{
-    display:block;
+.register-box{
 
-    text-align:right;
+    margin-top:28px;
 
-    margin:-4px 0 17px;
+    padding-top:23px;
+
+    border-top:
+        1px solid
+        #ece8ed;
+
+    text-align:center;
+
+}
+
+
+.register-box p{
+
+    color:var(--gray);
+
+    font-size:10px;
+
+    margin-bottom:9px;
+
+}
+
+
+.register-link{
 
     color:var(--secondary);
 
     text-decoration:none;
 
-    font-size:10px;
+    font-size:11px;
 
-    font-weight:800;
+    font-weight:900;
+
 }
 
 
-.forgot:hover{
+.register-link:hover{
+
+    color:var(--primary);
+
     text-decoration:underline;
+
 }
 
 
@@ -991,9 +871,10 @@ textarea:focus{
 ========================================================= */
 
 .message{
+
     display:none;
 
-    margin-top:13px;
+    margin-top:14px;
 
     padding:11px;
 
@@ -1002,65 +883,40 @@ textarea:focus{
     font-size:10px;
 
     line-height:1.5;
+
 }
 
 
 .message.success{
+
     display:block;
 
     background:#e9f7ef;
 
     color:var(--success);
+
 }
 
 
 .message.error{
+
     display:block;
 
     background:#fdecec;
 
     color:var(--danger);
+
 }
 
 
 .message.info{
+
     display:block;
 
     background:#f1edf5;
 
     color:var(--primary);
-}
 
-
-/* =========================================================
-   REGISTER SCROLL
-========================================================= */
-
-#registerForm{
-    max-height:555px;
-
-    overflow-y:auto;
-
-    padding-right:8px;
-}
-
-
-#registerForm::-webkit-scrollbar{
-    width:5px;
-}
-
-
-#registerForm::-webkit-scrollbar-track{
-    background:#f1eef2;
-
-    border-radius:10px;
-}
-
-
-#registerForm::-webkit-scrollbar-thumb{
-    background:var(--secondary);
-
-    border-radius:10px;
 }
 
 
@@ -1069,15 +925,18 @@ textarea:focus{
 ========================================================= */
 
 .footer{
+
     background:var(--black);
 
-    color:white;
+    color:#fff;
 
-    padding:28px 6%;
+    padding:30px 6%;
+
 }
 
 
 .footer-inner{
+
     max-width:1200px;
 
     margin:auto;
@@ -1088,61 +947,77 @@ textarea:focus{
 
     justify-content:space-between;
 
-    gap:25px;
+    gap:30px;
+
 }
 
 
 .footer-brand{
+
     display:flex;
 
     align-items:center;
 
-    gap:15px;
+    gap:16px;
+
 }
 
 
 .footer-logo{
+
     width:135px;
 
     height:auto;
+
+    display:block;
+
 }
 
 
 .footer-description{
+
     color:#aaa;
 
     font-size:10px;
 
     line-height:1.6;
 
-    max-width:330px;
+    max-width:340px;
+
 }
 
 
 .footer-links{
+
     display:flex;
 
     gap:18px;
 
     flex-wrap:wrap;
+
 }
 
 
 .footer-links a{
+
     color:#aaa;
 
     text-decoration:none;
 
     font-size:10px;
+
 }
 
 
 .footer-links a:hover{
+
     color:var(--accent);
+
 }
 
 
 .footer-bottom{
+
     max-width:1200px;
 
     margin:20px auto 0;
@@ -1155,18 +1030,85 @@ textarea:focus{
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
     gap:15px;
+
 }
 
 
 .footer-bottom p{
+
     color:#777;
 
     font-size:9px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+    .topbar{
+
+        min-height:70px;
+
+        padding:
+            0 20px;
+
+    }
+
+
+    .logo{
+
+        height:47px;
+
+    }
+
+
+    .nav-btn{
+
+        padding:0 11px;
+
+        font-size:10px;
+
+    }
+
+
+    .main{
+
+        min-height:auto;
+
+        padding:35px 15px;
+
+    }
+
+
+    .auth-container{
+
+        grid-template-columns:1fr;
+
+        min-height:auto;
+
+    }
+
+
+    .brand-panel{
+
+        display:none;
+
+    }
+
+
+    .form-panel{
+
+        padding:45px 30px;
+
+    }
+
 }
 
 
@@ -1174,117 +1116,113 @@ textarea:focus{
    MOBILE
 ========================================================= */
 
-@media(max-width:850px){
+@media(max-width:520px){
 
     .topbar{
-        min-height:70px;
-        padding:0 20px;
+
+        padding:
+            0 15px;
+
     }
 
 
     .logo{
-        height:47px;
-    }
 
+        height:43px;
 
-    .nav-btn{
-        padding:0 11px;
-        font-size:10px;
-    }
+        max-width:160px;
 
-
-    .auth-container{
-        grid-template-columns:1fr;
-
-        min-height:auto;
-    }
-
-
-    .brand-panel{
-        display:none;
-    }
-
-
-    .form-panel{
-        padding:35px 25px;
-    }
-
-
-    #registerForm{
-        max-height:none;
-
-        overflow:visible;
-
-        padding-right:0;
-    }
-
-
-    .main{
-        padding:30px 15px;
-    }
-
-}
-
-
-@media(max-width:520px){
-
-    .topbar{
-        padding:0 15px;
     }
 
 
     .nav-actions{
+
         gap:5px;
+
     }
 
 
     .nav-btn{
+
         min-height:36px;
 
-        padding:0 9px;
+        padding:
+            0 9px;
 
         font-size:9px;
+
     }
 
 
     .nav-btn:nth-child(2){
+
         display:none;
+
+    }
+
+
+    .main{
+
+        padding:
+            25px 12px;
+
+    }
+
+
+    .auth-container{
+
+        border-radius:18px;
+
     }
 
 
     .form-panel{
-        padding:25px 18px;
-    }
 
+        padding:
+            35px 20px;
 
-    .form-grid{
-        grid-template-columns:1fr;
-
-        gap:0;
-    }
-
-
-    .form-full{
-        grid-column:auto;
     }
 
 
     .form-title{
+
         font-size:27px;
+
+    }
+
+
+    .footer{
+
+        padding:
+            25px 18px;
+
     }
 
 
     .footer-inner{
+
         flex-direction:column;
 
         align-items:flex-start;
+
+    }
+
+
+    .footer-brand{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
     }
 
 
     .footer-bottom{
+
         flex-direction:column;
 
         align-items:flex-start;
+
     }
 
 }
@@ -1300,7 +1238,7 @@ textarea:focus{
 
 
 <!-- =========================================================
-     TOP BAR
+     NAVIGATION
 ========================================================= -->
 
 <header class="topbar">
@@ -1343,7 +1281,7 @@ textarea:focus{
 </a>
 
 <a
-    href="/login.php"
+    href="/login.html"
     class="nav-btn active"
 >
     Login
@@ -1364,12 +1302,12 @@ textarea:focus{
 
 
 <!-- =========================================================
-     BRAND PANEL
+     LEFT BRAND PANEL
 ========================================================= -->
 
 <section class="brand-panel">
 
-<div class="brand-panel-content">
+<div class="brand-content">
 
 <img
     src="/dingestech-logo.png"
@@ -1398,10 +1336,12 @@ textarea:focus{
 
 <div class="benefit">
 
-<div class="benefit-icon">✓</div>
+<div class="benefit-icon">
+    ✓
+</div>
 
 <span>
-Manage your Dinges TechHub services
+    Manage your Dinges TechHub services
 </span>
 
 </div>
@@ -1409,10 +1349,12 @@ Manage your Dinges TechHub services
 
 <div class="benefit">
 
-<div class="benefit-icon">✓</div>
+<div class="benefit-icon">
+    ✓
+</div>
 
 <span>
-Access your customer dashboard
+    Access your customer dashboard
 </span>
 
 </div>
@@ -1420,10 +1362,12 @@ Access your customer dashboard
 
 <div class="benefit">
 
-<div class="benefit-icon">✓</div>
+<div class="benefit-icon">
+    ✓
+</div>
 
 <span>
-Manage domains and hosting
+    Manage domains and hosting
 </span>
 
 </div>
@@ -1431,10 +1375,12 @@ Manage domains and hosting
 
 <div class="benefit">
 
-<div class="benefit-icon">✓</div>
+<div class="benefit-icon">
+    ✓
+</div>
 
 <span>
-Get technical support
+    Get technical support
 </span>
 
 </div>
@@ -1447,50 +1393,15 @@ Get technical support
 
 
 <!-- =========================================================
-     FORM PANEL
+     LOGIN FORM
 ========================================================= -->
 
 <section class="form-panel">
 
 <div class="form-inner">
 
-
-<!-- =========================================================
-     TABS
-========================================================= -->
-
-<div class="auth-tabs">
-
-<button
-    type="button"
-    class="auth-tab active"
-    id="loginTab"
->
-    Login
-</button>
-
-<button
-    type="button"
-    class="auth-tab"
-    id="registerTab"
->
-    Create Account
-</button>
-
-</div>
-
-
-<!-- =========================================================
-     LOGIN FORM
-========================================================= -->
-
-<form
-    id="loginForm"
-    class="auth-form active"
->
-
 <div class="form-eyebrow">
-    Welcome Back
+    Customer Portal
 </div>
 
 <h2 class="form-title">
@@ -1501,6 +1412,9 @@ Get technical support
     Sign in to continue to your Dinges TechHub
     customer dashboard.
 </p>
+
+
+<form id="loginForm">
 
 
 <div class="form-group">
@@ -1541,7 +1455,7 @@ Get technical support
 <button
     type="button"
     class="password-toggle"
-    onclick="togglePassword('loginPassword', this)"
+    id="passwordToggle"
 >
     Show
 </button>
@@ -1577,664 +1491,20 @@ Get technical support
 </form>
 
 
-<!-- =========================================================
-     REGISTER FORM
-========================================================= -->
+<div class="register-box">
 
-<form
-    id="registerForm"
-    class="auth-form"
-    enctype="multipart/form-data"
->
-
-<div class="form-eyebrow">
-    New Customer
-</div>
-
-<h2 class="form-title">
-    Create your account
-</h2>
-
-<p class="form-description">
-    Create your Dinges TechHub customer account
-    to get started with your selected service.
+<p>
+    Don't have a Dinges TechHub account?
 </p>
 
-
-<!-- SERVICE -->
-
-<div class="service-box">
-
-<label for="service">
-
-Select the Service You Need
-
-<span class="required">*</span>
-
-</label>
-
-<select
-    id="service"
-    name="service_id"
-    required
+<a
+    href="/login.html?register=1"
+    class="register-link"
 >
-
-<option value="">
-    Select a service
-</option>
-
-<option value="fibre">
-    Fibre Internet
-</option>
-
-<option value="wireless">
-    Wireless Broadband
-</option>
-
-<option value="lte">
-    4G / 5G LTE
-</option>
-
-<option value="mobile">
-    Mobile Data / Airtime
-</option>
-
-<option value="domain">
-    Domain Registration
-</option>
-
-<option value="hosting">
-    Web Hosting
-</option>
-
-<option value="technical_support">
-    Technical Support
-</option>
-
-</select>
-
-
-<div
-    id="serviceInfo"
-    class="service-info"
->
-    Please select a service to continue.
-</div>
-
-</div>
-
-
-<!-- FICA NOTICE -->
-
-<div
-    id="ficaNotice"
-    class="fica-notice"
->
-
-<strong>
-FICA Verification Required
-</strong>
-
-<br>
-
-The selected service requires identity verification.
-You will need to provide your identity number,
-ID document and proof of residence.
-
-</div>
-
-
-<!-- PERSONAL -->
-
-<div class="section-title">
-    Personal Information
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label for="firstName">
-First Name
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="firstName"
-    name="first_name"
-    autocomplete="given-name"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="lastName">
-Last Name
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="lastName"
-    name="last_name"
-    autocomplete="family-name"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="registerEmail">
-Email Address
-<span class="required">*</span>
-</label>
-
-<input
-    type="email"
-    id="registerEmail"
-    name="email"
-    autocomplete="email"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="phone">
-Phone Number
-<span class="required">*</span>
-</label>
-
-<div class="phone-wrap">
-
-<div class="phone-code">
-+27
-</div>
-
-<input
-    type="tel"
-    id="phone"
-    name="phone"
-    placeholder="82 123 4567"
-    autocomplete="tel"
-    required
->
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- BILLING -->
-
-<div class="section-title">
-    Billing Address
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group form-full">
-
-<label for="companyName">
-Company Name
-</label>
-
-<input
-    type="text"
-    id="companyName"
-    name="company_name"
-    autocomplete="organization"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="streetAddress">
-Street Address
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="streetAddress"
-    name="street_address"
-    autocomplete="street-address"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="streetAddress2">
-Street Address 2
-</label>
-
-<input
-    type="text"
-    id="streetAddress2"
-    name="street_address_2"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="city">
-City
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="city"
-    name="city"
-    autocomplete="address-level2"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="province">
-Province
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="province"
-    name="province"
-    autocomplete="address-level1"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="postcode">
-Postcode
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="postcode"
-    name="postcode"
-    autocomplete="postal-code"
-    required
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="country">
-Country
-</label>
-
-<select
-    id="country"
-    name="country"
->
-
-<option value="South Africa">
-South Africa
-</option>
-
-<option value="Botswana">
-Botswana
-</option>
-
-<option value="Zimbabwe">
-Zimbabwe
-</option>
-
-<option value="Mozambique">
-Mozambique
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="taxId">
-Tax ID
-</label>
-
-<input
-    type="text"
-    id="taxId"
-    name="tax_id"
->
-
-</div>
-
-</div>
-
-
-<!-- FICA -->
-
-<div
-    id="ficaSection"
-    class="fica-section"
->
-
-<div class="section-title">
-    FICA Verification
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label for="identityNumber">
-Identity Number
-<span class="required">*</span>
-</label>
-
-<input
-    type="text"
-    id="identityNumber"
-    name="identity_number"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label for="idProof">
-ID Document
-<span class="required">*</span>
-</label>
-
-<input
-    type="file"
-    id="idProof"
-    name="idProof"
-    accept=".pdf,.jpg,.jpeg,.png"
->
-
-</div>
-
-
-<div class="form-group form-full">
-
-<label for="proofOfResidence">
-Proof of Residence
-<span class="required">*</span>
-</label>
-
-<input
-    type="file"
-    id="proofOfResidence"
-    name="proofOfResidence"
-    accept=".pdf,.jpg,.jpeg,.png"
->
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ADDITIONAL -->
-
-<div class="section-title">
-    Additional Information
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label for="howFound">
-How did you find us?
-</label>
-
-<select
-    id="howFound"
-    name="how_found"
->
-
-<option value="None">
-None
-</option>
-
-<option value="Google Search">
-Google Search
-</option>
-
-<option value="Facebook">
-Facebook
-</option>
-
-<option value="Instagram">
-Instagram
-</option>
-
-<option value="TikTok">
-TikTok
-</option>
-
-<option value="Friend or Family">
-Friend or Family
-</option>
-
-<option value="Other">
-Other
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group form-full">
-
-<label for="additionalInfo">
-Additional Information
-</label>
-
-<textarea
-    id="additionalInfo"
-    name="additional_info"
-    placeholder="Tell us anything else we should know..."
-></textarea>
-
-</div>
-
-</div>
-
-
-<!-- SECURITY -->
-
-<div class="section-title">
-    Account Security
-</div>
-
-
-<div class="form-grid">
-
-<div class="form-group">
-
-<label for="signupPassword">
-Password
-<span class="required">*</span>
-</label>
-
-<div class="password-wrap">
-
-<input
-    type="password"
-    id="signupPassword"
-    name="password"
-    autocomplete="new-password"
-    required
->
-
-<button
-    type="button"
-    class="password-toggle"
-    onclick="togglePassword('signupPassword', this)"
->
-    Show
-</button>
-
-</div>
-
-
-<div class="password-strength">
-
-Password strength:
-
-<span id="strengthText">
-Enter a password
-</span>
-
-<div class="strength-bar">
-
-<div
-    id="strengthFill"
-    class="strength-fill"
-></div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="confirmPassword">
-Confirm Password
-<span class="required">*</span>
-</label>
-
-<div class="password-wrap">
-
-<input
-    type="password"
-    id="confirmPassword"
-    name="confirm_password"
-    autocomplete="new-password"
-    required
->
-
-<button
-    type="button"
-    class="password-toggle"
-    onclick="togglePassword('confirmPassword', this)"
->
-    Show
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- MAILING -->
-
-<div class="checkbox-row">
-
-<input
-    type="checkbox"
-    id="mailingList"
-    name="mailing_list"
-    value="1"
->
-
-<label for="mailingList">
-
-<strong>
-Join our mailing list
-</strong>
-
-<br>
-
-Receive occasional Dinges TechHub
-news, information and special offers.
-
-</label>
-
-</div>
-
-
-<!-- TERMS -->
-
-<div class="checkbox-row">
-
-<input
-    type="checkbox"
-    id="terms"
-    name="terms"
-    value="1"
-    required
->
-
-<label for="terms">
-
-I have read and agree to the
-
-<a href="/terms.php">
-Terms of Service
+    Create an Account
 </a>
 
-<span class="required">*</span>
-
-</label>
-
 </div>
-
-
-<button
-    type="submit"
-    class="primary-btn"
-    id="registerButton"
->
-    Create Account
-</button>
-
-
-<div
-    id="registerMessage"
-    class="message"
-></div>
-
-</form>
 
 </div>
 
@@ -2252,6 +1522,7 @@ Terms of Service
 <footer class="footer">
 
 <div class="footer-inner">
+
 
 <div class="footer-brand">
 
@@ -2279,23 +1550,23 @@ solutions for homes and businesses.
 <div class="footer-links">
 
 <a href="/">
-Home
+    Home
 </a>
 
 <a href="/services.php">
-Services
+    Services
 </a>
 
 <a href="/privacy.php">
-Privacy
+    Privacy
 </a>
 
 <a href="/terms.php">
-Terms
+    Terms
 </a>
 
 <a href="/contact.php">
-Contact
+    Contact
 </a>
 
 </div>
@@ -2326,232 +1597,57 @@ support@dingestechhub.co.za
    API
 ========================================================= */
 
-const API_BASE =
-    "https://register.web.za/api";
-
 const LOGIN_API =
-    API_BASE + "/login.php";
-
-const REGISTER_API =
-    API_BASE + "/register.php";
+    "https://register.web.za/api/login.php";
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
-const loginTab =
-    document.getElementById("loginTab");
-
-const registerTab =
-    document.getElementById("registerTab");
-
 const loginForm =
     document.getElementById("loginForm");
 
-const registerForm =
-    document.getElementById("registerForm");
+const loginButton =
+    document.getElementById("loginButton");
 
-const service =
-    document.getElementById("service");
+const loginMessage =
+    document.getElementById("loginMessage");
 
-const ficaSection =
-    document.getElementById("ficaSection");
+const loginPassword =
+    document.getElementById("loginPassword");
 
-const ficaNotice =
-    document.getElementById("ficaNotice");
-
-const serviceInfo =
-    document.getElementById("serviceInfo");
-
-const identityNumber =
-    document.getElementById("identityNumber");
-
-const idProof =
-    document.getElementById("idProof");
-
-const proofOfResidence =
-    document.getElementById("proofOfResidence");
-
-const signupPassword =
-    document.getElementById("signupPassword");
-
-const strengthText =
-    document.getElementById("strengthText");
-
-const strengthFill =
-    document.getElementById("strengthFill");
-
-
-/* =========================================================
-   SHOW LOGIN
-========================================================= */
-
-function showLogin(){
-
-    loginTab.classList.add("active");
-
-    registerTab.classList.remove("active");
-
-    loginForm.classList.add("active");
-
-    registerForm.classList.remove("active");
-
-}
-
-
-/* =========================================================
-   SHOW REGISTER
-========================================================= */
-
-function showRegister(){
-
-    registerTab.classList.add("active");
-
-    loginTab.classList.remove("active");
-
-    registerForm.classList.add("active");
-
-    loginForm.classList.remove("active");
-
-}
-
-
-loginTab.addEventListener(
-    "click",
-    showLogin
-);
-
-
-registerTab.addEventListener(
-    "click",
-    showRegister
-);
+const passwordToggle =
+    document.getElementById("passwordToggle");
 
 
 /* =========================================================
    PASSWORD TOGGLE
 ========================================================= */
 
-function togglePassword(
-    inputId,
-    button
-){
-
-    const input =
-        document.getElementById(inputId);
-
-
-    if(!input){
-        return;
-    }
-
-
-    if(input.type === "password"){
-
-        input.type = "text";
-
-        button.textContent = "Hide";
-
-    }
-    else{
-
-        input.type = "password";
-
-        button.textContent = "Show";
-
-    }
-
-}
-
-
-/* =========================================================
-   SERVICE / FICA
-========================================================= */
-
-service.addEventListener(
-    "change",
+passwordToggle.addEventListener(
+    "click",
     function(){
 
-        const option =
-            service.options[
-                service.selectedIndex
-            ];
+        if(
+            loginPassword.type ===
+            "password"
+        ){
 
+            loginPassword.type =
+                "text";
 
-        if(!service.value){
-
-            ficaSection.style.display =
-                "none";
-
-            ficaNotice.style.display =
-                "none";
-
-            identityNumber.required =
-                false;
-
-            idProof.required =
-                false;
-
-            proofOfResidence.required =
-                false;
-
-            serviceInfo.textContent =
-                "Please select a service to continue.";
-
-            return;
-
-        }
-
-
-        const needsFica =
-            service.value === "fibre" ||
-            service.value === "wireless" ||
-            service.value === "lte";
-
-
-        if(needsFica){
-
-            ficaSection.style.display =
-                "block";
-
-            ficaNotice.style.display =
-                "block";
-
-            identityNumber.required =
-                true;
-
-            idProof.required =
-                true;
-
-            proofOfResidence.required =
-                true;
-
-            serviceInfo.textContent =
-                option.text.trim() +
-                " requires FICA verification.";
+            passwordToggle.textContent =
+                "Hide";
 
         }
         else{
 
-            ficaSection.style.display =
-                "none";
+            loginPassword.type =
+                "password";
 
-            ficaNotice.style.display =
-                "none";
-
-            identityNumber.required =
-                false;
-
-            idProof.required =
-                false;
-
-            proofOfResidence.required =
-                false;
-
-            serviceInfo.textContent =
-                option.text.trim() +
-                " does not require FICA verification.";
+            passwordToggle.textContent =
+                "Show";
 
         }
 
@@ -2560,78 +1656,7 @@ service.addEventListener(
 
 
 /* =========================================================
-   PASSWORD STRENGTH
-========================================================= */
-
-signupPassword.addEventListener(
-    "input",
-    function(){
-
-        const value =
-            signupPassword.value;
-
-        let strength = 0;
-
-
-        if(value.length >= 8)
-            strength++;
-
-        if(/[A-Z]/.test(value))
-            strength++;
-
-        if(/[a-z]/.test(value))
-            strength++;
-
-        if(/[0-9]/.test(value))
-            strength++;
-
-        if(/[^A-Za-z0-9]/.test(value))
-            strength++;
-
-
-        if(!value){
-
-            strengthText.textContent =
-                "Enter a password";
-
-            strengthFill.style.width =
-                "0%";
-
-        }
-        else if(strength <= 2){
-
-            strengthText.textContent =
-                "Weak";
-
-            strengthFill.style.width =
-                "30%";
-
-        }
-        else if(strength <= 4){
-
-            strengthText.textContent =
-                "Medium";
-
-            strengthFill.style.width =
-                "65%";
-
-        }
-        else{
-
-            strengthText.textContent =
-                "Strong";
-
-            strengthFill.style.width =
-                "100%";
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   API RESPONSE
+   API RESPONSE PARSER
 ========================================================= */
 
 async function parseApiResponse(response){
@@ -2639,15 +1664,13 @@ async function parseApiResponse(response){
     const text =
         await response.text();
 
-
     console.log(
-        "API STATUS:",
+        "LOGIN API STATUS:",
         response.status
     );
 
-
     console.log(
-        "API RESPONSE:",
+        "LOGIN API RESPONSE:",
         text
     );
 
@@ -2659,14 +1682,14 @@ async function parseApiResponse(response){
 
         json =
             text
-            ? JSON.parse(text)
-            : null;
+                ? JSON.parse(text)
+                : null;
 
     }
     catch(error){
 
         console.error(
-            "Invalid JSON response:",
+            "Invalid JSON:",
             error
         );
 
@@ -2682,56 +1705,6 @@ async function parseApiResponse(response){
 
 
 /* =========================================================
-   API ERROR
-========================================================= */
-
-function displayApiError(
-    element,
-    response,
-    result,
-    fallback
-){
-
-    element.className =
-        "message error";
-
-
-    if(
-        result.json &&
-        result.json.message
-    ){
-
-        element.textContent =
-            result.json.message;
-
-        return;
-
-    }
-
-
-    if(
-        result.json &&
-        result.json.error
-    ){
-
-        element.textContent =
-            result.json.error;
-
-        return;
-
-    }
-
-
-    element.textContent =
-        fallback +
-        " (HTTP " +
-        response.status +
-        ")";
-
-}
-
-
-/* =========================================================
    LOGIN
 ========================================================= */
 
@@ -2742,28 +1715,17 @@ loginForm.addEventListener(
         event.preventDefault();
 
 
-        const message =
-            document.getElementById(
-                "loginMessage"
-            );
-
-        const button =
-            document.getElementById(
-                "loginButton"
-            );
-
-
-        button.disabled =
+        loginButton.disabled =
             true;
 
-        button.textContent =
+        loginButton.textContent =
             "Logging in...";
 
 
-        message.className =
+        loginMessage.className =
             "message info";
 
-        message.textContent =
+        loginMessage.textContent =
             "Checking your account...";
 
 
@@ -2779,6 +1741,7 @@ loginForm.addEventListener(
                 await fetch(
                     LOGIN_API,
                     {
+
                         method:"POST",
 
                         body:formData,
@@ -2790,7 +1753,10 @@ loginForm.addEventListener(
                                 "application/json"
                         },
 
+                        mode:"cors",
+
                         cache:"no-store"
+
                     }
                 );
 
@@ -2801,9 +1767,9 @@ loginForm.addEventListener(
                 );
 
 
-            /* -----------------------------------------
+            /* =================================================
                SUCCESS
-            ----------------------------------------- */
+            ================================================= */
 
             if(
                 response.ok &&
@@ -2811,20 +1777,21 @@ loginForm.addEventListener(
                 result.json.success === true
             ){
 
-                message.className =
+                loginMessage.className =
                     "message success";
 
-                message.textContent =
+                loginMessage.textContent =
                     result.json.message ||
                     "Login successful. Redirecting...";
 
 
-                /*
-                 * Store only non-sensitive customer
-                 * information.
-                 */
+                /* ---------------------------------------------
+                   Store non-sensitive customer data
+                --------------------------------------------- */
 
-                if(result.json.customer){
+                if(
+                    result.json.customer
+                ){
 
                     try{
 
@@ -2836,11 +1803,11 @@ loginForm.addEventListener(
                         );
 
                     }
-                    catch(storageError){
+                    catch(error){
 
                         console.warn(
                             "Session storage unavailable.",
-                            storageError
+                            error
                         );
 
                     }
@@ -2848,15 +1815,41 @@ loginForm.addEventListener(
                 }
 
 
-                /*
-                 * Redirect.
-                 */
+                /* ---------------------------------------------
+                   Redirect
+                --------------------------------------------- */
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const requestedRedirect =
+                    params.get("redirect");
+
+
+                let redirectUrl =
+                    "https://register.web.za/customer-dashboard.php";
+
+
+                if(
+                    requestedRedirect &&
+                    requestedRedirect.startsWith("/") &&
+                    !requestedRedirect.startsWith("//")
+                ){
+
+                    redirectUrl =
+                        requestedRedirect;
+
+                }
+
 
                 setTimeout(
                     function(){
 
                         window.location.href =
-                            "https://register.web.za/customer-dashboard.php";
+                            redirectUrl;
 
                     },
                     700
@@ -2868,22 +1861,44 @@ loginForm.addEventListener(
             }
 
 
-            /* -----------------------------------------
+            /* =================================================
                LOGIN FAILED
-            ----------------------------------------- */
+            ================================================= */
 
-            displayApiError(
-                message,
-                response,
-                result,
-                "Incorrect email or password."
-            );
+            loginMessage.className =
+                "message error";
 
 
-            button.disabled =
+            if(
+                result.json &&
+                result.json.message
+            ){
+
+                loginMessage.textContent =
+                    result.json.message;
+
+            }
+            else if(
+                result.json &&
+                result.json.error
+            ){
+
+                loginMessage.textContent =
+                    result.json.error;
+
+            }
+            else{
+
+                loginMessage.textContent =
+                    "Incorrect email or password.";
+
+            }
+
+
+            loginButton.disabled =
                 false;
 
-            button.textContent =
+            loginButton.textContent =
                 "Login";
 
         }
@@ -2895,363 +1910,18 @@ loginForm.addEventListener(
             );
 
 
-            message.className =
+            loginMessage.className =
                 "message error";
 
-            message.textContent =
+            loginMessage.textContent =
                 "Unable to connect to the login server. Please try again.";
 
 
-            button.disabled =
+            loginButton.disabled =
                 false;
 
-            button.textContent =
+            loginButton.textContent =
                 "Login";
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   REGISTER
-========================================================= */
-
-registerForm.addEventListener(
-    "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const message =
-            document.getElementById(
-                "registerMessage"
-            );
-
-        const button =
-            document.getElementById(
-                "registerButton"
-            );
-
-
-        const password =
-            signupPassword.value;
-
-
-        const confirmPassword =
-            document.getElementById(
-                "confirmPassword"
-            ).value;
-
-
-        /* -----------------------------------------
-           VALIDATION
-        ----------------------------------------- */
-
-        if(!service.value){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Please select the service you need.";
-
-            return;
-
-        }
-
-
-        if(password.length < 8){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Password must be at least 8 characters long.";
-
-            return;
-
-        }
-
-
-        if(password !== confirmPassword){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Passwords do not match.";
-
-            return;
-
-        }
-
-
-        const terms =
-            document.getElementById(
-                "terms"
-            );
-
-
-        if(!terms.checked){
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Please agree to the Terms of Service.";
-
-            return;
-
-        }
-
-
-        /* -----------------------------------------
-           FICA
-        ----------------------------------------- */
-
-        const needsFica =
-            service.value === "fibre" ||
-            service.value === "wireless" ||
-            service.value === "lte";
-
-
-        if(needsFica){
-
-            if(!identityNumber.value.trim()){
-
-                message.className =
-                    "message error";
-
-                message.textContent =
-                    "Please enter your identity number.";
-
-                return;
-
-            }
-
-
-            if(
-                !idProof.files ||
-                !idProof.files.length
-            ){
-
-                message.className =
-                    "message error";
-
-                message.textContent =
-                    "Please upload your ID document.";
-
-                return;
-
-            }
-
-
-            if(
-                !proofOfResidence.files ||
-                !proofOfResidence.files.length
-            ){
-
-                message.className =
-                    "message error";
-
-                message.textContent =
-                    "Please upload your proof of residence.";
-
-                return;
-
-            }
-
-        }
-
-
-        /* -----------------------------------------
-           SUBMIT
-        ----------------------------------------- */
-
-        button.disabled =
-            true;
-
-        button.textContent =
-            "Creating Account...";
-
-
-        message.className =
-            "message info";
-
-        message.textContent =
-            "Creating your account...";
-
-
-        try{
-
-            const formData =
-                new FormData(
-                    registerForm
-                );
-
-
-            const registeredEmail =
-                document
-                    .getElementById(
-                        "registerEmail"
-                    )
-                    .value;
-
-
-            const response =
-                await fetch(
-                    REGISTER_API,
-                    {
-                        method:"POST",
-
-                        body:formData,
-
-                        headers:{
-                            "Accept":
-                                "application/json"
-                        },
-
-                        mode:"cors",
-
-                        cache:"no-store"
-                    }
-                );
-
-
-            const result =
-                await parseApiResponse(
-                    response
-                );
-
-
-            /* -----------------------------------------
-               SUCCESS
-            ----------------------------------------- */
-
-            if(
-                response.ok &&
-                result.json &&
-                result.json.success === true
-            ){
-
-                message.className =
-                    "message success";
-
-                message.textContent =
-                    result.json.message ||
-                    "Registration successful. You can now log in.";
-
-
-                registerForm.reset();
-
-
-                ficaSection.style.display =
-                    "none";
-
-                ficaNotice.style.display =
-                    "none";
-
-
-                identityNumber.required =
-                    false;
-
-                idProof.required =
-                    false;
-
-                proofOfResidence.required =
-                    false;
-
-
-                serviceInfo.textContent =
-                    "Please select a service to continue.";
-
-
-                strengthText.textContent =
-                    "Enter a password";
-
-                strengthFill.style.width =
-                    "0%";
-
-
-                setTimeout(
-                    function(){
-
-                        showLogin();
-
-
-                        document
-                            .getElementById(
-                                "loginEmail"
-                            )
-                            .value =
-                            registeredEmail;
-
-
-                        document
-                            .getElementById(
-                                "loginPassword"
-                            )
-                            .focus();
-
-                    },
-                    1200
-                );
-
-
-                button.disabled =
-                    false;
-
-                button.textContent =
-                    "Create Account";
-
-
-                return;
-
-            }
-
-
-            /* -----------------------------------------
-               ERROR
-            ----------------------------------------- */
-
-            displayApiError(
-                message,
-                response,
-                result,
-                "Unable to create your account."
-            );
-
-
-            button.disabled =
-                false;
-
-            button.textContent =
-                "Create Account";
-
-        }
-        catch(error){
-
-            console.error(
-                "REGISTER ERROR:",
-                error
-            );
-
-
-            message.className =
-                "message error";
-
-            message.textContent =
-                "Unable to connect to the registration server. Please try again.";
-
-
-            button.disabled =
-                false;
-
-            button.textContent =
-                "Create Account";
 
         }
 
@@ -3280,11 +1950,32 @@ document
 
 
 /* =========================================================
-   IMPORTANT
-   LOGIN IS ALWAYS THE DEFAULT VIEW
+   REGISTER LINK
 ========================================================= */
 
-showLogin();
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+if(
+    urlParams.get("register") === "1"
+){
+
+    /*
+     * Registration is handled by your
+     * separate registration page/API.
+     *
+     * For now we keep the login page
+     * focused and straight.
+     */
+
+    console.log(
+        "Registration requested."
+    );
+
+}
 
 </script>
 
