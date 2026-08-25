@@ -7,36 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | Dinges TechHub</title>
+<title>Login & Register | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Login to your Dinges TechHub customer account."
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-
-<link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
+    content="Login or create your Dinges TechHub customer account."
 >
 
 <style>
 
 /* =========================================================
-   DINGES TECHHUB — LOGIN
+   DINGES TECHHUB — LOGIN / REGISTER
 ========================================================= */
 
 :root{
+
     --primary:#3C1542;
     --secondary:#7A2C78;
     --accent:#FFBB42;
@@ -44,13 +29,15 @@
     --black:#020202;
     --white:#ffffff;
 
-    --light:#f7f5f8;
-    --gray:#777477;
+    --background:#f7f5f8;
+    --text:#222222;
+    --muted:#777477;
 
-    --border:#e4dfe6;
+    --border:#e5e0e7;
 
     --success:#198754;
     --danger:#dc3545;
+
 }
 
 
@@ -64,9 +51,11 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
+
 
 body{
 
@@ -77,9 +66,9 @@ body{
         Helvetica,
         sans-serif;
 
-    background:#f7f5f8;
+    background:var(--background);
 
-    color:var(--black);
+    color:var(--text);
 
     min-height:100vh;
 
@@ -102,7 +91,7 @@ body{
 
 
 /* =========================================================
-   TOP NAVIGATION
+   HEADER
 ========================================================= */
 
 .topbar{
@@ -123,10 +112,11 @@ body{
 
     position:relative;
 
-    z-index:20;
+    z-index:50;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,.14);
+        0 5px 25px
+        rgba(0,0,0,.15);
 
 }
 
@@ -144,11 +134,9 @@ body{
 
 .logo{
 
-    display:block;
-
     width:auto;
 
-    height:56px;
+    height:54px;
 
     max-width:210px;
 
@@ -157,18 +145,26 @@ body{
 }
 
 
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 .nav-actions{
 
     display:flex;
 
     align-items:center;
 
-    gap:9px;
+    gap:8px;
 
 }
 
 
 .nav-btn{
+
+    min-height:40px;
+
+    padding:0 16px;
 
     display:inline-flex;
 
@@ -176,28 +172,20 @@ body{
 
     justify-content:center;
 
-    min-height:40px;
-
-    padding:0 17px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
+    border:1px solid
+        rgba(255,255,255,.16);
 
     border-radius:9px;
 
-    color:#fff;
+    color:#ffffff;
 
     text-decoration:none;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:800;
 
-    transition:
-        background .2s ease,
-        border-color .2s ease,
-        transform .2s ease;
+    transition:.25s ease;
 
 }
 
@@ -205,7 +193,7 @@ body{
 .nav-btn:hover{
 
     background:
-        rgba(255,255,255,.09);
+        rgba(255,255,255,.10);
 
     border-color:
         rgba(255,187,66,.55);
@@ -235,20 +223,17 @@ body{
 
     flex:1;
 
-    min-height:
-        calc(100vh - 78px);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:55px 20px;
-
     position:relative;
 
     overflow:hidden;
+
+    padding:60px 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
@@ -283,18 +268,18 @@ body{
 
     position:absolute;
 
-    width:470px;
+    width:500px;
 
-    height:470px;
+    height:500px;
 
     border-radius:50%;
 
     background:
         rgba(255,187,66,.12);
 
-    right:-210px;
+    bottom:-270px;
 
-    bottom:-240px;
+    right:-220px;
 
     filter:blur(35px);
 
@@ -302,18 +287,18 @@ body{
 
 
 /* =========================================================
-   LOGIN CARD
+   AUTH CARD
 ========================================================= */
 
 .auth-container{
 
-    width:1080px;
+    width:1120px;
 
     max-width:100%;
 
-    min-height:620px;
+    min-height:650px;
 
-    background:#fff;
+    background:#ffffff;
 
     border-radius:24px;
 
@@ -329,7 +314,7 @@ body{
     z-index:2;
 
     box-shadow:
-        0 25px 70px
+        0 25px 75px
         rgba(60,21,66,.16);
 
 }
@@ -348,9 +333,9 @@ body{
             var(--secondary)
         );
 
-    color:#fff;
-
     padding:55px;
+
+    color:white;
 
     display:flex;
 
@@ -369,9 +354,9 @@ body{
 
     position:absolute;
 
-    width:420px;
+    width:430px;
 
-    height:420px;
+    height:430px;
 
     border:
         1px solid
@@ -392,9 +377,9 @@ body{
 
     position:absolute;
 
-    width:300px;
+    width:320px;
 
-    height:300px;
+    height:320px;
 
     border:
         1px solid
@@ -402,14 +387,14 @@ body{
 
     border-radius:50%;
 
-    left:-160px;
+    bottom:-180px;
 
-    bottom:-170px;
+    left:-170px;
 
 }
 
 
-.brand-content{
+.brand-panel-content{
 
     position:relative;
 
@@ -420,17 +405,13 @@ body{
 
 .panel-logo{
 
-    width:190px;
+    width:185px;
 
     max-width:100%;
 
     height:auto;
 
-    display:block;
-
-    object-fit:contain;
-
-    margin-bottom:35px;
+    margin-bottom:34px;
 
 }
 
@@ -441,11 +422,11 @@ body{
 
     font-size:10px;
 
-    text-transform:uppercase;
+    font-weight:900;
 
     letter-spacing:3px;
 
-    font-weight:900;
+    text-transform:uppercase;
 
     margin-bottom:14px;
 
@@ -467,14 +448,14 @@ body{
 
 .brand-panel p{
 
+    max-width:390px;
+
     color:
         rgba(255,255,255,.78);
 
     font-size:13px;
 
     line-height:1.75;
-
-    max-width:390px;
 
 }
 
@@ -514,18 +495,18 @@ body{
 
     flex:0 0 30px;
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
     border-radius:8px;
 
     background:
         rgba(255,187,66,.14);
 
     color:var(--accent);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     font-weight:900;
 
@@ -538,13 +519,15 @@ body{
 
 .form-panel{
 
-    background:#fff;
+    background:#ffffff;
 
-    padding:55px;
+    padding:42px;
 
     display:flex;
 
     align-items:center;
+
+    min-width:0;
 
 }
 
@@ -553,7 +536,7 @@ body{
 
     width:100%;
 
-    max-width:470px;
+    max-width:530px;
 
     margin:auto;
 
@@ -561,8 +544,83 @@ body{
 
 
 /* =========================================================
-   HEADER
+   TABS
 ========================================================= */
+
+.auth-tabs{
+
+    display:flex;
+
+    gap:5px;
+
+    padding:5px;
+
+    background:#f2eef4;
+
+    border-radius:12px;
+
+    margin-bottom:28px;
+
+}
+
+
+.auth-tab{
+
+    flex:1;
+
+    border:none;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-family:inherit;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+}
+
+
+.auth-tab.active{
+
+    background:#ffffff;
+
+    color:var(--primary);
+
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.08);
+
+}
+
+
+/* =========================================================
+   FORMS
+========================================================= */
+
+.auth-form{
+
+    display:none;
+
+}
+
+
+.auth-form.active{
+
+    display:block;
+
+}
+
 
 .form-eyebrow{
 
@@ -585,37 +643,56 @@ body{
 
     color:var(--primary);
 
-    font-size:32px;
+    font-size:30px;
 
     line-height:1.15;
 
     font-weight:900;
 
-    margin-bottom:10px;
+    margin-bottom:9px;
 
 }
 
 
 .form-description{
 
-    color:var(--gray);
+    color:var(--muted);
 
     font-size:12px;
 
-    line-height:1.7;
+    line-height:1.65;
 
-    margin-bottom:30px;
+    margin-bottom:24px;
 
 }
 
 
 /* =========================================================
-   FORM
+   FORM ELEMENTS
 ========================================================= */
 
 .form-group{
 
-    margin-bottom:18px;
+    margin-bottom:14px;
+
+}
+
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:13px;
+
+}
+
+
+.form-full{
+
+    grid-column:1 / -1;
 
 }
 
@@ -624,32 +701,38 @@ label{
 
     display:block;
 
+    margin-bottom:7px;
+
     color:#3f3a40;
 
     font-size:10px;
 
     font-weight:900;
 
-    margin-bottom:7px;
+}
+
+
+.required{
+
+    color:var(--danger);
 
 }
 
 
-input{
+input,
+select,
+textarea{
 
     width:100%;
 
-    height:48px;
-
-    border:
-        1px solid
+    border:1px solid
         var(--border);
 
     background:#faf9fb;
 
-    border-radius:10px;
+    border-radius:9px;
 
-    padding:0 14px;
+    outline:none;
 
     font-family:inherit;
 
@@ -657,22 +740,94 @@ input{
 
     color:#222;
 
-    outline:none;
-
     transition:.2s ease;
 
 }
 
 
-input:focus{
+input,
+select{
 
-    border-color:var(--secondary);
+    height:45px;
 
-    background:#fff;
+    padding:0 12px;
+
+}
+
+
+textarea{
+
+    min-height:90px;
+
+    padding:12px;
+
+    resize:vertical;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:
+        var(--secondary);
+
+    background:#ffffff;
 
     box-shadow:
         0 0 0 4px
         rgba(122,44,120,.08);
+
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.phone-wrap{
+
+    display:flex;
+
+}
+
+
+.phone-code{
+
+    height:45px;
+
+    min-width:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#f0edf1;
+
+    border:1px solid
+        var(--border);
+
+    border-right:none;
+
+    border-radius:
+        9px 0 0 9px;
+
+    color:var(--primary);
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+
+.phone-wrap input{
+
+    border-radius:
+        0 9px 9px 0;
 
 }
 
@@ -690,7 +845,7 @@ input:focus{
 
 .password-wrap input{
 
-    padding-right:65px;
+    padding-right:60px;
 
 }
 
@@ -699,19 +854,18 @@ input:focus{
 
     position:absolute;
 
-    right:12px;
+    right:10px;
 
     top:50%;
 
-    transform:translateY(-50%);
+    transform:
+        translateY(-50%);
 
     border:none;
 
     background:transparent;
 
     color:var(--secondary);
-
-    font-family:inherit;
 
     font-size:10px;
 
@@ -723,32 +877,205 @@ input:focus{
 
 
 /* =========================================================
-   FORGOT
+   PASSWORD STRENGTH
 ========================================================= */
 
-.forgot{
+.password-strength{
 
-    display:block;
+    margin-top:6px;
 
-    width:max-content;
+    color:var(--muted);
 
-    margin:
-        -3px 0
-        20px
-        auto;
-
-    color:var(--secondary);
-
-    text-decoration:none;
-
-    font-size:10px;
-
-    font-weight:800;
+    font-size:9px;
 
 }
 
 
-.forgot:hover{
+.strength-bar{
+
+    height:4px;
+
+    width:100%;
+
+    background:#e8e5e9;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin-top:5px;
+
+}
+
+
+.strength-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:var(--accent);
+
+    transition:.3s ease;
+
+}
+
+
+/* =========================================================
+   SERVICE BOX
+========================================================= */
+
+.service-box{
+
+    background:#faf7fb;
+
+    border:1px solid #e7dfe9;
+
+    padding:14px;
+
+    border-radius:11px;
+
+    margin-bottom:18px;
+
+}
+
+
+.service-info{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.5;
+
+    margin-top:7px;
+
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title{
+
+    color:var(--primary);
+
+    font-size:10px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.3px;
+
+    padding-bottom:8px;
+
+    border-bottom:
+        1px solid #ece8ed;
+
+    margin:22px 0 14px;
+
+}
+
+
+/* =========================================================
+   FICA
+========================================================= */
+
+.fica-notice{
+
+    display:none;
+
+    padding:11px;
+
+    margin-bottom:17px;
+
+    border-radius:9px;
+
+    background:
+        rgba(255,187,66,.12);
+
+    border:1px solid
+        rgba(255,187,66,.45);
+
+    font-size:10px;
+
+    line-height:1.5;
+
+}
+
+
+.fica-notice strong{
+
+    color:#9b6500;
+
+}
+
+
+.fica-section{
+
+    display:none;
+
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.checkbox-row{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+    margin:12px 0;
+
+}
+
+
+.checkbox-row input{
+
+    width:15px;
+
+    height:15px;
+
+    margin-top:1px;
+
+    accent-color:
+        var(--secondary);
+
+}
+
+
+.checkbox-row label{
+
+    margin:0;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+    font-weight:500;
+
+}
+
+
+.checkbox-row a{
+
+    color:var(--secondary);
+
+    font-weight:800;
+
+    text-decoration:none;
+
+}
+
+
+.checkbox-row a:hover{
 
     text-decoration:underline;
 
@@ -756,14 +1083,14 @@ input:focus{
 
 
 /* =========================================================
-   LOGIN BUTTON
+   BUTTON
 ========================================================= */
 
 .primary-btn{
 
     width:100%;
 
-    height:49px;
+    height:47px;
 
     border:none;
 
@@ -771,17 +1098,15 @@ input:focus{
 
     background:var(--primary);
 
-    color:#fff;
-
-    font-family:inherit;
+    color:#ffffff;
 
     font-size:11px;
 
     font-weight:900;
 
-    letter-spacing:1px;
-
     text-transform:uppercase;
+
+    letter-spacing:1px;
 
     cursor:pointer;
 
@@ -798,7 +1123,7 @@ input:focus{
 
     box-shadow:
         0 8px 20px
-        rgba(122,44,120,.22);
+        rgba(122,44,120,.20);
 
 }
 
@@ -815,51 +1140,29 @@ input:focus{
 
 
 /* =========================================================
-   CREATE ACCOUNT
+   FORGOT
 ========================================================= */
 
-.register-box{
+.forgot{
 
-    margin-top:28px;
+    display:block;
 
-    padding-top:23px;
+    text-align:right;
 
-    border-top:
-        1px solid
-        #ece8ed;
-
-    text-align:center;
-
-}
-
-
-.register-box p{
-
-    color:var(--gray);
-
-    font-size:10px;
-
-    margin-bottom:9px;
-
-}
-
-
-.register-link{
+    margin:-4px 0 17px;
 
     color:var(--secondary);
 
+    font-size:10px;
+
+    font-weight:800;
+
     text-decoration:none;
-
-    font-size:11px;
-
-    font-weight:900;
 
 }
 
 
-.register-link:hover{
-
-    color:var(--primary);
+.forgot:hover{
 
     text-decoration:underline;
 
@@ -867,14 +1170,14 @@ input:focus{
 
 
 /* =========================================================
-   MESSAGE
+   MESSAGES
 ========================================================= */
 
 .message{
 
     display:none;
 
-    margin-top:14px;
+    margin-top:13px;
 
     padding:11px;
 
@@ -921,6 +1224,44 @@ input:focus{
 
 
 /* =========================================================
+   REGISTER SCROLL
+========================================================= */
+
+#registerForm{
+
+    max-height:555px;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+}
+
+
+#registerForm::-webkit-scrollbar{
+
+    width:5px;
+
+}
+
+
+#registerForm::-webkit-scrollbar-track{
+
+    background:#f1eef2;
+
+}
+
+
+#registerForm::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
+
+    border-radius:10px;
+
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -928,7 +1269,7 @@ input:focus{
 
     background:var(--black);
 
-    color:#fff;
+    color:#ffffff;
 
     padding:30px 6%;
 
@@ -941,11 +1282,12 @@ input:focus{
 
     margin:auto;
 
-    display:flex;
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
 
     align-items:center;
-
-    justify-content:space-between;
 
     gap:30px;
 
@@ -958,7 +1300,7 @@ input:focus{
 
     align-items:center;
 
-    gap:16px;
+    gap:15px;
 
 }
 
@@ -969,20 +1311,18 @@ input:focus{
 
     height:auto;
 
-    display:block;
-
 }
 
 
 .footer-description{
+
+    max-width:360px;
 
     color:#aaa;
 
     font-size:10px;
 
     line-height:1.6;
-
-    max-width:340px;
 
 }
 
@@ -991,7 +1331,7 @@ input:focus{
 
     display:flex;
 
-    gap:18px;
+    gap:20px;
 
     flex-wrap:wrap;
 
@@ -1047,7 +1387,7 @@ input:focus{
 
 
 /* =========================================================
-   TABLET
+   MOBILE
 ========================================================= */
 
 @media(max-width:850px){
@@ -1056,33 +1396,23 @@ input:focus{
 
         min-height:70px;
 
-        padding:
-            0 20px;
+        padding:0 20px;
 
     }
 
 
     .logo{
 
-        height:47px;
+        height:46px;
 
     }
 
 
     .nav-btn{
 
-        padding:0 11px;
+        padding:0 10px;
 
         font-size:10px;
-
-    }
-
-
-    .main{
-
-        min-height:auto;
-
-        padding:35px 15px;
 
     }
 
@@ -1105,49 +1435,61 @@ input:focus{
 
     .form-panel{
 
-        padding:45px 30px;
+        padding:32px 24px;
+
+    }
+
+
+    #registerForm{
+
+        max-height:none;
+
+        overflow:visible;
+
+        padding-right:0;
+
+    }
+
+
+    .main{
+
+        padding:30px 15px;
+
+    }
+
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        align-items:flex-start;
 
     }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media(max-width:520px){
 
     .topbar{
 
-        padding:
-            0 15px;
-
-    }
-
-
-    .logo{
-
-        height:43px;
-
-        max-width:160px;
+        padding:0 15px;
 
     }
 
 
     .nav-actions{
 
-        gap:5px;
+        gap:4px;
 
     }
 
 
     .nav-btn{
 
-        min-height:36px;
+        min-height:35px;
 
-        padding:
-            0 9px;
+        padding:0 8px;
 
         font-size:9px;
 
@@ -1161,25 +1503,25 @@ input:focus{
     }
 
 
-    .main{
-
-        padding:
-            25px 12px;
-
-    }
-
-
-    .auth-container{
-
-        border-radius:18px;
-
-    }
-
-
     .form-panel{
 
-        padding:
-            35px 20px;
+        padding:25px 18px;
+
+    }
+
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+        gap:0;
+
+    }
+
+
+    .form-full{
+
+        grid-column:auto;
 
     }
 
@@ -1193,26 +1535,16 @@ input:focus{
 
     .footer{
 
-        padding:
-            25px 18px;
-
-    }
-
-
-    .footer-inner{
-
-        flex-direction:column;
-
-        align-items:flex-start;
+        padding:25px 18px;
 
     }
 
 
     .footer-brand{
 
-        align-items:flex-start;
-
         flex-direction:column;
+
+        align-items:flex-start;
 
     }
 
@@ -1220,8 +1552,6 @@ input:focus{
     .footer-bottom{
 
         flex-direction:column;
-
-        align-items:flex-start;
 
     }
 
@@ -1238,7 +1568,7 @@ input:focus{
 
 
 <!-- =========================================================
-     NAVIGATION
+     HEADER
 ========================================================= -->
 
 <header class="topbar">
@@ -1281,7 +1611,7 @@ input:focus{
 </a>
 
 <a
-    href="/login.html"
+    href="/login"
     class="nav-btn active"
 >
     Login
@@ -1302,12 +1632,12 @@ input:focus{
 
 
 <!-- =========================================================
-     LEFT BRAND PANEL
+     BRAND SIDE
 ========================================================= -->
 
 <section class="brand-panel">
 
-<div class="brand-content">
+<div class="brand-panel-content">
 
 <img
     src="/dingestech-logo.png"
@@ -1319,11 +1649,13 @@ input:focus{
     Customer Portal
 </div>
 
+
 <h1>
     Your technology,
     <br>
     connected.
 </h1>
+
 
 <p>
     Access your Dinges TechHub account,
@@ -1341,7 +1673,7 @@ input:focus{
 </div>
 
 <span>
-    Manage your Dinges TechHub services
+Manage your Dinges TechHub services
 </span>
 
 </div>
@@ -1354,7 +1686,7 @@ input:focus{
 </div>
 
 <span>
-    Access your customer dashboard
+Access your customer dashboard
 </span>
 
 </div>
@@ -1367,7 +1699,7 @@ input:focus{
 </div>
 
 <span>
-    Manage domains and hosting
+Manage domains and hosting
 </span>
 
 </div>
@@ -1380,7 +1712,7 @@ input:focus{
 </div>
 
 <span>
-    Get technical support
+Get technical support
 </span>
 
 </div>
@@ -1393,28 +1725,63 @@ input:focus{
 
 
 <!-- =========================================================
-     LOGIN FORM
+     FORM SIDE
 ========================================================= -->
 
 <section class="form-panel">
 
 <div class="form-inner">
 
-<div class="form-eyebrow">
-    Customer Portal
+
+<!-- =========================================================
+     TABS
+========================================================= -->
+
+<div class="auth-tabs">
+
+<button
+    type="button"
+    id="loginTab"
+    class="auth-tab active"
+>
+    Login
+</button>
+
+
+<button
+    type="button"
+    id="registerTab"
+    class="auth-tab"
+>
+    Create Account
+</button>
+
 </div>
+
+
+<!-- =========================================================
+     LOGIN
+========================================================= -->
+
+<form
+    id="loginForm"
+    class="auth-form active"
+>
+
+<div class="form-eyebrow">
+    Welcome Back
+</div>
+
 
 <h2 class="form-title">
     Login to your account
 </h2>
 
+
 <p class="form-description">
     Sign in to continue to your Dinges TechHub
     customer dashboard.
 </p>
-
-
-<form id="loginForm">
 
 
 <div class="form-group">
@@ -1441,6 +1808,7 @@ input:focus{
     Password
 </label>
 
+
 <div class="password-wrap">
 
 <input
@@ -1452,10 +1820,11 @@ input:focus{
     required
 >
 
+
 <button
     type="button"
     class="password-toggle"
-    id="passwordToggle"
+    onclick="togglePassword('loginPassword', this)"
 >
     Show
 </button>
@@ -1491,20 +1860,679 @@ input:focus{
 </form>
 
 
-<div class="register-box">
+<!-- =========================================================
+     REGISTER
+========================================================= -->
 
-<p>
-    Don't have a Dinges TechHub account?
+<form
+    id="registerForm"
+    class="auth-form"
+    enctype="multipart/form-data"
+>
+
+<div class="form-eyebrow">
+    New Customer
+</div>
+
+
+<h2 class="form-title">
+    Create your account
+</h2>
+
+
+<p class="form-description">
+    Create your Dinges TechHub customer account
+    to get started with your selected service.
 </p>
 
-<a
-    href="/login.html?register=1"
-    class="register-link"
+
+<!-- SERVICE -->
+
+<div class="service-box">
+
+<label for="service">
+
+Select the Service You Need
+
+<span class="required">*</span>
+
+</label>
+
+
+<select
+    id="service"
+    name="service_id"
+    required
 >
-    Create an Account
-</a>
+
+<option value="">
+    Select a service
+</option>
+
+<option value="fibre">
+    Fibre Internet
+</option>
+
+<option value="wireless">
+    Wireless Broadband
+</option>
+
+<option value="lte">
+    4G / 5G LTE
+</option>
+
+<option value="mobile">
+    Mobile Data / Airtime
+</option>
+
+<option value="domain">
+    Domain Registration
+</option>
+
+<option value="hosting">
+    Web Hosting
+</option>
+
+<option value="technical_support">
+    Technical Support
+</option>
+
+</select>
+
+
+<div
+    id="serviceInfo"
+    class="service-info"
+>
+    Please select a service to continue.
+</div>
 
 </div>
+
+
+<!-- FICA -->
+
+<div
+    id="ficaNotice"
+    class="fica-notice"
+>
+
+<strong>
+FICA Verification Required
+</strong>
+
+<br>
+
+The selected service requires identity verification.
+You will need to provide your identity number,
+ID document and proof of residence.
+
+</div>
+
+
+<!-- PERSONAL -->
+
+<div class="section-title">
+    Personal Information
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="firstName">
+First Name
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="firstName"
+    name="first_name"
+    autocomplete="given-name"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="lastName">
+Last Name
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="lastName"
+    name="last_name"
+    autocomplete="family-name"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="registerEmail">
+Email Address
+<span class="required">*</span>
+</label>
+
+<input
+    type="email"
+    id="registerEmail"
+    name="email"
+    autocomplete="email"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="phone">
+Phone Number
+<span class="required">*</span>
+</label>
+
+<div class="phone-wrap">
+
+<div class="phone-code">
++27
+</div>
+
+<input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="82 123 4567"
+    autocomplete="tel"
+    required
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BILLING -->
+
+<div class="section-title">
+    Billing Address
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group form-full">
+
+<label for="companyName">
+Company Name
+</label>
+
+<input
+    type="text"
+    id="companyName"
+    name="company_name"
+    autocomplete="organization"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="streetAddress">
+Street Address
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="streetAddress"
+    name="street_address"
+    autocomplete="street-address"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="streetAddress2">
+Street Address 2
+</label>
+
+<input
+    type="text"
+    id="streetAddress2"
+    name="street_address_2"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="city">
+City
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="city"
+    name="city"
+    autocomplete="address-level2"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="province">
+Province
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="province"
+    name="province"
+    autocomplete="address-level1"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="postcode">
+Postcode
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="postcode"
+    name="postcode"
+    autocomplete="postal-code"
+    required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="country">
+Country
+</label>
+
+<select
+    id="country"
+    name="country"
+>
+
+<option value="South Africa">
+South Africa
+</option>
+
+<option value="Botswana">
+Botswana
+</option>
+
+<option value="Zimbabwe">
+Zimbabwe
+</option>
+
+<option value="Mozambique">
+Mozambique
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="taxId">
+Tax ID
+</label>
+
+<input
+    type="text"
+    id="taxId"
+    name="tax_id"
+>
+
+</div>
+
+</div>
+
+
+<!-- FICA DOCUMENTS -->
+
+<div
+    id="ficaSection"
+    class="fica-section"
+>
+
+<div class="section-title">
+    FICA Verification
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="identityNumber">
+Identity Number
+<span class="required">*</span>
+</label>
+
+<input
+    type="text"
+    id="identityNumber"
+    name="identity_number"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="idProof">
+ID Document
+<span class="required">*</span>
+</label>
+
+<input
+    type="file"
+    id="idProof"
+    name="idProof"
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+
+</div>
+
+
+<div class="form-group form-full">
+
+<label for="proofOfResidence">
+Proof of Residence
+<span class="required">*</span>
+</label>
+
+<input
+    type="file"
+    id="proofOfResidence"
+    name="proofOfResidence"
+    accept=".pdf,.jpg,.jpeg,.png"
+>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ADDITIONAL -->
+
+<div class="section-title">
+    Additional Information
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="howFound">
+How did you find us?
+</label>
+
+<select
+    id="howFound"
+    name="how_found"
+>
+
+<option value="None">
+None
+</option>
+
+<option value="Google Search">
+Google Search
+</option>
+
+<option value="Facebook">
+Facebook
+</option>
+
+<option value="Instagram">
+Instagram
+</option>
+
+<option value="TikTok">
+TikTok
+</option>
+
+<option value="Friend or Family">
+Friend or Family
+</option>
+
+<option value="Other">
+Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group form-full">
+
+<label for="additionalInfo">
+Additional Information
+</label>
+
+<textarea
+    id="additionalInfo"
+    name="additional_info"
+    placeholder="Tell us anything else we should know..."
+></textarea>
+
+</div>
+
+</div>
+
+
+<!-- SECURITY -->
+
+<div class="section-title">
+    Account Security
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label for="signupPassword">
+Password
+<span class="required">*</span>
+</label>
+
+
+<div class="password-wrap">
+
+<input
+    type="password"
+    id="signupPassword"
+    name="password"
+    autocomplete="new-password"
+    required
+>
+
+
+<button
+    type="button"
+    class="password-toggle"
+    onclick="togglePassword('signupPassword', this)"
+>
+    Show
+</button>
+
+</div>
+
+
+<div class="password-strength">
+
+Password strength:
+
+<span id="strengthText">
+Enter a password
+</span>
+
+
+<div class="strength-bar">
+
+<div
+    id="strengthFill"
+    class="strength-fill"
+></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label for="confirmPassword">
+Confirm Password
+<span class="required">*</span>
+</label>
+
+
+<div class="password-wrap">
+
+<input
+    type="password"
+    id="confirmPassword"
+    name="confirm_password"
+    autocomplete="new-password"
+    required
+>
+
+
+<button
+    type="button"
+    class="password-toggle"
+    onclick="togglePassword('confirmPassword', this)"
+>
+    Show
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MAILING -->
+
+<div class="checkbox-row">
+
+<input
+    type="checkbox"
+    id="mailingList"
+    name="mailing_list"
+    value="1"
+>
+
+
+<label for="mailingList">
+
+<strong>
+Join our mailing list
+</strong>
+
+<br>
+
+Receive occasional Dinges TechHub
+news, information and special offers.
+
+</label>
+
+</div>
+
+
+<!-- TERMS -->
+
+<div class="checkbox-row">
+
+<input
+    type="checkbox"
+    id="terms"
+    name="terms"
+    value="1"
+    required
+>
+
+
+<label for="terms">
+
+I have read and agree to the
+
+<a href="/terms.php">
+Terms of Service
+</a>
+
+<span class="required">*</span>
+
+</label>
+
+</div>
+
+
+<button
+    type="submit"
+    class="primary-btn"
+    id="registerButton"
+>
+    Create Account
+</button>
+
+
+<div
+    id="registerMessage"
+    class="message"
+></div>
+
+</form>
 
 </div>
 
@@ -1532,6 +2560,7 @@ input:focus{
     class="footer-logo"
 >
 
+
 <div class="footer-description">
 
 Your technology, connected.
@@ -1544,6 +2573,20 @@ solutions for homes and businesses.
 
 </div>
 
+</div>
+
+
+<div>
+
+<div
+    style="
+        color:#ffffff;
+        font-size:10px;
+        font-weight:900;
+        margin-bottom:12px;
+    "
+>
+    Quick Links
 </div>
 
 
@@ -1573,6 +2616,8 @@ solutions for homes and businesses.
 
 </div>
 
+</div>
+
 
 <div class="footer-bottom">
 
@@ -1594,60 +2639,314 @@ support@dingestechhub.co.za
 <script>
 
 /* =========================================================
+   DINGES TECHHUB
+   LOGIN / REGISTER FRONTEND
+========================================================= */
+
+
+/* =========================================================
    API
 ========================================================= */
 
+const API_BASE =
+    "https://register.web.za/api";
+
 const LOGIN_API =
-    "https://register.web.za/api/login.php";
+    API_BASE + "/login.php";
+
+const REGISTER_API =
+    API_BASE + "/register.php";
 
 
 /* =========================================================
    ELEMENTS
 ========================================================= */
 
+const loginTab =
+    document.getElementById("loginTab");
+
+const registerTab =
+    document.getElementById("registerTab");
+
 const loginForm =
     document.getElementById("loginForm");
 
-const loginButton =
-    document.getElementById("loginButton");
+const registerForm =
+    document.getElementById("registerForm");
 
-const loginMessage =
-    document.getElementById("loginMessage");
+const service =
+    document.getElementById("service");
 
-const loginPassword =
-    document.getElementById("loginPassword");
+const ficaSection =
+    document.getElementById("ficaSection");
 
-const passwordToggle =
-    document.getElementById("passwordToggle");
+const ficaNotice =
+    document.getElementById("ficaNotice");
+
+const serviceInfo =
+    document.getElementById("serviceInfo");
+
+const identityNumber =
+    document.getElementById("identityNumber");
+
+const idProof =
+    document.getElementById("idProof");
+
+const proofOfResidence =
+    document.getElementById("proofOfResidence");
+
+const signupPassword =
+    document.getElementById("signupPassword");
+
+const strengthText =
+    document.getElementById("strengthText");
+
+const strengthFill =
+    document.getElementById("strengthFill");
 
 
 /* =========================================================
-   PASSWORD TOGGLE
+   LOGIN TAB
 ========================================================= */
 
-passwordToggle.addEventListener(
+function showLogin(){
+
+    loginTab.classList.add("active");
+
+    registerTab.classList.remove("active");
+
+    loginForm.classList.add("active");
+
+    registerForm.classList.remove("active");
+
+}
+
+
+loginTab.addEventListener(
     "click",
+    showLogin
+);
+
+
+/* =========================================================
+   REGISTER TAB
+========================================================= */
+
+function showRegister(){
+
+    registerTab.classList.add("active");
+
+    loginTab.classList.remove("active");
+
+    registerForm.classList.add("active");
+
+    loginForm.classList.remove("active");
+
+}
+
+
+registerTab.addEventListener(
+    "click",
+    showRegister
+);
+
+
+/* =========================================================
+   PASSWORD SHOW / HIDE
+========================================================= */
+
+function togglePassword(
+    inputId,
+    button
+){
+
+    const input =
+        document.getElementById(inputId);
+
+
+    if(!input){
+        return;
+    }
+
+
+    if(input.type === "password"){
+
+        input.type = "text";
+
+        button.textContent =
+            "Hide";
+
+    }
+    else{
+
+        input.type = "password";
+
+        button.textContent =
+            "Show";
+
+    }
+
+}
+
+
+/* =========================================================
+   SERVICE CHANGE
+========================================================= */
+
+service.addEventListener(
+    "change",
     function(){
 
-        if(
-            loginPassword.type ===
-            "password"
-        ){
+        const selected =
+            service.options[
+                service.selectedIndex
+            ];
 
-            loginPassword.type =
-                "text";
 
-            passwordToggle.textContent =
-                "Hide";
+        if(!service.value){
+
+            ficaSection.style.display =
+                "none";
+
+            ficaNotice.style.display =
+                "none";
+
+            identityNumber.required =
+                false;
+
+            idProof.required =
+                false;
+
+            proofOfResidence.required =
+                false;
+
+            serviceInfo.textContent =
+                "Please select a service to continue.";
+
+            return;
+
+        }
+
+
+        const needsFica =
+            service.value === "fibre" ||
+            service.value === "wireless" ||
+            service.value === "lte";
+
+
+        if(needsFica){
+
+            ficaSection.style.display =
+                "block";
+
+            ficaNotice.style.display =
+                "block";
+
+            identityNumber.required =
+                true;
+
+            idProof.required =
+                true;
+
+            proofOfResidence.required =
+                true;
+
+            serviceInfo.textContent =
+                selected.text.trim() +
+                " requires FICA verification.";
 
         }
         else{
 
-            loginPassword.type =
-                "password";
+            ficaSection.style.display =
+                "none";
 
-            passwordToggle.textContent =
-                "Show";
+            ficaNotice.style.display =
+                "none";
+
+            identityNumber.required =
+                false;
+
+            idProof.required =
+                false;
+
+            proofOfResidence.required =
+                false;
+
+            serviceInfo.textContent =
+                selected.text.trim() +
+                " does not require FICA verification.";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PASSWORD STRENGTH
+========================================================= */
+
+signupPassword.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            signupPassword.value;
+
+        let strength = 0;
+
+
+        if(value.length >= 8)
+            strength++;
+
+        if(/[A-Z]/.test(value))
+            strength++;
+
+        if(/[a-z]/.test(value))
+            strength++;
+
+        if(/[0-9]/.test(value))
+            strength++;
+
+        if(/[^A-Za-z0-9]/.test(value))
+            strength++;
+
+
+        if(!value){
+
+            strengthText.textContent =
+                "Enter a password";
+
+            strengthFill.style.width =
+                "0%";
+
+        }
+        else if(strength <= 2){
+
+            strengthText.textContent =
+                "Weak";
+
+            strengthFill.style.width =
+                "30%";
+
+        }
+        else if(strength <= 4){
+
+            strengthText.textContent =
+                "Medium";
+
+            strengthFill.style.width =
+                "65%";
+
+        }
+        else{
+
+            strengthText.textContent =
+                "Strong";
+
+            strengthFill.style.width =
+                "100%";
 
         }
 
@@ -1664,13 +2963,15 @@ async function parseApiResponse(response){
     const text =
         await response.text();
 
+
     console.log(
-        "LOGIN API STATUS:",
+        "API STATUS:",
         response.status
     );
 
+
     console.log(
-        "LOGIN API RESPONSE:",
+        "API RESPONSE:",
         text
     );
 
@@ -1689,7 +2990,7 @@ async function parseApiResponse(response){
     catch(error){
 
         console.error(
-            "Invalid JSON:",
+            "API returned invalid JSON:",
             error
         );
 
@@ -1705,6 +3006,56 @@ async function parseApiResponse(response){
 
 
 /* =========================================================
+   API ERROR
+========================================================= */
+
+function showApiError(
+    element,
+    response,
+    result,
+    fallback
+){
+
+    element.className =
+        "message error";
+
+
+    if(
+        result.json &&
+        result.json.message
+    ){
+
+        element.textContent =
+            result.json.message;
+
+        return;
+
+    }
+
+
+    if(
+        result.json &&
+        result.json.error
+    ){
+
+        element.textContent =
+            result.json.error;
+
+        return;
+
+    }
+
+
+    element.textContent =
+        fallback +
+        " (HTTP " +
+        response.status +
+        ")";
+
+}
+
+
+/* =========================================================
    LOGIN
 ========================================================= */
 
@@ -1715,26 +3066,35 @@ loginForm.addEventListener(
         event.preventDefault();
 
 
-        loginButton.disabled =
+        const message =
+            document.getElementById(
+                "loginMessage"
+            );
+
+        const button =
+            document.getElementById(
+                "loginButton"
+            );
+
+
+        button.disabled =
             true;
 
-        loginButton.textContent =
+        button.textContent =
             "Logging in...";
 
 
-        loginMessage.className =
+        message.className =
             "message info";
 
-        loginMessage.textContent =
+        message.textContent =
             "Checking your account...";
 
 
         try{
 
             const formData =
-                new FormData(
-                    loginForm
-                );
+                new FormData(loginForm);
 
 
             const response =
@@ -1747,6 +3107,325 @@ loginForm.addEventListener(
                         body:formData,
 
                         credentials:"include",
+
+                        headers:{
+                            "Accept":
+                                "application/json"
+                        },
+
+                        cache:"no-store"
+
+                    }
+                );
+
+
+            const result =
+                await parseApiResponse(
+                    response
+                );
+
+
+            if(
+                response.ok &&
+                result.json &&
+                result.json.success === true
+            ){
+
+                message.className =
+                    "message success";
+
+
+                message.textContent =
+                    result.json.message ||
+                    "Login successful.";
+
+
+                if(result.json.customer){
+
+                    try{
+
+                        sessionStorage.setItem(
+                            "dingesTechCustomer",
+                            JSON.stringify(
+                                result.json.customer
+                            )
+                        );
+
+                    }
+                    catch(error){
+
+                        console.warn(
+                            "Unable to save session.",
+                            error
+                        );
+
+                    }
+
+                }
+
+
+                setTimeout(
+                    function(){
+
+                        /*
+                         * IMPORTANT:
+                         * Change this later to your
+                         * actual customer dashboard.
+                         */
+
+                        window.location.href =
+                            "https://register.web.za/customer-dashboard.php";
+
+                    },
+                    800
+                );
+
+
+                return;
+
+            }
+
+
+            showApiError(
+                message,
+                response,
+                result,
+                "Incorrect email or password."
+            );
+
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Login";
+
+        }
+        catch(error){
+
+            console.error(
+                "LOGIN ERROR:",
+                error
+            );
+
+
+            message.className =
+                "message error";
+
+
+            message.textContent =
+                "Unable to connect to the login server. Please try again.";
+
+
+            button.disabled =
+                false;
+
+            button.textContent =
+                "Login";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+registerForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const message =
+            document.getElementById(
+                "registerMessage"
+            );
+
+        const button =
+            document.getElementById(
+                "registerButton"
+            );
+
+
+        const password =
+            signupPassword.value;
+
+
+        const confirmPassword =
+            document.getElementById(
+                "confirmPassword"
+            ).value;
+
+
+        /* -----------------------------------------
+           SERVICE
+        ----------------------------------------- */
+
+        if(!service.value){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Please select the service you need.";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           PASSWORD
+        ----------------------------------------- */
+
+        if(password.length < 8){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Password must be at least 8 characters long.";
+
+            return;
+
+        }
+
+
+        if(password !== confirmPassword){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Passwords do not match.";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           TERMS
+        ----------------------------------------- */
+
+        const terms =
+            document.getElementById("terms");
+
+
+        if(!terms.checked){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Please agree to the Terms of Service.";
+
+            return;
+
+        }
+
+
+        /* -----------------------------------------
+           FICA
+        ----------------------------------------- */
+
+        const needsFica =
+            service.value === "fibre" ||
+            service.value === "wireless" ||
+            service.value === "lte";
+
+
+        if(needsFica){
+
+            if(!identityNumber.value.trim()){
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please enter your identity number.";
+
+                return;
+
+            }
+
+
+            if(
+                !idProof.files ||
+                !idProof.files.length
+            ){
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please upload your ID document.";
+
+                return;
+
+            }
+
+
+            if(
+                !proofOfResidence.files ||
+                !proofOfResidence.files.length
+            ){
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please upload your proof of residence.";
+
+                return;
+
+            }
+
+        }
+
+
+        /* -----------------------------------------
+           SUBMIT
+        ----------------------------------------- */
+
+        button.disabled =
+            true;
+
+        button.textContent =
+            "Creating Account...";
+
+
+        message.className =
+            "message info";
+
+        message.textContent =
+            "Creating your account...";
+
+
+        try{
+
+            const formData =
+                new FormData(registerForm);
+
+
+            const registeredEmail =
+                document.getElementById(
+                    "registerEmail"
+                ).value;
+
+
+            const response =
+                await fetch(
+                    REGISTER_API,
+                    {
+
+                        method:"POST",
+
+                        body:formData,
 
                         headers:{
                             "Accept":
@@ -1767,93 +3446,77 @@ loginForm.addEventListener(
                 );
 
 
-            /* =================================================
-               SUCCESS
-            ================================================= */
-
             if(
                 response.ok &&
                 result.json &&
                 result.json.success === true
             ){
 
-                loginMessage.className =
+                message.className =
                     "message success";
 
-                loginMessage.textContent =
+
+                message.textContent =
                     result.json.message ||
-                    "Login successful. Redirecting...";
+                    "Registration successful. You can now log in.";
 
 
-                /* ---------------------------------------------
-                   Store non-sensitive customer data
-                --------------------------------------------- */
-
-                if(
-                    result.json.customer
-                ){
-
-                    try{
-
-                        sessionStorage.setItem(
-                            "dingesTechCustomer",
-                            JSON.stringify(
-                                result.json.customer
-                            )
-                        );
-
-                    }
-                    catch(error){
-
-                        console.warn(
-                            "Session storage unavailable.",
-                            error
-                        );
-
-                    }
-
-                }
+                registerForm.reset();
 
 
-                /* ---------------------------------------------
-                   Redirect
-                --------------------------------------------- */
+                ficaSection.style.display =
+                    "none";
 
-                const params =
-                    new URLSearchParams(
-                        window.location.search
-                    );
+                ficaNotice.style.display =
+                    "none";
 
+                identityNumber.required =
+                    false;
 
-                const requestedRedirect =
-                    params.get("redirect");
+                idProof.required =
+                    false;
 
-
-                let redirectUrl =
-                    "https://register.web.za/customer-dashboard.php";
+                proofOfResidence.required =
+                    false;
 
 
-                if(
-                    requestedRedirect &&
-                    requestedRedirect.startsWith("/") &&
-                    !requestedRedirect.startsWith("//")
-                ){
+                serviceInfo.textContent =
+                    "Please select a service to continue.";
 
-                    redirectUrl =
-                        requestedRedirect;
 
-                }
+                strengthText.textContent =
+                    "Enter a password";
+
+                strengthFill.style.width =
+                    "0%";
 
 
                 setTimeout(
                     function(){
 
-                        window.location.href =
-                            redirectUrl;
+                        showLogin();
+
+
+                        document.getElementById(
+                            "loginEmail"
+                        ).value =
+                            registeredEmail;
+
+
+                        document.getElementById(
+                            "loginPassword"
+                        ).focus();
 
                     },
-                    700
+                    1200
                 );
+
+
+                button.disabled =
+                    false;
+
+                button.textContent =
+                    "Create Account";
 
 
                 return;
@@ -1861,67 +3524,42 @@ loginForm.addEventListener(
             }
 
 
-            /* =================================================
-               LOGIN FAILED
-            ================================================= */
-
-            loginMessage.className =
-                "message error";
-
-
-            if(
-                result.json &&
-                result.json.message
-            ){
-
-                loginMessage.textContent =
-                    result.json.message;
-
-            }
-            else if(
-                result.json &&
-                result.json.error
-            ){
-
-                loginMessage.textContent =
-                    result.json.error;
-
-            }
-            else{
-
-                loginMessage.textContent =
-                    "Incorrect email or password.";
-
-            }
+            showApiError(
+                message,
+                response,
+                result,
+                "Unable to create your account."
+            );
 
 
-            loginButton.disabled =
+            button.disabled =
                 false;
 
-            loginButton.textContent =
-                "Login";
+            button.textContent =
+                "Create Account";
 
         }
         catch(error){
 
             console.error(
-                "LOGIN ERROR:",
+                "REGISTER ERROR:",
                 error
             );
 
 
-            loginMessage.className =
+            message.className =
                 "message error";
 
-            loginMessage.textContent =
-                "Unable to connect to the login server. Please try again.";
+
+            message.textContent =
+                "Unable to connect to the registration server. Please try again.";
 
 
-            loginButton.disabled =
+            button.disabled =
                 false;
 
-            loginButton.textContent =
-                "Login";
+            button.textContent =
+                "Create Account";
 
         }
 
@@ -1941,6 +3579,7 @@ document
 
             event.preventDefault();
 
+
             alert(
                 "Password reset will be connected to your Dinges TechHub customer account."
             );
@@ -1950,7 +3589,15 @@ document
 
 
 /* =========================================================
-   REGISTER LINK
+   DEFAULT
+========================================================= */
+
+showLogin();
+
+
+/* =========================================================
+   OPTIONAL:
+   /login?register=1 OPENS REGISTER
 ========================================================= */
 
 const urlParams =
@@ -1963,17 +3610,7 @@ if(
     urlParams.get("register") === "1"
 ){
 
-    /*
-     * Registration is handled by your
-     * separate registration page/API.
-     *
-     * For now we keep the login page
-     * focused and straight.
-     */
-
-    console.log(
-        "Registration requested."
-    );
+    showRegister();
 
 }
 
