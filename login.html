@@ -1784,7 +1784,9 @@ Get technical support
 </p>
 
 
-<!-- SERVICE -->
+<!-- =====================================================
+     SERVICE
+===================================================== -->
 
 <div class="service-box">
 
@@ -1846,7 +1848,9 @@ Select the Service You Need
 </div>
 
 
-<!-- FICA -->
+<!-- =====================================================
+     FICA NOTICE
+===================================================== -->
 
 <div
     id="ficaNotice"
@@ -1866,7 +1870,9 @@ ID document and proof of residence.
 </div>
 
 
-<!-- PERSONAL -->
+<!-- =====================================================
+     PERSONAL
+===================================================== -->
 
 <div class="section-title">
     Personal Information
@@ -1891,6 +1897,7 @@ First Name
 
 </div>
 
+
 <div class="form-group">
 
 <label for="lastName">
@@ -1908,6 +1915,7 @@ Last Name
 
 </div>
 
+
 <div class="form-group">
 
 <label for="registerEmail">
@@ -1924,6 +1932,7 @@ Email Address
 >
 
 </div>
+
 
 <div class="form-group">
 
@@ -1954,7 +1963,9 @@ Phone Number
 </div>
 
 
-<!-- BILLING -->
+<!-- =====================================================
+     BILLING
+===================================================== -->
 
 <div class="section-title">
     Billing Address
@@ -1977,6 +1988,7 @@ Company Name
 
 </div>
 
+
 <div class="form-group">
 
 <label for="streetAddress">
@@ -1994,6 +2006,7 @@ Street Address
 
 </div>
 
+
 <div class="form-group">
 
 <label for="streetAddress2">
@@ -2007,6 +2020,7 @@ Street Address 2
 >
 
 </div>
+
 
 <div class="form-group">
 
@@ -2025,6 +2039,7 @@ City
 
 </div>
 
+
 <div class="form-group">
 
 <label for="province">
@@ -2042,6 +2057,7 @@ Province
 
 </div>
 
+
 <div class="form-group">
 
 <label for="postcode">
@@ -2058,6 +2074,7 @@ Postcode
 >
 
 </div>
+
 
 <div class="form-group">
 
@@ -2090,6 +2107,7 @@ Mozambique
 
 </div>
 
+
 <div class="form-group">
 
 <label for="taxId">
@@ -2107,7 +2125,9 @@ Tax ID
 </div>
 
 
-<!-- FICA DOCUMENTS -->
+<!-- =====================================================
+     FICA DOCUMENTS
+===================================================== -->
 
 <div
     id="ficaSection"
@@ -2135,6 +2155,7 @@ Identity Number
 
 </div>
 
+
 <div class="form-group">
 
 <label for="idProof">
@@ -2150,6 +2171,7 @@ ID Document
 >
 
 </div>
+
 
 <div class="form-group form-full">
 
@@ -2172,7 +2194,9 @@ Proof of Residence
 </div>
 
 
-<!-- ADDITIONAL -->
+<!-- =====================================================
+     ADDITIONAL
+===================================================== -->
 
 <div class="section-title">
     Additional Information
@@ -2223,6 +2247,7 @@ Other
 
 </div>
 
+
 <div class="form-group form-full">
 
 <label for="additionalInfo">
@@ -2240,7 +2265,9 @@ Additional Information
 </div>
 
 
-<!-- SECURITY -->
+<!-- =====================================================
+     SECURITY
+===================================================== -->
 
 <div class="section-title">
     Account Security
@@ -2275,6 +2302,7 @@ Password
 
 </div>
 
+
 <div class="password-strength">
 
 Password strength:
@@ -2295,6 +2323,7 @@ Enter a password
 </div>
 
 </div>
+
 
 <div class="form-group">
 
@@ -2328,7 +2357,9 @@ Confirm Password
 </div>
 
 
-<!-- MAILING -->
+<!-- =====================================================
+     MAILING LIST
+===================================================== -->
 
 <div class="checkbox-row">
 
@@ -2355,7 +2386,9 @@ news, information and special offers.
 </div>
 
 
-<!-- TERMS -->
+<!-- =====================================================
+     TERMS
+===================================================== -->
 
 <div class="checkbox-row">
 
@@ -2382,6 +2415,10 @@ Terms of Service
 </div>
 
 
+<!-- =====================================================
+     SUBMIT
+===================================================== -->
+
 <button
     type="submit"
     class="primary-btn"
@@ -2389,6 +2426,7 @@ Terms of Service
 >
     Create Account
 </button>
+
 
 <div
     id="registerMessage"
@@ -2436,6 +2474,7 @@ solutions for homes and businesses.
 
 </div>
 
+
 <div>
 
 <div
@@ -2477,6 +2516,7 @@ solutions for homes and businesses.
 
 </div>
 
+
 <div class="footer-bottom">
 
 <p>
@@ -2499,38 +2539,53 @@ support@dingestechhub.co.za
 /* =========================================================
    DINGES TECHHUB
    LOGIN / REGISTER
-   CLOUDFLARE API VERSION
+   WHMCS API VERSION
 ========================================================= */
 
 
 /* =========================================================
-   CLOUDFLARE API
+   API CONFIGURATION
 ========================================================= */
 
 /*
-    IMPORTANT:
+ * IMPORTANT
+ *
+ * Registration is sent directly to the WHMCS PHP endpoint:
+ *
+ * https://register.web.za/api/register.php
+ *
+ * This replaces the old:
+ *
+ * /api/register
+ *
+ * which was returning HTTP 404.
+ */
 
-    Do NOT use:
+const WHMCS_API_BASE =
+    "https://register.web.za/api";
 
-    https://register.web.za/api/register.php
 
-    directly from the browser.
-
-    The browser now talks to Cloudflare:
-
-        /api/register
-        /api/login
-
-    Cloudflare then forwards the request to WHMCS.
-*/
-
-const API_BASE = "/api";
-
-const LOGIN_API =
-    API_BASE + "/login";
+/*
+ * REGISTRATION
+ */
 
 const REGISTER_API =
-    API_BASE + "/register";
+    WHMCS_API_BASE + "/register.php";
+
+
+/*
+ * LOGIN
+ *
+ * This assumes your login endpoint will be:
+ *
+ * https://register.web.za/api/login.php
+ *
+ * If your login PHP file has a different name,
+ * change only this value.
+ */
+
+const LOGIN_API =
+    WHMCS_API_BASE + "/login.php";
 
 
 /* =========================================================
@@ -2642,8 +2697,11 @@ function togglePassword(
         document.getElementById(inputId);
 
     if(!input){
+
         return;
+
     }
+
 
     if(input.type === "password"){
 
@@ -2677,6 +2735,7 @@ service.addEventListener(
             service.options[
                 service.selectedIndex
             ];
+
 
         if(!service.value){
 
@@ -2771,17 +2830,22 @@ signupPassword.addEventListener(
 
         let strength = 0;
 
+
         if(value.length >= 8)
             strength++;
+
 
         if(/[A-Z]/.test(value))
             strength++;
 
+
         if(/[a-z]/.test(value))
             strength++;
 
+
         if(/[0-9]/.test(value))
             strength++;
+
 
         if(/[^A-Za-z0-9]/.test(value))
             strength++;
@@ -2837,10 +2901,18 @@ async function parseApiResponse(response){
     const text =
         await response.text();
 
+
+    console.log(
+        "API URL:",
+        response.url
+    );
+
+
     console.log(
         "API STATUS:",
         response.status
     );
+
 
     console.log(
         "API RESPONSE:",
@@ -2849,6 +2921,7 @@ async function parseApiResponse(response){
 
 
     let json = null;
+
 
     try{
 
@@ -2869,8 +2942,11 @@ async function parseApiResponse(response){
 
 
     return {
+
         text:text.trim(),
+
         json:json
+
     };
 
 }
@@ -2922,7 +2998,7 @@ function showApiError(
         element.textContent =
             result.text.substring(
                 0,
-                500
+                700
             );
 
         return;
@@ -2955,6 +3031,7 @@ loginForm.addEventListener(
                 "loginMessage"
             );
 
+
         const button =
             document.getElementById(
                 "loginButton"
@@ -2964,12 +3041,14 @@ loginForm.addEventListener(
         button.disabled =
             true;
 
+
         button.textContent =
             "Logging in...";
 
 
         message.className =
             "message info";
+
 
         message.textContent =
             "Checking your account...";
@@ -2981,11 +3060,6 @@ loginForm.addEventListener(
                 new FormData(loginForm);
 
 
-            /*
-             * IMPORTANT:
-             * This now goes to Cloudflare.
-             */
-
             const response =
                 await fetch(
                     LOGIN_API,
@@ -2995,12 +3069,12 @@ loginForm.addEventListener(
 
                         body:formData,
 
-                        credentials:"include",
-
                         headers:{
                             "Accept":
                                 "application/json"
                         },
+
+                        mode:"cors",
 
                         cache:"no-store"
 
@@ -3022,6 +3096,7 @@ loginForm.addEventListener(
 
                 message.className =
                     "message success";
+
 
                 message.textContent =
                     result.json.message ||
@@ -3062,6 +3137,7 @@ loginForm.addEventListener(
                     800
                 );
 
+
                 return;
 
             }
@@ -3077,6 +3153,7 @@ loginForm.addEventListener(
 
             button.disabled =
                 false;
+
 
             button.textContent =
                 "Login";
@@ -3100,6 +3177,7 @@ loginForm.addEventListener(
 
             button.disabled =
                 false;
+
 
             button.textContent =
                 "Login";
@@ -3125,6 +3203,7 @@ registerForm.addEventListener(
             document.getElementById(
                 "registerMessage"
             );
+
 
         const button =
             document.getElementById(
@@ -3194,7 +3273,9 @@ registerForm.addEventListener(
         ===================================================== */
 
         const terms =
-            document.getElementById("terms");
+            document.getElementById(
+                "terms"
+            );
 
 
         if(!terms.checked){
@@ -3270,11 +3351,54 @@ registerForm.addEventListener(
 
 
         /* =====================================================
+           FILE SIZE CHECK
+        ===================================================== */
+
+        const maxFileSize =
+            10 * 1024 * 1024;
+
+
+        if(
+            idProof.files &&
+            idProof.files.length &&
+            idProof.files[0].size > maxFileSize
+        ){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "ID document must be smaller than 10 MB.";
+
+            return;
+
+        }
+
+
+        if(
+            proofOfResidence.files &&
+            proofOfResidence.files.length &&
+            proofOfResidence.files[0].size > maxFileSize
+        ){
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                "Proof of residence must be smaller than 10 MB.";
+
+            return;
+
+        }
+
+
+        /* =====================================================
            SUBMIT
         ===================================================== */
 
         button.disabled =
             true;
+
 
         button.textContent =
             "Creating Account...";
@@ -3283,14 +3407,28 @@ registerForm.addEventListener(
         message.className =
             "message info";
 
+
         message.textContent =
-            "Creating your account...";
+            "Creating your Dinges TechHub account...";
 
 
         try{
 
+            /*
+             * FormData automatically includes:
+             *
+             * - customer information
+             * - password
+             * - service
+             * - address
+             * - FICA information
+             * - uploaded documents
+             */
+
             const formData =
-                new FormData(registerForm);
+                new FormData(
+                    registerForm
+                );
 
 
             const registeredEmail =
@@ -3299,16 +3437,11 @@ registerForm.addEventListener(
                 ).value;
 
 
-            /*
-             * IMPORTANT:
-             *
-             * Registration now goes to:
-             *
-             * /api/register
-             *
-             * Cloudflare handles the request and
-             * forwards it to register.web.za.
-             */
+            console.log(
+                "Submitting registration to:",
+                REGISTER_API
+            );
+
 
             const response =
                 await fetch(
@@ -3319,12 +3452,12 @@ registerForm.addEventListener(
 
                         body:formData,
 
-                        credentials:"include",
-
                         headers:{
                             "Accept":
                                 "application/json"
                         },
+
+                        mode:"cors",
 
                         cache:"no-store"
 
@@ -3337,6 +3470,10 @@ registerForm.addEventListener(
                     response
                 );
 
+
+            /*
+             * SUCCESS
+             */
 
             if(
                 response.ok &&
@@ -3353,20 +3490,72 @@ registerForm.addEventListener(
                     "Registration successful. You can now log in.";
 
 
+                /*
+                 * Save returned customer information
+                 * temporarily if WHMCS returned it.
+                 */
+
+                if(result.json.client_id){
+
+                    try{
+
+                        sessionStorage.setItem(
+                            "dingesTechRegistration",
+                            JSON.stringify({
+
+                                client_id:
+                                    result.json.client_id,
+
+                                email:
+                                    result.json.email ||
+                                    registeredEmail,
+
+                                service:
+                                    result.json.service ||
+                                    service.value
+
+                            })
+                        );
+
+                    }
+                    catch(error){
+
+                        console.warn(
+                            "Unable to save registration information.",
+                            error
+                        );
+
+                    }
+
+                }
+
+
+                /*
+                 * Reset form
+                 */
+
                 registerForm.reset();
 
+
+                /*
+                 * Reset FICA
+                 */
 
                 ficaSection.style.display =
                     "none";
 
+
                 ficaNotice.style.display =
                     "none";
+
 
                 identityNumber.required =
                     false;
 
+
                 idProof.required =
                     false;
+
 
                 proofOfResidence.required =
                     false;
@@ -3376,8 +3565,13 @@ registerForm.addEventListener(
                     "Please select a service to continue.";
 
 
+                /*
+                 * Reset password strength
+                 */
+
                 strengthText.textContent =
                     "Enter a password";
+
 
                 strengthFill.style.width =
                     "0%";
@@ -3386,9 +3580,14 @@ registerForm.addEventListener(
                 button.disabled =
                     false;
 
+
                 button.textContent =
                     "Create Account";
 
+
+                /*
+                 * Switch to login
+                 */
 
                 setTimeout(
                     function(){
@@ -3407,7 +3606,7 @@ registerForm.addEventListener(
                         ).focus();
 
                     },
-                    1200
+                    1500
                 );
 
 
@@ -3415,6 +3614,10 @@ registerForm.addEventListener(
 
             }
 
+
+            /*
+             * ERROR
+             */
 
             showApiError(
                 message,
@@ -3426,6 +3629,7 @@ registerForm.addEventListener(
 
             button.disabled =
                 false;
+
 
             button.textContent =
                 "Create Account";
@@ -3443,12 +3647,31 @@ registerForm.addEventListener(
                 "message error";
 
 
-            message.textContent =
-                "Unable to connect to the registration service. Please try again.";
+            /*
+             * More useful error when the browser
+             * cannot reach the PHP server.
+             */
+
+            if(
+                error &&
+                error.name === "TypeError"
+            ){
+
+                message.textContent =
+                    "Unable to connect to register.web.za. Please check that the registration API is online and that CORS is enabled.";
+
+            }
+            else{
+
+                message.textContent =
+                    "Unable to connect to the registration service. Please try again.";
+
+            }
 
 
             button.disabled =
                 false;
+
 
             button.textContent =
                 "Create Account";
@@ -3470,6 +3693,7 @@ document
         function(event){
 
             event.preventDefault();
+
 
             alert(
                 "Password reset will be connected to your Dinges TechHub customer account."
