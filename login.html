@@ -628,6 +628,10 @@ textarea:focus{
     text-decoration:none;
 }
 
+.forgot:hover{
+    color:var(--primary);
+}
+
 /* =========================================================
    MESSAGES
 ========================================================= */
@@ -997,9 +1001,19 @@ textarea:focus{
 
 <!-- =========================================================
      LOGIN
+
+     IMPORTANT:
+     THIS IS A NORMAL HTML POST.
+
+     DO NOT CHANGE THIS TO FETCH().
 ========================================================= -->
 
-<form id="loginForm" class="auth-form active">
+<form
+    id="loginForm"
+    class="auth-form active"
+    method="POST"
+    action="https://register.web.za/api/login.php"
+>
 
 <div class="form-eyebrow">
     Welcome Back
@@ -1817,13 +1831,11 @@ support@dingestechhub.co.za
 
 
 /* =========================================================
-   IMPORTANT API CONFIGURATION
+   API CONFIGURATION
 ========================================================= */
 
 /*
- * Registration API
- *
- * Hosted on register.web.za
+ * Registration remains an AJAX/API request.
  */
 
 const REGISTER_API =
@@ -1831,38 +1843,23 @@ const REGISTER_API =
 
 
 /*
- * Login API
- *
- * Hosted on register.web.za
- */
-
-const LOGIN_API =
-    "https://register.web.za/api/login.php";
-
-
-/*
- * CUSTOMER DASHBOARD
- *
  * IMPORTANT:
  *
- * customer-dashboard.php is inside the /api folder
- * on register.web.za.
+ * LOGIN IS NOT FETCHED WITH JAVASCRIPT.
  *
- * Therefore we MUST send the customer here:
+ * The login form itself posts directly to:
  *
- * https://register.web.za/api/customer-dashboard.php
+ * https://register.web.za/api/login.php
  *
- * DO NOT use:
+ * This is required because login.php:
  *
- * /customer-dashboard.php
+ * 1. starts the PHP session
+ * 2. validates the WHMCS customer
+ * 3. creates the customer session
+ * 4. redirects to customer-dashboard.php
  *
- * DO NOT use:
- *
- * https://dingestech-hub.mathagudakalo362.workers.dev/customer-dashboard.php
+ * Therefore DO NOT use fetch() for login.
  */
-
-const CUSTOMER_DASHBOARD =
-    "https://register.web.za/api/customer-dashboard.php";
 
 
 /* =========================================================
@@ -1989,7 +1986,7 @@ function togglePassword(
 
 
 /* =========================================================
-   SERVICE
+   SERVICE / FICA
 ========================================================= */
 
 service.addEventListener(
@@ -2267,194 +2264,55 @@ function showApiError(
    LOGIN
 ========================================================= */
 
+/*
+ * IMPORTANT:
+ *
+ * THERE IS NO fetch() LOGIN HANDLER HERE.
+ *
+ * The browser submits:
+ *
+ * POST
+ * https://register.web.za/api/login.php
+ *
+ * The PHP script then:
+ *
+ * ValidateLogin
+ *      ↓
+ * GetClientsDetails
+ *      ↓
+ * session_start()
+ *      ↓
+ * create customer session
+ *      ↓
+ * session_write_close()
+ *      ↓
+ * redirect to customer-dashboard.php
+ *
+ * This is the correct architecture for the
+ * login.php file you provided.
+ */
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
 loginForm.addEventListener(
     "submit",
-    async function(event){
-
-        event.preventDefault();
-
-
-        const message =
-            document.getElementById(
-                "loginMessage"
-            );
+    function(){
 
         const button =
             document.getElementById(
                 "loginButton"
             );
 
-
-        button.disabled =
-            true;
-
-        button.textContent =
-            "Logging in...";
-
-
-        message.className =
-            "message info";
-
-        message.textContent =
-            "Checking your account...";
-
-
-        try{
-
-            const formData =
-                new FormData(loginForm);
-
-
-            const response =
-                await fetch(
-                    LOGIN_API,
-                    {
-                        method:"POST",
-
-                        body:formData,
-
-                        credentials:"include",
-
-                        headers:{
-                            "Accept":
-                                "application/json"
-                        },
-
-                        cache:"no-store"
-                    }
-                );
-
-
-            const result =
-                await parseApiResponse(
-                    response
-                );
-
-
-            /* =================================================
-               LOGIN SUCCESS
-            ================================================= */
-
-            if(
-                response.ok &&
-                result.json &&
-                result.json.success === true
-            ){
-
-                message.className =
-                    "message success";
-
-                message.textContent =
-                    result.json.message ||
-                    "Login successful.";
-
-
-                /*
-                 * Save customer information locally
-                 * so the dashboard can also read the
-                 * customer's returned information.
-                 */
-
-                if(result.json.customer){
-
-                    try{
-
-                        sessionStorage.setItem(
-                            "dingesTechCustomer",
-                            JSON.stringify(
-                                result.json.customer
-                            )
-                        );
-
-                    }
-                    catch(error){
-
-                        console.warn(
-                            "Unable to save customer session.",
-                            error
-                        );
-
-                    }
-
-                }
-
-
-                /*
-                 * IMPORTANT:
-                 *
-                 * Redirect to the REAL PHP dashboard.
-                 *
-                 * customer-dashboard.php is located at:
-                 *
-                 * /home/register/public_html/api/customer-dashboard.php
-                 *
-                 * Therefore its public URL is:
-                 *
-                 * https://register.web.za/api/customer-dashboard.php
-                 */
-
-                console.log(
-                    "LOGIN SUCCESS — REDIRECTING TO:",
-                    CUSTOMER_DASHBOARD
-                );
-
-
-                setTimeout(
-                    function(){
-
-                        window.location.assign(
-                            CUSTOMER_DASHBOARD
-                        );
-
-                    },
-                    800
-                );
-
-                return;
-
-            }
-
-
-            /* =================================================
-               LOGIN FAILED
-            ================================================= */
-
-            showApiError(
-                message,
-                response,
-                result,
-                "Incorrect email or password."
-            );
-
+        if(button){
 
             button.disabled =
-                false;
+                true;
 
             button.textContent =
-                "Login";
-
-        }
-        catch(error){
-
-            console.error(
-                "LOGIN ERROR:",
-                error
-            );
-
-
-            message.className =
-                "message error";
-
-
-            message.textContent =
-                "Unable to connect to the login service. Please try again.";
-
-
-            button.disabled =
-                false;
-
-            button.textContent =
-                "Login";
+                "Logging in...";
 
         }
 
@@ -2658,7 +2516,7 @@ registerForm.addEventListener(
 
 
             /*
-             * Do NOT manually set Content-Type.
+             * DO NOT manually set Content-Type.
              *
              * FormData automatically creates
              * the multipart boundary.
@@ -2852,14 +2710,105 @@ document
 
 
 /* =========================================================
-   DEFAULT
+   LOGIN ERROR MESSAGE
+========================================================= */
+
+/*
+ * Your PHP login.php redirects back to:
+ *
+ * /login?error=invalid_credentials
+ *
+ * or:
+ *
+ * /login?error=missing_fields
+ *
+ * or:
+ *
+ * /login?error=server
+ *
+ * Display the correct message here.
+ */
+
+function displayLoginError(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const error =
+        params.get("error");
+
+    if(!error){
+        return;
+    }
+
+
+    const message =
+        document.getElementById(
+            "loginMessage"
+        );
+
+
+    message.className =
+        "message error";
+
+
+    switch(error){
+
+        case "invalid_credentials":
+
+            message.textContent =
+                "Incorrect email or password.";
+
+            break;
+
+
+        case "missing_fields":
+
+            message.textContent =
+                "Please enter your email address and password.";
+
+            break;
+
+
+        case "invalid_request":
+
+            message.textContent =
+                "Invalid login request. Please try again.";
+
+            break;
+
+
+        case "server":
+
+            message.textContent =
+                "Unable to connect to the customer login service. Please try again.";
+
+            break;
+
+
+        default:
+
+            message.textContent =
+                "Unable to sign you in. Please try again.";
+
+            break;
+
+    }
+
+}
+
+
+/* =========================================================
+   DEFAULT TAB
 ========================================================= */
 
 showLogin();
 
 
 /* =========================================================
-   ?register=1
+   REGISTER TAB FROM URL
 ========================================================= */
 
 const urlParams =
@@ -2875,6 +2824,14 @@ if(
     showRegister();
 
 }
+
+
+/* =========================================================
+   DISPLAY LOGIN ERROR
+========================================================= */
+
+displayLoginError();
+
 
 </script>
 
