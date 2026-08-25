@@ -5,34 +5,42 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<title>Login & Register | Dinges TechHub</title>
+<title>Customer Login | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Login or create your Dinges TechHub customer account."
+    content="Login to your Dinges TechHub customer account."
 >
 
 <style>
 
 /* =========================================================
-   DINGES TECHHUB — LOGIN / REGISTER
+   DINGES TECHHUB
+   CUSTOMER LOGIN / REGISTER
 ========================================================= */
 
 :root{
 
     --primary:#3C1542;
+    --primary-dark:#28102d;
     --secondary:#7A2C78;
     --accent:#FFBB42;
 
     --black:#020202;
     --white:#ffffff;
 
-    --light:#f7f5f8;
-    --gray:#777477;
+    --bg:#f7f4f8;
+    --card:#ffffff;
 
-    --border:#e4dfe6;
+    --text:#211d22;
+    --muted:#77727a;
+
+    --border:#e8e1ea;
 
     --success:#198754;
     --danger:#dc3545;
@@ -63,9 +71,9 @@ body{
         Helvetica,
         sans-serif;
 
-    background:#f7f5f8;
+    background:var(--bg);
 
-    color:var(--black);
+    color:var(--text);
 
     min-height:100vh;
 
@@ -88,12 +96,12 @@ body{
 
 
 /* =========================================================
-   TOP BAR
+   NAVIGATION
 ========================================================= */
 
 .topbar{
 
-    min-height:78px;
+    height:78px;
 
     background:var(--primary);
 
@@ -110,7 +118,7 @@ body{
     z-index:20;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,.12);
+        0 8px 30px rgba(60,21,66,.18);
 
 }
 
@@ -130,9 +138,9 @@ body{
 
     width:auto;
 
-    height:56px;
+    height:52px;
 
-    max-width:210px;
+    max-width:200px;
 
     object-fit:contain;
 
@@ -145,12 +153,16 @@ body{
 
     align-items:center;
 
-    gap:10px;
+    gap:8px;
 
 }
 
 
 .nav-btn{
+
+    min-height:40px;
+
+    padding:0 16px;
 
     display:inline-flex;
 
@@ -158,21 +170,16 @@ body{
 
     justify-content:center;
 
-    min-height:40px;
+    border:1px solid
+        rgba(255,255,255,.15);
 
-    padding:0 17px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    border-radius:9px;
+    border-radius:8px;
 
     color:white;
 
     text-decoration:none;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:800;
 
@@ -184,13 +191,10 @@ body{
 .nav-btn:hover{
 
     background:
-        rgba(255,255,255,.10);
+        rgba(255,255,255,.08);
 
     border-color:
-        rgba(255,187,66,.55);
-
-    transform:
-        translateY(-1px);
+        rgba(255,187,66,.45);
 
 }
 
@@ -214,6 +218,8 @@ body{
 
     flex:1;
 
+    min-height:calc(100vh - 78px);
+
     display:flex;
 
     align-items:center;
@@ -229,26 +235,34 @@ body{
 }
 
 
+/* =========================================================
+   BACKGROUND EFFECTS
+========================================================= */
+
 .main::before{
 
     content:"";
 
     position:absolute;
 
-    width:500px;
+    width:650px;
 
-    height:500px;
+    height:650px;
 
     border-radius:50%;
 
     background:
-        rgba(122,44,120,.09);
+        radial-gradient(
+            circle,
+            rgba(122,44,120,.15),
+            transparent 68%
+        );
 
-    top:-240px;
+    top:-300px;
 
-    left:-180px;
+    left:-250px;
 
-    filter:blur(30px);
+    pointer-events:none;
 
 }
 
@@ -259,69 +273,78 @@ body{
 
     position:absolute;
 
-    width:450px;
+    width:600px;
 
-    height:450px;
+    height:600px;
 
     border-radius:50%;
 
     background:
-        rgba(255,187,66,.12);
+        radial-gradient(
+            circle,
+            rgba(255,187,66,.14),
+            transparent 68%
+        );
 
-    bottom:-220px;
+    right:-260px;
 
-    right:-160px;
+    bottom:-300px;
 
-    filter:blur(30px);
+    pointer-events:none;
 
 }
 
 
 /* =========================================================
-   AUTH CONTAINER
+   AUTH WRAPPER
 ========================================================= */
 
-.auth-container{
+.auth-wrapper{
 
-    width:1100px;
+    width:100%;
 
-    max-width:100%;
+    max-width:1060px;
 
-    min-height:640px;
-
-    background:white;
-
-    border-radius:24px;
-
-    overflow:hidden;
+    min-height:570px;
 
     display:grid;
 
     grid-template-columns:
-        .82fr 1.18fr;
+        1fr 1fr;
 
-    box-shadow:
-        0 25px 70px
-        rgba(60,21,66,.15);
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
 
     position:relative;
 
     z-index:2;
 
+    box-shadow:
+        0 30px 90px
+        rgba(60,21,66,.18);
+
 }
 
 
 /* =========================================================
-   BRAND PANEL
+   LEFT BRAND PANEL
 ========================================================= */
 
-.brand-panel{
+.brand-side{
+
+    position:relative;
+
+    overflow:hidden;
 
     background:
         linear-gradient(
             145deg,
-            var(--primary),
-            var(--secondary)
+            #321238 0%,
+            #3C1542 48%,
+            #7A2C78 100%
         );
 
     color:white;
@@ -332,69 +355,65 @@ body{
 
     align-items:center;
 
-    position:relative;
-
-    overflow:hidden;
-
 }
 
 
-.brand-panel::before{
+.brand-side::before{
 
     content:"";
 
     position:absolute;
 
-    width:400px;
+    width:470px;
 
-    height:400px;
+    height:470px;
 
-    border:
-        1px solid
+    border-radius:50%;
+
+    border:1px solid
         rgba(255,255,255,.10);
 
-    border-radius:50%;
+    top:-260px;
 
-    top:-190px;
-
-    right:-190px;
+    right:-220px;
 
 }
 
 
-.brand-panel::after{
+.brand-side::after{
 
     content:"";
 
     position:absolute;
 
-    width:300px;
+    width:360px;
 
-    height:300px;
-
-    border:
-        1px solid
-        rgba(255,187,66,.18);
+    height:360px;
 
     border-radius:50%;
 
-    bottom:-170px;
+    border:1px solid
+        rgba(255,187,66,.18);
 
-    left:-150px;
+    bottom:-220px;
+
+    left:-190px;
 
 }
 
 
-.brand-panel-content{
+.brand-content{
 
     position:relative;
 
     z-index:2;
 
+    max-width:430px;
+
 }
 
 
-.panel-logo{
+.brand-logo{
 
     width:190px;
 
@@ -402,98 +421,123 @@ body{
 
     height:auto;
 
-    margin-bottom:35px;
-
     object-fit:contain;
+
+    margin-bottom:35px;
 
 }
 
 
-.brand-eyebrow{
+.brand-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
 
     color:var(--accent);
 
     font-size:10px;
 
+    font-weight:900;
+
     text-transform:uppercase;
 
-    letter-spacing:3px;
+    letter-spacing:2.5px;
 
-    font-weight:900;
-
-    margin-bottom:14px;
+    margin-bottom:16px;
 
 }
 
 
-.brand-panel h1{
+.brand-tag::before{
 
-    font-size:40px;
+    content:"";
 
-    line-height:1.1;
+    width:25px;
 
-    margin-bottom:18px;
+    height:2px;
 
-    font-weight:900;
+    background:var(--accent);
 
 }
 
 
-.brand-panel p{
+.brand-side h1{
 
-    color:
-        rgba(255,255,255,.78);
+    font-size:44px;
 
-    font-size:13px;
+    line-height:1.05;
 
-    line-height:1.75;
+    font-weight:900;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:20px;
+
+}
+
+
+.brand-side h1 span{
+
+    color:var(--accent);
+
+}
+
+
+.brand-side p{
 
     max-width:390px;
 
+    color:
+        rgba(255,255,255,.76);
+
+    font-size:13px;
+
+    line-height:1.8;
+
 }
 
 
-.benefits{
+.brand-points{
 
-    margin-top:32px;
+    margin-top:30px;
 
     display:grid;
 
-    gap:14px;
+    gap:13px;
 
 }
 
 
-.benefit{
+.brand-point{
 
     display:flex;
 
     align-items:center;
 
-    gap:12px;
-
-    font-size:12px;
+    gap:11px;
 
     color:
         rgba(255,255,255,.92);
 
+    font-size:11px;
+
+    font-weight:700;
+
 }
 
 
-.benefit-icon{
+.point-icon{
 
-    width:30px;
+    width:27px;
 
-    height:30px;
+    height:27px;
 
-    flex:0 0 30px;
+    flex:0 0 27px;
 
     border-radius:8px;
-
-    background:
-        rgba(255,187,66,.14);
-
-    color:var(--accent);
 
     display:flex;
 
@@ -501,37 +545,109 @@ body{
 
     justify-content:center;
 
+    background:
+        rgba(255,187,66,.13);
+
+    color:var(--accent);
+
+    font-size:11px;
+
     font-weight:900;
 
 }
 
 
 /* =========================================================
-   FORM PANEL
+   RIGHT AUTH SIDE
 ========================================================= */
 
-.form-panel{
-
-    padding:45px;
+.auth-side{
 
     background:white;
+
+    padding:45px 50px;
 
     display:flex;
 
     align-items:center;
 
-    min-width:0;
+}
+
+
+.auth-inner{
+
+    width:100%;
+
+    max-width:430px;
+
+    margin:auto;
 
 }
 
 
-.form-inner{
+/* =========================================================
+   AUTH HEADER
+========================================================= */
 
-    width:100%;
+.mobile-logo{
 
-    max-width:510px;
+    display:none;
 
-    margin:auto;
+    width:150px;
+
+    margin:0 auto 25px;
+
+}
+
+
+.auth-heading{
+
+    margin-bottom:25px;
+
+}
+
+
+.auth-label{
+
+    color:var(--secondary);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+}
+
+
+.auth-heading h2{
+
+    color:var(--primary);
+
+    font-size:31px;
+
+    line-height:1.15;
+
+    font-weight:900;
+
+    letter-spacing:-.5px;
+
+    margin-bottom:8px;
+
+}
+
+
+.auth-heading p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.6;
 
 }
 
@@ -542,42 +658,51 @@ body{
 
 .auth-tabs{
 
-    display:flex;
+    display:grid;
 
-    background:#f3f0f4;
+    grid-template-columns:1fr 1fr;
 
-    padding:5px;
+    gap:4px;
+
+    padding:4px;
+
+    background:#f3eff5;
 
     border-radius:11px;
 
-    margin-bottom:30px;
+    margin-bottom:27px;
 
 }
 
 
 .auth-tab{
 
-    flex:1;
-
-    border:none;
+    border:0;
 
     background:transparent;
 
-    padding:12px;
+    color:#858087;
+
+    min-height:42px;
 
     border-radius:8px;
 
     font-family:inherit;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:900;
 
     cursor:pointer;
 
-    color:var(--gray);
-
     transition:.25s ease;
+
+}
+
+
+.auth-tab:hover{
+
+    color:var(--primary);
 
 }
 
@@ -589,14 +714,13 @@ body{
     color:var(--primary);
 
     box-shadow:
-        0 3px 12px
-        rgba(0,0,0,.08);
+        0 3px 12px rgba(0,0,0,.08);
 
 }
 
 
 /* =========================================================
-   FORM
+   FORMS
 ========================================================= */
 
 .auth-form{
@@ -613,78 +737,9 @@ body{
 }
 
 
-.form-eyebrow{
-
-    color:var(--secondary);
-
-    font-size:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:2px;
-
-    font-weight:900;
-
-    margin-bottom:8px;
-
-}
-
-
-.form-title{
-
-    color:var(--primary);
-
-    font-size:30px;
-
-    line-height:1.15;
-
-    margin-bottom:9px;
-
-    font-weight:900;
-
-}
-
-
-.form-description{
-
-    color:var(--gray);
-
-    font-size:12px;
-
-    line-height:1.65;
-
-    margin-bottom:25px;
-
-}
-
-
-/* =========================================================
-   FORM GROUP
-========================================================= */
-
 .form-group{
 
-    margin-bottom:15px;
-
-}
-
-
-.form-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:13px;
-
-}
-
-
-.form-full{
-
-    grid-column:
-        1 / -1;
+    margin-bottom:17px;
 
 }
 
@@ -693,13 +748,13 @@ label{
 
     display:block;
 
+    margin-bottom:7px;
+
+    color:#373239;
+
     font-size:10px;
 
     font-weight:900;
-
-    color:#3f3a40;
-
-    margin-bottom:7px;
 
 }
 
@@ -717,50 +772,49 @@ textarea{
 
     width:100%;
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
 
     background:#faf9fb;
-
-    border-radius:9px;
-
-    padding:12px;
-
-    font-family:inherit;
-
-    font-size:12px;
 
     color:#222;
 
     outline:none;
+
+    border-radius:10px;
+
+    font-family:inherit;
+
+    font-size:12px;
 
     transition:.2s ease;
 
 }
 
 
-input{
-
-    height:45px;
-
-}
-
-
+input,
 select{
 
-    height:45px;
+    height:47px;
 
-    cursor:pointer;
+    padding:0 13px;
 
 }
 
 
 textarea{
 
-    min-height:90px;
+    min-height:95px;
+
+    padding:12px;
 
     resize:vertical;
+
+}
+
+
+input::placeholder{
+
+    color:#aaa4ad;
 
 }
 
@@ -769,9 +823,9 @@ input:focus,
 select:focus,
 textarea:focus{
 
-    border-color:var(--secondary);
-
     background:white;
+
+    border-color:var(--secondary);
 
     box-shadow:
         0 0 0 4px
@@ -793,7 +847,7 @@ textarea:focus{
 
 .password-wrap input{
 
-    padding-right:60px;
+    padding-right:65px;
 
 }
 
@@ -802,17 +856,204 @@ textarea:focus{
 
     position:absolute;
 
-    right:11px;
+    right:12px;
 
     top:50%;
 
     transform:translateY(-50%);
 
-    border:none;
+    border:0;
 
     background:transparent;
 
     color:var(--secondary);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    text-transform:uppercase;
+
+}
+
+
+.password-toggle:hover{
+
+    color:var(--primary);
+
+}
+
+
+/* =========================================================
+   FORGOT
+========================================================= */
+
+.login-options{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:-2px 0 20px;
+
+}
+
+
+.remember{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+}
+
+
+.remember input{
+
+    width:14px;
+
+    height:14px;
+
+    accent-color:var(--secondary);
+
+}
+
+
+.remember label{
+
+    margin:0;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    color:var(--muted);
+
+}
+
+
+.forgot{
+
+    color:var(--secondary);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    text-decoration:none;
+
+}
+
+
+.forgot:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.primary-btn{
+
+    width:100%;
+
+    height:49px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+
+    box-shadow:
+        0 8px 20px
+        rgba(60,21,66,.16);
+
+}
+
+
+.primary-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(60,21,66,.24);
+
+}
+
+
+.primary-btn:disabled{
+
+    opacity:.65;
+
+    cursor:wait;
+
+    transform:none;
+
+}
+
+
+/* =========================================================
+   LOGIN BOTTOM
+========================================================= */
+
+.auth-bottom{
+
+    text-align:center;
+
+    margin-top:21px;
+
+    padding-top:19px;
+
+    border-top:1px solid #eee9ef;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+.auth-bottom button{
+
+    border:0;
+
+    background:none;
+
+    color:var(--secondary);
+
+    font-family:inherit;
 
     font-size:10px;
 
@@ -823,47 +1064,172 @@ textarea:focus{
 }
 
 
-/* =========================================================
-   PASSWORD STRENGTH
-========================================================= */
+.auth-bottom button:hover{
 
-.password-strength{
-
-    margin-top:6px;
-
-    font-size:9px;
-
-    color:var(--gray);
+    text-decoration:underline;
 
 }
 
 
-.strength-bar{
+/* =========================================================
+   MESSAGE
+========================================================= */
 
-    width:100%;
+.message{
 
-    height:4px;
+    display:none;
 
-    background:#e8e5e9;
+    margin-top:14px;
+
+    padding:11px 12px;
+
+    border-radius:9px;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+}
+
+
+.message.success{
+
+    display:block;
+
+    background:#eaf7ef;
+
+    color:var(--success);
+
+}
+
+
+.message.error{
+
+    display:block;
+
+    background:#fdecec;
+
+    color:var(--danger);
+
+}
+
+
+.message.info{
+
+    display:block;
+
+    background:#f2edf5;
+
+    color:var(--primary);
+
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.register-scroll{
+
+    max-height:450px;
+
+    overflow-y:auto;
+
+    padding-right:8px;
+
+}
+
+
+.register-scroll::-webkit-scrollbar{
+
+    width:4px;
+
+}
+
+
+.register-scroll::-webkit-scrollbar-track{
+
+    background:#f1edf2;
+
+}
+
+
+.register-scroll::-webkit-scrollbar-thumb{
+
+    background:var(--secondary);
 
     border-radius:10px;
 
-    margin-top:5px;
+}
 
-    overflow:hidden;
+
+.section-title{
+
+    margin:20px 0 13px;
+
+    padding-bottom:8px;
+
+    border-bottom:1px solid #eee9ef;
+
+    color:var(--primary);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
 
 }
 
 
-.strength-fill{
+.form-grid{
 
-    width:0%;
+    display:grid;
 
-    height:100%;
+    grid-template-columns:1fr 1fr;
 
-    background:var(--accent);
+    gap:0 12px;
 
-    transition:.3s ease;
+}
+
+
+.form-full{
+
+    grid-column:1 / -1;
+
+}
+
+
+/* =========================================================
+   SERVICE
+========================================================= */
+
+.service-box{
+
+    padding:13px;
+
+    background:#faf6fb;
+
+    border:1px solid #e8deeb;
+
+    border-radius:11px;
+
+    margin-bottom:17px;
+
+}
+
+
+.service-info{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.5;
 
 }
 
@@ -881,9 +1247,9 @@ textarea:focus{
 
 .phone-code{
 
-    min-width:52px;
+    height:47px;
 
-    height:45px;
+    min-width:52px;
 
     display:flex;
 
@@ -891,20 +1257,17 @@ textarea:focus{
 
     justify-content:center;
 
-    background:#f0edf1;
+    background:#f0edf2;
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
 
-    border-right:none;
+    border-right:0;
 
-    border-radius:
-        9px 0 0 9px;
+    border-radius:10px 0 0 10px;
 
     color:var(--primary);
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:900;
 
@@ -913,74 +1276,7 @@ textarea:focus{
 
 .phone-wrap input{
 
-    border-radius:
-        0 9px 9px 0;
-
-}
-
-
-/* =========================================================
-   SERVICE BOX
-========================================================= */
-
-.service-box{
-
-    background:#faf7fb;
-
-    border:
-        1px solid #e7dfe9;
-
-    padding:14px;
-
-    border-radius:11px;
-
-    margin-bottom:18px;
-
-}
-
-
-.service-box label{
-
-    color:var(--primary);
-
-}
-
-
-.service-info{
-
-    color:var(--gray);
-
-    font-size:9px;
-
-    margin-top:7px;
-
-    line-height:1.5;
-
-}
-
-
-/* =========================================================
-   SECTION TITLES
-========================================================= */
-
-.section-title{
-
-    font-size:10px;
-
-    font-weight:900;
-
-    text-transform:uppercase;
-
-    letter-spacing:1.3px;
-
-    color:var(--primary);
-
-    padding-bottom:8px;
-
-    border-bottom:
-        1px solid #ece8ed;
-
-    margin:22px 0 14px;
+    border-radius:0 10px 10px 0;
 
 }
 
@@ -993,29 +1289,21 @@ textarea:focus{
 
     display:none;
 
-    background:
-        rgba(255,187,66,.12);
+    padding:11px;
 
-    border:
-        1px solid
-        rgba(255,187,66,.45);
+    margin-bottom:15px;
 
     border-radius:9px;
 
-    padding:11px;
+    background:rgba(255,187,66,.12);
 
-    font-size:10px;
+    border:1px solid rgba(255,187,66,.4);
+
+    color:#755000;
+
+    font-size:9px;
 
     line-height:1.5;
-
-    margin-bottom:17px;
-
-}
-
-
-.fica-notice strong{
-
-    color:#9b6500;
 
 }
 
@@ -1024,7 +1312,48 @@ textarea:focus{
 
     display:none;
 
-    margin-bottom:15px;
+}
+
+
+/* =========================================================
+   PASSWORD STRENGTH
+========================================================= */
+
+.password-strength{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+}
+
+
+.strength-bar{
+
+    height:4px;
+
+    background:#e8e4e9;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin-top:5px;
+
+}
+
+
+.strength-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:var(--accent);
+
+    transition:.3s ease;
 
 }
 
@@ -1052,6 +1381,8 @@ textarea:focus{
 
     height:15px;
 
+    flex:0 0 15px;
+
     margin-top:1px;
 
     accent-color:var(--secondary);
@@ -1063,7 +1394,9 @@ textarea:focus{
 
     margin:0;
 
-    font-size:10px;
+    color:var(--muted);
+
+    font-size:9px;
 
     line-height:1.5;
 
@@ -1076,197 +1409,9 @@ textarea:focus{
 
     color:var(--secondary);
 
-    font-weight:800;
-
-    text-decoration:none;
-
-}
-
-
-.checkbox-row a:hover{
-
-    text-decoration:underline;
-
-}
-
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.primary-btn{
-
-    width:100%;
-
-    height:47px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:var(--primary);
-
-    color:white;
-
-    font-size:11px;
-
     font-weight:900;
 
-    text-transform:uppercase;
-
-    letter-spacing:1px;
-
-    cursor:pointer;
-
-    transition:.25s ease;
-
-}
-
-
-.primary-btn:hover{
-
-    background:var(--secondary);
-
-    transform:translateY(-1px);
-
-    box-shadow:
-        0 8px 20px
-        rgba(122,44,120,.20);
-
-}
-
-
-.primary-btn:disabled{
-
-    opacity:.65;
-
-    cursor:wait;
-
-    transform:none;
-
-}
-
-
-/* =========================================================
-   FORGOT PASSWORD
-========================================================= */
-
-.forgot{
-
-    display:block;
-
-    text-align:right;
-
-    margin:-4px 0 17px;
-
-    color:var(--secondary);
-
     text-decoration:none;
-
-    font-size:10px;
-
-    font-weight:800;
-
-}
-
-
-.forgot:hover{
-
-    text-decoration:underline;
-
-}
-
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-.message{
-
-    display:none;
-
-    margin-top:13px;
-
-    padding:11px;
-
-    border-radius:8px;
-
-    font-size:10px;
-
-    line-height:1.5;
-
-}
-
-
-.message.success{
-
-    display:block;
-
-    background:#e9f7ef;
-
-    color:var(--success);
-
-}
-
-
-.message.error{
-
-    display:block;
-
-    background:#fdecec;
-
-    color:var(--danger);
-
-}
-
-
-.message.info{
-
-    display:block;
-
-    background:#f1edf5;
-
-    color:var(--primary);
-
-}
-
-
-/* =========================================================
-   REGISTER SCROLL
-========================================================= */
-
-#registerForm{
-
-    max-height:555px;
-
-    overflow-y:auto;
-
-    padding-right:8px;
-
-}
-
-
-#registerForm::-webkit-scrollbar{
-
-    width:5px;
-
-}
-
-
-#registerForm::-webkit-scrollbar-track{
-
-    background:#f1eef2;
-
-    border-radius:10px;
-
-}
-
-
-#registerForm::-webkit-scrollbar-thumb{
-
-    background:var(--secondary);
-
-    border-radius:10px;
 
 }
 
@@ -1281,14 +1426,14 @@ textarea:focus{
 
     color:white;
 
-    padding:28px 6%;
+    padding:25px 6%;
 
 }
 
 
 .footer-inner{
 
-    max-width:1200px;
+    max-width:1100px;
 
     margin:auto;
 
@@ -1309,14 +1454,14 @@ textarea:focus{
 
     align-items:center;
 
-    gap:15px;
+    gap:14px;
 
 }
 
 
 .footer-logo{
 
-    width:135px;
+    width:125px;
 
     height:auto;
 
@@ -1325,13 +1470,13 @@ textarea:focus{
 
 .footer-description{
 
-    color:#aaa;
+    max-width:330px;
 
-    font-size:10px;
+    color:#999;
+
+    font-size:9px;
 
     line-height:1.6;
-
-    max-width:330px;
 
 }
 
@@ -1340,20 +1485,20 @@ textarea:focus{
 
     display:flex;
 
-    gap:18px;
-
     flex-wrap:wrap;
+
+    gap:17px;
 
 }
 
 
 .footer-links a{
 
-    color:#aaa;
+    color:#999;
+
+    font-size:9px;
 
     text-decoration:none;
-
-    font-size:10px;
 
 }
 
@@ -1367,19 +1512,16 @@ textarea:focus{
 
 .footer-bottom{
 
-    max-width:1200px;
+    max-width:1100px;
 
-    margin:20px auto 0;
+    margin:18px auto 0;
 
-    padding-top:17px;
+    padding-top:14px;
 
-    border-top:
-        1px solid
+    border-top:1px solid
         rgba(255,255,255,.08);
 
     display:flex;
-
-    align-items:center;
 
     justify-content:space-between;
 
@@ -1390,9 +1532,9 @@ textarea:focus{
 
 .footer-bottom p{
 
-    color:#777;
+    color:#666;
 
-    font-size:9px;
+    font-size:8px;
 
 }
 
@@ -1405,7 +1547,7 @@ textarea:focus{
 
     .topbar{
 
-        min-height:70px;
+        height:70px;
 
         padding:0 20px;
 
@@ -1414,44 +1556,64 @@ textarea:focus{
 
     .logo{
 
-        height:47px;
+        height:45px;
 
     }
 
 
     .nav-btn{
 
-        padding:0 11px;
+        padding:0 10px;
 
-        font-size:10px;
+        font-size:9px;
 
     }
 
 
-    .auth-container{
-
-        grid-template-columns:1fr;
+    .main{
 
         min-height:auto;
 
+        padding:30px 15px;
+
     }
 
 
-    .brand-panel{
+    .auth-wrapper{
+
+        grid-template-columns:1fr;
+
+        max-width:560px;
+
+        min-height:auto;
+
+        border-radius:20px;
+
+    }
+
+
+    .brand-side{
 
         display:none;
 
     }
 
 
-    .form-panel{
+    .auth-side{
 
         padding:35px 25px;
 
     }
 
 
-    #registerForm{
+    .mobile-logo{
+
+        display:block;
+
+    }
+
+
+    .register-scroll{
 
         max-height:none;
 
@@ -1462,12 +1624,6 @@ textarea:focus{
     }
 
 
-    .main{
-
-        padding:30px 15px;
-
-    }
-
 }
 
 
@@ -1475,25 +1631,25 @@ textarea:focus{
 
     .topbar{
 
-        padding:0 15px;
+        padding:0 14px;
 
     }
 
 
     .nav-actions{
 
-        gap:5px;
+        gap:4px;
 
     }
 
 
     .nav-btn{
 
-        min-height:36px;
+        min-height:35px;
 
-        padding:0 9px;
+        padding:0 8px;
 
-        font-size:9px;
+        font-size:8px;
 
     }
 
@@ -1505,9 +1661,30 @@ textarea:focus{
     }
 
 
-    .form-panel{
+    .main{
 
-        padding:25px 18px;
+        padding:20px 10px;
+
+    }
+
+
+    .auth-side{
+
+        padding:28px 18px;
+
+    }
+
+
+    .auth-wrapper{
+
+        border-radius:17px;
+
+    }
+
+
+    .auth-heading h2{
+
+        font-size:27px;
 
     }
 
@@ -1515,8 +1692,6 @@ textarea:focus{
     .form-grid{
 
         grid-template-columns:1fr;
-
-        gap:0;
 
     }
 
@@ -1528,9 +1703,18 @@ textarea:focus{
     }
 
 
-    .form-title{
+    .login-options{
 
-        font-size:27px;
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+
+    .footer{
+
+        padding:24px 18px;
 
     }
 
@@ -1565,7 +1749,7 @@ textarea:focus{
 
 
 <!-- =========================================================
-     TOP BAR
+     NAVIGATION
 ========================================================= -->
 
 <header class="topbar">
@@ -1625,67 +1809,79 @@ textarea:focus{
 
 <main class="main">
 
-<div class="auth-container">
+
+<div class="auth-wrapper">
 
 
 <!-- =========================================================
-     BRAND PANEL
+     BRAND SIDE
 ========================================================= -->
 
-<section class="brand-panel">
+<section class="brand-side">
 
-<div class="brand-panel-content">
+<div class="brand-content">
 
 <img
     src="/dingestech-logo.png"
     alt="Dinges TechHub"
-    class="panel-logo"
+    class="brand-logo"
 >
 
-<div class="brand-eyebrow">
+
+<div class="brand-tag">
     Customer Portal
 </div>
 
+
 <h1>
-    Your technology,
-    <br>
-    connected.
+
+Your technology,
+<br>
+
+<span>connected.</span>
+
 </h1>
 
+
 <p>
-    Access your Dinges TechHub account,
-    manage your services, view your information
-    and stay connected with everything you need.
+
+Everything you need in one place.
+
+Manage your Dinges TechHub services,
+access your account and stay connected
+with your technology.
+
 </p>
 
 
-<div class="benefits">
+<div class="brand-points">
 
-<div class="benefit">
 
-<div class="benefit-icon">✓</div>
+<div class="brand-point">
+
+<div class="point-icon">✓</div>
 
 <span>
-Manage your Dinges TechHub services
+Manage your services
 </span>
 
 </div>
 
 
-<div class="benefit">
+<div class="brand-point">
 
-<div class="benefit-icon">✓</div>
+<div class="point-icon">✓</div>
 
 <span>
-Access your customer dashboard
+View your account information
 </span>
 
 </div>
 
 
-<div class="benefit">
+<div class="brand-point">
 
-<div class="benefit-icon">✓</div>
+<div class="point-icon">✓</div>
 
 <span>
 Manage domains and hosting
@@ -1694,15 +1890,16 @@ Manage domains and hosting
 </div>
 
 
-<div class="benefit">
+<div class="brand-point">
 
-<div class="benefit-icon">✓</div>
+<div class="point-icon">✓</div>
 
 <span>
 Get technical support
 </span>
 
 </div>
+
 
 </div>
 
@@ -1712,32 +1909,40 @@ Get technical support
 
 
 <!-- =========================================================
-     FORM PANEL
+     AUTH SIDE
 ========================================================= -->
 
-<section class="form-panel">
+<section class="auth-side">
 
-<div class="form-inner">
+<div class="auth-inner">
 
 
-<!-- =========================================================
+<img
+    src="/dingestech-logo.png"
+    alt="Dinges TechHub"
+    class="mobile-logo"
+>
+
+
+<!-- =====================================================
      TABS
-========================================================= -->
+===================================================== -->
 
 <div class="auth-tabs">
 
 <button
     type="button"
-    class="auth-tab active"
     id="loginTab"
+    class="auth-tab active"
 >
     Login
 </button>
 
+
 <button
     type="button"
-    class="auth-tab"
     id="registerTab"
+    class="auth-tab"
 >
     Create Account
 </button>
@@ -1745,27 +1950,30 @@ Get technical support
 </div>
 
 
-<!-- =========================================================
-     LOGIN FORM
-========================================================= -->
+<!-- =====================================================
+     LOGIN
+===================================================== -->
 
 <form
     id="loginForm"
     class="auth-form active"
 >
 
-<div class="form-eyebrow">
-    Welcome Back
+<div class="auth-heading">
+
+<div class="auth-label">
+    Customer Portal
 </div>
 
-<h2 class="form-title">
-    Login to your account
+<h2>
+    Welcome back
 </h2>
 
-<p class="form-description">
-    Sign in to continue to your Dinges TechHub
-    customer dashboard.
+<p>
+    Login to access your Dinges TechHub account.
 </p>
+
+</div>
 
 
 <div class="form-group">
@@ -1806,7 +2014,10 @@ Get technical support
 <button
     type="button"
     class="password-toggle"
-    onclick="togglePassword('loginPassword', this)"
+    onclick="togglePassword(
+        'loginPassword',
+        this
+    )"
 >
     Show
 </button>
@@ -1816,13 +2027,31 @@ Get technical support
 </div>
 
 
+<div class="login-options">
+
+<div class="remember">
+
+<input
+    type="checkbox"
+    id="remember"
+>
+
+<label for="remember">
+    Remember me
+</label>
+
+</div>
+
+
 <a
     href="#"
     class="forgot"
     id="forgotPassword"
 >
-    Forgot Password?
+    Forgot password?
 </a>
+
+</div>
 
 
 <button
@@ -1830,7 +2059,7 @@ Get technical support
     class="primary-btn"
     id="loginButton"
 >
-    Login
+    Login to my account
 </button>
 
 
@@ -1839,12 +2068,26 @@ Get technical support
     class="message"
 ></div>
 
+
+<div class="auth-bottom">
+
+Don't have an account?
+
+<button
+    type="button"
+    id="createAccountButton"
+>
+    Create one
+</button>
+
+</div>
+
 </form>
 
 
-<!-- =========================================================
-     REGISTER FORM
-========================================================= -->
+<!-- =====================================================
+     REGISTER
+===================================================== -->
 
 <form
     id="registerForm"
@@ -1852,18 +2095,25 @@ Get technical support
     enctype="multipart/form-data"
 >
 
-<div class="form-eyebrow">
+
+<div class="auth-heading">
+
+<div class="auth-label">
     New Customer
 </div>
 
-<h2 class="form-title">
+<h2>
     Create your account
 </h2>
 
-<p class="form-description">
-    Create your Dinges TechHub customer account
-    to get started with your selected service.
+<p>
+    Get started with Dinges TechHub.
 </p>
+
+</div>
+
+
+<div class="register-scroll">
 
 
 <!-- SERVICE -->
@@ -1877,6 +2127,7 @@ Select the Service You Need
 <span class="required">*</span>
 
 </label>
+
 
 <select
     id="service"
@@ -1937,14 +2188,13 @@ Select the Service You Need
 >
 
 <strong>
-FICA Verification Required
+FICA verification required.
 </strong>
 
 <br>
 
-The selected service requires identity verification.
-You will need to provide your identity number,
-ID document and proof of residence.
+This service requires identity verification,
+ID documentation and proof of residence.
 
 </div>
 
@@ -1958,11 +2208,12 @@ ID document and proof of residence.
 
 <div class="form-grid">
 
+
 <div class="form-group">
 
 <label for="firstName">
-First Name
-<span class="required">*</span>
+    First Name
+    <span class="required">*</span>
 </label>
 
 <input
@@ -1979,8 +2230,8 @@ First Name
 <div class="form-group">
 
 <label for="lastName">
-Last Name
-<span class="required">*</span>
+    Last Name
+    <span class="required">*</span>
 </label>
 
 <input
@@ -1997,8 +2248,8 @@ Last Name
 <div class="form-group">
 
 <label for="registerEmail">
-Email Address
-<span class="required">*</span>
+    Email Address
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2015,14 +2266,14 @@ Email Address
 <div class="form-group">
 
 <label for="phone">
-Phone Number
-<span class="required">*</span>
+    Phone Number
+    <span class="required">*</span>
 </label>
 
 <div class="phone-wrap">
 
 <div class="phone-code">
-+27
+    +27
 </div>
 
 <input
@@ -2038,6 +2289,7 @@ Phone Number
 
 </div>
 
+
 </div>
 
 
@@ -2050,10 +2302,11 @@ Phone Number
 
 <div class="form-grid">
 
+
 <div class="form-group form-full">
 
 <label for="companyName">
-Company Name
+    Company Name
 </label>
 
 <input
@@ -2069,8 +2322,8 @@ Company Name
 <div class="form-group">
 
 <label for="streetAddress">
-Street Address
-<span class="required">*</span>
+    Street Address
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2087,7 +2340,7 @@ Street Address
 <div class="form-group">
 
 <label for="streetAddress2">
-Street Address 2
+    Street Address 2
 </label>
 
 <input
@@ -2102,8 +2355,8 @@ Street Address 2
 <div class="form-group">
 
 <label for="city">
-City
-<span class="required">*</span>
+    City
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2120,8 +2373,8 @@ City
 <div class="form-group">
 
 <label for="province">
-Province
-<span class="required">*</span>
+    Province
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2138,8 +2391,8 @@ Province
 <div class="form-group">
 
 <label for="postcode">
-Postcode
-<span class="required">*</span>
+    Postcode
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2156,7 +2409,7 @@ Postcode
 <div class="form-group">
 
 <label for="country">
-Country
+    Country
 </label>
 
 <select
@@ -2165,19 +2418,19 @@ Country
 >
 
 <option value="South Africa">
-South Africa
+    South Africa
 </option>
 
 <option value="Botswana">
-Botswana
+    Botswana
 </option>
 
 <option value="Zimbabwe">
-Zimbabwe
+    Zimbabwe
 </option>
 
 <option value="Mozambique">
-Mozambique
+    Mozambique
 </option>
 
 </select>
@@ -2188,7 +2441,7 @@ Mozambique
 <div class="form-group">
 
 <label for="taxId">
-Tax ID
+    Tax ID
 </label>
 
 <input
@@ -2198,6 +2451,7 @@ Tax ID
 >
 
 </div>
+
 
 </div>
 
@@ -2216,11 +2470,12 @@ Tax ID
 
 <div class="form-grid">
 
+
 <div class="form-group">
 
 <label for="identityNumber">
-Identity Number
-<span class="required">*</span>
+    Identity Number
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2235,8 +2490,8 @@ Identity Number
 <div class="form-group">
 
 <label for="idProof">
-ID Document
-<span class="required">*</span>
+    ID Document
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2252,8 +2507,8 @@ ID Document
 <div class="form-group form-full">
 
 <label for="proofOfResidence">
-Proof of Residence
-<span class="required">*</span>
+    Proof of Residence
+    <span class="required">*</span>
 </label>
 
 <input
@@ -2264,6 +2519,7 @@ Proof of Residence
 >
 
 </div>
+
 
 </div>
 
@@ -2279,10 +2535,11 @@ Proof of Residence
 
 <div class="form-grid">
 
+
 <div class="form-group">
 
 <label for="howFound">
-How did you find us?
+    How did you find us?
 </label>
 
 <select
@@ -2291,31 +2548,31 @@ How did you find us?
 >
 
 <option value="None">
-None
+    None
 </option>
 
 <option value="Google Search">
-Google Search
+    Google Search
 </option>
 
 <option value="Facebook">
-Facebook
+    Facebook
 </option>
 
 <option value="Instagram">
-Instagram
+    Instagram
 </option>
 
 <option value="TikTok">
-TikTok
+    TikTok
 </option>
 
 <option value="Friend or Family">
-Friend or Family
+    Friend or Family
 </option>
 
 <option value="Other">
-Other
+    Other
 </option>
 
 </select>
@@ -2326,7 +2583,7 @@ Other
 <div class="form-group form-full">
 
 <label for="additionalInfo">
-Additional Information
+    Additional Information
 </label>
 
 <textarea
@@ -2336,6 +2593,7 @@ Additional Information
 ></textarea>
 
 </div>
+
 
 </div>
 
@@ -2349,11 +2607,12 @@ Additional Information
 
 <div class="form-grid">
 
+
 <div class="form-group">
 
 <label for="signupPassword">
-Password
-<span class="required">*</span>
+    Password
+    <span class="required">*</span>
 </label>
 
 <div class="password-wrap">
@@ -2369,7 +2628,10 @@ Password
 <button
     type="button"
     class="password-toggle"
-    onclick="togglePassword('signupPassword', this)"
+    onclick="togglePassword(
+        'signupPassword',
+        this
+    )"
 >
     Show
 </button>
@@ -2382,8 +2644,9 @@ Password
 Password strength:
 
 <span id="strengthText">
-Enter a password
+    Enter a password
 </span>
+
 
 <div class="strength-bar">
 
@@ -2402,8 +2665,8 @@ Enter a password
 <div class="form-group">
 
 <label for="confirmPassword">
-Confirm Password
-<span class="required">*</span>
+    Confirm Password
+    <span class="required">*</span>
 </label>
 
 <div class="password-wrap">
@@ -2419,7 +2682,10 @@ Confirm Password
 <button
     type="button"
     class="password-toggle"
-    onclick="togglePassword('confirmPassword', this)"
+    onclick="togglePassword(
+        'confirmPassword',
+        this
+    )"
 >
     Show
 </button>
@@ -2427,6 +2693,7 @@ Confirm Password
 </div>
 
 </div>
+
 
 </div>
 
@@ -2445,13 +2712,13 @@ Confirm Password
 <label for="mailingList">
 
 <strong>
-Join our mailing list
+    Join our mailing list
 </strong>
 
 <br>
 
-Receive occasional Dinges TechHub
-news, information and special offers.
+Receive occasional Dinges TechHub news,
+information and special offers.
 
 </label>
 
@@ -2475,7 +2742,7 @@ news, information and special offers.
 I have read and agree to the
 
 <a href="/terms.php">
-Terms of Service
+    Terms of Service
 </a>
 
 <span class="required">*</span>
@@ -2490,7 +2757,7 @@ Terms of Service
     class="primary-btn"
     id="registerButton"
 >
-    Create Account
+    Create my account
 </button>
 
 
@@ -2499,7 +2766,26 @@ Terms of Service
     class="message"
 ></div>
 
+
+<div class="auth-bottom">
+
+Already have an account?
+
+<button
+    type="button"
+    id="backToLogin"
+>
+    Login
+
+</button>
+
+</div>
+
+
+</div>
+
 </form>
+
 
 </div>
 
@@ -2518,6 +2804,7 @@ Terms of Service
 
 <div class="footer-inner">
 
+
 <div class="footer-brand">
 
 <img
@@ -2525,6 +2812,7 @@ Terms of Service
     alt="Dinges TechHub"
     class="footer-logo"
 >
+
 
 <div class="footer-description">
 
@@ -2544,23 +2832,23 @@ solutions for homes and businesses.
 <div class="footer-links">
 
 <a href="/">
-Home
+    Home
 </a>
 
 <a href="/services.php">
-Services
+    Services
 </a>
 
 <a href="/privacy.php">
-Privacy
+    Privacy
 </a>
 
 <a href="/terms.php">
-Terms
+    Terms
 </a>
 
 <a href="/contact.php">
-Contact
+    Contact
 </a>
 
 </div>
@@ -2581,6 +2869,7 @@ support@dingestechhub.co.za
 </div>
 
 </footer>
+
 
 </div>
 
@@ -2617,39 +2906,19 @@ const loginForm =
 const registerForm =
     document.getElementById("registerForm");
 
-const service =
-    document.getElementById("service");
+const createAccountButton =
+    document.getElementById(
+        "createAccountButton"
+    );
 
-const ficaSection =
-    document.getElementById("ficaSection");
-
-const ficaNotice =
-    document.getElementById("ficaNotice");
-
-const serviceInfo =
-    document.getElementById("serviceInfo");
-
-const identityNumber =
-    document.getElementById("identityNumber");
-
-const idProof =
-    document.getElementById("idProof");
-
-const proofOfResidence =
-    document.getElementById("proofOfResidence");
-
-const signupPassword =
-    document.getElementById("signupPassword");
-
-const strengthText =
-    document.getElementById("strengthText");
-
-const strengthFill =
-    document.getElementById("strengthFill");
+const backToLogin =
+    document.getElementById(
+        "backToLogin"
+    );
 
 
 /* =========================================================
-   SHOW LOGIN
+   SWITCH TO LOGIN
 ========================================================= */
 
 function showLogin(){
@@ -2662,11 +2931,16 @@ function showLogin(){
 
     registerForm.classList.remove("active");
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 }
 
 
 /* =========================================================
-   SHOW REGISTER
+   SWITCH TO REGISTER
 ========================================================= */
 
 function showRegister(){
@@ -2678,6 +2952,11 @@ function showRegister(){
     registerForm.classList.add("active");
 
     loginForm.classList.remove("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
@@ -2694,6 +2973,18 @@ registerTab.addEventListener(
 );
 
 
+createAccountButton.addEventListener(
+    "click",
+    showRegister
+);
+
+
+backToLogin.addEventListener(
+    "click",
+    showLogin
+);
+
+
 /* =========================================================
    PASSWORD TOGGLE
 ========================================================= */
@@ -2706,7 +2997,6 @@ function togglePassword(
     const input =
         document.getElementById(inputId);
 
-
     if(!input){
         return;
     }
@@ -2716,14 +3006,16 @@ function togglePassword(
 
         input.type = "text";
 
-        button.textContent = "Hide";
+        button.textContent =
+            "Hide";
 
     }
     else{
 
         input.type = "password";
 
-        button.textContent = "Show";
+        button.textContent =
+            "Show";
 
     }
 
@@ -2734,15 +3026,35 @@ function togglePassword(
    SERVICE / FICA
 ========================================================= */
 
+const service =
+    document.getElementById("service");
+
+const ficaSection =
+    document.getElementById("ficaSection");
+
+const ficaNotice =
+    document.getElementById("ficaNotice");
+
+const serviceInfo =
+    document.getElementById("serviceInfo");
+
+const identityNumber =
+    document.getElementById(
+        "identityNumber"
+    );
+
+const idProof =
+    document.getElementById("idProof");
+
+const proofOfResidence =
+    document.getElementById(
+        "proofOfResidence"
+    );
+
+
 service.addEventListener(
     "change",
     function(){
-
-        const option =
-            service.options[
-                service.selectedIndex
-            ];
-
 
         if(!service.value){
 
@@ -2767,6 +3079,12 @@ service.addEventListener(
             return;
 
         }
+
+
+        const option =
+            service.options[
+                service.selectedIndex
+            ];
 
 
         const needsFica =
@@ -2827,6 +3145,22 @@ service.addEventListener(
 /* =========================================================
    PASSWORD STRENGTH
 ========================================================= */
+
+const signupPassword =
+    document.getElementById(
+        "signupPassword"
+    );
+
+const strengthText =
+    document.getElementById(
+        "strengthText"
+    );
+
+const strengthFill =
+    document.getElementById(
+        "strengthFill"
+    );
+
 
 signupPassword.addEventListener(
     "input",
@@ -2905,12 +3239,8 @@ async function parseApiResponse(response){
         await response.text();
 
     console.log(
-        "API STATUS:",
-        response.status
-    );
-
-    console.log(
-        "API RESPONSE:",
+        "Dinges TechHub API:",
+        response.status,
         text
     );
 
@@ -2921,15 +3251,15 @@ async function parseApiResponse(response){
     try{
 
         json =
-            text ?
-            JSON.parse(text) :
-            null;
+            text
+                ? JSON.parse(text)
+                : null;
 
     }
     catch(error){
 
         console.error(
-            "Invalid JSON response:",
+            "Invalid JSON:",
             error
         );
 
@@ -2945,7 +3275,7 @@ async function parseApiResponse(response){
 
 
 /* =========================================================
-   API ERROR
+   DISPLAY API ERROR
 ========================================================= */
 
 function displayApiError(
@@ -3016,11 +3346,10 @@ loginForm.addEventListener(
             );
 
 
-        button.disabled =
-            true;
+        button.disabled = true;
 
         button.textContent =
-            "Logging in...";
+            "Signing in...";
 
 
         message.className =
@@ -3033,9 +3362,7 @@ loginForm.addEventListener(
         try{
 
             const formData =
-                new FormData(
-                    loginForm
-                );
+                new FormData(loginForm);
 
 
             const response =
@@ -3066,9 +3393,7 @@ loginForm.addEventListener(
                 );
 
 
-            /* -----------------------------------------
-               SUCCESS
-            ----------------------------------------- */
+            /* SUCCESS */
 
             if(
                 response.ok &&
@@ -3084,11 +3409,6 @@ loginForm.addEventListener(
                     "Login successful. Redirecting...";
 
 
-                /*
-                 * Store only non-sensitive customer
-                 * information needed by the frontend.
-                 */
-
                 if(result.json.customer){
 
                     try{
@@ -3101,21 +3421,17 @@ loginForm.addEventListener(
                         );
 
                     }
-                    catch(storageError){
+                    catch(error){
 
                         console.warn(
                             "Session storage unavailable.",
-                            storageError
+                            error
                         );
 
                     }
 
                 }
 
-
-                /*
-                 * Redirect.
-                 */
 
                 const params =
                     new URLSearchParams(
@@ -3157,9 +3473,7 @@ loginForm.addEventListener(
             }
 
 
-            /* -----------------------------------------
-               LOGIN FAILED
-            ----------------------------------------- */
+            /* ERROR */
 
             displayApiError(
                 message,
@@ -3169,11 +3483,10 @@ loginForm.addEventListener(
             );
 
 
-            button.disabled =
-                false;
+            button.disabled = false;
 
             button.textContent =
-                "Login";
+                "Login to my account";
 
         }
         catch(error){
@@ -3191,11 +3504,10 @@ loginForm.addEventListener(
                 "Unable to connect to the login server. Please try again.";
 
 
-            button.disabled =
-                false;
+            button.disabled = false;
 
             button.textContent =
-                "Login";
+                "Login to my account";
 
         }
 
@@ -3235,9 +3547,7 @@ registerForm.addEventListener(
             ).value;
 
 
-        /* -----------------------------------------
-           VALIDATION
-        ----------------------------------------- */
+        /* VALIDATION */
 
         if(!service.value){
 
@@ -3279,9 +3589,7 @@ registerForm.addEventListener(
 
 
         const terms =
-            document.getElementById(
-                "terms"
-            );
+            document.getElementById("terms");
 
 
         if(!terms.checked){
@@ -3297,9 +3605,7 @@ registerForm.addEventListener(
         }
 
 
-        /* -----------------------------------------
-           FICA
-        ----------------------------------------- */
+        /* FICA */
 
         const needsFica =
             service.value === "fibre" ||
@@ -3356,22 +3662,19 @@ registerForm.addEventListener(
         }
 
 
-        /* -----------------------------------------
-           SUBMIT
-        ----------------------------------------- */
+        /* SUBMIT */
 
-        button.disabled =
-            true;
+        button.disabled = true;
 
         button.textContent =
-            "Creating Account...";
+            "Creating account...";
 
 
         message.className =
             "message info";
 
         message.textContent =
-            "Creating your account...";
+            "Creating your Dinges TechHub account...";
 
 
         try{
@@ -3418,10 +3721,6 @@ registerForm.addEventListener(
                 );
 
 
-            /* -----------------------------------------
-               SUCCESS
-            ----------------------------------------- */
-
             if(
                 response.ok &&
                 result.json &&
@@ -3433,7 +3732,7 @@ registerForm.addEventListener(
 
                 message.textContent =
                     result.json.message ||
-                    "Registration successful. You can now log in.";
+                    "Account created successfully. You can now login.";
 
 
                 registerForm.reset();
@@ -3444,6 +3743,7 @@ registerForm.addEventListener(
 
                 ficaNotice.style.display =
                     "none";
+
 
                 identityNumber.required =
                     false;
@@ -3464,6 +3764,12 @@ registerForm.addEventListener(
 
                 strengthFill.style.width =
                     "0%";
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Create my account";
 
 
                 setTimeout(
@@ -3491,21 +3797,10 @@ registerForm.addEventListener(
                 );
 
 
-                button.disabled =
-                    false;
-
-                button.textContent =
-                    "Create Account";
-
-
                 return;
 
             }
 
-
-            /* -----------------------------------------
-               ERROR
-            ----------------------------------------- */
 
             displayApiError(
                 message,
@@ -3515,11 +3810,10 @@ registerForm.addEventListener(
             );
 
 
-            button.disabled =
-                false;
+            button.disabled = false;
 
             button.textContent =
-                "Create Account";
+                "Create my account";
 
         }
         catch(error){
@@ -3537,11 +3831,10 @@ registerForm.addEventListener(
                 "Unable to connect to the registration server. Please try again.";
 
 
-            button.disabled =
-                false;
+            button.disabled = false;
 
             button.textContent =
-                "Create Account";
+                "Create my account";
 
         }
 
@@ -3561,6 +3854,7 @@ document
 
             event.preventDefault();
 
+
             alert(
                 "Password reset will be connected to your Dinges TechHub customer account."
             );
@@ -3570,15 +3864,15 @@ document
 
 
 /* =========================================================
-   IMPORTANT:
-   LOGIN IS ALWAYS DEFAULT
+   DEFAULT LOGIN
 ========================================================= */
 
 showLogin();
 
 
 /* =========================================================
-   OPEN REGISTER ONLY WHEN REQUESTED
+   OPEN REGISTER FROM URL
+   /login.php?register=1
 ========================================================= */
 
 const urlParams =
