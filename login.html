@@ -862,6 +862,10 @@ textarea:focus{
 
 <div class="page">
 
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header class="topbar">
 
 <a href="/" class="logo-link">
@@ -897,10 +901,18 @@ textarea:focus{
 </header>
 
 
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
 <main class="main">
 
 <div class="auth-container">
 
+
+<!-- =========================================================
+     BRAND PANEL
+========================================================= -->
 
 <section class="brand-panel">
 
@@ -957,6 +969,10 @@ textarea:focus{
 </section>
 
 
+<!-- =========================================================
+     FORM PANEL
+========================================================= -->
+
 <section class="form-panel">
 
 <div class="form-inner">
@@ -983,9 +999,9 @@ textarea:focus{
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      LOGIN
-===================================================== -->
+========================================================= -->
 
 <form
     id="loginForm"
@@ -1077,9 +1093,12 @@ textarea:focus{
 </form>
 
 
-<!-- =====================================================
+<!-- =========================================================
      REGISTER
-===================================================== -->
+     
+     IMPORTANT:
+     This is POST + multipart/form-data.
+========================================================= -->
 
 <form
     id="registerForm"
@@ -1103,6 +1122,8 @@ textarea:focus{
 </p>
 
 
+<!-- SERVICE -->
+
 <div class="service-box">
 
 <label for="service">
@@ -1112,6 +1133,8 @@ Select the Service You Need
 <span class="required">*</span>
 
 </label>
+
+<!-- FIXED: name="service" -->
 
 <select
     id="service"
@@ -1123,31 +1146,31 @@ Select the Service You Need
     Select a service
 </option>
 
-<option value="fibre internet">
+<option value="fibre">
     Fibre Internet
 </option>
 
-<option value="wireless broadband">
+<option value="wireless">
     Wireless Broadband
 </option>
 
-<option value="4g / 5g lte">
+<option value="lte">
     4G / 5G LTE
 </option>
 
-<option value="mobile data / airtime">
+<option value="mobile">
     Mobile Data / Airtime
 </option>
 
-<option value="domain registration">
+<option value="domain">
     Domain Registration
 </option>
 
-<option value="web hosting">
+<option value="hosting">
     Web Hosting
 </option>
 
-<option value="technical support">
+<option value="technical_support">
     Technical Support
 </option>
 
@@ -1162,6 +1185,8 @@ Select the Service You Need
 
 </div>
 
+
+<!-- FICA -->
 
 <div
     id="ficaNotice"
@@ -1180,6 +1205,8 @@ ID document and proof of residence.
 
 </div>
 
+
+<!-- PERSONAL -->
 
 <div class="section-title">
     Personal Information
@@ -1266,6 +1293,8 @@ Phone Number
 
 </div>
 
+
+<!-- BILLING -->
 
 <div class="section-title">
     Billing Address
@@ -1418,6 +1447,8 @@ Tax ID
 </div>
 
 
+<!-- FICA DOCUMENTS -->
+
 <div
     id="ficaSection"
     class="fica-section"
@@ -1480,6 +1511,8 @@ Proof of Residence
 
 </div>
 
+
+<!-- ADDITIONAL -->
 
 <div class="section-title">
     Additional Information
@@ -1546,6 +1579,8 @@ Additional Information
 
 </div>
 
+
+<!-- SECURITY -->
 
 <div class="section-title">
     Account Security
@@ -1633,6 +1668,8 @@ Confirm Password
 </div>
 
 
+<!-- MAILING -->
+
 <div class="checkbox-row">
 
 <input
@@ -1657,6 +1694,8 @@ news, information and special offers.
 
 </div>
 
+
+<!-- TERMS -->
 
 <div class="checkbox-row">
 
@@ -1706,6 +1745,10 @@ Terms of Service
 
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer class="footer">
 
@@ -1784,7 +1827,13 @@ support@dingestechhub.co.za
 <script>
 
 /* =========================================================
-   DINGES TECHHUB — CUSTOMER AUTHENTICATION
+   DINGES TECHHUB
+   CUSTOMER AUTHENTICATION
+========================================================= */
+
+
+/* =========================================================
+   API CONFIGURATION
 ========================================================= */
 
 const REGISTER_API =
@@ -1845,20 +1894,26 @@ const strengthFill =
 function showLogin(){
 
     loginTab.classList.add("active");
+
     registerTab.classList.remove("active");
 
     loginForm.classList.add("active");
+
     registerForm.classList.remove("active");
+
 }
 
 
 function showRegister(){
 
     registerTab.classList.add("active");
+
     loginTab.classList.remove("active");
 
     registerForm.classList.add("active");
+
     loginForm.classList.remove("active");
+
 }
 
 
@@ -1866,6 +1921,7 @@ loginTab.addEventListener(
     "click",
     showLogin
 );
+
 
 registerTab.addEventListener(
     "click",
@@ -1877,7 +1933,10 @@ registerTab.addEventListener(
    PASSWORD TOGGLE
 ========================================================= */
 
-function togglePassword(inputId, button){
+function togglePassword(
+    inputId,
+    button
+){
 
     const input =
         document.getElementById(inputId);
@@ -1889,14 +1948,18 @@ function togglePassword(inputId, button){
     if(input.type === "password"){
 
         input.type = "text";
+
         button.textContent = "Hide";
 
-    }else{
+    }
+    else{
 
         input.type = "password";
+
         button.textContent = "Show";
 
     }
+
 }
 
 
@@ -1915,47 +1978,73 @@ service.addEventListener(
 
         if(!service.value){
 
-            ficaSection.style.display = "none";
-            ficaNotice.style.display = "none";
+            ficaSection.style.display =
+                "none";
 
-            identityNumber.required = false;
-            idProof.required = false;
-            proofOfResidence.required = false;
+            ficaNotice.style.display =
+                "none";
+
+            identityNumber.required =
+                false;
+
+            idProof.required =
+                false;
+
+            proofOfResidence.required =
+                false;
 
             serviceInfo.textContent =
                 "Please select a service to continue.";
 
             return;
+
         }
 
 
         const needsFica =
-            service.value === "fibre internet" ||
-            service.value === "wireless broadband" ||
-            service.value === "4g / 5g lte";
+            service.value === "fibre" ||
+            service.value === "wireless" ||
+            service.value === "lte";
 
 
         if(needsFica){
 
-            ficaSection.style.display = "block";
-            ficaNotice.style.display = "block";
+            ficaSection.style.display =
+                "block";
 
-            identityNumber.required = true;
-            idProof.required = true;
-            proofOfResidence.required = true;
+            ficaNotice.style.display =
+                "block";
+
+            identityNumber.required =
+                true;
+
+            idProof.required =
+                true;
+
+            proofOfResidence.required =
+                true;
 
             serviceInfo.textContent =
                 selected.text.trim() +
                 " requires FICA verification.";
 
-        }else{
+        }
+        else{
 
-            ficaSection.style.display = "none";
-            ficaNotice.style.display = "none";
+            ficaSection.style.display =
+                "none";
 
-            identityNumber.required = false;
-            idProof.required = false;
-            proofOfResidence.required = false;
+            ficaNotice.style.display =
+                "none";
+
+            identityNumber.required =
+                false;
+
+            idProof.required =
+                false;
+
+            proofOfResidence.required =
+                false;
 
             serviceInfo.textContent =
                 selected.text.trim() +
@@ -2004,7 +2093,8 @@ signupPassword.addEventListener(
             strengthFill.style.width =
                 "0%";
 
-        }else if(strength <= 2){
+        }
+        else if(strength <= 2){
 
             strengthText.textContent =
                 "Weak";
@@ -2012,7 +2102,8 @@ signupPassword.addEventListener(
             strengthFill.style.width =
                 "30%";
 
-        }else if(strength <= 4){
+        }
+        else if(strength <= 4){
 
             strengthText.textContent =
                 "Medium";
@@ -2020,7 +2111,8 @@ signupPassword.addEventListener(
             strengthFill.style.width =
                 "65%";
 
-        }else{
+        }
+        else{
 
             strengthText.textContent =
                 "Strong";
@@ -2035,6 +2127,119 @@ signupPassword.addEventListener(
 
 
 /* =========================================================
+   API RESPONSE
+========================================================= */
+
+async function parseApiResponse(response){
+
+    const text =
+        await response.text();
+
+    console.log(
+        "REGISTER API STATUS:",
+        response.status
+    );
+
+    console.log(
+        "REGISTER API RESPONSE:",
+        text
+    );
+
+
+    let json = null;
+
+    try{
+
+        if(text.trim()){
+
+            json =
+                JSON.parse(text);
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "REGISTER API INVALID JSON:",
+            error
+        );
+
+    }
+
+
+    return {
+        text:text.trim(),
+        json:json
+    };
+
+}
+
+
+/* =========================================================
+   ERROR DISPLAY
+========================================================= */
+
+function showApiError(
+    element,
+    response,
+    result,
+    fallback
+){
+
+    element.className =
+        "message error";
+
+
+    if(
+        result.json &&
+        result.json.message
+    ){
+
+        element.textContent =
+            result.json.message;
+
+        return;
+
+    }
+
+
+    if(
+        result.json &&
+        result.json.error
+    ){
+
+        element.textContent =
+            result.json.error;
+
+        return;
+
+    }
+
+
+    if(result.text){
+
+        element.textContent =
+            result.text.substring(
+                0,
+                700
+            );
+
+        return;
+
+    }
+
+
+    element.textContent =
+        fallback +
+        " (HTTP " +
+        response.status +
+        ")";
+
+}
+
+
+/* =========================================================
    LOGIN
 ========================================================= */
 
@@ -2043,12 +2248,17 @@ loginForm.addEventListener(
     function(){
 
         const button =
-            document.getElementById("loginButton");
+            document.getElementById(
+                "loginButton"
+            );
 
         if(button){
 
-            button.disabled = true;
-            button.textContent = "Logging in...";
+            button.disabled =
+                true;
+
+            button.textContent =
+                "Logging in...";
 
         }
 
@@ -2066,6 +2276,7 @@ registerForm.addEventListener(
 
         event.preventDefault();
 
+
         const message =
             document.getElementById(
                 "registerMessage"
@@ -2076,8 +2287,23 @@ registerForm.addEventListener(
                 "registerButton"
             );
 
+
+        /* =====================================================
+           HTML5 VALIDATION
+        ===================================================== */
+
+        if(!registerForm.checkValidity()){
+
+            registerForm.reportValidity();
+
+            return;
+
+        }
+
+
         const password =
             signupPassword.value;
+
 
         const confirmPassword =
             document.getElementById(
@@ -2085,9 +2311,9 @@ registerForm.addEventListener(
             ).value;
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            SERVICE
-        ----------------------------------------------------- */
+        ===================================================== */
 
         if(!service.value){
 
@@ -2098,12 +2324,13 @@ registerForm.addEventListener(
                 "Please select the service you need.";
 
             return;
+
         }
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            PASSWORD
-        ----------------------------------------------------- */
+        ===================================================== */
 
         if(password.length < 8){
 
@@ -2114,6 +2341,7 @@ registerForm.addEventListener(
                 "Password must be at least 8 characters long.";
 
             return;
+
         }
 
 
@@ -2126,15 +2354,17 @@ registerForm.addEventListener(
                 "Passwords do not match.";
 
             return;
+
         }
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            TERMS
-        ----------------------------------------------------- */
+        ===================================================== */
 
         const terms =
             document.getElementById("terms");
+
 
         if(!terms.checked){
 
@@ -2145,17 +2375,18 @@ registerForm.addEventListener(
                 "Please agree to the Terms of Service.";
 
             return;
+
         }
 
 
-        /* -----------------------------------------------------
+        /* =====================================================
            FICA
-        ----------------------------------------------------- */
+        ===================================================== */
 
         const needsFica =
-            service.value === "fibre internet" ||
-            service.value === "wireless broadband" ||
-            service.value === "4g / 5g lte";
+            service.value === "fibre" ||
+            service.value === "wireless" ||
+            service.value === "lte";
 
 
         if(needsFica){
@@ -2169,6 +2400,7 @@ registerForm.addEventListener(
                     "Please enter your identity number.";
 
                 return;
+
             }
 
 
@@ -2184,6 +2416,7 @@ registerForm.addEventListener(
                     "Please upload your ID document.";
 
                 return;
+
             }
 
 
@@ -2199,17 +2432,22 @@ registerForm.addEventListener(
                     "Please upload your proof of residence.";
 
                 return;
+
             }
 
         }
 
 
-        /* -----------------------------------------------------
-           DISABLE
-        ----------------------------------------------------- */
+        /* =====================================================
+           DISABLE BUTTON
+        ===================================================== */
 
-        button.disabled = true;
-        button.textContent = "Creating Account...";
+        button.disabled =
+            true;
+
+        button.textContent =
+            "Creating Account...";
+
 
         message.className =
             "message info";
@@ -2221,11 +2459,8 @@ registerForm.addEventListener(
         try{
 
             /*
-             * IMPORTANT:
-             *
-             * FormData is sent directly as multipart/form-data.
-             *
-             * DO NOT manually specify Content-Type.
+             * FormData is required because the form
+             * can contain FICA document uploads.
              */
 
             const formData =
@@ -2233,47 +2468,35 @@ registerForm.addEventListener(
 
 
             /*
-             * Explicitly make sure the service field
-             * sent to PHP is "service".
+             * IMPORTANT
+             *
+             * The PHP registration API expects:
+             *
+             * service
+             *
+             * We now send exactly that field.
              */
 
-            formData.set(
-                "service",
-                service.value
-            );
 
-
-            /*
-             * Explicitly make sure the terms value
-             * is present.
-             */
-
-            formData.set(
-                "terms",
-                terms.checked ? "1" : "0"
-            );
-
-
-            /*
-             * Mailing list.
-             */
-
-            const mailingList =
-                document.getElementById(
-                    "mailingList"
-                );
-
-            formData.set(
-                "mailingoptin",
-                mailingList.checked ? "1" : "0"
+            console.log(
+                "REGISTER REQUEST:",
+                REGISTER_API
             );
 
 
             console.log(
-                "REGISTER POST:",
-                REGISTER_API
+                "REGISTER SERVICE:",
+                formData.get("service")
             );
 
+
+            /*
+             * DO NOT manually set Content-Type.
+             *
+             * The browser automatically creates:
+             *
+             * multipart/form-data; boundary=...
+             */
 
             const response =
                 await fetch(
@@ -2283,58 +2506,32 @@ registerForm.addEventListener(
 
                         body:formData,
 
-                        credentials:"omit",
+                        credentials:"include",
 
                         headers:{
                             "Accept":
                                 "application/json"
                         },
 
-                        cache:"no-store",
-
-                        redirect:"follow"
+                        cache:"no-store"
                     }
                 );
 
 
-            const text =
-                await response.text();
+            const result =
+                await parseApiResponse(
+                    response
+                );
 
 
-            console.log(
-                "REGISTER HTTP STATUS:",
-                response.status
-            );
-
-            console.log(
-                "REGISTER RESPONSE:",
-                text
-            );
-
-
-            let result = null;
-
-
-            try{
-
-                result =
-                    JSON.parse(text);
-
-            }catch(error){
-
-                result = null;
-
-            }
-
-
-            /* -------------------------------------------------
+            /* =================================================
                SUCCESS
-            ------------------------------------------------- */
+            ================================================= */
 
             if(
                 response.ok &&
-                result &&
-                result.success === true
+                result.json &&
+                result.json.success === true
             ){
 
                 const registeredEmail =
@@ -2346,8 +2543,9 @@ registerForm.addEventListener(
                 message.className =
                     "message success";
 
+
                 message.textContent =
-                    result.message ||
+                    result.json.message ||
                     "Your account has been created successfully.";
 
 
@@ -2369,8 +2567,10 @@ registerForm.addEventListener(
                 proofOfResidence.required =
                     false;
 
+
                 serviceInfo.textContent =
                     "Please select a service to continue.";
+
 
                 strengthText.textContent =
                     "Enter a password";
@@ -2391,10 +2591,12 @@ registerForm.addEventListener(
 
                         showLogin();
 
+
                         document.getElementById(
                             "loginEmail"
                         ).value =
                             registeredEmail;
+
 
                         document.getElementById(
                             "loginPassword"
@@ -2404,38 +2606,22 @@ registerForm.addEventListener(
                     1200
                 );
 
+
                 return;
-            }
-
-
-            /* -------------------------------------------------
-               API ERROR
-            ------------------------------------------------- */
-
-            message.className =
-                "message error";
-
-
-            if(
-                result &&
-                result.message
-            ){
-
-                message.textContent =
-                    result.message;
-
-            }else if(text){
-
-                message.textContent =
-                    text.substring(0,500);
-
-            }else{
-
-                message.textContent =
-                    "Unable to create your account. HTTP " +
-                    response.status;
 
             }
+
+
+            /* =================================================
+               API RETURNED ERROR
+            ================================================= */
+
+            showApiError(
+                message,
+                response,
+                result,
+                "Unable to create your account."
+            );
 
 
             button.disabled =
@@ -2444,8 +2630,8 @@ registerForm.addEventListener(
             button.textContent =
                 "Create Account";
 
-
-        }catch(error){
+        }
+        catch(error){
 
             console.error(
                 "REGISTRATION ERROR:",
@@ -2457,8 +2643,20 @@ registerForm.addEventListener(
                 "message error";
 
 
-            message.textContent =
-                "Unable to connect to the registration service. Please try again.";
+            if(
+                error instanceof TypeError
+            ){
+
+                message.textContent =
+                    "Unable to connect to register.web.za. Please check that the registration API is online and that CORS is enabled.";
+
+            }
+            else{
+
+                message.textContent =
+                    "Unable to create your account. Please try again.";
+
+            }
 
 
             button.disabled =
@@ -2494,7 +2692,7 @@ document
 
 
 /* =========================================================
-   LOGIN ERROR
+   LOGIN ERROR MESSAGE
 ========================================================= */
 
 function displayLoginError(){
@@ -2516,6 +2714,7 @@ function displayLoginError(){
         document.getElementById(
             "loginMessage"
         );
+
 
     message.className =
         "message error";
@@ -2568,20 +2767,21 @@ function displayLoginError(){
 
 
 /* =========================================================
-   DEFAULT
+   DEFAULT TAB
 ========================================================= */
 
 showLogin();
 
 
 /* =========================================================
-   REGISTER FROM URL
+   REGISTER TAB FROM URL
 ========================================================= */
 
 const urlParams =
     new URLSearchParams(
         window.location.search
     );
+
 
 if(
     urlParams.get("register") === "1"
@@ -2593,10 +2793,11 @@ if(
 
 
 /* =========================================================
-   LOGIN ERROR
+   DISPLAY LOGIN ERROR
 ========================================================= */
 
 displayLoginError();
+
 
 </script>
 
