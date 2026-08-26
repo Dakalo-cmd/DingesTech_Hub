@@ -9,18 +9,19 @@
 
 <meta
     name="description"
-    content="Review your selected Dinges TechHub services and proceed to checkout."
+    content="Review your selected Dinges TechHub services and proceed securely to checkout."
 >
 
 <style>
 
 /* =========================================================
-   DINGES TECHHUB — CART PAGE
+   DINGES TECHHUB — CART
    ========================================================= */
 
 :root{
     --purple-dark:#3C1542;
     --purple:#7A2C78;
+    --purple-light:#f4eaf4;
     --grey:#949393;
     --light-grey:#D9D9D9;
     --black:#020202;
@@ -28,12 +29,12 @@
     --white:#ffffff;
 
     --page-bg:#f7f7f8;
-    --border:#e9e9ec;
+    --border:#e8e8ec;
     --muted:#707070;
     --danger:#b00020;
 
-    --shadow:
-        0 10px 35px rgba(0,0,0,.07);
+    --shadow:0 12px 35px rgba(0,0,0,.07);
+    --radius:16px;
 }
 
 *{
@@ -48,14 +49,23 @@ html{
 
 body{
     font-family:
+        Inter,
         Arial,
         Helvetica,
         sans-serif;
 
     background:var(--page-bg);
     color:var(--black);
-
     min-height:100vh;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    font-family:inherit;
 }
 
 
@@ -64,19 +74,13 @@ body{
    ========================================================= */
 
 .topbar{
-
     background:var(--purple-dark);
-
     color:white;
 
-    padding:
-        8px
-        5%;
+    padding:8px 5%;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
     gap:20px;
@@ -85,16 +89,12 @@ body{
 }
 
 .topbar a{
-
     color:white;
-
     text-decoration:none;
-
     transition:.2s ease;
 }
 
 .topbar a:hover{
-
     color:var(--gold);
 }
 
@@ -104,43 +104,27 @@ body{
    ========================================================= */
 
 .navbar{
-
     background:white;
 
     min-height:76px;
 
-    padding:
-        12px
-        5%;
+    padding:12px 5%;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:25px;
 
-    border-bottom:
-        1px solid
-        #eeeeee;
+    border-bottom:1px solid #eeeeee;
 
     position:sticky;
-
     top:0;
-
     z-index:1000;
 }
 
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
 .logo{
-
     display:flex;
-
     align-items:center;
 
     text-decoration:none;
@@ -149,27 +133,20 @@ body{
 }
 
 .logo img{
-
     width:135px;
-
     max-width:135px;
-
     height:auto;
-
     display:block;
 }
 
 
 /* =========================================================
-   NAVIGATION LINKS
+   DESKTOP NAV
    ========================================================= */
 
 .nav-links{
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     gap:26px;
@@ -178,29 +155,18 @@ body{
 }
 
 .nav-links a{
-
     text-decoration:none;
-
     color:#222;
 
     font-size:14px;
-
     font-weight:600;
 
-    transition:
-        color .2s ease;
+    transition:color .2s ease;
 }
 
-.nav-links a:hover{
-
-    color:var(--purple);
-}
-
+.nav-links a:hover,
 .nav-links a.active{
-
     color:var(--purple);
-
-    font-weight:800;
 }
 
 
@@ -209,29 +175,22 @@ body{
    ========================================================= */
 
 .cart-button{
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     gap:8px;
 
     background:var(--purple-dark);
-
     color:white !important;
 
-    padding:
-        10px
-        15px;
+    padding:10px 15px;
 
-    border-radius:8px;
+    border-radius:9px;
 
     text-decoration:none;
 
     font-size:14px;
-
     font-weight:700;
 
     white-space:nowrap;
@@ -242,44 +201,109 @@ body{
 }
 
 .cart-button:hover{
-
     background:var(--purple);
-
     transform:translateY(-1px);
 }
 
 .cart-icon{
-
     font-size:16px;
-
     line-height:1;
 }
 
 .cart-count{
+    min-width:21px;
+    height:21px;
 
-    min-width:20px;
-
-    height:20px;
-
-    padding:
-        0
-        5px;
+    padding:0 5px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     background:var(--gold);
-
     color:var(--black);
 
     border-radius:50%;
 
     font-size:11px;
-
     font-weight:800;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-btn{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid #e4e4e4;
+    border-radius:10px;
+
+    background:white;
+
+    cursor:pointer;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+    gap:5px;
+}
+
+.mobile-menu-btn span{
+    display:block;
+
+    width:20px;
+    height:2px;
+
+    background:var(--purple-dark);
+
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu{
+    display:none;
+
+    background:white;
+
+    border-bottom:1px solid #eeeeee;
+
+    padding:10px 5% 15px;
+}
+
+.mobile-menu.open{
+    display:block;
+}
+
+.mobile-menu a{
+    display:block;
+
+    padding:13px 5px;
+
+    color:#222;
+    text-decoration:none;
+
+    font-size:15px;
+    font-weight:600;
+
+    border-bottom:1px solid #f1f1f1;
+}
+
+.mobile-menu a:last-child{
+    border-bottom:none;
+}
+
+.mobile-menu a:hover{
+    color:var(--purple);
 }
 
 
@@ -288,15 +312,12 @@ body{
    ========================================================= */
 
 .cart-hero{
-
     background:
-
         radial-gradient(
             circle at 80% 20%,
-            rgba(255,187,66,.16),
+            rgba(255,187,66,.18),
             transparent 35%
         ),
-
         linear-gradient(
             135deg,
             var(--purple-dark),
@@ -305,15 +326,12 @@ body{
 
     color:white;
 
-    padding:
-        65px
-        5%;
+    padding:65px 5%;
 
     text-align:center;
 }
 
 .cart-hero h1{
-
     font-size:42px;
 
     margin-bottom:12px;
@@ -324,7 +342,6 @@ body{
 }
 
 .cart-hero p{
-
     max-width:650px;
 
     margin:auto;
@@ -338,20 +355,76 @@ body{
 
 
 /* =========================================================
+   CHECKOUT STEPS
+   ========================================================= */
+
+.checkout-steps{
+    width:min(850px,90%);
+
+    margin:30px auto 0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:0;
+}
+
+.checkout-step{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    color:#aaa;
+
+    font-size:12px;
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+.checkout-step.active{
+    color:var(--purple-dark);
+}
+
+.step-number{
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#e8e8e8;
+
+    font-size:12px;
+}
+
+.checkout-step.active .step-number{
+    background:var(--purple);
+    color:white;
+}
+
+.step-line{
+    width:60px;
+    height:2px;
+
+    background:#ddd;
+
+    margin:0 12px;
+}
+
+
+/* =========================================================
    CART CONTAINER
    ========================================================= */
 
 .cart-container{
+    width:min(1200px,90%);
 
-    width:min(
-        1200px,
-        90%
-    );
-
-    margin:
-        50px
-        auto
-        0;
+    margin:50px auto 0;
 
     display:grid;
 
@@ -370,10 +443,9 @@ body{
    ========================================================= */
 
 .cart-box{
-
     background:white;
 
-    border-radius:14px;
+    border-radius:var(--radius);
 
     padding:25px;
 
@@ -381,11 +453,8 @@ body{
 }
 
 .cart-box-header{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:15px;
@@ -394,16 +463,12 @@ body{
 }
 
 .cart-box h2{
-
     color:var(--purple-dark);
-
     font-size:22px;
 }
 
 .cart-items-count{
-
     color:var(--muted);
-
     font-size:13px;
 }
 
@@ -413,7 +478,6 @@ body{
    ========================================================= */
 
 .cart-item{
-
     display:grid;
 
     grid-template-columns:
@@ -426,29 +490,17 @@ body{
 
     align-items:center;
 
-    padding:
-        22px
-        0;
+    padding:22px 0;
 
-    border-bottom:
-        1px solid
-        var(--border);
+    border-bottom:1px solid var(--border);
 }
 
 .cart-item:last-child{
-
     border-bottom:none;
-
     padding-bottom:5px;
 }
 
-
-/* =========================================================
-   ITEM INFORMATION
-   ========================================================= */
-
 .item-name{
-
     font-weight:800;
 
     color:var(--purple-dark);
@@ -459,7 +511,6 @@ body{
 }
 
 .item-type{
-
     font-size:12px;
 
     color:var(--grey);
@@ -468,7 +519,6 @@ body{
 }
 
 .item-setup{
-
     font-size:12px;
 
     color:#777;
@@ -477,16 +527,16 @@ body{
 }
 
 .item-price{
-
     font-weight:700;
 
     white-space:nowrap;
 
     color:#222;
+
+    text-align:right;
 }
 
 .item-price small{
-
     display:block;
 
     margin-top:4px;
@@ -504,23 +554,21 @@ body{
    ========================================================= */
 
 .quantity{
-
     display:flex;
 
     align-items:center;
+    justify-content:center;
 
     gap:8px;
 }
 
 .quantity button{
-
-    width:30px;
-
-    height:30px;
+    width:34px;
+    height:34px;
 
     border:none;
 
-    border-radius:6px;
+    border-radius:8px;
 
     background:#eeeeee;
 
@@ -528,40 +576,31 @@ body{
 
     cursor:pointer;
 
-    font-size:16px;
+    font-size:18px;
 
     font-weight:bold;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    transition:
-        background .2s ease,
-        transform .2s ease;
+    transition:.2s ease;
 }
 
 .quantity button:hover{
-
     background:var(--light-grey);
-
-    transform:translateY(-1px);
 }
 
 .quantity button:active{
-
-    transform:translateY(0);
+    transform:scale(.95);
 }
 
 .quantity span{
-
-    min-width:25px;
+    min-width:28px;
 
     text-align:center;
 
-    font-weight:700;
+    font-weight:800;
 }
 
 
@@ -570,7 +609,6 @@ body{
    ========================================================= */
 
 .remove-btn{
-
     border:none;
 
     background:none;
@@ -585,11 +623,10 @@ body{
 
     white-space:nowrap;
 
-    padding:5px;
+    padding:7px;
 }
 
 .remove-btn:hover{
-
     text-decoration:underline;
 }
 
@@ -599,10 +636,9 @@ body{
    ========================================================= */
 
 .summary{
-
     background:white;
 
-    border-radius:14px;
+    border-radius:var(--radius);
 
     padding:25px;
 
@@ -611,12 +647,10 @@ body{
     height:max-content;
 
     position:sticky;
-
     top:100px;
 }
 
 .summary h2{
-
     color:var(--purple-dark);
 
     margin-bottom:22px;
@@ -625,7 +659,6 @@ body{
 }
 
 .summary-row{
-
     display:flex;
 
     justify-content:space-between;
@@ -642,28 +675,12 @@ body{
 }
 
 .summary-row strong{
-
     color:#222;
-
     white-space:nowrap;
 }
 
-.summary-row small{
-
-    display:block;
-
-    margin-top:3px;
-
-    color:#888;
-
-    font-size:11px;
-}
-
 .summary-total{
-
-    border-top:
-        1px solid
-        #dddddd;
+    border-top:1px solid #dddddd;
 
     margin-top:15px;
 
@@ -690,11 +707,9 @@ body{
    ========================================================= */
 
 .checkout-btn{
-
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     width:100%;
@@ -709,7 +724,7 @@ body{
 
     margin-top:25px;
 
-    border-radius:8px;
+    border-radius:10px;
 
     font-weight:800;
 
@@ -726,21 +741,45 @@ body{
 }
 
 .checkout-btn:hover{
-
     transform:translateY(-2px);
-
     filter:brightness(.96);
 }
 
 .checkout-btn.disabled{
-
     opacity:.5;
-
     cursor:not-allowed;
-
     pointer-events:none;
+}
 
-    transform:none;
+
+/* =========================================================
+   LOGIN NOTE
+   ========================================================= */
+
+.checkout-note{
+    display:flex;
+
+    gap:9px;
+
+    align-items:flex-start;
+
+    margin-top:15px;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:#f6f0f6;
+
+    color:#555;
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+.checkout-note-icon{
+    flex-shrink:0;
 }
 
 
@@ -749,7 +788,6 @@ body{
    ========================================================= */
 
 .continue-btn{
-
     display:block;
 
     width:100%;
@@ -760,27 +798,21 @@ body{
 
     padding:13px;
 
-    border:
-        1px solid
-        var(--purple);
+    border:1px solid var(--purple);
 
     color:var(--purple);
 
-    border-radius:8px;
+    border-radius:10px;
 
     text-decoration:none;
 
     font-weight:700;
 
-    transition:
-        background .2s ease,
-        color .2s ease;
+    transition:.2s ease;
 }
 
 .continue-btn:hover{
-
     background:var(--purple);
-
     color:white;
 }
 
@@ -790,29 +822,20 @@ body{
    ========================================================= */
 
 .empty-cart{
-
     text-align:center;
 
-    padding:
-        55px
-        20px;
+    padding:55px 20px;
 }
 
 .empty-cart-icon{
-
     width:70px;
-
     height:70px;
 
-    margin:
-        0
-        auto
-        18px;
+    margin:0 auto 18px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:50%;
@@ -823,17 +846,173 @@ body{
 }
 
 .empty-cart h2{
-
     color:var(--purple-dark);
 
     margin-bottom:10px;
 }
 
 .empty-cart p{
-
     color:#777;
 
     margin-bottom:22px;
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+   ========================================================= */
+
+.login-modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(20,10,25,.72);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:5000;
+}
+
+.login-modal.show{
+    display:flex;
+}
+
+.login-card{
+    width:min(440px,100%);
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.25);
+
+    text-align:center;
+
+    animation:modalIn .2s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.login-icon{
+    width:60px;
+    height:60px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--purple-light);
+
+    font-size:27px;
+}
+
+.login-card h2{
+    color:var(--purple-dark);
+
+    font-size:23px;
+
+    margin-bottom:10px;
+}
+
+.login-card p{
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    margin-bottom:23px;
+}
+
+.login-modal-buttons{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.modal-login-btn,
+.modal-register-btn{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+.modal-login-btn{
+    background:var(--purple);
+
+    color:white;
+}
+
+.modal-login-btn:hover{
+    background:var(--purple-dark);
+}
+
+.modal-register-btn{
+    border:1px solid var(--purple);
+
+    color:var(--purple);
+
+    background:white;
+}
+
+.modal-register-btn:hover{
+    background:var(--purple-light);
+}
+
+.modal-close{
+    margin-top:15px;
+
+    border:none;
+
+    background:none;
+
+    color:#777;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:600;
 }
 
 
@@ -842,21 +1021,16 @@ body{
    ========================================================= */
 
 footer{
-
     background:var(--purple-dark);
 
     color:white;
 
-    padding:
-        45px
-        5%
-        25px;
+    padding:45px 5% 25px;
 
     margin-top:80px;
 }
 
 .footer-inner{
-
     max-width:1200px;
 
     margin:auto;
@@ -871,13 +1045,7 @@ footer{
     gap:40px;
 }
 
-
-/* =========================================================
-   FOOTER LOGO
-   ========================================================= */
-
 .footer-logo{
-
     display:inline-flex;
 
     align-items:center;
@@ -886,9 +1054,7 @@ footer{
 }
 
 .footer-logo img{
-
     width:105px;
-
     max-width:105px;
 
     height:auto;
@@ -896,20 +1062,13 @@ footer{
     display:block;
 }
 
-
-/* =========================================================
-   FOOTER CONTENT
-   ========================================================= */
-
 footer h3{
-
     margin-bottom:15px;
 
     font-size:16px;
 }
 
 footer p{
-
     color:#dddddd;
 
     line-height:1.7;
@@ -920,7 +1079,6 @@ footer p{
 }
 
 footer a{
-
     display:block;
 
     color:#dddddd;
@@ -931,34 +1089,21 @@ footer a{
 
     font-size:14px;
 
-    transition:
-        color .2s ease;
+    transition:.2s ease;
 }
 
 footer a:hover{
-
     color:var(--gold);
 }
 
-
-/* =========================================================
-   FOOTER BOTTOM
-   ========================================================= */
-
 .footer-bottom{
-
     max-width:1200px;
 
-    margin:
-        35px
-        auto
-        0;
+    margin:35px auto 0;
 
     padding-top:20px;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.15);
+    border-top:1px solid rgba(255,255,255,.15);
 
     text-align:center;
 
@@ -969,114 +1114,160 @@ footer a:hover{
 
 
 /* =========================================================
-   MOBILE NAVIGATION
+   TABLET
+   ========================================================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .cart-container{
+        grid-template-columns:1fr;
+    }
+
+    .summary{
+        position:static;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
    ========================================================= */
 
 @media(max-width:850px){
 
     .topbar{
-
         display:none;
     }
 
     .navbar{
-
-        padding:
-            12px
-            5%;
-
         min-height:68px;
 
-        gap:12px;
+        padding:10px 4%;
+
+        gap:10px;
     }
 
     .logo img{
-
         width:115px;
-
         max-width:115px;
     }
 
     .nav-links{
-
         display:none;
     }
 
-    .cart-button{
+    .mobile-menu-btn{
+        display:flex;
 
         margin-left:auto;
+    }
 
-        padding:
-            9px
-            12px;
+    .cart-button{
+        order:2;
+
+        padding:9px 11px;
 
         font-size:13px;
     }
 
-    .cart-hero{
+    .mobile-menu-btn{
+        order:3;
+    }
 
-        padding:
-            50px
-            5%;
+    .cart-hero{
+        padding:48px 5%;
     }
 
     .cart-hero h1{
-
         font-size:34px;
     }
 
-    .cart-container{
+    .cart-hero p{
+        font-size:14px;
+    }
 
+    .checkout-steps{
+        width:94%;
+
+        margin-top:22px;
+    }
+
+    .step-line{
+        width:25px;
+        margin:0 6px;
+    }
+
+    .checkout-step{
+        font-size:10px;
+    }
+
+    .step-number{
+        width:25px;
+        height:25px;
+    }
+
+    .cart-container{
         width:94%;
 
         grid-template-columns:1fr;
 
-        margin-top:35px;
+        margin-top:30px;
+
+        gap:20px;
+    }
+
+    .cart-box{
+        padding:20px;
     }
 
     .summary{
-
-        position:static;
+        padding:20px;
     }
 
     .cart-item{
-
         grid-template-columns:1fr;
 
         gap:12px;
 
-        padding:
-            20px
-            0;
+        padding:20px 0;
+
+        background:white;
     }
 
     .item-price{
+        text-align:left;
 
-        margin-top:0;
+        font-size:16px;
     }
 
     .quantity{
+        justify-content:flex-start;
+    }
 
-        margin-top:2px;
+    .quantity button{
+        width:40px;
+        height:40px;
+    }
+
+    .quantity span{
+        min-width:32px;
     }
 
     .remove-btn{
-
         justify-self:start;
+
+        padding-left:0;
     }
 
     .footer-inner{
-
         grid-template-columns:1fr;
 
         gap:30px;
-    }
-
-    .footer-logo img{
-
-        width:95px;
-
-        max-width:95px;
     }
 
 }
@@ -1088,49 +1279,107 @@ footer a:hover{
 
 @media(max-width:480px){
 
+    .navbar{
+        padding:9px 3.5%;
+    }
+
     .logo img{
-
         width:105px;
-
         max-width:105px;
     }
 
     .cart-button{
-
-        padding:
-            8px
-            10px;
+        padding:8px 9px;
     }
 
     .cart-button .cart-label{
-
         display:none;
     }
 
     .cart-count{
-
-        font-size:10px;
+        min-width:20px;
+        height:20px;
     }
 
-    .cart-box,
-    .summary{
+    .mobile-menu-btn{
+        width:39px;
+        height:39px;
+    }
 
-        padding:20px;
+    .cart-hero{
+        padding:42px 5%;
     }
 
     .cart-hero h1{
-
         font-size:30px;
     }
 
     .cart-hero p{
+        font-size:13px;
+    }
 
-        font-size:14px;
+    .checkout-steps{
+        justify-content:space-between;
+    }
+
+    .checkout-step{
+        flex-direction:column;
+
+        gap:5px;
+
+        text-align:center;
+    }
+
+    .checkout-step span:last-child{
+        display:none;
+    }
+
+    .step-line{
+        width:30px;
+        margin:0 3px;
+    }
+
+    .cart-box,
+    .summary{
+        padding:18px;
+    }
+
+    .cart-box-header{
+        align-items:flex-start;
+    }
+
+    .cart-box h2,
+    .summary h2{
+        font-size:19px;
     }
 
     .summary-total{
-
         font-size:18px;
+    }
+
+    .login-card{
+        padding:25px 20px;
+    }
+
+    .login-modal-buttons{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        scroll-behavior:auto !important;
+        animation:none !important;
+        transition:none !important;
     }
 
 }
@@ -1138,7 +1387,6 @@ footer a:hover{
 </style>
 
 </head>
-
 
 <body>
 
@@ -1154,11 +1402,9 @@ footer a:hover{
     </div>
 
     <div>
-
         <a href="mailto:support@dingestechhub.co.za">
             support@dingestechhub.co.za
         </a>
-
     </div>
 
 </div>
@@ -1169,7 +1415,6 @@ footer a:hover{
      ========================================================= -->
 
 <nav class="navbar">
-
 
     <a
         href="index.html"
@@ -1229,7 +1474,50 @@ footer a:hover{
 
     </a>
 
+
+    <button
+        type="button"
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Open menu"
+        aria-expanded="false"
+    >
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
 </nav>
+
+
+<!-- =========================================================
+     MOBILE MENU
+     ========================================================= -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="services.html">
+        Services
+    </a>
+
+    <a href="help-centre.html">
+        Help Centre
+    </a>
+
+    <a href="contact.html">
+        Contact Us
+    </a>
+
+</div>
 
 
 <!-- =========================================================
@@ -1244,10 +1532,79 @@ footer a:hover{
 
     <p>
         Review your selected Dinges TechHub services before
-        proceeding to checkout.
+        proceeding to secure checkout.
     </p>
 
 </section>
+
+
+<!-- =========================================================
+     CHECKOUT STEPS
+     ========================================================= -->
+
+<div class="checkout-steps">
+
+    <div class="checkout-step active">
+
+        <span class="step-number">
+            1
+        </span>
+
+        <span>
+            Cart
+        </span>
+
+    </div>
+
+
+    <div class="step-line"></div>
+
+
+    <div class="checkout-step">
+
+        <span class="step-number">
+            2
+        </span>
+
+        <span>
+            Login
+        </span>
+
+    </div>
+
+
+    <div class="step-line"></div>
+
+
+    <div class="checkout-step">
+
+        <span class="step-number">
+            3
+        </span>
+
+        <span>
+            Checkout
+        </span>
+
+    </div>
+
+
+    <div class="step-line"></div>
+
+
+    <div class="checkout-step">
+
+        <span class="step-number">
+            4
+        </span>
+
+        <span>
+            Payment
+        </span>
+
+    </div>
+
+</div>
 
 
 <!-- =========================================================
@@ -1277,6 +1634,7 @@ footer a:hover{
             </span>
 
         </div>
+
 
         <div id="cartItems"></div>
 
@@ -1333,14 +1691,27 @@ footer a:hover{
         </div>
 
 
-        <a
-            href="checkout.html"
+        <button
+            type="button"
             class="checkout-btn disabled"
             id="checkoutButton"
-            aria-disabled="true"
         >
             Proceed to Checkout
-        </a>
+        </button>
+
+
+        <div class="checkout-note">
+
+            <span class="checkout-note-icon">
+                🔐
+            </span>
+
+            <span>
+                You will need to log in or create a Dinges TechHub
+                customer account before continuing to checkout.
+            </span>
+
+        </div>
 
 
         <a
@@ -1353,6 +1724,82 @@ footer a:hover{
     </aside>
 
 </main>
+
+
+<!-- =========================================================
+     LOGIN REQUIRED MODAL
+     ========================================================= -->
+
+<div
+    class="login-modal"
+    id="loginModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="loginModalTitle"
+>
+
+    <div class="login-card">
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+
+        <h2 id="loginModalTitle">
+            Login Required
+        </h2>
+
+
+        <p>
+            Please log in to your Dinges TechHub customer account
+            before continuing to checkout.
+            Don't have an account? You can create one now.
+        </p>
+
+
+        <div class="login-modal-buttons">
+
+            <!--
+                CHANGE ONLY THIS URL if your actual login page
+                has a different filename.
+            -->
+
+            <a
+                href="login.html?redirect=checkout"
+                class="modal-login-btn"
+                id="loginLink"
+            >
+                Login
+            </a>
+
+
+            <!--
+                CHANGE ONLY THIS URL if your actual registration
+                page has a different filename.
+            -->
+
+            <a
+                href="register.html?redirect=checkout"
+                class="modal-register-btn"
+                id="registerLink"
+            >
+                Create Account
+            </a>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="modal-close"
+            id="closeLoginModal"
+        >
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
 
 
 <!-- =========================================================
@@ -1399,7 +1846,7 @@ footer a:hover{
             </a>
 
             <a href="services.html">
-                VoIP & Telephony
+                VoIP &amp; Telephony
             </a>
 
             <a href="services.html">
@@ -1451,10 +1898,58 @@ footer a:hover{
 
 
 /* =========================================================
-   STORAGE KEY
+   SETTINGS
    ========================================================= */
 
 const CART_KEY = "dingesTechHubCart";
+
+/*
+ * This is the customer session key already used
+ * by the Dinges TechHub login flow.
+ */
+const CUSTOMER_KEY = "dingesTechCustomer";
+
+/*
+ * Login and registration pages.
+ *
+ * If your actual files have different names, change
+ * these two values only.
+ */
+const LOGIN_URL = "login.html";
+const REGISTER_URL = "register.html";
+
+const CHECKOUT_URL = "checkout.html";
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const mobileMenuBtn =
+    document.getElementById("mobileMenuBtn");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+if(mobileMenuBtn && mobileMenu){
+
+    mobileMenuBtn.addEventListener(
+        "click",
+        function(){
+
+            const isOpen =
+                mobileMenu.classList.toggle("open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+        }
+    );
+
+}
 
 
 /* =========================================================
@@ -1564,7 +2059,7 @@ function toNumber(value){
 
 
 /* =========================================================
-   GET ITEM QUANTITY
+   GET QUANTITY
    ========================================================= */
 
 function getQuantity(item){
@@ -1592,18 +2087,7 @@ function getQuantity(item){
 
 
 /* =========================================================
-   GET MONTHLY / SERVICE PRICE
-   =========================================================
-
-   Supports:
-
-   monthlyPrice
-   monthly
-   monthly_price
-   servicePrice
-   price
-   amount
-
+   GET MONTHLY PRICE
    ========================================================= */
 
 function getMonthlyPrice(item){
@@ -1611,17 +2095,11 @@ function getMonthlyPrice(item){
     const possiblePrices = [
 
         item?.monthlyPrice,
-
         item?.monthly,
-
         item?.monthly_price,
-
         item?.servicePrice,
-
         item?.service_price,
-
         item?.price,
-
         item?.amount
 
     ];
@@ -1651,17 +2129,6 @@ function getMonthlyPrice(item){
 
 /* =========================================================
    GET SETUP PRICE
-   =========================================================
-
-   Supports:
-
-   setupPrice
-   setup
-   setupFee
-   onceOff
-   onceOffPrice
-   onceOffFee
-
    ========================================================= */
 
 function getSetupPrice(item){
@@ -1669,21 +2136,13 @@ function getSetupPrice(item){
     const possiblePrices = [
 
         item?.setupPrice,
-
         item?.setup,
-
         item?.setupFee,
-
         item?.setup_fee,
-
         item?.onceOff,
-
         item?.onceOffPrice,
-
         item?.onceOffFee,
-
         item?.once_off,
-
         item?.once_off_price
 
     ];
@@ -1823,13 +2282,11 @@ function escapeHtml(value){
 
 function updateCartCount(cart){
 
-    const countElement =
-        document.getElementById(
-            "cartCount"
-        );
+    const element =
+        document.getElementById("cartCount");
 
 
-    if(!countElement){
+    if(!element){
         return;
     }
 
@@ -1846,8 +2303,10 @@ function updateCartCount(cart){
         );
 
 
-    countElement.textContent =
-        count;
+    element.textContent =
+        count > 99
+            ? "99+"
+            : count;
 
 }
 
@@ -1890,7 +2349,7 @@ function updateItemCount(cart){
 
 
 /* =========================================================
-   RENDER EMPTY CART
+   EMPTY CART
    ========================================================= */
 
 function renderEmptyCart(){
@@ -1924,6 +2383,7 @@ function renderEmptyCart(){
                     display:inline-flex;
                     width:auto;
                     padding:13px 25px;
+                    margin-top:0;
                 "
             >
                 Browse Services
@@ -1937,7 +2397,328 @@ function renderEmptyCart(){
 
 
 /* =========================================================
-   ENABLE / DISABLE CHECKOUT
+   CHECK WHETHER CUSTOMER IS LOGGED IN
+   ========================================================= */
+
+function getLoggedInCustomer(){
+
+    try{
+
+        const customer =
+            sessionStorage.getItem(
+                CUSTOMER_KEY
+            );
+
+
+        if(!customer){
+            return null;
+        }
+
+
+        const parsed =
+            JSON.parse(customer);
+
+
+        if(
+            parsed &&
+            typeof parsed === "object"
+        ){
+
+            return parsed;
+
+        }
+
+
+        return null;
+
+    }catch(error){
+
+        console.warn(
+            "Unable to read customer session:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN MODAL
+   ========================================================= */
+
+const loginModal =
+    document.getElementById(
+        "loginModal"
+    );
+
+const closeLoginModal =
+    document.getElementById(
+        "closeLoginModal"
+    );
+
+
+function showLoginModal(){
+
+    if(!loginModal){
+        return;
+    }
+
+    loginModal.classList.add("show");
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function hideLoginModal(){
+
+    if(!loginModal){
+        return;
+    }
+
+    loginModal.classList.remove("show");
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================================================
+   BUILD AUTH REDIRECT
+   ========================================================= */
+
+function buildAuthUrl(
+    baseUrl
+){
+
+    const separator =
+        baseUrl.includes("?")
+            ? "&"
+            : "?";
+
+
+    return (
+        baseUrl +
+        separator +
+        "redirect=" +
+        encodeURIComponent(
+            CHECKOUT_URL
+        )
+    );
+
+}
+
+
+/* =========================================================
+   SET LOGIN LINKS
+   ========================================================= */
+
+const loginLink =
+    document.getElementById(
+        "loginLink"
+    );
+
+const registerLink =
+    document.getElementById(
+        "registerLink"
+    );
+
+
+if(loginLink){
+
+    loginLink.href =
+        buildAuthUrl(
+            LOGIN_URL
+        );
+
+}
+
+
+if(registerLink){
+
+    registerLink.href =
+        buildAuthUrl(
+            REGISTER_URL
+        );
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+   ========================================================= */
+
+if(closeLoginModal){
+
+    closeLoginModal.addEventListener(
+        "click",
+        hideLoginModal
+    );
+
+}
+
+
+if(loginModal){
+
+    loginModal.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target ===
+                loginModal
+            ){
+
+                hideLoginModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape" &&
+            loginModal &&
+            loginModal.classList.contains("show")
+        ){
+
+            hideLoginModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PREPARE CHECKOUT SESSION
+   ========================================================= */
+
+function prepareCheckout(){
+
+    const cart =
+        getCart();
+
+
+    if(!cart.length){
+
+        alert(
+            "Your cart is empty. Please add a service before checkout."
+        );
+
+        return false;
+
+    }
+
+
+    /*
+     * Keep the cart safely stored before
+     * sending the customer to login.
+     */
+
+    saveCart(cart);
+
+
+    /*
+     * Tell the login/register page where
+     * the customer should return.
+     */
+
+    sessionStorage.setItem(
+        "dingesCheckoutReturn",
+        CHECKOUT_URL
+    );
+
+
+    return true;
+
+}
+
+
+/* =========================================================
+   PROCEED TO CHECKOUT
+   ========================================================= */
+
+const checkoutButton =
+    document.getElementById(
+        "checkoutButton"
+    );
+
+
+if(checkoutButton){
+
+    checkoutButton.addEventListener(
+        "click",
+        function(){
+
+            const cart =
+                getCart();
+
+
+            if(!cart.length){
+
+                return;
+
+            }
+
+
+            if(
+                !prepareCheckout()
+            ){
+
+                return;
+
+            }
+
+
+            const customer =
+                getLoggedInCustomer();
+
+
+            /*
+             * CUSTOMER ALREADY LOGGED IN
+             */
+
+            if(customer){
+
+                window.location.href =
+                    CHECKOUT_URL;
+
+                return;
+
+            }
+
+
+            /*
+             * CUSTOMER NOT LOGGED IN
+             */
+
+            showLoginModal();
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE CHECKOUT STATE
    ========================================================= */
 
 function updateCheckoutState(cart){
@@ -1955,7 +2736,9 @@ function updateCheckoutState(cart){
 
     if(cart.length === 0){
 
-        button.classList.add("disabled");
+        button.classList.add(
+            "disabled"
+        );
 
         button.setAttribute(
             "aria-disabled",
@@ -1967,12 +2750,93 @@ function updateCheckoutState(cart){
     }
 
 
-    button.classList.remove("disabled");
+    button.classList.remove(
+        "disabled"
+    );
 
     button.setAttribute(
         "aria-disabled",
         "false"
     );
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+   ========================================================= */
+
+function changeQuantity(
+    index,
+    change
+){
+
+    const cart =
+        getCart();
+
+
+    if(!cart[index]){
+        return;
+    }
+
+
+    const currentQuantity =
+        getQuantity(
+            cart[index]
+        );
+
+
+    const newQuantity =
+        currentQuantity +
+        Number(change);
+
+
+    if(newQuantity <= 0){
+
+        cart.splice(
+            index,
+            1
+        );
+
+    }else{
+
+        cart[index].quantity =
+            newQuantity;
+
+    }
+
+
+    saveCart(cart);
+
+    renderCart();
+
+}
+
+
+/* =========================================================
+   REMOVE ITEM
+   ========================================================= */
+
+function removeItem(index){
+
+    const cart =
+        getCart();
+
+
+    if(!cart[index]){
+        return;
+    }
+
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    saveCart(cart);
+
+    renderCart();
 
 }
 
@@ -2016,9 +2880,9 @@ function renderCart(){
     }
 
 
-    /* =====================================================
-       CART BADGE
-       ===================================================== */
+    /*
+     * BADGES
+     */
 
     updateCartCount(cart);
 
@@ -2027,9 +2891,9 @@ function renderCart(){
     updateCheckoutState(cart);
 
 
-    /* =====================================================
-       EMPTY CART
-       ===================================================== */
+    /*
+     * EMPTY
+     */
 
     if(cart.length === 0){
 
@@ -2049,18 +2913,18 @@ function renderCart(){
     }
 
 
-    /* =====================================================
-       TOTALS
-       ===================================================== */
+    /*
+     * TOTALS
+     */
 
     let monthlyTotal = 0;
 
     let setupTotal = 0;
 
 
-    /* =====================================================
-       BUILD CART ITEMS
-       ===================================================== */
+    /*
+     * CART ITEMS
+     */
 
     container.innerHTML =
         cart.map(
@@ -2099,7 +2963,10 @@ function renderCart(){
                 let priceHtml;
 
 
-                if(billing === "monthly"){
+                if(
+                    billing ===
+                    "monthly"
+                ){
 
                     priceHtml = `
 
@@ -2131,8 +2998,10 @@ function renderCart(){
                         ? `
 
                             <div class="item-setup">
+
                                 Setup:
                                 ${formatRand(setupPrice)}
+
                             </div>
 
                           `
@@ -2145,7 +3014,6 @@ function renderCart(){
                         class="cart-item"
                         data-index="${index}"
                     >
-
 
                         <div>
 
@@ -2216,7 +3084,6 @@ function renderCart(){
                             Remove
                         </button>
 
-
                     </div>
 
                 `;
@@ -2225,16 +3092,20 @@ function renderCart(){
         ).join("");
 
 
-    /* =====================================================
-       DISPLAY TOTALS
-       ===================================================== */
+    /*
+     * TOTALS
+     */
 
     subtotalElement.textContent =
-        formatRand(monthlyTotal);
+        formatRand(
+            monthlyTotal
+        );
 
 
     setupElement.textContent =
-        formatRand(setupTotal);
+        formatRand(
+            setupTotal
+        );
 
 
     totalElement.textContent =
@@ -2244,12 +3115,14 @@ function renderCart(){
         );
 
 
-    /* =====================================================
-       ADD BUTTON EVENTS
-       ===================================================== */
+    /*
+     * MINUS BUTTONS
+     */
 
     container
-        .querySelectorAll(".quantity-minus")
+        .querySelectorAll(
+            ".quantity-minus"
+        )
         .forEach(
             function(button){
 
@@ -2261,6 +3134,7 @@ function renderCart(){
                             Number(
                                 button.dataset.index
                             );
+
 
                         changeQuantity(
                             index,
@@ -2274,12 +3148,14 @@ function renderCart(){
         );
 
 
-    /* =====================================================
-       ADD PLUS EVENTS
-       ===================================================== */
+    /*
+     * PLUS BUTTONS
+     */
 
     container
-        .querySelectorAll(".quantity-plus")
+        .querySelectorAll(
+            ".quantity-plus"
+        )
         .forEach(
             function(button){
 
@@ -2291,6 +3167,7 @@ function renderCart(){
                             Number(
                                 button.dataset.index
                             );
+
 
                         changeQuantity(
                             index,
@@ -2304,12 +3181,14 @@ function renderCart(){
         );
 
 
-    /* =====================================================
-       ADD REMOVE EVENTS
-       ===================================================== */
+    /*
+     * REMOVE BUTTONS
+     */
 
     container
-        .querySelectorAll(".remove-btn")
+        .querySelectorAll(
+            ".remove-btn"
+        )
         .forEach(
             function(button){
 
@@ -2321,6 +3200,7 @@ function renderCart(){
                             Number(
                                 button.dataset.index
                             );
+
 
                         removeItem(index);
 
@@ -2334,145 +3214,7 @@ function renderCart(){
 
 
 /* =========================================================
-   CHANGE QUANTITY
-   ========================================================= */
-
-function changeQuantity(
-    index,
-    change
-){
-
-    const cart =
-        getCart();
-
-
-    if(
-        !cart[index]
-    ){
-
-        return;
-
-    }
-
-
-    const currentQuantity =
-        getQuantity(
-            cart[index]
-        );
-
-
-    const newQuantity =
-        currentQuantity +
-        Number(change);
-
-
-    if(newQuantity <= 0){
-
-        cart.splice(
-            index,
-            1
-        );
-
-    }else{
-
-        cart[index].quantity =
-            newQuantity;
-
-    }
-
-
-    saveCart(cart);
-
-    renderCart();
-
-}
-
-
-/* =========================================================
-   REMOVE ITEM
-   ========================================================= */
-
-function removeItem(index){
-
-    const cart =
-        getCart();
-
-
-    if(
-        !cart[index]
-    ){
-
-        return;
-
-    }
-
-
-    cart.splice(
-        index,
-        1
-    );
-
-
-    saveCart(cart);
-
-    renderCart();
-
-}
-
-
-/* =========================================================
-   CHECKOUT PROTECTION
-   ========================================================= */
-
-const checkoutButton =
-    document.getElementById(
-        "checkoutButton"
-    );
-
-
-if(checkoutButton){
-
-    checkoutButton.addEventListener(
-        "click",
-        function(event){
-
-            const cart =
-                getCart();
-
-
-            if(
-                cart.length === 0
-            ){
-
-                event.preventDefault();
-
-                alert(
-                    "Your cart is empty. Please add a service before checkout."
-                );
-
-                return;
-
-            }
-
-
-            /*
-             * Store a clean copy of the cart before
-             * moving to checkout.
-             *
-             * checkout.html can read the same
-             * dingesTechHubCart key.
-             */
-
-            saveCart(cart);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   LISTEN FOR STORAGE CHANGES
+   LISTEN FOR CART CHANGES
    ========================================================= */
 
 window.addEventListener(
@@ -2486,6 +3228,22 @@ window.addEventListener(
             renderCart();
 
         }
+
+    }
+);
+
+
+/* =========================================================
+   CART UPDATE EVENT
+   Allows other pages to trigger:
+   window.dispatchEvent(new Event("cartUpdated"));
+   ========================================================= */
+
+window.addEventListener(
+    "cartUpdated",
+    function(){
+
+        renderCart();
 
     }
 );
