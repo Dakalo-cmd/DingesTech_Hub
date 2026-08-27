@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Advanced PBX | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Advanced cloud PBX and VOIP solutions from Dinges TechHub."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB — ADVANCED PBX
+   ========================================================= */
+
+:root{
+
+    --primary:#3C1542;
+    --secondary:#7A2C78;
+    --accent:#FFBB42;
+
+    --black:#020202;
+    --gray:#949393;
+
+    --light:#F7F6F8;
+    --white:#FFFFFF;
+
+    --border:#E5E1E7;
+
+    --success:#2e9d58;
+    --danger:#c43d3d;
+
+    --shadow:
+        0 10px 25px rgba(60,21,66,.08);
+
+    --shadow-hover:
+        0 18px 35px rgba(60,21,66,.15);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--light);
+
+    color:var(--black);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+}
+
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:8px 5%;
+
+    font-size:13px;
+}
+
+
+.topbar-inner{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+
+.topbar-inner span{
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+
+    background:var(--white);
+
+    border-bottom:1px solid var(--border);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+}
+
+
+.nav-inner{
+
+    width:100%;
+
+    max-width:1200px;
+
+    min-height:76px;
+
+    margin:auto;
+
+    padding:8px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+    min-width:0;
+}
+
+
+.logo img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1.05;
+}
+
+
+.logo-name{
+
+    font-size:20px;
+
+    font-weight:900;
+
+    color:var(--primary);
+}
+
+
+.logo-tagline{
+
+    margin-top:4px;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.3px;
+
+    color:var(--secondary);
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:20px;
+}
+
+
+.nav-links a{
+
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+
+.nav-links a:hover,
+.nav-links a.active{
+
+    color:var(--secondary);
+}
+
+
+.nav-links .nav-cta{
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    padding:10px 17px;
+
+    border-radius:8px;
+
+    font-weight:800;
+}
+
+
+.nav-links .nav-cta:hover{
+
+    color:var(--black);
+
+    opacity:.9;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.menu-toggle{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:var(--primary);
+
+    color:var(--accent);
+
+    cursor:pointer;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    flex-shrink:0;
+}
+
+
+.menu-toggle span{
+
+    width:22px;
+
+    height:2px;
+
+    background:var(--accent);
+
+    border-radius:5px;
+
+    transition:.2s ease;
+}
+
+
+.menu-toggle.active span:nth-child(1){
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2){
+
+    opacity:0;
+}
+
+
+.menu-toggle.active span:nth-child(3){
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,187,66,.18),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color:var(--white);
+
+    padding:
+        75px
+        5%;
+
+    text-align:center;
+}
+
+
+.hero-inner{
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+
+.eyebrow{
+
+    display:inline-block;
+
+    color:var(--accent);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+
+.hero h1{
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            56px
+        );
+
+    line-height:1.05;
+
+    margin-bottom:16px;
+}
+
+
+.hero p{
+
+    max-width:720px;
+
+    margin:auto;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
+
+    font-size:16px;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.main{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+        60px
+        5%;
+}
+
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+
+.section-heading h2{
+
+    color:var(--primary);
+
+    font-size:32px;
+
+    line-height:1.2;
+
+    margin-bottom:8px;
+}
+
+
+.section-heading p{
+
+    color:var(--gray);
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   API STATUS
+   ========================================================= */
+
+.api-status{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-bottom:25px;
+
+    font-size:12px;
+
+    color:var(--gray);
+
+    text-align:center;
+}
+
+
+.status-dot{
+
+    width:9px;
+
+    height:9px;
+
+    flex:0 0 9px;
+
+    border-radius:50%;
+
+    background:#999;
+}
+
+
+.status-dot.online{
+
+    background:var(--success);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(46,157,88,.12);
+}
+
+
+.status-dot.offline{
+
+    background:var(--danger);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(196,61,61,.12);
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+   ========================================================= */
+
+.error-message{
+
+    display:none;
+
+    background:#FFF4F4;
+
+    border:1px solid #E7BDBD;
+
+    color:#8B2929;
+
+    padding:18px;
+
+    border-radius:10px;
+
+    margin-bottom:25px;
+
+    font-size:13px;
+
+    word-break:break-word;
+}
+
+
+.error-message.show{
+
+    display:block;
+}
+
+
+.error-message strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#7b2020;
+}
+
+
+.error-api{
+
+    margin-top:8px;
+
+    font-family:
+        monospace;
+
+    font-size:11px;
+
+    word-break:break-all;
+}
+
+
+/* =========================================================
+   PACKAGE GRID
+   ========================================================= */
+
+.package-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:24px;
+}
+
+
+/* =========================================================
+   PACKAGE CARD
+   ========================================================= */
+
+.package-card{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:27px;
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    position:relative;
+
+    min-width:0;
+}
+
+
+.package-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-hover);
+
+    border-color:var(--secondary);
+}
+
+
+.package-badge{
+
+    display:inline-block;
+
+    background:#F8F0F8;
+
+    color:var(--secondary);
+
+    border-radius:20px;
+
+    padding:5px 10px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+
+    margin-bottom:15px;
+}
+
+
+.package-card h3{
+
+    color:var(--primary);
+
+    font-size:21px;
+
+    line-height:1.3;
+
+    margin-bottom:12px;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.package-description{
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+
+    white-space:pre-line;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features{
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
+    padding:16px 0;
+
+    margin-bottom:20px;
+
+    display:grid;
+
+    gap:10px;
+}
+
+
+.feature{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    font-size:13px;
+
+    color:#444;
+}
+
+
+.feature-icon{
+
+    width:22px;
+
+    height:22px;
+
+    flex:0 0 22px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:var(--accent);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   PACKAGE INFO
+   ========================================================= */
+
+.package-info{
+
+    display:grid;
+
+    gap:8px;
+
+    margin-bottom:20px;
+}
+
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    font-size:12px;
+}
+
+
+.info-label{
+
+    color:var(--gray);
+}
+
+
+.info-value{
+
+    color:#333;
+
+    font-weight:700;
+
+    text-align:right;
+
+    overflow-wrap:anywhere;
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.package-price{
+
+    border-top:1px solid var(--border);
+
+    padding-top:18px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+
+.price-label{
+
+    color:var(--gray);
+
+    font-size:11px;
+}
+
+
+.price{
+
+    color:var(--secondary);
+
+    font-size:29px;
+
+    font-weight:900;
+
+    line-height:1.1;
+
+    overflow-wrap:anywhere;
+}
+
+
+.price-period{
+
+    color:var(--gray);
+
+    font-size:11px;
+
+    padding-bottom:3px;
+
+    white-space:nowrap;
+}
+
+
+/* =========================================================
+   ADD TO CART
+   ========================================================= */
+
+.add-to-cart{
+
+    width:100%;
+
+    margin-top:20px;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:13px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        background .2s ease;
+}
+
+
+.add-to-cart:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.92;
+}
+
+
+.add-to-cart:active{
+
+    transform:translateY(0);
+}
+
+
+.add-to-cart.added{
+
+    background:var(--success);
+
+    color:var(--white);
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading{
+
+    text-align:center;
+
+    padding:45px 20px;
+
+    color:var(--gray);
+
+    font-size:14px;
+
+    grid-column:1/-1;
+}
+
+
+/* =========================================================
+   EMPTY MESSAGE
+   ========================================================= */
+
+.empty-message{
+
+    background:var(--white);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    color:var(--gray);
+
+    grid-column:1/-1;
+}
+
+
+.empty-message h3{
+
+    color:var(--primary);
+
+    margin-bottom:8px;
+
+    font-size:21px;
+}
+
+
+.empty-message p{
+
+    font-size:13px;
+}
+
+
+.retry-button{
+
+    margin-top:20px;
+
+    border:0;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    padding:11px 20px;
+
+    border-radius:8px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   DATABASE NOTE
+   ========================================================= */
+
+.database-note{
+
+    margin-top:40px;
+
+    padding:16px 18px;
+
+    border-left:4px solid var(--accent);
+
+    background:var(--white);
+
+    border-radius:9px;
+
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+
+.database-note strong{
+
+    color:var(--primary);
+}
+
+
+/* =========================================================
+   CART NOTIFICATION
+   ========================================================= */
+
+.cart-notification{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    max-width:
+        calc(
+            100vw - 50px
+        );
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:15px 20px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.2);
+
+    z-index:5000;
+
+    display:none;
+
+    font-size:13px;
+}
+
+
+.cart-notification.show{
+
+    display:block;
+
+    animation:
+        notificationIn
+        .25s
+        ease;
+}
+
+
+@keyframes notificationIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.cart-notification strong{
+
+    color:var(--accent);
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    text-align:center;
+
+    padding:
+        60px
+        5%;
+}
+
+
+.cta-inner{
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+
+.cta h2{
+
+    font-size:30px;
+
+    line-height:1.2;
+
+    margin-bottom:10px;
+}
+
+
+.cta p{
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .8
+        );
+
+    font-size:14px;
+
+    margin-bottom:22px;
+}
+
+
+.cta a{
+
+    display:inline-block;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    font-weight:800;
+
+    font-size:13px;
+
+    padding:11px 22px;
+
+    border-radius:9px;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+
+.cta a:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.92;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+
+    background:#16091A;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .75
+        );
+
+    text-align:center;
+
+    padding:30px 5%;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+
+        gap:13px;
+    }
+
+
+    .nav-links a{
+
+        font-size:13px;
+    }
+
+
+    .logo img{
+
+        width:54px;
+
+        height:54px;
+    }
+
+
+    .logo-name{
+
+        font-size:18px;
+    }
+
+
+    .package-grid{
+
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media(max-width:760px){
+
+    .topbar{
+
+        padding:
+            8px
+            4%;
+    }
+
+
+    .topbar-inner{
+
+        justify-content:center;
+
+        text-align:center;
+    }
+
+
+    .topbar-inner span:last-child{
+
+        display:none;
+    }
+
+
+    .nav-inner{
+
+        min-height:70px;
+
+        padding:
+            7px
+            4%;
+    }
+
+
+    .logo{
+
+        gap:9px;
+
+        min-width:0;
+    }
+
+
+    .logo img{
+
+        width:54px;
+
+        height:54px;
+    }
+
+
+    .logo-name{
+
+        font-size:17px;
+    }
+
+
+    .logo-tagline{
+
+        font-size:7px;
+
+        letter-spacing:1px;
+    }
+
+
+    .menu-toggle{
+
+        display:flex;
+    }
+
+
+    .nav-links{
+
+        position:absolute;
+
+        top:100%;
+
+        left:0;
+
+        right:0;
+
+        width:100%;
+
+        background:var(--white);
+
+        border-bottom:1px solid var(--border);
+
+        box-shadow:
+            0 15px 30px
+            rgba(60,21,66,.10);
+
+        padding:10px 4% 16px;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:4px;
+    }
+
+
+    .nav-links.open{
+
+        display:flex;
+    }
+
+
+    .nav-links a{
+
+        display:block;
+
+        width:100%;
+
+        padding:12px 14px;
+
+        border-radius:8px;
+
+        font-size:14px;
+    }
+
+
+    .nav-links a:hover,
+    .nav-links a.active{
+
+        background:#F8F0F8;
+    }
+
+
+    .nav-links .nav-cta{
+
+        text-align:center;
+
+        margin-top:5px;
+
+        background:var(--accent);
+    }
+
+
+    .hero{
+
+        padding:
+            55px
+            5%;
+    }
+
+
+    .hero h1{
+
+        font-size:
+            clamp(
+                36px,
+                11vw,
+                48px
+            );
+    }
+
+
+    .hero p{
+
+        font-size:14px;
+    }
+
+
+    .main{
+
+        padding:
+            45px
+            5%;
+    }
+
+
+    .section-heading h2{
+
+        font-size:27px;
+    }
+
+
+    .package-card{
+
+        padding:22px;
+
+        border-radius:14px;
+    }
+
+
+    .database-note{
+
+        margin-top:30px;
+    }
+
+
+    .cart-notification{
+
+        left:15px;
+
+        right:15px;
+
+        bottom:15px;
+
+        max-width:none;
+    }
+
+
+    .cta{
+
+        padding:
+            50px
+            5%;
+    }
+
+
+    .cta h2{
+
+        font-size:27px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:430px){
+
+    .logo img{
+
+        width:50px;
+
+        height:50px;
+    }
+
+
+    .logo-name{
+
+        font-size:15px;
+    }
+
+
+    .logo-tagline{
+
+        font-size:6px;
+
+        letter-spacing:.8px;
+    }
+
+
+    .nav-inner{
+
+        min-height:66px;
+    }
+
+
+    .menu-toggle{
+
+        width:42px;
+
+        height:42px;
+    }
+
+
+    .hero{
+
+        padding:
+            48px
+            5%;
+    }
+
+
+    .hero h1{
+
+        font-size:36px;
+    }
+
+
+    .main{
+
+        padding:
+            40px
+            4%;
+    }
+
+
+    .package-card{
+
+        padding:20px;
+    }
+
+
+    .package-card h3{
+
+        font-size:19px;
+    }
+
+
+    .package-price{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:5px;
+    }
+
+
+    .price{
+
+        font-size:27px;
+    }
+
+
+    .price-period{
+
+        padding-bottom:0;
+    }
+
+
+    .info-row{
+
+        gap:10px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible,
+.add-to-cart:focus-visible,
+.retry-button:focus-visible,
+.cta a:focus-visible{
+
+    outline:
+        3px solid
+        rgba(255,187,66,.65);
+
+    outline-offset:3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+
+        scroll-behavior:auto;
+    }
+
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms!important;
+
+        animation-iteration-count:1!important;
+
+        transition-duration:.01ms!important;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+     ===================================================== -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>
+            Reliable Technology &amp; Connectivity Solutions
+        </span>
+
+        <span>
+            South Africa
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav
+    class="navbar"
+    aria-label="Main navigation"
+>
+
+    <div class="nav-inner">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Dinges TechHub Home"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <span class="logo-text">
+
+                <span class="logo-name">
+                    Dinges TechHub
+                </span>
+
+                <span class="logo-tagline">
+                    TECHNOLOGY &amp; CONNECTIVITY
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <!-- NAVIGATION LINKS -->
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a
+                href="advanced-pbx.html"
+                class="active"
+            >
+                Advanced PBX
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a
+                href="cart.html"
+                class="nav-cta"
+            >
+                Cart
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <span class="eyebrow">
+            VOIP &amp; Telephony
+        </span>
+
+        <h1>
+            Advanced PBX
+        </h1>
+
+        <p>
+            Professional cloud-based PBX solutions for
+            businesses that need reliable communication,
+            flexible extensions and managed VOIP services.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main class="main">
+
+
+    <div class="section-heading">
+
+        <h2>
+            Choose Your PBX Solution
+        </h2>
+
+        <p>
+            Select the PBX package that best matches your
+            business communication requirements.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         API STATUS
+         ================================================= -->
+
+    <div class="api-status">
+
+        <span
+            id="statusDot"
+            class="status-dot"
+        ></span>
+
+        <span id="apiStatusText">
+            Connecting to PBX database...
+        </span>
+
+    </div>
+
+
+    <!-- =================================================
+         ERROR
+         ================================================= -->
+
+    <div
+        id="errorMessage"
+        class="error-message"
+        role="alert"
+    ></div>
+
+
+    <!-- =================================================
+         PACKAGE GRID
+         ================================================= -->
+
+    <div
+        id="packageGrid"
+        class="package-grid"
+    >
+
+        <div
+            class="loading"
+            id="loading"
+        >
+            Loading Advanced PBX packages...
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         DATABASE NOTE
+         ================================================= -->
+
+    <div class="database-note">
+
+        <strong>
+            Live database:
+        </strong>
+
+        PBX product information and monthly pricing are
+        loaded from the WHMCS database through the Dinges
+        TechHub PHP API.
+
+        Prices displayed on this page are controlled from
+        the backend.
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     CTA
+     ===================================================== -->
+
+<section class="cta">
+
+    <div class="cta-inner">
+
+        <h2>
+            Need Help Choosing a PBX?
+        </h2>
+
+        <p>
+            Contact Dinges TechHub and we can help you
+            choose the right VOIP and PBX solution for
+            your business.
+        </p>
+
+        <a href="contact.html">
+            Contact Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CART NOTIFICATION
+     ===================================================== -->
+
+<div
+    id="cartNotification"
+    class="cart-notification"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer>
+
+    <p>
+        &copy;
+        <span id="year"></span>
+        Dinges TechHub. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   LIVE PBX API
+   ========================================================= */
+
+const API_URL =
+    "https://register.web.za/api/advanced-pbx.php";
+
+
+/* =========================================================
+   CURRENT YEAR
+   ========================================================= */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+
+const navLinks =
+    document.getElementById(
+        "navLinks"
+    );
+
+
+menuToggle.addEventListener(
+    "click",
+    function(){
+
+        const isOpen =
+            navLinks.classList.toggle(
+                "open"
+            );
+
+
+        menuToggle.classList.toggle(
+            "active",
+            isOpen
+        );
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+                ? "true"
+                : "false"
+        );
+
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
+   ========================================================= */
+
+navLinks
+    .querySelectorAll("a")
+    .forEach(
+        function(link){
+
+            link.addEventListener(
+                "click",
+                function(){
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                    menuToggle.classList.remove(
+                        "active"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            !event.target.closest(
+                ".nav-inner"
+            )
+        ){
+
+            navLinks.classList.remove(
+                "open"
+            );
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PAGE START
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadPBXProducts();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD PBX PRODUCTS
+   ========================================================= */
+
+async function loadPBXProducts(){
+
+    const grid =
+        document.getElementById(
+            "packageGrid"
+        );
+
+
+    const statusDot =
+        document.getElementById(
+            "statusDot"
+        );
+
+
+    const statusText =
+        document.getElementById(
+            "apiStatusText"
+        );
+
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    statusDot.className =
+        "status-dot";
+
+
+    errorMessage.classList.remove(
+        "show"
+    );
+
+
+    grid.innerHTML = `
+
+        <div class="loading">
+
+            Loading Advanced PBX packages...
+
+        </div>
+
+    `;
+
+
+    try{
+
+        statusText.textContent =
+            "Connecting to live PBX database...";
+
+
+        const response =
+            await fetch(
+                API_URL +
+                "?t=" +
+                Date.now(),
+                {
+                    method:"GET",
+
+                    headers:{
+                        "Accept":
+                            "application/json"
+                    },
+
+                    cache:"no-store"
+                }
+            );
+
+
+        console.log(
+            "PBX API HTTP status:",
+            response.status
+        );
+
+
+        /*
+            Read response as text first.
+
+            This makes the error handling much better
+            when PHP returns an HTML error page instead
+            of JSON.
+        */
+
+        const rawText =
+            await response.text();
+
+
+        console.log(
+            "PBX API raw response:",
+            rawText
+        );
+
+
+        if(!response.ok){
+
+            let serverMessage =
+                "";
+
+
+            /*
+                Try to read JSON error.
+            */
+
+            try{
+
+                const errorData =
+                    JSON.parse(
+                        rawText
+                    );
+
+
+                serverMessage =
+                    errorData.error ||
+                    errorData.message ||
+                    "";
+
+            }
+            catch(jsonError){
+
+                /*
+                    PHP may have returned HTML.
+
+                    Do not display the entire HTML page.
+                */
+
+                serverMessage =
+                    rawText
+                    .replace(
+                        /<[^>]*>/g,
+                        " "
+                    )
+                    .replace(
+                        /\s+/g,
+                        " "
+                    )
+                    .trim()
+                    .substring(
+                        0,
+                        300
+                    );
+
+            }
+
+
+            throw new Error(
+                "API returned HTTP " +
+                response.status +
+                (
+                    serverMessage
+                        ? ": " +
+                          serverMessage
+                        : ""
+                )
+            );
+
+        }
+
+
+        let data;
+
+
+        try{
+
+            data =
+                JSON.parse(
+                    rawText
+                );
+
+        }
+        catch(jsonError){
+
+            throw new Error(
+                "The PBX API returned an invalid JSON response."
+            );
+
+        }
+
+
+        console.log(
+            "LIVE PBX API RESPONSE:",
+            data
+        );
+
+
+        if(!data.success){
+
+            throw new Error(
+                data.error ||
+                data.message ||
+                "The PBX API returned success=false."
+            );
+
+        }
+
+
+        if(!Array.isArray(data.products)){
+
+            throw new Error(
+                "The PBX API did not return a products array."
+            );
+
+        }
+
+
+        /*
+            SUCCESS
+        */
+
+        statusDot.classList.add(
+            "online"
+        );
+
+
+        statusText.textContent =
+            "Live PBX database connected • " +
+            data.products.length +
+            (
+                data.products.length === 1
+                    ? " package available"
+                    : " packages available"
+            );
+
+
+        displayProducts(
+            data.products
+        );
+
+
+    }
+    catch(error){
+
+        console.error(
+            "PBX API ERROR:",
+            error
+        );
+
+
+        statusDot.classList.add(
+            "offline"
+        );
+
+
+        statusText.textContent =
+            "Unable to connect to PBX database";
+
+
+        showError(
+            error
+        );
+
+
+        grid.innerHTML = `
+
+            <div class="empty-message">
+
+                <h3>
+                    Unable to Load Advanced PBX
+                </h3>
+
+                <p>
+                    We could not retrieve the live PBX
+                    products from the database.
+                </p>
+
+                <button
+                    type="button"
+                    class="retry-button"
+                    onclick="loadPBXProducts()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   DISPLAY PRODUCTS
+   ========================================================= */
+
+function displayProducts(
+    products
+){
+
+    const grid =
+        document.getElementById(
+            "packageGrid"
+        );
+
+
+    grid.innerHTML =
+        "";
+
+
+    if(!products.length){
+
+        grid.innerHTML = `
+
+            <div class="empty-message">
+
+                <h3>
+                    No PBX Packages Found
+                </h3>
+
+                <p>
+                    There are currently no Advanced PBX
+                    packages available.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    products.forEach(
+        function(product){
+
+            grid.appendChild(
+                createProductCard(
+                    product
+                )
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CREATE PRODUCT CARD
+   ========================================================= */
+
+function createProductCard(
+    product
+){
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+
+    card.className =
+        "package-card";
+
+
+    const productId =
+        product.id ??
+        product.product_id ??
+        "";
+
+
+    const name =
+        product.name ??
+        product.package_name ??
+        "Advanced PBX";
+
+
+    const description =
+        product.description ??
+        "Professional cloud-based VOIP PBX solution.";
+
+
+    const monthly =
+        getMonthlyPrice(
+            product
+        );
+
+
+    /*
+        Product badge.
+    */
+
+    let badge =
+        "PBX Solution";
+
+
+    if(
+        Number(productId) === 282
+    ){
+
+        badge =
+            "Standard Cloud PBX";
+
+    }
+
+
+    if(
+        Number(productId) === 317
+    ){
+
+        badge =
+            "Advanced Cloud PBX";
+
+    }
+
+
+    card.innerHTML = `
+
+        <span class="package-badge">
+            ${escapeHTML(badge)}
+        </span>
+
+
+        <h3>
+            ${escapeHTML(name)}
+        </h3>
+
+
+        <div class="package-description">
+
+            ${escapeHTML(
+                cleanDescription(
+                    description
+                )
+            )}
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Cloud-based PBX solution
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    ✓
+                </span>
+
+                <span>
+                    VOIP business communication
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Managed through Dinges TechHub
+                </span>
+
+            </div>
+
+
+            <div class="feature">
+
+                <span class="feature-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Recurring monthly service
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="package-info">
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Product ID
+                </span>
+
+                <span class="info-value">
+                    ${escapeHTML(productId)}
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Billing
+                </span>
+
+                <span class="info-value">
+                    Monthly
+                </span>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <span class="info-label">
+                    Currency
+                </span>
+
+                <span class="info-value">
+                    ZAR
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="package-price">
+
+            <div>
+
+                <div class="price-label">
+                    Monthly
+                </div>
+
+                <div class="price">
+
+                    ${
+                        monthly !== null
+                            ? "R" +
+                              formatPrice(
+                                  monthly
+                              )
+                            : "Contact Us"
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="price-period">
+
+                per month
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="add-to-cart"
+        >
+            Add to Cart
+        </button>
+
+    `;
+
+
+    const button =
+        card.querySelector(
+            ".add-to-cart"
+        );
+
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            addToCart(
+                product,
+                button
+            );
+
+        }
+    );
+
+
+    return card;
+
+}
+
+
+/* =========================================================
+   GET MONTHLY PRICE
+   ========================================================= */
+
+function getMonthlyPrice(
+    product
+){
+
+    /*
+        Format 1:
+
+        pricing.monthly
+    */
+
+    if(
+        product.pricing &&
+        product.pricing.monthly !== undefined &&
+        product.pricing.monthly !== null &&
+        product.pricing.monthly !== ""
+    ){
+
+        const value =
+            Number(
+                product.pricing.monthly
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value >= 0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    /*
+        Format 2:
+
+        monthly
+    */
+
+    if(
+        product.monthly !== undefined &&
+        product.monthly !== null &&
+        product.monthly !== ""
+    ){
+
+        const value =
+            Number(
+                product.monthly
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value >= 0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    /*
+        Format 3:
+
+        price
+    */
+
+    if(
+        product.price !== undefined &&
+        product.price !== null &&
+        product.price !== ""
+    ){
+
+        const value =
+            Number(
+                product.price
+            );
+
+
+        if(
+            Number.isFinite(value) &&
+            value >= 0
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+   ========================================================= */
+
+function addToCart(
+    product,
+    button
+){
+
+    const productId =
+        Number(
+            product.id ??
+            product.product_id
+        );
+
+
+    if(
+        !Number.isFinite(productId) ||
+        productId <= 0
+    ){
+
+        alert(
+            "This PBX package does not have a valid product ID."
+        );
+
+        return;
+
+    }
+
+
+    const productName =
+        product.name ??
+        product.package_name ??
+        "Advanced PBX";
+
+
+    const monthly =
+        getMonthlyPrice(
+            product
+        );
+
+
+    /*
+        Existing cart.
+    */
+
+    let cart = [];
+
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "dingesCart"
+            );
+
+
+        if(saved){
+
+            const parsed =
+                JSON.parse(
+                    saved
+                );
+
+
+            if(
+                Array.isArray(parsed)
+            ){
+
+                cart =
+                    parsed;
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        console.warn(
+            "Could not read existing cart:",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    /*
+        Find existing product.
+    */
+
+    const existingIndex =
+        cart.findIndex(
+            function(item){
+
+                return Number(
+                    item.productId ??
+                    item.id
+                ) === productId;
+
+            }
+        );
+
+
+    if(
+        existingIndex !== -1
+    ){
+
+        cart[existingIndex].quantity =
+            Number(
+                cart[existingIndex].quantity || 1
+            ) + 1;
+
+    }
+    else{
+
+        cart.push({
+
+            id:productId,
+
+            productId:productId,
+
+            name:productName,
+
+            package_name:productName,
+
+            price:monthly,
+
+            monthly:monthly,
+
+            billingCycle:"monthly",
+
+            billing_cycle:"monthly",
+
+            currency:"ZAR",
+
+            quantity:1,
+
+            type:"pbx",
+
+            serviceType:"pbx",
+
+            source:"whmcs"
+
+        });
+
+    }
+
+
+    /*
+        Save cart.
+    */
+
+    try{
+
+        localStorage.setItem(
+            "dingesCart",
+            JSON.stringify(cart)
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "Could not save cart:",
+            error
+        );
+
+        alert(
+            "We could not save this item to your cart."
+        );
+
+        return;
+
+    }
+
+
+    /*
+        Button feedback.
+    */
+
+    const originalText =
+        button.textContent;
+
+
+    button.textContent =
+        "✓ Added to Cart";
+
+
+    button.classList.add(
+        "added"
+    );
+
+
+    /*
+        Notification.
+    */
+
+    showCartNotification(
+        productName
+    );
+
+
+    /*
+        Restore button.
+    */
+
+    setTimeout(
+        function(){
+
+            button.textContent =
+                originalText;
+
+            button.classList.remove(
+                "added"
+            );
+
+        },
+        2000
+    );
+
+
+    console.log(
+        "Added PBX product to cart:",
+        product
+    );
+
+}
+
+
+/* =========================================================
+   CART NOTIFICATION
+   ========================================================= */
+
+function showCartNotification(
+    productName
+){
+
+    const notification =
+        document.getElementById(
+            "cartNotification"
+        );
+
+
+    notification.innerHTML = `
+
+        <strong>
+            Added to cart
+        </strong>
+
+        <br>
+
+        ${escapeHTML(productName)}
+        has been added to your cart.
+
+    `;
+
+
+    notification.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.cartNotificationTimer
+    );
+
+
+    window.cartNotificationTimer =
+        setTimeout(
+            function(){
+
+                notification.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =========================================================
+   CLEAN DESCRIPTION
+   ========================================================= */
+
+function cleanDescription(
+    description
+){
+
+    return String(
+        description || ""
+    )
+
+    .replace(
+        /<br\s*\/?>/gi,
+        "\n"
+    )
+
+    .replace(
+        /<\/?strong>/gi,
+        ""
+    )
+
+    .replace(
+        /<\/?b>/gi,
+        ""
+    )
+
+    .replace(
+        /<\/?u>/gi,
+        ""
+    )
+
+    .replace(
+        /<[^>]*>/g,
+        ""
+    )
+
+    .replace(
+        /\r/g,
+        ""
+    )
+
+    .replace(
+        /[ ]{2,}/g,
+        " "
+    )
+
+    .trim();
+
+}
+
+
+/* =========================================================
+   ERROR DISPLAY
+   ========================================================= */
+
+function showError(
+    error
+){
+
+    const errorMessage =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    errorMessage.innerHTML = `
+
+        <strong>
+            Advanced PBX API Connection Error
+        </strong>
+
+        ${escapeHTML(
+            error.message ||
+            "Unknown error"
+        )}
+
+        <div class="error-api">
+
+            <strong>
+                API:
+            </strong>
+
+            ${escapeHTML(
+                API_URL
+            )}
+
+        </div>
+
+    `;
+
+
+    errorMessage.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   PRICE FORMAT
+   ========================================================= */
+
+function formatPrice(
+    value
+){
+
+    const number =
+        Number(value);
+
+
+    if(
+        !Number.isFinite(number)
+    ){
+
+        return "0.00";
+
+    }
+
+
+    return number.toLocaleString(
+        "en-ZA",
+        {
+            minimumFractionDigits:2,
+
+            maximumFractionDigits:2
+        }
+    );
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
