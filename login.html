@@ -50,6 +50,8 @@ body{
     background:var(--background);
     color:var(--text);
     min-height:100vh;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
 }
 
 .page{
@@ -312,6 +314,7 @@ body{
     background:transparent;
     color:var(--muted);
     padding:12px;
+    min-height:44px;
     border-radius:8px;
     font-family:inherit;
     font-size:11px;
@@ -463,7 +466,7 @@ textarea:focus{
 
 .password-toggle{
     position:absolute;
-    right:10px;
+    right:6px;
     top:50%;
     transform:translateY(-50%);
     border:none;
@@ -472,6 +475,9 @@ textarea:focus{
     font-size:10px;
     font-weight:900;
     cursor:pointer;
+    min-width:44px;
+    min-height:36px;
+    padding:0 8px;
 }
 
 .password-toggle:hover{
@@ -569,10 +575,11 @@ textarea:focus{
 }
 
 .checkbox-row input{
-    width:15px;
-    height:15px;
+    width:18px;
+    height:18px;
     margin-top:1px;
     accent-color:var(--secondary);
+    flex-shrink:0;
 }
 
 .checkbox-row label{
@@ -630,13 +637,15 @@ textarea:focus{
 ========================================================= */
 
 .forgot{
-    display:block;
+    display:inline-block;
     text-align:right;
     margin:-4px 0 17px;
     color:var(--secondary);
     font-size:10px;
     font-weight:800;
     text-decoration:none;
+    min-height:32px;
+    line-height:32px;
 }
 
 .forgot:hover{
@@ -683,6 +692,7 @@ textarea:focus{
     max-height:555px;
     overflow-y:auto;
     padding-right:8px;
+    -webkit-overflow-scrolling:touch;
 }
 
 #registerForm::-webkit-scrollbar{
@@ -789,7 +799,7 @@ textarea:focus{
 }
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media(max-width:850px){
@@ -811,6 +821,7 @@ textarea:focus{
     .auth-container{
         grid-template-columns:1fr;
         min-height:auto;
+        border-radius:18px;
     }
 
     .brand-panel{
@@ -837,6 +848,16 @@ textarea:focus{
     }
 }
 
+/* =========================================================
+   MOBILE
+   Key mobile-usability fixes applied here:
+   - Inputs bumped to 16px font-size to stop iOS Safari
+     from auto-zooming the page when a field is focused.
+   - Buttons/tap targets kept at a minimum ~44px for
+     comfortable thumb use.
+   - Form grid collapses to a single column.
+========================================================= */
+
 @media(max-width:520px){
 
     .topbar{
@@ -848,7 +869,7 @@ textarea:focus{
     }
 
     .nav-btn{
-        min-height:35px;
+        min-height:40px;
         padding:0 8px;
         font-size:9px;
     }
@@ -857,21 +878,68 @@ textarea:focus{
         display:none;
     }
 
+    .main{
+        padding:20px 12px;
+    }
+
+    .auth-container{
+        border-radius:14px;
+    }
+
     .form-panel{
-        padding:25px 18px;
+        padding:22px 16px;
+    }
+
+    .auth-tab{
+        font-size:10px;
+        padding:12px 8px;
+    }
+
+    .form-title{
+        font-size:24px;
+    }
+
+    .form-description{
+        font-size:12px;
     }
 
     .form-grid{
         grid-template-columns:1fr;
-        gap:0;
+        gap:14px;
     }
 
     .form-full{
         grid-column:auto;
     }
 
-    .form-title{
-        font-size:27px;
+    /*
+     * Prevent iOS Safari from zooming the whole page
+     * when a field receives focus (happens whenever a
+     * font-size under 16px is used on an input).
+     */
+
+    input,
+    select,
+    textarea{
+        font-size:16px;
+    }
+
+    input,
+    select{
+        height:48px;
+    }
+
+    label{
+        font-size:11px;
+    }
+
+    .primary-btn{
+        height:50px;
+        font-size:12px;
+    }
+
+    .password-toggle{
+        font-size:11px;
     }
 
     .footer{
@@ -886,6 +954,22 @@ textarea:focus{
     .footer-bottom{
         flex-direction:column;
     }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
+    }
+
 }
 
 </style>
@@ -1070,6 +1154,7 @@ textarea:focus{
     name="email"
     placeholder="you@example.com"
     autocomplete="email"
+    inputmode="email"
     required
 >
 
@@ -1296,6 +1381,7 @@ Email Address
     id="registerEmail"
     name="email"
     autocomplete="email"
+    inputmode="email"
     required
 >
 
@@ -1320,6 +1406,7 @@ Phone Number
     name="phone"
     placeholder="82 123 4567"
     autocomplete="tel"
+    inputmode="tel"
     required
 >
 
@@ -1432,6 +1519,7 @@ Postcode
     id="postcode"
     name="postcode"
     autocomplete="postal-code"
+    inputmode="numeric"
     required
 >
 
@@ -1511,6 +1599,7 @@ Identity Number
     type="text"
     id="identityNumber"
     name="identity_number"
+    inputmode="numeric"
 >
 
 </div>
@@ -1890,6 +1979,9 @@ const LOGIN_API =
 const REGISTER_API =
     "https://register.web.za/api/register.php";
 
+const FORGOT_PASSWORD_API =
+    "https://register.web.za/api/forgot-password.php";
+
 
 /*
  * Change this ONLY if your customer dashboard
@@ -1897,6 +1989,36 @@ const REGISTER_API =
  */
 const DASHBOARD_URL =
     "https://register.web.za/api/customer-dashboard.php";
+
+
+/*
+ * The sessionStorage key that cart.html and
+ * checkout.html read to detect a logged-in customer.
+ * Must match CUSTOMER_KEY in those files exactly.
+ */
+const CUSTOMER_KEY =
+    "dingesTechCustomer";
+
+
+/* =========================================================
+   URL PARAMS
+   (read once, used by both login success + initial tab)
+========================================================= */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+/*
+ * If we arrived here via e.g.
+ * login.html?redirect=checkout.html
+ * (as cart.html's login modal does), this is where
+ * the customer should be sent back to after logging in.
+ */
+const redirectParam =
+    urlParams.get("redirect");
 
 
 /* =========================================================
@@ -2473,14 +2595,58 @@ loginForm.addEventListener(
 
 
                 /*
-                 * Give the browser a short moment
-                 * to process the response/cookie.
+                 * Store the logged-in customer so cart.html
+                 * and checkout.html can recognise the session.
+                 * The shape here matches what those pages'
+                 * getLoggedInCustomer() helpers already expect.
+                 */
+
+                try{
+
+                    sessionStorage.setItem(
+                        CUSTOMER_KEY,
+                        JSON.stringify({
+                            id:
+                                result.json.client_id,
+                            clientId:
+                                result.json.client_id,
+                            firstname:
+                                result.json.firstname,
+                            lastname:
+                                result.json.lastname,
+                            name:
+                                result.json.name,
+                            email:
+                                result.json.email,
+                            status:
+                                result.json.status
+                        })
+                    );
+
+                }
+                catch(error){
+
+                    console.warn(
+                        "Unable to store customer session:",
+                        error
+                    );
+
+                }
+
+
+                /*
+                 * Prefer, in order:
+                 * 1. The ?redirect= query param this page
+                 *    was opened with (e.g. from the cart).
+                 * 2. Any redirect the API itself suggested.
+                 * 3. The default WHMCS dashboard.
                  */
 
                 setTimeout(
                     function(){
 
                         window.location.href =
+                            redirectParam ||
                             result.json.redirect ||
                             DASHBOARD_URL;
 
@@ -2970,37 +3136,103 @@ document
     .getElementById("forgotPassword")
     .addEventListener(
         "click",
-        function(event){
+        async function(event){
 
             event.preventDefault();
 
 
-            const email =
+            const emailField =
                 document.getElementById(
                     "loginEmail"
-                ).value.trim();
-
-
-            if(email){
-
-                alert(
-                    "Password reset for " +
-                    email +
-                    " will be connected to your Dinges TechHub customer account."
                 );
+
+            const email =
+                emailField.value.trim();
+
+            const message =
+                document.getElementById(
+                    "loginMessage"
+                );
+
+
+            if(!email){
+
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Please enter your email address first.";
+
+                emailField.focus();
+
+                return;
 
             }
-            else{
 
-                alert(
-                    "Please enter your email address first."
+
+            message.className =
+                "message info";
+
+            message.textContent =
+                "Sending password reset instructions...";
+
+
+            try{
+
+                const response =
+                    await fetch(
+                        FORGOT_PASSWORD_API,
+                        {
+                            method:"POST",
+
+                            body:
+                                JSON.stringify({
+                                    email:email
+                                }),
+
+                            credentials:"include",
+
+                            headers:{
+                                "Content-Type":
+                                    "application/json",
+                                "Accept":
+                                    "application/json"
+                            },
+
+                            cache:"no-store"
+                        }
+                    );
+
+
+                const result =
+                    await parseApiResponse(
+                        response
+                    );
+
+
+                message.className =
+                    "message success";
+
+                message.textContent =
+                    (
+                        result.json &&
+                        result.json.message
+                    ) ||
+                    "If an account exists with that email address, a password reset link has been sent.";
+
+            }
+            catch(error){
+
+                console.error(
+                    "FORGOT PASSWORD ERROR:",
+                    error
                 );
 
-                document
-                    .getElementById(
-                        "loginEmail"
-                    )
-                    .focus();
+                message.className =
+                    "message error";
+
+                message.textContent =
+                    "Unable to send the password reset email right now. Please try again.";
 
             }
 
@@ -3014,14 +3246,8 @@ document
 
 function displayLoginError(){
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
     const error =
-        params.get("error");
+        urlParams.get("error");
 
 
     if(!error){
@@ -3096,12 +3322,6 @@ function displayLoginError(){
 /* =========================================================
    REMEMBER TAB FROM URL
 ========================================================= */
-
-const urlParams =
-    new URLSearchParams(
-        window.location.search
-    );
-
 
 if(
     urlParams.get("register") === "1"
