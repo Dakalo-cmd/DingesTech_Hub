@@ -4,26 +4,50 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Wireless LTE, 4G & 5G | Dinges TechHub</title>
 
+<meta
+    name="description"
+    content="Explore Dinges TechHub wireless LTE, 4G and 5G internet packages with flexible monthly connectivity solutions."
+>
+
 <style>
 
+/* =========================================================
+   DINGES TECHHUB
+   WIRELESS LTE / 4G / 5G
+   ========================================================= */
+
 :root{
+
     --primary:#3C1542;
     --secondary:#7A2C78;
     --accent:#FFBB42;
+
     --black:#020202;
     --gray:#949393;
+
     --light:#F7F6F8;
     --white:#FFFFFF;
+
     --border:#E5E1E7;
 
-    --shadow:0 10px 25px rgba(60,21,66,.08);
-    --shadow-hover:0 18px 35px rgba(60,21,66,.15);
+    --success:#2E9D58;
+
+    --shadow:
+        0 10px 25px rgba(60,21,66,.08);
+
+    --shadow-hover:
+        0 18px 35px rgba(60,21,66,.15);
+
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
     margin:0;
@@ -36,10 +60,20 @@ html{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:var(--light);
+
     color:var(--black);
+
     line-height:1.6;
+
+    overflow-x:hidden;
+
 }
 
 a{
@@ -54,128 +88,440 @@ button{
 
 /* =========================================================
    TOP BAR
-========================================================= */
+   ========================================================= */
 
 .topbar{
+
     background:var(--primary);
+
     color:var(--white);
+
     padding:8px 5%;
-    font-size:13px;
+
+    font-size:12px;
+
 }
 
 .topbar-inner{
+
     max-width:1200px;
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:20px;
+
 }
 
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
 .navbar{
-    background:var(--white);
 
-    border-bottom:1px solid var(--border);
+    background:
+        rgba(255,255,255,.97);
+
+    border-bottom:
+        1px solid var(--border);
 
     position:sticky;
+
     top:0;
 
     z-index:1000;
+
+    backdrop-filter:
+        blur(10px);
+
 }
 
 .nav-inner{
-    max-width:1200px;
+
+    max-width:1250px;
+
     min-height:72px;
 
     margin:auto;
-    padding:0 5%;
+
+    padding:
+        0 5%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
-    gap:30px;
+    gap:25px;
+
 }
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .logo{
+
     display:flex;
+
     align-items:center;
 
-    gap:9px;
+    flex-shrink:0;
 
-    color:var(--primary);
-
-    font-size:20px;
-    font-weight:800;
-
-    white-space:nowrap;
 }
 
-.logo-mark{
-    width:40px;
-    height:40px;
+.logo img{
 
-    border-radius:9px;
+    width:150px;
 
-    background:var(--primary);
+    max-width:100%;
 
-    color:var(--accent);
+    height:auto;
 
-    display:grid;
-    place-items:center;
+    display:block;
 
-    font-weight:900;
+    object-fit:contain;
+
 }
+
+
+/* =========================================================
+   DESKTOP NAV LINKS
+   ========================================================= */
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
-    gap:22px;
+
+    justify-content:flex-end;
+
+    gap:20px;
+
 }
 
 .nav-links a{
+
+    position:relative;
+
     color:#333;
 
-    font-size:14px;
-    font-weight:600;
+    font-size:13px;
 
-    transition:.2s ease;
+    font-weight:700;
+
+    padding:
+        8px 0;
+
+    transition:
+        color .2s ease;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:2px;
+
+    border-radius:10px;
+
+    background:var(--accent);
+
+    transition:
+        width .2s ease;
+
 }
 
 .nav-links a:hover,
 .nav-links a.active{
+
     color:var(--secondary);
+
 }
 
-.nav-cta{
+.nav-links a:hover::after,
+.nav-links a.active::after{
+
+    width:100%;
+
+}
+
+
+/* =========================================================
+   CART NAV BUTTON
+   ========================================================= */
+
+.nav-cart{
+
+    display:flex!important;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
     background:var(--accent);
 
     color:var(--black)!important;
 
-    padding:9px 16px;
+    padding:
+        10px 16px!important;
+
+    border-radius:9px;
+
+    font-weight:900!important;
+
+    box-shadow:
+        0 5px 14px
+        rgba(255,187,66,.22);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    flex-shrink:0;
+
+}
+
+.nav-cart::after{
+
+    display:none!important;
+
+}
+
+.nav-cart:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(255,187,66,.32);
+
+}
+
+.cart-icon{
+
+    font-size:15px;
+
+}
+
+.cart-count{
+
+    min-width:20px;
+
+    height:20px;
+
+    padding:0 5px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-button{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:#F5F1F6;
+
+    color:var(--primary);
+
+    cursor:pointer;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    flex-shrink:0;
+
+}
+
+.mobile-menu-button span{
+
+    display:block;
+
+    width:21px;
+
+    height:2px;
+
+    background:var(--primary);
+
+    border-radius:5px;
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease;
+
+}
+
+.mobile-menu-button.open span:nth-child(1){
+
+    transform:
+        translateY(7px)
+        rotate(45deg);
+
+}
+
+.mobile-menu-button.open span:nth-child(2){
+
+    opacity:0;
+
+}
+
+.mobile-menu-button.open span:nth-child(3){
+
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    background:var(--white);
+
+    border-top:
+        1px solid var(--border);
+
+    box-shadow:
+        0 12px 25px
+        rgba(60,21,66,.10);
+
+}
+
+.mobile-menu.open{
+
+    display:block;
+
+}
+
+.mobile-menu-inner{
+
+    padding:
+        12px 5% 18px;
+
+}
+
+.mobile-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:46px;
+
+    padding:
+        10px 12px;
 
     border-radius:8px;
+
+    color:#333;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+
+}
+
+.mobile-menu a:hover,
+.mobile-menu a.active{
+
+    background:#F5F1F6;
+
+    color:var(--secondary);
+
+}
+
+.mobile-menu a + a{
+
+    margin-top:3px;
+
 }
 
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero{
+
+    position:relative;
+
+    overflow:hidden;
+
     background:
 
         radial-gradient(
             circle at 85% 20%,
-            rgba(255,187,66,.18),
+            rgba(255,187,66,.20),
             transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255,255,255,.08),
+            transparent 25%
         ),
 
         linear-gradient(
@@ -186,189 +532,338 @@ button{
 
     color:var(--white);
 
-    padding:75px 5%;
+    padding:
+        72px 5%;
 
     text-align:center;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+
+    height:280px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    right:-100px;
+
+    top:-100px;
+
 }
 
 .hero-inner{
+
+    position:relative;
+
+    z-index:2;
+
     max-width:850px;
+
     margin:auto;
+
 }
 
 .eyebrow{
+
     display:inline-block;
 
     color:var(--accent);
 
     font-size:11px;
 
-    font-weight:800;
+    font-weight:900;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
 
     margin-bottom:12px;
+
 }
 
 .hero h1{
-    font-size:clamp(38px,5vw,56px);
+
+    font-size:
+        clamp(38px,5vw,55px);
 
     line-height:1.05;
 
-    margin-bottom:18px;
+    margin-bottom:16px;
+
 }
 
 .hero p{
+
     max-width:720px;
 
     margin:auto;
 
-    color:rgba(255,255,255,.88);
+    color:
+        rgba(255,255,255,.88);
 
-    font-size:16px;
+    font-size:15px;
+
 }
 
 
 /* =========================================================
    MAIN
-========================================================= */
+   ========================================================= */
 
 .main{
+
+    width:100%;
+
     max-width:1200px;
 
     margin:auto;
 
-    padding:60px 5%;
+    padding:
+        55px 5%;
+
 }
 
 .section-heading{
+
     text-align:center;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
+
 }
 
 .section-heading h2{
+
     color:var(--primary);
 
-    font-size:32px;
+    font-size:30px;
 
-    margin-bottom:7px;
+    margin-bottom:6px;
+
 }
 
 .section-heading p{
+
     color:var(--gray);
 
-    font-size:14px;
-}
-
-
-/* =========================================================
-   ERROR
-========================================================= */
-
-.error-message{
-    display:none;
-
-    background:#FFF4F4;
-
-    border:1px solid #E7BDBD;
-
-    color:#8B2929;
-
-    padding:15px;
-
-    border-radius:9px;
-
-    margin-bottom:20px;
-
     font-size:13px;
-}
 
-.error-message.show{
-    display:block;
 }
 
 
 /* =========================================================
    INTRO CARDS
-========================================================= */
+   ========================================================= */
 
 .intro-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
 
-    margin-bottom:45px;
+    margin-bottom:40px;
+
 }
 
 .intro-card{
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-radius:15px;
+    border-radius:13px;
 
-    padding:25px;
+    padding:20px;
 
     box-shadow:var(--shadow);
 
     text-align:center;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+.intro-card:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        var(--shadow-hover);
+
 }
 
 .intro-icon{
-    width:58px;
-    height:58px;
 
-    margin:0 auto 15px;
+    width:50px;
 
-    border-radius:14px;
+    height:50px;
+
+    margin:
+        0 auto 12px;
+
+    border-radius:13px;
 
     background:#F5F1F6;
 
     display:grid;
+
     place-items:center;
 
-    font-size:26px;
+    font-size:23px;
+
 }
 
 .intro-card h3{
+
     color:var(--primary);
 
-    font-size:18px;
+    font-size:16px;
 
-    margin-bottom:7px;
+    margin-bottom:5px;
+
 }
 
 .intro-card p{
+
     color:var(--gray);
 
-    font-size:13px;
+    font-size:12px;
+
+    line-height:1.6;
+
 }
 
 
 /* =========================================================
-   PACKAGES
-========================================================= */
+   API STATUS
+   ========================================================= */
+
+.api-status{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    margin-bottom:20px;
+
+    color:var(--gray);
+
+    font-size:11px;
+
+    text-align:center;
+
+}
+
+.status-dot{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#999;
+
+    flex-shrink:0;
+
+}
+
+.status-dot.online{
+
+    background:
+        var(--success);
+
+}
+
+.status-dot.offline{
+
+    background:#C43D3D;
+
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.error-message{
+
+    display:none;
+
+    background:#FFF4F4;
+
+    border:
+        1px solid #E7BDBD;
+
+    color:#8B2929;
+
+    padding:14px 16px;
+
+    border-radius:9px;
+
+    margin-bottom:20px;
+
+    font-size:12px;
+
+    overflow-wrap:anywhere;
+
+}
+
+.error-message.show{
+
+    display:block;
+
+}
+
+
+/* =========================================================
+   PACKAGES HEADER
+   ========================================================= */
 
 .packages-section{
-    margin-top:20px;
+
+    margin-top:10px;
+
 }
 
 .packages-header{
-    background:var(--primary);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
 
     color:var(--white);
 
-    border-radius:15px;
+    border-radius:13px;
 
-    padding:25px;
+    padding:
+        20px 23px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
     display:flex;
 
@@ -377,223 +872,295 @@ button{
     justify-content:space-between;
 
     gap:20px;
+
 }
 
 .packages-header h2{
-    font-size:26px;
 
-    margin-bottom:4px;
+    font-size:23px;
+
+    margin-bottom:3px;
+
 }
 
 .packages-header p{
-    color:rgba(255,255,255,.75);
 
-    font-size:13px;
+    color:
+        rgba(255,255,255,.75);
+
+    font-size:12px;
+
 }
 
 
 /* =========================================================
    PACKAGE GRID
-========================================================= */
+   ========================================================= */
 
 .package-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
+
 }
 
 
 /* =========================================================
    PACKAGE CARD
-========================================================= */
+   ========================================================= */
 
 .package-card{
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-radius:15px;
+    border-radius:13px;
 
-    padding:22px;
+    padding:18px;
 
     box-shadow:var(--shadow);
 
-    transition:.2s ease;
+    position:relative;
+
+    min-width:0;
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+
 }
 
 .package-card:hover{
-    transform:translateY(-4px);
 
-    box-shadow:var(--shadow-hover);
+    transform:
+        translateY(-4px);
 
-    border-color:var(--secondary);
+    box-shadow:
+        var(--shadow-hover);
+
+    border-color:
+        var(--secondary);
+
 }
-
-.package-card h3{
-    color:var(--primary);
-
-    font-size:18px;
-
-    margin-bottom:15px;
-
-    min-height:48px;
-}
-
-
-/* =========================================================
-   PACKAGE BADGE
-========================================================= */
 
 .package-badge{
+
     display:inline-block;
 
     background:#F5F1F6;
 
     color:var(--secondary);
 
-    padding:5px 9px;
+    padding:
+        4px 8px;
 
     border-radius:20px;
 
-    font-size:10px;
+    font-size:9px;
 
-    font-weight:800;
+    font-weight:900;
 
-    margin-bottom:15px;
+    letter-spacing:.4px;
+
+    margin-bottom:10px;
 
     text-transform:uppercase;
+
+    max-width:100%;
+
+    overflow-wrap:anywhere;
+
 }
 
+.package-card h3{
 
-/* =========================================================
-   SPEED / DATA
-========================================================= */
+    color:var(--primary);
+
+    font-size:17px;
+
+    line-height:1.3;
+
+    margin-bottom:13px;
+
+    min-height:43px;
+
+    overflow-wrap:anywhere;
+
+}
 
 .package-speed{
+
     display:grid;
 
     grid-template-columns:
         1fr 1fr;
 
-    gap:10px;
+    gap:8px;
 
-    margin-bottom:18px;
+    margin-bottom:14px;
+
 }
 
 .speed-box{
+
     background:#F8F5F8;
 
     border-radius:8px;
 
-    padding:11px;
+    padding:9px;
+
+    min-width:0;
+
 }
 
 .speed-box small{
+
     display:block;
 
     color:var(--gray);
 
-    font-size:10px;
+    font-size:9px;
 
-    margin-bottom:2px;
+    margin-bottom:1px;
+
 }
 
 .speed-box strong{
+
     color:var(--primary);
 
-    font-size:15px;
+    font-size:13px;
+
+    overflow-wrap:anywhere;
+
 }
 
-
-/* =========================================================
-   PACKAGE INFORMATION
-========================================================= */
-
 .package-info{
-    border-top:1px solid var(--border);
 
-    padding-top:13px;
+    border-top:
+        1px solid var(--border);
+
+    padding-top:11px;
 
     display:grid;
 
-    gap:8px;
+    gap:6px;
 
-    margin-bottom:18px;
+    margin-bottom:14px;
+
 }
 
 .info-row{
+
     display:flex;
 
     justify-content:space-between;
 
-    gap:10px;
+    align-items:flex-start;
 
-    font-size:12px;
+    gap:8px;
+
+    font-size:11px;
+
 }
 
 .info-label{
+
     color:var(--gray);
+
+    flex-shrink:0;
+
 }
 
 .info-value{
+
     color:#333;
 
     font-weight:700;
 
     text-align:right;
+
+    max-width:65%;
+
+    overflow-wrap:anywhere;
+
 }
 
 
 /* =========================================================
    PRICE
-========================================================= */
+   ========================================================= */
 
 .package-price{
-    border-top:1px solid var(--border);
 
-    padding-top:15px;
+    border-top:
+        1px solid var(--border);
+
+    padding-top:13px;
 
     display:flex;
 
-    align-items:end;
+    align-items:flex-end;
 
     justify-content:space-between;
 
-    gap:10px;
+    gap:8px;
+
 }
 
 .price-label{
+
     color:var(--gray);
 
-    font-size:11px;
+    font-size:9px;
+
+    margin-bottom:2px;
+
 }
 
 .price{
+
     color:var(--secondary);
 
-    font-size:24px;
+    font-size:23px;
 
     font-weight:900;
+
+    line-height:1.1;
+
+    overflow-wrap:anywhere;
+
 }
 
 .price-period{
+
     color:var(--gray);
 
-    font-size:11px;
+    font-size:10px;
+
+    padding-bottom:2px;
+
+    text-align:right;
+
 }
 
 
 /* =========================================================
-   SELECT BUTTON
-========================================================= */
+   ADD TO CART
+   ========================================================= */
 
-.select-package{
+.add-to-cart{
+
     width:100%;
 
-    margin-top:17px;
+    margin-top:15px;
 
     background:var(--accent);
 
@@ -605,74 +1172,127 @@ button{
 
     padding:11px;
 
-    font-size:12px;
+    font-size:11px;
 
-    font-weight:800;
+    font-weight:900;
 
     cursor:pointer;
 
-    transition:.2s ease;
+    min-height:42px;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        background .2s ease;
+
 }
 
-.select-package:hover{
-    transform:translateY(-1px);
+.add-to-cart:hover{
 
-    opacity:.9;
+    transform:
+        translateY(-2px);
+
+    opacity:.92;
+
+}
+
+.add-to-cart.added{
+
+    background:
+        var(--success);
+
+    color:var(--white);
+
 }
 
 
 /* =========================================================
    LOADING
-========================================================= */
+   ========================================================= */
 
 .loading{
+
     text-align:center;
 
     padding:35px;
 
     color:var(--gray);
 
-    font-size:14px;
+    font-size:13px;
+
+    grid-column:1/-1;
+
 }
 
 
 /* =========================================================
    EMPTY
-========================================================= */
+   ========================================================= */
 
 .empty-message{
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius:12px;
 
-    padding:35px;
+    padding:30px;
 
     text-align:center;
 
     color:var(--gray);
 
     grid-column:1/-1;
+
 }
 
 .empty-message h3{
+
     color:var(--primary);
 
-    margin-bottom:8px;
+    margin-bottom:7px;
+
+}
+
+.retry-button{
+
+    margin-top:16px;
+
+    border:0;
+
+    background:var(--accent);
+
+    color:var(--black);
+
+    padding:
+        10px 18px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
 }
 
 
 /* =========================================================
    COVERAGE NOTE
-========================================================= */
+   ========================================================= */
 
 .coverage-note{
-    margin-top:40px;
 
-    padding:20px;
+    margin-top:35px;
 
-    border-left:4px solid var(--accent);
+    padding:
+        16px 18px;
+
+    border-left:
+        4px solid var(--accent);
 
     background:var(--white);
 
@@ -680,96 +1300,346 @@ button{
 
     color:var(--gray);
 
-    font-size:12px;
+    font-size:11px;
+
 }
 
 .coverage-note strong{
+
     color:var(--primary);
+
 }
 
 
 /* =========================================================
    CTA
-========================================================= */
+   ========================================================= */
 
 .cta{
+
     background:var(--primary);
 
     color:var(--white);
 
     text-align:center;
 
-    padding:60px 5%;
+    padding:
+        55px 5%;
+
 }
 
 .cta-inner{
+
     max-width:750px;
 
     margin:auto;
+
 }
 
 .cta h2{
-    font-size:30px;
 
-    margin-bottom:10px;
+    font-size:28px;
+
+    margin-bottom:9px;
+
 }
 
 .cta p{
-    color:rgba(255,255,255,.8);
 
-    font-size:14px;
+    color:
+        rgba(255,255,255,.78);
 
-    margin-bottom:22px;
+    font-size:13px;
+
+    margin-bottom:20px;
+
 }
 
 .cta a{
-    display:inline-block;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     background:var(--accent);
 
     color:var(--black);
 
-    font-weight:800;
+    font-weight:900;
 
-    font-size:13px;
+    font-size:12px;
 
-    padding:11px 22px;
+    padding:
+        11px 22px;
 
-    border-radius:9px;
+    border-radius:8px;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.cta a:hover{
+
+    transform:
+        translateY(-2px);
+
 }
 
 
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-footer{
+.footer{
+
     background:#16091A;
 
-    color:rgba(255,255,255,.75);
+    color:
+        rgba(255,255,255,.72);
 
-    text-align:center;
+    padding:
+        50px 5% 20px;
 
-    padding:30px 5%;
+}
+
+.footer-grid{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:35px;
+
+}
+
+.footer-brand{
+
+    padding-right:20px;
+
+}
+
+.footer-logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+.footer-logo img{
+
+    width:145px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+.footer-description{
+
+    max-width:320px;
+
+    color:
+        rgba(255,255,255,.58);
 
     font-size:12px;
+
+    line-height:1.7;
+
+}
+
+.footer-column h4{
+
+    color:var(--white);
+
+    font-size:13px;
+
+    margin-bottom:13px;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:
+        rgba(255,255,255,.58);
+
+    font-size:11px;
+
+    margin-bottom:8px;
+
+    transition:
+        color .2s ease;
+
+}
+
+.footer-column a:hover{
+
+    color:var(--accent);
+
+}
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:
+        35px auto 0;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.09);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    font-size:10px;
+
+    color:
+        rgba(255,255,255,.45);
+
+}
+
+.footer-bottom a{
+
+    color:var(--accent);
+
+}
+
+
+/* =========================================================
+   CART NOTIFICATION
+   ========================================================= */
+
+.cart-notification{
+
+    position:fixed;
+
+    right:22px;
+
+    bottom:22px;
+
+    max-width:340px;
+
+    background:var(--primary);
+
+    color:var(--white);
+
+    padding:
+        14px 18px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.22);
+
+    z-index:5000;
+
+    display:none;
+
+    font-size:12px;
+
+}
+
+.cart-notification.show{
+
+    display:block;
+
+    animation:
+        notificationIn .25s ease;
+
+}
+
+.cart-notification strong{
+
+    color:var(--accent);
+
+}
+
+@keyframes notificationIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
+
+@media(max-width:1100px){
+
+    .nav-links{
+
+        gap:13px;
+
+    }
+
+    .nav-links a{
+
+        font-size:12px;
+
+    }
+
+}
 
 @media(max-width:1000px){
 
     .package-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .intro-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
     }
 
 }
@@ -777,52 +1647,309 @@ footer{
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
-@media(max-width:650px){
+@media(max-width:700px){
 
-    .package-grid{
-        grid-template-columns:1fr;
-    }
+    .topbar{
 
-    .intro-grid{
-        grid-template-columns:1fr;
-    }
+        padding:
+            7px 4%;
 
-    .nav-links{
-        display:none;
     }
 
     .topbar-inner{
+
         justify-content:center;
 
         text-align:center;
+
     }
 
     .topbar-inner span:last-child{
+
         display:none;
+
     }
 
+
+    /* NAV */
+
+    .nav-inner{
+
+        min-height:65px;
+
+        padding:
+            0 4%;
+
+        gap:10px;
+
+    }
+
+    .logo{
+
+        min-width:0;
+
+    }
+
+    .logo img{
+
+        width:125px;
+
+    }
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .mobile-menu-button{
+
+        display:flex;
+
+    }
+
+    .nav-cart{
+
+        margin-left:auto;
+
+        padding:
+            9px 12px!important;
+
+    }
+
+
+    /* HERO */
+
     .hero{
-        padding:55px 5%;
+
+        padding:
+            55px 5%;
+
     }
 
     .hero h1{
-        font-size:40px;
+
+        font-size:39px;
+
     }
 
+    .hero p{
+
+        font-size:14px;
+
+    }
+
+
+    /* MAIN */
+
     .main{
-        padding:50px 5%;
+
+        padding:
+            45px 5%;
+
     }
 
     .section-heading h2{
-        font-size:28px;
+
+        font-size:27px;
+
+    }
+
+
+    /* INTRO */
+
+    .intro-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    /* PACKAGES */
+
+    .package-grid{
+
+        grid-template-columns:1fr;
+
     }
 
     .packages-header{
+
+        padding:18px;
+
+    }
+
+    .packages-header h2{
+
+        font-size:20px;
+
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+    .footer-bottom{
+
         flex-direction:column;
 
         align-items:flex-start;
+
+    }
+
+
+    /* NOTIFICATION */
+
+    .cart-notification{
+
+        left:15px;
+
+        right:15px;
+
+        bottom:15px;
+
+        max-width:none;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:420px){
+
+    .logo img{
+
+        width:112px;
+
+    }
+
+    .nav-inner{
+
+        gap:7px;
+
+    }
+
+    .mobile-menu-button{
+
+        width:40px;
+
+        height:40px;
+
+    }
+
+    .nav-cart{
+
+        padding:
+            9px 10px!important;
+
+    }
+
+    .cart-label{
+
+        display:none;
+
+    }
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+    .hero p{
+
+        font-size:13px;
+
+    }
+
+    .package-card{
+
+        padding:17px;
+
+    }
+
+    .package-price{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+    .price-period{
+
+        text-align:left;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media(max-width:340px){
+
+    .logo img{
+
+        width:100px;
+
+    }
+
+    .mobile-menu-button{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .nav-cart{
+
+        padding:
+            8px!important;
+
+    }
+
+    .cart-icon{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        scroll-behavior:auto!important;
+
+        transition:none!important;
+
+        animation:none!important;
+
     }
 
 }
@@ -864,18 +1991,24 @@ footer{
 
     <div class="nav-inner">
 
-        <a href="index.html" class="logo">
 
-            <span class="logo-mark">
-                DT
-            </span>
+        <!-- LOGO -->
 
-            <span>
-                Dinges TechHub
-            </span>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Dinges TechHub Home"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub"
+            >
 
         </a>
 
+
+        <!-- DESKTOP NAVIGATION -->
 
         <div class="nav-links">
 
@@ -887,22 +2020,101 @@ footer{
                 Services
             </a>
 
-            <a href="internet-connectivity.html">
+            <a
+                href="internet-connectivity.html"
+                class="active"
+            >
                 Internet Connectivity
             </a>
 
-            <a href="wireless-lte-4g-5g.html"
-               class="active">
-                LTE / 4G / 5G
+            <a href="advanced-pbx.html">
+                Advanced PBX
             </a>
 
             <a href="contact.html">
                 Contact Us
             </a>
 
-            <a href="cart.html"
-               class="nav-cta">
+        </div>
+
+
+        <!-- CART -->
+
+        <a
+            href="cart.html"
+            class="nav-cart"
+            aria-label="Shopping Cart"
+        >
+
+            <span class="cart-icon">
+                🛒
+            </span>
+
+            <span class="cart-label">
                 Cart
+            </span>
+
+            <span
+                id="cartCount"
+                class="cart-count"
+            >
+                0
+            </span>
+
+        </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <div
+        id="mobileMenu"
+        class="mobile-menu"
+    >
+
+        <div class="mobile-menu-inner">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a
+                href="internet-connectivity.html"
+                class="active"
+            >
+                Internet Connectivity
+            </a>
+
+            <a href="advanced-pbx.html">
+                Advanced PBX
+            </a>
+
+            <a href="contact.html">
+                Contact Us
             </a>
 
         </div>
@@ -931,7 +2143,7 @@ footer{
         <p>
             Stay connected without the need for fibre.
             Explore flexible wireless internet packages
-            for home, work and everyday connectivity.
+            for home, business and everyday connectivity.
         </p>
 
     </div>
@@ -961,7 +2173,7 @@ footer{
 
 
     <!-- =================================================
-         INTRODUCTION
+         INTRO CARDS
     ================================================== -->
 
     <div class="intro-grid">
@@ -997,7 +2209,7 @@ footer{
 
             <p>
                 Flexible 4G packages for homes,
-                businesses and mobile users.
+                businesses and everyday users.
             </p>
 
         </article>
@@ -1014,12 +2226,30 @@ footer{
             </h3>
 
             <p>
-                High-speed wireless connectivity
-                where compatible 5G coverage is available.
+                High-speed wireless connectivity where
+                compatible 5G coverage is available.
             </p>
 
         </article>
 
+
+    </div>
+
+
+    <!-- =================================================
+         API STATUS
+    ================================================== -->
+
+    <div class="api-status">
+
+        <span
+            id="statusDot"
+            class="status-dot"
+        ></span>
+
+        <span id="apiStatusText">
+            Connecting to wireless database...
+        </span>
 
     </div>
 
@@ -1059,19 +2289,18 @@ footer{
 
 
         <div
-            id="packagesLoading"
-            class="loading"
-        >
-
-            Loading wireless packages...
-
-        </div>
-
-
-        <div
             id="packageGrid"
             class="package-grid"
-        ></div>
+        >
+
+            <div
+                id="packagesLoading"
+                class="loading"
+            >
+                Loading wireless packages...
+            </div>
+
+        </div>
 
 
     </section>
@@ -1128,21 +2357,161 @@ footer{
 
 
 <!-- =====================================================
+     CART NOTIFICATION
+===================================================== -->
+
+<div
+    id="cartNotification"
+    class="cart-notification"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer>
+<footer class="footer">
 
-    <p>
 
-        &copy;
+    <div class="footer-grid">
 
-        <span id="year"></span>
 
-        Dinges TechHub.
-        All rights reserved.
+        <!-- BRAND -->
 
-    </p>
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+            >
+
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
+
+            </a>
+
+
+            <p class="footer-description">
+
+                Reliable technology, connectivity and
+                digital solutions for homes and businesses
+                across South Africa.
+
+            </p>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="cart.html">
+                Shopping Cart
+            </a>
+
+        </div>
+
+
+        <!-- SERVICES -->
+
+        <div class="footer-column">
+
+            <h4>
+                Services
+            </h4>
+
+            <a href="internet-connectivity.html">
+                Internet Connectivity
+            </a>
+
+            <a href="wireless-lte-4g-5g.html">
+                LTE / 4G / 5G
+            </a>
+
+            <a href="advanced-pbx.html">
+                Advanced PBX
+            </a>
+
+            <a href="hosting.html">
+                Web Hosting
+            </a>
+
+        </div>
+
+
+        <!-- SUPPORT -->
+
+        <div class="footer-column">
+
+            <h4>
+                Support
+            </h4>
+
+            <a href="contact.html">
+                Contact Support
+            </a>
+
+            <a href="help-centre.html">
+                Help Centre
+            </a>
+
+            <a href="login.html">
+                Client Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+
+            &copy;
+
+            <span id="year"></span>
+
+            Dinges TechHub.
+            All rights reserved.
+
+        </span>
+
+
+        <span>
+
+            Technology & Connectivity Solutions
+
+        </span>
+
+    </div>
+
 
 </footer>
 
@@ -1155,35 +2524,180 @@ footer{
 
 
 /* =========================================================
-   API CONFIGURATION
+   API
 ========================================================= */
-
-/*
-    IMPORTANT:
-
-    Your Netlify website cannot directly connect to MySQL.
-
-    The PHP API must be hosted on your register.web.za
-    server.
-
-    Example:
-
-    https://register.web.za/api/wireless-lte-4g-5g.php
-
-    If your PHP file is stored somewhere else,
-    change ONLY this URL.
-*/
 
 const API_URL =
     "https://register.web.za/api/wireless-lte-4g-5g.php";
 
 
 /* =========================================================
-   CURRENT YEAR
+   YEAR
 ========================================================= */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const mobileMenuButton =
+    document.getElementById(
+        "mobileMenuButton"
+    );
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+
+function closeMobileMenu(){
+
+    mobileMenu.classList.remove(
+        "open"
+    );
+
+    mobileMenuButton.classList.remove(
+        "open"
+    );
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    mobileMenuButton.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+    );
+
+}
+
+
+function toggleMobileMenu(){
+
+    const isOpen =
+        mobileMenu.classList.toggle(
+            "open"
+        );
+
+
+    mobileMenuButton.classList.toggle(
+        "open",
+        isOpen
+    );
+
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+
+    mobileMenuButton.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
+    );
+
+}
+
+
+mobileMenuButton.addEventListener(
+    "click",
+    toggleMobileMenu
+);
+
+
+/* Close mobile menu after selecting a link */
+
+mobileMenu
+    .querySelectorAll("a")
+    .forEach(
+        function(link){
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        }
+    );
+
+
+/* Close menu when clicking outside */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuButton.contains(event.target)
+        ){
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* Close menu with Escape */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* Close menu if screen becomes desktop */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(
+            window.innerWidth > 700
+        ){
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        updateCartCount();
+
+        loadPackages();
+
+    }
+);
 
 
 /* =========================================================
@@ -1193,35 +2707,71 @@ document.getElementById("year").textContent =
 async function loadPackages(){
 
     const loading =
-        document.getElementById("packagesLoading");
+        document.getElementById(
+            "packagesLoading"
+        );
 
     const grid =
-        document.getElementById("packageGrid");
+        document.getElementById(
+            "packageGrid"
+        );
 
     const errorMessage =
-        document.getElementById("errorMessage");
+        document.getElementById(
+            "errorMessage"
+        );
 
     const description =
-        document.getElementById("packagesDescription");
+        document.getElementById(
+            "packagesDescription"
+        );
+
+    const statusDot =
+        document.getElementById(
+            "statusDot"
+        );
+
+    const statusText =
+        document.getElementById(
+            "apiStatusText"
+        );
 
 
     try{
 
-        errorMessage.classList.remove("show");
+        errorMessage.classList.remove(
+            "show"
+        );
 
-        errorMessage.textContent = "";
+        errorMessage.textContent =
+            "";
 
 
         loading.style.display =
             "block";
 
 
+        statusDot.classList.remove(
+            "online",
+            "offline"
+        );
+
+
+        statusText.textContent =
+            "Connecting to wireless database...";
+
+
         grid.innerHTML =
             "";
 
 
+        grid.appendChild(
+            loading
+        );
+
+
         console.log(
-            "Loading wireless packages from:",
+            "Loading wireless packages:",
             API_URL
         );
 
@@ -1262,10 +2812,6 @@ async function loadPackages(){
         );
 
 
-        loading.style.display =
-            "none";
-
-
         if(!data.success){
 
             throw new Error(
@@ -1277,7 +2823,9 @@ async function loadPackages(){
 
 
         if(
-            !Array.isArray(data.packages)
+            !Array.isArray(
+                data.packages
+            )
         ){
 
             throw new Error(
@@ -1285,6 +2833,20 @@ async function loadPackages(){
             );
 
         }
+
+
+        statusDot.classList.add(
+            "online"
+        );
+
+
+        statusText.textContent =
+            "Live wireless database connected • " +
+            data.packages.length +
+            " packages available";
+
+
+        loading.remove();
 
 
         if(
@@ -1304,9 +2866,8 @@ async function loadPackages(){
                     </h3>
 
                     <p>
-                        There are currently no
-                        LTE, 4G or 5G packages
-                        available.
+                        There are currently no LTE,
+                        4G or 5G packages available.
                     </p>
 
                 </div>
@@ -1333,7 +2894,9 @@ async function loadPackages(){
             function(pkg){
 
                 grid.appendChild(
-                    createPackageCard(pkg)
+                    createPackageCard(
+                        pkg
+                    )
                 );
 
             }
@@ -1349,13 +2912,36 @@ async function loadPackages(){
         );
 
 
-        loading.style.display =
-            "none";
+        loading.remove();
 
 
-        errorMessage.textContent =
-            "Unable to load wireless packages. " +
-            error.message;
+        statusDot.classList.remove(
+            "online"
+        );
+
+        statusDot.classList.add(
+            "offline"
+        );
+
+
+        statusText.textContent =
+            "Unable to connect to wireless database";
+
+
+        errorMessage.innerHTML = `
+
+            <strong>
+                Wireless Package API Error
+            </strong>
+
+            <br>
+
+            ${escapeHTML(
+                error.message ||
+                "Unknown error"
+            )}
+
+        `;
 
 
         errorMessage.classList.add(
@@ -1376,16 +2962,13 @@ async function loadPackages(){
                     packages from the database.
                 </p>
 
-                <p style="
-                    margin-top:10px;
-                    font-size:12px;
-                ">
-
-                    Please check that the PHP API is
-                    available and that the API URL
-                    is correct.
-
-                </p>
+                <button
+                    type="button"
+                    class="retry-button"
+                    onclick="loadPackages()"
+                >
+                    Try Again
+                </button>
 
             </div>
 
@@ -1403,19 +2986,14 @@ async function loadPackages(){
 function createPackageCard(pkg){
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
 
     card.className =
         "package-card";
 
-
-    /*
-        Support different field names.
-
-        This makes the page more flexible
-        depending on what your PHP API returns.
-    */
 
     const packageName =
         pkg.package_name ||
@@ -1445,7 +3023,9 @@ function createPackageCard(pkg){
         pkg.data ||
         pkg.data_amount ||
         pkg.allowance ||
-        extractDataAmount(packageName) ||
+        extractDataAmount(
+            packageName
+        ) ||
         "-";
 
 
@@ -1453,7 +3033,9 @@ function createPackageCard(pkg){
         pkg.network_type ||
         pkg.connection_type ||
         pkg.internet_type ||
-        "Wireless";
+        detectNetworkType(
+            packageName
+        );
 
 
     const monthlyPrice =
@@ -1479,14 +3061,18 @@ function createPackageCard(pkg){
 
         <span class="package-badge">
 
-            ${escapeHTML(networkType)}
+            ${escapeHTML(
+                networkType
+            )}
 
         </span>
 
 
         <h3>
 
-            ${escapeHTML(packageName)}
+            ${escapeHTML(
+                packageName
+            )}
 
         </h3>
 
@@ -1502,7 +3088,9 @@ function createPackageCard(pkg){
 
                 <strong>
 
-                    ${escapeHTML(dataAmount)}
+                    ${escapeHTML(
+                        dataAmount
+                    )}
 
                 </strong>
 
@@ -1517,7 +3105,9 @@ function createPackageCard(pkg){
 
                 <strong>
 
-                    ${escapeHTML(networkType)}
+                    ${escapeHTML(
+                        networkType
+                    )}
 
                 </strong>
 
@@ -1530,34 +3120,46 @@ function createPackageCard(pkg){
         <div class="package-info">
 
 
-            <div class="info-row">
-
-                <span class="info-label">
-                    Package
-                </span>
-
-                <span class="info-value">
-
-                    ${escapeHTML(packageName)}
-
-                </span>
-
-            </div>
-
-
             ${
-                description
+                downloadSpeed !== "-"
                 ?
                 `
 
                 <div class="info-row">
 
                     <span class="info-label">
-                        Details
+                        Download
                     </span>
 
                     <span class="info-value">
-                        ${cleanDescription(description)}
+                        ${escapeHTML(
+                            downloadSpeed
+                        )}
+                    </span>
+
+                </div>
+
+                `
+                :
+                ""
+            }
+
+
+            ${
+                uploadSpeed !== "-"
+                ?
+                `
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        Upload
+                    </span>
+
+                    <span class="info-value">
+                        ${escapeHTML(
+                            uploadSpeed
+                        )}
                     </span>
 
                 </div>
@@ -1576,14 +3178,69 @@ function createPackageCard(pkg){
 
                 <span class="info-value">
 
-                    R${formatPrice(setupFee)}
+                    R${formatPrice(
+                        setupFee
+                    )}
 
                 </span>
 
             </div>
 
 
+            ${
+                packageId
+                ?
+                `
+
+                <div class="info-row">
+
+                    <span class="info-label">
+                        Product ID
+                    </span>
+
+                    <span class="info-value">
+
+                        ${escapeHTML(
+                            packageId
+                        )}
+
+                    </span>
+
+                </div>
+
+                `
+                :
+                ""
+            }
+
+
         </div>
+
+
+        ${
+            description
+            ?
+            `
+
+            <div
+                style="
+                    color:#949393;
+                    font-size:10px;
+                    line-height:1.5;
+                    margin-bottom:12px;
+                "
+            >
+
+                ${cleanDescription(
+                    description
+                )}
+
+            </div>
+
+            `
+            :
+            ""
+        }
 
 
         <div class="package-price">
@@ -1597,7 +3254,9 @@ function createPackageCard(pkg){
 
                 <div class="price">
 
-                    R${formatPrice(monthlyPrice)}
+                    R${formatPrice(
+                        monthlyPrice
+                    )}
 
                 </div>
 
@@ -1614,26 +3273,19 @@ function createPackageCard(pkg){
 
         <button
             type="button"
-            class="select-package"
+            class="add-to-cart"
         >
 
-            Select Package
+            Add to Cart
 
         </button>
 
     `;
 
 
-    /*
-        Attach click event safely.
-
-        This avoids putting raw JSON inside
-        an HTML onclick attribute.
-    */
-
     const button =
         card.querySelector(
-            ".select-package"
+            ".add-to-cart"
         );
 
 
@@ -1641,7 +3293,10 @@ function createPackageCard(pkg){
         "click",
         function(){
 
-            selectPackage(pkg);
+            addToCart(
+                pkg,
+                button
+            );
 
         }
     );
@@ -1653,18 +3308,27 @@ function createPackageCard(pkg){
 
 
 /* =========================================================
-   SELECT PACKAGE
+   ADD TO CART
 ========================================================= */
 
-function selectPackage(pkg){
+function addToCart(
+    pkg,
+    button
+){
 
-    console.log(
-        "Selected wireless package:",
-        pkg
-    );
+    const rawProductId =
+        pkg.id ||
+        pkg.product_id ||
+        0;
 
 
-    const packageName =
+    const productId =
+        Number(
+            rawProductId
+        );
+
+
+    const productName =
         pkg.package_name ||
         pkg.name ||
         "Wireless Package";
@@ -1677,24 +3341,378 @@ function selectPackage(pkg){
         0;
 
 
-    /*
-        Temporary selection.
+    const setupFee =
+        pkg.setup_fee ??
+        pkg.pricing?.setup ??
+        0;
 
-        Later this can be connected
-        directly to your WHMCS cart.
-    */
 
-    alert(
+    let cart = [];
 
-        "Package selected:\n\n" +
 
-        packageName +
+    try{
 
-        "\n\nMonthly: R" +
+        const saved =
+            localStorage.getItem(
+                "dingesCart"
+            );
 
-        formatPrice(monthlyPrice)
 
+        if(saved){
+
+            const parsed =
+                JSON.parse(
+                    saved
+                );
+
+
+            if(Array.isArray(parsed)){
+
+                cart =
+                    parsed;
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        console.warn(
+            "Could not read existing cart:",
+            error
+        );
+
+        cart = [];
+
+    }
+
+
+    const existingIndex =
+        cart.findIndex(
+            function(item){
+
+                return Number(
+                    item.productId ||
+                    item.id
+                ) === productId;
+
+            }
+        );
+
+
+    if(
+        existingIndex !== -1 &&
+        productId
+    ){
+
+        cart[
+            existingIndex
+        ].quantity =
+            Number(
+                cart[
+                    existingIndex
+                ].quantity || 1
+            ) + 1;
+
+    }
+    else{
+
+        cart.push({
+
+            id:
+                productId ||
+                Date.now(),
+
+            productId:
+                productId ||
+                Date.now(),
+
+            name:
+                productName,
+
+            package_name:
+                productName,
+
+            price:
+                Number(
+                    monthlyPrice
+                ),
+
+            monthly:
+                Number(
+                    monthlyPrice
+                ),
+
+            setupFee:
+                Number(
+                    setupFee
+                ),
+
+            billingCycle:
+                "monthly",
+
+            currency:
+                "ZAR",
+
+            quantity:
+                1,
+
+            type:
+                "wireless",
+
+            source:
+                "whmcs",
+
+            networkType:
+                pkg.network_type ||
+                pkg.connection_type ||
+                detectNetworkType(
+                    productName
+                )
+
+        });
+
+    }
+
+
+    try{
+
+        localStorage.setItem(
+            "dingesCart",
+            JSON.stringify(cart)
+        );
+
+    }
+    catch(error){
+
+        console.error(
+            "Could not save cart:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    updateCartCount();
+
+
+    const originalText =
+        button.textContent;
+
+
+    button.textContent =
+        "✓ Added to Cart";
+
+
+    button.classList.add(
+        "added"
     );
+
+
+    showCartNotification(
+        productName
+    );
+
+
+    setTimeout(
+        function(){
+
+            button.textContent =
+                originalText;
+
+            button.classList.remove(
+                "added"
+            );
+
+        },
+        2000
+    );
+
+
+    console.log(
+        "Wireless package added to cart:",
+        pkg
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE CART COUNT
+========================================================= */
+
+function updateCartCount(){
+
+    const countElement =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    if(!countElement){
+
+        return;
+
+    }
+
+
+    let cart = [];
+
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                "dingesCart"
+            );
+
+
+        if(saved){
+
+            const parsed =
+                JSON.parse(
+                    saved
+                );
+
+
+            if(Array.isArray(parsed)){
+
+                cart =
+                    parsed;
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        cart = [];
+
+    }
+
+
+    const count =
+        cart.reduce(
+            function(total,item){
+
+                return total +
+                    Number(
+                        item.quantity || 1
+                    );
+
+            },
+            0
+        );
+
+
+    countElement.textContent =
+        count;
+
+}
+
+
+/* =========================================================
+   CART NOTIFICATION
+========================================================= */
+
+function showCartNotification(
+    productName
+){
+
+    const notification =
+        document.getElementById(
+            "cartNotification"
+        );
+
+
+    notification.innerHTML = `
+
+        <strong>
+            ✓ Added to Cart
+        </strong>
+
+        <br>
+
+        ${escapeHTML(
+            productName
+        )}
+
+        has been added to your cart.
+
+    `;
+
+
+    notification.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.cartNotificationTimer
+    );
+
+
+    window.cartNotificationTimer =
+        setTimeout(
+            function(){
+
+                notification.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =========================================================
+   DETECT NETWORK TYPE
+========================================================= */
+
+function detectNetworkType(
+    name
+){
+
+    const value =
+        String(
+            name || ""
+        ).toUpperCase();
+
+
+    if(
+        value.includes("5G")
+    ){
+
+        return "5G";
+
+    }
+
+
+    if(
+        value.includes("4G")
+    ){
+
+        return "4G";
+
+    }
+
+
+    if(
+        value.includes("LTE")
+    ){
+
+        return "LTE";
+
+    }
+
+
+    return "Wireless";
 
 }
 
@@ -1703,10 +3721,14 @@ function selectPackage(pkg){
    EXTRACT DATA AMOUNT
 ========================================================= */
 
-function extractDataAmount(name){
+function extractDataAmount(
+    name
+){
 
     const match =
-        String(name).match(
+        String(
+            name || ""
+        ).match(
             /(\d+(?:\.\d+)?)\s*(GB|TB|MB)/i
         );
 
@@ -1718,9 +3740,11 @@ function extractDataAmount(name){
     }
 
 
-    return match[1] +
+    return (
+        match[1] +
         " " +
-        match[2].toUpperCase();
+        match[2].toUpperCase()
+    );
 
 }
 
@@ -1729,15 +3753,22 @@ function extractDataAmount(name){
    CLEAN DESCRIPTION
 ========================================================= */
 
-function cleanDescription(value){
+function cleanDescription(
+    value
+){
 
     let text =
-        String(value || "");
+        String(
+            value || ""
+        );
 
 
-    /*
-        Remove basic HTML tags.
-    */
+    text =
+        text.replace(
+            /<br\s*\/?>/gi,
+            " "
+        );
+
 
     text =
         text.replace(
@@ -1745,10 +3776,6 @@ function cleanDescription(value){
             " "
         );
 
-
-    /*
-        Decode a few common entities.
-    */
 
     text =
         text.replace(
@@ -1778,10 +3805,6 @@ function cleanDescription(value){
         );
 
 
-    /*
-        Remove excessive whitespace.
-    */
-
     text =
         text.replace(
             /\s+/g,
@@ -1790,20 +3813,23 @@ function cleanDescription(value){
         .trim();
 
 
-    /*
-        Keep cards from becoming too long.
-    */
-
-    if(text.length > 100){
+    if(
+        text.length > 95
+    ){
 
         text =
-            text.substring(0,100) +
+            text.substring(
+                0,
+                95
+            ) +
             "...";
 
     }
 
 
-    return escapeHTML(text);
+    return escapeHTML(
+        text
+    );
 
 }
 
@@ -1812,17 +3838,14 @@ function cleanDescription(value){
    PRICE FORMAT
 ========================================================= */
 
-function formatPrice(value){
-
-    /*
-        Handle WHMCS-style values such as:
-        -1
-        null
-        empty strings
-    */
+function formatPrice(
+    value
+){
 
     const number =
-        Number(value);
+        Number(
+            value
+        );
 
 
     if(
@@ -1839,6 +3862,7 @@ function formatPrice(value){
         "en-ZA",
         {
             minimumFractionDigits:2,
+
             maximumFractionDigits:2
         }
     );
@@ -1850,7 +3874,9 @@ function formatPrice(value){
    HTML ESCAPE
 ========================================================= */
 
-function escapeHTML(value){
+function escapeHTML(
+    value
+){
 
     return String(
         value ?? ""
@@ -1885,14 +3911,34 @@ function escapeHTML(value){
 
 
 /* =========================================================
-   START
+   KEEP CART COUNT UPDATED
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === "dingesCart"
+        ){
+
+            updateCartCount();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   UPDATE CART COUNT WHEN RETURNING TO PAGE
+========================================================= */
+
+window.addEventListener(
+    "pageshow",
     function(){
 
-        loadPackages();
+        updateCartCount();
 
     }
 );
