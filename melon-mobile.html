@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>Melon Mobile | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Melon Mobile packages from Dinges TechHub. Choose flexible mobile data packages and add them directly to your cart."
+>
 
 <style>
 
 /* =========================================================
-   VARIABLES
+   DINGES TECHHUB — MELON MOBILE
+   FULLY RESPONSIVE VERSION
    ========================================================= */
 
 :root{
-    --primary:#3C1542;
-    --secondary:#7A2C78;
-    --accent:#FFBB42;
+
+    --purple-dark:#3C1542;
+    --purple:#7A2C78;
+    --purple-light:#F3EFF5;
+
+    --gold:#FFBB42;
+
     --black:#020202;
-    --gray:#949393;
-    --light:#F7F6F8;
+    --grey:#949393;
+    --light-grey:#D9D9D9;
+
     --white:#FFFFFF;
-    --border:#E5E1E7;
+
+    --page-bg:#F7F6F8;
+    --border:#E7E2E9;
 
     --success:#218739;
     --error:#8B2929;
 
-    --shadow:0 10px 25px rgba(60,21,66,.08);
-    --shadow-hover:0 18px 35px rgba(60,21,66,.15);
+    --shadow:
+        0 12px 35px rgba(60,21,66,.08);
+
+    --shadow-hover:
+        0 20px 45px rgba(60,21,66,.16);
+
 }
 
 
@@ -43,45 +65,73 @@
 
 html{
     scroll-behavior:smooth;
+    width:100%;
+    overflow-x:hidden;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:var(--light);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:var(--page-bg);
+
     color:var(--black);
+
     line-height:1.6;
+
+    min-height:100vh;
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+
 }
 
 a{
+
     text-decoration:none;
+
     color:inherit;
+
 }
 
 button{
+
     font-family:inherit;
+
 }
 
 
 /* =========================================================
-   TOP BAR
+   TOP GOLD LINE
    ========================================================= */
 
-.topbar{
-    background:var(--primary);
-    color:var(--white);
-    padding:8px 5%;
-    font-size:13px;
-}
+body::before{
 
-.topbar-inner{
-    max-width:1200px;
-    margin:auto;
+    content:"";
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    position:fixed;
 
-    gap:20px;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:var(--gold);
+
+    z-index:9999;
+
 }
 
 
@@ -90,85 +140,495 @@ button{
    ========================================================= */
 
 .navbar{
-    background:var(--white);
-    border-bottom:1px solid var(--border);
 
-    position:sticky;
-    top:0;
+    background:#F3EFF5;
 
-    z-index:1000;
-}
+    min-height:76px;
 
-.nav-inner{
-    max-width:1200px;
-    min-height:72px;
-
-    margin:auto;
-    padding:0 5%;
+    padding:
+        0
+        5%;
 
     display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
+    border-bottom:
+        1px solid
+        rgba(60,21,66,.08);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:3000;
+
+    width:100%;
+
+}
+
+
+/* =========================================================
+   NAV INNER
+   ========================================================= */
+
+.nav-inner{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
     justify-content:space-between;
 
     gap:30px;
+
+    min-width:0;
+
 }
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
 
 .logo{
+
     display:flex;
+
     align-items:center;
-    gap:9px;
 
-    color:var(--primary);
+    flex-shrink:0;
 
-    font-size:20px;
-    font-weight:800;
+    transition:
+        transform .2s ease;
 
-    white-space:nowrap;
 }
 
-.logo-mark{
-    width:40px;
-    height:40px;
+.logo:hover{
 
-    border-radius:9px;
+    transform:translateY(-1px);
 
-    background:var(--primary);
-    color:var(--accent);
-
-    display:grid;
-    place-items:center;
-
-    font-weight:900;
 }
+
+.logo img{
+
+    width:105px;
+
+    max-width:105px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+
+/* =========================================================
+   DESKTOP NAV LINKS
+   ========================================================= */
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
-    gap:22px;
+
+    justify-content:flex-end;
+
+    gap:26px;
+
+    margin-left:auto;
+
+    min-width:0;
+
 }
 
 .nav-links a{
-    color:#333;
+
+    position:relative;
+
+    color:#171017;
 
     font-size:14px;
-    font-weight:600;
 
-    transition:.2s ease;
+    font-weight:700;
+
+    padding:
+        28px
+        0;
+
+    white-space:nowrap;
+
+    transition:
+        color .2s ease;
+
 }
 
-.nav-links a:hover,
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:20px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transition:
+        width .2s ease;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--purple);
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
 .nav-links a.active{
-    color:var(--secondary);
+
+    color:var(--purple);
+
 }
 
-.nav-cta{
-    background:var(--accent);
+.nav-links a.active::after{
 
-    color:var(--black)!important;
+    width:100%;
 
-    padding:9px 16px;
+}
 
-    border-radius:8px;
+
+/* =========================================================
+   CART BUTTON
+   ========================================================= */
+
+.nav-links .nav-cart{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    min-height:42px;
+
+    height:42px;
+
+    padding:
+        0
+        14px !important;
+
+    margin-left:2px;
+
+    border-radius:9px;
+
+    background:var(--purple-dark);
+
+    color:var(--white) !important;
+
+    font-size:13px !important;
+
+    font-weight:800 !important;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 5px 15px
+        rgba(60,21,66,.12);
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+.nav-links .nav-cart::after{
+
+    content:none !important;
+
+    display:none !important;
+
+}
+
+.nav-links .nav-cart:hover{
+
+    background:var(--purple);
+
+    color:var(--white) !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(60,21,66,.18);
+
+}
+
+.nav-links .nav-cart .cart-icon{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:18px;
+
+    height:18px;
+
+    font-size:15px;
+
+    line-height:1;
+
+}
+
+.nav-links .nav-cart > span:not(.cart-icon):not(.cart-count){
+
+    display:inline-block;
+
+    line-height:1;
+
+}
+
+.nav-links .nav-cart .cart-count{
+
+    min-width:21px;
+
+    height:21px;
+
+    padding:
+        0
+        5px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:var(--black);
+
+    font-size:10px !important;
+
+    font-weight:900 !important;
+
+    line-height:1;
+
+    box-shadow:
+        0 2px 6px
+        rgba(0,0,0,.12);
+
+}
+
+.nav-links .nav-cart .cart-count.has-items{
+
+    animation:
+        cartPulse .35s ease;
+
+}
+
+@keyframes cartPulse{
+
+    0%{
+        transform:scale(.8);
+    }
+
+    70%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
+.mobile-menu-button{
+
+    display:none;
+
+    width:44px;
+
+    height:44px;
+
+    min-width:44px;
+
+    min-height:44px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:var(--purple-dark);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:21px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
+    line-height:1;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+.mobile-menu-button:hover{
+
+    background:var(--purple);
+
+}
+
+.mobile-menu-button:focus-visible{
+
+    outline:
+        3px solid
+        rgba(255,187,66,.65);
+
+    outline-offset:2px;
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu{
+
+    display:none;
+
+    position:fixed;
+
+    top:71px;
+
+    left:0;
+
+    right:0;
+
+    width:100%;
+
+    max-height:
+        calc(100vh - 71px);
+
+    overflow-y:auto;
+
+    background:#F3EFF5;
+
+    border-top:
+        1px solid
+        rgba(60,21,66,.08);
+
+    border-bottom:
+        1px solid
+        rgba(60,21,66,.10);
+
+    padding:
+        10px 5%
+        20px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(60,21,66,.12);
+
+    z-index:2500;
+
+}
+
+.mobile-menu.open{
+
+    display:block;
+
+}
+
+.mobile-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:48px;
+
+    padding:
+        13px 4px;
+
+    color:#222;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:
+        1px solid
+        rgba(60,21,66,.08);
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+.mobile-menu a:last-child{
+
+    border-bottom:none;
+
+}
+
+.mobile-menu a:hover{
+
+    color:var(--purple);
+
+}
+
+.mobile-menu a:active{
+
+    background:
+        rgba(122,44,120,.05);
+
 }
 
 
@@ -177,61 +637,247 @@ button{
    ========================================================= */
 
 .hero{
+
+    position:relative;
+
+    overflow:hidden;
+
     background:
+
         radial-gradient(
-            circle at 85% 20%,
+            circle at 88% 15%,
             rgba(255,187,66,.18),
             transparent 28%
         ),
+
+        radial-gradient(
+            circle at 75% 100%,
+            rgba(255,255,255,.08),
+            transparent 30%
+        ),
+
         linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
+            120deg,
+            #43144B,
+            #70216F
         );
 
     color:var(--white);
 
-    padding:75px 5%;
+    padding:
+        75px
+        5%
+        78px;
 
-    text-align:center;
+    width:100%;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+
+    height:430px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    border-radius:50%;
+
+    right:-100px;
+
+    top:-200px;
+
+    pointer-events:none;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:50%;
+
+    right:40px;
+
+    bottom:-220px;
+
+    pointer-events:none;
+
 }
 
 .hero-inner{
-    max-width:850px;
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(
+        1100px,
+        90%
+    );
+
     margin:auto;
+
 }
 
 .eyebrow{
+
     display:inline-block;
 
-    color:var(--accent);
+    color:var(--gold);
 
-    font-size:11px;
-    font-weight:800;
+    font-size:12px;
+
+    font-weight:900;
 
     letter-spacing:2px;
 
     text-transform:uppercase;
 
     margin-bottom:12px;
+
 }
 
 .hero h1{
-    font-size:clamp(38px,5vw,56px);
 
-    line-height:1.05;
+    max-width:800px;
 
-    margin-bottom:15px;
+    font-size:
+        clamp(
+            40px,
+            6vw,
+            64px
+        );
+
+    line-height:1.03;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:18px;
+
 }
 
 .hero p{
-    max-width:720px;
 
-    margin:auto;
+    max-width:700px;
 
-    color:rgba(255,255,255,.88);
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .86
+        );
 
     font-size:16px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   HERO ACTIONS
+   ========================================================= */
+
+.hero-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:28px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:44px;
+
+    padding:
+        13px
+        22px;
+
+    border-radius:9px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+.hero-button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.hero-button.primary{
+
+    background:var(--gold);
+
+    color:var(--black);
+
+}
+
+.hero-button.secondary{
+
+    border:
+        1px solid
+        rgba(255,255,255,.30);
+
+    color:white;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .04
+        );
+
+}
+
+.hero-button.secondary:hover{
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .10
+        );
+
 }
 
 
@@ -240,31 +886,57 @@ button{
    ========================================================= */
 
 .main{
-    max-width:1200px;
+
+    width:min(
+        1200px,
+        90%
+    );
 
     margin:auto;
 
-    padding:60px 5%;
+    padding:
+        65px
+        0
+        70px;
+
 }
 
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
 .section-heading{
+
     text-align:center;
 
-    margin-bottom:35px;
+    margin-bottom:38px;
+
 }
 
 .section-heading h2{
-    color:var(--primary);
 
-    font-size:32px;
+    color:var(--purple-dark);
 
-    margin-bottom:6px;
+    font-size:
+        clamp(
+            27px,
+            4vw,
+            35px
+        );
+
+    line-height:1.2;
+
+    margin-bottom:8px;
+
 }
 
 .section-heading p{
-    color:var(--gray);
+
+    color:var(--grey);
 
     font-size:14px;
+
 }
 
 
@@ -273,52 +945,110 @@ button{
    ========================================================= */
 
 .status-message{
+
     display:none;
 
-    padding:15px 18px;
+    position:fixed;
 
-    border-radius:9px;
+    right:25px;
 
-    margin-bottom:25px;
+    bottom:25px;
+
+    z-index:5000;
+
+    width:auto;
+
+    max-width:380px;
+
+    padding:
+        15px
+        18px;
+
+    border-radius:10px;
 
     font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,.15);
+
 }
 
 .status-message.show{
+
     display:block;
-}
 
-.status-message.error{
-    background:#FFF4F4;
+    animation:
+        slideIn .3s ease;
 
-    border:1px solid #E7BDBD;
-
-    color:var(--error);
 }
 
 .status-message.success{
+
     background:#F1FAF3;
 
-    border:1px solid #B8DDBF;
+    border:
+        1px solid
+        #B8DDBF;
 
     color:var(--success);
+
+}
+
+.status-message.error{
+
+    background:#FFF4F4;
+
+    border:
+        1px solid
+        #E7BDBD;
+
+    color:var(--error);
+
+}
+
+@keyframes slideIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+
+    }
+
 }
 
 
 /* =========================================================
-   PROVIDER INTRO
+   PROVIDER CARD
    ========================================================= */
 
 .provider-intro{
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:16px;
 
-    padding:28px;
+    padding:25px;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
 
     box-shadow:var(--shadow);
 
@@ -326,68 +1056,100 @@ button{
 
     align-items:center;
 
-    gap:25px;
+    gap:22px;
+
+    width:100%;
+
 }
 
 .provider-logo{
-    width:85px;
-    height:85px;
+
+    width:78px;
+
+    height:78px;
 
     flex-shrink:0;
 
-    border-radius:16px;
+    border-radius:14px;
 
     background:#F5F1F6;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
+
+    border:
+        1px solid
+        #ECE5EE;
+
 }
 
 .provider-logo img{
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
-    padding:10px;
+    padding:9px;
+
 }
 
 .provider-letter{
-    color:var(--secondary);
 
-    font-size:32px;
+    color:var(--purple);
+
+    font-size:30px;
 
     font-weight:900;
+
 }
 
 .provider-intro h2{
-    color:var(--primary);
 
-    font-size:25px;
+    color:var(--purple-dark);
 
-    margin-bottom:5px;
+    font-size:23px;
+
+    margin-bottom:4px;
+
 }
 
 .provider-intro p{
-    color:var(--gray);
 
-    font-size:14px;
+    color:var(--grey);
+
+    font-size:13px;
+
 }
 
 
 /* =========================================================
-   PACKAGES GRID
+   PACKAGE GRID
    ========================================================= */
 
 .package-grid{
+
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
 
-    gap:20px;
+    gap:22px;
+
+    width:100%;
+
 }
 
 
@@ -396,9 +1158,14 @@ button{
    ========================================================= */
 
 .package-card{
+
+    position:relative;
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:16px;
 
@@ -406,22 +1173,60 @@ button{
 
     box-shadow:var(--shadow);
 
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    overflow:hidden;
+
     transition:
         transform .25s ease,
         box-shadow .25s ease,
         border-color .25s ease;
 
-    display:flex;
+}
 
-    flex-direction:column;
+.package-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple-dark),
+            var(--purple),
+            var(--gold)
+        );
+
 }
 
 .package-card:hover{
-    transform:translateY(-5px);
+
+    transform:
+        translateY(-6px);
 
     box-shadow:var(--shadow-hover);
 
-    border-color:var(--secondary);
+    border-color:
+        rgba(
+            122,
+            44,
+            120,
+            .35
+        );
+
 }
 
 
@@ -430,27 +1235,31 @@ button{
    ========================================================= */
 
 .package-badge{
-    display:inline-block;
+
+    display:inline-flex;
 
     align-self:flex-start;
 
-    background:#F8F1F8;
+    background:#F5EDF6;
 
-    color:var(--secondary);
+    color:var(--purple);
 
-    padding:5px 9px;
+    padding:
+        6px
+        10px;
 
     border-radius:20px;
 
     font-size:10px;
 
-    font-weight:800;
+    font-weight:900;
 
     text-transform:uppercase;
 
-    letter-spacing:.5px;
+    letter-spacing:.7px;
 
-    margin-bottom:14px;
+    margin-bottom:15px;
+
 }
 
 
@@ -459,13 +1268,17 @@ button{
    ========================================================= */
 
 .package-card h3{
-    color:var(--primary);
 
-    font-size:21px;
+    color:var(--purple-dark);
 
-    line-height:1.3;
+    font-size:20px;
 
-    margin-bottom:12px;
+    line-height:1.35;
+
+    margin-bottom:10px;
+
+    overflow-wrap:anywhere;
+
 }
 
 
@@ -474,28 +1287,31 @@ button{
    ========================================================= */
 
 .package-description{
-    color:var(--gray);
+
+    color:#737073;
 
     font-size:13px;
 
     line-height:1.7;
 
-    min-height:70px;
+    min-height:65px;
 
-    margin-bottom:20px;
-}
+    margin-bottom:18px;
 
-.package-description strong{
-    color:var(--primary);
+    overflow-wrap:anywhere;
+
 }
 
 
 /* =========================================================
-   DATA INFO
+   PACKAGE INFORMATION
    ========================================================= */
 
 .package-info{
-    border-top:1px solid var(--border);
+
+    border-top:
+        1px solid
+        var(--border);
 
     padding-top:15px;
 
@@ -504,9 +1320,11 @@ button{
     gap:9px;
 
     margin-bottom:20px;
+
 }
 
 .info-row{
+
     display:flex;
 
     justify-content:space-between;
@@ -514,18 +1332,29 @@ button{
     gap:15px;
 
     font-size:12px;
+
+    min-width:0;
+
 }
 
 .info-label{
-    color:var(--gray);
+
+    color:var(--grey);
+
+    flex-shrink:0;
+
 }
 
 .info-value{
+
     color:#333;
 
-    font-weight:700;
+    font-weight:800;
 
     text-align:right;
+
+    overflow-wrap:anywhere;
+
 }
 
 
@@ -534,7 +1363,10 @@ button{
    ========================================================= */
 
 .package-price{
-    border-top:1px solid var(--border);
+
+    border-top:
+        1px solid
+        var(--border);
 
     padding-top:17px;
 
@@ -546,66 +1378,116 @@ button{
 
     justify-content:space-between;
 
-    gap:10px;
+    gap:12px;
+
 }
 
 .price-label{
-    color:var(--gray);
+
+    color:var(--grey);
 
     font-size:11px;
 
     margin-bottom:2px;
+
 }
 
 .price{
-    color:var(--secondary);
+
+    color:var(--purple);
 
     font-size:27px;
 
     font-weight:900;
+
+    letter-spacing:-.5px;
+
+    overflow-wrap:anywhere;
+
 }
 
 .price-period{
-    color:var(--gray);
+
+    color:var(--grey);
 
     font-size:11px;
 
     padding-bottom:4px;
+
+    text-align:right;
+
 }
 
 
 /* =========================================================
-   SELECT BUTTON
+   ADD TO CART BUTTON
    ========================================================= */
 
-.select-package{
+.add-to-cart{
+
     width:100%;
+
+    min-height:46px;
 
     margin-top:18px;
 
-    background:var(--accent);
-
-    color:var(--black);
-
-    border:0;
+    border:none;
 
     border-radius:9px;
 
-    padding:12px;
+    background:var(--gold);
+
+    color:var(--black);
+
+    padding:13px;
 
     font-size:12px;
 
-    font-weight:800;
+    font-weight:900;
 
     cursor:pointer;
 
-    transition:.2s ease;
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        background .2s ease;
+
+    -webkit-tap-highlight-color:transparent;
+
 }
 
-.select-package:hover{
-    transform:translateY(-1px);
+.add-to-cart:hover{
 
-    opacity:.9;
+    transform:
+        translateY(-2px);
+
+    filter:brightness(.96);
+
+}
+
+.add-to-cart:active{
+
+    transform:
+        translateY(0);
+
+}
+
+.add-to-cart:focus-visible{
+
+    outline:
+        3px solid
+        rgba(122,44,120,.30);
+
+    outline-offset:2px;
+
+}
+
+.add-to-cart.added{
+
+    background:var(--purple);
+
+    color:white;
+
 }
 
 
@@ -614,34 +1496,49 @@ button{
    ========================================================= */
 
 .loading{
+
     text-align:center;
 
-    padding:45px;
+    padding:50px;
 
-    color:var(--gray);
+    color:var(--grey);
 
     font-size:14px;
+
 }
 
 .loading-spinner{
-    width:35px;
-    height:35px;
 
-    border:4px solid #E8E3E9;
+    width:36px;
 
-    border-top-color:var(--secondary);
+    height:36px;
+
+    border:
+        4px solid
+        #E8E3E9;
+
+    border-top-color:
+        var(--purple);
 
     border-radius:50%;
 
-    animation:spin 1s linear infinite;
+    animation:
+        spin 1s linear infinite;
 
-    margin:0 auto 15px;
+    margin:
+        0
+        auto
+        15px;
+
 }
 
 @keyframes spin{
 
     to{
-        transform:rotate(360deg);
+
+        transform:
+            rotate(360deg);
+
     }
 
 }
@@ -652,25 +1549,33 @@ button{
    ========================================================= */
 
 .empty-message{
+
     background:var(--white);
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     border-radius:14px;
 
-    padding:35px;
+    padding:40px;
 
     text-align:center;
 
-    color:var(--gray);
+    color:var(--grey);
 
     grid-column:1/-1;
+
+    overflow-wrap:anywhere;
+
 }
 
 .empty-message h3{
-    color:var(--primary);
+
+    color:var(--purple-dark);
 
     margin-bottom:8px;
+
 }
 
 
@@ -679,23 +1584,37 @@ button{
    ========================================================= */
 
 .database-note{
+
     margin-top:40px;
 
-    padding:16px 18px;
+    padding:
+        16px
+        18px;
 
-    border-left:4px solid var(--accent);
+    border-left:
+        4px solid
+        var(--gold);
 
     background:var(--white);
 
     border-radius:9px;
 
-    color:var(--gray);
+    color:var(--grey);
 
     font-size:12px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,.03);
+
+    overflow-wrap:anywhere;
+
 }
 
 .database-note strong{
-    color:var(--primary);
+
+    color:var(--purple-dark);
+
 }
 
 
@@ -704,49 +1623,124 @@ button{
    ========================================================= */
 
 .cta{
-    background:var(--primary);
 
-    color:var(--white);
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:white;
 
     text-align:center;
 
-    padding:60px 5%;
+    padding:
+        65px
+        5%;
+
+    width:100%;
+
+}
+
+.cta::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    right:-160px;
+
+    top:-200px;
+
+    pointer-events:none;
+
 }
 
 .cta-inner{
+
+    position:relative;
+
+    z-index:2;
+
     max-width:750px;
 
     margin:auto;
+
 }
 
 .cta h2{
+
     font-size:30px;
 
     margin-bottom:10px;
+
 }
 
 .cta p{
-    color:rgba(255,255,255,.8);
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .80
+        );
 
     font-size:14px;
 
     margin-bottom:22px;
+
 }
 
 .cta a{
-    display:inline-block;
 
-    background:var(--accent);
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:44px;
+
+    background:var(--gold);
 
     color:var(--black);
 
-    font-weight:800;
+    font-weight:900;
 
     font-size:13px;
 
-    padding:11px 22px;
+    padding:
+        12px
+        23px;
 
     border-radius:9px;
+
+    transition:
+        transform .2s ease;
+
+}
+
+.cta a:hover{
+
+    transform:
+        translateY(-2px);
+
 }
 
 
@@ -755,30 +1749,302 @@ button{
    ========================================================= */
 
 footer{
-    background:#16091A;
 
-    color:rgba(255,255,255,.75);
+    background:#140918;
 
-    text-align:center;
+    color:white;
 
-    padding:30px 5%;
+    padding:
+        60px
+        5%
+        25px;
 
-    font-size:12px;
+    width:100%;
+
+}
+
+.footer-inner{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap:45px;
+
 }
 
 
 /* =========================================================
-   TABLET
+   FOOTER BRAND
    ========================================================= */
 
-@media(max-width:1000px){
+.footer-brand{
+
+    padding-right:25px;
+
+}
+
+.footer-logo{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.footer-logo img{
+
+    width:105px;
+
+    height:auto;
+
+    display:block;
+
+}
+
+.footer-brand p{
+
+    max-width:350px;
+
+    color:#D8CFDB;
+
+    line-height:1.8;
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+   ========================================================= */
+
+footer h3{
+
+    color:white;
+
+    margin-bottom:18px;
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+footer a{
+
+    display:block;
+
+    color:#C9BFCB;
+
+    text-decoration:none;
+
+    margin:
+        10px
+        0;
+
+    font-size:13px;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+
+}
+
+footer a:hover{
+
+    color:var(--gold);
+
+    transform:
+        translateX(3px);
+
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom{
+
+    max-width:1200px;
+
+    margin:
+        45px
+        auto
+        0;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#AFA4B2;
+
+    font-size:12px;
+
+}
+
+.footer-tagline{
+
+    color:#AFA4B2;
+
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media(max-width:1100px){
+
+    .nav-links{
+
+        gap:18px;
+
+    }
+
+    .nav-links a{
+
+        font-size:13px;
+
+    }
+
+    .nav-links .nav-cart{
+
+        padding:
+            0
+            11px !important;
+
+    }
 
     .package-grid{
-        grid-template-columns:repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:
+            2fr
+            1fr
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media(max-width:850px){
+
+    .navbar{
+
+        min-height:70px;
+
+        padding:
+            0
+            4%;
+
     }
 
     .nav-links{
-        gap:14px;
+
+        display:none;
+
+    }
+
+    .mobile-menu-button{
+
+        display:flex;
+
+    }
+
+    .mobile-menu{
+
+        top:70px;
+
+        max-height:
+            calc(100vh - 70px);
+
+    }
+
+    .hero{
+
+        padding:
+            60px
+            5%
+            65px;
+
+    }
+
+    .hero-inner{
+
+        width:92%;
+
+    }
+
+    .main{
+
+        width:92%;
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+    .footer-brand{
+
+        grid-column:
+            1/-1;
+
+        padding-right:0;
+
     }
 
 }
@@ -788,46 +2054,575 @@ footer{
    MOBILE
    ========================================================= */
 
-@media(max-width:650px){
+@media(max-width:750px){
 
-    .package-grid{
-        grid-template-columns:1fr;
+    .navbar{
+
+        min-height:68px;
+
+        padding:
+            0
+            4%;
+
     }
 
-    .nav-links{
-        display:none;
+    .nav-inner{
+
+        gap:15px;
+
     }
 
-    .topbar-inner{
-        justify-content:center;
+    .logo img{
 
-        text-align:center;
+        width:100px;
+
+        max-width:100px;
+
     }
 
-    .topbar-inner span:last-child{
-        display:none;
+    .mobile-menu{
+
+        top:68px;
+
+        padding:
+            10px
+            5%
+            20px;
+
+        max-height:
+            calc(100vh - 68px);
+
     }
 
     .hero{
-        padding:55px 5%;
+
+        padding:
+            52px
+            5%
+            58px;
+
+    }
+
+    .hero-inner{
+
+        width:100%;
+
     }
 
     .hero h1{
-        font-size:40px;
+
+        font-size:
+            clamp(
+                36px,
+                10vw,
+                48px
+            );
+
+        letter-spacing:-1px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+        line-height:1.7;
+
+    }
+
+    .hero-actions{
+
+        gap:10px;
+
     }
 
     .main{
-        padding:45px 5%;
+
+        width:92%;
+
+        padding:
+            48px
+            0
+            55px;
+
+    }
+
+    .section-heading{
+
+        margin-bottom:30px;
+
     }
 
     .section-heading h2{
+
         font-size:28px;
+
+    }
+
+    .package-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
     }
 
     .provider-intro{
+
         flex-direction:column;
 
         text-align:center;
+
+        padding:23px;
+
+        margin-bottom:30px;
+
+        gap:15px;
+
+    }
+
+    .provider-logo{
+
+        width:85px;
+
+        height:85px;
+
+    }
+
+    .provider-intro h2{
+
+        font-size:21px;
+
+    }
+
+    .provider-intro p{
+
+        font-size:13px;
+
+        line-height:1.65;
+
+    }
+
+    .package-card{
+
+        padding:22px;
+
+    }
+
+    .package-card:hover{
+
+        transform:none;
+
+    }
+
+    .package-description{
+
+        min-height:0;
+
+    }
+
+    .footer-inner{
+
+        grid-template-columns:1fr;
+
+        gap:32px;
+
+    }
+
+    .footer-brand{
+
+        grid-column:auto;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        margin-top:35px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media(max-width:480px){
+
+    .navbar{
+
+        min-height:64px;
+
+        padding:
+            0
+            15px;
+
+    }
+
+    .logo img{
+
+        width:92px;
+
+        max-width:92px;
+
+    }
+
+    .mobile-menu-button{
+
+        width:42px;
+
+        height:42px;
+
+        min-width:42px;
+
+        min-height:42px;
+
+        font-size:19px;
+
+    }
+
+    .mobile-menu{
+
+        top:64px;
+
+        max-height:
+            calc(100vh - 64px);
+
+        padding:
+            8px
+            15px
+            18px;
+
+    }
+
+    .mobile-menu a{
+
+        min-height:46px;
+
+        font-size:14px;
+
+        padding:
+            12px
+            4px;
+
+    }
+
+    .hero{
+
+        padding:
+            45px
+            15px
+            50px;
+
+    }
+
+    .hero h1{
+
+        font-size:
+            clamp(
+                34px,
+                11vw,
+                42px
+            );
+
+        line-height:1.05;
+
+    }
+
+    .hero p{
+
+        font-size:14px;
+
+        line-height:1.7;
+
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .hero-button{
+
+        width:100%;
+
+        min-height:46px;
+
+    }
+
+    .main{
+
+        width:calc(100% - 30px);
+
+        padding:
+            42px
+            0
+            50px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:26px;
+
+    }
+
+    .section-heading p{
+
+        font-size:13px;
+
+    }
+
+    .provider-intro{
+
+        padding:20px 16px;
+
+    }
+
+    .provider-logo{
+
+        width:78px;
+
+        height:78px;
+
+    }
+
+    .provider-intro h2{
+
+        font-size:20px;
+
+    }
+
+    .provider-intro p{
+
+        font-size:12.5px;
+
+    }
+
+    .package-card{
+
+        padding:20px 17px;
+
+        border-radius:14px;
+
+    }
+
+    .package-card h3{
+
+        font-size:19px;
+
+    }
+
+    .package-description{
+
+        font-size:12.5px;
+
+    }
+
+    .info-row{
+
+        font-size:11.5px;
+
+        gap:10px;
+
+    }
+
+    .price{
+
+        font-size:25px;
+
+    }
+
+    .price-period{
+
+        font-size:10px;
+
+    }
+
+    .add-to-cart{
+
+        min-height:47px;
+
+        font-size:12px;
+
+    }
+
+    .database-note{
+
+        margin-top:30px;
+
+        padding:
+            14px
+            15px;
+
+        font-size:11.5px;
+
+    }
+
+    .cta{
+
+        padding:
+            50px
+            15px;
+
+    }
+
+    .cta h2{
+
+        font-size:26px;
+
+    }
+
+    .cta p{
+
+        font-size:13px;
+
+    }
+
+    .cta a{
+
+        width:100%;
+
+        min-height:46px;
+
+    }
+
+    footer{
+
+        padding:
+            50px
+            15px
+            22px;
+
+    }
+
+    .footer-brand p{
+
+        font-size:12.5px;
+
+    }
+
+    .footer-bottom{
+
+        font-size:11px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media(max-width:360px){
+
+    .navbar{
+
+        padding:
+            0
+            12px;
+
+    }
+
+    .logo img{
+
+        width:86px;
+
+    }
+
+    .mobile-menu-button{
+
+        width:40px;
+
+        height:40px;
+
+        min-width:40px;
+
+    }
+
+    .hero{
+
+        padding:
+            40px
+            12px
+            45px;
+
+    }
+
+    .hero h1{
+
+        font-size:32px;
+
+    }
+
+    .hero p{
+
+        font-size:13px;
+
+    }
+
+    .main{
+
+        width:calc(100% - 24px);
+
+    }
+
+    .package-card{
+
+        padding:
+            19px
+            15px;
+
+    }
+
+    .package-price{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+        gap:3px;
+
+    }
+
+    .price-period{
+
+        padding-bottom:0;
+
+        text-align:left;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        scroll-behavior:auto !important;
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
     }
 
 }
@@ -840,47 +2635,32 @@ footer{
 <body>
 
 
-<!-- =====================================================
-     TOP BAR
-     ===================================================== -->
-
-<div class="topbar">
-
-    <div class="topbar-inner">
-
-        <span>
-            Reliable Technology & Connectivity Solutions
-        </span>
-
-        <span>
-            South Africa
-        </span>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
+<!-- =========================================================
      NAVIGATION
-     ===================================================== -->
+     ========================================================= -->
 
 <nav class="navbar">
 
     <div class="nav-inner">
 
-        <a href="index.html" class="logo">
 
-            <span class="logo-mark">
-                DT
-            </span>
+        <!-- LOGO -->
 
-            <span>
-                Dinges TechHub
-            </span>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Dinges TechHub Home"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub"
+            >
 
         </a>
 
+
+        <!-- DESKTOP NAV -->
 
         <div class="nav-links">
 
@@ -892,32 +2672,117 @@ footer{
                 Services
             </a>
 
-            <a href="melon-mobile.html" class="active">
-                Mobile
+            <a href="internet.html">
+                Internet
+            </a>
+
+            <a href="hosting.html">
+                Hosting
+            </a>
+
+            <a href="about.html">
+                About
             </a>
 
             <a href="contact.html">
-                Contact Us
+                Contact
             </a>
 
-            <a href="login.html">
-                Login
-            </a>
+            <a
+                href="cart.html"
+                class="nav-cart"
+            >
 
-            <a href="cart.html" class="nav-cta">
-                Cart
+                <span class="cart-icon">
+                    🛒
+                </span>
+
+                <span>
+                    Cart
+                </span>
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
             </a>
 
         </div>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+        >
+            ☰
+        </button>
+
 
     </div>
 
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     MOBILE NAV
+     ========================================================= -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <a href="index.html">
+        <span>Home</span>
+    </a>
+
+    <a href="services.html">
+        <span>Services</span>
+    </a>
+
+    <a href="internet.html">
+        <span>Internet</span>
+    </a>
+
+    <a href="hosting.html">
+        <span>Hosting</span>
+    </a>
+
+    <a href="about.html">
+        <span>About</span>
+    </a>
+
+    <a href="contact.html">
+        <span>Contact</span>
+    </a>
+
+    <a href="cart.html">
+
+        <span>
+            🛒 Cart
+        </span>
+
+        <span id="mobileCartCount">
+            0
+        </span>
+
+    </a>
+
+</div>
+
+
+<!-- =========================================================
      HERO
-     ===================================================== -->
+     ========================================================= -->
 
 <section class="hero">
 
@@ -928,25 +2793,50 @@ footer{
         </span>
 
         <h1>
-            Melon Mobile
+            Stay connected with Melon Mobile.
         </h1>
 
         <p>
-            Stay connected wherever you go with flexible
-            mobile data packages from Melon Mobile.
+            Flexible mobile data packages for everyday
+            connectivity, communication, work and entertainment.
+            Choose a package and add it directly to your cart.
         </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#packages"
+                class="hero-button primary"
+            >
+                View Packages →
+            </a>
+
+            <a
+                href="contact.html"
+                class="hero-button secondary"
+            >
+                Talk to Us
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MAIN
-     ===================================================== -->
+     ========================================================= -->
 
-<main class="main">
+<main
+    class="main"
+    id="packages"
+>
 
+
+    <!-- SECTION HEADING -->
 
     <div class="section-heading">
 
@@ -955,27 +2845,28 @@ footer{
         </h2>
 
         <p>
-            Choose the mobile data package that suits your needs.
+            Choose the package that works best for you.
         </p>
 
     </div>
 
 
-    <!-- =================================================
-         STATUS
-         ================================================= -->
+    <!-- STATUS -->
 
     <div
         id="statusMessage"
         class="status-message"
+        role="status"
+        aria-live="polite"
     ></div>
 
 
-    <!-- =================================================
-         PROVIDER INTRO
-         ================================================= -->
+    <!-- =====================================================
+         PROVIDER
+         ===================================================== -->
 
     <div class="provider-intro">
+
 
         <div class="provider-logo">
 
@@ -1006,34 +2897,39 @@ footer{
             </h2>
 
             <p>
-                Mobile data packages for everyday connectivity,
-                work, communication and entertainment.
+                Mobile data packages designed for everyday
+                connectivity, work, communication and entertainment.
             </p>
 
         </div>
 
+
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          LOADING
-         ================================================= -->
+         ===================================================== -->
 
     <div
         id="loading"
         class="loading"
+        aria-live="polite"
     >
 
-        <div class="loading-spinner"></div>
+        <div
+            class="loading-spinner"
+            aria-hidden="true"
+        ></div>
 
         Loading Melon Mobile packages...
 
     </div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          PACKAGE GRID
-         ================================================= -->
+         ===================================================== -->
 
     <div
         id="packageGrid"
@@ -1041,9 +2937,9 @@ footer{
     ></div>
 
 
-    <!-- =================================================
+    <!-- =====================================================
          DATABASE NOTE
-         ================================================= -->
+         ===================================================== -->
 
     <div class="database-note">
 
@@ -1058,28 +2954,29 @@ footer{
 
     </div>
 
+
 </main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CTA
-     ===================================================== -->
+     ========================================================= -->
 
 <section class="cta">
 
     <div class="cta-inner">
 
         <h2>
-            Need Help Choosing a Mobile Package?
+            Need Help Choosing a Package?
         </h2>
 
         <p>
-            Contact Dinges TechHub and we can help you
-            choose the right mobile package for your needs.
+            Contact Dinges TechHub and we'll help you choose
+            the right mobile package for your needs.
         </p>
 
         <a href="contact.html">
-            Contact Us
+            Talk to Us →
         </a>
 
     </div>
@@ -1087,53 +2984,756 @@ footer{
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-     ===================================================== -->
+     ========================================================= -->
 
 <footer>
 
-    <p>
-        &copy;
-        <span id="year"></span>
-        Dinges TechHub. All rights reserved.
-    </p>
+    <div class="footer-inner">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="footer-logo"
+                aria-label="Dinges TechHub Home"
+            >
+
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
+
+            </a>
+
+
+            <p>
+                Your technology and connectivity partner
+                for internet, hosting, communication,
+                software and IT solutions.
+            </p>
+
+        </div>
+
+
+        <!-- INTERNET -->
+
+        <div>
+
+            <h3>
+                Internet
+            </h3>
+
+            <a href="fibre.html">
+                Fibre
+            </a>
+
+            <a href="wireless-broadband.html">
+                Wireless Broadband
+            </a>
+
+            <a href="lte.html">
+                LTE / 4G / 5G
+            </a>
+
+            <a href="melon-mobile.html">
+                Mobile
+            </a>
+
+        </div>
+
+
+        <!-- HOSTING -->
+
+        <div>
+
+            <h3>
+                Hosting
+            </h3>
+
+            <a href="domains.html">
+                Domains
+            </a>
+
+            <a href="hosting.html">
+                Shared Hosting
+            </a>
+
+            <a href="email-hosting.html">
+                Email Hosting
+            </a>
+
+            <a href="web-development.html">
+                Website Development
+            </a>
+
+        </div>
+
+
+        <!-- SUPPORT -->
+
+        <div>
+
+            <h3>
+                Support
+            </h3>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="network-status.html">
+                Network Status
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="help-centre.html">
+                Help Centre
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <span>
+
+            ©
+            <span id="footerYear"></span>
+            Dinges TechHub.
+            All rights reserved.
+
+        </span>
+
+
+        <span class="footer-tagline">
+
+            Connect. Host. Grow.
+
+        </span>
+
+    </div>
 
 </footer>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-     ===================================================== -->
+     ========================================================= -->
 
 <script>
+
 
 /* =========================================================
    API CONFIGURATION
    ========================================================= */
-
-/*
-    IMPORTANT:
-
-    Replace this URL with the actual URL of your
-    Melon Mobile PHP API.
-
-    Example:
-
-    https://register.web.za/api/melon-mobile.php
-
-*/
 
 const API_URL =
     "https://register.web.za/api/melon-mobile.php";
 
 
 /* =========================================================
+   CART KEY
+   ========================================================= */
+
+const CART_KEY =
+    "dingesTechHubCart";
+
+
+/* =========================================================
    CURRENT YEAR
    ========================================================= */
 
-document.getElementById("year").textContent =
+document.getElementById(
+    "footerYear"
+).textContent =
     new Date().getFullYear();
+
+
+/* =========================================================
+   GET CART
+   ========================================================= */
+
+function getCart(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(
+                CART_KEY
+            );
+
+        if(!saved){
+
+            return [];
+
+        }
+
+        const cart =
+            JSON.parse(saved);
+
+        return Array.isArray(cart)
+            ? cart
+            : [];
+
+    }
+    catch(error){
+
+        console.error(
+            "Unable to read cart:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE CART
+   ========================================================= */
+
+function saveCart(cart){
+
+    try{
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+        return true;
+
+    }
+    catch(error){
+
+        console.error(
+            "Unable to save cart:",
+            error
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   NUMBER NORMALISATION
+   ========================================================= */
+
+function toNumber(value){
+
+    if(
+        value === null ||
+        value === undefined ||
+        value === ""
+    ){
+
+        return 0;
+
+    }
+
+    if(
+        typeof value === "number"
+    ){
+
+        return Number.isFinite(value)
+            ? value
+            : 0;
+
+    }
+
+    const cleaned =
+        String(value)
+            .replace(/[R,\s]/gi,"")
+            .replace(/[^0-9.-]/g,"");
+
+    const number =
+        Number(cleaned);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+
+}
+
+
+/* =========================================================
+   GET MONTHLY PRICE
+   ========================================================= */
+
+function getMonthlyPrice(pkg){
+
+    if(
+        pkg?.pricing &&
+        pkg.pricing.monthly !== undefined &&
+        pkg.pricing.monthly !== null &&
+        pkg.pricing.monthly !== ""
+    ){
+
+        return toNumber(
+            pkg.pricing.monthly
+        );
+
+    }
+
+    if(
+        pkg?.monthly_price !== undefined
+    ){
+
+        return toNumber(
+            pkg.monthly_price
+        );
+
+    }
+
+    if(
+        pkg?.monthlyPrice !== undefined
+    ){
+
+        return toNumber(
+            pkg.monthlyPrice
+        );
+
+    }
+
+    if(
+        pkg?.price !== undefined
+    ){
+
+        return toNumber(
+            pkg.price
+        );
+
+    }
+
+    return 0;
+
+}
+
+
+/* =========================================================
+   GET PACKAGE ID
+   ========================================================= */
+
+function getPackageId(pkg){
+
+    return String(
+        pkg?.product_id ||
+        pkg?.id ||
+        pkg?.productId ||
+        ""
+    ).trim();
+
+}
+
+
+/* =========================================================
+   GET PACKAGE NAME
+   ========================================================= */
+
+function getPackageName(pkg){
+
+    return String(
+        pkg?.package_name ||
+        pkg?.name ||
+        pkg?.product_name ||
+        "Melon Mobile Package"
+    ).trim();
+
+}
+
+
+/* =========================================================
+   GET QUANTITY
+   ========================================================= */
+
+function getQuantity(item){
+
+    const quantity =
+        parseInt(
+            item?.quantity,
+            10
+        );
+
+    if(
+        !Number.isFinite(quantity) ||
+        quantity < 1
+    ){
+
+        return 1;
+
+    }
+
+    return quantity;
+
+}
+
+
+/* =========================================================
+   UPDATE CART COUNT
+   ========================================================= */
+
+function updateCartCount(){
+
+    const cart =
+        getCart();
+
+    const count =
+        cart.reduce(
+            function(total,item){
+
+                return total +
+                    getQuantity(item);
+
+            },
+            0
+        );
+
+
+    const cartCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+    const mobileCartCount =
+        document.getElementById(
+            "mobileCartCount"
+        );
+
+
+    if(cartCount){
+
+        cartCount.textContent =
+            count;
+
+        cartCount.classList.toggle(
+            "has-items",
+            count > 0
+        );
+
+    }
+
+    if(mobileCartCount){
+
+        mobileCartCount.textContent =
+            count;
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW STATUS
+   ========================================================= */
+
+let statusTimer = null;
+
+function showStatus(
+    message,
+    type = "success"
+){
+
+    const status =
+        document.getElementById(
+            "statusMessage"
+        );
+
+    if(!status){
+
+        return;
+
+    }
+
+
+    clearTimeout(
+        statusTimer
+    );
+
+
+    status.textContent =
+        message;
+
+
+    status.className =
+        "status-message show " +
+        type;
+
+
+    statusTimer =
+        setTimeout(
+            function(){
+
+                status.classList.remove(
+                    "show"
+                );
+
+            },
+            3500
+        );
+
+}
+
+
+/* =========================================================
+   ADD PACKAGE TO CART
+   ========================================================= */
+
+function addToCart(pkg, button){
+
+    const productId =
+        getPackageId(pkg);
+
+    const packageName =
+        getPackageName(pkg);
+
+    const monthlyPrice =
+        getMonthlyPrice(pkg);
+
+
+    if(!productId){
+
+        showStatus(
+            "This package does not have a valid product ID.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    let cart =
+        getCart();
+
+
+    /* =====================================================
+       FIND EXISTING PACKAGE
+       ===================================================== */
+
+    const existingIndex =
+        cart.findIndex(
+            function(item){
+
+                return String(
+                    item?.productId ||
+                    item?.product_id ||
+                    item?.id ||
+                    ""
+                ).trim() === productId;
+
+            }
+        );
+
+
+    /* =====================================================
+       INCREASE QUANTITY
+       ===================================================== */
+
+    if(existingIndex !== -1){
+
+        cart[existingIndex].quantity =
+            getQuantity(
+                cart[existingIndex]
+            ) + 1;
+
+    }
+
+    else{
+
+        /* =================================================
+           NEW CART ITEM
+           ================================================= */
+
+        const cartItem = {
+
+            id:
+                productId,
+
+            productId:
+                productId,
+
+            product_id:
+                productId,
+
+            name:
+                packageName,
+
+            title:
+                packageName,
+
+            serviceName:
+                packageName,
+
+            productName:
+                packageName,
+
+            provider:
+                "Melon Mobile",
+
+            serviceType:
+                "Mobile",
+
+            type:
+                "Melon Mobile",
+
+            billing:
+                "monthly",
+
+            billingCycle:
+                "Monthly",
+
+            monthlyPrice:
+                monthlyPrice,
+
+            monthly:
+                monthlyPrice,
+
+            monthly_price:
+                monthlyPrice,
+
+            price:
+                monthlyPrice,
+
+            amount:
+                monthlyPrice,
+
+            setupPrice:
+                0,
+
+            setup:
+                0,
+
+            quantity:
+                1
+
+        };
+
+
+        cart.push(
+            cartItem
+        );
+
+    }
+
+
+    /* =====================================================
+       SAVE
+       ===================================================== */
+
+    const saved =
+        saveCart(cart);
+
+
+    if(!saved){
+
+        showStatus(
+            "Unable to add this package to your cart.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    /* =====================================================
+       UPDATE BADGE
+       ===================================================== */
+
+    updateCartCount();
+
+
+    /* =====================================================
+       BUTTON FEEDBACK
+       ===================================================== */
+
+    if(button){
+
+        const originalText =
+            button.textContent;
+
+
+        button.textContent =
+            "✓ Added to Cart";
+
+
+        button.classList.add(
+            "added"
+        );
+
+
+        setTimeout(
+            function(){
+
+                button.textContent =
+                    originalText;
+
+                button.classList.remove(
+                    "added"
+                );
+
+            },
+            1800
+        );
+
+    }
+
+
+    /* =====================================================
+       SUCCESS MESSAGE
+       ===================================================== */
+
+    showStatus(
+        packageName +
+        " has been added to your cart.",
+        "success"
+    );
+
+
+    /* =====================================================
+       NOTIFY OTHER TABS / PAGES
+       ===================================================== */
+
+    try{
+
+        window.dispatchEvent(
+            new StorageEvent(
+                "storage",
+                {
+                    key:CART_KEY
+                }
+            )
+        );
+
+    }
+    catch(error){
+
+        console.warn(
+            "Could not dispatch storage event:",
+            error
+        );
+
+    }
+
+}
 
 
 /* =========================================================
@@ -1143,13 +3743,21 @@ document.getElementById("year").textContent =
 async function loadMelonPackages(){
 
     const loading =
-        document.getElementById("loading");
+        document.getElementById(
+            "loading"
+        );
 
     const grid =
-        document.getElementById("packageGrid");
+        document.getElementById(
+            "packageGrid"
+        );
 
-    const status =
-        document.getElementById("statusMessage");
+
+    if(!grid){
+
+        return;
+
+    }
 
 
     try{
@@ -1160,10 +3768,6 @@ async function loadMelonPackages(){
         );
 
 
-        /*
-            Request API
-        */
-
         const response =
             await fetch(
                 API_URL,
@@ -1171,17 +3775,14 @@ async function loadMelonPackages(){
                     method:"GET",
 
                     headers:{
-                        "Accept":"application/json"
+                        "Accept":
+                            "application/json"
                     },
 
                     cache:"no-store"
                 }
             );
 
-
-        /*
-            Check HTTP response
-        */
 
         if(!response.ok){
 
@@ -1193,10 +3794,6 @@ async function loadMelonPackages(){
         }
 
 
-        /*
-            Convert to JSON
-        */
-
         const data =
             await response.json();
 
@@ -1207,17 +3804,17 @@ async function loadMelonPackages(){
         );
 
 
-        /*
-            Hide loading
-        */
+        if(
+            !data ||
+            typeof data !== "object"
+        ){
 
-        loading.style.display =
-            "none";
+            throw new Error(
+                "Invalid API response."
+            );
 
+        }
 
-        /*
-            Check API success
-        */
 
         if(!data.success){
 
@@ -1229,12 +3826,18 @@ async function loadMelonPackages(){
         }
 
 
-        /*
-            Check packages
-        */
+        if(loading){
+
+            loading.style.display =
+                "none";
+
+        }
+
 
         if(
-            !Array.isArray(data.packages) ||
+            !Array.isArray(
+                data.packages
+            ) ||
             data.packages.length === 0
         ){
 
@@ -1260,27 +3863,49 @@ async function loadMelonPackages(){
         }
 
 
-        /*
-            Display package count
-        */
+        grid.innerHTML = "";
 
-        console.log(
-            "Total Melon Mobile packages:",
-            data.packages.length
+
+        data.packages.forEach(
+            function(pkg){
+
+                if(
+                    pkg &&
+                    typeof pkg === "object"
+                ){
+
+                    grid.appendChild(
+                        createPackageCard(pkg)
+                    );
+
+                }
+
+            }
         );
 
 
-        /*
-            Create cards
-        */
+        if(
+            grid.children.length === 0
+        ){
 
-        data.packages.forEach(function(pkg){
+            grid.innerHTML = `
 
-            grid.appendChild(
-                createPackageCard(pkg)
-            );
+                <div class="empty-message">
 
-        });
+                    <h3>
+                        No Packages Available
+                    </h3>
+
+                    <p>
+                        There are currently no valid Melon Mobile
+                        packages available.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
 
 
     }
@@ -1292,31 +3917,13 @@ async function loadMelonPackages(){
         );
 
 
-        /*
-            Hide loading
-        */
+        if(loading){
 
-        loading.style.display =
-            "none";
+            loading.style.display =
+                "none";
 
+        }
 
-        /*
-            Show status
-        */
-
-        status.textContent =
-            "Unable to load Melon Mobile packages. " +
-            error.message;
-
-        status.classList.add(
-            "show",
-            "error"
-        );
-
-
-        /*
-            Show error card
-        */
 
         grid.innerHTML = `
 
@@ -1331,16 +3938,25 @@ async function loadMelonPackages(){
                     packages from the database.
                 </p>
 
-                <p style="margin-top:10px;font-size:12px;">
-
-                    Please check that the PHP API is available
-                    and that the API URL is correct.
-
+                <p
+                    style="
+                        margin-top:10px;
+                        font-size:12px;
+                    "
+                >
+                    Please check that the Melon Mobile
+                    PHP API is available.
                 </p>
 
             </div>
 
         `;
+
+
+        showStatus(
+            "Unable to load Melon Mobile packages.",
+            "error"
+        );
 
     }
 
@@ -1354,99 +3970,33 @@ async function loadMelonPackages(){
 function createPackageCard(pkg){
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
 
 
     card.className =
         "package-card";
 
 
-    /*
-        Get package information.
-
-        The API is expected to return:
-
-        product_id
-        group_id
-        provider
-        package_name
-        description
-        currency
-        pricing
-    */
-
-
     const productId =
-        pkg.product_id || pkg.id || "";
+        getPackageId(pkg);
 
 
     const packageName =
-        pkg.package_name ||
-        pkg.name ||
-        "Mobile Package";
+        getPackageName(pkg);
 
 
     const description =
-        pkg.description ||
-        "Melon Mobile data package.";
+        stripHTML(
+            pkg?.description ||
+            "Melon Mobile data package for everyday connectivity."
+        );
 
 
-    /*
-        Pricing can come from:
+    const monthlyPrice =
+        getMonthlyPrice(pkg);
 
-        pkg.pricing.monthly
-
-        OR
-
-        pkg.monthly_price
-
-        OR
-
-        pkg.price
-    */
-
-    let monthlyPrice = 0;
-
-
-    if(
-        pkg.pricing &&
-        pkg.pricing.monthly !== null &&
-        pkg.pricing.monthly !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.pricing.monthly;
-
-    }
-    else if(
-        pkg.monthly_price !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.monthly_price;
-
-    }
-    else if(
-        pkg.price !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.price;
-
-    }
-
-
-    /*
-        Convert description safely.
-    */
-
-    const cleanDescription =
-        stripHTML(description);
-
-
-    /*
-        Create card
-    */
 
     card.innerHTML = `
 
@@ -1462,7 +4012,7 @@ function createPackageCard(pkg){
 
         <div class="package-description">
 
-            ${escapeHTML(cleanDescription)}
+            ${escapeHTML(description)}
 
         </div>
 
@@ -1524,6 +4074,7 @@ function createPackageCard(pkg){
 
             </div>
 
+
             <div class="price-period">
                 per month
             </div>
@@ -1533,159 +4084,39 @@ function createPackageCard(pkg){
 
         <button
             type="button"
-            class="select-package"
+            class="add-to-cart"
+            aria-label="Add ${escapeHTML(packageName)} to cart"
         >
-            Select Package
+            ADD TO CART
         </button>
 
     `;
 
 
-    /*
-        Add button event.
-
-        We do this instead of putting JSON directly
-        inside onclick because package descriptions
-        may contain quotes or HTML.
-    */
-
     const button =
-        card.querySelector(".select-package");
+        card.querySelector(
+            ".add-to-cart"
+        );
 
 
-    button.addEventListener(
-        "click",
-        function(){
+    if(button){
 
-            selectPackage(pkg);
+        button.addEventListener(
+            "click",
+            function(){
 
-        }
-    );
+                addToCart(
+                    pkg,
+                    button
+                );
+
+            }
+        );
+
+    }
 
 
     return card;
-
-}
-
-
-/* =========================================================
-   SELECT PACKAGE
-   ========================================================= */
-
-function selectPackage(pkg){
-
-    console.log(
-        "Selected Melon Mobile package:",
-        pkg
-    );
-
-
-    const productId =
-        pkg.product_id ||
-        pkg.id ||
-        "";
-
-
-    const packageName =
-        pkg.package_name ||
-        pkg.name ||
-        "Melon Mobile Package";
-
-
-    let monthlyPrice = 0;
-
-
-    if(
-        pkg.pricing &&
-        pkg.pricing.monthly !== null &&
-        pkg.pricing.monthly !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.pricing.monthly;
-
-    }
-    else if(
-        pkg.monthly_price !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.monthly_price;
-
-    }
-    else if(
-        pkg.price !== undefined
-    ){
-
-        monthlyPrice =
-            pkg.price;
-
-    }
-
-
-    /*
-        Store selected package.
-
-        This allows the cart page to read the
-        selected Melon Mobile package later.
-    */
-
-    try{
-
-        localStorage.setItem(
-            "selectedMelonMobilePackage",
-            JSON.stringify(pkg)
-        );
-
-    }
-    catch(error){
-
-        console.warn(
-            "Could not save package:",
-            error
-        );
-
-    }
-
-
-    /*
-        Temporary confirmation.
-
-        Once your cart is ready, this can be changed
-        to redirect directly to the cart.
-    */
-
-    const confirmed =
-        confirm(
-            "Select this package?\n\n" +
-
-            packageName +
-
-            "\n\n" +
-
-            "Monthly: R" +
-            formatPrice(monthlyPrice) +
-
-            "\n\n" +
-
-            "Product ID: " +
-            productId
-        );
-
-
-    if(confirmed){
-
-        /*
-            For now redirect to cart.
-
-            The selected package has already been
-            stored in localStorage.
-        */
-
-        window.location.href =
-            "cart.html";
-
-    }
 
 }
 
@@ -1696,35 +4127,8 @@ function selectPackage(pkg){
 
 function formatPrice(value){
 
-    /*
-        WHMCS can sometimes return:
-        -1
-        null
-        ""
-        strings
-    */
-
-    if(
-        value === null ||
-        value === undefined ||
-        value === "" ||
-        Number(value) < 0
-    ){
-
-        return "0.00";
-
-    }
-
-
     const number =
-        Number(value);
-
-
-    if(Number.isNaN(number)){
-
-        return "0.00";
-
-    }
+        toNumber(value);
 
 
     return number.toLocaleString(
@@ -1745,11 +4149,15 @@ function formatPrice(value){
 function stripHTML(value){
 
     const temporary =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
 
     temporary.innerHTML =
-        String(value || "");
+        String(
+            value || ""
+        );
 
 
     return (
@@ -1767,43 +4175,256 @@ function stripHTML(value){
 
 function escapeHTML(value){
 
-    return String(value ?? "")
+    return String(
+        value ?? ""
+    )
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+    .replace(
+        /</g,
+        "&lt;"
+    )
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+    .replace(
+        />/g,
+        "&gt;"
+    )
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
 /* =========================================================
-   START
+   MOBILE MENU
+   ========================================================= */
+
+const mobileMenuButton =
+    document.getElementById(
+        "mobileMenuButton"
+    );
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+
+function closeMobileMenu(){
+
+    if(
+        !mobileMenu ||
+        !mobileMenuButton
+    ){
+
+        return;
+
+    }
+
+
+    mobileMenu.classList.remove(
+        "open"
+    );
+
+
+    mobileMenuButton.textContent =
+        "☰";
+
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+
+    mobileMenuButton.setAttribute(
+        "aria-label",
+        "Open navigation"
+    );
+
+}
+
+
+function openMobileMenu(){
+
+    if(
+        !mobileMenu ||
+        !mobileMenuButton
+    ){
+
+        return;
+
+    }
+
+
+    mobileMenu.classList.add(
+        "open"
+    );
+
+
+    mobileMenuButton.textContent =
+        "✕";
+
+
+    mobileMenuButton.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+
+    mobileMenuButton.setAttribute(
+        "aria-label",
+        "Close navigation"
+    );
+
+}
+
+
+if(
+    mobileMenuButton &&
+    mobileMenu
+){
+
+    mobileMenuButton.addEventListener(
+        "click",
+        function(event){
+
+            event.stopPropagation();
+
+
+            if(
+                mobileMenu.classList.contains(
+                    "open"
+                )
+            ){
+
+                closeMobileMenu();
+
+            }
+            else{
+
+                openMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    mobileMenu
+        .querySelectorAll("a")
+        .forEach(
+            function(link){
+
+                link.addEventListener(
+                    "click",
+                    function(){
+
+                        closeMobileMenu();
+
+                    }
+                );
+
+            }
+        );
+
+
+    document.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                !mobileMenu.contains(event.target) &&
+                !mobileMenuButton.contains(event.target)
+            ){
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key === "Escape"
+            ){
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MENU WHEN SCREEN BECOMES DESKTOP
+   ========================================================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        if(
+            window.innerWidth > 850
+        ){
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   STORAGE LISTENER
+   ========================================================= */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key === CART_KEY
+        ){
+
+            updateCartCount();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALISE
    ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function(){
+
+        updateCartCount();
 
         loadMelonPackages();
 
