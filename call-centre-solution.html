@@ -1,0 +1,4951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Call Centre Solutions | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Dinges TechHub provides call centre solutions, customer support, technical support, VoIP telephony, CRM integration, call management and business communication solutions."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   CALL CENTRE SOLUTIONS
+   ========================================================= */
+
+:root {
+
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+
+    --gold: #FFBB42;
+
+    --black: #020202;
+
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+
+    --background: #f7f5f8;
+
+    --green: #35d07f;
+    --red: #ff6b6b;
+
+    --blue: #5fa8ff;
+
+    --container: 1200px;
+
+    --radius: 20px;
+
+    --transition: 0.35s ease;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--black);
+
+    overflow-x: hidden;
+
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+
+    width: min(92%, var(--container));
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(2, 2, 2, 0.95);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
+
+}
+
+.nav-container {
+
+    min-height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    flex-shrink: 0;
+
+}
+
+.logo img {
+
+    width: 58px;
+    height: 58px;
+
+    object-fit: contain;
+
+    border-radius: 9px;
+
+}
+
+.logo-text {
+
+    color: var(--white);
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+}
+
+.logo-text span {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    list-style: none;
+
+}
+
+.nav-links a {
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition: var(--transition);
+
+}
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: var(--transition);
+
+}
+
+.nav-links a:hover {
+
+    color: var(--gold);
+
+}
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   NAV CTA
+   ========================================================= */
+
+.nav-cta {
+
+    padding: 11px 19px;
+
+    border-radius: 999px;
+
+    background: var(--gold);
+
+    color: var(--black) !important;
+
+    font-weight: 800 !important;
+
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.nav-cta:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 46px;
+    height: 46px;
+
+    background: transparent;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    border-radius: 12px;
+
+    color: var(--white);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.menu-toggle:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: 720px;
+
+    padding: 165px 0 100px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(122, 44, 120, 0.48),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 48%,
+            #3C1542 100%
+        );
+
+    color: var(--white);
+
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 560px;
+
+    right: -280px;
+    top: 80px;
+
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.14);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+
+}
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    right: -100px;
+    top: 200px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircleReverse
+        13s linear infinite;
+
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateCircleReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+/* =========================================================
+   HERO GRID
+   ========================================================= */
+
+.hero-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.breadcrumb {
+
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.6px;
+
+}
+
+.hero h1 {
+
+    font-size:
+        clamp(42px, 6vw, 70px);
+
+    line-height: 1.02;
+
+    margin-bottom: 25px;
+
+    max-width: 720px;
+
+}
+
+.hero h1 span {
+
+    color: var(--gold);
+
+}
+
+.hero-description {
+
+    max-width: 650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 23px;
+
+    border-radius: 999px;
+
+    font-weight: 800;
+
+    transition: var(--transition);
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.btn-primary {
+
+    background: var(--gold);
+
+    color: var(--black);
+
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+
+}
+
+.btn-outline {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color: var(--white);
+
+    background: transparent;
+
+}
+
+.btn-outline:hover {
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================================
+   CALL CENTRE VISUAL
+   ========================================================= */
+
+.call-visual {
+
+    min-height: 450px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   CALL CENTRE PANEL
+   ========================================================= */
+
+.call-panel {
+
+    width: 390px;
+
+    max-width: 100%;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.10),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.13);
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.45);
+
+    animation:
+        panelFloat
+        4.5s ease-in-out infinite;
+
+}
+
+@keyframes panelFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
+.call-panel-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+
+}
+
+.call-panel-title {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+}
+
+.online-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+.online-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 12px
+        rgba(53,208,127,0.7);
+
+}
+
+
+/* =========================================================
+   CALL STATISTICS
+   ========================================================= */
+
+.call-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+}
+
+.call-stat {
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+}
+
+.call-stat-label {
+
+    color:
+        rgba(255,255,255,0.55);
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+
+}
+
+.call-stat-number {
+
+    color: var(--white);
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+}
+
+.call-stat-number.gold {
+    color: var(--gold);
+}
+
+.call-stat-number.green {
+    color: var(--green);
+}
+
+
+/* =========================================================
+   AGENTS
+   ========================================================= */
+
+.agent-card {
+
+    padding: 17px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255,255,255,0.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+}
+
+.agent-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 12px;
+
+}
+
+.agent-heading strong {
+
+    font-size: 13px;
+
+}
+
+.agent-heading span {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+.agent-bar {
+
+    height: 7px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    overflow: hidden;
+
+}
+
+.agent-fill {
+
+    width: 86%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    animation:
+        agentPulse
+        2.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes agentPulse {
+
+    from {
+        opacity: .65;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING NODES
+   ========================================================= */
+
+.call-node {
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    animation:
+        nodeFloat
+        4s ease-in-out infinite;
+
+}
+
+.call-node-1 {
+
+    top: 20px;
+
+    left: 4%;
+
+}
+
+.call-node-2 {
+
+    top: 28%;
+
+    right: 0;
+
+    animation-delay: .8s;
+
+}
+
+.call-node-3 {
+
+    bottom: 8%;
+
+    right: 10%;
+
+    animation-delay: 1.5s;
+
+}
+
+.call-node-4 {
+
+    bottom: 12%;
+
+    left: 2%;
+
+    animation-delay: 2.2s;
+
+}
+
+@keyframes nodeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-11px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+
+    padding: 100px 0 60px;
+
+    background: var(--white);
+
+}
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 760px;
+
+    margin:
+        0 auto 55px;
+
+}
+
+.eyebrow {
+
+    color: var(--purple);
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 13px;
+
+}
+
+.section-heading h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+    color: var(--purple-dark);
+
+}
+
+.section-heading p {
+
+    color: #666;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.call-services {
+
+    padding: 60px 0 100px;
+
+    background: var(--white);
+
+}
+
+.service-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+
+}
+
+.service-card {
+
+    padding: 30px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.service-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: var(--transition);
+
+}
+
+.service-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+
+}
+
+.service-card:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+.service-icon {
+
+    width: 62px;
+    height: 62px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(122,44,120,0.10);
+
+    color: var(--purple);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    margin-bottom: 22px;
+
+}
+
+.service-card h3 {
+
+    color: var(--purple-dark);
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+
+}
+
+.service-card p {
+
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   FEATURE SECTION
+   ========================================================= */
+
+.feature-section {
+
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color: var(--white);
+
+}
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   OPERATIONS PANEL
+   ========================================================= */
+
+.operations-panel {
+
+    min-height: 430px;
+
+    padding: 30px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,187,66,0.13),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            145deg,
+            #241027,
+            #090709
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,0.30);
+
+}
+
+.operations-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+}
+
+.operations-title {
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+.operations-live {
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+.operation-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+}
+
+.operation-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.operation-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,187,66,0.10);
+
+}
+
+.operation-name {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+.operation-status {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   FEATURE CONTENT
+   ========================================================= */
+
+.feature-content .eyebrow {
+
+    color: var(--gold);
+
+}
+
+.feature-content h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+
+}
+
+.feature-content > p {
+
+    color:
+        rgba(255,255,255,0.75);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+.feature-list {
+
+    list-style: none;
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+.feature-list li {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color:
+        rgba(255,255,255,0.90);
+
+    line-height: 1.5;
+
+}
+
+.feature-list li span {
+
+    color: var(--gold);
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================================
+   SOLUTION TYPES
+   ========================================================= */
+
+.solution-types {
+
+    padding: 100px 0;
+
+    background: var(--background);
+
+}
+
+.types-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+.type-card {
+
+    padding: 28px 22px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e5e0e6;
+
+    transition: var(--transition);
+
+}
+
+.type-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(60,21,66,0.10);
+
+}
+
+.type-number {
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    color: var(--gold);
+
+    margin-bottom: 15px;
+
+}
+
+.type-card h3 {
+
+    color: var(--purple-dark);
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+
+}
+
+.type-card p {
+
+    color: #707070;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+
+    padding: 100px 0;
+
+    background: var(--white);
+
+}
+
+.steps {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+.step {
+
+    background: var(--background);
+
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+
+}
+
+.step-number {
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--purple);
+
+    color: var(--white);
+
+    font-weight: 900;
+
+    margin-bottom: 22px;
+
+}
+
+.step h3 {
+
+    color: var(--purple-dark);
+
+    margin-bottom: 12px;
+
+}
+
+.step p {
+
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+
+    padding: 100px 0;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f7f5f8,
+            #ffffff
+        );
+
+}
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap: 60px;
+
+    align-items: start;
+
+}
+
+.contact-info {
+
+    padding-top: 10px;
+
+}
+
+.contact-info .eyebrow {
+
+    color: var(--purple);
+
+}
+
+.contact-info h2 {
+
+    color: var(--purple-dark);
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
+
+}
+
+.contact-info > p {
+
+    color: #666;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+.contact-points {
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+.contact-point {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e8e3e9;
+
+    border-radius: 16px;
+
+}
+
+.contact-point-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        rgba(122,44,120,0.10);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+
+}
+
+.contact-point strong {
+
+    display: block;
+
+    color: var(--purple-dark);
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+
+}
+
+.contact-point span,
+.contact-point a {
+
+    color: #6d6d6d;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+.contact-point a:hover {
+
+    color: var(--purple);
+
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.contact-form-wrapper {
+
+    background: var(--white);
+
+    padding: 35px;
+
+    border-radius: 26px;
+
+    border:
+        1px solid
+        #e4dfe6;
+
+    box-shadow:
+        0 25px 70px
+        rgba(60,21,66,0.10);
+
+}
+
+.contact-form-header {
+
+    margin-bottom: 25px;
+
+}
+
+.contact-form-header h3 {
+
+    color: var(--purple-dark);
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+
+}
+
+.contact-form-header p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+.form-group.full {
+
+    grid-column: 1 / -1;
+
+}
+
+.form-group label {
+
+    color: var(--purple-dark);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    border:
+        1px solid
+        #ddd7df;
+
+    background: #faf9fb;
+
+    color: var(--black);
+
+    border-radius: 12px;
+
+    padding: 13px 14px;
+
+    outline: none;
+
+    transition: var(--transition);
+
+}
+
+.form-group input,
+.form-group select {
+
+    height: 48px;
+
+}
+
+.form-group textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: var(--purple);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(122,44,120,0.08);
+
+}
+
+.form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+
+}
+
+.form-submit {
+
+    min-width: 190px;
+
+}
+
+.form-submit.loading {
+
+    opacity: .7;
+
+    pointer-events: none;
+
+}
+
+.form-message {
+
+    display: none;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+.form-message.success {
+
+    display: block;
+
+    background:
+        rgba(53,208,127,0.10);
+
+    border:
+        1px solid
+        rgba(53,208,127,0.25);
+
+    color: #167844;
+
+}
+
+.form-message.error {
+
+    display: block;
+
+    background:
+        rgba(255,107,107,0.10);
+
+    border:
+        1px solid
+        rgba(255,107,107,0.25);
+
+    color: #a62929;
+
+}
+
+.form-note {
+
+    margin-top: 15px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+
+    padding: 80px 0;
+
+    background: var(--white);
+
+}
+
+.cta-box {
+
+    padding: 65px 40px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align: center;
+
+    color: var(--white);
+
+}
+
+.cta-box h2 {
+
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom: 15px;
+
+}
+
+.cta-box p {
+
+    max-width: 650px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    background: #020202;
+
+    color: var(--white);
+
+    padding: 70px 0 25px;
+
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap: 45px;
+
+    padding-bottom: 50px;
+
+}
+
+.footer-brand .logo {
+
+    margin-bottom: 20px;
+
+}
+
+.footer-description {
+
+    color: #a9a9a9;
+
+    line-height: 1.7;
+
+    max-width: 340px;
+
+    font-size: 14px;
+
+}
+
+.footer-column h4 {
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
+    font-size: 15px;
+
+}
+
+.footer-column ul {
+
+    list-style: none;
+
+}
+
+.footer-column li {
+
+    margin-bottom: 12px;
+
+}
+
+.footer-column a {
+
+    color: #a9a9a9;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+
+}
+
+.footer-column a:hover {
+
+    color: var(--gold);
+
+    padding-left: 4px;
+
+}
+
+.footer-bottom {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-links {
+
+        gap: 18px;
+
+    }
+
+    .nav-links a {
+
+        font-size: 13px;
+
+    }
+
+    .hero-grid {
+
+        gap: 40px;
+
+    }
+
+    .types-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .steps {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav-container {
+
+        min-height: 76px;
+
+    }
+
+    .menu-toggle {
+
+        display: flex;
+
+    }
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 0;
+
+        width: 100%;
+
+        max-height: calc(100vh - 76px);
+
+        overflow-y: auto;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background:
+            rgba(2,2,2,0.98);
+
+        padding: 18px 22px 25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+
+        box-shadow:
+            0 20px 40px
+            rgba(0,0,0,0.30);
+
+    }
+
+    .nav-links.active {
+
+        display: flex;
+
+    }
+
+    .nav-links li {
+
+        width: 100%;
+
+    }
+
+    .nav-links a {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 5px;
+
+        font-size: 15px;
+
+    }
+
+    .nav-links a::after {
+
+        display: none;
+
+    }
+
+    .nav-cta {
+
+        margin-top: 8px;
+
+        text-align: center;
+
+    }
+
+    .hero-grid,
+    .feature-grid,
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero-content {
+
+        text-align: center;
+
+    }
+
+    .hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .hero-buttons {
+
+        justify-content: center;
+
+    }
+
+    .call-visual {
+
+        min-height: 400px;
+
+    }
+
+    .service-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+
+        width: min(92%, 100%);
+
+    }
+
+    .nav-container {
+
+        min-height: 70px;
+
+    }
+
+    .nav-links {
+
+        top: 70px;
+
+        max-height:
+            calc(100vh - 70px);
+
+    }
+
+    .logo {
+
+        gap: 9px;
+
+    }
+
+    .logo img {
+
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .logo-text {
+
+        font-size: 16px;
+
+    }
+
+    .menu-toggle {
+
+        width: 44px;
+        height: 44px;
+
+        font-size: 23px;
+
+    }
+
+    .hero {
+
+        min-height: auto;
+
+        padding:
+            125px 0 70px;
+
+    }
+
+    .breadcrumb {
+
+        font-size: 11px;
+
+        line-height: 1.5;
+
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(38px, 12vw, 52px);
+
+    }
+
+    .hero-description {
+
+        font-size: 16px;
+
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .hero-buttons .btn {
+
+        width: 100%;
+
+    }
+
+    .call-visual {
+
+        min-height: 350px;
+
+    }
+
+    .call-panel {
+
+        padding: 20px;
+
+    }
+
+    .call-node {
+
+        width: 54px;
+        height: 54px;
+
+        font-size: 21px;
+
+    }
+
+    .call-node-1 {
+
+        left: -5px;
+
+    }
+
+    .call-node-2 {
+
+        right: -5px;
+
+    }
+
+    .call-node-3 {
+
+        right: 0;
+
+    }
+
+    .call-node-4 {
+
+        left: 0;
+
+    }
+
+    .call-stats {
+
+        gap: 8px;
+
+    }
+
+    .call-stat {
+
+        padding: 13px;
+
+    }
+
+    .call-stat-number {
+
+        font-size: 22px;
+
+    }
+
+    .service-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .types-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .steps {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .operations-panel {
+
+        min-height: 380px;
+
+        padding: 22px;
+
+    }
+
+    .contact-form-wrapper {
+
+        padding: 24px;
+
+    }
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-group.full {
+
+        grid-column: auto;
+
+    }
+
+    .form-actions {
+
+        align-items: stretch;
+
+        flex-direction: column;
+
+    }
+
+    .form-submit {
+
+        width: 100%;
+
+    }
+
+    .form-message {
+
+        width: 100%;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+    }
+
+    .cta-box {
+
+        padding:
+            50px 25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .logo img {
+
+        width: 46px;
+        height: 46px;
+
+    }
+
+    .logo-text {
+
+        font-size: 14px;
+
+    }
+
+    .call-panel {
+
+        padding: 16px;
+
+    }
+
+    .call-stat-number {
+
+        font-size: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+
+    outline:
+        3px solid
+        rgba(255,187,66,0.55);
+
+    outline-offset: 3px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Dinges TechHub Home"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+
+                Dinges
+                <span>TechHub</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+            type="button"
+        >
+
+            ☰
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+
+                BUSINESS SOLUTIONS /
+                CALL CENTRE SOLUTIONS
+
+            </div>
+
+
+            <h1>
+
+                Smarter Communication.
+                <span>Better Customer Service.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Build a reliable customer communication
+                environment with Dinges TechHub call centre
+                solutions. Connect your team, manage customer
+                interactions and keep your business responsive.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#solutions"
+                    class="btn btn-primary"
+                >
+
+                    Explore Call Centre Solutions
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+
+                    Request a Consultation
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CALL CENTRE VISUAL -->
+
+        <div class="call-visual reveal">
+
+
+            <div class="call-node call-node-1">
+                ☎️
+            </div>
+
+
+            <div class="call-node call-node-2">
+                🎧
+            </div>
+
+
+            <div class="call-node call-node-3">
+                💬
+            </div>
+
+
+            <div class="call-node call-node-4">
+                📊
+            </div>
+
+
+            <div class="call-panel">
+
+
+                <div class="call-panel-header">
+
+                    <div class="call-panel-title">
+                        Call Centre Overview
+                    </div>
+
+                    <div class="online-status">
+
+                        <span class="online-dot"></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <div class="call-stats">
+
+
+                    <div class="call-stat">
+
+                        <div class="call-stat-label">
+                            Agents Online
+                        </div>
+
+                        <div class="call-stat-number gold">
+                            08
+                        </div>
+
+                    </div>
+
+
+                    <div class="call-stat">
+
+                        <div class="call-stat-label">
+                            Active Calls
+                        </div>
+
+                        <div class="call-stat-number green">
+                            12
+                        </div>
+
+                    </div>
+
+
+                    <div class="call-stat">
+
+                        <div class="call-stat-label">
+                            Calls Waiting
+                        </div>
+
+                        <div class="call-stat-number">
+                            03
+                        </div>
+
+                    </div>
+
+
+                    <div class="call-stat">
+
+                        <div class="call-stat-label">
+                            Resolved Today
+                        </div>
+
+                        <div class="call-stat-number gold">
+                            47
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="agent-card">
+
+
+                    <div class="agent-heading">
+
+                        <strong>
+                            Customer Support Team
+                        </strong>
+
+                        <span>
+                            86% Available
+                        </span>
+
+                    </div>
+
+
+                    <div class="agent-bar">
+
+                        <div class="agent-fill"></div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Call Centre Solutions
+            </div>
+
+
+            <h2>
+                Give Your Customers A Better Way To Reach You
+            </h2>
+
+
+            <p>
+
+                A modern call centre is more than answering
+                phones. It combines communication, customer
+                service, technology, reporting and support into
+                one organised environment.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+     ========================================================= -->
+
+<section
+    class="call-services"
+    id="solutions"
+>
+
+    <div class="container">
+
+
+        <div class="service-grid">
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    ☎️
+                </div>
+
+                <h3>
+                    Inbound Call Handling
+                </h3>
+
+                <p>
+
+                    Help your business manage incoming customer
+                    calls efficiently and professionally.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    📞
+                </div>
+
+                <h3>
+                    Outbound Calling
+                </h3>
+
+                <p>
+
+                    Support sales, follow-ups, customer
+                    communication and business outreach.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    Customer Support
+                </h3>
+
+                <p>
+
+                    Give customers access to a structured
+                    support environment when they need help.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3>
+                    Technical Support Desk
+                </h3>
+
+                <p>
+
+                    Create a dedicated support channel for
+                    technical enquiries and customer assistance.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    📊
+                </div>
+
+                <h3>
+                    Call Reporting
+                </h3>
+
+                <p>
+
+                    Monitor call activity, customer interactions
+                    and support performance.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔗
+                </div>
+
+                <h3>
+                    CRM Integration
+                </h3>
+
+                <p>
+
+                    Connect communication workflows with customer
+                    management and business processes.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Digital Support
+                </h3>
+
+                <p>
+
+                    Combine voice communication with digital
+                    channels such as messaging and online support.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    Call Management
+                </h3>
+
+                <p>
+
+                    Organise call flows, teams and customer
+                    communication requirements.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Business Continuity
+                </h3>
+
+                <p>
+
+                    Design communication solutions that help your
+                    team stay reachable and responsive.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURE
+     ========================================================= -->
+
+<section class="feature-section">
+
+    <div class="container feature-grid">
+
+
+        <div class="operations-panel reveal">
+
+
+            <div class="operations-header">
+
+                <div class="operations-title">
+                    Support Operations
+                </div>
+
+                <div class="operations-live">
+                    ● SYSTEM ONLINE
+                </div>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <div class="operation-left">
+
+                    <div class="operation-icon">
+                        ☎️
+                    </div>
+
+                    <div class="operation-name">
+                        Inbound Calls
+                    </div>
+
+                </div>
+
+                <div class="operation-status">
+                    ACTIVE
+                </div>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <div class="operation-left">
+
+                    <div class="operation-icon">
+                        🎧
+                    </div>
+
+                    <div class="operation-name">
+                        Customer Support
+                    </div>
+
+                </div>
+
+                <div class="operation-status">
+                    ONLINE
+                </div>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <div class="operation-left">
+
+                    <div class="operation-icon">
+                        🛠️
+                    </div>
+
+                    <div class="operation-name">
+                        Technical Support
+                    </div>
+
+                </div>
+
+                <div class="operation-status">
+                    READY
+                </div>
+
+            </div>
+
+
+            <div class="operation-row">
+
+                <div class="operation-left">
+
+                    <div class="operation-icon">
+                        📊
+                    </div>
+
+                    <div class="operation-name">
+                        Reporting
+                    </div>
+
+                </div>
+
+                <div class="operation-status">
+                    RUNNING
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="feature-content reveal">
+
+
+            <div class="eyebrow">
+                Connected Communication
+            </div>
+
+
+            <h2>
+
+                Put Your Customer Communication
+                In One Organised Environment.
+
+            </h2>
+
+
+            <p>
+
+                Dinges TechHub can help businesses plan and
+                implement communication solutions that support
+                customer service, technical assistance, sales and
+                everyday business operations.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+                <li>
+                    <span>✓</span>
+                    Organised inbound and outbound communication
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Customer support workflows
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    VoIP and business telephony solutions
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    CRM and customer management integration
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Call activity and performance reporting
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Scalable communication infrastructure
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOLUTION TYPES
+     ========================================================= -->
+
+<section class="solution-types">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Business Communication
+            </div>
+
+
+            <h2>
+                Solutions For Different Business Needs
+            </h2>
+
+
+            <p>
+
+                Whether you need customer service, technical
+                assistance or sales communication, we can help
+                structure the right solution.
+
+            </p>
+
+        </div>
+
+
+        <div class="types-grid">
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    01
+                </div>
+
+                <h3>
+                    Customer Service
+                </h3>
+
+                <p>
+
+                    Give customers a reliable channel to contact
+                    your business.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    02
+                </div>
+
+                <h3>
+                    Technical Support
+                </h3>
+
+                <p>
+
+                    Build a dedicated support environment for
+                    technical enquiries.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    03
+                </div>
+
+                <h3>
+                    Sales & Outreach
+                </h3>
+
+                <p>
+
+                    Support outbound customer communication and
+                    business development.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    04
+                </div>
+
+                <h3>
+                    Business Operations
+                </h3>
+
+                <p>
+
+                    Connect teams and communication processes
+                    across your organisation.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Approach
+            </div>
+
+
+            <h2>
+                Plan. Connect. Support. Improve.
+            </h2>
+
+
+            <p>
+
+                We focus on understanding your business
+                requirements before recommending a suitable
+                communication solution.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+
+                    We learn about your business, customers,
+                    teams and communication requirements.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+
+                    We identify the communication services,
+                    technology and workflows required.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <p>
+
+                    We help establish the appropriate
+                    communication environment and integrations.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Support
+                </h3>
+
+                <p>
+
+                    We help you maintain and improve your
+                    communication environment as your business
+                    grows.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT SECTION
+     ========================================================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="container contact-grid">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info reveal">
+
+
+            <div class="eyebrow">
+                Get Started
+            </div>
+
+
+            <h2>
+                Let's Design Your Call Centre Solution.
+            </h2>
+
+
+            <p>
+
+                Tell us about your business, team and
+                communication requirements. Our team can review
+                your enquiry and determine the best next step.
+
+            </p>
+
+
+            <div class="contact-points">
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email Support
+                        </strong>
+
+                        <a
+                            href="mailto:support@dingestechhub.co.za"
+                        >
+                            support@dingestechhub.co.za
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        🕘
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Business Hours
+                        </strong>
+
+                        <span>
+                            Monday - Friday: 09:00 - 16:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        ☎️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Call Centre Solutions
+                        </strong>
+
+                        <span>
+                            VoIP • Customer Support • CRM • Call Management
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="contact-form-wrapper reveal">
+
+
+            <div class="contact-form-header">
+
+                <h3>
+                    Request Call Centre Solution
+                </h3>
+
+                <p>
+
+                    Complete the form below and Dinges TechHub
+                    will review your requirements.
+
+                </p>
+
+            </div>
+
+
+            <form
+                id="callCentreForm"
+                novalidate
+            >
+
+
+                <input
+                    type="hidden"
+                    name="service"
+                    value="Call Centre Solutions"
+                >
+
+
+                <input
+                    type="hidden"
+                    name="source"
+                    value="Call Centre Solutions Page"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Your phone number"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- COMPANY -->
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company / Organisation
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            placeholder="Company name"
+                            autocomplete="organization"
+                        >
+
+                    </div>
+
+
+                    <!-- AGENTS -->
+
+                    <div class="form-group">
+
+                        <label for="agents">
+                            Number of Agents
+                        </label>
+
+                        <select
+                            id="agents"
+                            name="agents"
+                        >
+
+                            <option value="">
+                                Select number of agents
+                            </option>
+
+                            <option value="1-5">
+                                1 - 5 Agents
+                            </option>
+
+                            <option value="6-10">
+                                6 - 10 Agents
+                            </option>
+
+                            <option value="11-25">
+                                11 - 25 Agents
+                            </option>
+
+                            <option value="26-50">
+                                26 - 50 Agents
+                            </option>
+
+                            <option value="51-100">
+                                51 - 100 Agents
+                            </option>
+
+                            <option value="100+">
+                                100+ Agents
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CURRENT SETUP -->
+
+                    <div class="form-group">
+
+                        <label for="currentSetup">
+                            Current Call Centre Setup
+                        </label>
+
+                        <select
+                            id="currentSetup"
+                            name="currentSetup"
+                        >
+
+                            <option value="">
+                                Select an option
+                            </option>
+
+                            <option value="No Call Centre">
+                                No Call Centre
+                            </option>
+
+                            <option value="Existing Call Centre">
+                                Existing Call Centre
+                            </option>
+
+                            <option value="Basic Phone System">
+                                Basic Phone System
+                            </option>
+
+                            <option value="VoIP System">
+                                VoIP System
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SUPPORT TYPE -->
+
+                    <div class="form-group full">
+
+                        <label for="solutionType">
+                            What Do You Need Help With? *
+                        </label>
+
+                        <select
+                            id="solutionType"
+                            name="solutionType"
+                            required
+                        >
+
+                            <option value="">
+                                Select a call centre solution
+                            </option>
+
+                            <option value="New Call Centre Setup">
+                                New Call Centre Setup
+                            </option>
+
+                            <option value="Inbound Call Centre">
+                                Inbound Call Centre
+                            </option>
+
+                            <option value="Outbound Calling">
+                                Outbound Calling
+                            </option>
+
+                            <option value="Customer Support">
+                                Customer Support
+                            </option>
+
+                            <option value="Technical Support">
+                                Technical Support
+                            </option>
+
+                            <option value="VoIP / Telephony">
+                                VoIP / Telephony
+                            </option>
+
+                            <option value="CRM Integration">
+                                CRM Integration
+                            </option>
+
+                            <option value="Call Recording & Reporting">
+                                Call Recording & Reporting
+                            </option>
+
+                            <option value="WhatsApp / Digital Support">
+                                WhatsApp / Digital Support
+                            </option>
+
+                            <option value="Other Call Centre Requirement">
+                                Other Call Centre Requirement
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CONTACT METHOD -->
+
+                    <div class="form-group full">
+
+                        <label for="contactMethod">
+                            Preferred Contact Method
+                        </label>
+
+                        <select
+                            id="contactMethod"
+                            name="contactMethod"
+                        >
+
+                            <option value="">
+                                Select preferred contact method
+                            </option>
+
+                            <option value="Phone">
+                                Phone
+                            </option>
+
+                            <option value="Email">
+                                Email
+                            </option>
+
+                            <option value="WhatsApp">
+                                WhatsApp
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Describe Your Requirements *
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your business, number of agents, current setup and what you would like your call centre solution to achieve..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary form-submit"
+                        id="submitButton"
+                    >
+
+                        Request Consultation
+
+                    </button>
+
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+                </div>
+
+
+                <div class="form-note">
+
+                    By submitting this form, your enquiry will
+                    be sent to Dinges TechHub for review.
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <h2>
+                Ready To Improve Your Customer Communication?
+            </h2>
+
+
+            <p>
+
+                Let Dinges TechHub help you plan a call centre
+                solution that fits your business and your
+                customers.
+
+            </p>
+
+
+            <a
+                href="#contact"
+                class="btn btn-primary"
+            >
+
+                Start Your Enquiry
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+
+                        Dinges
+                        <span>TechHub</span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the
+                    future.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="services.html">
+                            All Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless-broadband.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iot.html">
+                            Internet of Things
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-solutions.html">
+                            Smart Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="call-centre.html">
+                            Call Centre Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="help-centre.html">
+                            Help Centre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="mailto:support@dingestechhub.co.za"
+                        >
+                            support@dingestechhub.co.za
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Call Centre Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Mon - Fri: 09:00 - 16:00
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                © 2026 Dinges TechHub.
+                All rights reserved.
+
+            </div>
+
+
+            <div>
+
+                Smart Technology •
+                Connectivity •
+                Innovation
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            const isActive =
+                navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isActive)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isActive
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            menuToggle.textContent =
+                isActive
+                    ? "✕"
+                    : "☰";
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove("active");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+
+                    menuToggle.textContent =
+                        "☰";
+
+                }
+            );
+
+        });
+
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                window.innerWidth <= 900 &&
+                navLinks.classList.contains("active") &&
+                !navLinks.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                navLinks.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+                menuToggle.textContent =
+                    "☰";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+if ("IntersectionObserver" in window) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+}
+
+
+/* =========================================================
+   CALL CENTRE FORM
+   ========================================================= */
+
+const callCentreForm =
+    document.getElementById("callCentreForm");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+if (callCentreForm) {
+
+    callCentreForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            /* -----------------------------------------
+               CLEAR OLD MESSAGE
+            ----------------------------------------- */
+
+            formMessage.className =
+                "form-message";
+
+            formMessage.textContent =
+                "";
+
+
+            /* -----------------------------------------
+               COLLECT FORM
+            ----------------------------------------- */
+
+            const formData =
+                new FormData(callCentreForm);
+
+
+            const name =
+                String(
+                    formData.get("name") || ""
+                ).trim();
+
+
+            const email =
+                String(
+                    formData.get("email") || ""
+                ).trim();
+
+
+            const phone =
+                String(
+                    formData.get("phone") || ""
+                ).trim();
+
+
+            const company =
+                String(
+                    formData.get("company") || ""
+                ).trim();
+
+
+            const agents =
+                String(
+                    formData.get("agents") || ""
+                ).trim();
+
+
+            const currentSetup =
+                String(
+                    formData.get("currentSetup") || ""
+                ).trim();
+
+
+            const solutionType =
+                String(
+                    formData.get("solutionType") || ""
+                ).trim();
+
+
+            const contactMethod =
+                String(
+                    formData.get("contactMethod") || ""
+                ).trim();
+
+
+            const message =
+                String(
+                    formData.get("message") || ""
+                ).trim();
+
+
+            /* -----------------------------------------
+               VALIDATION
+            ----------------------------------------- */
+
+            if (!name) {
+
+                showFormError(
+                    "Please enter your full name."
+                );
+
+                document
+                    .getElementById("name")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (!email) {
+
+                showFormError(
+                    "Please enter your email address."
+                );
+
+                document
+                    .getElementById("email")
+                    .focus();
+
+                return;
+
+            }
+
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                showFormError(
+                    "Please enter a valid email address."
+                );
+
+                document
+                    .getElementById("email")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (!phone) {
+
+                showFormError(
+                    "Please enter your phone number."
+                );
+
+                document
+                    .getElementById("phone")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (!solutionType) {
+
+                showFormError(
+                    "Please select the call centre solution you need."
+                );
+
+                document
+                    .getElementById("solutionType")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (!message) {
+
+                showFormError(
+                    "Please describe your call centre requirements."
+                );
+
+                document
+                    .getElementById("message")
+                    .focus();
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------
+               LOADING STATE
+            ----------------------------------------- */
+
+            submitButton.classList.add(
+                "loading"
+            );
+
+            submitButton.disabled = true;
+
+            submitButton.textContent =
+                "Sending...";
+
+
+            /* -----------------------------------------
+               SEND TO EXISTING BACKEND
+            ----------------------------------------- */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    name:
+                                        name,
+
+                                    email:
+                                        email,
+
+                                    phone:
+                                        phone,
+
+                                    company:
+                                        company,
+
+                                    service:
+                                        "Call Centre Solutions",
+
+                                    supportType:
+                                        solutionType,
+
+                                    solutionType:
+                                        solutionType,
+
+                                    agents:
+                                        agents,
+
+                                    currentSetup:
+                                        currentSetup,
+
+                                    contactMethod:
+                                        contactMethod,
+
+                                    subject:
+                                        "Call Centre Solutions Enquiry",
+
+                                    message:
+                                        message,
+
+                                    source:
+                                        "Call Centre Solutions Page"
+
+                                })
+
+                        }
+                    );
+
+
+                /* -----------------------------------------
+                   READ RESPONSE
+                ----------------------------------------- */
+
+                let result = {};
+
+
+                try {
+
+                    result =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    result = {};
+
+                }
+
+
+                /* -----------------------------------------
+                   BACKEND FAILURE
+                ----------------------------------------- */
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        result.message ||
+                        result.error ||
+                        "Unable to send your enquiry."
+                    );
+
+                }
+
+
+                /* -----------------------------------------
+                   SUCCESS
+                ----------------------------------------- */
+
+                formMessage.className =
+                    "form-message success";
+
+                formMessage.textContent =
+                    result.message ||
+                    "Thank you. Your call centre enquiry has been sent successfully. Dinges TechHub will review your requirements.";
+
+
+                callCentreForm.reset();
+
+
+                /* -----------------------------------------
+                   SCROLL MESSAGE INTO VIEW ON MOBILE
+                ----------------------------------------- */
+
+                setTimeout(
+                    () => {
+
+                        formMessage.scrollIntoView({
+                            behavior: "smooth",
+                            block: "nearest"
+                        });
+
+                    },
+                    100
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Call Centre enquiry error:",
+                    error
+                );
+
+
+                showFormError(
+                    error.message ||
+                    "Unable to send your enquiry. Please try again."
+                );
+
+
+            } finally {
+
+                submitButton.classList.remove(
+                    "loading"
+                );
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Request Consultation";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FORM ERROR HELPER
+   ========================================================= */
+
+function showFormError(message) {
+
+    formMessage.className =
+        "form-message error";
+
+    formMessage.textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   HASH AUTO-SCROLL
+   ========================================================= */
+
+if (
+    window.location.hash === "#contact"
+) {
+
+    window.addEventListener(
+        "load",
+        () => {
+
+            setTimeout(
+                () => {
+
+                    const contactSection =
+                        document.getElementById("contact");
+
+                    if (contactSection) {
+
+                        contactSection.scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                    }
+
+                },
+                300
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU WHEN RESIZING
+   ========================================================= */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        if (
+            window.innerWidth > 900 &&
+            navLinks
+        ) {
+
+            navLinks.classList.remove(
+                "active"
+            );
+
+            if (menuToggle) {
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+
+                menuToggle.textContent =
+                    "☰";
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
