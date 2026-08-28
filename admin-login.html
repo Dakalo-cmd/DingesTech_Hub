@@ -340,6 +340,15 @@ form.addEventListener("submit", async function(event){
             (result.json && result.json.message) ||
             "Invalid username or password.";
 
+        if(result.json && result.json.diagnostic){
+
+            message.textContent +=
+                "  [diag: " +
+                JSON.stringify(result.json.diagnostic) +
+                "]";
+
+        }
+
         button.disabled = false;
         button.textContent = "Login";
 
