@@ -1,0 +1,3738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Solutions & Technical Assistance | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Dinges TechHub provides practical IT solutions, technical assistance, computer support, network support, software assistance, device setup and technology troubleshooting."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   IT SOLUTIONS & TECHNICAL ASSISTANCE
+   ========================================================= */
+
+:root {
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+    --gold: #FFBB42;
+
+    --black: #020202;
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+    --background: #f7f5f8;
+
+    --green: #35d07f;
+    --red: #ff6b6b;
+
+    --container: 1200px;
+    --radius: 20px;
+
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--black);
+
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: min(92%, var(--container));
+    margin: auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(2, 2, 2, 0.94);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
+}
+
+.nav-container {
+    min-height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+}
+
+.logo-text {
+    color: var(--white);
+
+    font-size: 19px;
+
+    font-weight: 800;
+}
+
+.logo-text span {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    padding: 11px 19px;
+
+    border-radius: 999px;
+
+    background: var(--gold);
+
+    color: var(--black) !important;
+
+    font-weight: 800 !important;
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+
+    border: none;
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 690px;
+
+    padding: 150px 0 90px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(122, 44, 120, 0.45),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 48%,
+            #3C1542 100%
+        );
+
+    color: var(--white);
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -250px;
+    top: 80px;
+
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.14);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    right: -90px;
+    top: 190px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+
+    animation:
+        rotateCircleReverse
+        13s linear infinite;
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateCircleReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+.hero-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.breadcrumb {
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.5px;
+}
+
+.hero h1 {
+    font-size:
+        clamp(42px, 6vw, 70px);
+
+    line-height: 1.02;
+
+    margin-bottom: 25px;
+
+    max-width: 720px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 23px;
+
+    border-radius: 999px;
+
+    font-weight: 800;
+
+    transition: var(--transition);
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--gold);
+
+    color: var(--black);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+}
+
+.btn-outline {
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color: var(--white);
+
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   IT SUPPORT VISUAL
+   ========================================================= */
+
+.tech-visual {
+    min-height: 430px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   MONITOR
+   ========================================================= */
+
+.monitor {
+    width: 300px;
+    height: 205px;
+
+    position: relative;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #29292e,
+            #08080a
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,0.14);
+
+    box-shadow:
+        0 30px 70px
+        rgba(0,0,0,0.55);
+
+    animation:
+        monitorFloat
+        4s ease-in-out infinite;
+}
+
+.monitor-screen {
+    position: absolute;
+
+    left: 15px;
+    top: 15px;
+
+    width: calc(100% - 30px);
+    height: 155px;
+
+    border-radius: 9px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255,187,66,0.18),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #160b1a,
+            #090909
+        );
+
+    overflow: hidden;
+}
+
+.code-line {
+    height: 7px;
+
+    border-radius: 10px;
+
+    margin: 13px 20px;
+
+    background:
+        rgba(255,255,255,0.16);
+
+    animation:
+        codePulse
+        2.5s ease-in-out infinite alternate;
+}
+
+.code-line.short {
+    width: 45%;
+}
+
+.code-line.medium {
+    width: 65%;
+}
+
+.code-line.long {
+    width: 80%;
+}
+
+.code-line.gold {
+    background:
+        rgba(255,187,66,0.65);
+}
+
+.code-line.purple {
+    background:
+        rgba(157,76,155,0.75);
+}
+
+.monitor-stand {
+    position: absolute;
+
+    width: 65px;
+    height: 35px;
+
+    left: calc(50% - 32px);
+    bottom: -35px;
+
+    background: #151518;
+}
+
+.monitor-base {
+    position: absolute;
+
+    width: 130px;
+    height: 10px;
+
+    left: calc(50% - 65px);
+    bottom: -45px;
+
+    border-radius: 20px;
+
+    background: #151518;
+}
+
+@keyframes monitorFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+@keyframes codePulse {
+
+    from {
+        opacity: 0.45;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING TECHNOLOGY NODES
+   ========================================================= */
+
+.tech-node {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 29px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    animation:
+        nodeFloat
+        4s ease-in-out infinite;
+}
+
+.tech-node-1 {
+    top: 25px;
+    left: 8%;
+}
+
+.tech-node-2 {
+    top: 25%;
+    right: 0;
+
+    animation-delay: .7s;
+}
+
+.tech-node-3 {
+    bottom: 8%;
+    right: 13%;
+
+    animation-delay: 1.4s;
+}
+
+.tech-node-4 {
+    bottom: 12%;
+    left: 5%;
+
+    animation-delay: 2.1s;
+}
+
+@keyframes nodeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-11px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+    padding: 100px 0 60px;
+
+    background: var(--white);
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 760px;
+
+    margin:
+        0 auto 55px;
+}
+
+.eyebrow {
+    color: var(--purple);
+
+    text-transform: uppercase;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+
+    color: var(--purple-dark);
+}
+
+.section-heading p {
+    color: #666;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SUPPORT SERVICES
+   ========================================================= */
+
+.support-services {
+    padding: 60px 0 100px;
+
+    background: var(--white);
+}
+
+.service-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.service-card {
+    padding: 30px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius: var(--radius);
+
+    transition: var(--transition);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-icon {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color: var(--purple);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 28px;
+
+    margin-bottom: 22px;
+}
+
+.service-card h3 {
+    color: var(--purple-dark);
+
+    font-size: 21px;
+
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   SUPPORT FEATURE
+   ========================================================= */
+
+.support-section {
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color: var(--white);
+}
+
+.support-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   SUPPORT DASHBOARD VISUAL
+   ========================================================= */
+
+.support-panel {
+    min-height: 420px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255,187,66,0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #241027,
+            #090709
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 35px;
+}
+
+.panel-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.panel-title {
+    font-weight: 800;
+
+    font-size: 17px;
+}
+
+.panel-status {
+    color: var(--gold);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.system-card {
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    margin-bottom: 14px;
+}
+
+.system-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.system-heading strong {
+    font-size: 14px;
+}
+
+.system-status {
+    color: var(--gold);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.status-bar {
+    height: 7px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.status-fill {
+    height: 100%;
+
+    width: 88%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    border-radius: inherit;
+
+    animation:
+        statusMove
+        2.5s ease-in-out infinite alternate;
+}
+
+.status-fill.network {
+    width: 94%;
+}
+
+.status-fill.security {
+    width: 91%;
+}
+
+@keyframes statusMove {
+
+    from {
+        opacity: .65;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   SUPPORT CONTENT
+   ========================================================= */
+
+.support-content .eyebrow {
+    color: var(--gold);
+}
+
+.support-content h2 {
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+.support-content > p {
+    color:
+        rgba(255,255,255,0.75);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    list-style: none;
+
+    display: grid;
+
+    gap: 15px;
+}
+
+.feature-list li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color:
+        rgba(255,255,255,0.9);
+
+    line-height: 1.5;
+}
+
+.feature-list li span {
+    color: var(--gold);
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   SUPPORT TYPES
+   ========================================================= */
+
+.support-types {
+    padding: 100px 0;
+
+    background: var(--background);
+}
+
+.types-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.type-card {
+    padding: 28px 22px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e5e0e6;
+
+    transition: var(--transition);
+}
+
+.type-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(60,21,66,0.10);
+}
+
+.type-number {
+    font-size: 13px;
+
+    font-weight: 900;
+
+    color: var(--gold);
+
+    margin-bottom: 15px;
+}
+
+.type-card h3 {
+    color: var(--purple-dark);
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.type-card p {
+    color: #707070;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+    padding: 100px 0;
+
+    background: var(--white);
+}
+
+.steps {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.step {
+    background: var(--background);
+
+    padding: 32px;
+
+    border-radius: var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+}
+
+.step-number {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--purple);
+
+    color: var(--white);
+
+    font-weight: 900;
+
+    margin-bottom: 22px;
+}
+
+.step h3 {
+    color: var(--purple-dark);
+
+    margin-bottom: 12px;
+}
+
+.step p {
+    color: #686868;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section {
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f5f8,
+            #ffffff
+        );
+}
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap: 60px;
+
+    align-items: start;
+}
+
+.contact-info {
+    padding-top: 10px;
+}
+
+.contact-info .eyebrow {
+    color: var(--purple);
+}
+
+.contact-info h2 {
+    color: var(--purple-dark);
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    color: #666;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.contact-points {
+    display: grid;
+
+    gap: 15px;
+}
+
+.contact-point {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 17px;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        #e8e3e9;
+
+    border-radius: 16px;
+}
+
+.contact-point-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        rgba(122,44,120,0.10);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+.contact-point strong {
+    display: block;
+
+    color: var(--purple-dark);
+
+    margin-bottom: 4px;
+
+    font-size: 14px;
+}
+
+.contact-point span,
+.contact-point a {
+    color: #6d6d6d;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.contact-point a:hover {
+    color: var(--purple);
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.contact-form-wrapper {
+    background: var(--white);
+
+    padding: 35px;
+
+    border-radius: 26px;
+
+    border:
+        1px solid
+        #e4dfe6;
+
+    box-shadow:
+        0 25px 70px
+        rgba(60,21,66,0.10);
+}
+
+.contact-form-header {
+    margin-bottom: 25px;
+}
+
+.contact-form-header h3 {
+    color: var(--purple-dark);
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+.contact-form-header p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--purple-dark);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        #ddd7df;
+
+    background: #faf9fb;
+
+    color: var(--black);
+
+    border-radius: 12px;
+
+    padding: 13px 14px;
+
+    outline: none;
+
+    transition: var(--transition);
+}
+
+.form-group input,
+.form-group select {
+    height: 48px;
+}
+
+.form-group textarea {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--purple);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(122,44,120,0.08);
+}
+
+.form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+.form-submit {
+    min-width: 170px;
+}
+
+.form-submit.loading {
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+.form-message {
+    display: none;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.form-message.success {
+    display: block;
+
+    background:
+        rgba(53,208,127,0.10);
+
+    border:
+        1px solid
+        rgba(53,208,127,0.25);
+
+    color: #167844;
+}
+
+.form-message.error {
+    display: block;
+
+    background:
+        rgba(255,107,107,0.10);
+
+    border:
+        1px solid
+        rgba(255,107,107,0.25);
+
+    color: #a62929;
+}
+
+.form-note {
+    margin-top: 15px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+    padding: 80px 0;
+
+    background: var(--white);
+}
+
+.cta-box {
+    padding: 65px 40px;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align: center;
+
+    color: var(--white);
+}
+
+.cta-box h2 {
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    max-width: 650px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #020202;
+
+    color: var(--white);
+
+    padding: 70px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap: 45px;
+
+    padding-bottom: 50px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 20px;
+}
+
+.footer-description {
+    color: #a9a9a9;
+
+    line-height: 1.7;
+
+    max-width: 340px;
+
+    font-size: 14px;
+}
+
+.footer-column h4 {
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
+    font-size: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    color: #a9a9a9;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+        position: absolute;
+
+        top: 78px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        background: #020202;
+
+        padding: 25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 12px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-grid,
+    .support-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .types-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        min-height: 70px;
+    }
+
+    .nav-links {
+        top: 70px;
+    }
+
+    .logo img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding:
+            120px 0 70px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .tech-visual {
+        min-height: 330px;
+    }
+
+    .monitor {
+        width: 250px;
+        height: 175px;
+    }
+
+    .monitor-screen {
+        height: 130px;
+    }
+
+    .tech-node {
+        width: 58px;
+        height: 58px;
+
+        font-size: 22px;
+    }
+
+    .tech-node-1 {
+        left: 0;
+    }
+
+    .tech-node-2 {
+        right: 0;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .support-panel {
+        min-height: 360px;
+
+        padding: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .contact-form-wrapper {
+        padding: 24px;
+    }
+
+    .form-actions {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .form-submit {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .cta-box {
+        padding: 50px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+
+                Dinges
+                <span>TechHub</span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            type="button"
+        >
+
+            ☰
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+
+                SMART SOLUTIONS /
+                IT SOLUTIONS & TECHNICAL ASSISTANCE
+
+            </div>
+
+
+            <h1>
+
+                Technology Problems?
+                <span>We've Got You Covered.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Get practical technical assistance for your
+                computers, networks, software, devices and
+                everyday IT challenges. Dinges TechHub helps
+                keep your technology working when you need it.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#support"
+                    class="btn btn-primary"
+                >
+
+                    Explore IT Solutions
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+
+                    Get Technical Assistance
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNOLOGY VISUAL -->
+
+        <div class="tech-visual reveal">
+
+
+            <div class="tech-node tech-node-1">
+                💻
+            </div>
+
+
+            <div class="tech-node tech-node-2">
+                🌐
+            </div>
+
+
+            <div class="tech-node tech-node-3">
+                ⚙️
+            </div>
+
+
+            <div class="tech-node tech-node-4">
+                🛠️
+            </div>
+
+
+            <div class="monitor">
+
+                <div class="monitor-screen">
+
+                    <div class="code-line gold long"></div>
+
+                    <div class="code-line purple medium"></div>
+
+                    <div class="code-line long"></div>
+
+                    <div class="code-line gold short"></div>
+
+                    <div class="code-line medium"></div>
+
+                    <div class="code-line purple long"></div>
+
+                    <div class="code-line short"></div>
+
+                </div>
+
+                <div class="monitor-stand"></div>
+
+                <div class="monitor-base"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Smart Solutions
+            </div>
+
+
+            <h2>
+                Reliable Help For Everyday IT Problems
+            </h2>
+
+
+            <p>
+
+                Technology should make your work easier, not
+                become another problem to solve. Dinges TechHub
+                provides practical technical assistance for
+                common IT issues affecting computers, networks,
+                software and connected devices.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SUPPORT SERVICES
+     ========================================================= -->
+
+<section
+    class="support-services"
+    id="support"
+>
+
+    <div class="container">
+
+
+        <div class="service-grid">
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Computer Support
+                </h3>
+
+                <p>
+
+                    Assistance with computer setup,
+                    configuration, performance and common
+                    connectivity problems.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Network Assistance
+                </h3>
+
+                <p>
+
+                    Help identify and troubleshoot basic network
+                    connectivity and configuration problems.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Software Assistance
+                </h3>
+
+                <p>
+
+                    Support with software installation,
+                    configuration and common application issues.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Device Setup
+                </h3>
+
+                <p>
+
+                    Assistance setting up supported computers,
+                    peripherals and connected technology.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    Technical Troubleshooting
+                </h3>
+
+                <p>
+
+                    Work through technology problems to identify
+                    possible causes and practical solutions.
+
+                </p>
+
+            </article>
+
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    IT Maintenance
+                </h3>
+
+                <p>
+
+                    Basic assistance with keeping technology
+                    systems organised, configured and ready for
+                    everyday use.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SUPPORT FEATURE
+     ========================================================= -->
+
+<section class="support-section">
+
+    <div class="container support-grid">
+
+
+        <div class="support-panel reveal">
+
+
+            <div class="panel-header">
+
+                <div class="panel-title">
+                    IT Environment
+                </div>
+
+
+                <div class="panel-status">
+                    SYSTEM CHECK
+                </div>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-heading">
+
+                    <strong>
+                        Computer Systems
+                    </strong>
+
+                    <span class="system-status">
+                        ● Stable
+                    </span>
+
+                </div>
+
+
+                <div class="status-bar">
+
+                    <div class="status-fill"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-heading">
+
+                    <strong>
+                        Network Connectivity
+                    </strong>
+
+                    <span class="system-status">
+                        ● Connected
+                    </span>
+
+                </div>
+
+
+                <div class="status-bar">
+
+                    <div class="status-fill network"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-heading">
+
+                    <strong>
+                        System Configuration
+                    </strong>
+
+                    <span class="system-status">
+                        ● Ready
+                    </span>
+
+                </div>
+
+
+                <div class="status-bar">
+
+                    <div class="status-fill security"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-card">
+
+                <div class="system-heading">
+
+                    <strong>
+                        Support Status
+                    </strong>
+
+                    <span class="system-status">
+                        ● Available
+                    </span>
+
+                </div>
+
+
+                <div class="status-bar">
+
+                    <div
+                        class="status-fill"
+                        style="width:96%"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="support-content reveal">
+
+
+            <div class="eyebrow">
+                Technical Support
+            </div>
+
+
+            <h2>
+
+                When Technology Stops Working,
+                Get The Right Help.
+
+            </h2>
+
+
+            <p>
+
+                IT problems do not always require complicated
+                solutions. The important part is identifying
+                what is causing the problem and dealing with it
+                systematically.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+                <li>
+                    <span>✓</span>
+                    Computer and device assistance
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Basic network troubleshooting
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Software setup and configuration
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Peripheral and device support
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    General technical troubleshooting
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TYPES OF SUPPORT
+     ========================================================= -->
+
+<section class="support-types">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Support Areas
+            </div>
+
+
+            <h2>
+                IT Assistance Where You Need It
+            </h2>
+
+
+            <p>
+
+                Our technical assistance can cover a range of
+                everyday technology requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="types-grid">
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    01
+                </div>
+
+                <h3>
+                    Computers
+                </h3>
+
+                <p>
+
+                    Setup, configuration and troubleshooting
+                    assistance.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    02
+                </div>
+
+                <h3>
+                    Networks
+                </h3>
+
+                <p>
+
+                    Basic connectivity and network configuration
+                    support.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    03
+                </div>
+
+                <h3>
+                    Software
+                </h3>
+
+                <p>
+
+                    Installation, setup and common software
+                    assistance.
+
+                </p>
+
+            </div>
+
+
+            <div class="type-card reveal">
+
+                <div class="type-number">
+                    04
+                </div>
+
+                <h3>
+                    Devices
+                </h3>
+
+                <p>
+
+                    Support for supported peripherals and
+                    connected technology.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Support Process
+            </div>
+
+
+            <h2>
+                Diagnose. Resolve. Keep Moving.
+            </h2>
+
+
+            <p>
+
+                Our approach is designed to make technical
+                assistance straightforward and practical.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+
+                <h3>
+                    Understand
+                </h3>
+
+
+                <p>
+
+                    We first identify the technology involved,
+                    what is going wrong and when the issue
+                    started.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+
+                <h3>
+                    Troubleshoot
+                </h3>
+
+
+                <p>
+
+                    We work through the relevant settings,
+                    connections and configurations to narrow
+                    down the problem.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+
+                <h3>
+                    Resolve
+                </h3>
+
+
+                <p>
+
+                    Once the cause is identified, we apply the
+                    appropriate solution and test the result.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT / IT SOLUTIONS ENQUIRY
+     ========================================================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="container contact-grid">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info reveal">
+
+            <div class="eyebrow">
+                Get In Touch
+            </div>
+
+
+            <h2>
+                Tell Us What Technology Problem You're Facing.
+            </h2>
+
+
+            <p>
+
+                Send us your requirements or describe the
+                technical issue you are experiencing. Our team
+                can review your enquiry and determine the best
+                way to assist.
+
+            </p>
+
+
+            <div class="contact-points">
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Email Support
+                        </strong>
+
+                        <a
+                            href="mailto:support@dingestechhub.co.za"
+                        >
+                            support@dingestechhub.co.za
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        🕘
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Business Hours
+                        </strong>
+
+                        <span>
+                            Monday - Friday: 09:00 - 16:00
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-point">
+
+                    <div class="contact-point-icon">
+                        🛠️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Technical Assistance
+                        </strong>
+
+                        <span>
+                            Computers • Networks • Software • Devices
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-form-wrapper reveal">
+
+
+            <div class="contact-form-header">
+
+                <h3>
+                    Request IT Assistance
+                </h3>
+
+                <p>
+                    Complete the form below and send your
+                    enquiry directly to Dinges TechHub.
+                </p>
+
+            </div>
+
+
+            <form
+                id="itSupportForm"
+                novalidate
+            >
+
+
+                <input
+                    type="hidden"
+                    name="service"
+                    value="IT Solutions & Technical Assistance"
+                >
+
+
+                <input
+                    type="hidden"
+                    name="source"
+                    value="IT Solutions Page"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Your phone number"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="company">
+                            Company / Organisation
+                        </label>
+
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            placeholder="Company name"
+                            autocomplete="organization"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="supportType">
+                            What Do You Need Help With? *
+                        </label>
+
+                        <select
+                            id="supportType"
+                            name="supportType"
+                            required
+                        >
+
+                            <option value="">
+                                Select a support area
+                            </option>
+
+                            <option value="Computer Support">
+                                Computer Support
+                            </option>
+
+                            <option value="Network Assistance">
+                                Network Assistance
+                            </option>
+
+                            <option value="Software Assistance">
+                                Software Assistance
+                            </option>
+
+                            <option value="Device Setup">
+                                Device Setup
+                            </option>
+
+                            <option value="Technical Troubleshooting">
+                                Technical Troubleshooting
+                            </option>
+
+                            <option value="IT Maintenance">
+                                IT Maintenance
+                            </option>
+
+                            <option value="Other IT Requirement">
+                                Other IT Requirement
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Describe Your Requirement *
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Please describe the problem or IT assistance you require..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary form-submit"
+                        id="submitButton"
+                    >
+
+                        Send Enquiry
+
+                    </button>
+
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+
+                <div class="form-note">
+
+                    By submitting this form, your enquiry will
+                    be sent to Dinges TechHub for review.
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+
+        <div class="cta-box reveal">
+
+
+            <h2>
+                Need Technical Assistance?
+            </h2>
+
+
+            <p>
+
+                Don't let an IT problem interrupt your work.
+                Contact Dinges TechHub for practical technical
+                assistance and support.
+
+            </p>
+
+
+            <a
+                href="#contact"
+                class="btn btn-primary"
+            >
+
+                Contact Dinges TechHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+
+                        Dinges
+                        <span>TechHub</span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the
+                    future.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="services.html">
+                            All Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless-broadband.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iot.html">
+                            Internet of Things
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-solutions.html">
+                            Smart Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="help-centre.html">
+                            Help Centre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="mailto:support@dingestechhub.co.za"
+                        >
+                            support@dingestechhub.co.za
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Technical Support
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Mon - Fri: 09:00 - 16:00
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                © 2026 Dinges TechHub.
+                All rights reserved.
+
+            </div>
+
+
+            <div>
+
+                Smart Technology •
+                Connectivity •
+                Innovation
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.remove("active");
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   IT SOLUTIONS CONTACT FORM
+   ========================================================= */
+
+const itSupportForm =
+    document.getElementById("itSupportForm");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+itSupportForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /*
+         * Clear previous message
+         */
+
+        formMessage.className =
+            "form-message";
+
+        formMessage.textContent = "";
+
+
+        /*
+         * Collect form values
+         */
+
+        const formData =
+            new FormData(itSupportForm);
+
+
+        const name =
+            String(
+                formData.get("name") || ""
+            ).trim();
+
+        const email =
+            String(
+                formData.get("email") || ""
+            ).trim();
+
+        const supportType =
+            String(
+                formData.get("supportType") || ""
+            ).trim();
+
+        const message =
+            String(
+                formData.get("message") || ""
+            ).trim();
+
+
+        /*
+         * Basic validation
+         */
+
+        if (!name) {
+
+            showFormError(
+                "Please enter your full name."
+            );
+
+            document
+                .getElementById("name")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (!email) {
+
+            showFormError(
+                "Please enter your email address."
+            );
+
+            document
+                .getElementById("email")
+                .focus();
+
+            return;
+
+        }
+
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+        if (!emailPattern.test(email)) {
+
+            showFormError(
+                "Please enter a valid email address."
+            );
+
+            document
+                .getElementById("email")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (!supportType) {
+
+            showFormError(
+                "Please select what you need help with."
+            );
+
+            document
+                .getElementById("supportType")
+                .focus();
+
+            return;
+
+        }
+
+
+        if (!message) {
+
+            showFormError(
+                "Please describe your IT requirement."
+            );
+
+            document
+                .getElementById("message")
+                .focus();
+
+            return;
+
+        }
+
+
+        /*
+         * Loading state
+         */
+
+        submitButton.classList.add("loading");
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Sending...";
+
+
+        try {
+
+            /*
+             * Send to the existing Dinges TechHub
+             * Netlify contact/automation function.
+             */
+
+            const response =
+                await fetch(
+                    "/.netlify/functions/bitrix-contact",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            name:
+                                name,
+
+                            email:
+                                email,
+
+                            phone:
+                                String(
+                                    formData.get("phone") || ""
+                                ).trim(),
+
+                            company:
+                                String(
+                                    formData.get("company") || ""
+                                ).trim(),
+
+                            service:
+                                "IT Solutions & Technical Assistance",
+
+                            supportType:
+                                supportType,
+
+                            subject:
+                                "IT Solutions & Technical Assistance Enquiry",
+
+                            message:
+                                message,
+
+                            source:
+                                "IT Solutions Page"
+
+                        })
+                    }
+                );
+
+
+            /*
+             * Read response safely.
+             */
+
+            let result = {};
+
+            try {
+
+                result =
+                    await response.json();
+
+            } catch (jsonError) {
+
+                result = {};
+
+            }
+
+
+            /*
+             * Handle backend failure.
+             */
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    result.error ||
+                    "Unable to send your enquiry."
+                );
+
+            }
+
+
+            /*
+             * Success.
+             */
+
+            formMessage.className =
+                "form-message success";
+
+            formMessage.textContent =
+                result.message ||
+                "Thank you. Your IT support enquiry has been sent successfully. Dinges TechHub will review your request.";
+
+            itSupportForm.reset();
+
+
+        } catch (error) {
+
+            console.error(
+                "IT Solutions enquiry error:",
+                error
+            );
+
+
+            showFormError(
+                error.message ||
+                "Unable to send your enquiry. Please try again."
+            );
+
+
+        } finally {
+
+            submitButton.classList.remove(
+                "loading"
+            );
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Send Enquiry";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FORM ERROR HELPER
+   ========================================================= */
+
+function showFormError(message) {
+
+    formMessage.className =
+        "form-message error";
+
+    formMessage.textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   AUTO OPEN FORM WHEN HASH IS #CONTACT
+   ========================================================= */
+
+if (
+    window.location.hash === "#contact"
+) {
+
+    setTimeout(
+        () => {
+
+            const contactSection =
+                document.getElementById("contact");
+
+            if (contactSection) {
+
+                contactSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        },
+        300
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>

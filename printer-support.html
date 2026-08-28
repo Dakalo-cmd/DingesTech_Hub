@@ -1,0 +1,4135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Printers | Dinges TechHub</title>
+
+<meta
+    name="description"
+    content="Dinges TechHub provides printer solutions for homes and businesses, including printer supply, setup, connectivity, maintenance and business printing solutions."
+>
+
+<style>
+
+/* =========================================================
+   DINGES TECHHUB
+   PRINTERS / SMART SOLUTIONS
+   ========================================================= */
+
+:root {
+
+    --purple-dark: #3C1542;
+    --purple: #7A2C78;
+    --purple-light: #9d4c9b;
+
+    --gold: #FFBB42;
+
+    --black: #020202;
+
+    --grey: #949393;
+    --light-grey: #D9D9D9;
+
+    --white: #ffffff;
+
+    --background: #f7f5f8;
+
+    --container: 1200px;
+
+    --radius: 20px;
+
+    --transition: 0.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--black);
+
+    overflow-x:
+        hidden;
+}
+
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+}
+
+
+button,
+input,
+select,
+textarea {
+
+    font-family: inherit;
+}
+
+
+.container {
+
+    width:
+        min(92%, var(--container));
+
+    margin:
+        auto;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar {
+
+    position:
+        fixed;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    z-index:
+        1000;
+
+    background:
+        rgba(2, 2, 2, 0.94);
+
+    backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid
+        rgba(255, 187, 66, 0.12);
+}
+
+
+.nav-container {
+
+    min-height:
+        78px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+}
+
+
+.logo {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    flex-shrink:
+        0;
+}
+
+
+.logo img {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        8px;
+}
+
+
+.logo-text {
+
+    color:
+        var(--white);
+
+    font-size:
+        19px;
+
+    font-weight:
+        800;
+}
+
+
+.logo-text span {
+
+    color:
+        var(--gold);
+}
+
+
+.nav-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        27px;
+
+    list-style:
+        none;
+}
+
+
+.nav-links a {
+
+    color:
+        var(--white);
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    position:
+        relative;
+
+    transition:
+        var(--transition);
+}
+
+
+.nav-links a::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    bottom:
+        -8px;
+
+    width:
+        0;
+
+    height:
+        2px;
+
+    background:
+        var(--gold);
+
+    transition:
+        var(--transition);
+}
+
+
+.nav-links a:hover {
+
+    color:
+        var(--gold);
+}
+
+
+.nav-links a:hover::after {
+
+    width:
+        100%;
+}
+
+
+.nav-cta {
+
+    padding:
+        11px 19px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black) !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+.nav-cta::after {
+
+    display:
+        none;
+}
+
+
+.nav-cta:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255, 187, 66, 0.25);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+
+    display:
+        none;
+
+    background:
+        none;
+
+    border:
+        none;
+
+    color:
+        var(--white);
+
+    font-size:
+        28px;
+
+    cursor:
+        pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height:
+        700px;
+
+    padding:
+        150px 0 90px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(122, 44, 120, 0.45),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255, 187, 66, 0.12),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #020202 0%,
+            #16091a 48%,
+            #3C1542 100%
+        );
+
+    color:
+        var(--white);
+}
+
+
+.hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        450px;
+
+    height:
+        450px;
+
+    border:
+        1px solid
+        rgba(255, 187, 66, 0.15);
+
+    border-radius:
+        50%;
+
+    right:
+        -180px;
+
+    top:
+        100px;
+
+    animation:
+        rotateCircle
+        18s linear infinite;
+}
+
+
+.hero::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        260px;
+
+    height:
+        260px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius:
+        50%;
+
+    right:
+        20px;
+
+    top:
+        190px;
+
+    animation:
+        rotateCircleReverse
+        14s linear infinite;
+}
+
+
+@keyframes rotateCircle {
+
+    from {
+
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes rotateCircleReverse {
+
+    from {
+
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+
+        transform:
+            rotate(0deg);
+    }
+
+}
+
+
+.hero-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr 0.95fr;
+
+    align-items:
+        center;
+
+    gap:
+        70px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.breadcrumb {
+
+    color:
+        var(--gold);
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        20px;
+
+    letter-spacing:
+        0.5px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(42px, 6vw, 72px);
+
+    line-height:
+        1.02;
+
+    margin-bottom:
+        25px;
+
+    max-width:
+        750px;
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--gold);
+}
+
+
+.hero-description {
+
+    max-width:
+        650px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    font-size:
+        18px;
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        35px;
+}
+
+
+.hero-buttons {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        15px;
+}
+
+
+.btn {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        14px 23px;
+
+    border-radius:
+        999px;
+
+    font-weight:
+        800;
+
+    transition:
+        var(--transition);
+}
+
+
+.btn-primary {
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+}
+
+
+.btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(255,187,66,0.25);
+}
+
+
+.btn-outline {
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color:
+        var(--white);
+}
+
+
+.btn-outline:hover {
+
+    border-color:
+        var(--gold);
+
+    color:
+        var(--gold);
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================================================
+   PRINTER VISUAL
+   ========================================================= */
+
+.printer-visual {
+
+    position:
+        relative;
+
+    min-height:
+        430px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+
+/* PRINTER */
+
+.printer {
+
+    position:
+        relative;
+
+    width:
+        270px;
+
+    height:
+        190px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252127,
+            #080709
+        );
+
+    border-radius:
+        22px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.14);
+
+    box-shadow:
+
+        0 35px 70px
+        rgba(0,0,0,0.45),
+
+        0 0 55px
+        rgba(122,44,120,0.20);
+
+    z-index:
+        3;
+}
+
+
+.printer-top {
+
+    position:
+        absolute;
+
+    top:
+        -38px;
+
+    left:
+        28px;
+
+    width:
+        214px;
+
+    height:
+        58px;
+
+    background:
+        #161319;
+
+    border-radius:
+        13px 13px 5px 5px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+}
+
+
+.printer-paper {
+
+    position:
+        absolute;
+
+    top:
+        -74px;
+
+    left:
+        63px;
+
+    width:
+        145px;
+
+    height:
+        82px;
+
+    background:
+        var(--white);
+
+    border-radius:
+        4px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.25);
+
+    transform:
+        rotate(-2deg);
+}
+
+
+.paper-line {
+
+    position:
+        absolute;
+
+    left:
+        18px;
+
+    right:
+        18px;
+
+    height:
+        4px;
+
+    border-radius:
+        4px;
+
+    background:
+        #d8d3da;
+}
+
+
+.paper-line:nth-child(1) {
+
+    top:
+        20px;
+}
+
+
+.paper-line:nth-child(2) {
+
+    top:
+        34px;
+
+    width:
+        80px;
+}
+
+
+.paper-line:nth-child(3) {
+
+    top:
+        48px;
+
+    width:
+        105px;
+}
+
+
+.printer-display {
+
+    position:
+        absolute;
+
+    top:
+        38px;
+
+    right:
+        27px;
+
+    width:
+        38px;
+
+    height:
+        25px;
+
+    border-radius:
+        6px;
+
+    background:
+        rgba(255,187,66,0.18);
+
+    border:
+        1px solid
+        rgba(255,187,66,0.45);
+
+    box-shadow:
+        0 0 15px
+        rgba(255,187,66,0.15);
+}
+
+
+.printer-display::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--gold);
+
+    top:
+        8px;
+
+    left:
+        14px;
+
+    box-shadow:
+        0 0 10px
+        var(--gold);
+}
+
+
+.printer-slot {
+
+    position:
+        absolute;
+
+    bottom:
+        34px;
+
+    left:
+        32px;
+
+    width:
+        205px;
+
+    height:
+        10px;
+
+    border-radius:
+        10px;
+
+    background:
+        #020202;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+.printer-output {
+
+    position:
+        absolute;
+
+    bottom:
+        -18px;
+
+    left:
+        55px;
+
+    width:
+        160px;
+
+    height:
+        48px;
+
+    background:
+        #ffffff;
+
+    border-radius:
+        4px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.35);
+
+    z-index:
+        -1;
+}
+
+
+/* CONNECTIVITY NODES */
+
+.printer-node {
+
+    position:
+        absolute;
+
+    width:
+        78px;
+
+    height:
+        78px;
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.17);
+
+    backdrop-filter:
+        blur(10px);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        28px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,0.25);
+
+    z-index:
+        4;
+
+    animation:
+        floatPrinterNode
+        4s ease-in-out infinite;
+}
+
+
+.printer-node-1 {
+
+    top:
+        22px;
+
+    left:
+        10%;
+}
+
+
+.printer-node-2 {
+
+    top:
+        23%;
+
+    right:
+        3%;
+
+    animation-delay:
+        0.7s;
+}
+
+
+.printer-node-3 {
+
+    bottom:
+        12%;
+
+    right:
+        12%;
+
+    animation-delay:
+        1.4s;
+}
+
+
+.printer-node-4 {
+
+    bottom:
+        5%;
+
+    left:
+        8%;
+
+    animation-delay:
+        2.1s;
+}
+
+
+@keyframes floatPrinterNode {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+
+    padding:
+        100px 0 60px;
+
+    background:
+        var(--white);
+}
+
+
+.section-heading {
+
+    text-align:
+        center;
+
+    max-width:
+        760px;
+
+    margin:
+        0 auto 55px;
+}
+
+
+.eyebrow {
+
+    color:
+        var(--purple);
+
+    text-transform:
+        uppercase;
+
+    font-size:
+        12px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        13px;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        18px;
+
+    color:
+        var(--purple-dark);
+}
+
+
+.section-heading p {
+
+    color:
+        #666;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   PRINTER SOLUTIONS
+   ========================================================= */
+
+.solutions {
+
+    padding:
+        60px 0 100px;
+
+    background:
+        var(--white);
+}
+
+
+.solution-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        24px;
+}
+
+
+.solution-card {
+
+    padding:
+        30px;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid
+        #e9e5ea;
+
+    border-radius:
+        var(--radius);
+
+    transition:
+        var(--transition);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.solution-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--purple),
+            var(--gold)
+        );
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        var(--transition);
+}
+
+
+.solution-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(122,44,120,0.25);
+
+    box-shadow:
+        0 20px 50px
+        rgba(60,21,66,0.10);
+}
+
+
+.solution-card:hover::before {
+
+    transform:
+        scaleX(1);
+}
+
+
+.solution-icon {
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color:
+        var(--purple);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        29px;
+
+    margin-bottom:
+        22px;
+}
+
+
+.solution-card h3 {
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        21px;
+
+    margin-bottom:
+        12px;
+}
+
+
+.solution-card p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   FEATURE SECTION
+   ========================================================= */
+
+.printer-section {
+
+    padding:
+        100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--purple)
+        );
+
+    color:
+        var(--white);
+}
+
+
+.printer-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap:
+        70px;
+
+    align-items:
+        center;
+}
+
+
+.printer-image {
+
+    min-height:
+        430px;
+
+    border-radius:
+        30px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255,187,66,0.22),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #241027,
+            #0a080b
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.printer-image::before,
+.printer-image::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    border:
+        1px solid
+        rgba(255,187,66,0.15);
+
+    border-radius:
+        50%;
+}
+
+
+.printer-image::before {
+
+    width:
+        300px;
+
+    height:
+        300px;
+}
+
+
+.printer-image::after {
+
+    width:
+        180px;
+
+    height:
+        180px;
+}
+
+
+/* LARGE PRINTER ICON */
+
+.printer-symbol {
+
+    width:
+        125px;
+
+    height:
+        105px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        54px;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    box-shadow:
+        0 20px 60px
+        rgba(255,187,66,0.2);
+}
+
+
+.printer-content .eyebrow {
+
+    color:
+        var(--gold);
+}
+
+
+.printer-content h2 {
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height:
+        1.15;
+
+    margin-bottom:
+        20px;
+}
+
+
+.printer-content > p {
+
+    color:
+        rgba(255,255,255,0.75);
+
+    line-height:
+        1.8;
+
+    margin-bottom:
+        30px;
+}
+
+
+.feature-list {
+
+    list-style:
+        none;
+
+    display:
+        grid;
+
+    gap:
+        15px;
+}
+
+
+.feature-list li {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        12px;
+
+    color:
+        rgba(255,255,255,0.9);
+
+    line-height:
+        1.5;
+}
+
+
+.feature-list li span {
+
+    color:
+        var(--gold);
+
+    font-weight:
+        900;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.how-it-works {
+
+    padding:
+        100px 0;
+
+    background:
+        var(--background);
+}
+
+
+.steps {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        25px;
+}
+
+
+.step {
+
+    background:
+        var(--white);
+
+    padding:
+        32px;
+
+    border-radius:
+        var(--radius);
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    position:
+        relative;
+}
+
+
+.step-number {
+
+    width:
+        46px;
+
+    height:
+        46px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--purple);
+
+    color:
+        var(--white);
+
+    font-weight:
+        900;
+
+    margin-bottom:
+        22px;
+}
+
+
+.step h3 {
+
+    color:
+        var(--purple-dark);
+
+    margin-bottom:
+        12px;
+}
+
+
+.step p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+}
+
+
+/* =========================================================
+   ENQUIRY SECTION
+   ========================================================= */
+
+.enquiry-section {
+
+    padding:
+        100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--background),
+            #ffffff
+        );
+}
+
+
+.enquiry-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap:
+        70px;
+
+    align-items:
+        center;
+}
+
+
+.enquiry-content .eyebrow {
+
+    color:
+        var(--purple);
+}
+
+
+.enquiry-content h2 {
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        clamp(34px, 4vw, 50px);
+
+    line-height:
+        1.1;
+
+    margin-bottom:
+        20px;
+}
+
+
+.enquiry-content > p {
+
+    color:
+        #686868;
+
+    line-height:
+        1.8;
+
+    font-size:
+        16px;
+
+    max-width:
+        520px;
+
+    margin-bottom:
+        35px;
+}
+
+
+.enquiry-points {
+
+    display:
+        grid;
+
+    gap:
+        20px;
+}
+
+
+.enquiry-point {
+
+    display:
+        flex;
+
+    gap:
+        15px;
+
+    align-items:
+        flex-start;
+}
+
+
+.enquiry-point > span {
+
+    width:
+        32px;
+
+    height:
+        32px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(122,44,120,0.1);
+
+    color:
+        var(--purple);
+
+    font-weight:
+        900;
+}
+
+
+.enquiry-point strong {
+
+    display:
+        block;
+
+    color:
+        var(--purple-dark);
+
+    margin-bottom:
+        5px;
+}
+
+
+.enquiry-point p {
+
+    color:
+        #777;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.enquiry-card {
+
+    background:
+        var(--white);
+
+    padding:
+        38px;
+
+    border-radius:
+        24px;
+
+    border:
+        1px solid
+        #e6e1e7;
+
+    box-shadow:
+        0 20px 60px
+        rgba(60,21,66,0.10);
+}
+
+
+.form-row {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        18px;
+}
+
+
+.form-group {
+
+    margin-bottom:
+        20px;
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    color:
+        var(--purple-dark);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    margin-bottom:
+        8px;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width:
+        100%;
+
+    border:
+        1px solid
+        #ded9df;
+
+    border-radius:
+        12px;
+
+    background:
+        #faf9fb;
+
+    color:
+        var(--black);
+
+    font-family:
+        inherit;
+
+    font-size:
+        15px;
+
+    padding:
+        14px 15px;
+
+    outline:
+        none;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.form-group textarea {
+
+    resize:
+        vertical;
+
+    min-height:
+        145px;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--purple);
+
+    background:
+        var(--white);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(122,44,120,0.08);
+}
+
+
+.form-submit {
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    border-radius:
+        999px;
+
+    padding:
+        15px 22px;
+
+    background:
+        var(--gold);
+
+    color:
+        var(--black);
+
+    font-size:
+        15px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    transition:
+        var(--transition);
+}
+
+
+.form-submit:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,187,66,0.25);
+}
+
+
+.form-submit:disabled {
+
+    opacity:
+        0.65;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+}
+
+
+.form-message {
+
+    display:
+        none;
+
+    margin-top:
+        18px;
+
+    padding:
+        14px 16px;
+
+    border-radius:
+        12px;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+}
+
+
+.form-message.success {
+
+    display:
+        block;
+
+    background:
+        rgba(46,125,50,0.10);
+
+    color:
+        #236b28;
+}
+
+
+.form-message.error {
+
+    display:
+        block;
+
+    background:
+        rgba(190,40,40,0.10);
+
+    color:
+        #9b2525;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta {
+
+    padding:
+        80px 0;
+
+    background:
+        var(--white);
+}
+
+
+.cta-box {
+
+    padding:
+        65px 40px;
+
+    border-radius:
+        30px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,187,66,0.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #3C1542,
+            #7A2C78
+        );
+
+    text-align:
+        center;
+
+    color:
+        var(--white);
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+}
+
+
+.cta-box h2 {
+
+    font-size:
+        clamp(30px, 4vw, 46px);
+
+    margin-bottom:
+        15px;
+}
+
+
+.cta-box p {
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto 28px;
+
+    color:
+        rgba(255,255,255,0.78);
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    background:
+        #020202;
+
+    color:
+        var(--white);
+
+    padding:
+        70px 0 25px;
+}
+
+
+.footer-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:
+        45px;
+
+    padding-bottom:
+        50px;
+}
+
+
+.footer-brand .logo {
+
+    margin-bottom:
+        20px;
+}
+
+
+.footer-description {
+
+    color:
+        #a9a9a9;
+
+    line-height:
+        1.7;
+
+    max-width:
+        340px;
+
+    font-size:
+        14px;
+}
+
+
+.footer-column h4 {
+
+    color:
+        var(--gold);
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        15px;
+}
+
+
+.footer-column ul {
+
+    list-style:
+        none;
+}
+
+
+.footer-column li {
+
+    margin-bottom:
+        12px;
+}
+
+
+.footer-column a {
+
+    color:
+        #a9a9a9;
+
+    font-size:
+        14px;
+
+    transition:
+        var(--transition);
+}
+
+
+.footer-column a:hover {
+
+    color:
+        var(--gold);
+
+    padding-left:
+        4px;
+}
+
+
+.footer-bottom {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    padding-top:
+        22px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    color:
+        #777;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.visible {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .nav-links {
+
+        position:
+            absolute;
+
+        top:
+            78px;
+
+        left:
+            0;
+
+        width:
+            100%;
+
+        display:
+            none;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        background:
+            #020202;
+
+        padding:
+            25px;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.08);
+    }
+
+
+    .nav-links.active {
+
+        display:
+            flex;
+    }
+
+
+    .nav-links a {
+
+        display:
+            block;
+
+        padding:
+            12px 0;
+    }
+
+
+    .menu-toggle {
+
+        display:
+            block;
+    }
+
+
+    .hero-grid,
+    .printer-grid,
+    .enquiry-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .hero {
+
+        padding-top:
+            130px;
+    }
+
+
+    .printer-visual {
+
+        min-height:
+            350px;
+    }
+
+
+    .solution-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .steps {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .enquiry-grid {
+
+        gap:
+            45px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .nav-container {
+
+        min-height:
+            70px;
+    }
+
+
+    .logo img {
+
+        width:
+            42px;
+
+        height:
+            42px;
+    }
+
+
+    .logo-text {
+
+        font-size:
+            16px;
+    }
+
+
+    .hero {
+
+        min-height:
+            auto;
+
+        padding:
+            120px 0 70px;
+    }
+
+
+    .hero-description {
+
+        font-size:
+            16px;
+    }
+
+
+    .printer-visual {
+
+        min-height:
+            300px;
+    }
+
+
+    .printer {
+
+        transform:
+            scale(0.78);
+    }
+
+
+    .printer-node {
+
+        width:
+            60px;
+
+        height:
+            60px;
+
+        font-size:
+            23px;
+    }
+
+
+    .printer-node-1 {
+
+        left:
+            0;
+    }
+
+
+    .printer-node-2 {
+
+        right:
+            0;
+    }
+
+
+    .solution-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .printer-image {
+
+        min-height:
+            300px;
+    }
+
+
+    .enquiry-card {
+
+        padding:
+            25px 20px;
+    }
+
+
+    .form-row {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+    }
+
+
+    .cta-box {
+
+        padding:
+            50px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub Logo"
+            >
+
+            <div class="logo-text">
+                Dinges <span>TechHub</span>
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            type="button"
+        >
+            ☰
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <li>
+                <a href="services.html">
+                    Services
+                </a>
+            </li>
+
+            <li>
+                <a href="domains.html">
+                    Domains
+                </a>
+            </li>
+
+            <li>
+                <a href="hosting.html">
+                    Hosting
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    Login
+                </a>
+            </li>
+
+            <li>
+                <a href="register.html">
+                    Register
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="cart.html"
+                    class="nav-cta"
+                >
+                    Cart
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+            <div class="breadcrumb">
+                SMART SOLUTIONS / PRINTERS
+            </div>
+
+
+            <h1>
+
+                Smarter
+                <span>Printing.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Reliable printer solutions for homes and businesses.
+                From printer supply and setup to connectivity,
+                maintenance and business printing requirements,
+                Dinges TechHub helps keep your printing simple.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#solutions"
+                    class="btn btn-primary"
+                >
+                    Explore Printer Solutions
+                </a>
+
+
+                <a
+                    href="#printer-enquiry"
+                    class="btn btn-outline"
+                >
+                    Get Started
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRINTER VISUAL -->
+
+        <div class="printer-visual reveal">
+
+
+            <div class="printer-node printer-node-1">
+                🖨️
+            </div>
+
+
+            <div class="printer-node printer-node-2">
+                📄
+            </div>
+
+
+            <div class="printer-node printer-node-3">
+                ☁️
+            </div>
+
+
+            <div class="printer-node printer-node-4">
+                📡
+            </div>
+
+
+            <div class="printer">
+
+
+                <div class="printer-top">
+                </div>
+
+
+                <div class="printer-paper">
+
+                    <div class="paper-line"></div>
+                    <div class="paper-line"></div>
+                    <div class="paper-line"></div>
+
+                </div>
+
+
+                <div class="printer-display">
+                </div>
+
+
+                <div class="printer-slot">
+                </div>
+
+
+                <div class="printer-output">
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+     ========================================================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Smart Printing Solutions
+            </div>
+
+
+            <h2>
+                Printers for Home & Business
+            </h2>
+
+
+            <p>
+
+                Printing remains an important part of many
+                businesses. We help customers find practical
+                printer solutions that fit their environment,
+                printing requirements and technology needs.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRINTER SOLUTIONS
+     ========================================================= -->
+
+<section
+    class="solutions"
+    id="solutions"
+>
+
+    <div class="container">
+
+        <div class="solution-grid">
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    🖨️
+                </div>
+
+                <h3>
+                    Printer Supply
+                </h3>
+
+                <p>
+
+                    Find printer solutions suitable for home,
+                    office and business environments based on
+                    your printing requirements.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Printer Setup
+                </h3>
+
+                <p>
+
+                    Get assistance with printer installation,
+                    configuration and connecting printers to
+                    compatible devices and networks.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    📡
+                </div>
+
+                <h3>
+                    Network Printing
+                </h3>
+
+                <p>
+
+                    Connect compatible printers to business
+                    networks so authorised users can print
+                    from supported devices.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Business Printing
+                </h3>
+
+                <p>
+
+                    Practical printing solutions designed to
+                    support everyday office documents,
+                    administration and business operations.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    🔧
+                </div>
+
+                <h3>
+                    Printer Support
+                </h3>
+
+                <p>
+
+                    Get help with printer configuration,
+                    connectivity issues and general printing
+                    technology requirements.
+
+                </p>
+
+            </article>
+
+
+            <article class="solution-card reveal">
+
+                <div class="solution-icon">
+                    🏢
+                </div>
+
+                <h3>
+                    Office Solutions
+                </h3>
+
+                <p>
+
+                    Explore printer solutions for offices and
+                    growing businesses that need dependable
+                    document printing.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURE SECTION
+     ========================================================= -->
+
+<section class="printer-section">
+
+    <div class="container printer-grid">
+
+
+        <div class="printer-image reveal">
+
+            <div class="printer-symbol">
+                🖨️
+            </div>
+
+        </div>
+
+
+        <div class="printer-content reveal">
+
+            <div class="eyebrow">
+                Connected Printing
+            </div>
+
+
+            <h2>
+                Make Printing Part of Your Connected Workplace
+            </h2>
+
+
+            <p>
+
+                Modern printers can do more than simply print
+                documents. Connected printer solutions can help
+                businesses share devices, simplify workflows
+                and make everyday office tasks more convenient.
+
+            </p>
+
+
+            <ul class="feature-list">
+
+                <li>
+                    <span>✓</span>
+                    Printer setup and configuration
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Network and wireless printing
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Business and office printing solutions
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Support for compatible printing environments
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Printer technology recommendations
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="how-it-works">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                Our Approach
+            </div>
+
+
+            <h2>
+                From Printing Requirements to the Right Solution
+            </h2>
+
+
+            <p>
+
+                We help you identify what you need from your
+                printing environment and work toward a practical
+                technology solution.
+
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Understand
+                </h3>
+
+                <p>
+
+                    Tell us about your printing requirements,
+                    current equipment, users and business
+                    environment.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Recommend
+                </h3>
+
+                <p>
+
+                    We help identify a suitable printer,
+                    connectivity or support solution based
+                    on your requirements.
+
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <p>
+
+                    Get assistance with setup, connectivity
+                    and integrating the printer into your
+                    supported technology environment.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRINTER ENQUIRY
+     ========================================================= -->
+
+<section
+    class="enquiry-section"
+    id="printer-enquiry"
+>
+
+    <div class="container">
+
+        <div class="enquiry-grid">
+
+
+            <!-- LEFT -->
+
+            <div class="enquiry-content reveal">
+
+                <div class="eyebrow">
+                    Printer Solutions
+                </div>
+
+
+                <h2>
+                    Let's Find the Right Printer Solution
+                </h2>
+
+
+                <p>
+
+                    Tell us what you need from your printer
+                    solution. Whether you need a new printer,
+                    setup assistance, network printing or
+                    business printing support, send us your
+                    requirements.
+
+                </p>
+
+
+                <div class="enquiry-points">
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Printer Supply
+                            </strong>
+
+                            <p>
+                                Find a suitable printer solution for your needs.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Printer Setup
+                            </strong>
+
+                            <p>
+                                Get help configuring your printer and devices.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="enquiry-point">
+
+                        <span>✓</span>
+
+                        <div>
+
+                            <strong>
+                                Business Printing
+                            </strong>
+
+                            <p>
+                                Build a practical printing environment for your business.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="enquiry-card reveal">
+
+                <form id="printerEnquiryForm">
+
+
+                    <!-- BITRIX24 INFORMATION -->
+
+                    <input
+                        type="hidden"
+                        name="service"
+                        value="Printers"
+                    >
+
+
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="Dinges TechHub - Printers"
+                    >
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="printerName">
+                                Full Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="printerName"
+                                name="name"
+                                placeholder="Your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="printerEmail">
+                                Email Address *
+                            </label>
+
+                            <input
+                                type="email"
+                                id="printerEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label for="printerPhone">
+                                Phone Number *
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="printerPhone"
+                                name="phone"
+                                placeholder="Your phone number"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="printerType">
+                                Enquiry Type *
+                            </label>
+
+                            <select
+                                id="printerType"
+                                name="enquiry_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select enquiry type
+                                </option>
+
+                                <option value="General Printer Enquiry">
+                                    General Printer Enquiry
+                                </option>
+
+                                <option value="Printer Purchase">
+                                    Printer Purchase
+                                </option>
+
+                                <option value="Printer Setup">
+                                    Printer Setup
+                                </option>
+
+                                <option value="Network Printing">
+                                    Network Printing
+                                </option>
+
+                                <option value="Wireless Printing">
+                                    Wireless Printing
+                                </option>
+
+                                <option value="Business Printing">
+                                    Business Printing
+                                </option>
+
+                                <option value="Printer Support">
+                                    Printer Support
+                                </option>
+
+                                <option value="Printer Consultation">
+                                    Printer Consultation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="printerSubject">
+                            Subject *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="printerSubject"
+                            name="subject"
+                            placeholder="What printer solution do you need?"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="printerMessage">
+                            Tell Us About Your Requirements *
+                        </label>
+
+                        <textarea
+                            id="printerMessage"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell us about the printer you need, your current setup, number of users, business requirements or any printing problems you are experiencing..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="form-submit"
+                        id="printerSubmit"
+                    >
+                        Send Printer Enquiry
+                    </button>
+
+
+                    <div
+                        id="printerFormMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <h2>
+                Ready for Smarter Printing?
+            </h2>
+
+
+            <p>
+
+                Tell us what you need and let's explore a printer
+                solution that fits your home, office or business.
+
+            </p>
+
+
+            <a
+                href="#printer-enquiry"
+                class="btn btn-primary"
+            >
+                Start Your Enquiry
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <img
+                        src="dingestech-logo.png"
+                        alt="Dinges TechHub Logo"
+                    >
+
+
+                    <div class="logo-text">
+                        Dinges <span>TechHub</span>
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    Technology, connectivity and smart solutions
+                    designed to help homes and businesses stay
+                    connected, productive and ready for the future.
+
+                </p>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="services.html">
+                            All Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="fibre.html">
+                            Fibre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="wireless-broadband.html">
+                            Wireless Broadband
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iot.html">
+                            Internet of Things
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="automation-software.html">
+                            Automation Software
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="remote-monitoring.html">
+                            Remote Monitoring
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="smart-security.html">
+                            Smart Security
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="printers.html">
+                            Printers
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="hosting.html">
+                            Web & Email Hosting
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Company
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="help-centre.html">
+                            Help Centre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            Register
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Contact
+                </h4>
+
+
+                <ul>
+
+                    <li>
+                        <a href="mailto:support@dingestechhub.co.za">
+                            support@dingestechhub.co.za
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact Support
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Mon - Fri: 09:00 - 16:00
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+                © 2026 Dinges TechHub. All rights reserved.
+            </div>
+
+
+            <div>
+                Smart Technology • Connectivity • Innovation
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.toggle(
+                "active"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   CLOSE MOBILE MENU
+   ========================================================= */
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                if (navLinks) {
+
+                    navLinks.classList.remove(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+if ("IntersectionObserver" in window) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(
+            element
+        );
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add(
+            "visible"
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   PRINTER ENQUIRY
+   → NETLIFY FUNCTION
+   → BITRIX24
+   ========================================================= */
+
+const printerForm =
+    document.getElementById(
+        "printerEnquiryForm"
+    );
+
+
+const printerSubmit =
+    document.getElementById(
+        "printerSubmit"
+    );
+
+
+const printerFormMessage =
+    document.getElementById(
+        "printerFormMessage"
+    );
+
+
+if (printerForm) {
+
+    printerForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            /* -------------------------------------------------
+               DISABLE BUTTON
+               ------------------------------------------------- */
+
+            printerSubmit.disabled =
+                true;
+
+            printerSubmit.textContent =
+                "Sending Enquiry...";
+
+
+            printerFormMessage.className =
+                "form-message";
+
+            printerFormMessage.textContent =
+                "";
+
+
+            /* -------------------------------------------------
+               COLLECT FORM DATA
+               ------------------------------------------------- */
+
+            const formData =
+                new FormData(
+                    printerForm
+                );
+
+
+            const data = {
+
+                name:
+                    String(
+                        formData.get("name") || ""
+                    ).trim(),
+
+                email:
+                    String(
+                        formData.get("email") || ""
+                    ).trim(),
+
+                phone:
+                    String(
+                        formData.get("phone") || ""
+                    ).trim(),
+
+                service:
+                    String(
+                        formData.get("service") || ""
+                    ).trim(),
+
+                source:
+                    String(
+                        formData.get("source") || ""
+                    ).trim(),
+
+                enquiry_type:
+                    String(
+                        formData.get("enquiry_type") || ""
+                    ).trim(),
+
+                subject:
+                    String(
+                        formData.get("subject") || ""
+                    ).trim(),
+
+                message:
+                    String(
+                        formData.get("message") || ""
+                    ).trim()
+
+            };
+
+
+            /* -------------------------------------------------
+               BASIC VALIDATION
+               ------------------------------------------------- */
+
+            if (
+                !data.name ||
+                !data.email ||
+                !data.phone ||
+                !data.enquiry_type ||
+                !data.subject ||
+                !data.message
+            ) {
+
+                printerFormMessage.className =
+                    "form-message error";
+
+                printerFormMessage.textContent =
+                    "Please complete all required fields.";
+
+                printerSubmit.disabled =
+                    false;
+
+                printerSubmit.textContent =
+                    "Send Printer Enquiry";
+
+                return;
+
+            }
+
+
+            /* -------------------------------------------------
+               SEND TO NETLIFY FUNCTION
+               ------------------------------------------------- */
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/.netlify/functions/bitrix-contact",
+                        {
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    data
+                                )
+
+                        }
+                    );
+
+
+                /* -------------------------------------------------
+                   READ SERVER RESPONSE
+                   ------------------------------------------------- */
+
+                const responseText =
+                    await response.text();
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        JSON.parse(
+                            responseText
+                        );
+
+                } catch {
+
+                    console.error(
+                        "Invalid server response:",
+                        responseText
+                    );
+
+                    throw new Error(
+                        "The server returned an invalid response."
+                    );
+
+                }
+
+
+                /* -------------------------------------------------
+                   SUCCESS
+                   ------------------------------------------------- */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    printerFormMessage.className =
+                        "form-message success";
+
+
+                    printerFormMessage.textContent =
+                        "Thank you! Your printer enquiry has been received successfully. Our team will contact you shortly.";
+
+
+                    printerForm.reset();
+
+
+                    /* -------------------------------------------------
+                       RESTORE HIDDEN VALUES AFTER RESET
+                       ------------------------------------------------- */
+
+                    const serviceField =
+                        printerForm.querySelector(
+                            'input[name="service"]'
+                        );
+
+
+                    const sourceField =
+                        printerForm.querySelector(
+                            'input[name="source"]'
+                        );
+
+
+                    if (serviceField) {
+
+                        serviceField.value =
+                            "Printers";
+
+                    }
+
+
+                    if (sourceField) {
+
+                        sourceField.value =
+                            "Dinges TechHub - Printers";
+
+                    }
+
+
+                    printerFormMessage
+                        .scrollIntoView({
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "nearest"
+                        });
+
+
+                } else {
+
+                    throw new Error(
+                        result.message ||
+                        "Unable to send your enquiry."
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Printer enquiry error:",
+                    error
+                );
+
+
+                printerFormMessage.className =
+                    "form-message error";
+
+
+                printerFormMessage.textContent =
+                    error.message ||
+                    "Something went wrong while sending your enquiry. Please try again.";
+
+            }
+
+
+            /* -------------------------------------------------
+               RESTORE BUTTON
+               ------------------------------------------------- */
+
+            printerSubmit.disabled =
+                false;
+
+            printerSubmit.textContent =
+                "Send Printer Enquiry";
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
