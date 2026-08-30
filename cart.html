@@ -1,3275 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cart | Dinges TechHub</title>
-
-<meta
-    name="description"
-    content="Review your selected Dinges TechHub services and proceed securely to checkout."
->
-
+<meta name="description" content="Review your selected Dinges TechHub services and proceed securely to checkout.">
 <style>
-
-/* =========================================================
-   DINGES TECHHUB — CART
-   ========================================================= */
-
-:root{
-    --purple-dark:#3C1542;
-    --purple:#7A2C78;
-    --purple-light:#f4eaf4;
-    --grey:#949393;
-    --light-grey:#D9D9D9;
-    --black:#020202;
-    --gold:#FFBB42;
-    --white:#ffffff;
-
-    --page-bg:#f7f7f8;
-    --border:#e8e8ec;
-    --muted:#707070;
-    --danger:#b00020;
-
-    --shadow:0 12px 35px rgba(0,0,0,.07);
-    --radius:16px;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:var(--page-bg);
-    color:var(--black);
-    min-height:100vh;
-}
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-button{
-    font-family:inherit;
-}
-
-
-/* =========================================================
-   TOP BAR
-   ========================================================= */
-
-.topbar{
-    background:var(--purple-dark);
-    color:white;
-
-    padding:8px 5%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:20px;
-
-    font-size:13px;
-}
-
-.topbar a{
-    color:white;
-    text-decoration:none;
-    transition:.2s ease;
-}
-
-.topbar a:hover{
-    color:var(--gold);
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-.navbar{
-    background:white;
-
-    min-height:76px;
-
-    padding:12px 5%;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:25px;
-
-    border-bottom:1px solid #eeeeee;
-
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-
-    text-decoration:none;
-
-    flex-shrink:0;
-}
-
-.logo img{
-    width:135px;
-    max-width:135px;
-    height:auto;
-    display:block;
-}
-
-
-/* =========================================================
-   DESKTOP NAV
-   ========================================================= */
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:26px;
-
-    margin-left:auto;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#222;
-
-    font-size:14px;
-    font-weight:600;
-
-    transition:color .2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-    color:var(--purple);
-}
-
-
-/* =========================================================
-   CART BUTTON
-   ========================================================= */
-
-.cart-button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-
-    background:var(--purple-dark);
-    color:white !important;
-
-    padding:10px 15px;
-
-    border-radius:9px;
-
-    text-decoration:none;
-
-    font-size:14px;
-    font-weight:700;
-
-    white-space:nowrap;
-
-    transition:
-        background .2s ease,
-        transform .2s ease;
-}
-
-.cart-button:hover{
-    background:var(--purple);
-    transform:translateY(-1px);
-}
-
-.cart-icon{
-    font-size:16px;
-    line-height:1;
-}
-
-.cart-count{
-    min-width:21px;
-    height:21px;
-
-    padding:0 5px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:var(--gold);
-    color:var(--black);
-
-    border-radius:50%;
-
-    font-size:11px;
-    font-weight:800;
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-   ========================================================= */
-
-.mobile-menu-btn{
-    display:none;
-
-    width:42px;
-    height:42px;
-
-    border:1px solid #e4e4e4;
-    border-radius:10px;
-
-    background:white;
-
-    cursor:pointer;
-
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-    gap:5px;
-}
-
-.mobile-menu-btn span{
-    display:block;
-
-    width:20px;
-    height:2px;
-
-    background:var(--purple-dark);
-
-    border-radius:10px;
-}
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-.mobile-menu{
-    display:none;
-
-    background:white;
-
-    border-bottom:1px solid #eeeeee;
-
-    padding:10px 5% 15px;
-}
-
-.mobile-menu.open{
-    display:block;
-}
-
-.mobile-menu a{
-    display:block;
-
-    padding:13px 5px;
-
-    color:#222;
-    text-decoration:none;
-
-    font-size:15px;
-    font-weight:600;
-
-    border-bottom:1px solid #f1f1f1;
-}
-
-.mobile-menu a:last-child{
-    border-bottom:none;
-}
-
-.mobile-menu a:hover{
-    color:var(--purple);
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.cart-hero{
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(255,187,66,.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            var(--purple-dark),
-            var(--purple)
-        );
-
-    color:white;
-
-    padding:65px 5%;
-
-    text-align:center;
-}
-
-.cart-hero h1{
-    font-size:42px;
-
-    margin-bottom:12px;
-
-    font-weight:800;
-
-    letter-spacing:-.5px;
-}
-
-.cart-hero p{
-    max-width:650px;
-
-    margin:auto;
-
-    color:#eeeeee;
-
-    line-height:1.7;
-
-    font-size:15px;
-}
-
-
-/* =========================================================
-   CHECKOUT STEPS
-   ========================================================= */
-
-.checkout-steps{
-    width:min(850px,90%);
-
-    margin:30px auto 0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    gap:0;
-}
-
-.checkout-step{
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    color:#aaa;
-
-    font-size:12px;
-    font-weight:700;
-
-    white-space:nowrap;
-}
-
-.checkout-step.active{
-    color:var(--purple-dark);
-}
-
-.step-number{
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#e8e8e8;
-
-    font-size:12px;
-}
-
-.checkout-step.active .step-number{
-    background:var(--purple);
-    color:white;
-}
-
-.step-line{
-    width:60px;
-    height:2px;
-
-    background:#ddd;
-
-    margin:0 12px;
-}
-
-
-/* =========================================================
-   CART CONTAINER
-   ========================================================= */
-
-.cart-container{
-    width:min(1200px,90%);
-
-    margin:50px auto 0;
-
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        350px;
-
-    gap:30px;
-
-    align-items:start;
-}
-
-
-/* =========================================================
-   CART BOX
-   ========================================================= */
-
-.cart-box{
-    background:white;
-
-    border-radius:var(--radius);
-
-    padding:25px;
-
-    box-shadow:var(--shadow);
-}
-
-.cart-box-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:15px;
-
-    margin-bottom:5px;
-}
-
-.cart-box h2{
-    color:var(--purple-dark);
-    font-size:22px;
-}
-
-.cart-items-count{
-    color:var(--muted);
-    font-size:13px;
-}
-
-
-/* =========================================================
-   CART ITEM
-   ========================================================= */
-
-.cart-item{
-    display:grid;
-
-    grid-template-columns:
-        minmax(180px,1fr)
-        minmax(100px,auto)
-        auto
-        auto;
-
-    gap:20px;
-
-    align-items:center;
-
-    padding:22px 0;
-
-    border-bottom:1px solid var(--border);
-}
-
-.cart-item:last-child{
-    border-bottom:none;
-    padding-bottom:5px;
-}
-
-.item-name{
-    font-weight:800;
-
-    color:var(--purple-dark);
-
-    font-size:15px;
-
-    line-height:1.4;
-}
-
-.item-type{
-    font-size:12px;
-
-    color:var(--grey);
-
-    margin-top:5px;
-}
-
-.item-setup{
-    font-size:12px;
-
-    color:#777;
-
-    margin-top:5px;
-}
-
-.item-price{
-    font-weight:700;
-
-    white-space:nowrap;
-
-    color:#222;
-
-    text-align:right;
-}
-
-.item-price small{
-    display:block;
-
-    margin-top:4px;
-
-    font-size:11px;
-
-    font-weight:400;
-
-    color:#888;
-}
-
-
-/* =========================================================
-   QUANTITY
-   ========================================================= */
-
-.quantity{
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-}
-
-.quantity button{
-    width:34px;
-    height:34px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#eeeeee;
-
-    color:#222;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    transition:.2s ease;
-}
-
-.quantity button:hover{
-    background:var(--light-grey);
-}
-
-.quantity button:active{
-    transform:scale(.95);
-}
-
-.quantity span{
-    min-width:28px;
-
-    text-align:center;
-
-    font-weight:800;
-}
-
-
-/* =========================================================
-   REMOVE
-   ========================================================= */
-
-.remove-btn{
-    border:none;
-
-    background:none;
-
-    color:var(--danger);
-
-    cursor:pointer;
-
-    font-weight:700;
-
-    font-size:13px;
-
-    white-space:nowrap;
-
-    padding:7px;
-}
-
-.remove-btn:hover{
-    text-decoration:underline;
-}
-
-
-/* =========================================================
-   ORDER SUMMARY
-   ========================================================= */
-
-.summary{
-    background:white;
-
-    border-radius:var(--radius);
-
-    padding:25px;
-
-    box-shadow:var(--shadow);
-
-    height:max-content;
-
-    position:sticky;
-    top:100px;
-}
-
-.summary h2{
-    color:var(--purple-dark);
-
-    margin-bottom:22px;
-
-    font-size:22px;
-}
-
-.summary-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-start;
-
-    gap:15px;
-
-    padding:10px 0;
-
-    color:#555;
-
-    font-size:14px;
-}
-
-.summary-row strong{
-    color:#222;
-    white-space:nowrap;
-}
-
-.summary-total{
-    border-top:1px solid #dddddd;
-
-    margin-top:15px;
-
-    padding-top:20px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:15px;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    color:var(--purple-dark);
-}
-
-
-/* =========================================================
-   CHECKOUT BUTTON
-   ========================================================= */
-
-.checkout-btn{
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    width:100%;
-
-    border:none;
-
-    background:var(--gold);
-
-    color:var(--black);
-
-    padding:15px;
-
-    margin-top:25px;
-
-    border-radius:10px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    transition:
-        transform .2s ease,
-        filter .2s ease,
-        opacity .2s ease;
-}
-
-.checkout-btn:hover{
-    transform:translateY(-2px);
-    filter:brightness(.96);
-}
-
-.checkout-btn.disabled{
-    opacity:.5;
-    cursor:not-allowed;
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   LOGIN NOTE
-   ========================================================= */
-
-.checkout-note{
-    display:flex;
-
-    gap:9px;
-
-    align-items:flex-start;
-
-    margin-top:15px;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    background:#f6f0f6;
-
-    color:#555;
-
-    font-size:12px;
-
-    line-height:1.5;
-}
-
-.checkout-note-icon{
-    flex-shrink:0;
-}
-
-
-/* =========================================================
-   CONTINUE SHOPPING
-   ========================================================= */
-
-.continue-btn{
-    display:block;
-
-    width:100%;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    padding:13px;
-
-    border:1px solid var(--purple);
-
-    color:var(--purple);
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.2s ease;
-}
-
-.continue-btn:hover{
-    background:var(--purple);
-    color:white;
-}
-
-
-/* =========================================================
-   EMPTY CART
-   ========================================================= */
-
-.empty-cart{
-    text-align:center;
-
-    padding:55px 20px;
-}
-
-.empty-cart-icon{
-    width:70px;
-    height:70px;
-
-    margin:0 auto 18px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:#f3edf4;
-
-    font-size:32px;
-}
-
-.empty-cart h2{
-    color:var(--purple-dark);
-
-    margin-bottom:10px;
-}
-
-.empty-cart p{
-    color:#777;
-
-    margin-bottom:22px;
-}
-
-
-/* =========================================================
-   LOGIN MODAL
-   ========================================================= */
-
-.login-modal{
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(20,10,25,.72);
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    z-index:5000;
-}
-
-.login-modal.show{
-    display:flex;
-}
-
-.login-card{
-    width:min(440px,100%);
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:30px;
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.25);
-
-    text-align:center;
-
-    animation:modalIn .2s ease;
-}
-
-@keyframes modalIn{
-    from{
-        opacity:0;
-        transform:translateY(15px) scale(.98);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-.login-icon{
-    width:60px;
-    height:60px;
-
-    margin:0 auto 18px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:var(--purple-light);
-
-    font-size:27px;
-}
-
-.login-card h2{
-    color:var(--purple-dark);
-
-    font-size:23px;
-
-    margin-bottom:10px;
-}
-
-.login-card p{
-    color:#666;
-
-    font-size:14px;
-
-    line-height:1.6;
-
-    margin-bottom:23px;
-}
-
-.login-modal-buttons{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:12px;
-}
-
-.modal-login-btn,
-.modal-register-btn{
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-height:48px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-weight:800;
-
-    font-size:14px;
-
-    cursor:pointer;
-
-    transition:.2s ease;
-}
-
-.modal-login-btn{
-    background:var(--purple);
-
-    color:white;
-}
-
-.modal-login-btn:hover{
-    background:var(--purple-dark);
-}
-
-.modal-register-btn{
-    border:1px solid var(--purple);
-
-    color:var(--purple);
-
-    background:white;
-}
-
-.modal-register-btn:hover{
-    background:var(--purple-light);
-}
-
-.modal-close{
-    margin-top:15px;
-
-    border:none;
-
-    background:none;
-
-    color:#777;
-
-    cursor:pointer;
-
-    font-size:13px;
-
-    font-weight:600;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer{
-    background:var(--purple-dark);
-
-    color:white;
-
-    padding:45px 5% 25px;
-
-    margin-top:80px;
-}
-
-.footer-inner{
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        2fr
-        1fr
-        1fr;
-
-    gap:40px;
-}
-
-.footer-logo{
-    display:inline-flex;
-
-    align-items:center;
-
-    margin-bottom:14px;
-}
-
-.footer-logo img{
-    width:105px;
-    max-width:105px;
-
-    height:auto;
-
-    display:block;
-}
-
-footer h3{
-    margin-bottom:15px;
-
-    font-size:16px;
-}
-
-footer p{
-    color:#dddddd;
-
-    line-height:1.7;
-
-    font-size:14px;
-
-    max-width:400px;
-}
-
-footer a{
-    display:block;
-
-    color:#dddddd;
-
-    text-decoration:none;
-
-    margin:8px 0;
-
-    font-size:14px;
-
-    transition:.2s ease;
-}
-
-footer a:hover{
-    color:var(--gold);
-}
-
-.footer-bottom{
-    max-width:1200px;
-
-    margin:35px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid rgba(255,255,255,.15);
-
-    text-align:center;
-
-    font-size:13px;
-
-    color:#bbbbbb;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media(max-width:950px){
-
-    .nav-links{
-        gap:15px;
-    }
-
-    .cart-container{
-        grid-template-columns:1fr;
-    }
-
-    .summary{
-        position:static;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
+:root{--purple-dark:#3C1542;--purple:#7A2C78;--purple-light:#f4eaf4;--grey:#949393;--light-grey:#D9D9D9;--black:#020202;--gold:#FFBB42;--white:#ffffff;--page-bg:#f7f7f8;--border:#e8e8ec;--muted:#707070;--danger:#b00020;--shadow:0 12px 35px rgba(0,0,0,.07);--radius:16px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--page-bg);color:var(--black);min-height:100vh;}
+button,a{-webkit-tap-highlight-color:transparent;}
+button{font-family:inherit;}
+.topbar{background:var(--purple-dark);color:white;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:13px;}
+.topbar a{color:white;text-decoration:none;transition:.2s ease;}
+.topbar a:hover{color:var(--gold);}
+.navbar{background:white;min-height:76px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:25px;border-bottom:1px solid #eeeeee;position:sticky;top:0;z-index:1000;}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+.logo img{width:135px;max-width:135px;height:auto;display:block;}
+.nav-links{display:flex;align-items:center;justify-content:center;gap:26px;margin-left:auto;}
+.nav-links a{text-decoration:none;color:#222;font-size:14px;font-weight:600;transition:color .2s ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--purple);}
+.cart-button{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--purple-dark);color:white !important;padding:10px 15px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;transition:background .2s ease,transform .2s ease;}
+.cart-button:hover{background:var(--purple);transform:translateY(-1px);}
+.cart-icon{font-size:16px;line-height:1;}
+.cart-count{min-width:21px;height:21px;padding:0 5px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--black);border-radius:50%;font-size:11px;font-weight:800;}
+.mobile-menu-btn{display:none;width:42px;height:42px;border:1px solid #e4e4e4;border-radius:10px;background:white;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.mobile-menu-btn span{display:block;width:20px;height:2px;background:var(--purple-dark);border-radius:10px;}
+.mobile-menu{display:none;background:white;border-bottom:1px solid #eeeeee;padding:10px 5% 15px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 5px;color:#222;text-decoration:none;font-size:15px;font-weight:600;border-bottom:1px solid #f1f1f1;}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover{color:var(--purple);}
+.cart-hero{background:radial-gradient(circle at 80% 20%,rgba(255,187,66,.18),transparent 35%),linear-gradient(135deg,var(--purple-dark),var(--purple));color:white;padding:65px 5%;text-align:center;}
+.cart-hero h1{font-size:42px;margin-bottom:12px;font-weight:800;letter-spacing:-.5px;}
+.cart-hero p{max-width:650px;margin:auto;color:#eeeeee;line-height:1.7;font-size:15px;}
+.checkout-steps{width:min(850px,90%);margin:30px auto 0;display:flex;justify-content:center;align-items:center;gap:0;}
+.checkout-step{display:flex;align-items:center;gap:8px;color:#aaa;font-size:12px;font-weight:700;white-space:nowrap;}
+.checkout-step.active{color:var(--purple-dark);}
+.step-number{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e8e8e8;font-size:12px;}
+.checkout-step.active .step-number{background:var(--purple);color:white;}
+.step-line{width:60px;height:2px;background:#ddd;margin:0 12px;}
+.cart-container{width:min(1200px,90%);margin:50px auto 0;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:30px;align-items:start;}
+.cart-box{background:white;border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);}
+.cart-box-header{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:5px;}
+.cart-box h2{color:var(--purple-dark);font-size:22px;}
+.cart-items-count{color:var(--muted);font-size:13px;}
+.cart-item{display:grid;grid-template-columns:minmax(180px,1fr) minmax(100px,auto) auto auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid var(--border);}
+.cart-item:last-child{border-bottom:none;padding-bottom:5px;}
+.item-name{font-weight:800;color:var(--purple-dark);font-size:15px;line-height:1.4;}
+.item-type{font-size:12px;color:var(--grey);margin-top:5px;}
+.item-setup{font-size:12px;color:#777;margin-top:5px;}
+.item-price{font-weight:700;white-space:nowrap;color:#222;text-align:right;}
+.item-price small{display:block;margin-top:4px;font-size:11px;font-weight:400;color:#888;}
+.quantity{display:flex;align-items:center;justify-content:center;gap:8px;}
+.quantity button{width:34px;height:34px;border:none;border-radius:8px;background:#eeeeee;color:#222;cursor:pointer;font-size:18px;font-weight:bold;display:flex;align-items:center;justify-content:center;transition:.2s ease;}
+.quantity button:hover{background:var(--light-grey);}
+.quantity button:active{transform:scale(.95);}
+.quantity span{min-width:28px;text-align:center;font-weight:800;}
+.remove-btn{border:none;background:none;color:var(--danger);cursor:pointer;font-weight:700;font-size:13px;white-space:nowrap;padding:7px;}
+.remove-btn:hover{text-decoration:underline;}
+.summary{background:white;border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);height:max-content;position:sticky;top:100px;}
+.summary h2{color:var(--purple-dark);margin-bottom:22px;font-size:22px;}
+.summary-row{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:10px 0;color:#555;font-size:14px;}
+.summary-row strong{color:#222;white-space:nowrap;}
+.summary-total{border-top:1px solid #dddddd;margin-top:15px;padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:20px;font-weight:800;color:var(--purple-dark);}
+.checkout-btn{display:flex;align-items:center;justify-content:center;width:100%;border:none;background:var(--gold);color:var(--black);padding:15px;margin-top:25px;border-radius:10px;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;transition:transform .2s ease,filter .2s ease,opacity .2s ease;}
+.checkout-btn:hover{transform:translateY(-2px);filter:brightness(.96);}
+.checkout-btn.disabled{opacity:.5;cursor:not-allowed;pointer-events:none;}
+.checkout-note{display:flex;gap:9px;align-items:flex-start;margin-top:15px;padding:12px;border-radius:10px;background:#f6f0f6;color:#555;font-size:12px;line-height:1.5;}
+.checkout-note-icon{flex-shrink:0;}
+.continue-btn{display:block;width:100%;text-align:center;margin-top:15px;padding:13px;border:1px solid var(--purple);color:var(--purple);border-radius:10px;text-decoration:none;font-weight:700;transition:.2s ease;}
+.continue-btn:hover{background:var(--purple);color:white;}
+.empty-cart{text-align:center;padding:55px 20px;}
+.empty-cart-icon{width:70px;height:70px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#f3edf4;font-size:32px;}
+.empty-cart h2{color:var(--purple-dark);margin-bottom:10px;}
+.empty-cart p{color:#777;margin-bottom:22px;}
+footer{background:var(--purple-dark);color:white;padding:45px 5% 25px;margin-top:80px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+.footer-logo{display:inline-flex;align-items:center;margin-bottom:14px;}
+.footer-logo img{width:105px;max-width:105px;height:auto;display:block;}
+footer h3{margin-bottom:15px;font-size:16px;}
+footer p{color:#dddddd;line-height:1.7;font-size:14px;max-width:400px;}
+footer a{display:block;color:#dddddd;text-decoration:none;margin:8px 0;font-size:14px;transition:.2s ease;}
+footer a:hover{color:var(--gold);}
+.footer-bottom{max-width:1200px;margin:35px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);text-align:center;font-size:13px;color:#bbbbbb;}
+@media(max-width:950px){.nav-links{gap:15px;} .cart-container{grid-template-columns:1fr;} .summary{position:static;}}
 @media(max-width:850px){
-
-    .topbar{
-        display:none;
-    }
-
-    .navbar{
-        min-height:68px;
-
-        padding:10px 4%;
-
-        gap:10px;
-    }
-
-    .logo img{
-        width:115px;
-        max-width:115px;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .mobile-menu-btn{
-        display:flex;
-
-        margin-left:auto;
-    }
-
-    .cart-button{
-        order:2;
-
-        padding:9px 11px;
-
-        font-size:13px;
-    }
-
-    .mobile-menu-btn{
-        order:3;
-    }
-
-    .cart-hero{
-        padding:48px 5%;
-    }
-
-    .cart-hero h1{
-        font-size:34px;
-    }
-
-    .cart-hero p{
-        font-size:14px;
-    }
-
-    .checkout-steps{
-        width:94%;
-
-        margin-top:22px;
-    }
-
-    .step-line{
-        width:25px;
-        margin:0 6px;
-    }
-
-    .checkout-step{
-        font-size:10px;
-    }
-
-    .step-number{
-        width:25px;
-        height:25px;
-    }
-
-    .cart-container{
-        width:94%;
-
-        grid-template-columns:1fr;
-
-        margin-top:30px;
-
-        gap:20px;
-    }
-
-    .cart-box{
-        padding:20px;
-    }
-
-    .summary{
-        padding:20px;
-    }
-
-    .cart-item{
-        grid-template-columns:1fr;
-
-        gap:12px;
-
-        padding:20px 0;
-
-        background:white;
-    }
-
-    .item-price{
-        text-align:left;
-
-        font-size:16px;
-    }
-
-    .quantity{
-        justify-content:flex-start;
-    }
-
-    .quantity button{
-        width:40px;
-        height:40px;
-    }
-
-    .quantity span{
-        min-width:32px;
-    }
-
-    .remove-btn{
-        justify-self:start;
-
-        padding-left:0;
-    }
-
-    .footer-inner{
-        grid-template-columns:1fr;
-
-        gap:30px;
-    }
-
+.topbar{display:none;}
+.navbar{min-height:68px;padding:10px 4%;gap:10px;}
+.logo img{width:115px;max-width:115px;}
+.nav-links{display:none;}
+.mobile-menu-btn{display:flex;margin-left:auto;}
+.cart-button{order:2;padding:9px 11px;font-size:13px;}
+.mobile-menu-btn{order:3;}
+.cart-hero{padding:48px 5%;}
+.cart-hero h1{font-size:34px;}
+.cart-hero p{font-size:14px;}
+.checkout-steps{width:94%;margin-top:22px;}
+.step-line{width:25px;margin:0 6px;}
+.checkout-step{font-size:10px;}
+.step-number{width:25px;height:25px;}
+.cart-container{width:94%;grid-template-columns:1fr;margin-top:30px;gap:20px;}
+.cart-box{padding:20px;}
+.summary{padding:20px;}
+.cart-item{grid-template-columns:1fr;gap:12px;padding:20px 0;background:white;}
+.item-price{text-align:left;font-size:16px;}
+.quantity{justify-content:flex-start;}
+.quantity button{width:40px;height:40px;}
+.quantity span{min-width:32px;}
+.remove-btn{justify-self:start;padding-left:0;}
+.footer-inner{grid-template-columns:1fr;gap:30px;}
 }
-
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
 @media(max-width:480px){
-
-    .navbar{
-        padding:9px 3.5%;
-    }
-
-    .logo img{
-        width:105px;
-        max-width:105px;
-    }
-
-    .cart-button{
-        padding:8px 9px;
-    }
-
-    .cart-button .cart-label{
-        display:none;
-    }
-
-    .cart-count{
-        min-width:20px;
-        height:20px;
-    }
-
-    .mobile-menu-btn{
-        width:39px;
-        height:39px;
-    }
-
-    .cart-hero{
-        padding:42px 5%;
-    }
-
-    .cart-hero h1{
-        font-size:30px;
-    }
-
-    .cart-hero p{
-        font-size:13px;
-    }
-
-    .checkout-steps{
-        justify-content:space-between;
-    }
-
-    .checkout-step{
-        flex-direction:column;
-
-        gap:5px;
-
-        text-align:center;
-    }
-
-    .checkout-step span:last-child{
-        display:none;
-    }
-
-    .step-line{
-        width:30px;
-        margin:0 3px;
-    }
-
-    .cart-box,
-    .summary{
-        padding:18px;
-    }
-
-    .cart-box-header{
-        align-items:flex-start;
-    }
-
-    .cart-box h2,
-    .summary h2{
-        font-size:19px;
-    }
-
-    .summary-total{
-        font-size:18px;
-    }
-
-    .login-card{
-        padding:25px 20px;
-    }
-
-    .login-modal-buttons{
-        grid-template-columns:1fr;
-    }
-
+.navbar{padding:9px 3.5%;}
+.logo img{width:105px;max-width:105px;}
+.cart-button{padding:8px 9px;}
+.cart-button .cart-label{display:none;}
+.cart-count{min-width:20px;height:20px;}
+.mobile-menu-btn{width:39px;height:39px;}
+.cart-hero{padding:42px 5%;}
+.cart-hero h1{font-size:30px;}
+.cart-hero p{font-size:13px;}
+.checkout-steps{justify-content:space-between;}
+.checkout-step{flex-direction:column;gap:5px;text-align:center;}
+.checkout-step span:last-child{display:none;}
+.step-line{width:30px;margin:0 3px;}
+.cart-box,.summary{padding:18px;}
+.cart-box-header{align-items:flex-start;}
+.cart-box h2,.summary h2{font-size:19px;}
+.summary-total{font-size:18px;}
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        scroll-behavior:auto !important;
-        animation:none !important;
-        transition:none !important;
-    }
-
-}
-
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation:none !important;transition:none !important;}}
 </style>
-
 </head>
-
 <body>
 
-
-<!-- =========================================================
-     TOP BAR
-     ========================================================= -->
-
 <div class="topbar">
-
-    <div>
-        Dinges TechHub — Technology That Connects You
-    </div>
-
-    <div>
-        <a href="mailto:support@dingestechhub.co.za">
-            support@dingestechhub.co.za
-        </a>
-    </div>
-
+<div>Dinges TechHub — Technology That Connects You</div>
+<div><a href="mailto:support@dingestechhub.co.za">support@dingestechhub.co.za</a></div>
 </div>
-
-
-<!-- =========================================================
-     NAVIGATION
-     ========================================================= -->
 
 <nav class="navbar">
-
-    <a
-        href="index.html"
-        class="logo"
-        aria-label="Dinges TechHub Home"
-    >
-
-        <img
-            src="dingestech-logo.png"
-            alt="Dinges TechHub"
-        >
-
-    </a>
-
-
-    <div class="nav-links">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="services.html">
-            Services
-        </a>
-
-        <a href="help-centre.html">
-            Help Centre
-        </a>
-
-        <a href="contact.html">
-            Contact Us
-        </a>
-
-    </div>
-
-
-    <a
-        href="cart.html"
-        class="cart-button"
-        aria-label="Shopping Cart"
-    >
-
-        <span class="cart-icon">
-            🛒
-        </span>
-
-        <span class="cart-label">
-            Cart
-        </span>
-
-        <span
-            class="cart-count"
-            id="cartCount"
-        >
-            0
-        </span>
-
-    </a>
-
-
-    <button
-        type="button"
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        aria-label="Open menu"
-        aria-expanded="false"
-    >
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
+<a href="index.html" class="logo" aria-label="Dinges TechHub Home"><img src="dingestech-logo.png" alt="Dinges TechHub"></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="help-centre.html">Help Centre</a>
+<a href="contact.html">Contact Us</a>
+</div>
+<a href="cart.html" class="cart-button" aria-label="Shopping Cart">
+<span class="cart-icon">🛒</span>
+<span class="cart-label">Cart</span>
+<span class="cart-count" id="cartCount">0</span>
+</a>
+<button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
 </nav>
 
-
-<!-- =========================================================
-     MOBILE MENU
-     ========================================================= -->
-
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
-
-    <a href="index.html">
-        Home
-    </a>
-
-    <a href="services.html">
-        Services
-    </a>
-
-    <a href="help-centre.html">
-        Help Centre
-    </a>
-
-    <a href="contact.html">
-        Contact Us
-    </a>
-
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="help-centre.html">Help Centre</a>
+<a href="contact.html">Contact Us</a>
 </div>
-
-
-<!-- =========================================================
-     HERO
-     ========================================================= -->
 
 <section class="cart-hero">
-
-    <h1>
-        Your Cart
-    </h1>
-
-    <p>
-        Review your selected Dinges TechHub services before
-        proceeding to secure checkout.
-    </p>
-
+<h1>Your Cart</h1>
+<p>Review your selected Dinges TechHub services before proceeding to secure checkout.</p>
 </section>
 
-
-<!-- =========================================================
-     CHECKOUT STEPS
-     ========================================================= -->
-
 <div class="checkout-steps">
-
-    <div class="checkout-step active">
-
-        <span class="step-number">
-            1
-        </span>
-
-        <span>
-            Cart
-        </span>
-
-    </div>
-
-
-    <div class="step-line"></div>
-
-
-    <div class="checkout-step">
-
-        <span class="step-number">
-            2
-        </span>
-
-        <span>
-            Login
-        </span>
-
-    </div>
-
-
-    <div class="step-line"></div>
-
-
-    <div class="checkout-step">
-
-        <span class="step-number">
-            3
-        </span>
-
-        <span>
-            Checkout
-        </span>
-
-    </div>
-
-
-    <div class="step-line"></div>
-
-
-    <div class="checkout-step">
-
-        <span class="step-number">
-            4
-        </span>
-
-        <span>
-            Payment
-        </span>
-
-    </div>
-
+<div class="checkout-step active"><span class="step-number">1</span><span>Cart</span></div>
+<div class="step-line"></div>
+<div class="checkout-step"><span class="step-number">2</span><span>Secure Checkout</span></div>
 </div>
-
-
-<!-- =========================================================
-     CART
-     ========================================================= -->
 
 <main class="cart-container">
 
+<section class="cart-box">
+<div class="cart-box-header">
+<h2>Selected Services</h2>
+<span class="cart-items-count" id="cartItemsCount">0 items</span>
+</div>
+<div id="cartItems"></div>
+</section>
 
-    <!-- =====================================================
-         CART ITEMS
-         ===================================================== -->
-
-    <section class="cart-box">
-
-        <div class="cart-box-header">
-
-            <h2>
-                Selected Services
-            </h2>
-
-            <span
-                class="cart-items-count"
-                id="cartItemsCount"
-            >
-                0 items
-            </span>
-
-        </div>
-
-
-        <div id="cartItems"></div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ORDER SUMMARY
-         ===================================================== -->
-
-    <aside class="summary">
-
-        <h2>
-            Order Summary
-        </h2>
-
-
-        <div class="summary-row">
-
-            <span>
-                Monthly / Service Total
-            </span>
-
-            <strong id="subtotal">
-                R0.00
-            </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span>
-                Setup / Once-off
-            </span>
-
-            <strong id="setupTotal">
-                R0.00
-            </strong>
-
-        </div>
-
-
-        <div class="summary-total">
-
-            <span>
-                Total
-            </span>
-
-            <span id="total">
-                R0.00
-            </span>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="checkout-btn disabled"
-            id="checkoutButton"
-        >
-            Proceed to Checkout
-        </button>
-
-
-        <div class="checkout-note">
-
-            <span class="checkout-note-icon">
-                🔐
-            </span>
-
-            <span>
-                You will need to log in or create a Dinges TechHub
-                customer account before continuing to checkout.
-            </span>
-
-        </div>
-
-
-        <a
-            href="services.html"
-            class="continue-btn"
-        >
-            Continue Shopping
-        </a>
-
-    </aside>
+<aside class="summary">
+<h2>Order Summary</h2>
+<div class="summary-row"><span>Monthly / Service Total</span><strong id="subtotal">R0.00</strong></div>
+<div class="summary-row"><span>Setup / Once-off</span><strong id="setupTotal">R0.00</strong></div>
+<div class="summary-total"><span>Total</span><span id="total">R0.00</span></div>
+<button type="button" class="checkout-btn disabled" id="checkoutButton">Proceed to Secure Checkout</button>
+<div class="checkout-note">
+<span class="checkout-note-icon">🔐</span>
+<span>You'll need to log in or create an account, then complete secure payment via Netcash, Payfast or PayPal on your invoice.</span>
+</div>
+<a href="services.html" class="continue-btn">Continue Shopping</a>
+</aside>
 
 </main>
 
-
-<!-- =========================================================
-     LOGIN REQUIRED MODAL
-     ========================================================= -->
-
-<div
-    class="login-modal"
-    id="loginModal"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="loginModalTitle"
->
-
-    <div class="login-card">
-
-        <div class="login-icon">
-            🔐
-        </div>
-
-
-        <h2 id="loginModalTitle">
-            Login Required
-        </h2>
-
-
-        <p>
-            Please log in to your Dinges TechHub customer account
-            before continuing to checkout.
-            Don't have an account? You can create one now.
-        </p>
-
-
-        <div class="login-modal-buttons">
-
-            <!--
-                CHANGE ONLY THIS URL if your actual login page
-                has a different filename.
-            -->
-
-            <a
-                href="login.html?redirect=checkout"
-                class="modal-login-btn"
-                id="loginLink"
-            >
-                Login
-            </a>
-
-
-            <!--
-                CHANGE ONLY THIS URL if your actual registration
-                page has a different filename.
-            -->
-
-            <a
-                href="register.html?redirect=checkout"
-                class="modal-register-btn"
-                id="registerLink"
-            >
-                Create Account
-            </a>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="modal-close"
-            id="closeLoginModal"
-        >
-            Continue Shopping
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
 <footer>
-
-    <div class="footer-inner">
-
-
-        <div>
-
-            <a
-                href="index.html"
-                class="footer-logo"
-                aria-label="Dinges TechHub Home"
-            >
-
-                <img
-                    src="dingestech-logo.png"
-                    alt="Dinges TechHub"
-                >
-
-            </a>
-
-
-            <p>
-                Technology, connectivity and smart business
-                solutions designed to keep you connected.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Services
-            </h3>
-
-            <a href="services.html">
-                Internet Connectivity
-            </a>
-
-            <a href="services.html">
-                VoIP &amp; Telephony
-            </a>
-
-            <a href="admin-login.html">
-                ADMIN
-            </a>
-
-            <a href="services.html">
-                Smart Technology
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Contact
-            </h3>
-
-            <a href="mailto:support@dingestechhub.co.za">
-                Email Support
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © <span id="footerYear"></span>
-        Dinges TechHub.
-        All rights reserved.
-
-    </div>
-
+<div class="footer-inner">
+<div>
+<a href="index.html" class="footer-logo" aria-label="Dinges TechHub Home"><img src="dingestech-logo.png" alt="Dinges TechHub"></a>
+<p>Technology, connectivity and smart business solutions designed to keep you connected.</p>
+</div>
+<div>
+<h3>Services</h3>
+<a href="services.html">Internet Connectivity</a>
+<a href="services.html">VoIP &amp; Telephony</a>
+<a href="services.html">Hosting</a>
+<a href="services.html">Smart Technology</a>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="mailto:support@dingestechhub.co.za">Email Support</a>
+<a href="contact.html">Contact Us</a>
+</div>
+</div>
+<div class="footer-bottom">© <span id="footerYear"></span> Dinges TechHub. All rights reserved.</div>
 </footer>
 
-
 <script>
-
-/* =========================================================
-   DINGES TECHHUB — CART SYSTEM
-   ========================================================= */
-
-
-/* =========================================================
-   SETTINGS
-   ========================================================= */
 
 const CART_KEY = "dingesTechHubCart";
 
 /*
- * This is the customer session key already used
- * by the Dinges TechHub login flow.
+ * Our own checkout page now creates a real WHMCS order via
+ * create-order.php, then sends the customer straight to their
+ * real invoice for final secure payment (Netcash / Payfast /
+ * PayPal). Customers stay on our site until that final step.
  */
+const CHECKOUT_URL = "checkout.html";
 const CUSTOMER_KEY = "dingesTechCustomer";
 
-/*
- * Login and registration pages.
- *
- * If your actual files have different names, change
- * these two values only.
- */
-const LOGIN_URL = "login.html";
-const REGISTER_URL = "register.html";
-
-const CHECKOUT_URL = "checkout.html";
-
-
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
-
-const mobileMenuBtn =
-    document.getElementById("mobileMenuBtn");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
 if(mobileMenuBtn && mobileMenu){
-
-    mobileMenuBtn.addEventListener(
-        "click",
-        function(){
-
-            const isOpen =
-                mobileMenu.classList.toggle("open");
-
-            mobileMenuBtn.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-        }
-    );
-
+    mobileMenuBtn.addEventListener("click", function(){
+        const isOpen = mobileMenu.classList.toggle("open");
+        mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
 }
-
-
-/* =========================================================
-   GET CART
-   ========================================================= */
 
 function getCart(){
-
     try{
-
-        const savedCart =
-            localStorage.getItem(CART_KEY);
-
-        if(!savedCart){
-            return [];
-        }
-
-        const parsed =
-            JSON.parse(savedCart);
-
-        if(!Array.isArray(parsed)){
-            return [];
-        }
-
+        const savedCart = localStorage.getItem(CART_KEY);
+        if(!savedCart){ return []; }
+        const parsed = JSON.parse(savedCart);
+        if(!Array.isArray(parsed)){ return []; }
         return parsed;
-
     }catch(error){
-
-        console.error(
-            "Unable to load cart:",
-            error
-        );
-
+        console.error("Unable to load cart:", error);
         return [];
-
     }
-
 }
-
-
-/* =========================================================
-   SAVE CART
-   ========================================================= */
 
 function saveCart(cart){
-
     try{
-
-        localStorage.setItem(
-            CART_KEY,
-            JSON.stringify(cart)
-        );
-
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }catch(error){
-
-        console.error(
-            "Unable to save cart:",
-            error
-        );
-
+        console.error("Unable to save cart:", error);
     }
-
 }
-
-
-/* =========================================================
-   NUMBER NORMALISATION
-   ========================================================= */
 
 function toNumber(value){
-
-    if(
-        value === null ||
-        value === undefined ||
-        value === ""
-    ){
-
-        return 0;
-
-    }
-
-
-    if(typeof value === "number"){
-
-        return Number.isFinite(value)
-            ? value
-            : 0;
-
-    }
-
-
-    const cleaned =
-        String(value)
-            .replace(/[R,\s]/gi,"")
-            .replace(/[^0-9.-]/g,"");
-
-
-    const number =
-        Number(cleaned);
-
-
-    return Number.isFinite(number)
-        ? number
-        : 0;
-
+    if(value === null || value === undefined || value === ""){ return 0; }
+    if(typeof value === "number"){ return Number.isFinite(value) ? value : 0; }
+    const cleaned = String(value).replace(/[R,\s]/gi,"").replace(/[^0-9.-]/g,"");
+    const number = Number(cleaned);
+    return Number.isFinite(number) ? number : 0;
 }
-
-
-/* =========================================================
-   GET QUANTITY
-   ========================================================= */
 
 function getQuantity(item){
-
-    const quantity =
-        parseInt(
-            item?.quantity,
-            10
-        );
-
-
-    if(
-        !Number.isFinite(quantity) ||
-        quantity < 1
-    ){
-
-        return 1;
-
-    }
-
-
+    const quantity = parseInt(item?.quantity, 10);
+    if(!Number.isFinite(quantity) || quantity < 1){ return 1; }
     return quantity;
-
 }
-
-
-/* =========================================================
-   GET MONTHLY PRICE
-   ========================================================= */
 
 function getMonthlyPrice(item){
-
-    const possiblePrices = [
-
-        item?.monthlyPrice,
-        item?.monthly,
-        item?.monthly_price,
-        item?.servicePrice,
-        item?.service_price,
-        item?.price,
-        item?.amount
-
-    ];
-
-
-    for(
-        const value of possiblePrices
-    ){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ){
-
-            return toNumber(value);
-
-        }
-
+    const possiblePrices = [item?.monthlyPrice, item?.monthly, item?.monthly_price, item?.servicePrice, item?.service_price, item?.price, item?.amount];
+    for(const value of possiblePrices){
+        if(value !== undefined && value !== null && value !== ""){ return toNumber(value); }
     }
-
-
     return 0;
-
 }
-
-
-/* =========================================================
-   GET SETUP PRICE
-   ========================================================= */
 
 function getSetupPrice(item){
-
-    const possiblePrices = [
-
-        item?.setupPrice,
-        item?.setup,
-        item?.setupFee,
-        item?.setup_fee,
-        item?.onceOff,
-        item?.onceOffPrice,
-        item?.onceOffFee,
-        item?.once_off,
-        item?.once_off_price
-
-    ];
-
-
-    for(
-        const value of possiblePrices
-    ){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ){
-
-            return toNumber(value);
-
-        }
-
+    const possiblePrices = [item?.setupPrice, item?.setup, item?.setupFee, item?.setup_fee, item?.onceOff, item?.onceOffPrice, item?.onceOffFee, item?.once_off, item?.once_off_price];
+    for(const value of possiblePrices){
+        if(value !== undefined && value !== null && value !== ""){ return toNumber(value); }
     }
-
-
     return 0;
-
 }
-
-
-/* =========================================================
-   GET BILLING TYPE
-   ========================================================= */
 
 function getBillingType(item){
-
-    const billing =
-        String(
-            item?.billing ||
-            item?.billingCycle ||
-            item?.billing_cycle ||
-            ""
-        ).toLowerCase();
-
-
-    if(
-        billing.includes("monthly") ||
-        billing.includes("month")
-    ){
-
-        return "monthly";
-
-    }
-
-
-    if(
-        billing.includes("once") ||
-        billing.includes("setup")
-    ){
-
-        return "once-off";
-
-    }
-
-
-    if(
-        getSetupPrice(item) > 0 ||
-        getMonthlyPrice(item) > 0
-    ){
-
-        return "monthly";
-
-    }
-
-
+    const billing = String(item?.billing || item?.billingCycle || item?.billing_cycle || "").toLowerCase();
+    if(billing.includes("monthly") || billing.includes("month")){ return "monthly"; }
+    if(billing.includes("once") || billing.includes("setup")){ return "once-off"; }
+    if(getSetupPrice(item) > 0 || getMonthlyPrice(item) > 0){ return "monthly"; }
     return "once-off";
-
 }
-
-
-/* =========================================================
-   GET ITEM NAME
-   ========================================================= */
 
 function getItemName(item){
-
-    return String(
-        item?.name ||
-        item?.title ||
-        item?.serviceName ||
-        item?.productName ||
-        "Dinges TechHub Service"
-    );
-
+    return String(item?.name || item?.title || item?.serviceName || item?.productName || "Dinges TechHub Service");
 }
-
-
-/* =========================================================
-   FORMAT RAND
-   ========================================================= */
 
 function formatRand(amount){
-
-    return new Intl.NumberFormat(
-        "en-ZA",
-        {
-            style:"currency",
-            currency:"ZAR",
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-        }
-    ).format(
-        toNumber(amount)
-    );
-
+    return new Intl.NumberFormat("en-ZA", {style:"currency", currency:"ZAR", minimumFractionDigits:2, maximumFractionDigits:2}).format(toNumber(amount));
 }
-
-
-/* =========================================================
-   ESCAPE HTML
-   ========================================================= */
 
 function escapeHtml(value){
-
-    return String(
-        value ?? ""
-    )
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
+    return String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 }
-
-
-/* =========================================================
-   UPDATE CART COUNT
-   ========================================================= */
 
 function updateCartCount(cart){
-
-    const element =
-        document.getElementById("cartCount");
-
-
-    if(!element){
-        return;
-    }
-
-
-    const count =
-        cart.reduce(
-            function(total,item){
-
-                return total +
-                    getQuantity(item);
-
-            },
-            0
-        );
-
-
-    element.textContent =
-        count > 99
-            ? "99+"
-            : count;
-
+    const element = document.getElementById("cartCount");
+    if(!element){ return; }
+    const count = cart.reduce(function(total,item){ return total + getQuantity(item); }, 0);
+    element.textContent = count > 99 ? "99+" : count;
 }
-
-
-/* =========================================================
-   UPDATE ITEM COUNT
-   ========================================================= */
 
 function updateItemCount(cart){
-
-    const element =
-        document.getElementById(
-            "cartItemsCount"
-        );
-
-
-    if(!element){
-        return;
-    }
-
-
-    const count =
-        cart.reduce(
-            function(total,item){
-
-                return total +
-                    getQuantity(item);
-
-            },
-            0
-        );
-
-
-    element.textContent =
-        count === 1
-            ? "1 item"
-            : `${count} items`;
-
+    const element = document.getElementById("cartItemsCount");
+    if(!element){ return; }
+    const count = cart.reduce(function(total,item){ return total + getQuantity(item); }, 0);
+    element.textContent = count === 1 ? "1 item" : `${count} items`;
 }
-
-
-/* =========================================================
-   EMPTY CART
-   ========================================================= */
 
 function renderEmptyCart(){
-
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
-
-
+    const container = document.getElementById("cartItems");
     container.innerHTML = `
-
         <div class="empty-cart">
-
-            <div class="empty-cart-icon">
-                🛒
-            </div>
-
-            <h2>
-                Your cart is empty
-            </h2>
-
-            <p>
-                You haven't added any services yet.
-            </p>
-
-            <a
-                href="services.html"
-                class="checkout-btn"
-                style="
-                    display:inline-flex;
-                    width:auto;
-                    padding:13px 25px;
-                    margin-top:0;
-                "
-            >
-                Browse Services
-            </a>
-
+            <div class="empty-cart-icon">🛒</div>
+            <h2>Your cart is empty</h2>
+            <p>You haven't added any services yet.</p>
+            <a href="services.html" class="checkout-btn" style="display:inline-flex;width:auto;padding:13px 25px;margin-top:0;">Browse Services</a>
         </div>
-
     `;
-
 }
 
-
-/* =========================================================
-   CHECK WHETHER CUSTOMER IS LOGGED IN
-   ========================================================= */
-
-function getLoggedInCustomer(){
-
-    try{
-
-        const customer =
-            sessionStorage.getItem(
-                CUSTOMER_KEY
-            );
-
-
-        if(!customer){
-            return null;
-        }
-
-
-        const parsed =
-            JSON.parse(customer);
-
-
-        if(
-            parsed &&
-            typeof parsed === "object"
-        ){
-
-            return parsed;
-
-        }
-
-
-        return null;
-
-    }catch(error){
-
-        console.warn(
-            "Unable to read customer session:",
-            error
-        );
-
-        return null;
-
-    }
-
-}
-
-
-/* =========================================================
-   LOGIN MODAL
-   ========================================================= */
-
-const loginModal =
-    document.getElementById(
-        "loginModal"
-    );
-
-const closeLoginModal =
-    document.getElementById(
-        "closeLoginModal"
-    );
-
-
-function showLoginModal(){
-
-    if(!loginModal){
-        return;
-    }
-
-    loginModal.classList.add("show");
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-function hideLoginModal(){
-
-    if(!loginModal){
-        return;
-    }
-
-    loginModal.classList.remove("show");
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-/* =========================================================
-   BUILD AUTH REDIRECT
-   ========================================================= */
-
-function buildAuthUrl(
-    baseUrl
-){
-
-    const separator =
-        baseUrl.includes("?")
-            ? "&"
-            : "?";
-
-
-    return (
-        baseUrl +
-        separator +
-        "redirect=" +
-        encodeURIComponent(
-            CHECKOUT_URL
-        )
-    );
-
-}
-
-
-/* =========================================================
-   SET LOGIN LINKS
-   ========================================================= */
-
-const loginLink =
-    document.getElementById(
-        "loginLink"
-    );
-
-const registerLink =
-    document.getElementById(
-        "registerLink"
-    );
-
-
-if(loginLink){
-
-    loginLink.href =
-        buildAuthUrl(
-            LOGIN_URL
-        );
-
-}
-
-
-if(registerLink){
-
-    registerLink.href =
-        buildAuthUrl(
-            REGISTER_URL
-        );
-
-}
-
-
-/* =========================================================
-   CLOSE MODAL
-   ========================================================= */
-
-if(closeLoginModal){
-
-    closeLoginModal.addEventListener(
-        "click",
-        hideLoginModal
-    );
-
-}
-
-
-if(loginModal){
-
-    loginModal.addEventListener(
-        "click",
-        function(event){
-
-            if(
-                event.target ===
-                loginModal
-            ){
-
-                hideLoginModal();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   ESCAPE KEY
-   ========================================================= */
-
-document.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key === "Escape" &&
-            loginModal &&
-            loginModal.classList.contains("show")
-        ){
-
-            hideLoginModal();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   PREPARE CHECKOUT SESSION
-   ========================================================= */
-
-function prepareCheckout(){
-
-    const cart =
-        getCart();
-
-
-    if(!cart.length){
-
-        alert(
-            "Your cart is empty. Please add a service before checkout."
-        );
-
-        return false;
-
-    }
-
-
-    /*
-     * Keep the cart safely stored before
-     * sending the customer to login.
-     */
-
-    saveCart(cart);
-
-
-    /*
-     * Tell the login/register page where
-     * the customer should return.
-     */
-
-    sessionStorage.setItem(
-        "dingesCheckoutReturn",
-        CHECKOUT_URL
-    );
-
-
-    return true;
-
-}
-
-
-/* =========================================================
-   PROCEED TO CHECKOUT
-   ========================================================= */
-
-const checkoutButton =
-    document.getElementById(
-        "checkoutButton"
-    );
-
+const checkoutButton = document.getElementById("checkoutButton");
 
 if(checkoutButton){
+    checkoutButton.addEventListener("click", function(){
+        const cart = getCart();
+        if(!cart.length){ return; }
 
-    checkoutButton.addEventListener(
-        "click",
-        function(){
-
-            const cart =
-                getCart();
-
-
-            if(!cart.length){
-
-                return;
-
-            }
-
-
-            if(
-                !prepareCheckout()
-            ){
-
-                return;
-
-            }
-
-
-            const customer =
-                getLoggedInCustomer();
-
-
-            /*
-             * CUSTOMER ALREADY LOGGED IN
-             */
-
-            if(customer){
-
-                window.location.href =
-                    CHECKOUT_URL;
-
-                return;
-
-            }
-
-
-            /*
-             * CUSTOMER NOT LOGGED IN
-             */
-
-            showLoginModal();
-
+        let customer = null;
+        try{
+            const saved = sessionStorage.getItem(CUSTOMER_KEY);
+            customer = saved ? JSON.parse(saved) : null;
+        }catch(e){
+            customer = null;
         }
-    );
 
+        if(customer && typeof customer === "object"){
+            window.location.href = CHECKOUT_URL;
+        }else{
+            window.location.href = "login.html?redirect=" + encodeURIComponent(CHECKOUT_URL);
+        }
+    });
 }
-
-
-/* =========================================================
-   UPDATE CHECKOUT STATE
-   ========================================================= */
 
 function updateCheckoutState(cart){
-
-    const button =
-        document.getElementById(
-            "checkoutButton"
-        );
-
-
-    if(!button){
-        return;
-    }
-
-
+    const button = document.getElementById("checkoutButton");
+    if(!button){ return; }
     if(cart.length === 0){
-
-        button.classList.add(
-            "disabled"
-        );
-
-        button.setAttribute(
-            "aria-disabled",
-            "true"
-        );
-
+        button.classList.add("disabled");
+        button.setAttribute("aria-disabled", "true");
         return;
-
     }
-
-
-    button.classList.remove(
-        "disabled"
-    );
-
-    button.setAttribute(
-        "aria-disabled",
-        "false"
-    );
-
+    button.classList.remove("disabled");
+    button.setAttribute("aria-disabled", "false");
 }
 
-
-/* =========================================================
-   CHANGE QUANTITY
-   ========================================================= */
-
-function changeQuantity(
-    index,
-    change
-){
-
-    const cart =
-        getCart();
-
-
-    if(!cart[index]){
-        return;
-    }
-
-
-    const currentQuantity =
-        getQuantity(
-            cart[index]
-        );
-
-
-    const newQuantity =
-        currentQuantity +
-        Number(change);
-
-
+function changeQuantity(index, change){
+    const cart = getCart();
+    if(!cart[index]){ return; }
+    const currentQuantity = getQuantity(cart[index]);
+    const newQuantity = currentQuantity + Number(change);
     if(newQuantity <= 0){
-
-        cart.splice(
-            index,
-            1
-        );
-
+        cart.splice(index, 1);
     }else{
-
-        cart[index].quantity =
-            newQuantity;
-
+        cart[index].quantity = newQuantity;
     }
-
-
     saveCart(cart);
-
     renderCart();
-
 }
-
-
-/* =========================================================
-   REMOVE ITEM
-   ========================================================= */
 
 function removeItem(index){
-
-    const cart =
-        getCart();
-
-
-    if(!cart[index]){
-        return;
-    }
-
-
-    cart.splice(
-        index,
-        1
-    );
-
-
+    const cart = getCart();
+    if(!cart[index]){ return; }
+    cart.splice(index, 1);
     saveCart(cart);
-
     renderCart();
-
 }
-
-
-/* =========================================================
-   RENDER CART
-   ========================================================= */
 
 function renderCart(){
+    const cart = getCart();
+    const container = document.getElementById("cartItems");
+    const subtotalElement = document.getElementById("subtotal");
+    const setupElement = document.getElementById("setupTotal");
+    const totalElement = document.getElementById("total");
 
-    const cart =
-        getCart();
-
-
-    const container =
-        document.getElementById(
-            "cartItems"
-        );
-
-
-    const subtotalElement =
-        document.getElementById(
-            "subtotal"
-        );
-
-
-    const setupElement =
-        document.getElementById(
-            "setupTotal"
-        );
-
-
-    const totalElement =
-        document.getElementById(
-            "total"
-        );
-
-
-    if(!container){
-        return;
-    }
-
-
-    /*
-     * BADGES
-     */
+    if(!container){ return; }
 
     updateCartCount(cart);
-
     updateItemCount(cart);
-
     updateCheckoutState(cart);
 
-
-    /*
-     * EMPTY
-     */
-
     if(cart.length === 0){
-
         renderEmptyCart();
-
-        subtotalElement.textContent =
-            formatRand(0);
-
-        setupElement.textContent =
-            formatRand(0);
-
-        totalElement.textContent =
-            formatRand(0);
-
+        subtotalElement.textContent = formatRand(0);
+        setupElement.textContent = formatRand(0);
+        totalElement.textContent = formatRand(0);
         return;
-
     }
-
-
-    /*
-     * TOTALS
-     */
 
     let monthlyTotal = 0;
-
     let setupTotal = 0;
 
-
-    /*
-     * CART ITEMS
-     */
-
-    container.innerHTML =
-        cart.map(
-            function(item,index){
-
-                const quantity =
-                    getQuantity(item);
-
-
-                const monthlyPrice =
-                    getMonthlyPrice(item);
-
-
-                const setupPrice =
-                    getSetupPrice(item);
-
-
-                const billing =
-                    getBillingType(item);
-
-
-                monthlyTotal +=
-                    monthlyPrice *
-                    quantity;
-
-
-                setupTotal +=
-                    setupPrice *
-                    quantity;
-
-
-                const name =
-                    getItemName(item);
-
-
-                let priceHtml;
-
-
-                if(
-                    billing ===
-                    "monthly"
-                ){
-
-                    priceHtml = `
-
-                        ${formatRand(monthlyPrice)}
-
-                        <small>
-                            per month
-                        </small>
-
-                    `;
-
-                }else{
-
-                    priceHtml = `
-
-                        ${formatRand(monthlyPrice)}
-
-                        <small>
-                            once-off
-                        </small>
-
-                    `;
-
-                }
-
-
-                const setupHtml =
-                    setupPrice > 0
-                        ? `
-
-                            <div class="item-setup">
-
-                                Setup:
-                                ${formatRand(setupPrice)}
-
-                            </div>
-
-                          `
-                        : "";
-
-
-                return `
-
-                    <div
-                        class="cart-item"
-                        data-index="${index}"
-                    >
-
-                        <div>
-
-                            <div class="item-name">
-
-                                ${escapeHtml(name)}
-
-                            </div>
-
-
-                            <div class="item-type">
-
-                                ${
-                                    billing === "monthly"
-                                        ? "Monthly Service"
-                                        : "Once-off Service"
-                                }
-
-                            </div>
-
-
-                            ${setupHtml}
-
-                        </div>
-
-
-                        <div class="item-price">
-
-                            ${priceHtml}
-
-                        </div>
-
-
-                        <div class="quantity">
-
-                            <button
-                                type="button"
-                                class="quantity-minus"
-                                data-index="${index}"
-                                aria-label="Decrease quantity"
-                            >
-                                −
-                            </button>
-
-
-                            <span>
-                                ${quantity}
-                            </span>
-
-
-                            <button
-                                type="button"
-                                class="quantity-plus"
-                                data-index="${index}"
-                                aria-label="Increase quantity"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <button
-                            type="button"
-                            class="remove-btn"
-                            data-index="${index}"
-                        >
-                            Remove
-                        </button>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
-
-
-    /*
-     * TOTALS
-     */
-
-    subtotalElement.textContent =
-        formatRand(
-            monthlyTotal
-        );
-
-
-    setupElement.textContent =
-        formatRand(
-            setupTotal
-        );
-
-
-    totalElement.textContent =
-        formatRand(
-            monthlyTotal +
-            setupTotal
-        );
-
-
-    /*
-     * MINUS BUTTONS
-     */
-
-    container
-        .querySelectorAll(
-            ".quantity-minus"
-        )
-        .forEach(
-            function(button){
-
-                button.addEventListener(
-                    "click",
-                    function(){
-
-                        const index =
-                            Number(
-                                button.dataset.index
-                            );
-
-
-                        changeQuantity(
-                            index,
-                            -1
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    /*
-     * PLUS BUTTONS
-     */
-
-    container
-        .querySelectorAll(
-            ".quantity-plus"
-        )
-        .forEach(
-            function(button){
-
-                button.addEventListener(
-                    "click",
-                    function(){
-
-                        const index =
-                            Number(
-                                button.dataset.index
-                            );
-
-
-                        changeQuantity(
-                            index,
-                            1
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    /*
-     * REMOVE BUTTONS
-     */
-
-    container
-        .querySelectorAll(
-            ".remove-btn"
-        )
-        .forEach(
-            function(button){
-
-                button.addEventListener(
-                    "click",
-                    function(){
-
-                        const index =
-                            Number(
-                                button.dataset.index
-                            );
-
-
-                        removeItem(index);
-
-                    }
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   LISTEN FOR CART CHANGES
-   ========================================================= */
-
-window.addEventListener(
-    "storage",
-    function(event){
-
-        if(
-            event.key === CART_KEY
-        ){
-
-            renderCart();
-
+    container.innerHTML = cart.map(function(item, index){
+        const quantity = getQuantity(item);
+        const monthlyPrice = getMonthlyPrice(item);
+        const setupPrice = getSetupPrice(item);
+        const billing = getBillingType(item);
+
+        monthlyTotal += monthlyPrice * quantity;
+        setupTotal += setupPrice * quantity;
+
+        const name = getItemName(item);
+
+        let priceHtml;
+        if(billing === "monthly"){
+            priceHtml = `${formatRand(monthlyPrice)}<small>per month</small>`;
+        }else{
+            priceHtml = `${formatRand(monthlyPrice)}<small>once-off</small>`;
         }
 
-    }
-);
+        const setupHtml = setupPrice > 0 ? `<div class="item-setup">Setup: ${formatRand(setupPrice)}</div>` : "";
 
+        return `
+            <div class="cart-item" data-index="${index}">
+                <div>
+                    <div class="item-name">${escapeHtml(name)}</div>
+                    <div class="item-type">${billing === "monthly" ? "Monthly Service" : "Once-off Service"}</div>
+                    ${setupHtml}
+                </div>
+                <div class="item-price">${priceHtml}</div>
+                <div class="quantity">
+                    <button type="button" class="quantity-minus" data-index="${index}" aria-label="Decrease quantity">−</button>
+                    <span>${quantity}</span>
+                    <button type="button" class="quantity-plus" data-index="${index}" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="remove-btn" data-index="${index}">Remove</button>
+            </div>
+        `;
+    }).join("");
 
-/* =========================================================
-   CART UPDATE EVENT
-   Allows other pages to trigger:
-   window.dispatchEvent(new Event("cartUpdated"));
-   ========================================================= */
+    subtotalElement.textContent = formatRand(monthlyTotal);
+    setupElement.textContent = formatRand(setupTotal);
+    totalElement.textContent = formatRand(monthlyTotal + setupTotal);
 
-window.addEventListener(
-    "cartUpdated",
-    function(){
+    container.querySelectorAll(".quantity-minus").forEach(function(button){
+        button.addEventListener("click", function(){
+            const index = Number(button.dataset.index);
+            changeQuantity(index, -1);
+        });
+    });
 
-        renderCart();
+    container.querySelectorAll(".quantity-plus").forEach(function(button){
+        button.addEventListener("click", function(){
+            const index = Number(button.dataset.index);
+            changeQuantity(index, 1);
+        });
+    });
 
-    }
-);
-
-
-/* =========================================================
-   FOOTER YEAR
-   ========================================================= */
-
-const footerYear =
-    document.getElementById(
-        "footerYear"
-    );
-
-
-if(footerYear){
-
-    footerYear.textContent =
-        new Date().getFullYear();
-
+    container.querySelectorAll(".remove-btn").forEach(function(button){
+        button.addEventListener("click", function(){
+            const index = Number(button.dataset.index);
+            removeItem(index);
+        });
+    });
 }
 
+window.addEventListener("storage", function(event){
+    if(event.key === CART_KEY){ renderCart(); }
+});
 
-/* =========================================================
-   INITIALISE
-   ========================================================= */
+window.addEventListener("cartUpdated", function(){ renderCart(); });
+
+const footerYear = document.getElementById("footerYear");
+if(footerYear){ footerYear.textContent = new Date().getFullYear(); }
 
 renderCart();
 

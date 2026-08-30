@@ -1,3770 +1,662 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Checkout | Dinges TechHub</title>
-
-<meta
-    name="description"
-    content="Complete your Dinges TechHub order securely."
->
-
+<meta name="description" content="Complete your Dinges TechHub order securely.">
 <style>
-
-/* =========================================================
-   DINGES TECHHUB — CHECKOUT
-========================================================= */
-
-:root{
-    --purple-dark:#3C1542;
-    --purple:#7A2C78;
-    --purple-light:#f4eaf4;
-    --grey:#949393;
-    --light-grey:#D9D9D9;
-    --black:#020202;
-    --gold:#FFBB42;
-    --white:#ffffff;
-
-    --page-bg:#f7f7f8;
-    --border:#e5e5e9;
-    --muted:#707070;
-    --danger:#b00020;
-    --success:#18794e;
-
-    --shadow:0 12px 35px rgba(0,0,0,.07);
-    --radius:16px;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:var(--page-bg);
-    color:var(--black);
-
-    min-height:100vh;
-}
-
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.topbar{
-    background:var(--purple-dark);
-    color:white;
-
-    padding:8px 5%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:20px;
-
-    font-size:13px;
-}
-
-.topbar a{
-    color:white;
-    text-decoration:none;
-}
-
-.topbar a:hover{
-    color:var(--gold);
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar{
-    background:white;
-
-    min-height:76px;
-
-    padding:12px 5%;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:25px;
-
-    border-bottom:1px solid #eeeeee;
-
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-
-    text-decoration:none;
-
-    flex-shrink:0;
-}
-
-.logo img{
-    width:135px;
-    height:auto;
-    display:block;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-
-    gap:26px;
-
-    margin-left:auto;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#222;
-
-    font-size:14px;
-    font-weight:600;
-
-    transition:.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active{
-    color:var(--purple);
-}
-
-
-/* =========================================================
-   CART BUTTON
-========================================================= */
-
-.cart-button{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:8px;
-
-    background:var(--purple-dark);
-    color:white !important;
-
-    padding:10px 15px;
-
-    border-radius:9px;
-
-    text-decoration:none;
-
-    font-size:14px;
-    font-weight:700;
-
-    white-space:nowrap;
-}
-
-.cart-button:hover{
-    background:var(--purple);
-}
-
-.cart-icon{
-    font-size:16px;
-}
-
-.cart-count{
-    min-width:21px;
-    height:21px;
-
-    padding:0 5px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:var(--gold);
-    color:var(--black);
-
-    border-radius:50%;
-
-    font-size:11px;
-    font-weight:800;
-}
-
-
-/* =========================================================
-   MOBILE MENU BUTTON
-========================================================= */
-
-.mobile-menu-btn{
-    display:none;
-
-    width:42px;
-    height:42px;
-
-    border:1px solid #e4e4e4;
-    border-radius:10px;
-
-    background:white;
-
-    cursor:pointer;
-
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-
-    gap:5px;
-}
-
-.mobile-menu-btn span{
-    width:20px;
-    height:2px;
-
-    background:var(--purple-dark);
-
-    border-radius:10px;
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu{
-    display:none;
-
-    background:white;
-
-    border-bottom:1px solid #eeeeee;
-
-    padding:10px 5% 15px;
-}
-
-.mobile-menu.open{
-    display:block;
-}
-
-.mobile-menu a{
-    display:block;
-
-    padding:13px 5px;
-
-    color:#222;
-    text-decoration:none;
-
-    font-size:15px;
-    font-weight:600;
-
-    border-bottom:1px solid #f1f1f1;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.checkout-hero{
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(255,187,66,.18),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            var(--purple-dark),
-            var(--purple)
-        );
-
-    color:white;
-
-    padding:55px 5%;
-
-    text-align:center;
-}
-
-.checkout-hero h1{
-    font-size:40px;
-
-    margin-bottom:10px;
-
-    font-weight:800;
-}
-
-.checkout-hero p{
-    max-width:650px;
-
-    margin:auto;
-
-    color:#eeeeee;
-
-    line-height:1.7;
-
-    font-size:15px;
-}
-
-
-/* =========================================================
-   CHECKOUT STEPS
-========================================================= */
-
-.checkout-steps{
-    width:min(850px,90%);
-
-    margin:30px auto 0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.checkout-step{
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-    color:#aaa;
-
-    font-size:12px;
-    font-weight:700;
-
-    white-space:nowrap;
-}
-
-.checkout-step.active{
-    color:var(--purple-dark);
-}
-
-.checkout-step.completed{
-    color:var(--success);
-}
-
-.step-number{
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#e8e8e8;
-
-    font-size:12px;
-}
-
-.checkout-step.active .step-number{
-    background:var(--purple);
-    color:white;
-}
-
-.checkout-step.completed .step-number{
-    background:var(--success);
-    color:white;
-}
-
-.step-line{
-    width:60px;
-    height:2px;
-
-    background:#ddd;
-
-    margin:0 12px;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.checkout-container{
-    width:min(1200px,90%);
-
-    margin:45px auto 0;
-
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        370px;
-
-    gap:30px;
-
-    align-items:start;
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.checkout-card{
-    background:white;
-
-    border-radius:var(--radius);
-
-    padding:28px;
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:22px;
-}
-
-.checkout-card h2{
-    color:var(--purple-dark);
-
-    font-size:21px;
-
-    margin-bottom:7px;
-}
-
-.section-description{
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin-bottom:24px;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   CUSTOMER ACCOUNT
-========================================================= */
-
-.customer-banner{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    padding:15px;
-
-    background:var(--purple-light);
-
-    border:1px solid #ead9eb;
-
-    border-radius:12px;
-
-    margin-bottom:24px;
-}
-
-.customer-avatar{
-    width:45px;
-    height:45px;
-
-    flex-shrink:0;
-
-    border-radius:50%;
-
-    background:var(--purple);
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:800;
-}
-
-.customer-banner strong{
-    display:block;
-
-    color:var(--purple-dark);
-
-    font-size:14px;
-
-    margin-bottom:3px;
-}
-
-.customer-banner span{
-    display:block;
-
-    color:#666;
-
-    font-size:12px;
-}
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-.form-grid{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:18px;
-}
-
-.form-group{
-    display:flex;
-    flex-direction:column;
-
-    gap:7px;
-}
-
-.form-group.full{
-    grid-column:1 / -1;
-}
-
-.form-group label{
-    color:#333;
-
-    font-size:13px;
-
-    font-weight:700;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-
-    border:1px solid #dcdce1;
-
-    border-radius:10px;
-
-    background:white;
-
-    color:#222;
-
-    padding:13px 14px;
-
-    font-size:14px;
-
-    outline:none;
-
-    transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-}
-
-.form-group textarea{
-    min-height:100px;
-
-    resize:vertical;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:var(--purple);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(122,44,120,.10);
-}
-
-.form-group input[readonly]{
-    background:#f7f7f8;
-}
-
-
-/* =========================================================
-   PAYMENT
-========================================================= */
-
-.payment-options{
-    display:grid;
-
-    gap:12px;
-}
-
-.payment-option{
-    position:relative;
-}
-
-.payment-option input{
-    position:absolute;
-
-    opacity:0;
-
-    pointer-events:none;
-}
-
-.payment-label{
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    border:1px solid #dedee3;
-
-    border-radius:12px;
-
-    padding:16px;
-
-    cursor:pointer;
-
-    transition:.2s ease;
-}
-
-.payment-label:hover{
-    border-color:var(--purple);
-}
-
-.payment-option input:checked + .payment-label{
-    border-color:var(--purple);
-
-    background:var(--purple-light);
-
-    box-shadow:
-        0 0 0 2px
-        rgba(122,44,120,.08);
-}
-
-.payment-radio{
-    width:20px;
-    height:20px;
-
-    border:2px solid #bbb;
-
-    border-radius:50%;
-
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.payment-option input:checked + .payment-label .payment-radio{
-    border-color:var(--purple);
-}
-
-.payment-option input:checked + .payment-label .payment-radio::after{
-    content:"";
-
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:var(--purple);
-}
-
-.payment-icon{
-    font-size:25px;
-
-    flex-shrink:0;
-}
-
-.payment-info strong{
-    display:block;
-
-    color:#222;
-
-    font-size:14px;
-
-    margin-bottom:3px;
-}
-
-.payment-info span{
-    display:block;
-
-    color:#777;
-
-    font-size:12px;
-
-    line-height:1.5;
-}
-
-
-/* =========================================================
-   TERMS
-========================================================= */
-
-.terms{
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:10px;
-
-    margin-top:20px;
-
-    color:#666;
-
-    font-size:12px;
-
-    line-height:1.6;
-}
-
-.terms input{
-    margin-top:3px;
-
-    accent-color:var(--purple);
-
-    flex-shrink:0;
-}
-
-
-/* =========================================================
-   ORDER SUMMARY
-========================================================= */
-
-.summary{
-    background:white;
-
-    border-radius:var(--radius);
-
-    padding:25px;
-
-    box-shadow:var(--shadow);
-
-    position:sticky;
-
-    top:100px;
-}
-
-.summary h2{
-    color:var(--purple-dark);
-
-    font-size:22px;
-
-    margin-bottom:20px;
-}
-
-.summary-items{
-    border-bottom:1px solid #e2e2e2;
-
-    padding-bottom:8px;
-
-    margin-bottom:10px;
-}
-
-.summary-item{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:11px 0;
-
-    font-size:13px;
-}
-
-.summary-item-name{
-    color:#444;
-
-    line-height:1.5;
-}
-
-.summary-item-name small{
-    display:block;
-
-    color:#888;
-
-    margin-top:3px;
-
-    font-size:11px;
-}
-
-.summary-item-price{
-    color:#222;
-
-    font-weight:700;
-
-    white-space:nowrap;
-}
-
-.summary-row{
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    padding:9px 0;
-
-    color:#555;
-
-    font-size:14px;
-}
-
-.summary-row strong{
-    color:#222;
-
-    white-space:nowrap;
-}
-
-.summary-total{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:15px;
-
-    border-top:1px solid #ddd;
-
-    margin-top:12px;
-
-    padding-top:18px;
-
-    color:var(--purple-dark);
-
-    font-size:20px;
-
-    font-weight:800;
-}
-
-
-/* =========================================================
-   PLACE ORDER
-========================================================= */
-
-.place-order-btn{
-    width:100%;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:var(--gold);
-
-    color:var(--black);
-
-    padding:16px;
-
-    margin-top:22px;
-
-    font-size:15px;
-
-    font-weight:800;
-
-    cursor:pointer;
-
-    transition:.2s ease;
-}
-
-.place-order-btn:hover{
-    transform:translateY(-2px);
-
-    filter:brightness(.96);
-}
-
-.place-order-btn:disabled{
-    opacity:.55;
-
-    cursor:not-allowed;
-
-    transform:none;
-}
-
-.secure-note{
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:9px;
-
-    margin-top:15px;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    background:#f6f0f6;
-
-    color:#666;
-
-    font-size:11px;
-
-    line-height:1.5;
-}
-
-.back-cart{
-    display:block;
-
-    text-align:center;
-
-    margin-top:15px;
-
-    color:var(--purple);
-
-    text-decoration:none;
-
-    font-size:13px;
-
-    font-weight:700;
-}
-
-.back-cart:hover{
-    text-decoration:underline;
-}
-
-
-/* =========================================================
-   ERROR
-========================================================= */
-
-.form-error{
-    display:none;
-
-    background:#fff1f3;
-
-    border:1px solid #f0c7ce;
-
-    color:var(--danger);
-
-    padding:13px;
-
-    border-radius:10px;
-
-    margin-bottom:18px;
-
-    font-size:13px;
-
-    line-height:1.5;
-}
-
-.form-error.show{
-    display:block;
-}
-
-
-/* =========================================================
-   LOADING
-========================================================= */
-
-.loading-overlay{
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(20,10,25,.72);
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    z-index:9000;
-
-    padding:20px;
-}
-
-.loading-overlay.show{
-    display:flex;
-}
-
-.loading-box{
-    background:white;
-
-    border-radius:16px;
-
-    padding:30px;
-
-    text-align:center;
-
-    width:min(350px,100%);
-
-    box-shadow:0 25px 80px rgba(0,0,0,.25);
-}
-
-.spinner{
-    width:40px;
-    height:40px;
-
-    margin:0 auto 15px;
-
-    border:4px solid #eee;
-
-    border-top-color:var(--purple);
-
-    border-radius:50%;
-
-    animation:spin .8s linear infinite;
-}
-
-@keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.loading-box strong{
-    color:var(--purple-dark);
-
-    font-size:16px;
-}
-
-
-/* =========================================================
-   SUCCESS
-========================================================= */
-
-.success-screen{
-    display:none;
-
-    width:min(700px,90%);
-
-    margin:55px auto;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:45px 30px;
-
-    box-shadow:var(--shadow);
-
-    text-align:center;
-}
-
-.success-screen.show{
-    display:block;
-}
-
-.success-icon{
-    width:75px;
-    height:75px;
-
-    margin:0 auto 20px;
-
-    border-radius:50%;
-
-    background:#e7f6ee;
-
-    color:var(--success);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:38px;
-}
-
-.success-screen h2{
-    color:var(--purple-dark);
-
-    font-size:27px;
-
-    margin-bottom:10px;
-}
-
-.success-screen p{
-    color:#666;
-
-    line-height:1.7;
-
-    font-size:14px;
-
-    max-width:550px;
-
-    margin:0 auto 20px;
-}
-
-.order-reference{
-    display:inline-block;
-
-    background:var(--purple-light);
-
-    color:var(--purple-dark);
-
-    padding:12px 18px;
-
-    border-radius:10px;
-
-    font-weight:800;
-
-    margin-bottom:25px;
-}
-
-.success-actions{
-    display:flex;
-
-    justify-content:center;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-}
-
-.success-actions a{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    min-height:46px;
-
-    padding:0 20px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-
-    font-size:13px;
-
-    font-weight:800;
-}
-
-.primary-action{
-    background:var(--purple);
-
-    color:white;
-}
-
-.secondary-action{
-    border:1px solid var(--purple);
-
-    color:var(--purple);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-    background:var(--purple-dark);
-
-    color:white;
-
-    padding:45px 5% 25px;
-
-    margin-top:80px;
-}
-
-.footer-inner{
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr 1fr;
-
-    gap:40px;
-}
-
-.footer-logo{
-    display:inline-flex;
-
-    margin-bottom:14px;
-}
-
-.footer-logo img{
-    width:105px;
-
-    height:auto;
-}
-
-footer h3{
-    margin-bottom:15px;
-
-    font-size:16px;
-}
-
-footer p{
-    color:#ddd;
-
-    line-height:1.7;
-
-    font-size:14px;
-
-    max-width:400px;
-}
-
-footer a{
-    display:block;
-
-    color:#ddd;
-
-    text-decoration:none;
-
-    margin:8px 0;
-
-    font-size:14px;
-}
-
-footer a:hover{
-    color:var(--gold);
-}
-
-.footer-bottom{
-    max-width:1200px;
-
-    margin:35px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid rgba(255,255,255,.15);
-
-    text-align:center;
-
-    color:#bbb;
-
-    font-size:13px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:950px){
-
-    .nav-links{
-        gap:15px;
-    }
-
-    .checkout-container{
-        grid-template-columns:1fr;
-    }
-
-    .summary{
-        position:static;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
+:root{--purple-dark:#3C1542;--purple:#7A2C78;--purple-light:#f4eaf4;--grey:#949393;--light-grey:#D9D9D9;--black:#020202;--gold:#FFBB42;--white:#ffffff;--page-bg:#f7f7f8;--border:#e5e5e9;--muted:#707070;--danger:#b00020;--success:#18794e;--shadow:0 12px 35px rgba(0,0,0,.07);--radius:16px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--page-bg);color:var(--black);min-height:100vh;}
+button,input,select,textarea{font-family:inherit;}
+button,a{-webkit-tap-highlight-color:transparent;}
+.topbar{background:var(--purple-dark);color:white;padding:8px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:13px;}
+.topbar a{color:white;text-decoration:none;}
+.topbar a:hover{color:var(--gold);}
+.navbar{background:white;min-height:76px;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:25px;border-bottom:1px solid #eeeeee;position:sticky;top:0;z-index:1000;}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0;}
+.logo img{width:135px;height:auto;display:block;}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:auto;}
+.nav-links a{text-decoration:none;color:#222;font-size:14px;font-weight:600;transition:.2s ease;}
+.nav-links a:hover,.nav-links a.active{color:var(--purple);}
+.cart-button{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--purple-dark);color:white !important;padding:10px 15px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;}
+.cart-button:hover{background:var(--purple);}
+.cart-icon{font-size:16px;}
+.cart-count{min-width:21px;height:21px;padding:0 5px;display:flex;align-items:center;justify-content:center;background:var(--gold);color:var(--black);border-radius:50%;font-size:11px;font-weight:800;}
+.mobile-menu-btn{display:none;width:42px;height:42px;border:1px solid #e4e4e4;border-radius:10px;background:white;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.mobile-menu-btn span{width:20px;height:2px;background:var(--purple-dark);border-radius:10px;}
+.mobile-menu{display:none;background:white;border-bottom:1px solid #eeeeee;padding:10px 5% 15px;}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:13px 5px;color:#222;text-decoration:none;font-size:15px;font-weight:600;border-bottom:1px solid #f1f1f1;}
+.checkout-hero{background:radial-gradient(circle at 80% 20%,rgba(255,187,66,.18),transparent 35%),linear-gradient(135deg,var(--purple-dark),var(--purple));color:white;padding:55px 5%;text-align:center;}
+.checkout-hero h1{font-size:40px;margin-bottom:10px;font-weight:800;}
+.checkout-hero p{max-width:650px;margin:auto;color:#eeeeee;line-height:1.7;font-size:15px;}
+.checkout-steps{width:min(850px,90%);margin:30px auto 0;display:flex;justify-content:center;align-items:center;}
+.checkout-step{display:flex;align-items:center;gap:8px;color:#aaa;font-size:12px;font-weight:700;white-space:nowrap;}
+.checkout-step.active{color:var(--purple-dark);}
+.checkout-step.completed{color:var(--success);}
+.step-number{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e8e8e8;font-size:12px;}
+.checkout-step.active .step-number{background:var(--purple);color:white;}
+.checkout-step.completed .step-number{background:var(--success);color:white;}
+.step-line{width:60px;height:2px;background:#ddd;margin:0 12px;}
+.checkout-container{width:min(1200px,90%);margin:45px auto 0;display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:30px;align-items:start;}
+.checkout-card{background:white;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin-bottom:22px;}
+.checkout-card h2{color:var(--purple-dark);font-size:21px;margin-bottom:7px;}
+.section-description{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.6;}
+.customer-banner{display:flex;align-items:center;gap:15px;padding:15px;background:var(--purple-light);border:1px solid #ead9eb;border-radius:12px;margin-bottom:24px;}
+.customer-avatar{width:45px;height:45px;flex-shrink:0;border-radius:50%;background:var(--purple);color:white;display:flex;align-items:center;justify-content:center;font-weight:800;}
+.customer-banner strong{display:block;color:var(--purple-dark);font-size:14px;margin-bottom:3px;}
+.customer-banner span{display:block;color:#666;font-size:12px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.form-group{display:flex;flex-direction:column;gap:7px;}
+.form-group.full{grid-column:1 / -1;}
+.form-group label{color:#333;font-size:13px;font-weight:700;}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid #dcdce1;border-radius:10px;background:white;color:#222;padding:13px 14px;font-size:16px;outline:none;transition:border-color .2s ease,box-shadow .2s ease;}
+.form-group textarea{min-height:100px;resize:vertical;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(122,44,120,.10);}
+.form-group input[readonly]{background:#f7f7f8;}
+.payment-options{display:grid;gap:12px;}
+.payment-option{position:relative;}
+.payment-option input{position:absolute;opacity:0;pointer-events:none;}
+.payment-label{display:flex;align-items:center;gap:14px;border:1px solid #dedee3;border-radius:12px;padding:16px;cursor:pointer;transition:.2s ease;}
+.payment-label:hover{border-color:var(--purple);}
+.payment-option input:checked + .payment-label{border-color:var(--purple);background:var(--purple-light);box-shadow:0 0 0 2px rgba(122,44,120,.08);}
+.payment-radio{width:20px;height:20px;border:2px solid #bbb;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.payment-option input:checked + .payment-label .payment-radio{border-color:var(--purple);}
+.payment-option input:checked + .payment-label .payment-radio::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--purple);}
+.payment-icon{font-size:25px;flex-shrink:0;}
+.payment-info strong{display:block;color:#222;font-size:14px;margin-bottom:3px;}
+.payment-info span{display:block;color:#777;font-size:12px;line-height:1.5;}
+.terms{display:flex;align-items:flex-start;gap:10px;margin-top:20px;color:#666;font-size:12px;line-height:1.6;}
+.terms input{margin-top:3px;accent-color:var(--purple);flex-shrink:0;}
+.summary{background:white;border-radius:var(--radius);padding:25px;box-shadow:var(--shadow);position:sticky;top:100px;}
+.summary h2{color:var(--purple-dark);font-size:22px;margin-bottom:20px;}
+.summary-items{border-bottom:1px solid #e2e2e2;padding-bottom:8px;margin-bottom:10px;}
+.summary-item{display:flex;justify-content:space-between;gap:15px;padding:11px 0;font-size:13px;}
+.summary-item-name{color:#444;line-height:1.5;}
+.summary-item-name small{display:block;color:#888;margin-top:3px;font-size:11px;}
+.summary-item-price{color:#222;font-weight:700;white-space:nowrap;}
+.summary-row{display:flex;justify-content:space-between;gap:15px;padding:9px 0;color:#555;font-size:14px;}
+.summary-row strong{color:#222;white-space:nowrap;}
+.summary-total{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid #ddd;margin-top:12px;padding-top:18px;color:var(--purple-dark);font-size:20px;font-weight:800;}
+.place-order-btn{width:100%;border:none;border-radius:10px;background:var(--gold);color:var(--black);padding:16px;margin-top:22px;font-size:15px;font-weight:800;cursor:pointer;transition:.2s ease;}
+.place-order-btn:hover{transform:translateY(-2px);filter:brightness(.96);}
+.place-order-btn:disabled{opacity:.55;cursor:not-allowed;transform:none;}
+.secure-note{display:flex;align-items:flex-start;gap:9px;margin-top:15px;padding:12px;border-radius:10px;background:#f6f0f6;color:#666;font-size:11px;line-height:1.5;}
+.back-cart{display:block;text-align:center;margin-top:15px;color:var(--purple);text-decoration:none;font-size:13px;font-weight:700;}
+.back-cart:hover{text-decoration:underline;}
+.form-error{display:none;background:#fff1f3;border:1px solid #f0c7ce;color:var(--danger);padding:13px;border-radius:10px;margin-bottom:18px;font-size:13px;line-height:1.5;}
+.form-error.show{display:block;}
+.loading-overlay{position:fixed;inset:0;background:rgba(20,10,25,.72);display:none;align-items:center;justify-content:center;z-index:9000;padding:20px;}
+.loading-overlay.show{display:flex;}
+.loading-box{background:white;border-radius:16px;padding:30px;text-align:center;width:min(350px,100%);box-shadow:0 25px 80px rgba(0,0,0,.25);}
+.spinner{width:40px;height:40px;margin:0 auto 15px;border:4px solid #eee;border-top-color:var(--purple);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-box strong{color:var(--purple-dark);font-size:16px;}
+footer{background:var(--purple-dark);color:white;padding:45px 5% 25px;margin-top:80px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+.footer-logo{display:inline-flex;margin-bottom:14px;}
+.footer-logo img{width:105px;height:auto;}
+footer h3{margin-bottom:15px;font-size:16px;}
+footer p{color:#ddd;line-height:1.7;font-size:14px;max-width:400px;}
+footer a{display:block;color:#ddd;text-decoration:none;margin:8px 0;font-size:14px;}
+footer a:hover{color:var(--gold);}
+.footer-bottom{max-width:1200px;margin:35px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);text-align:center;color:#bbb;font-size:13px;}
+@media(max-width:950px){.nav-links{gap:15px;} .checkout-container{grid-template-columns:1fr;} .summary{position:static;}}
 @media(max-width:850px){
-
-    .topbar{
-        display:none;
-    }
-
-    .navbar{
-        min-height:68px;
-
-        padding:10px 4%;
-
-        gap:10px;
-    }
-
-    .logo img{
-        width:115px;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    .mobile-menu-btn{
-        display:flex;
-
-        margin-left:auto;
-    }
-
-    .checkout-hero{
-        padding:45px 5%;
-    }
-
-    .checkout-hero h1{
-        font-size:34px;
-    }
-
-    .checkout-container{
-        width:94%;
-
-        margin-top:30px;
-    }
-
-    .checkout-card{
-        padding:20px;
-    }
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .form-group.full{
-        grid-column:auto;
-    }
-
-    .summary{
-        padding:20px;
-    }
-
-    .footer-inner{
-        grid-template-columns:1fr;
-    }
-
+.topbar{display:none;}
+.navbar{min-height:68px;padding:10px 4%;gap:10px;}
+.logo img{width:115px;}
+.nav-links{display:none;}
+.mobile-menu-btn{display:flex;margin-left:auto;}
+.checkout-hero{padding:45px 5%;}
+.checkout-hero h1{font-size:34px;}
+.checkout-container{width:94%;margin-top:30px;}
+.checkout-card{padding:20px;}
+.form-grid{grid-template-columns:1fr;}
+.form-group.full{grid-column:auto;}
+.summary{padding:20px;}
+.footer-inner{grid-template-columns:1fr;}
 }
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
 @media(max-width:480px){
-
-    .navbar{
-        padding:9px 3.5%;
-    }
-
-    .logo img{
-        width:105px;
-    }
-
-    .cart-button{
-        padding:8px 9px;
-    }
-
-    .cart-button .cart-label{
-        display:none;
-    }
-
-    .mobile-menu-btn{
-        width:39px;
-        height:39px;
-    }
-
-    .checkout-hero{
-        padding:40px 5%;
-    }
-
-    .checkout-hero h1{
-        font-size:29px;
-    }
-
-    .checkout-hero p{
-        font-size:13px;
-    }
-
-    .checkout-steps{
-        width:94%;
-
-        justify-content:space-between;
-    }
-
-    .checkout-step{
-        flex-direction:column;
-
-        gap:5px;
-
-        text-align:center;
-
-        font-size:10px;
-    }
-
-    .checkout-step > span:last-child{
-        display:none;
-    }
-
-    .step-line{
-        width:25px;
-
-        margin:0 3px;
-    }
-
-    .checkout-card{
-        padding:18px;
-    }
-
-    .checkout-card h2{
-        font-size:19px;
-    }
-
-    .summary{
-        padding:18px;
-    }
-
-    .summary h2{
-        font-size:19px;
-    }
-
-    .summary-total{
-        font-size:18px;
-    }
-
+.navbar{padding:9px 3.5%;}
+.logo img{width:105px;}
+.cart-button{padding:8px 9px;}
+.cart-button .cart-label{display:none;}
+.mobile-menu-btn{width:39px;height:39px;}
+.checkout-hero{padding:40px 5%;}
+.checkout-hero h1{font-size:29px;}
+.checkout-hero p{font-size:13px;}
+.checkout-steps{width:94%;justify-content:space-between;}
+.checkout-step{flex-direction:column;gap:5px;text-align:center;font-size:10px;}
+.checkout-step > span:last-child{display:none;}
+.step-line{width:25px;margin:0 3px;}
+.checkout-card{padding:18px;}
+.checkout-card h2{font-size:19px;}
+.summary{padding:18px;}
+.summary h2{font-size:19px;}
+.summary-total{font-size:18px;}
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        animation:none !important;
-        transition:none !important;
-        scroll-behavior:auto !important;
-    }
-
-}
-
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important;}}
 </style>
-
 </head>
-
 <body>
 
-
-<!-- =========================================================
-     TOP BAR
-========================================================= -->
-
 <div class="topbar">
-
-    <div>
-        Dinges TechHub — Technology That Connects You
-    </div>
-
-    <div>
-        <a href="mailto:support@dingestechhub.co.za">
-            support@dingestechhub.co.za
-        </a>
-    </div>
-
+<div>Dinges TechHub — Technology That Connects You</div>
+<div><a href="mailto:support@dingestechhub.co.za">support@dingestechhub.co.za</a></div>
 </div>
-
-
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
 
 <nav class="navbar">
-
-    <a
-        href="index.html"
-        class="logo"
-        aria-label="Dinges TechHub Home"
-    >
-
-        <img
-            src="dingestech-logo.png"
-            alt="Dinges TechHub"
-        >
-
-    </a>
-
-
-    <div class="nav-links">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="services.html">
-            Services
-        </a>
-
-        <a href="help-centre.html">
-            Help Centre
-        </a>
-
-        <a href="contact.html">
-            Contact Us
-        </a>
-
-    </div>
-
-
-    <a
-        href="cart.html"
-        class="cart-button"
-    >
-
-        <span class="cart-icon">
-            🛒
-        </span>
-
-        <span class="cart-label">
-            Cart
-        </span>
-
-        <span
-            class="cart-count"
-            id="cartCount"
-        >
-            0
-        </span>
-
-    </a>
-
-
-    <button
-        type="button"
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        aria-label="Open menu"
-        aria-expanded="false"
-    >
-
-        <span></span>
-        <span></span>
-        <span></span>
-
-    </button>
-
+<a href="index.html" class="logo" aria-label="Dinges TechHub Home"><img src="dingestech-logo.png" alt="Dinges TechHub"></a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="help-centre.html">Help Centre</a>
+<a href="contact.html">Contact Us</a>
+</div>
+<a href="cart.html" class="cart-button">
+<span class="cart-icon">🛒</span>
+<span class="cart-label">Cart</span>
+<span class="cart-count" id="cartCount">0</span>
+</a>
+<button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
 </nav>
 
-
-<!-- =========================================================
-     MOBILE MENU
-========================================================= -->
-
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
-
-    <a href="index.html">
-        Home
-    </a>
-
-    <a href="services.html">
-        Services
-    </a>
-
-    <a href="help-centre.html">
-        Help Centre
-    </a>
-
-    <a href="contact.html">
-        Contact Us
-    </a>
-
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="help-centre.html">Help Centre</a>
+<a href="contact.html">Contact Us</a>
 </div>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
 
 <section class="checkout-hero">
-
-    <h1>
-        Secure Checkout
-    </h1>
-
-    <p>
-        Complete your customer details and select your preferred
-        payment method to continue with your Dinges TechHub order.
-    </p>
-
+<h1>Secure Checkout</h1>
+<p>Complete your customer details and select your preferred payment method to continue with your Dinges TechHub order.</p>
 </section>
 
-
-<!-- =========================================================
-     CHECKOUT STEPS
-========================================================= -->
-
 <div class="checkout-steps">
+<div class="checkout-step completed"><span class="step-number">✓</span><span>Cart</span></div>
+<div class="step-line"></div>
+<div class="checkout-step completed"><span class="step-number">✓</span><span>Login</span></div>
+<div class="step-line"></div>
+<div class="checkout-step active"><span class="step-number">3</span><span>Checkout</span></div>
+<div class="step-line"></div>
+<div class="checkout-step"><span class="step-number">4</span><span>Payment</span></div>
+</div>
 
-    <div class="checkout-step completed">
+<main class="checkout-container" id="checkoutContent">
 
-        <span class="step-number">
-            ✓
-        </span>
+<div>
 
-        <span>
-            Cart
-        </span>
+<section class="checkout-card">
+<h2>Customer Information</h2>
+<p class="section-description">Confirm the details we should use for your order.</p>
 
-    </div>
+<div class="customer-banner" id="customerBanner">
+<div class="customer-avatar" id="customerAvatar">?</div>
+<div>
+<strong id="customerDisplayName">Customer</strong>
+<span id="customerDisplayEmail">Loading account...</span>
+</div>
+</div>
 
-    <div class="step-line"></div>
+<div class="form-error" id="formError"></div>
 
-    <div class="checkout-step completed">
+<div class="form-grid">
+<div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" autocomplete="given-name" required></div>
+<div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" autocomplete="family-name" required></div>
+<div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" autocomplete="email" required></div>
+<div class="form-group"><label for="phone">Phone Number *</label><input type="tel" id="phone" autocomplete="tel" placeholder="e.g. 071 234 5678" required></div>
+<div class="form-group full"><label for="company">Company / Business Name</label><input type="text" id="company" autocomplete="organization" placeholder="Optional"></div>
+<div class="form-group full"><label for="address">Address / Installation Address</label><textarea id="address" autocomplete="street-address" placeholder="Enter the address where the service will be installed or delivered."></textarea></div>
+<div class="form-group"><label for="city">City / Town</label><input type="text" id="city" autocomplete="address-level2"></div>
+<div class="form-group">
+<label for="province">Province</label>
+<select id="province">
+<option value="">Select province</option>
+<option>Eastern Cape</option><option>Free State</option><option>Gauteng</option>
+<option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option>
+<option>Northern Cape</option><option>North West</option><option>Western Cape</option>
+</select>
+</div>
+<div class="form-group"><label for="postalCode">Postal Code</label><input type="text" id="postalCode" autocomplete="postal-code"></div>
+</div>
+</section>
 
-        <span class="step-number">
-            ✓
-        </span>
+<section class="checkout-card">
+<h2>Payment Method</h2>
+<p class="section-description">Select how you would like to pay for your order.</p>
 
-        <span>
-            Login
-        </span>
+<div class="payment-options">
 
-    </div>
+<div class="payment-option">
+<input type="radio" name="paymentMethod" id="eft" value="eft" checked>
+<label class="payment-label" for="eft">
+<span class="payment-radio"></span>
+<span class="payment-icon">🏦</span>
+<span class="payment-info"><strong>Netcash / EFT</strong><span>Receive banking instructions after placing your order.</span></span>
+</label>
+</div>
 
-    <div class="step-line"></div>
+<div class="payment-option">
+<input type="radio" name="paymentMethod" id="card" value="card">
+<label class="payment-label" for="card">
+<span class="payment-radio"></span>
+<span class="payment-icon">💳</span>
+<span class="payment-info"><strong>Payfast (Card Payment)</strong><span>Pay securely by card via Payfast's own payment page.</span></span>
+</label>
+</div>
 
-    <div class="checkout-step active">
-
-        <span class="step-number">
-            3
-        </span>
-
-        <span>
-            Checkout
-        </span>
-
-    </div>
-
-    <div class="step-line"></div>
-
-    <div class="checkout-step">
-
-        <span class="step-number">
-            4
-        </span>
-
-        <span>
-            Payment
-        </span>
-
-    </div>
+<div class="payment-option">
+<input type="radio" name="paymentMethod" id="paypal" value="paypal">
+<label class="payment-label" for="paypal">
+<span class="payment-radio"></span>
+<span class="payment-icon">🅿️</span>
+<span class="payment-info"><strong>PayPal</strong><span>Pay via your PayPal account or card through PayPal.</span></span>
+</label>
+</div>
 
 </div>
 
-
-<!-- =========================================================
-     CHECKOUT CONTENT
-========================================================= -->
-
-<main
-    class="checkout-container"
-    id="checkoutContent"
->
-
-
-    <!-- =====================================================
-         LEFT
-    ===================================================== -->
-
-    <div>
-
-
-        <!-- CUSTOMER -->
-        <section class="checkout-card">
-
-            <h2>
-                Customer Information
-            </h2>
-
-            <p class="section-description">
-                Confirm the details we should use for your order.
-            </p>
-
-
-            <div
-                class="customer-banner"
-                id="customerBanner"
-            >
-
-                <div
-                    class="customer-avatar"
-                    id="customerAvatar"
-                >
-                    ?
-                </div>
-
-                <div>
-
-                    <strong id="customerDisplayName">
-                        Customer
-                    </strong>
-
-                    <span id="customerDisplayEmail">
-                        Loading account...
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="form-error"
-                id="formError"
-            ></div>
-
-
-            <div class="form-grid">
-
-
-                <div class="form-group">
-
-                    <label for="firstName">
-                        First Name *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="firstName"
-                        autocomplete="given-name"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="lastName">
-                        Last Name *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="lastName"
-                        autocomplete="family-name"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="email">
-                        Email Address *
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number *
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        autocomplete="tel"
-                        placeholder="e.g. 071 234 5678"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label for="company">
-                        Company / Business Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="company"
-                        autocomplete="organization"
-                        placeholder="Optional"
-                    >
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label for="address">
-                        Address / Installation Address
-                    </label>
-
-                    <textarea
-                        id="address"
-                        autocomplete="street-address"
-                        placeholder="Enter the address where the service will be installed or delivered."
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="city">
-                        City / Town
-                    </label>
-
-                    <input
-                        type="text"
-                        id="city"
-                        autocomplete="address-level2"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="province">
-                        Province
-                    </label>
-
-                    <select id="province">
-
-                        <option value="">
-                            Select province
-                        </option>
-
-                        <option>
-                            Eastern Cape
-                        </option>
-
-                        <option>
-                            Free State
-                        </option>
-
-                        <option>
-                            Gauteng
-                        </option>
-
-                        <option>
-                            KwaZulu-Natal
-                        </option>
-
-                        <option>
-                            Limpopo
-                        </option>
-
-                        <option>
-                            Mpumalanga
-                        </option>
-
-                        <option>
-                            Northern Cape
-                        </option>
-
-                        <option>
-                            North West
-                        </option>
-
-                        <option>
-                            Western Cape
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="postalCode">
-                        Postal Code
-                    </label>
-
-                    <input
-                        type="text"
-                        id="postalCode"
-                        autocomplete="postal-code"
-                    >
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PAYMENT -->
-        <section class="checkout-card">
-
-            <h2>
-                Payment Method
-            </h2>
-
-            <p class="section-description">
-                Select how you would like to pay for your order.
-            </p>
-
-
-            <div class="payment-options">
-
-
-                <div class="payment-option">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        id="eft"
-                        value="eft"
-                        checked
-                    >
-
-                    <label
-                        class="payment-label"
-                        for="eft"
-                    >
-
-                        <span class="payment-radio"></span>
-
-                        <span class="payment-icon">
-                            🏦
-                        </span>
-
-                        <span class="payment-info">
-
-                            <strong>
-                                EFT / Bank Transfer
-                            </strong>
-
-                            <span>
-                                Receive banking instructions after placing
-                                your order.
-                            </span>
-
-                        </span>
-
-                    </label>
-
-                </div>
-
-
-                <div class="payment-option">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        id="card"
-                        value="card"
-                    >
-
-                    <label
-                        class="payment-label"
-                        for="card"
-                    >
-
-                        <span class="payment-radio"></span>
-
-                        <span class="payment-icon">
-                            💳
-                        </span>
-
-                        <span class="payment-info">
-
-                            <strong>
-                                Card Payment
-                            </strong>
-
-                            <span>
-                                Secure online card payment will be available
-                                through the configured payment gateway.
-                            </span>
-
-                        </span>
-
-                    </label>
-
-                </div>
-
-
-                <div class="payment-option">
-
-                    <input
-                        type="radio"
-                        name="paymentMethod"
-                        id="contact"
-                        value="contact"
-                    >
-
-                    <label
-                        class="payment-label"
-                        for="contact"
-                    >
-
-                        <span class="payment-radio"></span>
-
-                        <span class="payment-icon">
-                            📞
-                        </span>
-
-                        <span class="payment-info">
-
-                            <strong>
-                                Contact Me
-                            </strong>
-
-                            <span>
-                                Place the order and have Dinges TechHub
-                                contact you regarding payment.
-                            </span>
-
-                        </span>
-
-                    </label>
-
-                </div>
-
-            </div>
-
-
-            <label class="terms">
-
-                <input
-                    type="checkbox"
-                    id="acceptTerms"
-                >
-
-                <span>
-                    I confirm that the information provided above is
-                    correct and I agree to proceed with this order.
-                </span>
-
-            </label>
-
-        </section>
-
-    </div>
-
-
-    <!-- =====================================================
-         RIGHT — SUMMARY
-    ===================================================== -->
-
-    <aside class="summary">
-
-        <h2>
-            Your Order
-        </h2>
-
-
-        <div
-            class="summary-items"
-            id="summaryItems"
-        ></div>
-
-
-        <div class="summary-row">
-
-            <span>
-                Monthly / Service Total
-            </span>
-
-            <strong id="summaryMonthly">
-                R0.00
-            </strong>
-
-        </div>
-
-
-        <div class="summary-row">
-
-            <span>
-                Setup / Once-off
-            </span>
-
-            <strong id="summarySetup">
-                R0.00
-            </strong>
-
-        </div>
-
-
-        <div class="summary-total">
-
-            <span>
-                Total
-            </span>
-
-            <span id="summaryTotal">
-                R0.00
-            </span>
-
-        </div>
-
-
-        <button
-            type="button"
-            class="place-order-btn"
-            id="placeOrderButton"
-        >
-            Place Order
-        </button>
-
-
-        <div class="secure-note">
-
-            <span>
-                🔐
-            </span>
-
-            <span>
-                Your checkout information is handled securely.
-                Your payment details are not collected on this page.
-            </span>
-
-        </div>
-
-
-        <a
-            href="cart.html"
-            class="back-cart"
-        >
-            ← Back to Cart
-        </a>
-
-    </aside>
+<label class="terms">
+<input type="checkbox" id="acceptTerms">
+<span>I confirm that the information provided above is correct and I agree to proceed with this order.</span>
+</label>
+</section>
+
+</div>
+
+<aside class="summary">
+<h2>Your Order</h2>
+<div class="summary-items" id="summaryItems"></div>
+<div class="summary-row"><span>Monthly / Service Total</span><strong id="summaryMonthly">R0.00</strong></div>
+<div class="summary-row"><span>Setup / Once-off</span><strong id="summarySetup">R0.00</strong></div>
+<div class="summary-total"><span>Total</span><span id="summaryTotal">R0.00</span></div>
+<button type="button" class="place-order-btn" id="placeOrderButton">Place Order</button>
+<div class="secure-note"><span>🔐</span><span>You'll be sent to your invoice for final, secure payment. Your card details are never entered on this page.</span></div>
+<a href="cart.html" class="back-cart">← Back to Cart</a>
+</aside>
 
 </main>
 
-
-<!-- =========================================================
-     SUCCESS SCREEN
-========================================================= -->
-
-<section
-    class="success-screen"
-    id="successScreen"
->
-
-    <div class="success-icon">
-        ✓
-    </div>
-
-
-    <h2>
-        Order Ready
-    </h2>
-
-
-    <p>
-        Your order has been prepared successfully. Your order
-        reference is shown below.
-    </p>
-
-
-    <div
-        class="order-reference"
-        id="orderReference"
-    >
-        DTH-000000
-    </div>
-
-
-    <div class="success-actions">
-
-        <a
-            href="index.html"
-            class="secondary-action"
-        >
-            Continue Shopping
-        </a>
-
-        <a
-            href="dashboard.html"
-            class="primary-action"
-        >
-            Customer Dashboard
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     LOADING
-========================================================= -->
-
-<div
-    class="loading-overlay"
-    id="loadingOverlay"
->
-
-    <div class="loading-box">
-
-        <div class="spinner"></div>
-
-        <strong>
-            Preparing your order...
-        </strong>
-
-    </div>
-
+<div class="loading-overlay" id="loadingOverlay">
+<div class="loading-box">
+<div class="spinner"></div>
+<strong>Creating your order...</strong>
+</div>
 </div>
 
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
 <footer>
-
-    <div class="footer-inner">
-
-
-        <div>
-
-            <a
-                href="index.html"
-                class="footer-logo"
-            >
-
-                <img
-                    src="dingestech-logo.png"
-                    alt="Dinges TechHub"
-                >
-
-            </a>
-
-
-            <p>
-                Technology, connectivity and smart business
-                solutions designed to keep you connected.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Services
-            </h3>
-
-            <a href="services.html">
-                Internet Connectivity
-            </a>
-
-            <a href="services.html">
-                VoIP &amp; Telephony
-            </a>
-
-            <a href="services.html">
-                Hosting
-            </a>
-
-            <a href="services.html">
-                Smart Technology
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Contact
-            </h3>
-
-            <a href="mailto:support@dingestechhub.co.za">
-                Email Support
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        © <span id="footerYear"></span>
-        Dinges TechHub.
-        All rights reserved.
-
-    </div>
-
+<div class="footer-inner">
+<div>
+<a href="index.html" class="footer-logo"><img src="dingestech-logo.png" alt="Dinges TechHub"></a>
+<p>Technology, connectivity and smart business solutions designed to keep you connected.</p>
+</div>
+<div>
+<h3>Services</h3>
+<a href="services.html">Internet Connectivity</a>
+<a href="services.html">VoIP &amp; Telephony</a>
+<a href="services.html">Hosting</a>
+<a href="services.html">Smart Technology</a>
+</div>
+<div>
+<h3>Contact</h3>
+<a href="mailto:support@dingestechhub.co.za">Email Support</a>
+<a href="contact.html">Contact Us</a>
+</div>
+</div>
+<div class="footer-bottom">© <span id="footerYear"></span> Dinges TechHub. All rights reserved.</div>
 </footer>
-
 
 <script>
 
-/* =========================================================
-   DINGES TECHHUB — CHECKOUT SYSTEM
-========================================================= */
+const CART_KEY = "dingesTechHubCart";
+const CUSTOMER_KEY = "dingesTechCustomer";
+const CHECKOUT_RETURN_KEY = "dingesCheckoutReturn";
 
-const CART_KEY =
-    "dingesTechHubCart";
+const CREATE_ORDER_API = "https://register.web.za/api/create-order.php";
 
-const CUSTOMER_KEY =
-    "dingesTechCustomer";
+const checkoutContent = document.getElementById("checkoutContent");
+const formError = document.getElementById("formError");
+const placeOrderButton = document.getElementById("placeOrderButton");
+const loadingOverlay = document.getElementById("loadingOverlay");
 
-const CHECKOUT_RETURN_KEY =
-    "dingesCheckoutReturn";
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const checkoutContent =
-    document.getElementById(
-        "checkoutContent"
-    );
-
-const successScreen =
-    document.getElementById(
-        "successScreen"
-    );
-
-const formError =
-    document.getElementById(
-        "formError"
-    );
-
-const placeOrderButton =
-    document.getElementById(
-        "placeOrderButton"
-    );
-
-const loadingOverlay =
-    document.getElementById(
-        "loadingOverlay"
-    );
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const mobileMenuBtn =
-    document.getElementById(
-        "mobileMenuBtn"
-    );
-
-const mobileMenu =
-    document.getElementById(
-        "mobileMenu"
-    );
-
-
-if(
-    mobileMenuBtn &&
-    mobileMenu
-){
-
-    mobileMenuBtn.addEventListener(
-        "click",
-        function(){
-
-            const isOpen =
-                mobileMenu.classList.toggle(
-                    "open"
-                );
-
-            mobileMenuBtn.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-        }
-    );
-
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+if(mobileMenuBtn && mobileMenu){
+    mobileMenuBtn.addEventListener("click", function(){
+        const isOpen = mobileMenu.classList.toggle("open");
+        mobileMenuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
 }
-
-
-/* =========================================================
-   CART
-========================================================= */
 
 function getCart(){
-
     try{
-
-        const saved =
-            localStorage.getItem(
-                CART_KEY
-            );
-
-        if(!saved){
-            return [];
-        }
-
-        const parsed =
-            JSON.parse(saved);
-
-        return Array.isArray(parsed)
-            ? parsed
-            : [];
-
+        const saved = localStorage.getItem(CART_KEY);
+        if(!saved){ return []; }
+        const parsed = JSON.parse(saved);
+        return Array.isArray(parsed) ? parsed : [];
     }catch(error){
-
-        console.error(
-            "Unable to load cart:",
-            error
-        );
-
+        console.error("Unable to load cart:", error);
         return [];
-
     }
-
 }
-
-
-/* =========================================================
-   CUSTOMER
-========================================================= */
 
 function getLoggedInCustomer(){
+    try{
+        const saved = sessionStorage.getItem(CUSTOMER_KEY);
+        if(!saved){ return null; }
+        const customer = JSON.parse(saved);
+        return (customer && typeof customer === "object") ? customer : null;
+    }catch(error){
+        console.error("Unable to read customer:", error);
+        return null;
+    }
+}
+
+function toNumber(value){
+    if(value === null || value === undefined || value === ""){ return 0; }
+    if(typeof value === "number"){ return Number.isFinite(value) ? value : 0; }
+    const cleaned = String(value).replace(/[R,\s]/gi,"").replace(/[^0-9.-]/g,"");
+    const number = Number(cleaned);
+    return Number.isFinite(number) ? number : 0;
+}
+
+function getQuantity(item){
+    const quantity = parseInt(item?.quantity, 10);
+    return (Number.isFinite(quantity) && quantity > 0) ? quantity : 1;
+}
+
+function getMonthlyPrice(item){
+    const prices = [item?.monthlyPrice, item?.monthly, item?.monthly_price, item?.servicePrice, item?.service_price, item?.price, item?.amount];
+    for(const value of prices){
+        if(value !== undefined && value !== null && value !== ""){ return toNumber(value); }
+    }
+    return 0;
+}
+
+function getSetupPrice(item){
+    const prices = [item?.setupPrice, item?.setup, item?.setupFee, item?.setup_fee, item?.onceOff, item?.onceOffPrice, item?.onceOffFee, item?.once_off, item?.once_off_price];
+    for(const value of prices){
+        if(value !== undefined && value !== null && value !== ""){ return toNumber(value); }
+    }
+    return 0;
+}
+
+function getBillingType(item){
+    const billing = String(item?.billing || item?.billingCycle || item?.billing_cycle || "").toLowerCase();
+    if(billing.includes("monthly") || billing.includes("month")){ return "monthly"; }
+    if(billing.includes("once") || billing.includes("setup")){ return "once-off"; }
+    if(getSetupPrice(item) > 0 || getMonthlyPrice(item) > 0){ return "monthly"; }
+    return "once-off";
+}
+
+function getItemName(item){
+    return String(item?.name || item?.title || item?.serviceName || item?.productName || "Dinges TechHub Service");
+}
+
+function formatRand(amount){
+    return new Intl.NumberFormat("en-ZA", {style:"currency", currency:"ZAR", minimumFractionDigits:2, maximumFractionDigits:2}).format(toNumber(amount));
+}
+
+function escapeHtml(value){
+    return String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+}
+
+function updateCartCount(cart){
+    const element = document.getElementById("cartCount");
+    if(!element){ return; }
+    const count = cart.reduce(function(total,item){ return total + getQuantity(item); }, 0);
+    element.textContent = count > 99 ? "99+" : count;
+}
+
+function getCustomerFirstName(customer){
+    return String(customer?.firstName || customer?.firstname || customer?.first_name || customer?.name || "").trim();
+}
+function getCustomerLastName(customer){
+    return String(customer?.lastName || customer?.lastname || customer?.last_name || "").trim();
+}
+function getCustomerEmail(customer){
+    return String(customer?.email || customer?.emailAddress || customer?.email_address || "").trim();
+}
+function getCustomerPhone(customer){
+    return String(customer?.phone || customer?.phoneNumber || customer?.phonenumber || customer?.mobile || "").trim();
+}
+
+function populateCustomer(){
+    const customer = getLoggedInCustomer();
+
+    if(!customer){
+        sessionStorage.setItem(CHECKOUT_RETURN_KEY, "checkout.html");
+        window.location.href = "login.html?redirect=checkout.html";
+        return false;
+    }
+
+    const firstName = getCustomerFirstName(customer);
+    const lastName = getCustomerLastName(customer);
+    const email = getCustomerEmail(customer);
+    const phone = getCustomerPhone(customer);
+
+    const fullName = [firstName,lastName].filter(Boolean).join(" ") || customer?.name || "Customer";
+    const avatar = fullName.charAt(0).toUpperCase();
+
+    document.getElementById("customerAvatar").textContent = avatar || "?";
+    document.getElementById("customerDisplayName").textContent = fullName;
+    document.getElementById("customerDisplayEmail").textContent = email || "Customer account";
+
+    document.getElementById("firstName").value = firstName;
+    document.getElementById("lastName").value = lastName;
+    document.getElementById("email").value = email;
+    document.getElementById("phone").value = phone;
+    document.getElementById("company").value = customer?.company || customer?.companyName || "";
+    document.getElementById("address").value = customer?.address || customer?.installationAddress || customer?.installation_address || "";
+    document.getElementById("city").value = customer?.city || customer?.town || "";
+    document.getElementById("province").value = customer?.province || "";
+    document.getElementById("postalCode").value = customer?.postalCode || customer?.postal_code || "";
+
+    return true;
+}
+
+function renderSummary(){
+    const cart = getCart();
+    const summaryItems = document.getElementById("summaryItems");
+    let monthlyTotal = 0;
+    let setupTotal = 0;
+
+    if(!cart.length){
+        summaryItems.innerHTML = '<div style="padding:20px 0;color:#777;font-size:13px;">Your cart is empty.</div>';
+        placeOrderButton.disabled = true;
+        return;
+    }
+
+    summaryItems.innerHTML = cart.map(function(item){
+        const quantity = getQuantity(item);
+        const monthlyPrice = getMonthlyPrice(item);
+        const setupPrice = getSetupPrice(item);
+        const billing = getBillingType(item);
+
+        monthlyTotal += monthlyPrice * quantity;
+        setupTotal += setupPrice * quantity;
+
+        const itemName = escapeHtml(getItemName(item));
+
+        return '<div class="summary-item">' +
+            '<div class="summary-item-name">' + itemName +
+            '<small>Qty: ' + quantity + ' &bull; ' + (billing === "monthly" ? "Monthly" : "Once-off") + '</small>' +
+            '</div>' +
+            '<div class="summary-item-price">' + formatRand(monthlyPrice * quantity) + '</div>' +
+            '</div>';
+    }).join("");
+
+    document.getElementById("summaryMonthly").textContent = formatRand(monthlyTotal);
+    document.getElementById("summarySetup").textContent = formatRand(setupTotal);
+    document.getElementById("summaryTotal").textContent = formatRand(monthlyTotal + setupTotal);
+
+    updateCartCount(cart);
+}
+
+function getFormData(){
+    const payment = document.querySelector('input[name="paymentMethod"]:checked');
+    return {
+        firstName: document.getElementById("firstName").value.trim(),
+        lastName: document.getElementById("lastName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        company: document.getElementById("company").value.trim(),
+        address: document.getElementById("address").value.trim(),
+        city: document.getElementById("city").value.trim(),
+        province: document.getElementById("province").value.trim(),
+        postalCode: document.getElementById("postalCode").value.trim(),
+        paymentMethod: payment ? payment.value : "",
+        termsAccepted: document.getElementById("acceptTerms").checked
+    };
+}
+
+function showError(message){
+    formError.textContent = message;
+    formError.classList.add("show");
+    formError.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+function hideError(){
+    formError.textContent = "";
+    formError.classList.remove("show");
+}
+
+function validateForm(){
+    const data = getFormData();
+
+    if(!data.firstName){ showError("Please enter your first name."); document.getElementById("firstName").focus(); return false; }
+    if(!data.lastName){ showError("Please enter your last name."); document.getElementById("lastName").focus(); return false; }
+    if(!data.email){ showError("Please enter your email address."); document.getElementById("email").focus(); return false; }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailPattern.test(data.email)){ showError("Please enter a valid email address."); document.getElementById("email").focus(); return false; }
+
+    if(!data.phone){ showError("Please enter your phone number."); document.getElementById("phone").focus(); return false; }
+    if(!data.paymentMethod){ showError("Please select a payment method."); return false; }
+    if(!data.termsAccepted){ showError("Please confirm that your information is correct before placing the order."); return false; }
+
+    return true;
+}
+
+async function parseApiResponse(response){
+    const text = await response.text();
+    let json = null;
+    try{
+        if(text.trim()){ json = JSON.parse(text); }
+    }catch(error){
+        console.error("API INVALID JSON:", error);
+    }
+    return { text: text.trim(), json: json };
+}
+
+async function placeOrder(){
+    hideError();
+
+    const cart = getCart();
+    if(!cart.length){
+        showError("Your cart is empty. Please return to the cart and add a service.");
+        return;
+    }
+
+    const customer = getLoggedInCustomer();
+    if(!customer){
+        sessionStorage.setItem(CHECKOUT_RETURN_KEY, "checkout.html");
+        window.location.href = "login.html?redirect=checkout.html";
+        return;
+    }
+
+    if(!validateForm()){ return; }
+
+    const formData = getFormData();
+
+    placeOrderButton.disabled = true;
+    loadingOverlay.classList.add("show");
 
     try{
 
-        const saved =
-            sessionStorage.getItem(
-                CUSTOMER_KEY
-            );
+        const response = await fetch(CREATE_ORDER_API, {
+            method: "POST",
+            body: JSON.stringify({
+                items: cart.map(function(item){
+                    return {
+                        name: getItemName(item),
+                        quantity: getQuantity(item)
+                    };
+                }),
+                paymentMethod: formData.paymentMethod
+            }),
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            cache: "no-store"
+        });
 
-        if(!saved){
-            return null;
+        const result = await parseApiResponse(response);
+
+        loadingOverlay.classList.remove("show");
+
+        if(response.ok && result.json && result.json.success === true){
+
+            try{ localStorage.removeItem(CART_KEY); }catch(e){}
+
+            const invoiceUrl = result.json.invoice_url;
+
+            if(invoiceUrl){
+                window.location.href = invoiceUrl;
+            }else{
+                window.location.href = "https://register.web.za/clientarea.php?action=invoices";
+            }
+
+            return;
         }
 
-        const customer =
-            JSON.parse(saved);
-
-        if(
-            customer &&
-            typeof customer === "object"
-        ){
-
-            return customer;
-
-        }
-
-        return null;
+        placeOrderButton.disabled = false;
+        showError(
+            (result.json && result.json.message) ||
+            "Unable to place your order. Please try again or contact support."
+        );
 
     }catch(error){
-
-        console.error(
-            "Unable to read customer:",
-            error
-        );
-
-        return null;
-
+        console.error("CREATE ORDER ERROR:", error);
+        loadingOverlay.classList.remove("show");
+        placeOrderButton.disabled = false;
+        showError("Unable to connect to the order service. Please check your connection and try again.");
     }
-
 }
 
-
-/* =========================================================
-   NUMBER
-========================================================= */
-
-function toNumber(value){
-
-    if(
-        value === null ||
-        value === undefined ||
-        value === ""
-    ){
-
-        return 0;
-
-    }
-
-    if(
-        typeof value === "number"
-    ){
-
-        return Number.isFinite(value)
-            ? value
-            : 0;
-
-    }
-
-    const cleaned =
-        String(value)
-            .replace(/[R,\s]/gi,"")
-            .replace(/[^0-9.-]/g,"");
-
-    const number =
-        Number(cleaned);
-
-    return Number.isFinite(number)
-        ? number
-        : 0;
-
-}
-
-
-/* =========================================================
-   QUANTITY
-========================================================= */
-
-function getQuantity(item){
-
-    const quantity =
-        parseInt(
-            item?.quantity,
-            10
-        );
-
-    return (
-        Number.isFinite(quantity) &&
-        quantity > 0
-    )
-        ? quantity
-        : 1;
-
-}
-
-
-/* =========================================================
-   MONTHLY PRICE
-========================================================= */
-
-function getMonthlyPrice(item){
-
-    const prices = [
-
-        item?.monthlyPrice,
-        item?.monthly,
-        item?.monthly_price,
-        item?.servicePrice,
-        item?.service_price,
-        item?.price,
-        item?.amount
-
-    ];
-
-    for(
-        const value of prices
-    ){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ){
-
-            return toNumber(value);
-
-        }
-
-    }
-
-    return 0;
-
-}
-
-
-/* =========================================================
-   SETUP PRICE
-========================================================= */
-
-function getSetupPrice(item){
-
-    const prices = [
-
-        item?.setupPrice,
-        item?.setup,
-        item?.setupFee,
-        item?.setup_fee,
-        item?.onceOff,
-        item?.onceOffPrice,
-        item?.onceOffFee,
-        item?.once_off,
-        item?.once_off_price
-
-    ];
-
-    for(
-        const value of prices
-    ){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ){
-
-            return toNumber(value);
-
-        }
-
-    }
-
-    return 0;
-
-}
-
-
-/* =========================================================
-   BILLING
-========================================================= */
-
-function getBillingType(item){
-
-    const billing =
-        String(
-            item?.billing ||
-            item?.billingCycle ||
-            item?.billing_cycle ||
-            ""
-        ).toLowerCase();
-
-    if(
-        billing.includes("monthly") ||
-        billing.includes("month")
-    ){
-
-        return "monthly";
-
-    }
-
-    if(
-        billing.includes("once") ||
-        billing.includes("setup")
-    ){
-
-        return "once-off";
-
-    }
-
-    if(
-        getSetupPrice(item) > 0 ||
-        getMonthlyPrice(item) > 0
-    ){
-
-        return "monthly";
-
-    }
-
-    return "once-off";
-
-}
-
-
-/* =========================================================
-   ITEM NAME
-========================================================= */
-
-function getItemName(item){
-
-    return String(
-        item?.name ||
-        item?.title ||
-        item?.serviceName ||
-        item?.productName ||
-        "Dinges TechHub Service"
-    );
-
-}
-
-
-/* =========================================================
-   FORMAT RAND
-========================================================= */
-
-function formatRand(amount){
-
-    return new Intl.NumberFormat(
-        "en-ZA",
-        {
-            style:"currency",
-            currency:"ZAR",
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-        }
-    ).format(
-        toNumber(amount)
-    );
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    return String(
-        value ?? ""
-    )
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-
-/* =========================================================
-   CART COUNT
-========================================================= */
-
-function updateCartCount(cart){
-
-    const element =
-        document.getElementById(
-            "cartCount"
-        );
-
-    if(!element){
-        return;
-    }
-
-    const count =
-        cart.reduce(
-            function(total,item){
-
-                return total +
-                    getQuantity(item);
-
-            },
-            0
-        );
-
-    element.textContent =
-        count > 99
-            ? "99+"
-            : count;
-
-}
-
-
-/* =========================================================
-   CUSTOMER NAME
-========================================================= */
-
-function getCustomerFirstName(customer){
-
-    return String(
-        customer?.firstName ||
-        customer?.firstname ||
-        customer?.first_name ||
-        customer?.name ||
-        ""
-    ).trim();
-
-}
-
-
-function getCustomerLastName(customer){
-
-    return String(
-        customer?.lastName ||
-        customer?.lastname ||
-        customer?.last_name ||
-        ""
-    ).trim();
-
-}
-
-
-function getCustomerEmail(customer){
-
-    return String(
-        customer?.email ||
-        customer?.emailAddress ||
-        customer?.email_address ||
-        ""
-    ).trim();
-
-}
-
-
-function getCustomerPhone(customer){
-
-    return String(
-        customer?.phone ||
-        customer?.phoneNumber ||
-        customer?.phonenumber ||
-        customer?.mobile ||
-        ""
-    ).trim();
-
-}
-
-
-/* =========================================================
-   FILL CUSTOMER
-========================================================= */
-
-function populateCustomer(){
-
-    const customer =
-        getLoggedInCustomer();
-
-    if(!customer){
-
-        /*
-         * Checkout must not be accessible
-         * without a logged-in customer.
-         */
-
-        sessionStorage.setItem(
-            CHECKOUT_RETURN_KEY,
-            "checkout.html"
-        );
-
-        window.location.href =
-            "login.html?redirect=checkout.html";
-
-        return false;
-
-    }
-
-
-    const firstName =
-        getCustomerFirstName(
-            customer
-        );
-
-    const lastName =
-        getCustomerLastName(
-            customer
-        );
-
-    const email =
-        getCustomerEmail(
-            customer
-        );
-
-    const phone =
-        getCustomerPhone(
-            customer
-        );
-
-
-    const fullName =
-        [firstName,lastName]
-            .filter(Boolean)
-            .join(" ")
-        ||
-        customer?.name
-        ||
-        "Customer";
-
-
-    const avatar =
-        fullName
-            .charAt(0)
-            .toUpperCase();
-
-
-    document.getElementById(
-        "customerAvatar"
-    ).textContent =
-        avatar || "?";
-
-
-    document.getElementById(
-        "customerDisplayName"
-    ).textContent =
-        fullName;
-
-
-    document.getElementById(
-        "customerDisplayEmail"
-    ).textContent =
-        email || "Customer account";
-
-
-    document.getElementById(
-        "firstName"
-    ).value =
-        firstName;
-
-
-    document.getElementById(
-        "lastName"
-    ).value =
-        lastName;
-
-
-    document.getElementById(
-        "email"
-    ).value =
-        email;
-
-
-    document.getElementById(
-        "phone"
-    ).value =
-        phone;
-
-
-    /*
-     * Support additional common customer
-     * property names.
-     */
-
-    document.getElementById(
-        "company"
-    ).value =
-        customer?.company ||
-        customer?.companyName ||
-        "";
-
-
-    document.getElementById(
-        "address"
-    ).value =
-        customer?.address ||
-        customer?.installationAddress ||
-        customer?.installation_address ||
-        "";
-
-
-    document.getElementById(
-        "city"
-    ).value =
-        customer?.city ||
-        customer?.town ||
-        "";
-
-
-    document.getElementById(
-        "province"
-    ).value =
-        customer?.province ||
-        "";
-
-
-    document.getElementById(
-        "postalCode"
-    ).value =
-        customer?.postalCode ||
-        customer?.postal_code ||
-        "";
-
-
-    return true;
-
-}
-
-
-/* =========================================================
-   RENDER SUMMARY
-========================================================= */
-
-function renderSummary(){
-
-    const cart =
-        getCart();
-
-    const summaryItems =
-        document.getElementById(
-            "summaryItems"
-        );
-
-    let monthlyTotal = 0;
-
-    let setupTotal = 0;
-
-
-    if(!cart.length){
-
-        summaryItems.innerHTML = `
-
-            <div
-                style="
-                    padding:20px 0;
-                    color:#777;
-                    font-size:13px;
-                "
-            >
-                Your cart is empty.
-            </div>
-
-        `;
-
-        placeOrderButton.disabled =
-            true;
-
-        return;
-
-    }
-
-
-    summaryItems.innerHTML =
-        cart.map(
-            function(item){
-
-                const quantity =
-                    getQuantity(item);
-
-                const monthlyPrice =
-                    getMonthlyPrice(item);
-
-                const setupPrice =
-                    getSetupPrice(item);
-
-                const billing =
-                    getBillingType(item);
-
-                monthlyTotal +=
-                    monthlyPrice *
-                    quantity;
-
-                setupTotal +=
-                    setupPrice *
-                    quantity;
-
-
-                const itemName =
-                    escapeHtml(
-                        getItemName(item)
-                    );
-
-
-                return `
-
-                    <div class="summary-item">
-
-                        <div class="summary-item-name">
-
-                            ${itemName}
-
-                            <small>
-                                Qty: ${quantity}
-                                •
-                                ${
-                                    billing === "monthly"
-                                        ? "Monthly"
-                                        : "Once-off"
-                                }
-                            </small>
-
-                        </div>
-
-                        <div class="summary-item-price">
-
-                            ${formatRand(
-                                monthlyPrice *
-                                quantity
-                            )}
-
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-        ).join("");
-
-
-    document.getElementById(
-        "summaryMonthly"
-    ).textContent =
-        formatRand(
-            monthlyTotal
-        );
-
-
-    document.getElementById(
-        "summarySetup"
-    ).textContent =
-        formatRand(
-            setupTotal
-        );
-
-
-    document.getElementById(
-        "summaryTotal"
-    ).textContent =
-        formatRand(
-            monthlyTotal +
-            setupTotal
-        );
-
-
-    updateCartCount(cart);
-
-}
-
-
-/* =========================================================
-   TOTALS
-========================================================= */
-
-function calculateTotals(){
-
-    const cart =
-        getCart();
-
-    let monthlyTotal = 0;
-
-    let setupTotal = 0;
-
-
-    cart.forEach(
-        function(item){
-
-            const quantity =
-                getQuantity(item);
-
-            monthlyTotal +=
-                getMonthlyPrice(item) *
-                quantity;
-
-            setupTotal +=
-                getSetupPrice(item) *
-                quantity;
-
-        }
-    );
-
-
-    return {
-
-        monthly:
-            monthlyTotal,
-
-        setup:
-            setupTotal,
-
-        total:
-            monthlyTotal +
-            setupTotal
-
-    };
-
-}
-
-
-/* =========================================================
-   FORM DATA
-========================================================= */
-
-function getFormData(){
-
-    const payment =
-        document.querySelector(
-            'input[name="paymentMethod"]:checked'
-        );
-
-
-    return {
-
-        firstName:
-            document.getElementById(
-                "firstName"
-            ).value.trim(),
-
-        lastName:
-            document.getElementById(
-                "lastName"
-            ).value.trim(),
-
-        email:
-            document.getElementById(
-                "email"
-            ).value.trim(),
-
-        phone:
-            document.getElementById(
-                "phone"
-            ).value.trim(),
-
-        company:
-            document.getElementById(
-                "company"
-            ).value.trim(),
-
-        address:
-            document.getElementById(
-                "address"
-            ).value.trim(),
-
-        city:
-            document.getElementById(
-                "city"
-            ).value.trim(),
-
-        province:
-            document.getElementById(
-                "province"
-            ).value.trim(),
-
-        postalCode:
-            document.getElementById(
-                "postalCode"
-            ).value.trim(),
-
-        paymentMethod:
-            payment
-                ? payment.value
-                : "",
-
-        termsAccepted:
-            document.getElementById(
-                "acceptTerms"
-            ).checked
-
-    };
-
-}
-
-
-/* =========================================================
-   SHOW ERROR
-========================================================= */
-
-function showError(message){
-
-    formError.textContent =
-        message;
-
-    formError.classList.add(
-        "show"
-    );
-
-    formError.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
-}
-
-
-/* =========================================================
-   HIDE ERROR
-========================================================= */
-
-function hideError(){
-
-    formError.textContent =
-        "";
-
-    formError.classList.remove(
-        "show"
-    );
-
-}
-
-
-/* =========================================================
-   VALIDATE
-========================================================= */
-
-function validateForm(){
-
-    const data =
-        getFormData();
-
-
-    if(!data.firstName){
-
-        showError(
-            "Please enter your first name."
-        );
-
-        document.getElementById(
-            "firstName"
-        ).focus();
-
-        return false;
-
-    }
-
-
-    if(!data.lastName){
-
-        showError(
-            "Please enter your last name."
-        );
-
-        document.getElementById(
-            "lastName"
-        ).focus();
-
-        return false;
-
-    }
-
-
-    if(!data.email){
-
-        showError(
-            "Please enter your email address."
-        );
-
-        document.getElementById(
-            "email"
-        ).focus();
-
-        return false;
-
-    }
-
-
-    const emailPattern =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-    if(
-        !emailPattern.test(
-            data.email
-        )
-    ){
-
-        showError(
-            "Please enter a valid email address."
-        );
-
-        document.getElementById(
-            "email"
-        ).focus();
-
-        return false;
-
-    }
-
-
-    if(!data.phone){
-
-        showError(
-            "Please enter your phone number."
-        );
-
-        document.getElementById(
-            "phone"
-        ).focus();
-
-        return false;
-
-    }
-
-
-    if(!data.paymentMethod){
-
-        showError(
-            "Please select a payment method."
-        );
-
-        return false;
-
-    }
-
-
-    if(!data.termsAccepted){
-
-        showError(
-            "Please confirm that your information is correct before placing the order."
-        );
-
-        return false;
-
-    }
-
-
-    return true;
-
-}
-
-
-/* =========================================================
-   GENERATE ORDER REFERENCE
-========================================================= */
-
-function generateOrderReference(){
-
-    const date =
-        new Date();
-
-    const year =
-        date.getFullYear();
-
-    const month =
-        String(
-            date.getMonth() + 1
-        ).padStart(2,"0");
-
-    const day =
-        String(
-            date.getDate()
-        ).padStart(2,"0");
-
-    const random =
-        Math.floor(
-            1000 +
-            Math.random() *
-            9000
-        );
-
-
-    return (
-        "DTH-" +
-        year +
-        month +
-        day +
-        "-" +
-        random
-    );
-
-}
-
-
-/* =========================================================
-   PLACE ORDER
-========================================================= */
-
-async function placeOrder(){
-
-    hideError();
-
-
-    const cart =
-        getCart();
-
-
-    if(!cart.length){
-
-        showError(
-            "Your cart is empty. Please return to the cart and add a service."
-        );
-
-        return;
-
-    }
-
-
-    const customer =
-        getLoggedInCustomer();
-
-
-    if(!customer){
-
-        sessionStorage.setItem(
-            CHECKOUT_RETURN_KEY,
-            "checkout.html"
-        );
-
-        window.location.href =
-            "login.html?redirect=checkout.html";
-
-        return;
-
-    }
-
-
-    if(
-        !validateForm()
-    ){
-
-        return;
-
-    }
-
-
-    const formData =
-        getFormData();
-
-    const totals =
-        calculateTotals();
-
-
-    /*
-     * Build the order object.
-     *
-     * This object will be sent to the
-     * secure backend API in the next stage.
-     */
-
-    const order = {
-
-        orderReference:
-            generateOrderReference(),
-
-        customer: {
-
-            id:
-                customer?.id ||
-                customer?.clientId ||
-                customer?.clientid ||
-                null,
-
-            firstName:
-                formData.firstName,
-
-            lastName:
-                formData.lastName,
-
-            email:
-                formData.email,
-
-            phone:
-                formData.phone,
-
-            company:
-                formData.company,
-
-            address:
-                formData.address,
-
-            city:
-                formData.city,
-
-            province:
-                formData.province,
-
-            postalCode:
-                formData.postalCode
-
-        },
-
-        items:
-            cart.map(
-                function(item){
-
-                    return {
-
-                        id:
-                            item?.id ||
-                            item?.productId ||
-                            item?.serviceId ||
-                            null,
-
-                        name:
-                            getItemName(item),
-
-                        quantity:
-                            getQuantity(item),
-
-                        monthlyPrice:
-                            getMonthlyPrice(item),
-
-                        setupPrice:
-                            getSetupPrice(item),
-
-                        billing:
-                            getBillingType(item)
-
-                    };
-
-                }
-            ),
-
-        totals: {
-
-            monthly:
-                totals.monthly,
-
-            setup:
-                totals.setup,
-
-            total:
-                totals.total
-
-        },
-
-        paymentMethod:
-            formData.paymentMethod,
-
-        status:
-            "pending",
-
-        createdAt:
-            new Date().toISOString()
-
-    };
-
-
-    /*
-     * IMPORTANT:
-     *
-     * We are NOT pretending the order has
-     * been saved to WHMCS yet.
-     *
-     * For now this prepares the exact order
-     * payload that will be sent to the backend.
-     */
-
-    console.log(
-        "Dinges TechHub checkout order:",
-        order
-    );
-
-
-    /*
-     * Temporary client-side reference so
-     * the checkout flow can be tested.
-     *
-     * We will replace this with the secure
-     * PHP/WHMCS API connection next.
-     */
-
-    sessionStorage.setItem(
-        "dingesLastCheckoutOrder",
-        JSON.stringify(order)
-    );
-
-
-    loadingOverlay.classList.add(
-        "show"
-    );
-
-
-    /*
-     * Small delay purely for the UI while
-     * the backend connection is being added.
-     */
-
-    await new Promise(
-        function(resolve){
-
-            setTimeout(
-                resolve,
-                700
-            );
-
-        }
-    );
-
-
-    loadingOverlay.classList.remove(
-        "show"
-    );
-
-
-    /*
-     * Show confirmation.
-     */
-
-    document.getElementById(
-        "orderReference"
-    ).textContent =
-        order.orderReference;
-
-
-    checkoutContent.style.display =
-        "none";
-
-
-    successScreen.classList.add(
-        "show"
-    );
-
-
-    successScreen.scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
-
-
-}
-
-
-/* =========================================================
-   PLACE ORDER EVENT
-========================================================= */
-
-placeOrderButton.addEventListener(
-    "click",
-    placeOrder
-);
-
-
-/* =========================================================
-   PROTECT CHECKOUT
-========================================================= */
+placeOrderButton.addEventListener("click", placeOrder);
 
 function initialiseCheckout(){
-
-    const cart =
-        getCart();
-
-
-    /*
-     * Empty cart
-     */
+    const cart = getCart();
 
     if(!cart.length){
-
-        alert(
-            "Your cart is empty. Please add a service before continuing to checkout."
-        );
-
-        window.location.href =
-            "cart.html";
-
+        alert("Your cart is empty. Please add a service before continuing to checkout.");
+        window.location.href = "cart.html";
         return;
-
     }
 
-
-    /*
-     * Login check
-     */
-
-    const customer =
-        getLoggedInCustomer();
-
-
+    const customer = getLoggedInCustomer();
     if(!customer){
-
-        sessionStorage.setItem(
-            CHECKOUT_RETURN_KEY,
-            "checkout.html"
-        );
-
-        window.location.href =
-            "login.html?redirect=checkout.html";
-
+        sessionStorage.setItem(CHECKOUT_RETURN_KEY, "checkout.html");
+        window.location.href = "login.html?redirect=checkout.html";
         return;
-
     }
-
 
     populateCustomer();
-
     renderSummary();
-
 }
 
-
-/* =========================================================
-   FOOTER YEAR
-========================================================= */
-
-const footerYear =
-    document.getElementById(
-        "footerYear"
-    );
-
-if(footerYear){
-
-    footerYear.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/* =========================================================
-   INITIALISE
-========================================================= */
+const footerYear = document.getElementById("footerYear");
+if(footerYear){ footerYear.textContent = new Date().getFullYear(); }
 
 initialiseCheckout();
 
