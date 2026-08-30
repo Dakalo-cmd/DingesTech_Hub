@@ -328,9 +328,7 @@ form.addEventListener("submit", async function(event){
             message.textContent = "Login successful. Opening your WHMCS admin dashboard...";
 
             setTimeout(function(){
-                window.location.href =
-                    result.json.whmcs_admin_url ||
-                    ADMIN_DASHBOARD_URL;
+                window.location.href = ADMIN_DASHBOARD_URL;
             }, 400);
 
             return;
