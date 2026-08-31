@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reseller Application | Dinges TechHub</title>
+
+    <meta
+        name="description"
+        content="Apply to become a Dinges TechHub reseller."
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="dingestech-logo.png"
+    >
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                Manrope,
+                Arial,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8f5f9 0%,
+                    #ffffff 50%,
+                    #f3edf4 100%
+                );
+
+            color: #020202;
+
+            min-height: 100vh;
+        }
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .top-nav {
+            width: 100%;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #eeeeee;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            min-height: 72px;
+
+            padding: 10px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 145px;
+
+            height: auto;
+
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 22px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+
+            color: #3C1542;
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            position: relative;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -6px;
+
+            width: 0;
+
+            height: 2px;
+
+            background: #FFBB42;
+
+            transition:
+                width 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #7A2C78;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            width: 100%;
+
+            padding:
+                70px 20px 45px;
+
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding:
+                8px 15px;
+
+            border-radius: 50px;
+
+            background: #f0e5f0;
+
+            color: #7A2C78;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 5vw, 52px);
+
+            line-height: 1.1;
+
+            color: #3C1542;
+
+            margin-bottom: 18px;
+
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #7A2C78;
+        }
+
+        .hero p {
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            color: #666666;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .application-section {
+            width: 100%;
+
+            padding:
+                20px 20px 80px;
+        }
+
+        .application-container {
+            max-width: 1050px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr 1.4fr;
+
+            gap: 30px;
+
+            align-items: start;
+        }
+
+        /* =========================================================
+           INFORMATION CARD
+        ========================================================= */
+
+        .info-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #3C1542,
+                    #7A2C78
+                );
+
+            color: #ffffff;
+
+            border-radius: 20px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 20px 50px rgba(
+                    60,
+                    21,
+                    66,
+                    0.18
+                );
+
+            position: sticky;
+
+            top: 100px;
+        }
+
+        .info-card h2 {
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+        .info-card > p {
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            opacity: 0.9;
+
+            margin-bottom: 25px;
+        }
+
+        .benefit {
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .benefit-icon {
+            width: 30px;
+            height: 30px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #FFBB42;
+
+            color: #3C1542;
+
+            font-weight: 900;
+
+            font-size: 13px;
+        }
+
+        .benefit-content h3 {
+            font-size: 12px;
+
+            margin-bottom: 4px;
+        }
+
+        .benefit-content p {
+            font-size: 9px;
+
+            line-height: 1.6;
+
+            opacity: 0.85;
+        }
+
+        /* =========================================================
+           FORM CARD
+        ========================================================= */
+
+        .form-card {
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 15px 45px rgba(
+                    0,
+                    0,
+                    0,
+                    0.08
+                );
+
+            border:
+                1px solid #eeeeee;
+        }
+
+        .form-heading {
+            margin-bottom: 28px;
+        }
+
+        .form-heading h2 {
+            color: #3C1542;
+
+            font-size: 24px;
+
+            margin-bottom: 7px;
+        }
+
+        .form-heading p {
+            color: #777777;
+
+            font-size: 9px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           FORM
+        ========================================================= */
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #3C1542;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+        .required {
+            color: #c62828;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border:
+                1px solid #dddddd;
+
+            background: #ffffff;
+
+            border-radius: 9px;
+
+            padding:
+                12px 13px;
+
+            font-family: inherit;
+
+            font-size: 9px;
+
+            color: #222222;
+
+            outline: none;
+
+            transition:
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #7A2C78;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    122,
+                    44,
+                    120,
+                    0.10
+                );
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+
+            resize: vertical;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CHECKBOX
+        ========================================================= */
+
+        .terms {
+            grid-column: 1 / -1;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-top: 5px;
+        }
+
+        .terms input {
+            width: 16px;
+            height: 16px;
+
+            margin-top: 1px;
+
+            accent-color: #7A2C78;
+        }
+
+        .terms label {
+            font-size: 9px;
+
+            line-height: 1.6;
+
+            color: #666666;
+
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           BUTTON
+        ========================================================= */
+
+        .submit-btn {
+            grid-column: 1 / -1;
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding:
+                14px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7A2C78,
+                    #3C1542
+                );
+
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(
+                    60,
+                    21,
+                    66,
+                    0.22
+                );
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+        /* =========================================================
+           MESSAGE
+        ========================================================= */
+
+        .form-message {
+            grid-column: 1 / -1;
+
+            display: none;
+
+            padding: 13px;
+
+            border-radius: 9px;
+
+            font-size: 9px;
+
+            line-height: 1.5;
+
+            text-align: center;
+        }
+
+        .form-message.success {
+            display: block;
+
+            background: #e9f7ef;
+
+            color: #176b3a;
+
+            border:
+                1px solid #b9e5c9;
+        }
+
+        .form-message.error {
+            display: block;
+
+            background: #fdecec;
+
+            color: #a32121;
+
+            border:
+                1px solid #f2bcbc;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #020202;
+
+            color: #ffffff;
+
+            padding: 30px 20px;
+
+            text-align: center;
+        }
+
+        footer img {
+            width: 125px;
+
+            height: auto;
+
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 9px;
+
+            color: #aaaaaa;
+
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .application-container {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                position: static;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-container {
+                min-height: 60px;
+
+                padding:
+                    8px 15px;
+            }
+
+            .nav-logo img {
+                width: 120px;
+            }
+
+            .hero {
+                padding:
+                    45px 15px 30px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 12px;
+            }
+
+            .application-section {
+                padding:
+                    10px 12px 50px;
+            }
+
+            .form-card {
+                padding: 22px 17px;
+            }
+
+            .info-card {
+                padding: 24px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full,
+            .terms,
+            .submit-btn,
+            .form-message {
+                grid-column: auto;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav class="top-nav">
+
+        <div class="nav-container">
+
+            <a
+                href="index.html"
+                class="nav-logo"
+            >
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="services.html">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="shared-hosting.html">
+                        Hosting
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <section class="hero">
+
+        <span class="hero-badge">
+            DINGES TECHHUB PARTNER PROGRAM
+        </span>
+
+        <h1>
+            Become a
+            <span>Reseller</span>
+        </h1>
+
+        <p>
+            Grow your business by partnering with Dinges TechHub.
+            Submit your application and our team will review your
+            reseller request.
+        </p>
+
+    </section>
+
+
+    <!-- =========================================================
+         APPLICATION
+    ========================================================== -->
+
+    <section class="application-section">
+
+        <div class="application-container">
+
+
+            <!-- =====================================================
+                 BENEFITS
+            ====================================================== -->
+
+            <div class="info-card">
+
+                <h2>
+                    Why Become a Reseller?
+                </h2>
+
+                <p>
+                    Join the Dinges TechHub reseller network and
+                    provide technology and connectivity solutions
+                    to your customers.
+                </p>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Technology Products
+                        </h3>
+
+                        <p>
+                            Access a range of technology and
+                            business solutions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Business Growth
+                        </h3>
+
+                        <p>
+                            Expand your service offering and
+                            reach more customers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Partner Support
+                        </h3>
+
+                        <p>
+                            Work with the Dinges TechHub team
+                            as your technology partner.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ✓
+                    </div>
+
+                    <div class="benefit-content">
+
+                        <h3>
+                            Multiple Services
+                        </h3>
+
+                        <p>
+                            Offer connectivity, hosting, VoIP,
+                            IT and other solutions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 FORM
+            ====================================================== -->
+
+            <div class="form-card">
+
+                <div class="form-heading">
+
+                    <h2>
+                        Reseller Application
+                    </h2>
+
+                    <p>
+                        Complete the form below. Fields marked
+                        with an asterisk (*) are required.
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="resellerApplicationForm"
+                >
+
+                    <div class="form-grid">
+
+
+                        <!-- FULL NAME -->
+
+                        <div class="form-group">
+
+                            <label for="fullName">
+                                Full Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- COMPANY -->
+
+                        <div class="form-group">
+
+                            <label for="companyName">
+                                Company / Business Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="companyName"
+                                name="companyName"
+                                placeholder="Enter company name"
+                                autocomplete="organization"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- PHONE -->
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="e.g. 082 123 4567"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- BUSINESS TYPE -->
+
+                        <div class="form-group">
+
+                            <label for="businessType">
+                                Business Type
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="businessType"
+                                name="businessType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select business type
+                                </option>
+
+                                <option value="IT Company">
+                                    IT Company
+                                </option>
+
+                                <option value="Telecommunications">
+                                    Telecommunications
+                                </option>
+
+                                <option value="Web Development">
+                                    Web Development
+                                </option>
+
+                                <option value="Technology Reseller">
+                                    Technology Reseller
+                                </option>
+
+                                <option value="Managed Service Provider">
+                                    Managed Service Provider
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- WEBSITE -->
+
+                        <div class="form-group">
+
+                            <label for="website">
+                                Business Website
+                            </label>
+
+                            <input
+                                type="url"
+                                id="website"
+                                name="website"
+                                placeholder="https://example.com"
+                            >
+
+                        </div>
+
+
+                        <!-- PROVINCE -->
+
+                        <div class="form-group">
+
+                            <label for="province">
+                                Province
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="province"
+                                name="province"
+                                required
+                            >
+
+                                <option value="">
+                                    Select province
+                                </option>
+
+                                <option>
+                                    Eastern Cape
+                                </option>
+
+                                <option>
+                                    Free State
+                                </option>
+
+                                <option>
+                                    Gauteng
+                                </option>
+
+                                <option>
+                                    KwaZulu-Natal
+                                </option>
+
+                                <option>
+                                    Limpopo
+                                </option>
+
+                                <option>
+                                    Mpumalanga
+                                </option>
+
+                                <option>
+                                    Northern Cape
+                                </option>
+
+                                <option>
+                                    North West
+                                </option>
+
+                                <option>
+                                    Western Cape
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- CITY -->
+
+                        <div class="form-group">
+
+                            <label for="city">
+                                City / Town
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Enter city or town"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- SERVICES -->
+
+                        <div class="form-group full">
+
+                            <label for="services">
+                                Services You Are Interested In
+                                <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="services"
+                                name="services"
+                                required
+                            >
+
+                                <option value="">
+                                    Select primary service
+                                </option>
+
+                                <option value="Internet Connectivity">
+                                    Internet Connectivity
+                                </option>
+
+                                <option value="VoIP">
+                                    VoIP / Telephony
+                                </option>
+
+                                <option value="Web Hosting">
+                                    Web & Email Hosting
+                                </option>
+
+                                <option value="CRM">
+                                    CRM Solutions
+                                </option>
+
+                                <option value="Smart Solutions">
+                                    Smart Home & Business
+                                </option>
+
+                                <option value="Multiple Services">
+                                    Multiple Services
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- CUSTOMERS -->
+
+                        <div class="form-group">
+
+                            <label for="customers">
+                                Expected Monthly Customers
+                            </label>
+
+                            <select
+                                id="customers"
+                                name="customers"
+                            >
+
+                                <option value="">
+                                    Select an estimate
+                                </option>
+
+                                <option value="1-10">
+                                    1 - 10
+                                </option>
+
+                                <option value="11-25">
+                                    11 - 25
+                                </option>
+
+                                <option value="26-50">
+                                    26 - 50
+                                </option>
+
+                                <option value="51-100">
+                                    51 - 100
+                                </option>
+
+                                <option value="100+">
+                                    100+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- EXPERIENCE -->
+
+                        <div class="form-group">
+
+                            <label for="experience">
+                                Years in Business
+                            </label>
+
+                            <select
+                                id="experience"
+                                name="experience"
+                            >
+
+                                <option value="">
+                                    Select
+                                </option>
+
+                                <option value="New Business">
+                                    New Business
+                                </option>
+
+                                <option value="1-2 Years">
+                                    1 - 2 Years
+                                </option>
+
+                                <option value="3-5 Years">
+                                    3 - 5 Years
+                                </option>
+
+                                <option value="6-10 Years">
+                                    6 - 10 Years
+                                </option>
+
+                                <option value="10+ Years">
+                                    10+ Years
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="form-group full">
+
+                            <label for="description">
+                                Tell Us About Your Business
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                id="description"
+                                name="description"
+                                placeholder="Tell us about your business, customers and what you would like to offer..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- TERMS -->
+
+                        <div class="terms">
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                                required
+                            >
+
+                            <label for="terms">
+
+                                I confirm that the information
+                                provided in this application is
+                                accurate and I agree that Dinges
+                                TechHub may contact me regarding
+                                this reseller application.
+
+                                <span class="required">*</span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div
+                            id="formMessage"
+                            class="form-message"
+                        ></div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                            id="submitButton"
+                        >
+
+                            Submit Reseller Application
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <img
+            src="dingestech-logo.png"
+            alt="Dinges TechHub"
+        >
+
+        <p>
+            © 2026 Dinges TechHub.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        const form =
+            document.getElementById(
+                "resellerApplicationForm"
+            );
+
+        const message =
+            document.getElementById(
+                "formMessage"
+            );
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                /*
+                 * FOR NOW
+                 * ------------------------------------------------
+                 * We are only building the application interface.
+                 *
+                 * The backend/database will be connected in the
+                 * next step.
+                 */
+
+
+                const formData =
+                    new FormData(form);
+
+
+                const application =
+                    Object.fromEntries(
+                        formData.entries()
+                    );
+
+
+                console.log(
+                    "Reseller Application:",
+                    application
+                );
+
+
+                message.className =
+                    "form-message success";
+
+                message.textContent =
+                    "Your reseller application has been received. We will contact you after your application has been reviewed.";
+
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Application Submitted";
+
+
+                form.reset();
+
+
+                setTimeout(
+                    function() {
+
+                        submitButton.disabled =
+                            false;
+
+                        submitButton.textContent =
+                            "Submit Reseller Application";
+
+                    },
+                    3000
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
