@@ -3492,6 +3492,1071 @@ button{
 
 }
 
+    /* =========================================================
+   DINGES TECHHUB — UNIVERSAL MOBILE CSS
+   Version: 2026
+   Purpose: Consistent mobile/tablet layout across all pages
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL MOBILE SAFETY
+   ========================================================= */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+    font: inherit;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   CONTAINERS
+   ========================================================= */
+
+.container,
+.nav-inner,
+.topbar-inner,
+.top-bar-inner,
+.top-bar-content,
+.hero-inner,
+.section-inner,
+.content-inner {
+    width: min(1200px, calc(100% - 40px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar,
+.top-bar {
+    width: 100%;
+}
+
+.topbar-inner,
+.top-bar-inner,
+.top-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.topbar a,
+.top-bar a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION — ALL VERSIONS
+   ========================================================= */
+
+.navbar,
+.main-header,
+.header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    min-height: 70px;
+}
+
+.nav-inner {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    max-width: 75%;
+}
+
+.logo img {
+    display: block;
+    max-width: 180px;
+    width: auto;
+    height: auto;
+}
+
+.logo-mark {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   NAV LINKS
+   Supports:
+   .nav-links
+   .main-nav
+   ========================================================= */
+
+.nav-links,
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links > a,
+.main-nav > a,
+.nav-dropdown > a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MOBILE BUTTONS
+   Supports all versions found in your ZIP
+   ========================================================= */
+
+.menu-toggle,
+.mobile-menu-button,
+.mobile-menu-btn,
+.menuBtn,
+.menu-btn {
+    display: none;
+    position: relative;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1100;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span,
+.mobile-menu-button span,
+.mobile-menu-btn span,
+.menuBtn span,
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    border-radius: 10px;
+    background: currentColor;
+    transition:
+        transform .25s ease,
+        opacity .25s ease,
+        width .25s ease;
+}
+
+
+/* =========================================================
+   CART BUTTON
+   ========================================================= */
+
+.cart-button,
+.nav-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 44px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 50%;
+    font-size: 11px;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    z-index: 1200;
+}
+
+.dropdown-menu a {
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .container,
+    .nav-inner,
+    .topbar-inner,
+    .top-bar-inner,
+    .top-bar-content,
+    .hero-inner,
+    .section-inner,
+    .content-inner {
+        width: min(100% - 32px, 900px);
+    }
+
+    .nav-links,
+    .main-nav {
+        gap: 3px;
+    }
+
+    .nav-links > a,
+    .main-nav > a,
+    .nav-dropdown > a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — 768PX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTAINERS
+       ----------------------------------------------------- */
+
+    .container,
+    .nav-inner,
+    .topbar-inner,
+    .top-bar-inner,
+    .top-bar-content,
+    .hero-inner,
+    .section-inner,
+    .content-inner {
+        width: calc(100% - 32px);
+        max-width: none;
+    }
+
+
+    /* -----------------------------------------------------
+       TOP BAR
+       ----------------------------------------------------- */
+
+    .topbar,
+    .top-bar {
+        min-height: auto;
+    }
+
+    .topbar-inner,
+    .top-bar-inner,
+    .top-bar-content {
+        min-height: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        gap: 5px 15px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVBAR
+       ----------------------------------------------------- */
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .nav-inner {
+        min-height: 68px;
+        width: calc(100% - 28px);
+        gap: 10px;
+    }
+
+
+    /* -----------------------------------------------------
+       LOGO
+       ----------------------------------------------------- */
+
+    .logo {
+        min-width: 0;
+        max-width: calc(100% - 58px);
+        overflow: hidden;
+    }
+
+    .logo img {
+        width: auto;
+        max-width: 150px;
+        max-height: 48px;
+        object-fit: contain;
+    }
+
+    .logo span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    /* -----------------------------------------------------
+       SHOW MOBILE MENU BUTTON
+       ----------------------------------------------------- */
+
+    .menu-toggle,
+    .mobile-menu-button,
+    .mobile-menu-btn,
+    .menuBtn,
+    .menu-btn {
+        display: inline-flex !important;
+    }
+
+
+    /* -----------------------------------------------------
+       HIDE DESKTOP NAVIGATION
+       ----------------------------------------------------- */
+
+    .nav-links,
+    .main-nav {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------------------
+       OPEN MOBILE NAVIGATION
+       ----------------------------------------------------- */
+
+    .nav-links.active,
+    .main-nav.active {
+        display: flex !important;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE NAV LINKS
+       ----------------------------------------------------- */
+
+    .nav-links.active,
+    .main-nav.active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        max-width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 12px 16px 18px;
+
+        margin: 0;
+
+        background: inherit;
+
+        box-shadow: 0 12px 30px rgba(0,0,0,.12);
+
+        z-index: 1050;
+
+        overflow-y: auto;
+        max-height: calc(100vh - 70px);
+    }
+
+
+    .nav-links.active > a,
+    .main-nav.active > a,
+    .nav-links.active .nav-dropdown > a,
+    .main-nav.active .nav-dropdown > a {
+        width: 100%;
+        min-height: 48px;
+        justify-content: flex-start;
+        padding: 12px 14px;
+        border-radius: 8px;
+        white-space: normal;
+    }
+
+
+    /* -----------------------------------------------------
+       DROPDOWN ON MOBILE
+       ----------------------------------------------------- */
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown > a {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 0 5px !important;
+
+        display: none;
+        box-shadow: none !important;
+
+        transform: none !important;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu,
+    .nav-dropdown.active .dropdown-menu,
+    .nav-dropdown.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu a {
+        min-height: 44px;
+        align-items: center;
+        padding: 10px 22px;
+        white-space: normal;
+    }
+
+
+    /* -----------------------------------------------------
+       CART
+       ----------------------------------------------------- */
+
+    .cart-button,
+    .nav-cart {
+        min-height: 44px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO SECTIONS
+       ----------------------------------------------------- */
+
+    .hero,
+    .page-hero,
+    .contact-hero,
+    .iot-hero,
+    .services-hero,
+    .cart-hero,
+    .hero-section {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .hero-inner {
+        min-width: 0;
+    }
+
+    .hero h1,
+    .hero-section h1,
+    .page-hero h1,
+    .contact-hero h1,
+    .iot-hero h1 {
+        font-size: clamp(32px, 9vw, 52px);
+        line-height: 1.08;
+        overflow-wrap: anywhere;
+    }
+
+    .hero p,
+    .hero-section p,
+    .page-hero p,
+    .contact-hero p,
+    .iot-hero p {
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTIONS
+       ----------------------------------------------------- */
+
+    section {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+
+    /* -----------------------------------------------------
+       GRIDS
+       ----------------------------------------------------- */
+
+    .grid,
+    .cards,
+    .card-grid,
+    .services-grid,
+    .service-grid,
+    .features-grid,
+    .packages-grid,
+    .pricing-grid,
+    .contact-cards,
+    .footer-grid,
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+
+    /* -----------------------------------------------------
+       FLEX LAYOUTS
+       ----------------------------------------------------- */
+
+    .hero-actions,
+    .actions,
+    .button-group,
+    .form-actions {
+        flex-wrap: wrap;
+    }
+
+
+    /* -----------------------------------------------------
+       BUTTONS
+       ----------------------------------------------------- */
+
+    .btn,
+    .button,
+    .cta-button,
+    .hero-actions a,
+    button[type="submit"],
+    input[type="submit"] {
+        min-height: 46px;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       FORMS
+       ----------------------------------------------------- */
+
+    form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    textarea {
+        min-height: 130px;
+    }
+
+
+    /* -----------------------------------------------------
+       CARDS
+       ----------------------------------------------------- */
+
+    .card,
+    .service-card,
+    .package-card,
+    .feature-card,
+    .contact-card,
+    .info-card,
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* -----------------------------------------------------
+       TEXT
+       ----------------------------------------------------- */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* -----------------------------------------------------
+       TABLES
+       ----------------------------------------------------- */
+
+    .table-wrapper,
+    .table-responsive,
+    .table-container {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    footer,
+    .footer {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .footer-grid {
+        display: grid;
+        gap: 30px;
+    }
+
+
+    /* -----------------------------------------------------
+       IMAGES
+       ----------------------------------------------------- */
+
+    .hero img,
+    .section img,
+    .service-card img,
+    .card img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* -----------------------------------------------------
+       VIDEO
+       ----------------------------------------------------- */
+
+    video {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .video-showcase,
+    .showcase-video,
+    .service-video-section {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       CODE / PRE
+       ----------------------------------------------------- */
+
+    pre,
+    code {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* -----------------------------------------------------
+       SEARCH
+       ----------------------------------------------------- */
+
+    .search-container,
+    .search-box,
+    .search-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       MODALS
+       ----------------------------------------------------- */
+
+    .modal,
+    .modal-content {
+        max-width: calc(100% - 24px);
+    }
+
+
+    /* -----------------------------------------------------
+       FIX COMMON ABSOLUTE ELEMENT OVERFLOW
+       ----------------------------------------------------- */
+
+    .hero *,
+    .section *,
+    .content *,
+    .main-content {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES — 600PX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .container,
+    .nav-inner,
+    .topbar-inner,
+    .top-bar-inner,
+    .top-bar-content,
+    .hero-inner,
+    .section-inner,
+    .content-inner {
+        width: calc(100% - 24px);
+    }
+
+
+    /* -----------------------------------------------------
+       NAV
+       ----------------------------------------------------- */
+
+    .navbar,
+    .nav-inner {
+        min-height: 64px;
+    }
+
+    .nav-inner {
+        width: calc(100% - 20px);
+    }
+
+    .logo img {
+        max-width: 135px;
+        max-height: 44px;
+    }
+
+    .menu-toggle,
+    .mobile-menu-button,
+    .mobile-menu-btn,
+    .menuBtn,
+    .menu-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero,
+    .page-hero,
+    .contact-hero,
+    .iot-hero,
+    .cart-hero {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .hero h1,
+    .page-hero h1,
+    .contact-hero h1,
+    .iot-hero h1 {
+        font-size: clamp(29px, 9vw, 42px);
+        line-height: 1.1;
+    }
+
+
+    /* -----------------------------------------------------
+       BUTTONS
+       ----------------------------------------------------- */
+
+    .hero-actions,
+    .actions,
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions a,
+    .hero-actions button,
+    .actions a,
+    .actions button,
+    .button-group a,
+    .button-group button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------------------
+       CARDS
+       ----------------------------------------------------- */
+
+    .card,
+    .service-card,
+    .package-card,
+    .feature-card,
+    .contact-card,
+    .pricing-card {
+        padding: 20px;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTIONS
+       ----------------------------------------------------- */
+
+    .section {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES — 420PX
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .container,
+    .hero-inner,
+    .section-inner,
+    .content-inner {
+        width: calc(100% - 20px);
+    }
+
+    .nav-inner {
+        width: calc(100% - 14px);
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+
+    .hero h1,
+    .page-hero h1,
+    .contact-hero h1,
+    .iot-hero h1 {
+        font-size: 29px;
+    }
+
+    .hero p,
+    .page-hero p,
+    .contact-hero p,
+    .iot-hero p {
+        font-size: 14px;
+    }
+
+    .card,
+    .service-card,
+    .package-card,
+    .feature-card,
+    .contact-card,
+    .pricing-card {
+        padding: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU ANIMATION
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle.active span:nth-child(1),
+    .mobile-menu-button.active span:nth-child(1),
+    .mobile-menu-btn.active span:nth-child(1),
+    .menuBtn.active span:nth-child(1),
+    .menu-btn.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2),
+    .mobile-menu-button.active span:nth-child(2),
+    .mobile-menu-btn.active span:nth-child(2),
+    .menuBtn.active span:nth-child(2),
+    .menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3),
+    .mobile-menu-button.active span:nth-child(3),
+    .mobile-menu-btn.active span:nth-child(3),
+    .menuBtn.active span:nth-child(3),
+    .menu-btn.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+}
+
+
+/* =========================================================
+   EXISTING MOBILE MENU ELEMENTS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .mobile-menu {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 1050;
+    }
+
+    .mobile-menu a {
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+        width: 100%;
+        text-decoration: none;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / TOUCH
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    a,
+    button,
+    input[type="button"],
+    input[type="submit"],
+    select {
+        touch-action: manipulation;
+    }
+
+    button,
+    a {
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+}
 </style>
 </head>
 
