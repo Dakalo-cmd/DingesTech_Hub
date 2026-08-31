@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Reseller Application | Dinges TechHub</title>
 
     <meta
         name="description"
-        content="Apply to become a Dinges TechHub reseller."
+        content="Apply to become a Dinges TechHub reseller and offer connectivity, hosting, VoIP and IT solutions to your customers."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
@@ -20,122 +30,220 @@
     >
 
     <style>
+
         :root {
+
             --purple-dark: #3C1542;
             --purple: #7A2C78;
             --gold: #FFBB42;
             --black: #020202;
             --white: #ffffff;
             --background: #f7f5f8;
+
             --success: #168a52;
             --danger: #c62828;
+
             --border: #ddd5df;
+
         }
 
+
         * {
+
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
         }
+
 
         html {
+
             scroll-behavior: smooth;
+
         }
+
 
         body {
-            font-family: "Inter", Arial, sans-serif;
+
+            font-family:
+                "Inter",
+                Arial,
+                sans-serif;
+
             background: var(--background);
+
             color: var(--black);
+
             font-size: 16px;
+
             line-height: 1.6;
+
         }
 
+
         a {
+
             color: inherit;
+
             text-decoration: none;
+
         }
+
 
         button,
         input,
         select,
         textarea {
+
             font-family: inherit;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            HEADER
-        ========================= */
+        ===================================================== */
 
         .site-header {
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
+
             width: 100%;
-            background: #fff;
-            border-bottom: 1px solid #e5dfe7;
+
+            background: #ffffff;
+
+            border-bottom:
+                1px solid #e5dfe7;
+
+            box-shadow:
+                0 2px 15px rgba(60, 21, 66, 0.04);
+
         }
 
+
         .nav-container {
+
             max-width: 1200px;
+
             min-height: 82px;
+
             margin: auto;
+
             padding: 12px 24px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 30px;
+
         }
+
 
         .logo {
+
             display: flex;
+
             align-items: center;
+
             flex-shrink: 0;
+
         }
+
 
         .logo img {
+
             width: 145px;
+
             height: auto;
+
             display: block;
+
         }
+
 
         .nav-menu {
+
             display: flex;
+
             align-items: center;
+
             justify-content: flex-end;
+
             flex-wrap: wrap;
+
             gap: 24px;
+
         }
+
 
         .nav-menu a {
-            color: var(--purple-dark);
+
+            color:
+                var(--purple-dark);
+
             font-size: 16px;
+
             font-weight: 700;
+
             white-space: nowrap;
-            transition: 0.25s ease;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease;
+
         }
+
 
         .nav-menu a:hover {
-            color: var(--purple);
+
+            color:
+                var(--purple);
+
         }
+
 
         .nav-cta {
-            background: var(--purple);
-            color: #fff !important;
-            padding: 11px 18px;
-            border-radius: 9px;
+
+            background:
+                var(--purple);
+
+            color:
+                #ffffff !important;
+
+            padding:
+                11px 18px;
+
+            border-radius:
+                9px;
+
         }
+
 
         .nav-cta:hover {
-            background: var(--purple-dark) !important;
-            transform: translateY(-1px);
+
+            background:
+                var(--purple-dark) !important;
+
+            transform:
+                translateY(-1px);
+
         }
 
-        /* =========================
+
+        /* =====================================================
            HERO
-        ========================= */
+        ===================================================== */
 
         .hero {
+
             background:
                 linear-gradient(
                     135deg,
@@ -143,501 +251,1220 @@
                     rgba(122, 44, 120, 0.96)
                 );
 
-            color: #fff;
-            text-align: center;
-            padding: 75px 20px;
+            color:
+                #ffffff;
+
+            text-align:
+                center;
+
+            padding:
+                75px 20px;
+
         }
+
 
         .hero-content {
-            max-width: 900px;
-            margin: auto;
+
+            max-width:
+                900px;
+
+            margin:
+                auto;
+
         }
+
 
         .hero-badge {
-            display: inline-block;
-            margin-bottom: 18px;
-            padding: 8px 16px;
 
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 30px;
+            display:
+                inline-block;
 
-            color: var(--gold);
-            font-size: 15px;
-            font-weight: 800;
-            letter-spacing: .4px;
+            margin-bottom:
+                18px;
+
+            padding:
+                8px 16px;
+
+            border:
+                1px solid rgba(255,255,255,0.35);
+
+            border-radius:
+                30px;
+
+            color:
+                var(--gold);
+
+            font-size:
+                15px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .4px;
+
         }
+
 
         .hero h1 {
-            font-family: "Manrope", sans-serif;
-            font-size: 46px;
-            line-height: 1.15;
-            font-weight: 800;
-            margin-bottom: 20px;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size:
+                46px;
+
+            line-height:
+                1.15;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                20px;
+
         }
+
 
         .hero p {
-            max-width: 760px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.7;
-            color: rgba(255,255,255,.93);
+
+            max-width:
+                760px;
+
+            margin:
+                auto;
+
+            font-size:
+                19px;
+
+            line-height:
+                1.7;
+
+            color:
+                rgba(255,255,255,.93);
+
         }
 
-        /* =========================
+
+        /* =====================================================
            MAIN
-        ========================= */
+        ===================================================== */
 
         .page-wrapper {
-            width: 100%;
-            padding: 60px 20px 80px;
+
+            width:
+                100%;
+
+            padding:
+                60px 20px 80px;
+
         }
+
 
         .content-container {
-            max-width: 1050px;
-            margin: auto;
+
+            max-width:
+                1050px;
+
+            margin:
+                auto;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            BENEFITS
-        ========================= */
+        ===================================================== */
 
         .benefits {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-bottom: 50px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap:
+                22px;
+
+            margin-bottom:
+                50px;
+
         }
+
 
         .benefit-card {
-            background: #fff;
-            border: 1px solid #e5dfe7;
-            border-radius: 15px;
-            padding: 28px 24px;
-            box-shadow: 0 8px 25px rgba(60,21,66,.06);
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e5dfe7;
+
+            border-radius:
+                15px;
+
+            padding:
+                28px 24px;
+
+            box-shadow:
+                0 8px 25px rgba(60,21,66,.06);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+
         }
+
+
+        .benefit-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(60,21,66,.10);
+
+        }
+
 
         .benefit-icon {
-            width: 52px;
-            height: 52px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width:
+                52px;
 
-            margin-bottom: 15px;
+            height:
+                52px;
 
-            border-radius: 12px;
-            background: rgba(122,44,120,.1);
+            display:
+                flex;
 
-            font-size: 26px;
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            margin-bottom:
+                15px;
+
+            border-radius:
+                12px;
+
+            background:
+                rgba(122,44,120,.1);
+
+            font-size:
+                26px;
+
         }
+
 
         .benefit-card h3 {
-            color: var(--purple-dark);
-            font-size: 21px;
-            margin-bottom: 8px;
+
+            color:
+                var(--purple-dark);
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                8px;
+
         }
+
 
         .benefit-card p {
-            color: #555;
-            font-size: 16px;
+
+            color:
+                #555;
+
+            font-size:
+                16px;
+
         }
 
-        /* =========================
-           FORM
-        ========================= */
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
 
         .form-card {
-            background: #fff;
-            border: 1px solid #e5dfe7;
-            border-radius: 18px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #e5dfe7;
+
+            border-radius:
+                18px;
 
             box-shadow:
                 0 15px 50px rgba(60,21,66,.09);
 
-            padding: 42px;
+            padding:
+                42px;
+
         }
+
 
         .form-header {
-            margin-bottom: 35px;
+
+            margin-bottom:
+                35px;
+
         }
+
 
         .form-header h2 {
-            font-family: "Manrope", sans-serif;
-            color: var(--purple-dark);
-            font-size: 32px;
-            margin-bottom: 8px;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            color:
+                var(--purple-dark);
+
+            font-size:
+                32px;
+
+            margin-bottom:
+                8px;
+
         }
+
 
         .form-header p {
-            color: #666;
-            font-size: 16px;
+
+            color:
+                #666;
+
+            font-size:
+                16px;
+
         }
+
 
         .section-title {
-            color: var(--purple-dark);
-            font-size: 21px;
-            font-weight: 800;
 
-            margin: 30px 0 18px;
-            padding-bottom: 10px;
+            color:
+                var(--purple-dark);
 
-            border-bottom: 2px solid #eee;
+            font-size:
+                21px;
+
+            font-weight:
+                800;
+
+            margin:
+                30px 0 18px;
+
+            padding-bottom:
+                10px;
+
+            border-bottom:
+                2px solid #eee;
+
         }
+
+
+        .section-title:first-of-type {
+
+            margin-top:
+                0;
+
+        }
+
 
         .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap:
+                20px;
+
         }
+
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
         }
+
 
         .form-group.full {
-            grid-column: 1 / -1;
+
+            grid-column:
+                1 / -1;
+
         }
+
 
         label {
-            color: #292929;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
+
+            color:
+                #292929;
+
+            font-size:
+                16px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                8px;
+
         }
+
 
         .required {
-            color: var(--danger);
+
+            color:
+                var(--danger);
+
         }
 
+
         .optional {
-            color: #777;
-            font-size: 13px;
-            font-weight: 500;
+
+            color:
+                #777;
+
+            font-size:
+                13px;
+
+            font-weight:
+                500;
+
         }
+
 
         input,
         select,
         textarea {
-            width: 100%;
 
-            padding: 14px 15px;
+            width:
+                100%;
 
-            border: 1px solid #cfc9d1;
-            border-radius: 9px;
+            padding:
+                14px 15px;
 
-            background: #fff;
-            color: var(--black);
+            border:
+                1px solid #cfc9d1;
 
-            font-size: 16px;
-            line-height: 1.4;
+            border-radius:
+                9px;
 
-            outline: none;
+            background:
+                #ffffff;
+
+            color:
+                var(--black);
+
+            font-size:
+                16px;
+
+            line-height:
+                1.4;
+
+            outline:
+                none;
 
             transition:
                 border-color .2s ease,
                 box-shadow .2s ease;
+
         }
+
 
         input:focus,
         select:focus,
         textarea:focus {
-            border-color: var(--purple);
+
+            border-color:
+                var(--purple);
 
             box-shadow:
-                0 0 0 3px rgba(122,44,120,.12);
+                0 0 0 3px
+                rgba(122,44,120,.12);
+
         }
+
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color:
+                #8a858c;
+
+        }
+
 
         textarea {
-            min-height: 130px;
-            resize: vertical;
+
+            min-height:
+                130px;
+
+            resize:
+                vertical;
+
         }
+
 
         .hint {
-            color: #777;
-            font-size: 14px;
-            margin-top: 6px;
+
+            color:
+                #777;
+
+            font-size:
+                14px;
+
+            margin-top:
+                6px;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            CHECKBOXES
-        ========================= */
+        ===================================================== */
 
         .checkbox-area {
-            margin-top: 28px;
-            padding: 20px;
 
-            border-radius: 10px;
+            margin-top:
+                28px;
 
-            background: #faf8fb;
-            border: 1px solid #e7e1e8;
+            padding:
+                20px;
+
+            border-radius:
+                10px;
+
+            background:
+                #faf8fb;
+
+            border:
+                1px solid #e7e1e8;
+
         }
+
 
         .checkbox-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
+
+            display:
+                flex;
+
+            align-items:
+                flex-start;
+
+            gap:
+                12px;
+
+            margin-bottom:
+                15px;
+
         }
+
 
         .checkbox-row:last-child {
-            margin-bottom: 0;
+
+            margin-bottom:
+                0;
+
         }
+
 
         .checkbox-row input {
-            width: 20px;
-            height: 20px;
-            margin-top: 3px;
-            flex-shrink: 0;
+
+            width:
+                20px;
+
+            height:
+                20px;
+
+            margin-top:
+                3px;
+
+            flex-shrink:
+                0;
+
+            accent-color:
+                var(--purple);
+
         }
+
 
         .checkbox-row label {
-            margin: 0;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.5;
+
+            margin:
+                0;
+
+            font-size:
+                15px;
+
+            font-weight:
+                500;
+
+            line-height:
+                1.5;
+
+            cursor:
+                pointer;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            SUBMIT
-        ========================= */
+        ===================================================== */
 
         .form-actions {
-            margin-top: 30px;
-            text-align: center;
+
+            margin-top:
+                30px;
+
+            text-align:
+                center;
+
         }
 
+
         .submit-button {
-            width: 100%;
 
-            border: 0;
-            border-radius: 10px;
+            width:
+                100%;
 
-            padding: 16px 24px;
+            border:
+                0;
 
-            background: var(--purple);
-            color: #fff;
+            border-radius:
+                10px;
 
-            font-size: 18px;
-            font-weight: 800;
+            padding:
+                16px 24px;
 
-            cursor: pointer;
+            background:
+                var(--purple);
+
+            color:
+                #ffffff;
+
+            font-size:
+                18px;
+
+            font-weight:
+                800;
+
+            cursor:
+                pointer;
 
             transition:
                 background .2s ease,
                 transform .2s ease,
                 box-shadow .2s ease;
+
         }
+
 
         .submit-button:hover {
-            background: var(--purple-dark);
-            transform: translateY(-2px);
+
+            background:
+                var(--purple-dark);
+
+            transform:
+                translateY(-2px);
 
             box-shadow:
-                0 10px 25px rgba(60,21,66,.2);
+                0 10px 25px
+                rgba(60,21,66,.2);
+
         }
+
 
         .submit-button:disabled {
-            opacity: .65;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+
+            opacity:
+                .65;
+
+            cursor:
+                not-allowed;
+
+            transform:
+                none;
+
+            box-shadow:
+                none;
+
         }
+
 
         .form-message {
-            display: none;
 
-            margin-top: 20px;
-            padding: 15px 18px;
+            display:
+                none;
 
-            border-radius: 9px;
+            margin-top:
+                20px;
 
-            font-size: 16px;
-            font-weight: 600;
+            padding:
+                15px 18px;
+
+            border-radius:
+                9px;
+
+            font-size:
+                16px;
+
+            font-weight:
+                600;
+
+            line-height:
+                1.5;
+
         }
+
 
         .form-message.success {
-            display: block;
-            background: #e9f8f0;
-            color: var(--success);
-            border: 1px solid #b8e5cb;
+
+            display:
+                block;
+
+            background:
+                #e9f8f0;
+
+            color:
+                var(--success);
+
+            border:
+                1px solid #b8e5cb;
+
         }
+
 
         .form-message.error {
-            display: block;
-            background: #fff0f0;
-            color: var(--danger);
-            border: 1px solid #efc2c2;
+
+            display:
+                block;
+
+            background:
+                #fff0f0;
+
+            color:
+                var(--danger);
+
+            border:
+                1px solid #efc2c2;
+
         }
 
-        /* =========================
+
+        /* =====================================================
            FOOTER
-        ========================= */
+        ===================================================== */
 
         footer {
-            background: var(--purple-dark);
-            color: #fff;
-            padding: 45px 20px 25px;
+
+            background:
+                var(--purple-dark);
+
+            color:
+                #ffffff;
+
+            padding:
+                45px 20px 25px;
+
         }
+
 
         .footer-container {
-            max-width: 1100px;
-            margin: auto;
-            text-align: center;
+
+            max-width:
+                1100px;
+
+            margin:
+                auto;
+
+            text-align:
+                center;
+
         }
+
 
         .footer-logo {
-            margin-bottom: 20px;
+
+            margin-bottom:
+                20px;
+
         }
+
 
         .footer-logo img {
-            width: 130px;
-            height: auto;
+
+            width:
+                130px;
+
+            height:
+                auto;
+
         }
+
 
         .footer-container p {
-            color: rgba(255,255,255,.8);
-            font-size: 15px;
+
+            color:
+                rgba(255,255,255,.8);
+
+            font-size:
+                15px;
+
         }
+
 
         .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 22px;
-            margin: 20px 0;
+
+            display:
+                flex;
+
+            justify-content:
+                center;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                22px;
+
+            margin:
+                20px 0;
+
         }
+
 
         .footer-links a {
-            color: #fff;
-            font-size: 15px;
+
+            color:
+                #ffffff;
+
+            font-size:
+                15px;
+
+            transition:
+                color .2s ease;
+
         }
+
 
         .footer-links a:hover {
-            color: var(--gold);
+
+            color:
+                var(--gold);
+
         }
+
 
         .copyright {
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,.15);
+
+            padding-top:
+                20px;
+
+            margin-top:
+                20px;
+
+            border-top:
+                1px solid rgba(255,255,255,.15);
+
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
         @media (max-width: 850px) {
 
             .nav-container {
-                flex-direction: column;
-                padding: 16px 20px;
+
+                flex-direction:
+                    column;
+
+                padding:
+                    16px 20px;
+
             }
+
 
             .nav-menu {
-                width: 100%;
-                justify-content: center;
-                gap: 14px 20px;
+
+                width:
+                    100%;
+
+                justify-content:
+                    center;
+
+                gap:
+                    14px 20px;
+
             }
+
 
             .benefits {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
+
             .hero h1 {
-                font-size: 38px;
+
+                font-size:
+                    38px;
+
             }
+
         }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 650px) {
 
             body {
-                font-size: 16px;
+
+                font-size:
+                    16px;
+
             }
+
+
+            .nav-container {
+
+                padding:
+                    14px 15px;
+
+                gap:
+                    14px;
+
+            }
+
+
+            .logo img {
+
+                width:
+                    130px;
+
+            }
+
+
+            .nav-menu {
+
+                display:
+                    grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                width:
+                    100%;
+
+                gap:
+                    10px;
+
+            }
+
+
+            .nav-menu a {
+
+                display:
+                    flex;
+
+                align-items:
+                    center;
+
+                justify-content:
+                    center;
+
+                min-height:
+                    42px;
+
+                padding:
+                    8px 10px;
+
+                font-size:
+                    14px;
+
+                text-align:
+                    center;
+
+                border-radius:
+                    8px;
+
+                background:
+                    #faf8fb;
+
+            }
+
+
+            .nav-menu .nav-cta {
+
+                grid-column:
+                    1 / -1;
+
+                background:
+                    var(--purple);
+
+            }
+
 
             .hero {
-                padding: 55px 18px;
+
+                padding:
+                    55px 18px;
+
             }
+
+
+            .hero-badge {
+
+                font-size:
+                    12px;
+
+                padding:
+                    7px 12px;
+
+            }
+
 
             .hero h1 {
-                font-size: 31px;
+
+                font-size:
+                    31px;
+
             }
+
 
             .hero p {
-                font-size: 17px;
+
+                font-size:
+                    17px;
+
             }
+
 
             .page-wrapper {
-                padding: 35px 14px 55px;
+
+                padding:
+                    35px 14px 55px;
+
             }
+
+
+            .benefit-card {
+
+                padding:
+                    24px 20px;
+
+            }
+
 
             .form-card {
-                padding: 25px 18px;
-                border-radius: 14px;
+
+                padding:
+                    25px 18px;
+
+                border-radius:
+                    14px;
+
             }
+
+
+            .form-header {
+
+                margin-bottom:
+                    28px;
+
+            }
+
 
             .form-header h2 {
-                font-size: 27px;
+
+                font-size:
+                    27px;
+
             }
+
 
             .form-grid {
-                grid-template-columns: 1fr;
-                gap: 17px;
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    17px;
+
             }
+
 
             .form-group.full {
-                grid-column: auto;
+
+                grid-column:
+                    auto;
+
             }
 
+
             .section-title {
-                font-size: 20px;
+
+                font-size:
+                    20px;
+
+                margin-top:
+                    27px;
+
             }
+
 
             input,
             select,
             textarea {
-                font-size: 16px;
-                padding: 14px;
+
+                font-size:
+                    16px;
+
+                padding:
+                    14px;
+
             }
+
 
             label {
-                font-size: 16px;
+
+                font-size:
+                    16px;
+
             }
 
-            .nav-menu a {
-                font-size: 15px;
+
+            .checkbox-area {
+
+                padding:
+                    16px;
+
             }
 
-            .logo img {
-                width: 130px;
+
+            .checkbox-row label {
+
+                font-size:
+                    14px;
+
             }
+
+
+            .submit-button {
+
+                font-size:
+                    17px;
+
+            }
+
         }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .nav-menu {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .nav-menu .nav-cta {
+
+                grid-column:
+                    auto;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    28px;
+
+            }
+
+        }
+
     </style>
+
 </head>
 
+
 <body>
+
+
+<!-- ==========================================================
+     HEADER
+=========================================================== -->
 
 <header class="site-header">
 
     <div class="nav-container">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="Dinges TechHub Home"
+        >
+
             <img
                 src="dingestech-logo.png"
                 alt="Dinges TechHub"
             >
+
         </a>
 
-        <nav class="nav-menu">
 
-            <a href="index.html">Home</a>
+        <nav
+            class="nav-menu"
+            aria-label="Main navigation"
+        >
 
-            <a href="services.html">Services</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="contact.html">Contact Us</a>
+            <a href="services.html">
+                Services
+            </a>
 
-            <a href="login.html">Login</a>
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
 
             <a
                 href="reseller-application.html"
@@ -652,6 +1479,10 @@
 
 </header>
 
+
+<!-- ==========================================================
+     HERO
+=========================================================== -->
 
 <section class="hero">
 
@@ -676,15 +1507,33 @@
 </section>
 
 
+<!-- ==========================================================
+     MAIN CONTENT
+=========================================================== -->
+
 <main class="page-wrapper">
 
     <div class="content-container">
 
-        <section class="benefits">
+
+        <!-- ==================================================
+             BENEFITS
+        =================================================== -->
+
+        <section
+            class="benefits"
+            aria-label="Reseller benefits"
+        >
+
 
             <div class="benefit-card">
 
-                <div class="benefit-icon">💼</div>
+                <div
+                    class="benefit-icon"
+                    aria-hidden="true"
+                >
+                    💼
+                </div>
 
                 <h3>
                     Grow Your Business
@@ -692,7 +1541,8 @@
 
                 <p>
                     Expand your service offering and provide
-                    professional technology solutions to your customers.
+                    professional technology solutions to your
+                    customers.
                 </p>
 
             </div>
@@ -700,7 +1550,12 @@
 
             <div class="benefit-card">
 
-                <div class="benefit-icon">🌐</div>
+                <div
+                    class="benefit-icon"
+                    aria-hidden="true"
+                >
+                    🌐
+                </div>
 
                 <h3>
                     Technology Solutions
@@ -716,21 +1571,31 @@
 
             <div class="benefit-card">
 
-                <div class="benefit-icon">🤝</div>
+                <div
+                    class="benefit-icon"
+                    aria-hidden="true"
+                >
+                    🤝
+                </div>
 
                 <h3>
                     Partner With Us
                 </h3>
 
                 <p>
-                    Work with Dinges TechHub as a technology reseller
-                    and build long-term customer relationships.
+                    Work with Dinges TechHub as a technology
+                    reseller and build long-term customer
+                    relationships.
                 </p>
 
             </div>
 
         </section>
 
+
+        <!-- ==================================================
+             APPLICATION FORM
+        =================================================== -->
 
         <section class="form-card">
 
@@ -741,9 +1606,10 @@
                 </h2>
 
                 <p>
-                    Complete the form below and submit your application.
-                    Our team will review your information and contact you
-                    regarding the next steps.
+                    Complete the form below and submit your
+                    application. Our team will review your
+                    information and contact you regarding the
+                    next steps.
                 </p>
 
             </div>
@@ -754,19 +1620,29 @@
                 novalidate
             >
 
-                <!-- APPLICANT INFORMATION -->
+
+                <!-- ==========================================
+                     APPLICANT INFORMATION
+                =========================================== -->
 
                 <h3 class="section-title">
                     Applicant Information
                 </h3>
 
+
                 <div class="form-grid">
+
 
                     <div class="form-group">
 
                         <label for="firstName">
+
                             First Name
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <input
@@ -775,6 +1651,7 @@
                             name="firstName"
                             placeholder="Enter your first name"
                             autocomplete="given-name"
+                            maxlength="100"
                             required
                         >
 
@@ -784,8 +1661,13 @@
                     <div class="form-group">
 
                         <label for="lastName">
+
                             Last Name
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <input
@@ -794,6 +1676,7 @@
                             name="lastName"
                             placeholder="Enter your last name"
                             autocomplete="family-name"
+                            maxlength="100"
                             required
                         >
 
@@ -803,8 +1686,13 @@
                     <div class="form-group">
 
                         <label for="email">
+
                             Email Address
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <input
@@ -813,6 +1701,7 @@
                             name="email"
                             placeholder="you@example.com"
                             autocomplete="email"
+                            maxlength="190"
                             required
                         >
 
@@ -822,8 +1711,13 @@
                     <div class="form-group">
 
                         <label for="phone">
+
                             Phone Number
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <input
@@ -832,27 +1726,38 @@
                             name="phone"
                             placeholder="e.g. 071 234 5678"
                             autocomplete="tel"
+                            maxlength="50"
                             required
                         >
 
                     </div>
 
+
                 </div>
 
 
-                <!-- BUSINESS INFORMATION -->
+                <!-- ==========================================
+                     BUSINESS INFORMATION
+                =========================================== -->
 
                 <h3 class="section-title">
                     Business Information
                 </h3>
 
+
                 <div class="form-grid">
+
 
                     <div class="form-group">
 
                         <label for="businessName">
+
                             Business Name
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <input
@@ -861,6 +1766,7 @@
                             name="businessName"
                             placeholder="Your business name"
                             autocomplete="organization"
+                            maxlength="200"
                             required
                         >
 
@@ -870,8 +1776,13 @@
                     <div class="form-group">
 
                         <label for="businessType">
+
                             Business Type
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <select
@@ -908,8 +1819,13 @@
                     <div class="form-group">
 
                         <label for="registrationNumber">
+
                             Company Registration Number
-                            <span class="optional">(Optional)</span>
+
+                            <span class="optional">
+                                (Optional)
+                            </span>
+
                         </label>
 
                         <input
@@ -917,6 +1833,7 @@
                             id="registrationNumber"
                             name="registrationNumber"
                             placeholder="Optional"
+                            maxlength="100"
                         >
 
                     </div>
@@ -925,8 +1842,13 @@
                     <div class="form-group">
 
                         <label for="website">
+
                             Business Website
-                            <span class="optional">(Optional)</span>
+
+                            <span class="optional">
+                                (Optional)
+                            </span>
+
                         </label>
 
                         <input
@@ -935,11 +1857,12 @@
                             name="website"
                             placeholder="https://example.co.za"
                             autocomplete="url"
+                            maxlength="500"
                         >
 
                         <div class="hint">
-                            You may leave this field blank if your business
-                            does not have a website.
+                            You may leave this field blank if your
+                            business does not have a website.
                         </div>
 
                     </div>
@@ -948,29 +1871,40 @@
                     <div class="form-group full">
 
                         <label for="businessAddress">
+
                             Business Address
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <textarea
                             id="businessAddress"
                             name="businessAddress"
                             placeholder="Enter your business address"
+                            maxlength="2000"
                             required
                         ></textarea>
 
                     </div>
 
+
                 </div>
 
 
-                <!-- RESELLER INFORMATION -->
+                <!-- ==========================================
+                     RESELLER INFORMATION
+                =========================================== -->
 
                 <h3 class="section-title">
                     Reseller Information
                 </h3>
 
+
                 <div class="form-grid">
+
 
                     <div class="form-group">
 
@@ -1051,14 +1985,20 @@
                     <div class="form-group full">
 
                         <label for="services">
+
                             Services You Are Interested In
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <textarea
                             id="services"
                             name="services"
                             placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
+                            maxlength="5000"
                             required
                         ></textarea>
 
@@ -1068,25 +2008,35 @@
                     <div class="form-group full">
 
                         <label for="message">
+
                             Tell Us About Your Business
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                         <textarea
                             id="message"
                             name="message"
                             placeholder="Tell us about your business, your target customers and why you would like to become a Dinges TechHub reseller."
+                            maxlength="5000"
                             required
                         ></textarea>
 
                     </div>
 
+
                 </div>
 
 
-                <!-- AGREEMENT -->
+                <!-- ==========================================
+                     AGREEMENTS
+                =========================================== -->
 
                 <div class="checkbox-area">
+
 
                     <div class="checkbox-row">
 
@@ -1099,9 +2049,15 @@
                         >
 
                         <label for="informationCorrect">
-                            I confirm that the information provided in
-                            this application is accurate and complete.
-                            <span class="required">*</span>
+
+                            I confirm that the information provided
+                            in this application is accurate and
+                            complete.
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                     </div>
@@ -1118,17 +2074,25 @@
                         >
 
                         <label for="contactPermission">
+
                             I agree that Dinges TechHub may contact me
                             regarding this reseller application.
-                            <span class="required">*</span>
+
+                            <span class="required">
+                                *
+                            </span>
+
                         </label>
 
                     </div>
 
+
                 </div>
 
 
-                <!-- SUBMIT -->
+                <!-- ==========================================
+                     SUBMIT
+                =========================================== -->
 
                 <div class="form-actions">
 
@@ -1140,13 +2104,16 @@
                         Submit Reseller Application
                     </button>
 
+
                     <div
                         id="formMessage"
                         class="form-message"
                         role="alert"
+                        aria-live="polite"
                     ></div>
 
                 </div>
+
 
             </form>
 
@@ -1157,13 +2124,21 @@
 </main>
 
 
+<!-- ==========================================================
+     FOOTER
+=========================================================== -->
+
 <footer>
 
     <div class="footer-container">
 
+
         <div class="footer-logo">
 
-            <a href="index.html">
+            <a
+                href="index.html"
+                aria-label="Dinges TechHub Home"
+            >
 
                 <img
                     src="dingestech-logo.png"
@@ -1182,13 +2157,21 @@
 
         <div class="footer-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="services.html">Services</a>
+            <a href="services.html">
+                Services
+            </a>
 
-            <a href="contact.html">Contact</a>
+            <a href="contact.html">
+                Contact
+            </a>
 
-            <a href="login.html">Login</a>
+            <a href="login.html">
+                Login
+            </a>
 
         </div>
 
@@ -1198,62 +2181,71 @@
             <p>
                 &copy;
                 <span id="year"></span>
-                Dinges TechHub. All rights reserved.
+                Dinges TechHub.
+                All rights reserved.
             </p>
 
         </div>
+
 
     </div>
 
 </footer>
 
 
+<!-- ==========================================================
+     JAVASCRIPT
+=========================================================== -->
+
 <script>
 
-    /* =========================
-       CONFIGURATION
-    ========================= */
 
-    /*
-     * IMPORTANT:
-     * Change this ONLY if your PHP file has
-     * a different filename or location.
-     *
-     * Example:
-     * https://dingestech-hub.mathagudakalo362.workers.dev/api/reseller.php
-     */
+    /* ========================================================
+       API CONFIGURATION
+    ======================================================== */
 
     const API_URL =
-        "/api/reseller.php";
+        "https://register.web.za/api/reseller-application.php";
 
 
-    /* =========================
+    /* ========================================================
        CURRENT YEAR
-    ========================= */
+    ======================================================== */
 
     document.getElementById("year").textContent =
         new Date().getFullYear();
 
 
-    /* =========================
+    /* ========================================================
        FORM ELEMENTS
-    ========================= */
+    ======================================================== */
 
     const form =
-        document.getElementById("resellerApplicationForm");
+        document.getElementById(
+            "resellerApplicationForm"
+        );
+
 
     const submitButton =
-        document.getElementById("submitButton");
+        document.getElementById(
+            "submitButton"
+        );
+
 
     const formMessage =
-        document.getElementById("formMessage");
+        document.getElementById(
+            "formMessage"
+        );
 
 
-    /* =========================
+    /* ========================================================
        MESSAGE FUNCTION
-    ========================= */
+    ======================================================== */
 
-    function showMessage(type, message) {
+    function showMessage(
+        type,
+        message
+    ) {
 
         formMessage.className =
             "form-message " + type;
@@ -1262,186 +2254,354 @@
             message;
 
         formMessage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+
+            behavior:
+                "smooth",
+
+            block:
+                "center"
+
         });
+
     }
 
 
-    /* =========================
+    /* ========================================================
        FORM SUBMISSION
-    ========================= */
+    ======================================================== */
 
-    form.addEventListener("submit", async function (event) {
+    form.addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
-
-        formMessage.className =
-            "form-message";
-
-        formMessage.textContent = "";
-
-
-        /*
-         * Browser validation.
-         */
-
-        if (!form.checkValidity()) {
-
-            form.reportValidity();
-
-            return;
-        }
-
-
-        /*
-         * Disable button while submitting.
-         */
-
-        submitButton.disabled = true;
-
-        submitButton.textContent =
-            "Submitting Application...";
-
-
-        /*
-         * Collect form data.
-         */
-
-        const formData =
-            new FormData(form);
-
-
-        /*
-         * IMPORTANT:
-         *
-         * Business website is OPTIONAL.
-         * FormData will send an empty value if
-         * the applicant leaves it blank.
-         */
-
-
-        try {
-
-            const response =
-                await fetch(API_URL, {
-
-                    method: "POST",
-
-                    body: formData,
-
-                    headers: {
-                        "Accept": "application/json"
-                    }
-
-                });
+            event.preventDefault();
 
 
             /*
-             * Get raw server response first.
+             * Clear previous message
              */
 
-            const rawResponse =
-                await response.text();
+            formMessage.className =
+                "form-message";
 
-
-            let result;
+            formMessage.textContent =
+                "";
 
 
             /*
-             * Attempt to decode JSON.
+             * Browser validation
              */
+
+            if (!form.checkValidity()) {
+
+                form.reportValidity();
+
+                return;
+
+            }
+
+
+            /*
+             * Disable submit button
+             */
+
+            submitButton.disabled =
+                true;
+
+            submitButton.textContent =
+                "Submitting Application...";
+
+
+            /*
+             * Build JSON payload
+             *
+             * IMPORTANT:
+             * The PHP API expects JSON.
+             */
+
+            const payload = {
+
+                firstName:
+                    document
+                        .getElementById("firstName")
+                        .value
+                        .trim(),
+
+                lastName:
+                    document
+                        .getElementById("lastName")
+                        .value
+                        .trim(),
+
+                email:
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim(),
+
+                phone:
+                    document
+                        .getElementById("phone")
+                        .value
+                        .trim(),
+
+                businessName:
+                    document
+                        .getElementById("businessName")
+                        .value
+                        .trim(),
+
+                businessType:
+                    document
+                        .getElementById("businessType")
+                        .value,
+
+                registrationNumber:
+                    document
+                        .getElementById("registrationNumber")
+                        .value
+                        .trim(),
+
+                website:
+                    document
+                        .getElementById("website")
+                        .value
+                        .trim(),
+
+                businessAddress:
+                    document
+                        .getElementById("businessAddress")
+                        .value
+                        .trim(),
+
+                experience:
+                    document
+                        .getElementById("experience")
+                        .value,
+
+                customerBase:
+                    document
+                        .getElementById("customerBase")
+                        .value,
+
+                services:
+                    document
+                        .getElementById("services")
+                        .value
+                        .trim(),
+
+                message:
+                    document
+                        .getElementById("message")
+                        .value
+                        .trim(),
+
+                informationCorrect:
+                    document
+                        .getElementById(
+                            "informationCorrect"
+                        )
+                        .checked,
+
+                contactPermission:
+                    document
+                        .getElementById(
+                            "contactPermission"
+                        )
+                        .checked
+
+            };
+
+
+            console.log(
+                "Submitting reseller application..."
+            );
+
 
             try {
 
-                result =
-                    JSON.parse(rawResponse);
 
-            } catch (jsonError) {
+                /* ==========================================
+                   SEND JSON TO PHP
+                =========================================== */
 
-                console.error(
-                    "Invalid server response:",
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+
+                        }
+                    );
+
+
+                /* ==========================================
+                   READ RAW RESPONSE
+                =========================================== */
+
+                const rawResponse =
+                    await response.text();
+
+
+                console.log(
+                    "Reseller API response:",
                     rawResponse
                 );
 
-                throw new Error(
-                    "The server returned an invalid response."
-                );
-            }
+
+                let result;
 
 
-            /*
-             * Handle unsuccessful HTTP response.
-             */
+                /* ==========================================
+                   DECODE JSON
+                =========================================== */
 
-            if (!response.ok) {
+                try {
 
-                throw new Error(
+                    result =
+                        JSON.parse(
+                            rawResponse
+                        );
+
+                } catch (jsonError) {
+
+                    console.error(
+                        "Invalid JSON returned by API:",
+                        rawResponse
+                    );
+
+                    throw new Error(
+                        "The server returned an invalid response. Please contact Dinges TechHub."
+                    );
+
+                }
+
+
+                /* ==========================================
+                   HTTP ERROR
+                =========================================== */
+
+                if (!response.ok) {
+
+                    throw new Error(
+
+                        result.message ||
+
+                        "The server could not process your application."
+
+                    );
+
+                }
+
+
+                /* ==========================================
+                   APPLICATION ERROR
+                =========================================== */
+
+                if (!result.success) {
+
+                    throw new Error(
+
+                        result.message ||
+
+                        "Your application could not be submitted."
+
+                    );
+
+                }
+
+
+                /* ==========================================
+                   SUCCESS
+                =========================================== */
+
+                let successMessage =
                     result.message ||
-                    "The server could not process your application."
+                    "Your reseller application has been submitted successfully.";
+
+
+                if (
+                    result.application_reference
+                ) {
+
+                    successMessage +=
+                        " Your application reference is " +
+                        result.application_reference +
+                        ".";
+
+                }
+
+
+                showMessage(
+                    "success",
+                    successMessage
                 );
-            }
 
 
-            /*
-             * Handle PHP API result.
-             */
+                /* ==========================================
+                   RESET FORM
+                =========================================== */
 
-            if (!result.success) {
+                form.reset();
 
-                throw new Error(
-                    result.message ||
-                    "Your application could not be submitted."
+
+            } catch (error) {
+
+
+                console.error(
+                    "Reseller application error:",
+                    error
                 );
+
+
+                showMessage(
+
+                    "error",
+
+                    error.message ||
+
+                    "Unable to submit your reseller application. Please try again."
+
+                );
+
+
+            } finally {
+
+
+                /* ==========================================
+                   RE-ENABLE BUTTON
+                =========================================== */
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Submit Reseller Application";
+
             }
-
-
-            /*
-             * SUCCESS
-             */
-
-            showMessage(
-                "success",
-                result.message ||
-                "Thank you. Your reseller application has been submitted successfully."
-            );
-
-
-            /*
-             * Clear the form after successful
-             * submission.
-             */
-
-            form.reset();
-
-
-        } catch (error) {
-
-            console.error(
-                "Reseller application error:",
-                error
-            );
-
-
-            showMessage(
-                "error",
-                error.message ||
-                "Unable to submit your reseller application. Please try again."
-            );
-
-
-        } finally {
-
-            submitButton.disabled = false;
-
-            submitButton.textContent =
-                "Submit Reseller Application";
 
         }
-
-    });
+    );
 
 </script>
+
 
 </body>
 </html>
