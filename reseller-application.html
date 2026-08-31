@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Reseller Application | Dinges TechHub</title>
 
     <meta
         name="description"
-        content="Apply to become a Dinges TechHub reseller and grow your technology business with connectivity, hosting, VoIP and IT solutions."
+        content="Apply to become a Dinges TechHub reseller."
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,225 +20,122 @@
     >
 
     <style>
-
-        /* =====================================================
-           DINGES TECHHUB - RESELLER APPLICATION
-        ===================================================== */
-
         :root {
-
             --purple-dark: #3C1542;
             --purple: #7A2C78;
             --gold: #FFBB42;
-
             --black: #020202;
-            --grey: #949393;
-            --light-grey: #D9D9D9;
-
             --white: #ffffff;
-
             --background: #f7f5f8;
-
             --success: #168a52;
             --danger: #c62828;
-
-            --border: #ddd7df;
-
+            --border: #ddd5df;
         }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
 
         * {
-
             margin: 0;
             padding: 0;
-
             box-sizing: border-box;
-
         }
-
 
         html {
-
             scroll-behavior: smooth;
-
         }
-
 
         body {
-
-            font-family:
-                "Inter",
-                Arial,
-                sans-serif;
-
+            font-family: "Inter", Arial, sans-serif;
             background: var(--background);
-
             color: var(--black);
-
-            font-size: 17px;
-
+            font-size: 16px;
             line-height: 1.6;
-
         }
-
 
         a {
-
             color: inherit;
-
             text-decoration: none;
-
         }
-
 
         button,
         input,
         select,
         textarea {
-
             font-family: inherit;
-
         }
 
-
-        /* =====================================================
+        /* =========================
            HEADER
-        ===================================================== */
+        ========================= */
 
         .site-header {
-
-            width: 100%;
-
-            background: var(--white);
-
-            border-bottom:
-                1px solid #e7e2e8;
-
             position: sticky;
-
             top: 0;
-
             z-index: 1000;
-
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #e5dfe7;
         }
 
-
         .nav-container {
-
             max-width: 1200px;
-
             min-height: 82px;
-
             margin: auto;
-
             padding: 12px 24px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 30px;
-
         }
-
 
         .logo {
-
             display: flex;
-
             align-items: center;
-
             flex-shrink: 0;
-
         }
-
 
         .logo img {
-
             width: 145px;
-
-            max-width: 100%;
-
             height: auto;
-
             display: block;
-
         }
-
 
         .nav-menu {
-
             display: flex;
-
             align-items: center;
-
             justify-content: flex-end;
-
             flex-wrap: wrap;
-
-            gap: 14px 26px;
-
+            gap: 24px;
         }
-
 
         .nav-menu a {
-
-            font-size: 17px;
-
-            font-weight: 700;
-
             color: var(--purple-dark);
-
-            transition:
-                color 0.25s ease,
-                transform 0.25s ease;
-
+            font-size: 16px;
+            font-weight: 700;
             white-space: nowrap;
-
+            transition: 0.25s ease;
         }
-
 
         .nav-menu a:hover {
-
             color: var(--purple);
-
-            transform: translateY(-1px);
-
         }
-
 
         .nav-cta {
-
             background: var(--purple);
-
-            color: var(--white) !important;
-
-            padding: 12px 19px;
-
+            color: #fff !important;
+            padding: 11px 18px;
             border-radius: 9px;
-
         }
-
 
         .nav-cta:hover {
-
-            background: var(--purple-dark);
-
+            background: var(--purple-dark) !important;
+            transform: translateY(-1px);
         }
 
-
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================= */
 
         .hero {
-
             background:
                 linear-gradient(
                     135deg,
@@ -251,1074 +143,505 @@
                     rgba(122, 44, 120, 0.96)
                 );
 
-            color: var(--white);
-
-            padding: 85px 20px;
-
+            color: #fff;
             text-align: center;
-
+            padding: 75px 20px;
         }
-
 
         .hero-content {
-
             max-width: 900px;
-
             margin: auto;
-
         }
 
-
         .hero-badge {
-
             display: inline-block;
+            margin-bottom: 18px;
+            padding: 8px 16px;
 
-            padding: 8px 17px;
-
-            margin-bottom: 20px;
-
-            border:
-                1px solid rgba(255,255,255,0.3);
-
+            border: 1px solid rgba(255,255,255,0.35);
             border-radius: 30px;
 
             color: var(--gold);
-
-            font-size: 16px;
-
+            font-size: 15px;
             font-weight: 800;
-
-            letter-spacing: 0.5px;
-
+            letter-spacing: .4px;
         }
-
 
         .hero h1 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size: 48px;
-
+            font-family: "Manrope", sans-serif;
+            font-size: 46px;
             line-height: 1.15;
-
-            margin-bottom: 20px;
-
             font-weight: 800;
-
+            margin-bottom: 20px;
         }
-
 
         .hero p {
-
-            max-width: 780px;
-
+            max-width: 760px;
             margin: auto;
-
-            font-size: 20px;
-
+            font-size: 19px;
             line-height: 1.7;
-
-            color:
-                rgba(255,255,255,0.94);
-
+            color: rgba(255,255,255,.93);
         }
 
-
-        /* =====================================================
+        /* =========================
            MAIN
-        ===================================================== */
+        ========================= */
 
         .page-wrapper {
-
             width: 100%;
-
-            padding:
-                60px 20px 80px;
-
+            padding: 60px 20px 80px;
         }
-
 
         .content-container {
-
             max-width: 1050px;
-
             margin: auto;
-
         }
 
-
-        /* =====================================================
+        /* =========================
            BENEFITS
-        ===================================================== */
+        ========================= */
 
         .benefits {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 22px;
-
             margin-bottom: 50px;
-
         }
-
 
         .benefit-card {
-
-            background: var(--white);
-
-            border:
-                1px solid #e7e1e8;
-
+            background: #fff;
+            border: 1px solid #e5dfe7;
             border-radius: 15px;
-
-            padding: 30px 25px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(60, 21, 66, 0.06);
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-
+            padding: 28px 24px;
+            box-shadow: 0 8px 25px rgba(60,21,66,.06);
         }
-
-
-        .benefit-card:hover {
-
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 14px 32px
-                rgba(60, 21, 66, 0.10);
-
-        }
-
 
         .benefit-icon {
-
             width: 52px;
-
             height: 52px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             margin-bottom: 15px;
 
             border-radius: 12px;
-
-            background:
-                rgba(122,44,120,0.1);
+            background: rgba(122,44,120,.1);
 
             font-size: 26px;
-
         }
-
 
         .benefit-card h3 {
-
-            font-size: 22px;
-
-            margin-bottom: 9px;
-
             color: var(--purple-dark);
-
+            font-size: 21px;
+            margin-bottom: 8px;
         }
-
 
         .benefit-card p {
-
-            font-size: 17px;
-
             color: #555;
-
-            line-height: 1.65;
-
+            font-size: 16px;
         }
 
-
-        /* =====================================================
-           FORM CARD
-        ===================================================== */
+        /* =========================
+           FORM
+        ========================= */
 
         .form-card {
-
-            background: var(--white);
-
+            background: #fff;
+            border: 1px solid #e5dfe7;
             border-radius: 18px;
 
-            border:
-                1px solid #e5dfe7;
-
             box-shadow:
-                0 15px 50px
-                rgba(60, 21, 66, 0.09);
+                0 15px 50px rgba(60,21,66,.09);
 
-            padding: 44px;
-
+            padding: 42px;
         }
-
 
         .form-header {
-
             margin-bottom: 35px;
-
         }
-
 
         .form-header h2 {
-
-            font-family:
-                "Manrope",
-                sans-serif;
-
-            font-size: 34px;
-
+            font-family: "Manrope", sans-serif;
             color: var(--purple-dark);
-
-            margin-bottom: 9px;
-
+            font-size: 32px;
+            margin-bottom: 8px;
         }
-
 
         .form-header p {
-
-            font-size: 17px;
-
             color: #666;
-
-            line-height: 1.7;
-
+            font-size: 16px;
         }
-
-
-        /* =====================================================
-           SECTION TITLE
-        ===================================================== */
 
         .section-title {
-
-            font-size: 23px;
-
             color: var(--purple-dark);
-
+            font-size: 21px;
             font-weight: 800;
 
-            margin:
-                32px 0 20px;
-
+            margin: 30px 0 18px;
             padding-bottom: 10px;
 
-            border-bottom:
-                2px solid #eee;
-
+            border-bottom: 2px solid #eee;
         }
-
-
-        /* =====================================================
-           FORM GRID
-        ===================================================== */
 
         .form-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 21px;
-
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
-
 
         .form-group {
-
             display: flex;
-
             flex-direction: column;
-
         }
-
 
         .form-group.full {
-
-            grid-column:
-                1 / -1;
-
+            grid-column: 1 / -1;
         }
-
-
-        /* =====================================================
-           LABELS
-        ===================================================== */
 
         label {
-
-            font-size: 17px;
-
-            font-weight: 700;
-
             color: #292929;
-
+            font-size: 16px;
+            font-weight: 700;
             margin-bottom: 8px;
-
         }
 
-
-        label .required {
-
+        .required {
             color: var(--danger);
-
         }
 
-
-        label .optional {
-
+        .optional {
             color: #777;
-
-            font-size: 14px;
-
+            font-size: 13px;
             font-weight: 500;
-
-            margin-left: 5px;
-
         }
-
-
-        /* =====================================================
-           INPUTS
-        ===================================================== */
 
         input,
         select,
         textarea {
-
             width: 100%;
 
-            border:
-                1px solid #cfc9d1;
+            padding: 14px 15px;
 
+            border: 1px solid #cfc9d1;
             border-radius: 9px;
 
-            background: var(--white);
-
-            padding:
-                14px 15px;
-
-            font-size: 17px;
-
-            line-height: 1.45;
-
+            background: #fff;
             color: var(--black);
+
+            font-size: 16px;
+            line-height: 1.4;
 
             outline: none;
 
             transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-
+                border-color .2s ease,
+                box-shadow .2s ease;
         }
-
-
-        input::placeholder,
-        textarea::placeholder {
-
-            color: #888;
-
-        }
-
 
         input:focus,
         select:focus,
         textarea:focus {
-
-            border-color:
-                var(--purple);
+            border-color: var(--purple);
 
             box-shadow:
-                0 0 0 3px
-                rgba(122,44,120,0.12);
-
+                0 0 0 3px rgba(122,44,120,.12);
         }
-
-
-        input:invalid:not(:placeholder-shown),
-        select:invalid,
-        textarea:invalid:not(:placeholder-shown) {
-
-            border-color:
-                #d9a0a0;
-
-        }
-
 
         textarea {
-
-            min-height: 135px;
-
+            min-height: 130px;
             resize: vertical;
-
         }
-
 
         .hint {
-
-            font-size: 14px;
-
             color: #777;
-
+            font-size: 14px;
             margin-top: 6px;
-
-            line-height: 1.5;
-
         }
 
-
-        /* =====================================================
+        /* =========================
            CHECKBOXES
-        ===================================================== */
+        ========================= */
 
         .checkbox-area {
-
-            margin-top: 30px;
-
-            padding: 21px;
+            margin-top: 28px;
+            padding: 20px;
 
             border-radius: 10px;
 
             background: #faf8fb;
-
-            border:
-                1px solid #e7e1e8;
-
+            border: 1px solid #e7e1e8;
         }
-
 
         .checkbox-row {
-
             display: flex;
-
             align-items: flex-start;
-
             gap: 12px;
-
-            margin-bottom: 16px;
-
+            margin-bottom: 15px;
         }
-
 
         .checkbox-row:last-child {
-
             margin-bottom: 0;
-
         }
-
 
         .checkbox-row input {
-
             width: 20px;
-
             height: 20px;
-
-            margin-top: 4px;
-
-            padding: 0;
-
+            margin-top: 3px;
             flex-shrink: 0;
-
-            accent-color:
-                var(--purple);
-
         }
-
 
         .checkbox-row label {
-
             margin: 0;
-
-            font-size: 16px;
-
+            font-size: 15px;
             font-weight: 500;
-
-            line-height: 1.55;
-
+            line-height: 1.5;
         }
 
-
-        /* =====================================================
-           HONEYPOT
-        ===================================================== */
-
-        .website-field {
-
-            position: absolute !important;
-
-            left: -9999px !important;
-
-            width: 1px !important;
-
-            height: 1px !important;
-
-            overflow: hidden !important;
-
-        }
-
-
-        /* =====================================================
+        /* =========================
            SUBMIT
-        ===================================================== */
+        ========================= */
 
         .form-actions {
-
-            margin-top: 32px;
-
+            margin-top: 30px;
             text-align: center;
-
         }
 
-
         .submit-button {
-
             width: 100%;
 
             border: 0;
-
-            padding:
-                17px 24px;
-
             border-radius: 10px;
 
-            background:
-                var(--purple);
+            padding: 16px 24px;
 
-            color: var(--white);
+            background: var(--purple);
+            color: #fff;
 
-            font-size: 19px;
-
+            font-size: 18px;
             font-weight: 800;
 
             cursor: pointer;
 
             transition:
-                background 0.2s ease,
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-
+                background .2s ease,
+                transform .2s ease,
+                box-shadow .2s ease;
         }
-
 
         .submit-button:hover {
-
-            background:
-                var(--purple-dark);
-
-            transform:
-                translateY(-2px);
+            background: var(--purple-dark);
+            transform: translateY(-2px);
 
             box-shadow:
-                0 10px 25px
-                rgba(60,21,66,0.2);
-
+                0 10px 25px rgba(60,21,66,.2);
         }
-
 
         .submit-button:disabled {
-
-            opacity: 0.65;
-
+            opacity: .65;
             cursor: not-allowed;
-
             transform: none;
-
             box-shadow: none;
-
         }
 
-
-        /* =====================================================
-           MESSAGE
-        ===================================================== */
-
         .form-message {
-
             display: none;
 
             margin-top: 20px;
-
-            padding:
-                15px 18px;
+            padding: 15px 18px;
 
             border-radius: 9px;
 
             font-size: 16px;
-
             font-weight: 600;
-
-            line-height: 1.5;
-
         }
-
 
         .form-message.success {
-
             display: block;
-
             background: #e9f8f0;
-
             color: var(--success);
-
-            border:
-                1px solid #b8e5cb;
-
+            border: 1px solid #b8e5cb;
         }
-
 
         .form-message.error {
-
             display: block;
-
             background: #fff0f0;
-
             color: var(--danger);
-
-            border:
-                1px solid #efc2c2;
-
+            border: 1px solid #efc2c2;
         }
 
-
-        /* =====================================================
+        /* =========================
            FOOTER
-        ===================================================== */
+        ========================= */
 
         footer {
-
-            background:
-                var(--purple-dark);
-
-            color:
-                var(--white);
-
-            padding:
-                45px 20px 25px;
-
+            background: var(--purple-dark);
+            color: #fff;
+            padding: 45px 20px 25px;
         }
-
 
         .footer-container {
-
             max-width: 1100px;
-
             margin: auto;
-
             text-align: center;
-
         }
-
 
         .footer-logo {
-
             margin-bottom: 20px;
-
         }
-
 
         .footer-logo img {
-
             width: 130px;
-
             height: auto;
-
         }
-
 
         .footer-container p {
-
-            font-size: 16px;
-
-            color:
-                rgba(255,255,255,0.8);
-
+            color: rgba(255,255,255,.8);
+            font-size: 15px;
         }
-
 
         .footer-links {
-
             display: flex;
-
             justify-content: center;
-
             flex-wrap: wrap;
-
             gap: 22px;
-
             margin: 20px 0;
-
         }
-
 
         .footer-links a {
-
-            font-size: 16px;
-
-            color:
-                var(--white);
-
-            transition:
-                color 0.2s ease;
-
+            color: #fff;
+            font-size: 15px;
         }
-
 
         .footer-links a:hover {
-
-            color:
-                var(--gold);
-
+            color: var(--gold);
         }
-
 
         .copyright {
-
             padding-top: 20px;
-
             margin-top: 20px;
-
-            border-top:
-                1px solid
-                rgba(255,255,255,0.15);
-
+            border-top: 1px solid rgba(255,255,255,.15);
         }
 
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 850px) {
 
             .nav-container {
-
                 flex-direction: column;
-
-                padding:
-                    16px 20px;
-
-                gap: 16px;
-
+                padding: 16px 20px;
             }
-
 
             .nav-menu {
-
                 width: 100%;
-
-                justify-content:
-                    center;
-
+                justify-content: center;
+                gap: 14px 20px;
             }
-
 
             .benefits {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
             }
-
 
             .hero h1 {
-
-                font-size: 40px;
-
+                font-size: 38px;
             }
-
         }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
 
         @media (max-width: 650px) {
 
             body {
-
                 font-size: 16px;
-
             }
-
-
-            .site-header {
-
-                position: relative;
-
-            }
-
-
-            .nav-container {
-
-                padding:
-                    15px 14px;
-
-            }
-
-
-            .logo img {
-
-                width: 130px;
-
-            }
-
-
-            .nav-menu {
-
-                gap:
-                    10px 12px;
-
-            }
-
-
-            .nav-menu a {
-
-                font-size: 15px;
-
-            }
-
-
-            .nav-cta {
-
-                padding:
-                    10px 13px;
-
-            }
-
 
             .hero {
-
-                padding:
-                    58px 18px;
-
+                padding: 55px 18px;
             }
-
-
-            .hero-badge {
-
-                font-size: 13px;
-
-                padding:
-                    7px 12px;
-
-            }
-
 
             .hero h1 {
-
                 font-size: 31px;
-
-                line-height: 1.2;
-
             }
-
 
             .hero p {
-
                 font-size: 17px;
-
             }
-
 
             .page-wrapper {
-
-                padding:
-                    35px 14px 55px;
-
+                padding: 35px 14px 55px;
             }
-
-
-            .benefit-card {
-
-                padding:
-                    25px 20px;
-
-            }
-
-
-            .benefit-card h3 {
-
-                font-size: 20px;
-
-            }
-
-
-            .benefit-card p {
-
-                font-size: 16px;
-
-            }
-
 
             .form-card {
-
-                padding:
-                    26px 18px;
-
-                border-radius:
-                    14px;
-
+                padding: 25px 18px;
+                border-radius: 14px;
             }
-
 
             .form-header h2 {
-
-                font-size: 28px;
-
+                font-size: 27px;
             }
-
-
-            .form-header p {
-
-                font-size: 16px;
-
-            }
-
-
-            .section-title {
-
-                font-size: 20px;
-
-                margin-top: 27px;
-
-            }
-
 
             .form-grid {
-
-                grid-template-columns:
-                    1fr;
-
+                grid-template-columns: 1fr;
                 gap: 17px;
-
             }
-
 
             .form-group.full {
-
                 grid-column: auto;
-
             }
 
+            .section-title {
+                font-size: 20px;
+            }
 
             input,
             select,
             textarea {
-
                 font-size: 16px;
-
-                padding:
-                    14px;
-
+                padding: 14px;
             }
-
 
             label {
-
                 font-size: 16px;
-
             }
 
-
-            .checkbox-row label {
-
+            .nav-menu a {
                 font-size: 15px;
-
             }
 
-
-            .submit-button {
-
-                font-size: 17px;
-
-                padding:
-                    15px 20px;
-
+            .logo img {
+                width: 130px;
             }
-
-
-            footer {
-
-                padding:
-                    40px 18px 22px;
-
-            }
-
         }
-
     </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     HEADER
-====================================================== -->
 
 <header class="site-header">
 
     <div class="nav-container">
 
-
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="Dinges TechHub Home"
-        >
-
+        <a href="index.html" class="logo">
             <img
                 src="dingestech-logo.png"
                 alt="Dinges TechHub"
             >
-
         </a>
 
+        <nav class="nav-menu">
 
-        <nav
-            class="nav-menu"
-            aria-label="Main navigation"
-        >
+            <a href="index.html">Home</a>
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="services.html">Services</a>
 
-            <a href="services.html">
-                Services
-            </a>
+            <a href="contact.html">Contact Us</a>
 
-            <a href="contact.html">
-                Contact Us
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
+            <a href="login.html">Login</a>
 
             <a
                 href="reseller-application.html"
                 class="nav-cta"
-                aria-current="page"
             >
                 Become a Reseller
             </a>
@@ -1330,11 +653,6 @@
 </header>
 
 
-
-<!-- =====================================================
-     HERO
-====================================================== -->
-
 <section class="hero">
 
     <div class="hero-content">
@@ -1343,11 +661,9 @@
             DINGES TECHHUB PARTNER PROGRAM
         </span>
 
-
         <h1>
             Become a Dinges TechHub Reseller
         </h1>
-
 
         <p>
             Grow your business by offering reliable technology,
@@ -1360,62 +676,35 @@
 </section>
 
 
-
-<!-- =====================================================
-     MAIN
-====================================================== -->
-
 <main class="page-wrapper">
 
     <div class="content-container">
 
-
-        <!-- =================================================
-             BENEFITS
-        ================================================== -->
-
         <section class="benefits">
-
 
             <div class="benefit-card">
 
-                <div
-                    class="benefit-icon"
-                    aria-hidden="true"
-                >
-                    💼
-                </div>
-
+                <div class="benefit-icon">💼</div>
 
                 <h3>
                     Grow Your Business
                 </h3>
 
-
                 <p>
                     Expand your service offering and provide
-                    professional technology solutions to your
-                    customers.
+                    professional technology solutions to your customers.
                 </p>
 
             </div>
 
 
-
             <div class="benefit-card">
 
-                <div
-                    class="benefit-icon"
-                    aria-hidden="true"
-                >
-                    🌐
-                </div>
-
+                <div class="benefit-icon">🌐</div>
 
                 <h3>
                     Technology Solutions
                 </h3>
-
 
                 <p>
                     Offer connectivity, hosting, VoIP, IT support
@@ -1425,26 +714,17 @@
             </div>
 
 
-
             <div class="benefit-card">
 
-                <div
-                    class="benefit-icon"
-                    aria-hidden="true"
-                >
-                    🤝
-                </div>
-
+                <div class="benefit-icon">🤝</div>
 
                 <h3>
                     Partner With Us
                 </h3>
 
-
                 <p>
-                    Work with Dinges TechHub as a technology
-                    reseller and build long-term customer
-                    relationships.
+                    Work with Dinges TechHub as a technology reseller
+                    and build long-term customer relationships.
                 </p>
 
             </div>
@@ -1452,13 +732,7 @@
         </section>
 
 
-
-        <!-- =================================================
-             FORM
-        ================================================== -->
-
         <section class="form-card">
-
 
             <div class="form-header">
 
@@ -1466,74 +740,34 @@
                     Reseller Application
                 </h2>
 
-
                 <p>
-                    Complete the form below and submit your
-                    application. Our team will review your
-                    information and contact you regarding the
-                    next steps.
+                    Complete the form below and submit your application.
+                    Our team will review your information and contact you
+                    regarding the next steps.
                 </p>
 
             </div>
 
 
-
             <form
                 id="resellerApplicationForm"
-                method="POST"
                 novalidate
             >
 
-
-                <!-- =========================================
-                     HONEYPOT
-                ========================================== -->
-
-                <div
-                    class="website-field"
-                    aria-hidden="true"
-                >
-
-                    <label for="websiteField">
-                        Website
-                    </label>
-
-                    <input
-                        type="text"
-                        id="websiteField"
-                        name="websiteField"
-                        tabindex="-1"
-                        autocomplete="off"
-                    >
-
-                </div>
-
-
-
-                <!-- =========================================
-                     APPLICANT INFORMATION
-                ========================================== -->
+                <!-- APPLICANT INFORMATION -->
 
                 <h3 class="section-title">
                     Applicant Information
                 </h3>
 
-
                 <div class="form-grid">
-
 
                     <div class="form-group">
 
                         <label for="firstName">
-
                             First Name
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <input
                             type="text"
@@ -1547,19 +781,12 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="lastName">
-
                             Last Name
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <input
                             type="text"
@@ -1573,19 +800,12 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="email">
-
                             Email Address
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <input
                             type="email"
@@ -1599,19 +819,12 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="phone">
-
                             Phone Number
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <input
                             type="tel"
@@ -1627,31 +840,20 @@
                 </div>
 
 
-
-                <!-- =========================================
-                     BUSINESS INFORMATION
-                ========================================== -->
+                <!-- BUSINESS INFORMATION -->
 
                 <h3 class="section-title">
                     Business Information
                 </h3>
 
-
                 <div class="form-grid">
-
 
                     <div class="form-group">
 
                         <label for="businessName">
-
                             Business Name
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <input
                             type="text"
@@ -1665,19 +867,12 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="businessType">
-
                             Business Type
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <select
                             id="businessType"
@@ -1710,19 +905,12 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="registrationNumber">
-
                             Company Registration Number
-
-                            <span class="optional">
-                                (Optional)
-                            </span>
-
+                            <span class="optional">(Optional)</span>
                         </label>
-
 
                         <input
                             type="text"
@@ -1734,23 +922,12 @@
                     </div>
 
 
-
-                    <!-- =====================================
-                         BUSINESS WEBSITE - OPTIONAL
-                    ====================================== -->
-
                     <div class="form-group">
 
                         <label for="website">
-
                             Business Website
-
-                            <span class="optional">
-                                (Optional)
-                            </span>
-
+                            <span class="optional">(Optional)</span>
                         </label>
-
 
                         <input
                             type="url"
@@ -1760,30 +937,20 @@
                             autocomplete="url"
                         >
 
-
                         <div class="hint">
-
-                            You may leave this blank if your
-                            business does not have a website.
-
+                            You may leave this field blank if your business
+                            does not have a website.
                         </div>
 
                     </div>
 
 
-
                     <div class="form-group full">
 
                         <label for="businessAddress">
-
                             Business Address
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <textarea
                             id="businessAddress"
@@ -1797,31 +964,19 @@
                 </div>
 
 
-
-                <!-- =========================================
-                     RESELLER INFORMATION
-                ========================================== -->
+                <!-- RESELLER INFORMATION -->
 
                 <h3 class="section-title">
                     Reseller Information
                 </h3>
 
-
                 <div class="form-grid">
-
 
                     <div class="form-group">
 
                         <label for="experience">
-
                             Current IT / Technology Experience
-
-                            <span class="optional">
-                                (Optional)
-                            </span>
-
                         </label>
-
 
                         <select
                             id="experience"
@@ -1853,19 +1008,11 @@
                     </div>
 
 
-
                     <div class="form-group">
 
                         <label for="customerBase">
-
                             Approximate Customer Base
-
-                            <span class="optional">
-                                (Optional)
-                            </span>
-
                         </label>
-
 
                         <select
                             id="customerBase"
@@ -1901,19 +1048,12 @@
                     </div>
 
 
-
                     <div class="form-group full">
 
                         <label for="services">
-
                             Services You Are Interested In
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <textarea
                             id="services"
@@ -1925,19 +1065,12 @@
                     </div>
 
 
-
                     <div class="form-group full">
 
                         <label for="message">
-
                             Tell Us About Your Business
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            <span class="required">*</span>
                         </label>
-
 
                         <textarea
                             id="message"
@@ -1951,13 +1084,9 @@
                 </div>
 
 
-
-                <!-- =========================================
-                     AGREEMENT
-                ========================================== -->
+                <!-- AGREEMENT -->
 
                 <div class="checkbox-area">
-
 
                     <div class="checkbox-row">
 
@@ -1969,21 +1098,13 @@
                             required
                         >
 
-
                         <label for="informationCorrect">
-
-                            I confirm that the information provided
-                            in this application is accurate and
-                            complete.
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            I confirm that the information provided in
+                            this application is accurate and complete.
+                            <span class="required">*</span>
                         </label>
 
                     </div>
-
 
 
                     <div class="checkbox-row">
@@ -1996,16 +1117,10 @@
                             required
                         >
 
-
                         <label for="contactPermission">
-
-                            I agree that Dinges TechHub may contact
-                            me regarding this reseller application.
-
-                            <span class="required">
-                                *
-                            </span>
-
+                            I agree that Dinges TechHub may contact me
+                            regarding this reseller application.
+                            <span class="required">*</span>
                         </label>
 
                     </div>
@@ -2013,30 +1128,22 @@
                 </div>
 
 
-
-                <!-- =========================================
-                     SUBMIT
-                ========================================== -->
+                <!-- SUBMIT -->
 
                 <div class="form-actions">
-
 
                     <button
                         type="submit"
                         class="submit-button"
                         id="submitButton"
                     >
-
                         Submit Reseller Application
-
                     </button>
-
 
                     <div
                         id="formMessage"
                         class="form-message"
                         role="alert"
-                        aria-live="polite"
                     ></div>
 
                 </div>
@@ -2050,15 +1157,9 @@
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
-
 <footer>
 
     <div class="footer-container">
-
 
         <div class="footer-logo">
 
@@ -2081,21 +1182,13 @@
 
         <div class="footer-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="services.html">
-                Services
-            </a>
+            <a href="services.html">Services</a>
 
-            <a href="contact.html">
-                Contact
-            </a>
+            <a href="contact.html">Contact</a>
 
-            <a href="login.html">
-                Login
-            </a>
+            <a href="login.html">Login</a>
 
         </div>
 
@@ -2103,14 +1196,9 @@
         <div class="copyright">
 
             <p>
-
                 &copy;
-
                 <span id="year"></span>
-
-                Dinges TechHub.
-                All rights reserved.
-
+                Dinges TechHub. All rights reserved.
             </p>
 
         </div>
@@ -2120,74 +1208,52 @@
 </footer>
 
 
-
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
-
 <script>
 
-    /* =====================================================
+    /* =========================
+       CONFIGURATION
+    ========================= */
+
+    /*
+     * IMPORTANT:
+     * Change this ONLY if your PHP file has
+     * a different filename or location.
+     *
+     * Example:
+     * https://dingestech-hub.mathagudakalo362.workers.dev/api/reseller.php
+     */
+
+    const API_URL =
+        "/api/reseller.php";
+
+
+    /* =========================
        CURRENT YEAR
-    ===================================================== */
+    ========================= */
 
     document.getElementById("year").textContent =
         new Date().getFullYear();
 
 
-
-    /* =====================================================
-       FORM
-    ===================================================== */
+    /* =========================
+       FORM ELEMENTS
+    ========================= */
 
     const form =
-        document.getElementById(
-            "resellerApplicationForm"
-        );
-
+        document.getElementById("resellerApplicationForm");
 
     const submitButton =
-        document.getElementById(
-            "submitButton"
-        );
-
+        document.getElementById("submitButton");
 
     const formMessage =
-        document.getElementById(
-            "formMessage"
-        );
+        document.getElementById("formMessage");
 
 
-    const honeypot =
-        document.getElementById(
-            "websiteField"
-        );
+    /* =========================
+       MESSAGE FUNCTION
+    ========================= */
 
-
-
-    /* =====================================================
-       API URL
-
-       IMPORTANT:
-       This currently points to a relative API.
-
-       Once your PHP API is on register.web.za,
-       change this to the full PHP API address.
-    ===================================================== */
-
-    const API_URL =
-        "api/reseller-application.php";
-
-
-
-    /* =====================================================
-       DISPLAY MESSAGE
-    ===================================================== */
-
-    function showMessage(
-        type,
-        message
-    ) {
+    function showMessage(type, message) {
 
         formMessage.className =
             "form-message " + type;
@@ -2195,199 +1261,187 @@
         formMessage.textContent =
             message;
 
+        formMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
     }
 
 
+    /* =========================
+       FORM SUBMISSION
+    ========================= */
 
-    /* =====================================================
-       SUBMIT FORM
-    ===================================================== */
+    form.addEventListener("submit", async function (event) {
 
-    form.addEventListener(
-        "submit",
-        async function(event) {
+        event.preventDefault();
 
-            event.preventDefault();
+        formMessage.className =
+            "form-message";
 
-
-            /* Clear previous message */
-
-            formMessage.className =
-                "form-message";
-
-            formMessage.textContent =
-                "";
+        formMessage.textContent = "";
 
 
-            /* Browser validation */
+        /*
+         * Browser validation.
+         */
 
-            if (!form.checkValidity()) {
+        if (!form.checkValidity()) {
 
-                form.reportValidity();
+            form.reportValidity();
 
-                return;
-
-            }
-
-
-            /* Honeypot */
-
-            if (
-                honeypot &&
-                honeypot.value.trim() !== ""
-            ) {
-
-                showMessage(
-                    "error",
-                    "Unable to submit this application."
-                );
-
-                return;
-
-            }
+            return;
+        }
 
 
-            /* Disable button */
+        /*
+         * Disable button while submitting.
+         */
 
-            submitButton.disabled =
-                true;
+        submitButton.disabled = true;
 
-            submitButton.textContent =
-                "Submitting Application...";
+        submitButton.textContent =
+            "Submitting Application...";
 
+
+        /*
+         * Collect form data.
+         */
+
+        const formData =
+            new FormData(form);
+
+
+        /*
+         * IMPORTANT:
+         *
+         * Business website is OPTIONAL.
+         * FormData will send an empty value if
+         * the applicant leaves it blank.
+         */
+
+
+        try {
+
+            const response =
+                await fetch(API_URL, {
+
+                    method: "POST",
+
+                    body: formData,
+
+                    headers: {
+                        "Accept": "application/json"
+                    }
+
+                });
+
+
+            /*
+             * Get raw server response first.
+             */
+
+            const rawResponse =
+                await response.text();
+
+
+            let result;
+
+
+            /*
+             * Attempt to decode JSON.
+             */
 
             try {
 
-                const formData =
-                    new FormData(form);
+                result =
+                    JSON.parse(rawResponse);
 
-
-                /*
-                 * Add submission timestamp.
-                 */
-
-                formData.append(
-                    "submittedAt",
-                    new Date().toISOString()
-                );
-
-
-                /*
-                 * Send application to PHP API.
-                 */
-
-                const response =
-                    await fetch(
-                        API_URL,
-                        {
-                            method: "POST",
-                            body: formData
-                        }
-                    );
-
-
-                /*
-                 * Try to read JSON.
-                 */
-
-                let data;
-
-                try {
-
-                    data =
-                        await response.json();
-
-                } catch (jsonError) {
-
-                    throw new Error(
-                        "The server returned an invalid response."
-                    );
-
-                }
-
-
-                /*
-                 * Check API response.
-                 */
-
-                if (
-                    !response.ok ||
-                    !data.success
-                ) {
-
-                    throw new Error(
-                        data.message ||
-                        "Unable to submit your application."
-                    );
-
-                }
-
-
-                /*
-                 * Success.
-                 */
-
-                showMessage(
-                    "success",
-                    data.message ||
-                    "Your reseller application has been submitted successfully."
-                );
-
-
-                /*
-                 * Clear form after successful
-                 * submission.
-                 */
-
-                form.reset();
-
-
-                /*
-                 * Move user to message.
-                 */
-
-                formMessage.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-
-            } catch (error) {
+            } catch (jsonError) {
 
                 console.error(
-                    "Reseller application error:",
-                    error
+                    "Invalid server response:",
+                    rawResponse
                 );
 
-
-                showMessage(
-                    "error",
-                    error.message ||
-                    "Unable to submit your application. Please try again."
+                throw new Error(
+                    "The server returned an invalid response."
                 );
-
-
-                formMessage.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-
-            } finally {
-
-                submitButton.disabled =
-                    false;
-
-                submitButton.textContent =
-                    "Submit Reseller Application";
-
             }
 
+
+            /*
+             * Handle unsuccessful HTTP response.
+             */
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "The server could not process your application."
+                );
+            }
+
+
+            /*
+             * Handle PHP API result.
+             */
+
+            if (!result.success) {
+
+                throw new Error(
+                    result.message ||
+                    "Your application could not be submitted."
+                );
+            }
+
+
+            /*
+             * SUCCESS
+             */
+
+            showMessage(
+                "success",
+                result.message ||
+                "Thank you. Your reseller application has been submitted successfully."
+            );
+
+
+            /*
+             * Clear the form after successful
+             * submission.
+             */
+
+            form.reset();
+
+
+        } catch (error) {
+
+            console.error(
+                "Reseller application error:",
+                error
+            );
+
+
+            showMessage(
+                "error",
+                error.message ||
+                "Unable to submit your reseller application. Please try again."
+            );
+
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Submit Reseller Application";
+
         }
-    );
+
+    });
 
 </script>
-
 
 </body>
 </html>
