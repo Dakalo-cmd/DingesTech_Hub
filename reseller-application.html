@@ -1,1273 +1,1049 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Become a Reseller | Dinges TechHub</title>
-
-    <meta
-        name="description"
-        content="Apply to become a Dinges TechHub reseller and offer technology, connectivity, hosting, VoIP and IT solutions to your customers."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-        :root {
-            --purple-dark: #3C1542;
-            --purple: #7A2C78;
-            --purple-light: #9B4298;
-            --gold: #FFBB42;
-            --black: #020202;
-            --white: #ffffff;
-            --background: #f7f5f8;
-            --success: #168a52;
-            --danger: #c62828;
-            --border: #ddd5df;
-            --text-muted: #666;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", Arial, sans-serif;
-            background: var(--background);
-            color: var(--black);
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        select,
-        textarea {
-            font-family: inherit;
-        }
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            background: #fff;
-            border-bottom: 1px solid #e5dfe7;
-            box-shadow: 0 3px 15px rgba(0, 0, 0, .04);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            min-height: 82px;
-            margin: auto;
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .logo img {
-            width: 145px;
-            height: auto;
-            display: block;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-
-        .nav-menu a {
-            color: var(--purple-dark);
-            font-size: 16px;
-            font-weight: 700;
-            white-space: nowrap;
-            transition: .25s ease;
-        }
-
-        .nav-menu a:hover {
-            color: var(--purple);
-        }
-
-        .nav-cta {
-            background: var(--purple);
-            color: #fff !important;
-            padding: 11px 18px;
-            border-radius: 9px;
-        }
-
-        .nav-cta:hover {
-            background: var(--purple-dark) !important;
-            transform: translateY(-1px);
-        }
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero {
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(60, 21, 66, .99),
-                    rgba(122, 44, 120, .97)
-                );
-
-            color: #fff;
-            text-align: center;
-            padding: 78px 20px;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            margin-bottom: 18px;
-            padding: 8px 16px;
-            border: 1px solid rgba(255,255,255,.35);
-            border-radius: 30px;
-            color: var(--gold);
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: .5px;
-        }
-
-        .hero h1 {
-            font-family: "Manrope", sans-serif;
-            font-size: 46px;
-            line-height: 1.15;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            max-width: 760px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.7;
-            color: rgba(255,255,255,.93);
-        }
-
-        /* =========================================================
-           MAIN
-        ========================================================= */
-
-        .page-wrapper {
-            width: 100%;
-            padding: 60px 20px 80px;
-        }
-
-        .content-container {
-            max-width: 1050px;
-            margin: auto;
-        }
-
-        /* =========================================================
-           BENEFITS
-        ========================================================= */
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-bottom: 50px;
-        }
-
-        .benefit-card {
-            background: #fff;
-            border: 1px solid #e5dfe7;
-            border-radius: 15px;
-            padding: 28px 24px;
-            box-shadow: 0 8px 25px rgba(60,21,66,.06);
-            transition: .25s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(60,21,66,.10);
-        }
-
-        .benefit-icon {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            background: rgba(122,44,120,.1);
-            font-size: 26px;
-        }
-
-        .benefit-card h3 {
-            color: var(--purple-dark);
-            font-size: 21px;
-            margin-bottom: 8px;
-        }
-
-        .benefit-card p {
-            color: #555;
-            font-size: 16px;
-        }
-
-        /* =========================================================
-           FORM CARD
-        ========================================================= */
-
-        .form-card {
-            background: #fff;
-            border: 1px solid #e5dfe7;
-            border-radius: 18px;
-            box-shadow: 0 15px 50px rgba(60,21,66,.09);
-            padding: 42px;
-        }
-
-        .form-header {
-            margin-bottom: 35px;
-        }
-
-        .form-header h2 {
-            font-family: "Manrope", sans-serif;
-            color: var(--purple-dark);
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .form-header p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        .section-title {
-            color: var(--purple-dark);
-            font-size: 21px;
-            font-weight: 800;
-            margin: 30px 0 18px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            color: #292929;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .required {
-            color: var(--danger);
-        }
-
-        .optional {
-            color: #777;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px 15px;
-            border: 1px solid #cfc9d1;
-            border-radius: 9px;
-            background: #fff;
-            color: var(--black);
-            font-size: 16px;
-            line-height: 1.4;
-            outline: none;
-            transition:
-                border-color .2s ease,
-                box-shadow .2s ease,
-                background .2s ease;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: var(--purple);
-            box-shadow: 0 0 0 3px rgba(122,44,120,.12);
-        }
-
-        input:disabled,
-        select:disabled,
-        textarea:disabled {
-            background: #f5f3f6;
-            cursor: not-allowed;
-        }
-
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        .hint {
-            color: #777;
-            font-size: 14px;
-            margin-top: 6px;
-        }
-
-        /* =========================================================
-           CHECKBOXES
-        ========================================================= */
-
-        .checkbox-area {
-            margin-top: 28px;
-            padding: 20px;
-            border-radius: 10px;
-            background: #faf8fb;
-            border: 1px solid #e7e1e8;
-        }
-
-        .checkbox-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 15px;
-        }
-
-        .checkbox-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .checkbox-row input {
-            width: 20px;
-            height: 20px;
-            margin-top: 3px;
-            flex-shrink: 0;
-            accent-color: var(--purple);
-        }
-
-        .checkbox-row label {
-            margin: 0;
-            font-size: 15px;
-            font-weight: 500;
-            line-height: 1.5;
-            cursor: pointer;
-        }
-
-        /* =========================================================
-           SUBMIT
-        ========================================================= */
-
-        .form-actions {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .submit-button {
-            width: 100%;
-            border: 0;
-            border-radius: 10px;
-            padding: 16px 24px;
-            background: var(--purple);
-            color: #fff;
-            font-size: 18px;
-            font-weight: 800;
-            cursor: pointer;
-            transition:
-                background .2s ease,
-                transform .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .submit-button:hover:not(:disabled) {
-            background: var(--purple-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(60,21,66,.2);
-        }
-
-        .submit-button:disabled {
-            opacity: .65;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* =========================================================
-           MESSAGE
-        ========================================================= */
-
-        .form-message {
-            display: none;
-            margin-top: 20px;
-            padding: 16px 18px;
-            border-radius: 9px;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: left;
-        }
-
-        .form-message.success {
-            display: block;
-            background: #e9f8f0;
-            color: var(--success);
-            border: 1px solid #b8e5cb;
-        }
-
-        .form-message.error {
-            display: block;
-            background: #fff0f0;
-            color: var(--danger);
-            border: 1px solid #efc2c2;
-        }
-
-        .form-message.info {
-            display: block;
-            background: #f3eff7;
-            color: var(--purple-dark);
-            border: 1px solid #ddd0e2;
-        }
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-            background: var(--purple-dark);
-            color: #fff;
-            padding: 45px 20px 25px;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .footer-logo {
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            width: 130px;
-            height: auto;
-        }
-
-        .footer-container p {
-            color: rgba(255,255,255,.8);
-            font-size: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 22px;
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #fff;
-            font-size: 15px;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .copyright {
-            padding-top: 20px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,.15);
-        }
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 850px) {
-
-            .nav-container {
-                flex-direction: column;
-                padding: 16px 20px;
-                gap: 15px;
-            }
-
-            .nav-menu {
-                width: 100%;
-                justify-content: center;
-                gap: 12px 18px;
-            }
-
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-        }
-
-        @media (max-width: 650px) {
-
-            .hero {
-                padding: 55px 18px;
-            }
-
-            .hero h1 {
-                font-size: 31px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .page-wrapper {
-                padding: 35px 14px 55px;
-            }
-
-            .form-card {
-                padding: 25px 18px;
-                border-radius: 14px;
-            }
-
-            .form-header h2 {
-                font-size: 27px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 17px;
-            }
-
-            .form-group.full {
-                grid-column: auto;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-
-            input,
-            select,
-            textarea {
-                font-size: 16px;
-                padding: 14px;
-            }
-
-            .nav-menu a {
-                font-size: 14px;
-            }
-
-            .logo img {
-                width: 130px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reseller Application | Dinges TechHub</title>
+
+<meta name="description" content="Apply to become a Dinges TechHub reseller.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --purple-dark:#3C1542;
+    --purple:#7A2C78;
+    --gold:#FFBB42;
+    --black:#020202;
+    --white:#ffffff;
+    --background:#f7f5f8;
+    --success:#168a52;
+    --danger:#c62828;
+    --border:#ddd5df;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    font-family:"Inter",Arial,sans-serif;
+    background:var(--background);
+    color:var(--black);
+    font-size:16px;
+    line-height:1.6;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family:inherit;
+}
+
+/* HEADER */
+
+.site-header {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    width:100%;
+    background:#fff;
+    border-bottom:1px solid #e5dfe7;
+}
+
+.nav-container {
+    max-width:1200px;
+    min-height:82px;
+    margin:auto;
+    padding:12px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.logo {
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+}
+
+.logo img {
+    width:145px;
+    height:auto;
+    display:block;
+}
+
+.nav-menu {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+}
+
+.nav-menu a {
+    color:var(--purple-dark);
+    font-size:16px;
+    font-weight:700;
+    white-space:nowrap;
+    transition:.25s ease;
+}
+
+.nav-menu a:hover {
+    color:var(--purple);
+}
+
+.nav-cta {
+    background:var(--purple);
+    color:#fff!important;
+    padding:11px 18px;
+    border-radius:9px;
+}
+
+.nav-cta:hover {
+    background:var(--purple-dark)!important;
+    transform:translateY(-1px);
+}
+
+/* HERO */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(60,21,66,.98),
+            rgba(122,44,120,.96)
+        );
+    color:#fff;
+    text-align:center;
+    padding:75px 20px;
+}
+
+.hero-content {
+    max-width:900px;
+    margin:auto;
+}
+
+.hero-badge {
+    display:inline-block;
+    margin-bottom:18px;
+    padding:8px 16px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:30px;
+    color:var(--gold);
+    font-size:15px;
+    font-weight:800;
+}
+
+.hero h1 {
+    font-family:"Manrope",sans-serif;
+    font-size:46px;
+    line-height:1.15;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero p {
+    max-width:760px;
+    margin:auto;
+    font-size:19px;
+    line-height:1.7;
+    color:rgba(255,255,255,.93);
+}
+
+/* MAIN */
+
+.page-wrapper {
+    width:100%;
+    padding:60px 20px 80px;
+}
+
+.content-container {
+    max-width:1050px;
+    margin:auto;
+}
+
+/* BENEFITS */
+
+.benefits {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-bottom:50px;
+}
+
+.benefit-card {
+    background:#fff;
+    border:1px solid #e5dfe7;
+    border-radius:15px;
+    padding:28px 24px;
+    box-shadow:0 8px 25px rgba(60,21,66,.06);
+}
+
+.benefit-icon {
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:15px;
+    border-radius:12px;
+    background:rgba(122,44,120,.1);
+    font-size:26px;
+}
+
+.benefit-card h3 {
+    color:var(--purple-dark);
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.benefit-card p {
+    color:#555;
+    font-size:16px;
+}
+
+/* FORM */
+
+.form-card {
+    background:#fff;
+    border:1px solid #e5dfe7;
+    border-radius:18px;
+    box-shadow:0 15px 50px rgba(60,21,66,.09);
+    padding:42px;
+}
+
+.form-header {
+    margin-bottom:35px;
+}
+
+.form-header h2 {
+    font-family:"Manrope",sans-serif;
+    color:var(--purple-dark);
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.form-header p {
+    color:#666;
+    font-size:16px;
+}
+
+.section-title {
+    color:var(--purple-dark);
+    font-size:21px;
+    font-weight:800;
+    margin:30px 0 18px;
+    padding-bottom:10px;
+    border-bottom:2px solid #eee;
+}
+
+.form-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.form-group {
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full {
+    grid-column:1/-1;
+}
+
+label {
+    color:#292929;
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.required {
+    color:var(--danger);
+}
+
+.optional {
+    color:#777;
+    font-size:13px;
+    font-weight:500;
+}
+
+input,
+select,
+textarea {
+    width:100%;
+    padding:14px 15px;
+    border:1px solid #cfc9d1;
+    border-radius:9px;
+    background:#fff;
+    color:var(--black);
+    font-size:16px;
+    line-height:1.4;
+    outline:none;
+    transition:border-color .2s ease,box-shadow .2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color:var(--purple);
+    box-shadow:0 0 0 3px rgba(122,44,120,.12);
+}
+
+textarea {
+    min-height:130px;
+    resize:vertical;
+}
+
+.hint {
+    color:#777;
+    font-size:14px;
+    margin-top:6px;
+}
+
+/* CHECKBOX */
+
+.checkbox-area {
+    margin-top:28px;
+    padding:20px;
+    border-radius:10px;
+    background:#faf8fb;
+    border:1px solid #e7e1e8;
+}
+
+.checkbox-row {
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.checkbox-row:last-child {
+    margin-bottom:0;
+}
+
+.checkbox-row input {
+    width:20px;
+    height:20px;
+    margin-top:3px;
+    flex-shrink:0;
+}
+
+.checkbox-row label {
+    margin:0;
+    font-size:15px;
+    font-weight:500;
+    line-height:1.5;
+}
+
+/* SUBMIT */
+
+.form-actions {
+    margin-top:30px;
+    text-align:center;
+}
+
+.submit-button {
+    width:100%;
+    border:0;
+    border-radius:10px;
+    padding:16px 24px;
+    background:var(--purple);
+    color:#fff;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+    transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+
+.submit-button:hover {
+    background:var(--purple-dark);
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(60,21,66,.2);
+}
+
+.submit-button:disabled {
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+/* MESSAGE */
+
+.form-message {
+    display:none;
+    margin-top:20px;
+    padding:16px 18px;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:600;
+}
+
+.form-message.success {
+    display:block;
+    background:#e9f8f0;
+    color:var(--success);
+    border:1px solid #b8e5cb;
+}
+
+.form-message.error {
+    display:block;
+    background:#fff0f0;
+    color:var(--danger);
+    border:1px solid #efc2c2;
+}
+
+/* FOOTER */
+
+footer {
+    background:var(--purple-dark);
+    color:#fff;
+    padding:45px 20px 25px;
+}
+
+.footer-container {
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.footer-logo {
+    margin-bottom:20px;
+}
+
+.footer-logo img {
+    width:130px;
+    height:auto;
+}
+
+.footer-container p {
+    color:rgba(255,255,255,.8);
+    font-size:15px;
+}
+
+.footer-links {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:22px;
+    margin:20px 0;
+}
+
+.footer-links a {
+    color:#fff;
+    font-size:15px;
+}
+
+.footer-links a:hover {
+    color:var(--gold);
+}
+
+.copyright {
+    padding-top:20px;
+    margin-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+
+    .nav-container {
+        flex-direction:column;
+        padding:16px 20px;
+    }
+
+    .nav-menu {
+        width:100%;
+        justify-content:center;
+        gap:14px 20px;
+    }
+
+    .benefits {
+        grid-template-columns:1fr;
+    }
+
+    .hero h1 {
+        font-size:38px;
+    }
+}
+
+@media(max-width:650px) {
+
+    .hero {
+        padding:55px 18px;
+    }
+
+    .hero h1 {
+        font-size:31px;
+    }
+
+    .hero p {
+        font-size:17px;
+    }
+
+    .page-wrapper {
+        padding:35px 14px 55px;
+    }
+
+    .form-card {
+        padding:25px 18px;
+        border-radius:14px;
+    }
+
+    .form-header h2 {
+        font-size:27px;
+    }
+
+    .form-grid {
+        grid-template-columns:1fr;
+        gap:17px;
+    }
+
+    .form-group.full {
+        grid-column:auto;
+    }
+
+    .section-title {
+        font-size:20px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size:16px;
+        padding:14px;
+    }
+
+    .nav-menu a {
+        font-size:15px;
+    }
+
+    .logo img {
+        width:130px;
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header class="site-header">
 
-    <div class="nav-container">
+<div class="nav-container">
 
-        <a href="index.html" class="logo">
-            <img
-                src="dingestech-logo.png"
-                alt="Dinges TechHub"
-            >
-        </a>
+<a href="index.html" class="logo">
+<img src="dingestech-logo.png" alt="Dinges TechHub">
+</a>
 
-        <nav class="nav-menu" aria-label="Main navigation">
+<nav class="nav-menu">
 
-            <a href="index.html">
-                Home
-            </a>
+<a href="index.html">Home</a>
 
-            <a href="services.html">
-                Services
-            </a>
+<a href="services.html">Services</a>
 
-            <a href="contact.html">
-                Contact Us
-            </a>
+<a href="contact.html">Contact Us</a>
 
-            <a href="login.html">
-                Login
-            </a>
+<a href="login.html">Login</a>
 
-            <a
-                href="reseller-application.html"
-                class="nav-cta"
-            >
-                Become a Reseller
-            </a>
+<a href="reseller-application.html" class="nav-cta">
+Become a Reseller
+</a>
 
-        </nav>
+</nav>
 
-    </div>
+</div>
 
 </header>
 
-
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <span class="hero-badge">
-            DINGES TECHHUB PARTNER PROGRAM
-        </span>
+<span class="hero-badge">
+DINGES TECHHUB PARTNER PROGRAM
+</span>
 
-        <h1>
-            Become a Dinges TechHub Reseller
-        </h1>
+<h1>
+Become a Dinges TechHub Reseller
+</h1>
 
-        <p>
-            Grow your business by offering reliable technology,
-            connectivity, hosting, VoIP and IT solutions to your
-            customers through Dinges TechHub.
-        </p>
+<p>
+Grow your business by offering reliable technology,
+connectivity, hosting, VoIP and IT solutions to your
+customers through Dinges TechHub.
+</p>
 
-    </div>
+</div>
 
 </section>
 
-
 <main class="page-wrapper">
 
-    <div class="content-container">
+<div class="content-container">
 
-        <section class="benefits">
+<section class="benefits">
 
-            <div class="benefit-card">
+<div class="benefit-card">
 
-                <div class="benefit-icon">
-                    💼
-                </div>
+<div class="benefit-icon">💼</div>
 
-                <h3>
-                    Grow Your Business
-                </h3>
+<h3>Grow Your Business</h3>
 
-                <p>
-                    Expand your service offering and provide
-                    professional technology solutions to your customers.
-                </p>
+<p>
+Expand your service offering and provide
+professional technology solutions to your customers.
+</p>
 
-            </div>
+</div>
 
+<div class="benefit-card">
 
-            <div class="benefit-card">
+<div class="benefit-icon">🌐</div>
 
-                <div class="benefit-icon">
-                    🌐
-                </div>
+<h3>Technology Solutions</h3>
 
-                <h3>
-                    Technology Solutions
-                </h3>
+<p>
+Offer connectivity, hosting, VoIP, IT support
+and other technology services.
+</p>
 
-                <p>
-                    Offer connectivity, hosting, VoIP, IT support
-                    and other technology services.
-                </p>
+</div>
 
-            </div>
+<div class="benefit-card">
 
+<div class="benefit-icon">🤝</div>
 
-            <div class="benefit-card">
+<h3>Partner With Us</h3>
 
-                <div class="benefit-icon">
-                    🤝
-                </div>
+<p>
+Work with Dinges TechHub as a technology reseller
+and build long-term customer relationships.
+</p>
 
-                <h3>
-                    Partner With Us
-                </h3>
+</div>
 
-                <p>
-                    Work with Dinges TechHub as a technology reseller
-                    and build long-term customer relationships.
-                </p>
+</section>
 
-            </div>
+<section class="form-card">
 
-        </section>
+<div class="form-header">
 
+<h2>Reseller Application</h2>
 
-        <section class="form-card">
+<p>
+Complete the form below and submit your application.
+Our team will review your information and contact you
+regarding the next steps.
+</p>
 
-            <div class="form-header">
+</div>
 
-                <h2>
-                    Reseller Application
-                </h2>
+<form id="resellerApplicationForm" novalidate>
 
-                <p>
-                    Complete the form below and submit your application.
-                    Our team will review your information and contact you
-                    regarding the next steps.
-                </p>
+<h3 class="section-title">
+Applicant Information
+</h3>
 
-            </div>
+<div class="form-grid">
 
+<div class="form-group">
 
-            <form
-                id="resellerApplicationForm"
-                novalidate
-            >
+<label for="firstName">
+First Name <span class="required">*</span>
+</label>
 
-                <h3 class="section-title">
-                    Applicant Information
-                </h3>
+<input
+type="text"
+id="firstName"
+name="firstName"
+placeholder="Enter your first name"
+autocomplete="given-name"
+required
+>
 
-                <div class="form-grid">
+</div>
 
-                    <div class="form-group">
+<div class="form-group">
 
-                        <label for="firstName">
-                            First Name
-                            <span class="required">*</span>
-                        </label>
+<label for="lastName">
+Last Name <span class="required">*</span>
+</label>
 
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="Enter your first name"
-                            autocomplete="given-name"
-                            maxlength="100"
-                            required
-                        >
+<input
+type="text"
+id="lastName"
+name="lastName"
+placeholder="Enter your last name"
+autocomplete="family-name"
+required
+>
 
-                    </div>
+</div>
 
+<div class="form-group">
 
-                    <div class="form-group">
+<label for="email">
+Email Address <span class="required">*</span>
+</label>
 
-                        <label for="lastName">
-                            Last Name
-                            <span class="required">*</span>
-                        </label>
+<input
+type="email"
+id="email"
+name="email"
+placeholder="you@example.com"
+autocomplete="email"
+required
+>
 
-                        <input
-                            type="text"
-                            id="lastName"
-                            name="lastName"
-                            placeholder="Enter your last name"
-                            autocomplete="family-name"
-                            maxlength="100"
-                            required
-                        >
+</div>
 
-                    </div>
+<div class="form-group">
 
+<label for="phone">
+Phone Number <span class="required">*</span>
+</label>
 
-                    <div class="form-group">
+<input
+type="tel"
+id="phone"
+name="phone"
+placeholder="e.g. 071 234 5678"
+autocomplete="tel"
+required
+>
 
-                        <label for="email">
-                            Email Address
-                            <span class="required">*</span>
-                        </label>
+</div>
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            autocomplete="email"
-                            maxlength="190"
-                            required
-                        >
+</div>
 
-                    </div>
+<h3 class="section-title">
+Business Information
+</h3>
 
+<div class="form-grid">
 
-                    <div class="form-group">
+<div class="form-group">
 
-                        <label for="phone">
-                            Phone Number
-                            <span class="required">*</span>
-                        </label>
+<label for="businessName">
+Business Name <span class="required">*</span>
+</label>
 
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="e.g. 071 234 5678"
-                            autocomplete="tel"
-                            maxlength="50"
-                            required
-                        >
+<input
+type="text"
+id="businessName"
+name="businessName"
+placeholder="Your business name"
+autocomplete="organization"
+required
+>
 
-                    </div>
+</div>
 
-                </div>
+<div class="form-group">
 
+<label for="businessType">
+Business Type <span class="required">*</span>
+</label>
 
-                <h3 class="section-title">
-                    Business Information
-                </h3>
+<select id="businessType" name="businessType" required>
 
+<option value="">Select business type</option>
+<option value="sole-proprietor">Sole Proprietor</option>
+<option value="private-company">Private Company</option>
+<option value="partnership">Partnership</option>
+<option value="other">Other</option>
 
-                <div class="form-grid">
+</select>
 
-                    <div class="form-group">
+</div>
 
-                        <label for="businessName">
-                            Business Name
-                            <span class="required">*</span>
-                        </label>
+<div class="form-group">
 
-                        <input
-                            type="text"
-                            id="businessName"
-                            name="businessName"
-                            placeholder="Your business name"
-                            autocomplete="organization"
-                            maxlength="200"
-                            required
-                        >
+<label for="registrationNumber">
+Company Registration Number
+<span class="optional">(Optional)</span>
+</label>
 
-                    </div>
+<input
+type="text"
+id="registrationNumber"
+name="registrationNumber"
+placeholder="Optional"
+>
 
+</div>
 
-                    <div class="form-group">
+<div class="form-group">
 
-                        <label for="businessType">
-                            Business Type
-                            <span class="required">*</span>
-                        </label>
+<label for="website">
+Business Website
+<span class="optional">(Optional)</span>
+</label>
 
-                        <select
-                            id="businessType"
-                            name="businessType"
-                            required
-                        >
+<input
+type="url"
+id="website"
+name="website"
+placeholder="https://example.co.za"
+autocomplete="url"
+>
 
-                            <option value="">
-                                Select business type
-                            </option>
+<div class="hint">
+You may leave this field blank if your business
+does not have a website.
+</div>
 
-                            <option value="sole-proprietor">
-                                Sole Proprietor
-                            </option>
+</div>
 
-                            <option value="private-company">
-                                Private Company
-                            </option>
+<div class="form-group full">
 
-                            <option value="partnership">
-                                Partnership
-                            </option>
+<label for="businessAddress">
+Business Address <span class="required">*</span>
+</label>
 
-                            <option value="other">
-                                Other
-                            </option>
+<textarea
+id="businessAddress"
+name="businessAddress"
+placeholder="Enter your business address"
+required
+></textarea>
 
-                        </select>
+</div>
 
-                    </div>
+</div>
 
+<h3 class="section-title">
+Reseller Information
+</h3>
 
-                    <div class="form-group">
+<div class="form-grid">
 
-                        <label for="registrationNumber">
-                            Company Registration Number
-                            <span class="optional">
-                                (Optional)
-                            </span>
-                        </label>
+<div class="form-group">
 
-                        <input
-                            type="text"
-                            id="registrationNumber"
-                            name="registrationNumber"
-                            placeholder="Optional"
-                            maxlength="100"
-                        >
+<label for="experience">
+Current IT / Technology Experience
+</label>
 
-                    </div>
+<select id="experience" name="experience">
 
+<option value="">Select experience level</option>
+<option value="beginner">Beginner</option>
+<option value="some-experience">Some Experience</option>
+<option value="experienced">Experienced</option>
+<option value="expert">Advanced / Expert</option>
 
-                    <div class="form-group">
+</select>
 
-                        <label for="website">
-                            Business Website
-                            <span class="optional">
-                                (Optional)
-                            </span>
-                        </label>
+</div>
 
-                        <input
-                            type="url"
-                            id="website"
-                            name="website"
-                            placeholder="https://example.co.za"
-                            autocomplete="url"
-                            maxlength="500"
-                        >
+<div class="form-group">
 
-                        <div class="hint">
-                            You may leave this field blank if your business
-                            does not have a website.
-                        </div>
+<label for="customerBase">
+Approximate Customer Base
+</label>
 
-                    </div>
+<select id="customerBase" name="customerBase">
 
+<option value="">Select customer base</option>
+<option value="0-10">0 – 10</option>
+<option value="11-50">11 – 50</option>
+<option value="51-100">51 – 100</option>
+<option value="101-500">101 – 500</option>
+<option value="500-plus">500+</option>
 
-                    <div class="form-group full">
+</select>
 
-                        <label for="businessAddress">
-                            Business Address
-                            <span class="required">*</span>
-                        </label>
+</div>
 
-                        <textarea
-                            id="businessAddress"
-                            name="businessAddress"
-                            placeholder="Enter your business address"
-                            maxlength="2000"
-                            required
-                        ></textarea>
+<div class="form-group full">
 
-                    </div>
+<label for="services">
+Services You Are Interested In
+<span class="required">*</span>
+</label>
 
-                </div>
+<textarea
+id="services"
+name="services"
+placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
+required
+></textarea>
 
+</div>
 
-                <h3 class="section-title">
-                    Reseller Information
-                </h3>
+<div class="form-group full">
 
+<label for="message">
+Tell Us About Your Business
+<span class="required">*</span>
+</label>
 
-                <div class="form-grid">
+<textarea
+id="message"
+name="message"
+placeholder="Tell us about your business, your target customers and why you would like to become a Dinges TechHub reseller."
+required
+></textarea>
 
-                    <div class="form-group">
+</div>
 
-                        <label for="experience">
-                            Current IT / Technology Experience
-                        </label>
+</div>
 
-                        <select
-                            id="experience"
-                            name="experience"
-                        >
+<div class="checkbox-area">
 
-                            <option value="">
-                                Select experience level
-                            </option>
+<div class="checkbox-row">
 
-                            <option value="beginner">
-                                Beginner
-                            </option>
+<input
+type="checkbox"
+id="informationCorrect"
+name="informationCorrect"
+value="1"
+required
+>
 
-                            <option value="some-experience">
-                                Some Experience
-                            </option>
+<label for="informationCorrect">
+I confirm that the information provided in
+this application is accurate and complete.
+<span class="required">*</span>
+</label>
 
-                            <option value="experienced">
-                                Experienced
-                            </option>
+</div>
 
-                            <option value="expert">
-                                Advanced / Expert
-                            </option>
+<div class="checkbox-row">
 
-                        </select>
+<input
+type="checkbox"
+id="contactPermission"
+name="contactPermission"
+value="1"
+required
+>
 
-                    </div>
+<label for="contactPermission">
+I agree that Dinges TechHub may contact me
+regarding this reseller application.
+<span class="required">*</span>
+</label>
 
+</div>
 
-                    <div class="form-group">
+</div>
 
-                        <label for="customerBase">
-                            Approximate Customer Base
-                        </label>
+<div class="form-actions">
 
-                        <select
-                            id="customerBase"
-                            name="customerBase"
-                        >
+<button
+type="submit"
+class="submit-button"
+id="submitButton"
+>
+Submit Reseller Application
+</button>
 
-                            <option value="">
-                                Select customer base
-                            </option>
+<div
+id="formMessage"
+class="form-message"
+role="alert"
+aria-live="polite"
+tabindex="-1"
+></div>
 
-                            <option value="0-10">
-                                0 – 10
-                            </option>
+</div>
 
-                            <option value="11-50">
-                                11 – 50
-                            </option>
+</form>
 
-                            <option value="51-100">
-                                51 – 100
-                            </option>
+</section>
 
-                            <option value="101-500">
-                                101 – 500
-                            </option>
-
-                            <option value="500-plus">
-                                500+
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group full">
-
-                        <label for="services">
-                            Services You Are Interested In
-                            <span class="required">*</span>
-                        </label>
-
-                        <textarea
-                            id="services"
-                            name="services"
-                            placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
-                            maxlength="5000"
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <div class="form-group full">
-
-                        <label for="message">
-                            Tell Us About Your Business
-                            <span class="required">*</span>
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Tell us about your business, your target customers and why you would like to become a Dinges TechHub reseller."
-                            maxlength="5000"
-                            required
-                        ></textarea>
-
-                    </div>
-
-                </div>
-
-
-                <div class="checkbox-area">
-
-                    <div class="checkbox-row">
-
-                        <input
-                            type="checkbox"
-                            id="informationCorrect"
-                            name="informationCorrect"
-                            value="1"
-                            required
-                        >
-
-                        <label for="informationCorrect">
-
-                            I confirm that the information provided in
-                            this application is accurate and complete.
-
-                            <span class="required">*</span>
-
-                        </label>
-
-                    </div>
-
-
-                    <div class="checkbox-row">
-
-                        <input
-                            type="checkbox"
-                            id="contactPermission"
-                            name="contactPermission"
-                            value="1"
-                            required
-                        >
-
-                        <label for="contactPermission">
-
-                            I agree that Dinges TechHub may contact me
-                            regarding this reseller application.
-
-                            <span class="required">*</span>
-
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <div class="form-actions">
-
-                    <button
-                        type="submit"
-                        class="submit-button"
-                        id="submitButton"
-                    >
-                        Submit Reseller Application
-                    </button>
-
-
-                    <div
-                        id="formMessage"
-                        class="form-message"
-                        role="alert"
-                        aria-live="polite"
-                        tabindex="-1"
-                    ></div>
-
-                </div>
-
-            </form>
-
-        </section>
-
-    </div>
+</div>
 
 </main>
 
-
 <footer>
 
-    <div class="footer-container">
+<div class="footer-container">
 
-        <div class="footer-logo">
+<div class="footer-logo">
 
-            <a href="index.html">
+<a href="index.html">
 
-                <img
-                    src="dingestech-logo.png"
-                    alt="Dinges TechHub"
-                >
+<img
+src="dingestech-logo.png"
+alt="Dinges TechHub"
+>
 
-            </a>
+</a>
 
-        </div>
+</div>
 
+<p>
+Technology solutions for businesses and individuals.
+</p>
 
-        <p>
-            Technology solutions for businesses and individuals.
-        </p>
+<div class="footer-links">
 
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+<a href="login.html">Login</a>
 
-        <div class="footer-links">
+</div>
 
-            <a href="index.html">
-                Home
-            </a>
+<div class="copyright">
 
-            <a href="services.html">
-                Services
-            </a>
+<p>
+&copy;
+<span id="year"></span>
+Dinges TechHub.
+All rights reserved.
+</p>
 
-            <a href="contact.html">
-                Contact
-            </a>
+</div>
 
-            <a href="login.html">
-                Login
-            </a>
-
-        </div>
-
-
-        <div class="copyright">
-
-            <p>
-                &copy;
-                <span id="year"></span>
-                Dinges TechHub.
-                All rights reserved.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </footer>
 
-
 <script>
 
-"use strict";
-
-/*
-|--------------------------------------------------------------------------
-| DINGES TECHHUB
-| RESELLER APPLICATION FRONTEND
-|--------------------------------------------------------------------------
-*/
-
-/*
-|--------------------------------------------------------------------------
-| API
-|--------------------------------------------------------------------------
-*/
+/* ==========================================================
+   CONFIGURATION
+========================================================== */
 
 const API_URL =
     "https://register.web.za/api/reseller-application.php";
 
 
-/*
-|--------------------------------------------------------------------------
-| ELEMENTS
-|--------------------------------------------------------------------------
-*/
+/* ==========================================================
+   CURRENT YEAR
+========================================================== */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+/* ==========================================================
+   FORM ELEMENTS
+========================================================== */
 
 const form =
     document.getElementById(
@@ -1284,36 +1060,12 @@ const formMessage =
         "formMessage"
     );
 
-const yearElement =
-    document.getElementById(
-        "year"
-    );
 
+/* ==========================================================
+   SHOW MESSAGE
+========================================================== */
 
-/*
-|--------------------------------------------------------------------------
-| YEAR
-|--------------------------------------------------------------------------
-*/
-
-if (yearElement) {
-
-    yearElement.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| SHOW MESSAGE
-|--------------------------------------------------------------------------
-*/
-
-function showMessage(
-    type,
-    message
-) {
+function showMessage(type, message) {
 
     formMessage.className =
         "form-message " + type;
@@ -1321,162 +1073,18 @@ function showMessage(
     formMessage.textContent =
         message;
 
-    formMessage.setAttribute(
-        "tabindex",
-        "-1"
-    );
-
     formMessage.focus();
 
+    formMessage.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
 }
 
 
-/*
-|--------------------------------------------------------------------------
-| CLEAR MESSAGE
-|--------------------------------------------------------------------------
-*/
-
-function clearMessage() {
-
-    formMessage.className =
-        "form-message";
-
-    formMessage.textContent =
-        "";
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| SET LOADING
-|--------------------------------------------------------------------------
-*/
-
-function setLoading(
-    loading
-) {
-
-    submitButton.disabled =
-        loading;
-
-    if (loading) {
-
-        submitButton.textContent =
-            "Submitting Application...";
-
-    } else {
-
-        submitButton.textContent =
-            "Submit Reseller Application";
-
-    }
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| GET VALUE
-|--------------------------------------------------------------------------
-*/
-
-function getValue(id) {
-
-    const element =
-        document.getElementById(id);
-
-    if (!element) {
-
-        return "";
-
-    }
-
-    return element.value.trim();
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| COLLECT FORM DATA
-|--------------------------------------------------------------------------
-*/
-
-function collectPayload() {
-
-    return {
-
-        firstName:
-            getValue("firstName"),
-
-        lastName:
-            getValue("lastName"),
-
-        email:
-            getValue("email"),
-
-        phone:
-            getValue("phone"),
-
-        businessName:
-            getValue("businessName"),
-
-        businessType:
-            document.getElementById(
-                "businessType"
-            ).value,
-
-        registrationNumber:
-            getValue(
-                "registrationNumber"
-            ),
-
-        website:
-            getValue("website"),
-
-        businessAddress:
-            getValue(
-                "businessAddress"
-            ),
-
-        experience:
-            document.getElementById(
-                "experience"
-            ).value,
-
-        customerBase:
-            document.getElementById(
-                "customerBase"
-            ).value,
-
-        services:
-            getValue("services"),
-
-        message:
-            getValue("message"),
-
-        informationCorrect:
-            document.getElementById(
-                "informationCorrect"
-            ).checked,
-
-        contactPermission:
-            document.getElementById(
-                "contactPermission"
-            ).checked
-
-    };
-
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| SUBMIT
-|--------------------------------------------------------------------------
-*/
+/* ==========================================================
+   SUBMIT FORM
+========================================================== */
 
 form.addEventListener(
     "submit",
@@ -1484,85 +1092,103 @@ form.addEventListener(
 
         event.preventDefault();
 
-        clearMessage();
+        formMessage.className =
+            "form-message";
 
-
-        /*
-        |------------------------------------------------------------------
-        | Browser validation
-        |------------------------------------------------------------------
-        */
+        formMessage.textContent =
+            "";
 
         if (!form.checkValidity()) {
 
             form.reportValidity();
 
             return;
-
         }
 
+        submitButton.disabled = true;
 
-        /*
-        |------------------------------------------------------------------
-        | Collect data
-        |------------------------------------------------------------------
-        */
-
-        const payload =
-            collectPayload();
+        submitButton.textContent =
+            "Submitting Application...";
 
 
-        /*
-        |------------------------------------------------------------------
-        | Extra frontend validation
-        |------------------------------------------------------------------
-        */
+        const payload = {
 
-        if (
-            payload.website !== ""
-        ) {
+            firstName:
+                document.getElementById(
+                    "firstName"
+                ).value.trim(),
 
-            try {
+            lastName:
+                document.getElementById(
+                    "lastName"
+                ).value.trim(),
 
-                new URL(
-                    payload.website
-                );
+            email:
+                document.getElementById(
+                    "email"
+                ).value.trim(),
 
-            } catch (error) {
+            phone:
+                document.getElementById(
+                    "phone"
+                ).value.trim(),
 
-                showMessage(
-                    "error",
-                    "Please enter a valid website URL or leave the field blank."
-                );
+            businessName:
+                document.getElementById(
+                    "businessName"
+                ).value.trim(),
 
-                return;
+            businessType:
+                document.getElementById(
+                    "businessType"
+                ).value,
 
-            }
+            registrationNumber:
+                document.getElementById(
+                    "registrationNumber"
+                ).value.trim(),
 
-        }
+            website:
+                document.getElementById(
+                    "website"
+                ).value.trim(),
 
+            businessAddress:
+                document.getElementById(
+                    "businessAddress"
+                ).value.trim(),
 
-        /*
-        |------------------------------------------------------------------
-        | Loading
-        |------------------------------------------------------------------
-        */
+            experience:
+                document.getElementById(
+                    "experience"
+                ).value,
 
-        setLoading(true);
+            customerBase:
+                document.getElementById(
+                    "customerBase"
+                ).value,
 
+            services:
+                document.getElementById(
+                    "services"
+                ).value.trim(),
 
-        /*
-        |------------------------------------------------------------------
-        | Send request
-        |
-        | IMPORTANT:
-        |
-        | credentials: "include"
-        |
-        | This tells the browser to include the authentication/session
-        | cookie when communicating with register.web.za.
-        |------------------------------------------------------------------
-        */
+            message:
+                document.getElementById(
+                    "message"
+                ).value.trim(),
+
+            informationCorrect:
+                document.getElementById(
+                    "informationCorrect"
+                ).checked,
+
+            contactPermission:
+                document.getElementById(
+                    "contactPermission"
+                ).checked
+        };
+
 
         try {
 
@@ -1570,39 +1196,31 @@ form.addEventListener(
                 await fetch(
                     API_URL,
                     {
+                        method:"POST",
 
-                        method: "POST",
+                        /*
+                         * THIS IS IMPORTANT.
+                         *
+                         * It tells the browser to send the
+                         * register.web.za PHP session cookie.
+                         */
+                        credentials:"include",
 
-                        credentials: "include",
-
-                        mode: "cors",
-
-                        cache: "no-store",
-
-                        headers: {
-
+                        headers:{
                             "Content-Type":
                                 "application/json",
 
                             "Accept":
                                 "application/json"
-
                         },
 
                         body:
                             JSON.stringify(
                                 payload
                             )
-
                     }
                 );
 
-
-            /*
-            |----------------------------------------------------------------
-            | Read response
-            |----------------------------------------------------------------
-            */
 
             const rawResponse =
                 await response.text();
@@ -1610,113 +1228,55 @@ form.addEventListener(
 
             let result;
 
-
             try {
 
                 result =
-                    rawResponse
-                        ? JSON.parse(
-                            rawResponse
-                        )
-                        : {};
+                    JSON.parse(
+                        rawResponse
+                    );
 
-            } catch (parseError) {
+            } catch(error) {
 
                 console.error(
-                    "Invalid JSON returned by reseller API:",
+                    "Invalid API response:",
                     rawResponse
                 );
 
                 throw new Error(
-                    "The server returned an invalid response. Please contact Dinges TechHub support."
+                    "The server returned an invalid response."
                 );
-
-            }
-
-
-            /*
-            |----------------------------------------------------------------
-            | HTTP errors
-            |----------------------------------------------------------------
-            */
-
-            if (
-                response.status === 401
-            ) {
-
-                throw new Error(
-                    "Your customer session has expired. Please log in again before submitting a reseller application."
-                );
-
-            }
-
-
-            if (
-                response.status === 409
-            ) {
-
-                throw new Error(
-                    result.message ||
-                    "You already have a reseller application under review."
-                );
-
             }
 
 
             if (!response.ok) {
 
                 throw new Error(
-
                     result.message ||
-
-                    "The server could not process your reseller application."
-
+                    "The server could not process your application."
                 );
-
             }
 
 
-            /*
-            |----------------------------------------------------------------
-            | API-level error
-            |----------------------------------------------------------------
-            */
-
-            if (
-                result.success !== true
-            ) {
+            if (!result.success) {
 
                 throw new Error(
-
                     result.message ||
-
-                    "Your reseller application could not be submitted."
-
+                    "Your application could not be submitted."
                 );
-
             }
 
-
-            /*
-            |----------------------------------------------------------------
-            | SUCCESS
-            |----------------------------------------------------------------
-            */
 
             let successMessage =
                 result.message ||
                 "Your reseller application has been submitted successfully.";
 
 
-            if (
-                result.application_reference
-            ) {
+            if (result.application_reference) {
 
-                successMessage =
-                    "Application submitted successfully! Your application reference is " +
+                successMessage +=
+                    " Your application reference is " +
                     result.application_reference +
                     ".";
-
             }
 
 
@@ -1726,16 +1286,10 @@ form.addEventListener(
             );
 
 
-            /*
-            |----------------------------------------------------------------
-            | Reset form
-            |----------------------------------------------------------------
-            */
-
             form.reset();
 
 
-        } catch (error) {
+        } catch(error) {
 
             console.error(
                 "Reseller application error:",
@@ -1743,35 +1297,20 @@ form.addEventListener(
             );
 
 
-            /*
-            |----------------------------------------------------------------
-            | Network / CORS / connection errors
-            |----------------------------------------------------------------
-            */
+            showMessage(
+                "error",
+                error.message ||
+                "Unable to submit your reseller application. Please try again."
+            );
 
-            if (
-                error instanceof TypeError
-            ) {
-
-                showMessage(
-                    "error",
-                    "We could not connect to the reseller application server. Please check your internet connection and try again."
-                );
-
-            } else {
-
-                showMessage(
-                    "error",
-                    error.message ||
-                    "Unable to submit your reseller application. Please try again."
-                );
-
-            }
 
         } finally {
 
-            setLoading(false);
+            submitButton.disabled =
+                false;
 
+            submitButton.textContent =
+                "Submit Reseller Application";
         }
 
     }
@@ -1781,4 +1320,3 @@ form.addEventListener(
 
 </body>
 </html>
-
