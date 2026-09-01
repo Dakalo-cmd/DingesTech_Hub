@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Reseller Application | Dinges TechHub</title>
 
-<meta name="description" content="Apply to become a Dinges TechHub reseller.">
+<meta
+    name="description"
+    content="Apply to become a Dinges TechHub reseller."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
 :root {
     --purple-dark:#3C1542;
     --purple:#7A2C78;
@@ -26,15 +38,22 @@
     --border:#ddd5df;
 }
 
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+
 html {
     scroll-behavior:smooth;
 }
+
 
 body {
     font-family:"Inter",Arial,sans-serif;
@@ -44,10 +63,12 @@ body {
     line-height:1.6;
 }
 
+
 a {
     color:inherit;
     text-decoration:none;
 }
+
 
 button,
 input,
@@ -56,7 +77,10 @@ textarea {
     font-family:inherit;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .site-header {
     position:sticky;
@@ -66,6 +90,7 @@ textarea {
     background:#fff;
     border-bottom:1px solid #e5dfe7;
 }
+
 
 .nav-container {
     max-width:1200px;
@@ -78,17 +103,20 @@ textarea {
     gap:30px;
 }
 
+
 .logo {
     display:flex;
     align-items:center;
     flex-shrink:0;
 }
 
+
 .logo img {
     width:145px;
     height:auto;
     display:block;
 }
+
 
 .nav-menu {
     display:flex;
@@ -98,6 +126,7 @@ textarea {
     gap:24px;
 }
 
+
 .nav-menu a {
     color:var(--purple-dark);
     font-size:16px;
@@ -106,9 +135,11 @@ textarea {
     transition:.25s ease;
 }
 
+
 .nav-menu a:hover {
     color:var(--purple);
 }
+
 
 .nav-cta {
     background:var(--purple);
@@ -117,12 +148,16 @@ textarea {
     border-radius:9px;
 }
 
+
 .nav-cta:hover {
     background:var(--purple-dark)!important;
     transform:translateY(-1px);
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
     background:
@@ -136,10 +171,12 @@ textarea {
     padding:75px 20px;
 }
 
+
 .hero-content {
     max-width:900px;
     margin:auto;
 }
+
 
 .hero-badge {
     display:inline-block;
@@ -152,6 +189,7 @@ textarea {
     font-weight:800;
 }
 
+
 .hero h1 {
     font-family:"Manrope",sans-serif;
     font-size:46px;
@@ -159,6 +197,7 @@ textarea {
     font-weight:800;
     margin-bottom:20px;
 }
+
 
 .hero p {
     max-width:760px;
@@ -168,19 +207,26 @@ textarea {
     color:rgba(255,255,255,.93);
 }
 
-/* MAIN */
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 .page-wrapper {
     width:100%;
     padding:60px 20px 80px;
 }
 
+
 .content-container {
     max-width:1050px;
     margin:auto;
 }
 
-/* BENEFITS */
+
+/* =========================================================
+   BENEFITS
+========================================================= */
 
 .benefits {
     display:grid;
@@ -189,6 +235,7 @@ textarea {
     margin-bottom:50px;
 }
 
+
 .benefit-card {
     background:#fff;
     border:1px solid #e5dfe7;
@@ -196,6 +243,7 @@ textarea {
     padding:28px 24px;
     box-shadow:0 8px 25px rgba(60,21,66,.06);
 }
+
 
 .benefit-icon {
     width:52px;
@@ -209,18 +257,23 @@ textarea {
     font-size:26px;
 }
 
+
 .benefit-card h3 {
     color:var(--purple-dark);
     font-size:21px;
     margin-bottom:8px;
 }
 
+
 .benefit-card p {
     color:#555;
     font-size:16px;
 }
 
-/* FORM */
+
+/* =========================================================
+   FORM
+========================================================= */
 
 .form-card {
     background:#fff;
@@ -230,9 +283,11 @@ textarea {
     padding:42px;
 }
 
+
 .form-header {
     margin-bottom:35px;
 }
+
 
 .form-header h2 {
     font-family:"Manrope",sans-serif;
@@ -241,10 +296,12 @@ textarea {
     margin-bottom:8px;
 }
 
+
 .form-header p {
     color:#666;
     font-size:16px;
 }
+
 
 .section-title {
     color:var(--purple-dark);
@@ -255,20 +312,24 @@ textarea {
     border-bottom:2px solid #eee;
 }
 
+
 .form-grid {
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:20px;
 }
 
+
 .form-group {
     display:flex;
     flex-direction:column;
 }
 
+
 .form-group.full {
     grid-column:1/-1;
 }
+
 
 label {
     color:#292929;
@@ -277,15 +338,18 @@ label {
     margin-bottom:8px;
 }
 
+
 .required {
     color:var(--danger);
 }
+
 
 .optional {
     color:#777;
     font-size:13px;
     font-weight:500;
 }
+
 
 input,
 select,
@@ -299,20 +363,26 @@ textarea {
     font-size:16px;
     line-height:1.4;
     outline:none;
-    transition:border-color .2s ease,box-shadow .2s ease;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
+
 
 input:focus,
 select:focus,
 textarea:focus {
     border-color:var(--purple);
-    box-shadow:0 0 0 3px rgba(122,44,120,.12);
+    box-shadow:
+        0 0 0 3px rgba(122,44,120,.12);
 }
+
 
 textarea {
     min-height:130px;
     resize:vertical;
 }
+
 
 .hint {
     color:#777;
@@ -320,7 +390,10 @@ textarea {
     margin-top:6px;
 }
 
-/* CHECKBOX */
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
 
 .checkbox-area {
     margin-top:28px;
@@ -330,6 +403,7 @@ textarea {
     border:1px solid #e7e1e8;
 }
 
+
 .checkbox-row {
     display:flex;
     align-items:flex-start;
@@ -337,9 +411,11 @@ textarea {
     margin-bottom:15px;
 }
 
+
 .checkbox-row:last-child {
     margin-bottom:0;
 }
+
 
 .checkbox-row input {
     width:20px;
@@ -348,6 +424,7 @@ textarea {
     flex-shrink:0;
 }
 
+
 .checkbox-row label {
     margin:0;
     font-size:15px;
@@ -355,12 +432,16 @@ textarea {
     line-height:1.5;
 }
 
-/* SUBMIT */
+
+/* =========================================================
+   SUBMIT
+========================================================= */
 
 .form-actions {
     margin-top:30px;
     text-align:center;
 }
+
 
 .submit-button {
     width:100%;
@@ -372,14 +453,20 @@ textarea {
     font-size:18px;
     font-weight:800;
     cursor:pointer;
-    transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
 }
+
 
 .submit-button:hover {
     background:var(--purple-dark);
     transform:translateY(-2px);
-    box-shadow:0 10px 25px rgba(60,21,66,.2);
+    box-shadow:
+        0 10px 25px rgba(60,21,66,.2);
 }
+
 
 .submit-button:disabled {
     opacity:.65;
@@ -388,7 +475,10 @@ textarea {
     box-shadow:none;
 }
 
-/* MESSAGE */
+
+/* =========================================================
+   MESSAGE
+========================================================= */
 
 .form-message {
     display:none;
@@ -399,12 +489,14 @@ textarea {
     font-weight:600;
 }
 
+
 .form-message.success {
     display:block;
     background:#e9f8f0;
     color:var(--success);
     border:1px solid #b8e5cb;
 }
+
 
 .form-message.error {
     display:block;
@@ -413,7 +505,10 @@ textarea {
     border:1px solid #efc2c2;
 }
 
-/* FOOTER */
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer {
     background:var(--purple-dark);
@@ -421,25 +516,30 @@ footer {
     padding:45px 20px 25px;
 }
 
+
 .footer-container {
     max-width:1100px;
     margin:auto;
     text-align:center;
 }
 
+
 .footer-logo {
     margin-bottom:20px;
 }
+
 
 .footer-logo img {
     width:130px;
     height:auto;
 }
 
+
 .footer-container p {
     color:rgba(255,255,255,.8);
     font-size:15px;
 }
+
 
 .footer-links {
     display:flex;
@@ -449,14 +549,17 @@ footer {
     margin:20px 0;
 }
 
+
 .footer-links a {
     color:#fff;
     font-size:15px;
 }
 
+
 .footer-links a:hover {
     color:var(--gold);
 }
+
 
 .copyright {
     padding-top:20px;
@@ -464,7 +567,10 @@ footer {
     border-top:1px solid rgba(255,255,255,.15);
 }
 
-/* MOBILE */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:850px) {
 
@@ -486,7 +592,9 @@ footer {
     .hero h1 {
         font-size:38px;
     }
+
 }
+
 
 @media(max-width:650px) {
 
@@ -542,491 +650,719 @@ footer {
     .logo img {
         width:130px;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
 <header class="site-header">
 
-<div class="nav-container">
+    <div class="nav-container">
 
-<a href="index.html" class="logo">
-<img src="dingestech-logo.png" alt="Dinges TechHub">
-</a>
+        <a
+            href="index.html"
+            class="logo"
+        >
 
-<nav class="nav-menu">
+            <img
+                src="dingestech-logo.png"
+                alt="Dinges TechHub"
+            >
 
-<a href="index.html">Home</a>
+        </a>
 
-<a href="services.html">Services</a>
 
-<a href="contact.html">Contact Us</a>
+        <nav class="nav-menu">
 
-<a href="login.html">Login</a>
+            <a href="index.html">
+                Home
+            </a>
 
-<a href="reseller-application.html" class="nav-cta">
-Become a Reseller
-</a>
+            <a href="services.html">
+                Services
+            </a>
 
-</nav>
+            <a href="contact.html">
+                Contact Us
+            </a>
 
-</div>
+            <a href="login.html">
+                Login
+            </a>
+
+            <a
+                href="reseller-application.html"
+                class="nav-cta"
+            >
+                Become a Reseller
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
 <section class="hero">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<span class="hero-badge">
-DINGES TECHHUB PARTNER PROGRAM
-</span>
+        <span class="hero-badge">
+            DINGES TECHHUB PARTNER PROGRAM
+        </span>
 
-<h1>
-Become a Dinges TechHub Reseller
-</h1>
+        <h1>
+            Become a Dinges TechHub Reseller
+        </h1>
 
-<p>
-Grow your business by offering reliable technology,
-connectivity, hosting, VoIP and IT solutions to your
-customers through Dinges TechHub.
-</p>
+        <p>
+            Grow your business by offering reliable technology,
+            connectivity, hosting, VoIP and IT solutions to your
+            customers through Dinges TechHub.
+        </p>
 
-</div>
+    </div>
 
 </section>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
 <main class="page-wrapper">
 
-<div class="content-container">
+    <div class="content-container">
 
-<section class="benefits">
 
-<div class="benefit-card">
+        <!-- =================================================
+             BENEFITS
+        ================================================== -->
 
-<div class="benefit-icon">💼</div>
+        <section class="benefits">
 
-<h3>Grow Your Business</h3>
 
-<p>
-Expand your service offering and provide
-professional technology solutions to your customers.
-</p>
+            <div class="benefit-card">
 
-</div>
+                <div class="benefit-icon">
+                    💼
+                </div>
 
-<div class="benefit-card">
+                <h3>
+                    Grow Your Business
+                </h3>
 
-<div class="benefit-icon">🌐</div>
+                <p>
+                    Expand your service offering and provide
+                    professional technology solutions to your customers.
+                </p>
 
-<h3>Technology Solutions</h3>
+            </div>
 
-<p>
-Offer connectivity, hosting, VoIP, IT support
-and other technology services.
-</p>
 
-</div>
+            <div class="benefit-card">
 
-<div class="benefit-card">
+                <div class="benefit-icon">
+                    🌐
+                </div>
 
-<div class="benefit-icon">🤝</div>
+                <h3>
+                    Technology Solutions
+                </h3>
 
-<h3>Partner With Us</h3>
+                <p>
+                    Offer connectivity, hosting, VoIP, IT support
+                    and other technology services.
+                </p>
 
-<p>
-Work with Dinges TechHub as a technology reseller
-and build long-term customer relationships.
-</p>
+            </div>
 
-</div>
 
-</section>
+            <div class="benefit-card">
 
-<section class="form-card">
+                <div class="benefit-icon">
+                    🤝
+                </div>
 
-<div class="form-header">
+                <h3>
+                    Partner With Us
+                </h3>
 
-<h2>Reseller Application</h2>
+                <p>
+                    Work with Dinges TechHub as a technology reseller
+                    and build long-term customer relationships.
+                </p>
 
-<p>
-Complete the form below and submit your application.
-Our team will review your information and contact you
-regarding the next steps.
-</p>
+            </div>
 
-</div>
 
-<form id="resellerApplicationForm" novalidate>
+        </section>
 
-<h3 class="section-title">
-Applicant Information
-</h3>
 
-<div class="form-grid">
+        <!-- =================================================
+             APPLICATION FORM
+        ================================================== -->
 
-<div class="form-group">
+        <section class="form-card">
 
-<label for="firstName">
-First Name <span class="required">*</span>
-</label>
+            <div class="form-header">
 
-<input
-type="text"
-id="firstName"
-name="firstName"
-placeholder="Enter your first name"
-autocomplete="given-name"
-required
->
+                <h2>
+                    Reseller Application
+                </h2>
 
-</div>
+                <p>
+                    Complete the form below and submit your application.
+                    Our team will review your information and contact you
+                    regarding the next steps.
+                </p>
 
-<div class="form-group">
+            </div>
 
-<label for="lastName">
-Last Name <span class="required">*</span>
-</label>
 
-<input
-type="text"
-id="lastName"
-name="lastName"
-placeholder="Enter your last name"
-autocomplete="family-name"
-required
->
+            <form
+                id="resellerApplicationForm"
+                novalidate
+            >
 
-</div>
 
-<div class="form-group">
+                <!-- =========================================
+                     APPLICANT INFORMATION
+                ========================================== -->
 
-<label for="email">
-Email Address <span class="required">*</span>
-</label>
+                <h3 class="section-title">
+                    Applicant Information
+                </h3>
 
-<input
-type="email"
-id="email"
-name="email"
-placeholder="you@example.com"
-autocomplete="email"
-required
->
 
-</div>
+                <div class="form-grid">
 
-<div class="form-group">
 
-<label for="phone">
-Phone Number <span class="required">*</span>
-</label>
+                    <div class="form-group">
 
-<input
-type="tel"
-id="phone"
-name="phone"
-placeholder="e.g. 071 234 5678"
-autocomplete="tel"
-required
->
+                        <label for="firstName">
+                            First Name
+                            <span class="required">*</span>
+                        </label>
 
-</div>
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstName"
+                            placeholder="Enter your first name"
+                            autocomplete="given-name"
+                            required
+                        >
 
-</div>
+                    </div>
 
-<h3 class="section-title">
-Business Information
-</h3>
 
-<div class="form-grid">
+                    <div class="form-group">
 
-<div class="form-group">
+                        <label for="lastName">
+                            Last Name
+                            <span class="required">*</span>
+                        </label>
 
-<label for="businessName">
-Business Name <span class="required">*</span>
-</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Enter your last name"
+                            autocomplete="family-name"
+                            required
+                        >
 
-<input
-type="text"
-id="businessName"
-name="businessName"
-placeholder="Your business name"
-autocomplete="organization"
-required
->
+                    </div>
 
-</div>
 
-<div class="form-group">
+                    <div class="form-group">
 
-<label for="businessType">
-Business Type <span class="required">*</span>
-</label>
+                        <label for="email">
+                            Email Address
+                            <span class="required">*</span>
+                        </label>
 
-<select id="businessType" name="businessType" required>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
 
-<option value="">Select business type</option>
-<option value="sole-proprietor">Sole Proprietor</option>
-<option value="private-company">Private Company</option>
-<option value="partnership">Partnership</option>
-<option value="other">Other</option>
+                    </div>
 
-</select>
 
-</div>
+                    <div class="form-group">
 
-<div class="form-group">
+                        <label for="phone">
+                            Phone Number
+                            <span class="required">*</span>
+                        </label>
 
-<label for="registrationNumber">
-Company Registration Number
-<span class="optional">(Optional)</span>
-</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="e.g. 071 234 5678"
+                            autocomplete="tel"
+                            required
+                        >
 
-<input
-type="text"
-id="registrationNumber"
-name="registrationNumber"
-placeholder="Optional"
->
+                    </div>
 
-</div>
 
-<div class="form-group">
+                </div>
 
-<label for="website">
-Business Website
-<span class="optional">(Optional)</span>
-</label>
 
-<input
-type="url"
-id="website"
-name="website"
-placeholder="https://example.co.za"
-autocomplete="url"
->
+                <!-- =========================================
+                     BUSINESS INFORMATION
+                ========================================== -->
 
-<div class="hint">
-You may leave this field blank if your business
-does not have a website.
-</div>
+                <h3 class="section-title">
+                    Business Information
+                </h3>
 
-</div>
 
-<div class="form-group full">
+                <div class="form-grid">
 
-<label for="businessAddress">
-Business Address <span class="required">*</span>
-</label>
 
-<textarea
-id="businessAddress"
-name="businessAddress"
-placeholder="Enter your business address"
-required
-></textarea>
+                    <div class="form-group">
 
-</div>
+                        <label for="businessName">
+                            Business Name
+                            <span class="required">*</span>
+                        </label>
 
-</div>
+                        <input
+                            type="text"
+                            id="businessName"
+                            name="businessName"
+                            placeholder="Your business name"
+                            autocomplete="organization"
+                            required
+                        >
 
-<h3 class="section-title">
-Reseller Information
-</h3>
+                    </div>
 
-<div class="form-grid">
 
-<div class="form-group">
+                    <div class="form-group">
 
-<label for="experience">
-Current IT / Technology Experience
-</label>
+                        <label for="businessType">
+                            Business Type
+                            <span class="required">*</span>
+                        </label>
 
-<select id="experience" name="experience">
+                        <select
+                            id="businessType"
+                            name="businessType"
+                            required
+                        >
 
-<option value="">Select experience level</option>
-<option value="beginner">Beginner</option>
-<option value="some-experience">Some Experience</option>
-<option value="experienced">Experienced</option>
-<option value="expert">Advanced / Expert</option>
+                            <option value="">
+                                Select business type
+                            </option>
 
-</select>
+                            <option value="sole-proprietor">
+                                Sole Proprietor
+                            </option>
 
-</div>
+                            <option value="private-company">
+                                Private Company
+                            </option>
 
-<div class="form-group">
+                            <option value="partnership">
+                                Partnership
+                            </option>
 
-<label for="customerBase">
-Approximate Customer Base
-</label>
+                            <option value="other">
+                                Other
+                            </option>
 
-<select id="customerBase" name="customerBase">
+                        </select>
 
-<option value="">Select customer base</option>
-<option value="0-10">0 – 10</option>
-<option value="11-50">11 – 50</option>
-<option value="51-100">51 – 100</option>
-<option value="101-500">101 – 500</option>
-<option value="500-plus">500+</option>
+                    </div>
 
-</select>
 
-</div>
+                    <div class="form-group">
 
-<div class="form-group full">
+                        <label for="registrationNumber">
+                            Company Registration Number
+                            <span class="optional">
+                                (Optional)
+                            </span>
+                        </label>
 
-<label for="services">
-Services You Are Interested In
-<span class="required">*</span>
-</label>
+                        <input
+                            type="text"
+                            id="registrationNumber"
+                            name="registrationNumber"
+                            placeholder="Optional"
+                        >
 
-<textarea
-id="services"
-name="services"
-placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
-required
-></textarea>
+                    </div>
 
-</div>
 
-<div class="form-group full">
+                    <div class="form-group">
 
-<label for="message">
-Tell Us About Your Business
-<span class="required">*</span>
-</label>
+                        <label for="website">
+                            Business Website
+                            <span class="optional">
+                                (Optional)
+                            </span>
+                        </label>
 
-<textarea
-id="message"
-name="message"
-placeholder="Tell us about your business, your target customers and why you would like to become a Dinges TechHub reseller."
-required
-></textarea>
+                        <input
+                            type="url"
+                            id="website"
+                            name="website"
+                            placeholder="https://example.co.za"
+                            autocomplete="url"
+                        >
 
-</div>
+                        <div class="hint">
+                            You may leave this field blank if your
+                            business does not have a website.
+                        </div>
 
-</div>
+                    </div>
 
-<div class="checkbox-area">
 
-<div class="checkbox-row">
+                    <div class="form-group full">
 
-<input
-type="checkbox"
-id="informationCorrect"
-name="informationCorrect"
-value="1"
-required
->
+                        <label for="businessAddress">
+                            Business Address
+                            <span class="required">*</span>
+                        </label>
 
-<label for="informationCorrect">
-I confirm that the information provided in
-this application is accurate and complete.
-<span class="required">*</span>
-</label>
+                        <textarea
+                            id="businessAddress"
+                            name="businessAddress"
+                            placeholder="Enter your business address"
+                            required
+                        ></textarea>
 
-</div>
+                    </div>
 
-<div class="checkbox-row">
 
-<input
-type="checkbox"
-id="contactPermission"
-name="contactPermission"
-value="1"
-required
->
+                </div>
 
-<label for="contactPermission">
-I agree that Dinges TechHub may contact me
-regarding this reseller application.
-<span class="required">*</span>
-</label>
 
-</div>
+                <!-- =========================================
+                     RESELLER INFORMATION
+                ========================================== -->
 
-</div>
+                <h3 class="section-title">
+                    Reseller Information
+                </h3>
 
-<div class="form-actions">
 
-<button
-type="submit"
-class="submit-button"
-id="submitButton"
->
-Submit Reseller Application
-</button>
+                <div class="form-grid">
 
-<div
-id="formMessage"
-class="form-message"
-role="alert"
-aria-live="polite"
-tabindex="-1"
-></div>
 
-</div>
+                    <div class="form-group">
 
-</form>
+                        <label for="experience">
+                            Current IT / Technology Experience
+                        </label>
 
-</section>
+                        <select
+                            id="experience"
+                            name="experience"
+                        >
 
-</div>
+                            <option value="">
+                                Select experience level
+                            </option>
+
+                            <option value="beginner">
+                                Beginner
+                            </option>
+
+                            <option value="some-experience">
+                                Some Experience
+                            </option>
+
+                            <option value="experienced">
+                                Experienced
+                            </option>
+
+                            <option value="expert">
+                                Advanced / Expert
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerBase">
+                            Approximate Customer Base
+                        </label>
+
+                        <select
+                            id="customerBase"
+                            name="customerBase"
+                        >
+
+                            <option value="">
+                                Select customer base
+                            </option>
+
+                            <option value="0-10">
+                                0 – 10
+                            </option>
+
+                            <option value="11-50">
+                                11 – 50
+                            </option>
+
+                            <option value="51-100">
+                                51 – 100
+                            </option>
+
+                            <option value="101-500">
+                                101 – 500
+                            </option>
+
+                            <option value="500-plus">
+                                500+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="services">
+                            Services You Are Interested In
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="services"
+                            name="services"
+                            placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Tell Us About Your Business
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your business, your target customers and why you would like to become a Dinges TechHub reseller."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================================
+                     AGREEMENTS
+                ========================================== -->
+
+                <div class="checkbox-area">
+
+
+                    <div class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="informationCorrect"
+                            name="informationCorrect"
+                            value="1"
+                            required
+                        >
+
+                        <label for="informationCorrect">
+
+                            I confirm that the information provided in
+                            this application is accurate and complete.
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            id="contactPermission"
+                            name="contactPermission"
+                            value="1"
+                            required
+                        >
+
+                        <label for="contactPermission">
+
+                            I agree that Dinges TechHub may contact me
+                            regarding this reseller application.
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =========================================
+                     SUBMIT
+                ========================================== -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                        id="submitButton"
+                    >
+                        Submit Reseller Application
+                    </button>
+
+
+                    <div
+                        id="formMessage"
+                        class="form-message"
+                        role="alert"
+                        aria-live="polite"
+                        tabindex="-1"
+                    ></div>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </div>
 
 </main>
 
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
 <footer>
 
-<div class="footer-container">
+    <div class="footer-container">
 
-<div class="footer-logo">
 
-<a href="index.html">
+        <div class="footer-logo">
 
-<img
-src="dingestech-logo.png"
-alt="Dinges TechHub"
->
+            <a href="index.html">
 
-</a>
+                <img
+                    src="dingestech-logo.png"
+                    alt="Dinges TechHub"
+                >
 
-</div>
+            </a>
 
-<p>
-Technology solutions for businesses and individuals.
-</p>
+        </div>
 
-<div class="footer-links">
 
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
+        <p>
+            Technology solutions for businesses and individuals.
+        </p>
 
-</div>
 
-<div class="copyright">
+        <div class="footer-links">
 
-<p>
-&copy;
-<span id="year"></span>
-Dinges TechHub.
-All rights reserved.
-</p>
+            <a href="index.html">
+                Home
+            </a>
 
-</div>
+            <a href="services.html">
+                Services
+            </a>
 
-</div>
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+
+                &copy;
+
+                <span id="year"></span>
+
+                Dinges TechHub.
+
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+
+    </div>
 
 </footer>
+
 
 <script>
 
 /* ==========================================================
-   CONFIGURATION
+   DINGES TECHHUB
+   RESELLER APPLICATION FRONTEND
+========================================================== */
+
+
+/* ==========================================================
+   API CONFIGURATION
 ========================================================== */
 
 const API_URL =
@@ -1037,8 +1373,15 @@ const API_URL =
    CURRENT YEAR
 ========================================================== */
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+const yearElement =
+    document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
 
 
 /* ==========================================================
@@ -1050,10 +1393,12 @@ const form =
         "resellerApplicationForm"
     );
 
+
 const submitButton =
     document.getElementById(
         "submitButton"
     );
+
 
 const formMessage =
     document.getElementById(
@@ -1065,256 +1410,444 @@ const formMessage =
    SHOW MESSAGE
 ========================================================== */
 
-function showMessage(type, message) {
+function showMessage(
+    type,
+    message
+) {
+
+    if (!formMessage) {
+        return;
+    }
+
 
     formMessage.className =
         "form-message " + type;
 
+
     formMessage.textContent =
         message;
 
+
     formMessage.focus();
+
 
     formMessage.scrollIntoView({
         behavior:"smooth",
         block:"center"
     });
+
 }
 
 
 /* ==========================================================
-   SUBMIT FORM
+   CLEAR MESSAGE
 ========================================================== */
 
-form.addEventListener(
-    "submit",
-    async function(event) {
+function clearMessage() {
 
-        event.preventDefault();
-
-        formMessage.className =
-            "form-message";
-
-        formMessage.textContent =
-            "";
-
-        if (!form.checkValidity()) {
-
-            form.reportValidity();
-
-            return;
-        }
-
-        submitButton.disabled = true;
-
-        submitButton.textContent =
-            "Submitting Application...";
+    if (!formMessage) {
+        return;
+    }
 
 
-        const payload = {
-
-            firstName:
-                document.getElementById(
-                    "firstName"
-                ).value.trim(),
-
-            lastName:
-                document.getElementById(
-                    "lastName"
-                ).value.trim(),
-
-            email:
-                document.getElementById(
-                    "email"
-                ).value.trim(),
-
-            phone:
-                document.getElementById(
-                    "phone"
-                ).value.trim(),
-
-            businessName:
-                document.getElementById(
-                    "businessName"
-                ).value.trim(),
-
-            businessType:
-                document.getElementById(
-                    "businessType"
-                ).value,
-
-            registrationNumber:
-                document.getElementById(
-                    "registrationNumber"
-                ).value.trim(),
-
-            website:
-                document.getElementById(
-                    "website"
-                ).value.trim(),
-
-            businessAddress:
-                document.getElementById(
-                    "businessAddress"
-                ).value.trim(),
-
-            experience:
-                document.getElementById(
-                    "experience"
-                ).value,
-
-            customerBase:
-                document.getElementById(
-                    "customerBase"
-                ).value,
-
-            services:
-                document.getElementById(
-                    "services"
-                ).value.trim(),
-
-            message:
-                document.getElementById(
-                    "message"
-                ).value.trim(),
-
-            informationCorrect:
-                document.getElementById(
-                    "informationCorrect"
-                ).checked,
-
-            contactPermission:
-                document.getElementById(
-                    "contactPermission"
-                ).checked
-        };
+    formMessage.className =
+        "form-message";
 
 
-        try {
+    formMessage.textContent =
+        "";
 
-            const response =
-                await fetch(
-                    API_URL,
-                    {
-                        method:"POST",
-
-                        /*
-                         * THIS IS IMPORTANT.
-                         *
-                         * It tells the browser to send the
-                         * register.web.za PHP session cookie.
-                         */
-                        credentials:"include",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json",
-
-                            "Accept":
-                                "application/json"
-                        },
-
-                        body:
-                            JSON.stringify(
-                                payload
-                            )
-                    }
-                );
+}
 
 
-            const rawResponse =
-                await response.text();
+/* ==========================================================
+   GET FIELD VALUE
+========================================================== */
+
+function getValue(id) {
+
+    const element =
+        document.getElementById(id);
 
 
-            let result;
+    if (!element) {
+        return "";
+    }
+
+
+    return element.value.trim();
+
+}
+
+
+/* ==========================================================
+   GET CHECKBOX VALUE
+========================================================== */
+
+function getCheckboxValue(id) {
+
+    const element =
+        document.getElementById(id);
+
+
+    if (!element) {
+        return false;
+    }
+
+
+    return element.checked;
+
+}
+
+
+/* ==========================================================
+   FORM SUBMISSION
+========================================================== */
+
+if (form) {
+
+    form.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            clearMessage();
+
+
+            /* ----------------------------------------------
+               CLIENT-SIDE VALIDATION
+            ---------------------------------------------- */
+
+            if (!form.checkValidity()) {
+
+                form.reportValidity();
+
+                return;
+
+            }
+
+
+            /* ----------------------------------------------
+               DISABLE BUTTON
+            ---------------------------------------------- */
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                "Submitting Application...";
+
+
+            /* ----------------------------------------------
+               BUILD APPLICATION PAYLOAD
+            ---------------------------------------------- */
+
+            const payload = {
+
+                firstName:
+                    getValue("firstName"),
+
+                lastName:
+                    getValue("lastName"),
+
+                email:
+                    getValue("email"),
+
+                phone:
+                    getValue("phone"),
+
+                businessName:
+                    getValue("businessName"),
+
+                businessType:
+                    document.getElementById(
+                        "businessType"
+                    )?.value || "",
+
+                registrationNumber:
+                    getValue(
+                        "registrationNumber"
+                    ),
+
+                website:
+                    getValue("website"),
+
+                businessAddress:
+                    getValue(
+                        "businessAddress"
+                    ),
+
+                experience:
+                    document.getElementById(
+                        "experience"
+                    )?.value || "",
+
+                customerBase:
+                    document.getElementById(
+                        "customerBase"
+                    )?.value || "",
+
+                services:
+                    getValue("services"),
+
+                message:
+                    getValue("message"),
+
+                informationCorrect:
+                    getCheckboxValue(
+                        "informationCorrect"
+                    ),
+
+                contactPermission:
+                    getCheckboxValue(
+                        "contactPermission"
+                    )
+
+            };
+
+
+            console.log(
+                "Submitting reseller application..."
+            );
+
 
             try {
 
-                result =
-                    JSON.parse(
-                        rawResponse
+
+                /* ------------------------------------------
+                   SEND REQUEST
+
+                   IMPORTANT:
+                   credentials:"include" tells the browser
+                   to send the DINGES_CUSTOMER_SESSION cookie
+                   belonging to register.web.za.
+                ------------------------------------------ */
+
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+                            method:"POST",
+
+                            credentials:"include",
+
+                            headers:{
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+                            },
+
+                            cache:"no-store",
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+                        }
                     );
 
-            } catch(error) {
 
-                console.error(
-                    "Invalid API response:",
+                /* ------------------------------------------
+                   READ SERVER RESPONSE
+                ------------------------------------------ */
+
+                const rawResponse =
+                    await response.text();
+
+
+                console.log(
+                    "Reseller API HTTP status:",
+                    response.status
+                );
+
+
+                console.log(
+                    "Reseller API response:",
                     rawResponse
                 );
 
-                throw new Error(
-                    "The server returned an invalid response."
-                );
-            }
+
+                let result = null;
 
 
-            if (!response.ok) {
+                try {
 
-                throw new Error(
+                    result =
+                        rawResponse
+                            ? JSON.parse(
+                                rawResponse
+                            )
+                            : null;
+
+                }
+                catch(error) {
+
+                    console.error(
+                        "Invalid JSON from reseller API:",
+                        error
+                    );
+
+
+                    throw new Error(
+                        "The server returned an invalid response. Please try again."
+                    );
+
+                }
+
+
+                /* ------------------------------------------
+                   HTTP ERROR
+                ------------------------------------------ */
+
+                if (!response.ok) {
+
+                    const serverMessage =
+                        result &&
+                        typeof result.message === "string"
+                            ? result.message
+                            : "";
+
+
+                    if (
+                        response.status === 401
+                    ) {
+
+                        throw new Error(
+                            serverMessage ||
+                            "Your customer session has expired. Please log in again before submitting a reseller application."
+                        );
+
+                    }
+
+
+                    throw new Error(
+                        serverMessage ||
+                        "The server could not process your reseller application."
+                    );
+
+                }
+
+
+                /* ------------------------------------------
+                   API FAILURE
+                ------------------------------------------ */
+
+                if (
+                    !result ||
+                    result.success !== true
+                ) {
+
+                    throw new Error(
+                        result &&
+                        result.message
+                            ? result.message
+                            : "Your reseller application could not be submitted."
+                    );
+
+                }
+
+
+                /* ------------------------------------------
+                   SUCCESS
+                ------------------------------------------ */
+
+                let successMessage =
                     result.message ||
-                    "The server could not process your application."
+                    "Your reseller application has been submitted successfully.";
+
+
+                if (
+                    result.application_reference
+                ) {
+
+                    successMessage +=
+                        " Your application reference is " +
+                        result.application_reference +
+                        ".";
+
+                }
+
+
+                showMessage(
+                    "success",
+                    successMessage
                 );
-            }
 
 
-            if (!result.success) {
+                /* ------------------------------------------
+                   RESET FORM AFTER SUCCESS
+                ------------------------------------------ */
 
-                throw new Error(
-                    result.message ||
-                    "Your application could not be submitted."
+                form.reset();
+
+
+                console.log(
+                    "Reseller application submitted successfully."
                 );
+
+
+            }
+            catch(error) {
+
+
+                console.error(
+                    "Reseller application error:",
+                    error
+                );
+
+
+                /* ------------------------------------------
+                   NETWORK / CORS ERROR
+                ------------------------------------------ */
+
+                let message =
+                    error &&
+                    error.message
+                        ? error.message
+                        : "Unable to submit your reseller application. Please try again.";
+
+
+                if (
+                    error instanceof TypeError
+                ) {
+
+                    message =
+                        "Unable to connect to the reseller server. Please check your internet connection and try again.";
+
+                }
+
+
+                showMessage(
+                    "error",
+                    message
+                );
+
+            }
+            finally {
+
+
+                /* ------------------------------------------
+                   RE-ENABLE BUTTON
+                ------------------------------------------ */
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "Submit Reseller Application";
+
             }
 
-
-            let successMessage =
-                result.message ||
-                "Your reseller application has been submitted successfully.";
-
-
-            if (result.application_reference) {
-
-                successMessage +=
-                    " Your application reference is " +
-                    result.application_reference +
-                    ".";
-            }
-
-
-            showMessage(
-                "success",
-                successMessage
-            );
-
-
-            form.reset();
-
-
-        } catch(error) {
-
-            console.error(
-                "Reseller application error:",
-                error
-            );
-
-
-            showMessage(
-                "error",
-                error.message ||
-                "Unable to submit your reseller application. Please try again."
-            );
-
-
-        } finally {
-
-            submitButton.disabled =
-                false;
-
-            submitButton.textContent =
-                "Submit Reseller Application";
         }
+    );
 
-    }
-);
+}
 
 </script>
 
