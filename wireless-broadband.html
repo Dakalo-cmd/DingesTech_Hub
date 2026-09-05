@@ -95,36 +95,84 @@ button{
 
 
 /* =========================================================
-   TOP BAR
+   GLOBAL TOP BAR (same as index / fibre)
    ========================================================= */
 
-.topbar{
-
-    background:var(--primary);
-
-    color:var(--white);
-
-    padding:8px 5%;
-
-    font-size:13px;
-
+.top-bar{
+    background:var(--black);
+    color:#fff;
+    font-size:12px;
+    position:relative;
+    z-index:6000;
 }
 
-
-.topbar-inner{
-
-    max-width:1200px;
-
+.top-bar-inner{
+    width:min(1200px, 90%);
     margin:auto;
-
+    min-height:38px;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
+    gap:12px;
+}
 
-    gap:20px;
+.top-left,
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
 
+.top-bar a{
+    color:inherit;
+    transition:.25s ease;
+}
+
+.top-bar a:hover{
+    color:var(--accent);
+}
+
+.top-bar .status-dot-live{
+    width:8px;
+    height:8px;
+    display:inline-block;
+    margin-right:7px;
+    border-radius:50%;
+    background:#22C55E;
+    box-shadow:0 0 0 5px rgba(34,197,94,.12);
+}
+
+/* Cart badge in nav */
+.nav-cart{
+    display:inline-flex !important;
+    align-items:center;
+    gap:8px;
+    background:var(--primary);
+    color:#fff !important;
+    padding:9px 15px;
+    border-radius:8px;
+    font-weight:800 !important;
+}
+.nav-cart:hover{
+    background:var(--secondary);
+    color:#fff !important;
+}
+.cart-count{
+    min-width:21px;
+    height:21px;
+    padding:0 5px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--accent);
+    color:var(--black);
+    border-radius:50%;
+    font-size:11px;
+    font-weight:900;
+}
+.select-package.added{
+    background:#2e9d58 !important;
+    color:#fff !important;
 }
 
 
@@ -1478,26 +1526,23 @@ footer{
 
 @media(max-width:700px){
 
-    .topbar{
-
-        padding:8px 15px;
-
+    .top-bar{
+        font-size:11px;
     }
 
-
-    .topbar-inner{
-
+    .top-bar-inner{
+        min-height:auto;
+        padding:8px 0;
+        flex-wrap:wrap;
         justify-content:center;
-
-        text-align:center;
-
+        gap:10px 18px;
     }
 
-
-    .topbar-inner span:last-child{
-
-        display:none;
-
+    .top-left,
+    .top-right{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px 16px;
     }
 
 
@@ -1796,10 +1841,8 @@ footer{
     }
 
 
-    .topbar{
-
+    .top-bar{
         font-size:11px;
-
     }
 
 }
@@ -1816,20 +1859,17 @@ footer{
      TOP BAR
      ===================================================== -->
 
-<div class="topbar">
-
-    <div class="topbar-inner">
-
-        <span>
-            Reliable Technology & Connectivity Solutions
-        </span>
-
-        <span>
-            South Africa
-        </span>
-
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-left">
+            <a href="status.html"><span class="status-dot-live"></span>Network Status</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="top-right">
+            <span>Local technology support</span>
+            <a href="tel:+27101415650">010 141 5650</a>
+        </div>
     </div>
-
 </div>
 
 
@@ -1910,9 +1950,10 @@ footer{
 
             <a
                 href="cart.html"
-                class="nav-cta"
+                class="nav-cart"
             >
-                Cart
+                🛒 Cart
+                <span class="cart-count" id="cartCount">0</span>
             </a>
 
         </div>
@@ -2244,19 +2285,41 @@ footer{
      FOOTER
      ===================================================== -->
 
-<footer>
-
-    <p>
-
-        &copy;
-
-        <span id="year"></span>
-
-        Dinges TechHub.
-        All rights reserved.
-
-    </p>
-
+<footer class="footer" style="background:#16091A;color:rgba(255,255,255,.75);padding:55px 0 0;text-align:left;">
+  <div class="container" style="width:min(1200px,90%);margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px;">
+    <div>
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges TechHub" style="width:175px;height:auto;margin-bottom:16px;"></a>
+      <p style="max-width:360px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.68);">Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Internet</h3>
+      <a href="fibre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Fibre</a>
+      <a href="wireless-broadband.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Wireless Broadband</a>
+      <a href="wireless-lte-4g-5g.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">LTE / 4G / 5G</a>
+      <a href="melon-mobile.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Mobile</a>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Hosting</h3>
+      <a href="domain.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Domains</a>
+      <a href="shared-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Shared Hosting</a>
+      <a href="email-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Email Hosting</a>
+      <a href="web-development.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Website Development</a>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Support</h3>
+      <a href="contact.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Contact Us</a>
+      <a href="status.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Network Status</a>
+      <a href="services.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Services</a>
+      <a href="help-centre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Help Centre</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.12);padding:20px 0;">
+    <div class="container" style="width:min(1200px,90%);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55);">
+      <span>© <span id="year"></span> Dinges TechHub. All rights reserved.</span>
+      <span>Connect. Host. Grow.</span>
+      <a href="admin-login.html" style="color:rgba(255,255,255,.7);font-weight:700;">Admin Login</a>
+    </div>
+  </div>
 </footer>
 
 
@@ -2271,8 +2334,7 @@ footer{
    API CONFIGURATION
    ========================================================= */
 
-const API_URL =
-    "https://register.web.za/api/wireless-packages.php";
+const API_URL = "https://register.web.za/api/wireless-packages.php";
 
 
 /* =========================================================
@@ -2280,6 +2342,39 @@ const API_URL =
    ========================================================= */
 
 window.wirelessPackages = [];
+
+
+/* =========================================================
+   CART (same key as fibre page)
+   ========================================================= */
+
+const CART_KEY = "dingesTechHubCart";
+
+function getCart(){
+    try{
+        const saved = localStorage.getItem(CART_KEY);
+        if(!saved) return [];
+        const cart = JSON.parse(saved);
+        return Array.isArray(cart) ? cart : [];
+    }catch(e){
+        return [];
+    }
+}
+
+function saveCart(cart){
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+function updateCartCount(){
+    const cart = getCart();
+    const count = cart.reduce(function(t, item){
+        return t + Number(item.quantity || 1);
+    }, 0);
+    const el = document.getElementById("cartCount");
+    if(el) el.textContent = count;
+}
+
+
 
 
 /* =========================================================
@@ -2435,9 +2530,8 @@ window.addEventListener(
 document.addEventListener(
     "DOMContentLoaded",
     function(){
-
+        updateCartCount();
         loadProviders();
-
     }
 );
 
@@ -2449,327 +2543,169 @@ document.addEventListener(
 async function loadProviders(){
 
     const providerLoading =
-        document.getElementById(
-            "providerLoading"
-        );
-
+        document.getElementById("providerLoading");
 
     const providerGrid =
-        document.getElementById(
-            "providerGrid"
-        );
-
+        document.getElementById("providerGrid");
 
     const errorMessage =
-        document.getElementById(
-            "errorMessage"
-        );
-
+        document.getElementById("errorMessage");
 
     const statusDot =
-        document.getElementById(
-            "statusDot"
-        );
-
+        document.getElementById("statusDot");
 
     const statusText =
-        document.getElementById(
-            "statusText"
-        );
-
+        document.getElementById("statusText");
 
     try{
 
+        if(errorMessage){
+            errorMessage.classList.remove("show");
+            errorMessage.innerHTML = "";
+        }
 
-        console.log(
-            "Wireless API:",
-            API_URL
-        );
+        if(statusText){
+            statusText.textContent =
+                "Connecting to live wireless broadband database...";
+        }
 
+        if(statusDot){
+            statusDot.classList.remove("online", "offline");
+        }
 
-        const response =
-            await fetch(
-                API_URL,
-                {
-                    method:"GET",
+        const response = await fetch(API_URL, {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            },
+            cache: "no-store",
+            mode: "cors",
+            credentials: "omit"
+        });
 
-                    headers:{
-                        "Accept":
-                            "application/json"
-                    },
-
-                    cache:"no-store"
-                }
-            );
-
+        console.log("Wireless API HTTP status:", response.status);
 
         if(!response.ok){
-
             throw new Error(
-                "HTTP " +
-                response.status +
-                " - " +
-                response.statusText
+                "API returned HTTP " + response.status
             );
-
         }
 
+        const data = await response.json();
 
-        const rawText =
-            await response.text();
+        console.log("LIVE WIRELESS API RESPONSE:", data);
 
-
-        let data;
-
-
-        try{
-
-            data =
-                JSON.parse(
-                    rawText
-                );
-
-        }
-        catch(parseError){
-
-            console.error(
-                "Invalid JSON returned by API:",
-                rawText
-            );
-
-
+        if(!data || data.success === false){
             throw new Error(
-                "The wireless API did not return valid JSON."
+                (data && (data.error || data.message)) ||
+                "The API returned success=false."
             );
-
         }
 
-
-        console.log(
-            "Wireless API response:",
-            data
-        );
-
-
-        if(
-            data &&
-            data.success === false
-        ){
-
+        if(!Array.isArray(data.packages)){
             throw new Error(
-                data.error ||
-                data.message ||
-                "The API returned an unsuccessful response."
+                "The API did not return a packages array."
             );
-
         }
 
+        const packages = data.packages;
 
-        /*
-            Support several common API formats.
-        */
+        window.wirelessPackages = packages;
 
-        const packages =
-            extractPackages(data);
+        if(providerLoading){
+            providerLoading.style.display = "none";
+        }
 
+        if(statusDot){
+            statusDot.classList.remove("offline");
+            statusDot.classList.add("online");
+        }
 
-        window.wirelessPackages =
-            packages;
+        if(statusText){
+            statusText.textContent =
+                "Live wireless database connected • " +
+                packages.length +
+                " package" +
+                (packages.length === 1 ? "" : "s") +
+                " available";
+        }
 
-
-        providerLoading.style.display =
-            "none";
-
-
-        statusDot.classList.remove(
-            "offline"
-        );
-
-
-        statusDot.classList.add(
-            "online"
-        );
-
-
-        statusText.textContent =
-            packages.length +
-            " wireless broadband package" +
-            (
-                packages.length === 1
-                    ? ""
-                    : "s"
-            ) +
-            " available from the database.";
-
-
-        if(
-            packages.length === 0
-        ){
-
+        if(packages.length === 0){
             providerGrid.innerHTML = `
-
                 <div class="empty-message">
-
-                    <h3>
-                        No Wireless Packages Found
-                    </h3>
-
-                    <p>
-                        No wireless broadband packages
-                        were returned by the database.
-                    </p>
-
+                    <h3>No Wireless Packages Found</h3>
+                    <p>The database returned no wireless broadband packages.</p>
                 </div>
-
             `;
-
             return;
-
         }
 
+        const providers = buildProviders(packages);
 
-        const providers =
-            buildProviders(
-                packages
-            );
-
-
-        if(
-            providers.length === 0
-        ){
-
+        if(providers.length === 0){
             providerGrid.innerHTML = `
-
                 <div class="empty-message">
-
-                    <h3>
-                        No Providers Found
-                    </h3>
-
-                    <p>
-                        The API returned packages,
-                        but no provider names were found.
-                    </p>
-
+                    <h3>No Providers Found</h3>
+                    <p>Packages were returned, but no provider names were found.</p>
                 </div>
-
             `;
-
             return;
-
         }
 
+        providerGrid.innerHTML = "";
 
-        providerGrid.innerHTML =
-            "";
-
-
-        providers.forEach(
-            function(provider){
-
-                providerGrid.appendChild(
-                    createProviderCard(
-                        provider
-                    )
-                );
-
-            }
-        );
-
+        providers.forEach(function(provider){
+            providerGrid.appendChild(
+                createProviderCard(provider)
+            );
+        });
 
     }
     catch(error){
 
+        console.error("Wireless Broadband API Error:", error);
 
-        console.error(
-            "Wireless Broadband API Error:",
-            error
-        );
+        if(providerLoading){
+            providerLoading.style.display = "none";
+        }
 
+        if(statusDot){
+            statusDot.classList.remove("online");
+            statusDot.classList.add("offline");
+        }
 
-        providerLoading.style.display =
-            "none";
+        if(statusText){
+            statusText.textContent =
+                "Unable to connect to wireless broadband database";
+        }
 
+        if(errorMessage){
+            errorMessage.innerHTML = `
+                <strong>Unable to Load Wireless Broadband</strong>
+                <br><br>
+                ${escapeHTML(error.message || "Failed to fetch")}
+                <br><br>
+                <strong>API:</strong>
+                ${escapeHTML(API_URL)}
+                <br><br>
+                <button type="button" class="select-package" style="max-width:200px;margin-top:12px;" onclick="loadProviders()">
+                    Try Again
+                </button>
+            `;
+            errorMessage.classList.add("show");
+        }
 
-        statusDot.classList.remove(
-            "online"
-        );
-
-
-        statusDot.classList.add(
-            "offline"
-        );
-
-
-        statusText.textContent =
-            "Unable to connect to the wireless broadband API.";
-
-
-        errorMessage.innerHTML = `
-
-            <strong>
-                Unable to Load Wireless Broadband
-            </strong>
-
-            <br><br>
-
-            The page could not retrieve the
-            wireless broadband packages.
-
-            <br><br>
-
-            <strong>
-                Error:
-            </strong>
-
-            ${escapeHTML(
-                error.message
-            )}
-
-            <br><br>
-
-            Please check that:
-
-            <br>
-
-            • The PHP wireless API exists.
-
-            <br>
-
-            • The API URL is correct.
-
-            <br>
-
-            • The PHP API can connect to the database.
-
-            <br>
-
-            • CORS allows requests from Netlify.
-
-        `;
-
-
-        errorMessage.classList.add(
-            "show"
-        );
-
-
-        providerGrid.innerHTML = `
-
-            <div class="empty-message">
-
-                <h3>
-                    Unable to Connect
-                </h3>
-
-                <p>
-                    We could not retrieve wireless
-                    broadband packages from the database.
-                </p>
-
-            </div>
-
-        `;
+        if(providerGrid){
+            providerGrid.innerHTML = `
+                <div class="empty-message">
+                    <h3>Unable to Connect</h3>
+                    <p>We could not retrieve wireless broadband packages from the database.</p>
+                    <button type="button" class="select-package" style="max-width:200px;margin-top:16px;" onclick="loadProviders()">
+                        Try Again
+                    </button>
+                </div>
+            `;
+        }
 
     }
 
@@ -3427,7 +3363,7 @@ function createPackageCard(pkg){
             class="select-package"
         >
 
-            Select Package
+            Add to Cart
 
         </button>
 
@@ -3447,7 +3383,8 @@ function createPackageCard(pkg){
             event.stopPropagation();
 
             selectWirelessPackage(
-                pkg
+                pkg,
+                selectButton
             );
 
         }
@@ -3488,31 +3425,32 @@ function getPackageName(pkg){
 
 function getDownloadSpeed(pkg){
 
-    const value =
-        getValue(
-            pkg,
-            [
-                "download_speed",
-                "download",
-                "download_speed_mbps",
-                "speed",
-                "speed_down",
-                "down_speed"
-            ]
-        );
-
+    const value = getValue(pkg, [
+        "download_speed",
+        "download",
+        "download_speed_mbps",
+        "speed",
+        "speed_down",
+        "down_speed"
+    ]);
 
     if(value){
-
-        return formatSpeed(
-            value
-        );
-
+        return formatSpeed(value);
     }
 
+    /* Parse from description / package_name like fibre page */
+    const text = (
+        (pkg && pkg.description ? pkg.description : "") + " " +
+        (pkg && pkg.package_name ? pkg.package_name : "")
+    );
+    const match = text.match(
+        /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*(?:Mbps|Mb\/s|mbps)?/i
+    );
+    if(match){
+        return match[1] + " Mbps";
+    }
 
-    return "Contact us";
-
+    return "See details";
 }
 
 
@@ -3522,30 +3460,30 @@ function getDownloadSpeed(pkg){
 
 function getUploadSpeed(pkg){
 
-    const value =
-        getValue(
-            pkg,
-            [
-                "upload_speed",
-                "upload",
-                "upload_speed_mbps",
-                "speed_up",
-                "up_speed"
-            ]
-        );
-
+    const value = getValue(pkg, [
+        "upload_speed",
+        "upload",
+        "upload_speed_mbps",
+        "speed_up",
+        "up_speed"
+    ]);
 
     if(value){
-
-        return formatSpeed(
-            value
-        );
-
+        return formatSpeed(value);
     }
 
+    const text = (
+        (pkg && pkg.description ? pkg.description : "") + " " +
+        (pkg && pkg.package_name ? pkg.package_name : "")
+    );
+    const match = text.match(
+        /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*(?:Mbps|Mb\/s|mbps)?/i
+    );
+    if(match){
+        return match[2] + " Mbps";
+    }
 
-    return "Contact us";
-
+    return "See details";
 }
 
 
@@ -3589,64 +3527,47 @@ function formatSpeed(value){
 
 function getPrice(pkg){
 
-    const value =
-        getValue(
-            pkg,
-            [
-                "price",
-                "monthly_price",
-                "monthly",
-                "amount",
-                "cost",
-                "selling_price",
-                "recurring_price"
-            ]
-        );
-
-
+    /* Prefer nested WHMCS pricing.monthly (same as fibre API) */
     if(
-        value === "" ||
-        value === null ||
-        value === undefined
+        pkg &&
+        pkg.pricing &&
+        pkg.pricing.monthly !== null &&
+        pkg.pricing.monthly !== undefined &&
+        Number(pkg.pricing.monthly) >= 0
     ){
+        const numeric = Number(pkg.pricing.monthly);
+        return "R" + numeric.toLocaleString("en-ZA", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
 
+    const value = getValue(pkg, [
+        "price",
+        "monthly_price",
+        "monthly",
+        "amount",
+        "cost",
+        "selling_price",
+        "recurring_price"
+    ]);
+
+    if(value === "" || value === null || value === undefined){
         return "Contact us";
-
     }
 
-
-    const numeric =
-        parseFloat(
-            String(value)
-                .replace(
-                    /[^0-9.-]/g,
-                    ""
-                )
-        );
-
-
-    if(
-        !Number.isNaN(
-            numeric
-        )
-    ){
-
-        return "R" +
-            numeric.toLocaleString(
-                "en-ZA",
-                {
-                    minimumFractionDigits:2,
-                    maximumFractionDigits:2
-                }
-            );
-
-    }
-
-
-    return String(
-        value
+    const numeric = parseFloat(
+        String(value).replace(/[^0-9.-]/g, "")
     );
 
+    if(!Number.isNaN(numeric)){
+        return "R" + numeric.toLocaleString("en-ZA", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    return String(value);
 }
 
 
@@ -3740,46 +3661,77 @@ function getValue(
    SELECT WIRELESS PACKAGE
    ========================================================= */
 
-function selectWirelessPackage(pkg){
+function selectWirelessPackage(pkg, button){
 
-    /*
-        Store the selected package.
+    const productId =
+        pkg.product_id ||
+        pkg.pid ||
+        pkg.id ||
+        "";
 
-        This allows the next checkout/cart
-        integration to use the database package.
-    */
+    const packageName =
+        getPackageName(pkg);
 
-    try{
-
-        localStorage.setItem(
-            "selectedWirelessPackage",
-            JSON.stringify(
-                pkg
-            )
-        );
-
+    let monthlyPrice = 0;
+    if(
+        pkg &&
+        pkg.pricing &&
+        pkg.pricing.monthly !== null &&
+        pkg.pricing.monthly !== undefined &&
+        Number(pkg.pricing.monthly) >= 0
+    ){
+        monthlyPrice = Number(pkg.pricing.monthly);
+    }else{
+        const priceRaw = getValue(pkg, [
+            "price",
+            "monthly_price",
+            "monthly",
+            "amount",
+            "cost",
+            "selling_price",
+            "recurring_price"
+        ]);
+        if(priceRaw !== "" && priceRaw !== null && priceRaw !== undefined){
+            const n = parseFloat(String(priceRaw).replace(/[^0-9.-]/g, ""));
+            if(!Number.isNaN(n)) monthlyPrice = n;
+        }
     }
-    catch(error){
 
-        console.warn(
-            "Could not save selected wireless package:",
-            error
-        );
+    let cart = getCart();
 
+    const existingItem = cart.find(function(item){
+        return String(item.productId || "") === String(productId) &&
+               String(item.name || "") === String(packageName);
+    });
+
+    if(existingItem){
+        existingItem.quantity = Number(existingItem.quantity || 1) + 1;
+    }else{
+        cart.push({
+            productId: productId,
+            name: packageName,
+            type: "Wireless Broadband",
+            billing: "monthly",
+            monthlyPrice: monthlyPrice,
+            setupPrice: Number(pkg.setup_price || pkg.setupPrice || pkg.installation_fee || 0) || 0,
+            provider: getProviderName(pkg) || "Wireless Provider",
+            quantity: 1
+        });
     }
 
+    saveCart(cart);
+    updateCartCount();
 
-    /*
-        If your cart page already accepts
-        wireless packages, go there.
-
-        The selected package is available
-        through localStorage.
-    */
-
-    window.location.href =
-        "cart.html";
-
+    /* Stay on page — same as fibre */
+    if(button){
+        const originalText = button.textContent;
+        button.textContent = "✓ Added to Cart";
+        button.classList.add("added");
+        setTimeout(function(){
+            button.textContent = originalText;
+            button.classList.remove("added");
+        }, 1800);
+    }
 }
 
 
