@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wireless packages bridge</title>
+</head>
+<body>
+<script>
+/**
+ * Same-origin bridge on register.web.za
+ * Fetches wireless packages locally, posts them to the parent page.
+ * Parent can be on Workers/Netlify — postMessage does not need CORS.
+ */
+(function () {
+  var API = "/api/wireless-packages.php";
+
+  function send(payload) {
+    try {
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage(payload, "*");
+      }
+    } catch (e) {}
+  }
+
+  fetch(API + "?_=" + Date.now(), { cache: "no-store" })
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      send({ source: "dinges-wireless-bridge", ok: true, data: data });
+    })
+    .catch(function (err) {
+      send({
+        source: "dinges-wireless-bridge",
+        ok: false,
+        error: (err && err.message) ? err.message : "bridge fetch failed"
+      });
+    });
+})();
+</script>
+</body>
+</html>

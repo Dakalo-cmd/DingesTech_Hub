@@ -2336,6 +2336,10 @@ footer{
 
 const API_URL = "https://register.web.za/api/wireless-packages.php";
 
+const API_JSONP_URL = "https://register.web.za/api/wireless-packages-jsonp.php";
+
+const API_BRIDGE_URL = "https://register.web.za/api/wireless-bridge.html";
+
 
 /* =========================================================
    GLOBAL DATA
@@ -2540,181 +2544,313 @@ document.addEventListener(
    LOAD PROVIDERS
    ========================================================= */
 
-async function loadProviders(){
 
-    const providerLoading =
-        document.getElementById("providerLoading");
+/* =========================================================
+   FETCH PACKAGES — primary fetch + JSONP fallback
+   ========================================================= */
 
-    const providerGrid =
-        document.getElementById("providerGrid");
+function normalizeProviderName(name){
+    return String(name || "").replace(/\s+/g, " ").trim();
+}
 
-    const errorMessage =
-        document.getElementById("errorMessage");
+function applyPackages(packages){
+    const providerLoading = document.getElementById("providerLoading");
+    const providerGrid = document.getElementById("providerGrid");
+    const errorMessage = document.getElementById("errorMessage");
+    const statusDot = document.getElementById("statusDot");
+    const statusText = document.getElementById("statusText");
 
-    const statusDot =
-        document.getElementById("statusDot");
+    window.wirelessPackages = packages;
 
-    const statusText =
-        document.getElementById("statusText");
-
-    try{
-
-        if(errorMessage){
-            errorMessage.classList.remove("show");
-            errorMessage.innerHTML = "";
-        }
-
-        if(statusText){
-            statusText.textContent =
-                "Connecting to live wireless broadband database...";
-        }
-
-        if(statusDot){
-            statusDot.classList.remove("online", "offline");
-        }
-
-        const response = await fetch(API_URL, {
-            method: "GET",
-            headers: {
-                "Accept": "application/json"
-            },
-            cache: "no-store",
-            mode: "cors",
-            credentials: "omit"
-        });
-
-        console.log("Wireless API HTTP status:", response.status);
-
-        if(!response.ok){
-            throw new Error(
-                "API returned HTTP " + response.status
-            );
-        }
-
-        const data = await response.json();
-
-        console.log("LIVE WIRELESS API RESPONSE:", data);
-
-        if(!data || data.success === false){
-            throw new Error(
-                (data && (data.error || data.message)) ||
-                "The API returned success=false."
-            );
-        }
-
-        if(!Array.isArray(data.packages)){
-            throw new Error(
-                "The API did not return a packages array."
-            );
-        }
-
-        const packages = data.packages;
-
-        window.wirelessPackages = packages;
-
-        if(providerLoading){
-            providerLoading.style.display = "none";
-        }
-
-        if(statusDot){
-            statusDot.classList.remove("offline");
-            statusDot.classList.add("online");
-        }
-
-        if(statusText){
-            statusText.textContent =
-                "Live wireless database connected • " +
-                packages.length +
-                " package" +
-                (packages.length === 1 ? "" : "s") +
-                " available";
-        }
-
-        if(packages.length === 0){
-            providerGrid.innerHTML = `
-                <div class="empty-message">
-                    <h3>No Wireless Packages Found</h3>
-                    <p>The database returned no wireless broadband packages.</p>
-                </div>
-            `;
-            return;
-        }
-
-        const providers = buildProviders(packages);
-
-        if(providers.length === 0){
-            providerGrid.innerHTML = `
-                <div class="empty-message">
-                    <h3>No Providers Found</h3>
-                    <p>Packages were returned, but no provider names were found.</p>
-                </div>
-            `;
-            return;
-        }
-
-        providerGrid.innerHTML = "";
-
-        providers.forEach(function(provider){
-            providerGrid.appendChild(
-                createProviderCard(provider)
-            );
-        });
-
+    if(providerLoading) providerLoading.style.display = "none";
+    if(errorMessage){
+        errorMessage.classList.remove("show");
+        errorMessage.innerHTML = "";
     }
-    catch(error){
+    if(statusDot){
+        statusDot.classList.remove("offline");
+        statusDot.classList.add("online");
+    }
+    if(statusText){
+        statusText.textContent =
+            "Live wireless database connected • " +
+            packages.length +
+            " package" +
+            (packages.length === 1 ? "" : "s") +
+            " available";
+    }
 
-        console.error("Wireless Broadband API Error:", error);
+    if(!packages.length){
+        providerGrid.innerHTML = `
+            <div class="empty-message">
+                <h3>No Wireless Packages Found</h3>
+                <p>The database returned no wireless broadband packages.</p>
+            </div>`;
+        return;
+    }
 
-        if(providerLoading){
-            providerLoading.style.display = "none";
+    /* Normalize provider names (trim spaces) */
+    packages.forEach(function(pkg){
+        if(pkg && pkg.provider){
+            pkg.provider = normalizeProviderName(pkg.provider);
         }
+    });
 
-        if(statusDot){
-            statusDot.classList.remove("online");
-            statusDot.classList.add("offline");
-        }
+    const providers = buildProviders(packages);
+    if(!providers.length){
+        providerGrid.innerHTML = `
+            <div class="empty-message">
+                <h3>No Providers Found</h3>
+                <p>Packages were returned, but no provider names were found.</p>
+            </div>`;
+        return;
+    }
 
-        if(statusText){
-            statusText.textContent =
-                "Unable to connect to wireless broadband database";
-        }
+    providerGrid.innerHTML = "";
+    providers.forEach(function(provider){
+        providerGrid.appendChild(createProviderCard(provider));
+    });
+}
 
-        if(errorMessage){
-            errorMessage.innerHTML = `
-                <strong>Unable to Load Wireless Broadband</strong>
-                <br><br>
-                ${escapeHTML(error.message || "Failed to fetch")}
-                <br><br>
-                <strong>API:</strong>
-                ${escapeHTML(API_URL)}
-                <br><br>
-                <button type="button" class="select-package" style="max-width:200px;margin-top:12px;" onclick="loadProviders()">
+function showLoadError(message){
+    const providerLoading = document.getElementById("providerLoading");
+    const providerGrid = document.getElementById("providerGrid");
+    const errorMessage = document.getElementById("errorMessage");
+    const statusDot = document.getElementById("statusDot");
+    const statusText = document.getElementById("statusText");
+
+    if(providerLoading) providerLoading.style.display = "none";
+    if(statusDot){
+        statusDot.classList.remove("online");
+        statusDot.classList.add("offline");
+    }
+    if(statusText){
+        statusText.textContent = "Unable to connect to wireless broadband database";
+    }
+    if(errorMessage){
+        errorMessage.innerHTML = `
+            <strong>Unable to Load Wireless Broadband</strong>
+            <br><br>
+            ${escapeHTML(message || "Failed to fetch")}
+            <br><br>
+            <strong>API:</strong>
+            ${escapeHTML(API_URL)}
+            <br><br>
+            <button type="button" class="select-package" style="max-width:200px;margin-top:12px;" onclick="loadProviders()">
+                Try Again
+            </button>`;
+        errorMessage.classList.add("show");
+    }
+    if(providerGrid){
+        providerGrid.innerHTML = `
+            <div class="empty-message">
+                <h3>Unable to Connect</h3>
+                <p>We could not retrieve wireless broadband packages from the database.</p>
+                <button type="button" class="select-package" style="max-width:200px;margin-top:16px;" onclick="loadProviders()">
                     Try Again
                 </button>
-            `;
-            errorMessage.classList.add("show");
-        }
-
-        if(providerGrid){
-            providerGrid.innerHTML = `
-                <div class="empty-message">
-                    <h3>Unable to Connect</h3>
-                    <p>We could not retrieve wireless broadband packages from the database.</p>
-                    <button type="button" class="select-package" style="max-width:200px;margin-top:16px;" onclick="loadProviders()">
-                        Try Again
-                    </button>
-                </div>
-            `;
-        }
-
+            </div>`;
     }
-
 }
 
 
-/* =========================================================
-   EXTRACT PACKAGES
-   ========================================================= */
+function loadPackagesViaJsonp(timeoutMs){
+    return new Promise(function(resolve, reject){
+        const cbName = "__wirelessJsonp_" + Date.now();
+        let settled = false;
+        const timer = setTimeout(function(){
+            if(settled) return;
+            settled = true;
+            cleanup();
+            reject(new Error("JSONP timeout"));
+        }, timeoutMs || 12000);
+
+        function cleanup(){
+            clearTimeout(timer);
+            try{ delete window[cbName]; }catch(e){ window[cbName] = undefined; }
+            if(script && script.parentNode) script.parentNode.removeChild(script);
+        }
+
+        window[cbName] = function(data){
+            if(settled) return;
+            settled = true;
+            cleanup();
+            resolve(data);
+        };
+
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = API_JSONP_URL +
+            (API_JSONP_URL.indexOf("?") >= 0 ? "&" : "?") +
+            "callback=" + encodeURIComponent(cbName) +
+            "&_=" + Date.now();
+        script.onerror = function(){
+            if(settled) return;
+            settled = true;
+            cleanup();
+            reject(new Error("JSONP script failed to load"));
+        };
+        document.head.appendChild(script);
+    });
+}
+
+function loadPackagesViaBridge(timeoutMs){
+    return new Promise(function(resolve, reject){
+        let settled = false;
+        const timer = setTimeout(function(){
+            if(settled) return;
+            settled = true;
+            cleanup();
+            reject(new Error("Bridge timeout"));
+        }, timeoutMs || 15000);
+
+        function onMessage(event){
+            try{
+                if(!event || !event.data || event.data.source !== "dinges-wireless-bridge"){
+                    return;
+                }
+                if(settled) return;
+                settled = true;
+                cleanup();
+                if(event.data.ok && event.data.data){
+                    resolve(event.data.data);
+                }else{
+                    reject(new Error(event.data.error || "Bridge returned an error"));
+                }
+            }catch(e){
+                if(settled) return;
+                settled = true;
+                cleanup();
+                reject(e);
+            }
+        }
+
+        function cleanup(){
+            clearTimeout(timer);
+            window.removeEventListener("message", onMessage);
+            if(iframe && iframe.parentNode) iframe.parentNode.removeChild(iframe);
+        }
+
+        window.addEventListener("message", onMessage);
+
+        const iframe = document.createElement("iframe");
+        iframe.style.cssText = "position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;border:0;opacity:0;";
+        iframe.setAttribute("aria-hidden", "true");
+        iframe.src = API_BRIDGE_URL +
+            (API_BRIDGE_URL.indexOf("?") >= 0 ? "&" : "?") +
+            "_=" + Date.now();
+        iframe.onerror = function(){
+            if(settled) return;
+            settled = true;
+            cleanup();
+            reject(new Error("Bridge iframe failed to load"));
+        };
+        document.body.appendChild(iframe);
+    });
+}
+
+async function loadProviders(){
+
+    const providerLoading = document.getElementById("providerLoading");
+    const errorMessage = document.getElementById("errorMessage");
+    const statusDot = document.getElementById("statusDot");
+    const statusText = document.getElementById("statusText");
+
+    if(errorMessage){
+        errorMessage.classList.remove("show");
+        errorMessage.innerHTML = "";
+    }
+    if(statusText){
+        statusText.textContent = "Connecting to live wireless broadband database...";
+    }
+    if(statusDot){
+        statusDot.classList.remove("online", "offline");
+    }
+    if(providerLoading){
+        providerLoading.style.display = "block";
+    }
+
+    /* Prefer same-origin when page is hosted on register.web.za */
+    const apiCandidates = [];
+    if(location.hostname.indexOf("register.web.za") !== -1){
+        apiCandidates.push("/api/wireless-packages.php");
+    }
+    apiCandidates.push(API_URL);
+
+    let lastError = null;
+
+    /* 1) CORS fetch attempts */
+    for(let i = 0; i < apiCandidates.length; i++){
+        const url = apiCandidates[i];
+        try{
+            const response = await fetch(
+                url + (url.indexOf("?") >= 0 ? "&" : "?") + "_=" + Date.now(),
+                {
+                    method: "GET",
+                    cache: "no-store",
+                    mode: "cors",
+                    credentials: "omit"
+                }
+            );
+            if(!response.ok){
+                throw new Error("API returned HTTP " + response.status);
+            }
+            const data = await response.json();
+            console.log("WIRELESS FETCH OK:", url, data);
+            if(!data || data.success === false){
+                throw new Error((data && (data.error || data.message)) || "success=false");
+            }
+            if(!Array.isArray(data.packages)){
+                throw new Error("No packages array");
+            }
+            applyPackages(data.packages);
+            return;
+        }catch(err){
+            console.warn("Fetch failed for", url, err);
+            lastError = err;
+        }
+    }
+
+    /* 2) JSONP */
+    try{
+        const data = await loadPackagesViaJsonp(12000);
+        console.log("WIRELESS JSONP OK:", data);
+        if(!data || data.success === false){
+            throw new Error((data && (data.error || data.message)) || "JSONP success=false");
+        }
+        const packages = Array.isArray(data.packages) ? data.packages : [];
+        if(!packages.length) throw new Error("JSONP returned no packages");
+        applyPackages(packages);
+        return;
+    }catch(err){
+        console.warn("JSONP failed:", err);
+        lastError = err;
+    }
+
+    /* 3) iframe postMessage bridge (same-origin fetch inside register.web.za) */
+    try{
+        const data = await loadPackagesViaBridge(15000);
+        console.log("WIRELESS BRIDGE OK:", data);
+        if(!data || data.success === false){
+            throw new Error((data && (data.error || data.message)) || "Bridge success=false");
+        }
+        const packages = Array.isArray(data.packages) ? data.packages : [];
+        if(!packages.length) throw new Error("Bridge returned no packages");
+        applyPackages(packages);
+        return;
+    }catch(err){
+        console.warn("Bridge failed:", err);
+        lastError = err;
+    }
+
+    showLoadError(
+        (lastError && lastError.message) ||
+        "Failed to load packages. Host this page on register.web.za or allow API access."
+    );
+}
+
+
+
 
 function extractPackages(data){
 
