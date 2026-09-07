@@ -5,18 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cleaning, Antivirus & Microsoft 365 | Dinges TechHub</title>
+<title>Software Support | Dinges TechHub</title>
 
 <meta
     name="description"
-    content="Dinges TechHub provides computer cleaning, antivirus assistance and Microsoft 365 setup and support for homes and businesses."
+    content="Dinges TechHub provides software installation, troubleshooting, updates, configuration and technical support for homes and businesses."
 >
 
 <style>
 
 /* =========================================================
    DINGES TECHHUB
-   CLEANING • ANTIVIRUS • MICROSOFT 365
+   SOFTWARE SUPPORT
    ========================================================= */
 
 :root {
@@ -69,6 +69,13 @@ img {
     display: block;
 }
 
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
 .container {
     width: min(92%, var(--container));
     margin: auto;
@@ -81,7 +88,7 @@ img {
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 38px;
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -221,7 +228,7 @@ img {
 .hero {
     min-height: 690px;
 
-    padding: 150px 0 90px;
+    padding: 170px 0 90px;
 
     position: relative;
     overflow: hidden;
@@ -397,6 +404,10 @@ img {
     font-weight: 800;
 
     transition: var(--transition);
+
+    border: none;
+
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -429,10 +440,10 @@ img {
 
 
 /* =========================================================
-   HERO VISUAL
+   HERO SOFTWARE VISUAL
    ========================================================= */
 
-.security-visual {
+.software-visual {
     min-height: 430px;
 
     position: relative;
@@ -445,12 +456,12 @@ img {
 
 
 /* =========================================================
-   CENTRAL SECURITY PANEL
+   CENTRAL SOFTWARE PANEL
    ========================================================= */
 
-.security-panel {
-    width: 330px;
-    min-height: 340px;
+.software-panel {
+    width: 345px;
+    min-height: 350px;
 
     position: relative;
 
@@ -494,6 +505,10 @@ img {
 }
 
 
+/* =========================================================
+   PANEL HEADER
+   ========================================================= */
+
 .panel-top {
     display: flex;
 
@@ -501,7 +516,7 @@ img {
 
     justify-content: space-between;
 
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .panel-top strong {
@@ -518,80 +533,84 @@ img {
 
 
 /* =========================================================
-   SHIELD
+   CODE WINDOW
    ========================================================= */
 
-.shield {
-    width: 110px;
-    height: 125px;
+.code-window {
+    border-radius: 17px;
 
-    margin: 5px auto 25px;
+    background:
+        rgba(0,0,0,0.42);
 
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+}
+
+.code-header {
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    position: relative;
+    gap: 7px;
 
-    clip-path:
-        polygon(
-            50% 0%,
-            92% 15%,
-            85% 70%,
-            50% 100%,
-            15% 70%,
-            8% 15%
-        );
+    padding: 11px 14px;
 
-    background:
-        linear-gradient(
-            145deg,
-            var(--purple),
-            var(--gold)
-        );
-
-    animation:
-        shieldPulse
-        2.5s ease-in-out infinite;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
 }
 
-.shield::after {
-    content: "✓";
+.code-dot {
+    width: 8px;
+    height: 8px;
 
-    color: var(--white);
+    border-radius: 50%;
 
-    font-size: 48px;
-
-    font-weight: 900;
+    background: rgba(255,255,255,0.35);
 }
 
-@keyframes shieldPulse {
+.code-body {
+    padding: 17px;
 
-    0%, 100% {
-        filter:
-            drop-shadow(
-                0 0 0
-                rgba(255,187,66,0)
-            );
-    }
+    font-family:
+        "Courier New",
+        monospace;
 
-    50% {
-        filter:
-            drop-shadow(
-                0 0 22px
-                rgba(255,187,66,0.35)
-            );
-    }
+    font-size: 11px;
 
+    line-height: 1.9;
+
+    color:
+        rgba(255,255,255,0.72);
+}
+
+.code-line {
+    display: block;
+}
+
+.code-purple {
+    color: #c982c5;
+}
+
+.code-gold {
+    color: var(--gold);
+}
+
+.code-green {
+    color: #8fd18f;
 }
 
 
 /* =========================================================
-   PANEL ITEMS
+   SOFTWARE STATUS ITEMS
    ========================================================= */
 
-.security-item {
+.software-status {
     padding: 12px 14px;
 
     margin-top: 10px;
@@ -614,7 +633,7 @@ img {
     font-size: 12px;
 }
 
-.security-item span:last-child {
+.software-status span:last-child {
     color: var(--gold);
 
     font-weight: 800;
@@ -658,26 +677,26 @@ img {
         4s ease-in-out infinite;
 }
 
-.icon-clean {
+.icon-install {
     top: 15px;
     left: 7%;
 }
 
-.icon-microsoft {
+.icon-support {
     top: 27%;
     right: 0;
 
     animation-delay: .8s;
 }
 
-.icon-security {
+.icon-update {
     bottom: 8%;
     right: 12%;
 
     animation-delay: 1.5s;
 }
 
-.icon-support {
+.icon-settings {
     bottom: 13%;
     left: 3%;
 
@@ -749,7 +768,7 @@ img {
 
 
 /* =========================================================
-   MAIN SERVICES
+   SERVICES
    ========================================================= */
 
 .services {
@@ -864,10 +883,10 @@ img {
 
 
 /* =========================================================
-   SECURITY FEATURE
+   SUPPORT SECTION
    ========================================================= */
 
-.security-section {
+.support-section {
     padding: 100px 0;
 
     background:
@@ -880,7 +899,7 @@ img {
     color: var(--white);
 }
 
-.security-grid {
+.support-grid {
     display: grid;
 
     grid-template-columns:
@@ -893,14 +912,14 @@ img {
 
 
 /* =========================================================
-   SECURITY CONTENT
+   SUPPORT CONTENT
    ========================================================= */
 
-.security-content .eyebrow {
+.support-content .eyebrow {
     color: var(--gold);
 }
 
-.security-content h2 {
+.support-content h2 {
     font-size:
         clamp(32px, 4vw, 48px);
 
@@ -909,7 +928,7 @@ img {
     margin-bottom: 20px;
 }
 
-.security-content > p {
+.support-content > p {
     color:
         rgba(255,255,255,0.76);
 
@@ -947,10 +966,10 @@ img {
 
 
 /* =========================================================
-   365 PANEL
+   SUPPORT DASHBOARD
    ========================================================= */
 
-.office-panel {
+.support-panel {
     min-height: 400px;
 
     padding: 30px;
@@ -980,7 +999,7 @@ img {
     overflow: hidden;
 }
 
-.office-header {
+.support-header {
     display: flex;
 
     justify-content: space-between;
@@ -990,17 +1009,22 @@ img {
     margin-bottom: 28px;
 }
 
-.office-header strong {
+.support-header strong {
     font-size: 17px;
 }
 
-.office-header span {
+.support-header span {
     color: var(--gold);
 
     font-size: 11px;
 
     font-weight: 800;
 }
+
+
+/* =========================================================
+   SOFTWARE APPLICATIONS
+   ========================================================= */
 
 .apps {
     display: grid;
@@ -1189,6 +1213,263 @@ img {
     line-height: 1.7;
 
     font-size: 15px;
+}
+
+
+/* =========================================================
+   REQUEST SUPPORT FORM
+   ========================================================= */
+
+.request-section {
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7f5f8,
+            #ffffff
+        );
+}
+
+.request-wrapper {
+    display: grid;
+
+    grid-template-columns:
+        0.85fr 1.15fr;
+
+    gap: 55px;
+
+    align-items: start;
+}
+
+.request-intro {
+    padding-top: 15px;
+}
+
+.request-intro .eyebrow {
+    color: var(--purple);
+}
+
+.request-intro h2 {
+    color: var(--purple-dark);
+
+    font-size:
+        clamp(32px, 4vw, 48px);
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
+}
+
+.request-intro > p {
+    color: #686868;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+.request-points {
+    list-style: none;
+
+    display: grid;
+
+    gap: 13px;
+}
+
+.request-points li {
+    display: flex;
+
+    gap: 11px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.request-points span {
+    color: var(--purple);
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.support-form-card {
+    background: var(--white);
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        #e5e0e6;
+
+    box-shadow:
+        0 25px 65px
+        rgba(60,21,66,0.09);
+}
+
+.support-form-card h3 {
+    color: var(--purple-dark);
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--purple-dark);
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        #ddd7df;
+
+    border-radius: 12px;
+
+    background: #faf9fb;
+
+    color: var(--black);
+
+    padding: 13px 14px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--purple);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(122,44,120,0.08);
+}
+
+.form-actions {
+    margin-top: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.form-actions .btn {
+    min-width: 170px;
+}
+
+.form-note {
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   FORM STATUS
+   ========================================================= */
+
+.form-status {
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.form-status.show {
+    display: block;
+}
+
+.form-status.success {
+    background: #eef9f0;
+
+    color: #22652c;
+
+    border:
+        1px solid
+        #ccebd0;
+}
+
+.form-status.error {
+    background: #fff1f1;
+
+    color: #8a2626;
+
+    border:
+        1px solid
+        #f0cccc;
 }
 
 
@@ -1399,7 +1680,8 @@ footer {
     }
 
     .hero-grid,
-    .security-grid {
+    .support-grid,
+    .request-wrapper {
         grid-template-columns: 1fr;
     }
 
@@ -1431,6 +1713,10 @@ footer {
         min-height: 70px;
     }
 
+    .nav-links {
+        top: 70px;
+    }
+
     .logo img {
         width: 42px;
         height: 42px;
@@ -1451,11 +1737,11 @@ footer {
         font-size: 16px;
     }
 
-    .security-visual {
+    .software-visual {
         min-height: 350px;
     }
 
-    .security-panel {
+    .software-panel {
         width: 290px;
     }
 
@@ -1478,8 +1764,20 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
-    .office-panel {
+    .support-panel {
         padding: 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .support-form-card {
+        padding: 25px 20px;
     }
 
     .footer-grid {
@@ -1496,12 +1794,36 @@ footer {
 
 }
 
+
+/* GLOBAL TOP BAR */
+.top-bar{background:#020202;color:#fff;font-size:12px;position:relative;z-index:1100}
+.top-bar-inner{width:min(92%,1200px);margin:auto;min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top-left,.top-right{display:flex;align-items:center;gap:22px}
+.top-bar a{color:inherit;transition:.25s ease}
+.top-bar a:hover{color:#FFBB42}
+.top-bar .status-dot-live{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
+@media(max-width:800px){.top-bar{font-size:11px}.top-bar-inner{min-height:auto;padding:8px 0;flex-wrap:wrap;justify-content:center;gap:10px 18px}.top-left,.top-right{flex-wrap:wrap;justify-content:center;gap:12px 16px}}
+
 </style>
 
 </head>
 
 
 <body>
+
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-left">
+      <a href="status.html"><span class="status-dot-live"></span>Network Status</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="top-right">
+      <span>Local technology support</span>
+      <a href="tel:+27101415650">010 141 5650</a>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- =========================================================
@@ -1537,6 +1859,7 @@ footer {
             class="menu-toggle"
             id="menuToggle"
             aria-label="Open navigation menu"
+            type="button"
         >
             ☰
         </button>
@@ -1613,25 +1936,25 @@ footer {
             <div class="breadcrumb">
 
                 SMART SOLUTIONS /
-                DEVICE & SOFTWARE CARE
+                SOFTWARE SUPPORT
 
             </div>
 
 
             <h1>
 
-                Keep Your Technology
-                <span>Clean, Secure & Productive.</span>
+                Keep Your Software
+                <span>Running Smoothly.</span>
 
             </h1>
 
 
             <p class="hero-description">
 
-                Dinges TechHub provides computer cleaning,
-                antivirus assistance and Microsoft 365 setup
-                and support to help keep your devices secure,
-                organised and ready for everyday work.
+                Dinges TechHub provides practical software
+                support for homes and businesses, including
+                installation, configuration, troubleshooting,
+                updates and general application assistance.
 
             </p>
 
@@ -1643,17 +1966,17 @@ footer {
                     class="btn btn-primary"
                 >
 
-                    Explore Solutions
+                    Explore Support
 
                 </a>
 
 
                 <a
-                    href="contact.html"
+                    href="#request-support"
                     class="btn btn-outline"
                 >
 
-                    Get Assistance
+                    Request Support
 
                 </a>
 
@@ -1662,84 +1985,154 @@ footer {
         </div>
 
 
-        <!-- VISUAL -->
+        <!-- =================================================
+             SOFTWARE VISUAL
+             ================================================= -->
 
-        <div class="security-visual reveal">
-
-
-            <div class="floating-icon icon-clean">
-                🧹
-            </div>
+        <div class="software-visual reveal">
 
 
-            <div class="floating-icon icon-microsoft">
-                📊
-            </div>
-
-
-            <div class="floating-icon icon-security">
-                🛡️
+            <div class="floating-icon icon-install">
+                💿
             </div>
 
 
             <div class="floating-icon icon-support">
-                💻
+                🛠️
             </div>
 
 
-            <div class="security-panel">
+            <div class="floating-icon icon-update">
+                🔄
+            </div>
+
+
+            <div class="floating-icon icon-settings">
+                ⚙️
+            </div>
+
+
+            <div class="software-panel">
 
 
                 <div class="panel-top">
 
                     <strong>
-                        Device Protection
+                        Software Support
                     </strong>
 
                     <span class="panel-status">
-                        ACTIVE
+                        READY
                     </span>
 
                 </div>
 
 
-                <div class="shield"></div>
+                <div class="code-window">
+
+                    <div class="code-header">
+
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+                        <span class="code-dot"></span>
+
+                    </div>
 
 
-                <div class="security-item">
+                    <div class="code-body">
+
+                        <span class="code-line">
+
+                            <span class="code-purple">
+                                system
+                            </span>
+                            .
+                            <span class="code-gold">
+                                check
+                            </span>
+                            ();
+
+                        </span>
+
+
+                        <span class="code-line">
+
+                            software:
+                            <span class="code-green">
+                                ready
+                            </span>
+
+                        </span>
+
+
+                        <span class="code-line">
+
+                            updates:
+                            <span class="code-green">
+                                current
+                            </span>
+
+                        </span>
+
+
+                        <span class="code-line">
+
+                            configuration:
+                            <span class="code-green">
+                                stable
+                            </span>
+
+                        </span>
+
+
+                        <span class="code-line">
+
+                            support:
+                            <span class="code-gold">
+                                available
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="software-status">
 
                     <span>
-                        Device Health
+                        Applications
                     </span>
 
                     <span>
-                        ✓ Good
+                        ✓ Supported
                     </span>
 
                 </div>
 
 
-                <div class="security-item">
+                <div class="software-status">
 
                     <span>
-                        Security
-                    </span>
-
-                    <span>
-                        ✓ Protected
-                    </span>
-
-                </div>
-
-
-                <div class="security-item">
-
-                    <span>
-                        Software
+                        Configuration
                     </span>
 
                     <span>
                         ✓ Ready
+                    </span>
+
+                </div>
+
+
+                <div class="software-status">
+
+                    <span>
+                        Support
+                    </span>
+
+                    <span>
+                        ✓ Available
                     </span>
 
                 </div>
@@ -1766,23 +2159,22 @@ footer {
         <div class="section-heading reveal">
 
             <div class="eyebrow">
-                Smart Solutions
+                Software Support
             </div>
 
 
             <h2>
-                Better Care For Your Technology
+                Technology Should Work For You
             </h2>
 
 
             <p>
 
-                Computers and business devices need regular
-                attention. From keeping devices clean and
-                responsive to maintaining security software and
-                productivity applications, Dinges TechHub can
-                assist with the technology that supports your
-                everyday work.
+                Software problems can interrupt everyday work.
+                Dinges TechHub helps homes and businesses with
+                software installation, configuration,
+                troubleshooting and maintenance so supported
+                applications can remain easier to use and manage.
 
             </p>
 
@@ -1808,100 +2200,50 @@ footer {
         <div class="service-grid">
 
 
-            <!-- CLEANING -->
+            <!-- INSTALLATION -->
 
             <article class="service-card reveal">
 
                 <div class="service-icon">
-                    🧹
+                    💿
                 </div>
 
 
                 <h3>
-                    Computer Cleaning
+                    Software Installation
                 </h3>
 
 
                 <p>
 
-                    Assistance with keeping computer equipment
-                    clean and maintaining a better environment
-                    for everyday device use.
+                    Assistance with installing supported
+                    software and applications on compatible
+                    computers and devices.
 
                 </p>
 
             </article>
 
 
-            <!-- ANTIVIRUS -->
+            <!-- TROUBLESHOOTING -->
 
             <article class="service-card reveal">
 
                 <div class="service-icon">
-                    🛡️
+                    🛠️
                 </div>
 
 
                 <h3>
-                    Antivirus Assistance
+                    Software Troubleshooting
                 </h3>
 
 
                 <p>
 
-                    Help with antivirus installation,
-                    configuration, updates and basic security
-                    checks for supported devices.
-
-                </p>
-
-            </article>
-
-
-            <!-- MICROSOFT 365 -->
-
-            <article class="service-card reveal">
-
-                <div class="service-icon">
-                    ☁️
-                </div>
-
-
-                <h3>
-                    Microsoft 365
-                </h3>
-
-
-                <p>
-
-                    Assistance with Microsoft 365 setup,
-                    account configuration and productivity
-                    application support.
-
-                </p>
-
-            </article>
-
-
-            <!-- SOFTWARE -->
-
-            <article class="service-card reveal">
-
-                <div class="service-icon">
-                    💻
-                </div>
-
-
-                <h3>
-                    Software Setup
-                </h3>
-
-
-                <p>
-
-                    Support with installing and configuring
-                    supported applications and software on your
-                    devices.
+                    Help identify common software problems,
+                    application errors and configuration issues
+                    affecting everyday use.
 
                 </p>
 
@@ -1918,40 +2260,89 @@ footer {
 
 
                 <h3>
-                    Updates & Maintenance
+                    Software Updates
                 </h3>
 
 
                 <p>
 
-                    Assistance with keeping supported software
-                    and security tools updated and properly
-                    configured.
+                    Assistance with supported software updates,
+                    patches and basic update configuration.
 
                 </p>
 
             </article>
 
 
-            <!-- PERFORMANCE -->
+            <!-- CONFIGURATION -->
 
             <article class="service-card reveal">
 
                 <div class="service-icon">
-                    ⚡
+                    ⚙️
                 </div>
 
 
                 <h3>
-                    Device Performance
+                    Software Configuration
                 </h3>
 
 
                 <p>
 
-                    Basic assistance with identifying software
-                    and configuration issues that may affect
-                    everyday device performance.
+                    Configure supported applications and settings
+                    to better suit your personal or business
+                    requirements.
+
+                </p>
+
+            </article>
+
+
+            <!-- MICROSOFT -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    📊
+                </div>
+
+
+                <h3>
+                    Productivity Software
+                </h3>
+
+
+                <p>
+
+                    Assistance with supported productivity
+                    applications such as office, email,
+                    collaboration and document tools.
+
+                </p>
+
+            </article>
+
+
+            <!-- REMOTE SUPPORT -->
+
+            <article class="service-card reveal">
+
+                <div class="service-icon">
+                    💻
+                </div>
+
+
+                <h3>
+                    Remote Software Support
+                </h3>
+
+
+                <p>
+
+                    Where appropriate, software issues can be
+                    assessed and supported remotely, helping
+                    reduce unnecessary downtime.
 
                 </p>
 
@@ -1966,35 +2357,34 @@ footer {
 
 
 <!-- =========================================================
-     SECURITY SECTION
+     SUPPORT SECTION
      ========================================================= -->
 
-<section class="security-section">
+<section class="support-section">
 
-    <div class="container security-grid">
+    <div class="container support-grid">
 
 
-        <!-- CONTENT -->
-
-        <div class="security-content reveal">
+        <div class="support-content reveal">
 
 
             <div class="eyebrow">
-                Security & Productivity
+                Technical Assistance
             </div>
 
 
             <h2>
-                Protect Your Devices While Staying Productive.
+                From Installation To Troubleshooting.
             </h2>
 
 
             <p>
 
-                A secure computer is only one part of a good
-                technology environment. Your software,
-                productivity tools and device configuration also
-                need to work together.
+                Software support is about more than installing an
+                application. We can assist with supported
+                software throughout its everyday lifecycle,
+                from initial setup and configuration to updates
+                and troubleshooting.
 
             </p>
 
@@ -2006,7 +2396,7 @@ footer {
 
                     <span>✓</span>
 
-                    Antivirus installation and configuration
+                    Supported software installation
 
                 </li>
 
@@ -2015,7 +2405,7 @@ footer {
 
                     <span>✓</span>
 
-                    Basic device security checks
+                    Application configuration assistance
 
                 </li>
 
@@ -2024,16 +2414,7 @@ footer {
 
                     <span>✓</span>
 
-                    Microsoft 365 setup assistance
-
-                </li>
-
-
-                <li>
-
-                    <span>✓</span>
-
-                    Productivity application configuration
+                    Common software troubleshooting
 
                 </li>
 
@@ -2047,24 +2428,44 @@ footer {
                 </li>
 
 
+                <li>
+
+                    <span>✓</span>
+
+                    Productivity application support
+
+                </li>
+
+
+                <li>
+
+                    <span>✓</span>
+
+                    Remote assistance where appropriate
+
+                </li>
+
+
             </ul>
 
         </div>
 
 
-        <!-- MICROSOFT PANEL -->
+        <!-- =================================================
+             SOFTWARE DASHBOARD
+             ================================================= -->
 
-        <div class="office-panel reveal">
+        <div class="support-panel reveal">
 
 
-            <div class="office-header">
+            <div class="support-header">
 
                 <strong>
-                    Productivity Workspace
+                    Software Environment
                 </strong>
 
                 <span>
-                    MICROSOFT 365
+                    SUPPORT READY
                 </span>
 
             </div>
@@ -2097,11 +2498,11 @@ footer {
                     </div>
 
                     <strong>
-                        Spreadsheets
+                        Business Apps
                     </strong>
 
                     <small>
-                        Data & Analysis
+                        Business Tools
                     </small>
 
                 </div>
@@ -2131,11 +2532,11 @@ footer {
                     </div>
 
                     <strong>
-                        Cloud Storage
+                        Cloud Apps
                     </strong>
 
                     <small>
-                        File Access
+                        Online Services
                     </small>
 
                 </div>
@@ -2144,15 +2545,15 @@ footer {
                 <div class="app-card">
 
                     <div class="app-icon">
-                        📅
+                        ⚙️
                     </div>
 
                     <strong>
-                        Calendar
+                        Configuration
                     </strong>
 
                     <small>
-                        Scheduling
+                        Settings
                     </small>
 
                 </div>
@@ -2161,15 +2562,15 @@ footer {
                 <div class="app-card">
 
                     <div class="app-icon">
-                        👥
+                        🛠️
                     </div>
 
                     <strong>
-                        Collaboration
+                        Troubleshooting
                     </strong>
 
                     <small>
-                        Teamwork
+                        Technical Support
                     </small>
 
                 </div>
@@ -2196,20 +2597,20 @@ footer {
         <div class="section-heading reveal">
 
             <div class="eyebrow">
-                Why It Matters
+                Why Software Support Matters
             </div>
 
 
             <h2>
-                A Healthier Technology Environment
+                Keep Your Digital Workspace Working
             </h2>
 
 
             <p>
 
-                Keeping devices maintained, protected and
-                properly configured can make everyday technology
-                easier to manage.
+                Properly configured and maintained software can
+                make everyday computer use easier and help
+                minimise avoidable interruptions.
 
             </p>
 
@@ -2226,12 +2627,14 @@ footer {
                 </div>
 
                 <h3>
-                    Cleaner Devices
+                    Less Downtime
                 </h3>
 
                 <p>
-                    Maintain a cleaner environment around your
-                    technology equipment.
+
+                    Get assistance with common software issues
+                    that interrupt everyday work.
+
                 </p>
 
             </div>
@@ -2244,12 +2647,14 @@ footer {
                 </div>
 
                 <h3>
-                    Better Protection
+                    Better Configuration
                 </h3>
 
                 <p>
-                    Keep supported security software configured
-                    and up to date.
+
+                    Keep supported applications configured for
+                    your requirements.
+
                 </p>
 
             </div>
@@ -2262,12 +2667,14 @@ footer {
                 </div>
 
                 <h3>
-                    Productive Work
+                    Updated Software
                 </h3>
 
                 <p>
-                    Get your productivity software configured for
-                    everyday business use.
+
+                    Get assistance keeping supported applications
+                    and software components updated.
+
                 </p>
 
             </div>
@@ -2280,12 +2687,14 @@ footer {
                 </div>
 
                 <h3>
-                    Ongoing Support
+                    Expert Assistance
                 </h3>
 
                 <p>
-                    Get assistance when you need help with your
-                    technology environment.
+
+                    Get help when you encounter a software
+                    problem you cannot resolve yourself.
+
                 </p>
 
             </div>
@@ -2315,14 +2724,15 @@ footer {
 
 
             <h2>
-                Simple Technology Maintenance
+                Simple Software Support
             </h2>
 
 
             <p>
 
                 We keep the process straightforward so you can
-                get back to using your technology.
+                focus on your work instead of fighting with
+                software problems.
 
             </p>
 
@@ -2340,15 +2750,14 @@ footer {
 
 
                 <h3>
-                    Assess
+                    Tell Us The Problem
                 </h3>
 
 
                 <p>
 
-                    We identify the device, software or security
-                    requirement and understand what assistance is
-                    needed.
+                    Let us know which application or software is
+                    causing an issue and what you are experiencing.
 
                 </p>
 
@@ -2363,15 +2772,15 @@ footer {
 
 
                 <h3>
-                    Configure
+                    Assess & Configure
                 </h3>
 
 
                 <p>
 
-                    Supported software, security tools and
-                    settings are configured according to the
-                    requirement.
+                    We assess the requirement and provide
+                    appropriate installation, configuration or
+                    troubleshooting assistance.
 
                 </p>
 
@@ -2386,19 +2795,308 @@ footer {
 
 
                 <h3>
-                    Maintain
+                    Get Back To Work
                 </h3>
 
 
                 <p>
 
-                    We help keep your technology environment
-                    organised and ready for everyday use.
+                    Once the supported software issue has been
+                    addressed, you can continue using your
+                    technology with less interruption.
 
                 </p>
 
             </div>
 
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REQUEST SUPPORT FORM
+     ========================================================= -->
+
+<section
+    class="request-section"
+    id="request-support"
+>
+
+    <div class="container request-wrapper">
+
+
+        <!-- LEFT -->
+
+        <div class="request-intro reveal">
+
+            <div class="eyebrow">
+                Request Software Support
+            </div>
+
+
+            <h2>
+                Need Help With Software?
+            </h2>
+
+
+            <p>
+
+                Tell us what software you are using and what
+                problem you are experiencing. Our team can review
+                your request and determine the appropriate
+                support.
+
+            </p>
+
+
+            <ul class="request-points">
+
+                <li>
+                    <span>✓</span>
+                    Software installation assistance
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Application troubleshooting
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Configuration assistance
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Update and maintenance support
+                </li>
+
+                <li>
+                    <span>✓</span>
+                    Remote assistance where appropriate
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <div class="support-form-card reveal">
+
+            <h3>
+                Software Support Enquiry
+            </h3>
+
+
+            <p class="form-subtitle">
+
+                Complete the form below and tell us how we can
+                assist you.
+
+            </p>
+
+
+            <form
+                id="softwareSupportForm"
+                method="POST"
+                novalidate
+            >
+
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Your phone number"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                    <!-- SOFTWARE -->
+
+                    <div class="form-group">
+
+                        <label for="software">
+                            Software / Application *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="software"
+                            name="software"
+                            placeholder="e.g. Microsoft 365, accounting software"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- SUPPORT TYPE -->
+
+                    <div class="form-group full">
+
+                        <label for="supportType">
+                            What Do You Need Help With? *
+                        </label>
+
+                        <select
+                            id="supportType"
+                            name="supportType"
+                            required
+                        >
+
+                            <option value="">
+                                Select a support type
+                            </option>
+
+                            <option value="Software Installation">
+                                Software Installation
+                            </option>
+
+                            <option value="Software Troubleshooting">
+                                Software Troubleshooting
+                            </option>
+
+                            <option value="Software Configuration">
+                                Software Configuration
+                            </option>
+
+                            <option value="Software Update">
+                                Software Update
+                            </option>
+
+                            <option value="Microsoft 365">
+                                Microsoft 365
+                            </option>
+
+                            <option value="Business Application">
+                                Business Application
+                            </option>
+
+                            <option value="Remote Software Support">
+                                Remote Software Support
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group full">
+
+                        <label for="message">
+                            Describe The Problem *
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Please describe the software problem or support you require..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="submitSoftwareSupport"
+                    >
+
+                        Send Support Request
+
+                    </button>
+
+
+                    <span class="form-note">
+
+                        * Required fields
+
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="formStatus"
+                    class="form-status"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+
+            </form>
 
         </div>
 
@@ -2420,25 +3118,25 @@ footer {
 
 
             <h2>
-                Need Help With Your Computer?
+                Software Problems Slowing You Down?
             </h2>
 
 
             <p>
 
-                Whether you need device cleaning, antivirus
-                assistance or Microsoft 365 support, Dinges
-                TechHub can help you get your technology ready.
+                Dinges TechHub can assist with supported software
+                installation, configuration, troubleshooting and
+                maintenance for homes and businesses.
 
             </p>
 
 
             <a
-                href="contact.html"
+                href="#request-support"
                 class="btn btn-primary"
             >
 
-                Contact Dinges TechHub
+                Request Software Support
 
             </a>
 
@@ -2453,198 +3151,44 @@ footer {
      FOOTER
      ========================================================= -->
 
-<footer>
 
-    <div class="container">
-
-
-        <div class="footer-grid">
-
-
-            <div class="footer-brand">
-
-
-                <a
-                    href="index.html"
-                    class="logo"
-                >
-
-                    <img
-                        src="dingestech-logo.png"
-                        alt="Dinges TechHub Logo"
-                    >
-
-
-                    <div class="logo-text">
-
-                        Dinges
-                        <span>TechHub</span>
-
-                    </div>
-
-                </a>
-
-
-                <p class="footer-description">
-
-                    Technology, connectivity and smart solutions
-                    designed to help homes and businesses stay
-                    connected, productive and ready for the
-                    future.
-
-                </p>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Services
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="services.html">
-                            All Services
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="fibre.html">
-                            Fibre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="wireless-broadband.html">
-                            Wireless Broadband
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="iot.html">
-                            Internet of Things
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="smart-solutions.html">
-                            Smart Solutions
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="hosting.html">
-                            Web & Email Hosting
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Company
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="about.html">
-                            About Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="help-centre.html">
-                            Help Centre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="register.html">
-                            Register
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Contact
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="mailto:support@dingestechhub.co.za">
-                            support@dingestechhub.co.za
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact Support
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            Mon - Fri: 09:00 - 16:00
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div>
-                © 2026 Dinges TechHub.
-                All rights reserved.
-            </div>
-
-
-            <div>
-                Smart Technology •
-                Connectivity •
-                Innovation
-            </div>
-
-        </div>
-
+<footer class="footer" style="background:#16091A;color:rgba(255,255,255,.75);padding:55px 0 0;text-align:left;">
+  <div style="width:min(92%,1200px);margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px;">
+    <div>
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges TechHub" style="width:175px;height:auto;margin-bottom:16px;"></a>
+      <p style="max-width:360px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.68);">Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
     </div>
-
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Internet</h3>
+      <a href="fibre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Fibre</a>
+      <a href="https://register.web.za/api/wireless-broadband.php" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Wireless Broadband</a>
+      <a href="wireless-lte-4g-5g.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">LTE / 4G / 5G</a>
+      <a href="melon-mobile.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Mobile</a>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Hosting</h3>
+      <a href="domain.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Domains</a>
+      <a href="shared-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Shared Hosting</a>
+      <a href="email-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Email Hosting</a>
+      <a href="web-development.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Website Development</a>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Support</h3>
+      <a href="contact.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Contact Us</a>
+      <a href="status.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Network Status</a>
+      <a href="services.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Services</a>
+      <a href="help-centre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;">Help Centre</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.12);padding:20px 0;">
+    <div style="width:min(92%,1200px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55);">
+      <span>© <span id="year"></span> Dinges TechHub. All rights reserved.</span>
+      <span>Connect. Host. Grow.</span>
+      <a href="admin-login.html" style="color:rgba(255,255,255,.7);font-weight:700;">Admin Login</a>
+    </div>
+  </div>
 </footer>
+
 
 
 <!-- =========================================================
@@ -2652,6 +3196,8 @@ footer {
      ========================================================= -->
 
 <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
 
 /* =========================================================
    MOBILE NAVIGATION
@@ -2664,14 +3210,18 @@ const navLinks =
     document.getElementById("navLinks");
 
 
-menuToggle.addEventListener(
-    "click",
-    () => {
+if (menuToggle && navLinks) {
 
-        navLinks.classList.toggle("active");
+    menuToggle.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            navLinks.classList.toggle("active");
+
+        }
+    );
+
+}
 
 
 /* Close menu after navigation */
@@ -2700,38 +3250,316 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+if ("IntersectionObserver" in window) {
 
-            entries.forEach(entry => {
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-                if (entry.isIntersecting) {
+                entries.forEach(entry => {
 
-                    entry.target.classList.add(
-                        "visible"
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+
+        element.classList.add("visible");
+
+    });
+
+}
+
+
+/* =========================================================
+   SOFTWARE SUPPORT FORM
+   ========================================================= */
+
+const softwareSupportForm =
+    document.getElementById(
+        "softwareSupportForm"
+    );
+
+const formStatus =
+    document.getElementById(
+        "formStatus"
+    );
+
+const submitButton =
+    document.getElementById(
+        "submitSoftwareSupport"
+    );
+
+
+/*
+ * IMPORTANT:
+ *
+ * Replace this URL with the SAME Netlify
+ * function endpoint used by your other
+ * working service forms.
+ *
+ * Example:
+ *
+ * /api/bitrix-contact
+ *
+ * or:
+ *
+ * /.netlify/functions/bitrix-contact
+ *
+ */
+
+const SOFTWARE_SUPPORT_ENDPOINT =
+    "/.netlify/functions/bitrix-contact";
+
+
+if (softwareSupportForm) {
+
+    softwareSupportForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            formStatus.className =
+                "form-status";
+
+            formStatus.textContent = "";
+
+
+            const fullName =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+            const software =
+                document
+                    .getElementById("software")
+                    .value
+                    .trim();
+
+            const supportType =
+                document
+                    .getElementById("supportType")
+                    .value
+                    .trim();
+
+            const message =
+                document
+                    .getElementById("message")
+                    .value
+                    .trim();
+
+
+            if (
+                !fullName ||
+                !email ||
+                !software ||
+                !supportType ||
+                !message
+            ) {
+
+                formStatus.classList.add(
+                    "show",
+                    "error"
+                );
+
+                formStatus.textContent =
+                    "Please complete all required fields.";
+
+                return;
+
+            }
+
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                formStatus.classList.add(
+                    "show",
+                    "error"
+                );
+
+                formStatus.textContent =
+                    "Please enter a valid email address.";
+
+                return;
+
+            }
+
+
+            submitButton.disabled = true;
+
+            submitButton.style.opacity = "0.65";
+
+            submitButton.style.cursor =
+                "not-allowed";
+
+            submitButton.textContent =
+                "Sending Request...";
+
+
+            try {
+
+
+                const formData =
+                    new FormData(
+                        softwareSupportForm
                     );
 
-                    revealObserver.unobserve(
-                        entry.target
+
+                /*
+                 * Extra service information.
+                 *
+                 * These values make it easier for
+                 * your automation/backend to identify
+                 * which Dinges TechHub service generated
+                 * the enquiry.
+                 */
+
+                formData.append(
+                    "service",
+                    "Software Support"
+                );
+
+                formData.append(
+                    "serviceType",
+                    "Smart Solutions"
+                );
+
+
+                const response =
+                    await fetch(
+                        SOFTWARE_SUPPORT_ENDPOINT,
+                        {
+                            method: "POST",
+
+                            body: formData
+                        }
+                    );
+
+
+                let result = null;
+
+
+                try {
+
+                    result =
+                        await response.json();
+
+                } catch (jsonError) {
+
+                    result = null;
+
+                }
+
+
+                if (
+                    !response.ok ||
+                    (
+                        result &&
+                        result.success === false
+                    )
+                ) {
+
+                    throw new Error(
+                        result &&
+                        result.message
+                            ? result.message
+                            : "Unable to send your support request."
                     );
 
                 }
 
-            });
 
-        },
-        {
-            threshold: 0.12
+                formStatus.classList.add(
+                    "show",
+                    "success"
+                );
+
+                formStatus.textContent =
+                    (
+                        result &&
+                        result.message
+                    )
+                    ||
+                    "Your software support request has been sent successfully. We will get back to you as soon as possible.";
+
+
+                softwareSupportForm.reset();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Software support form error:",
+                    error
+                );
+
+
+                formStatus.classList.add(
+                    "show",
+                    "error"
+                );
+
+                formStatus.textContent =
+                    error.message
+                    ||
+                    "Unable to send your support request. Please try again later.";
+
+            } finally {
+
+                submitButton.disabled = false;
+
+                submitButton.style.opacity = "1";
+
+                submitButton.style.cursor =
+                    "pointer";
+
+                submitButton.textContent =
+                    "Send Support Request";
+
+            }
+
         }
     );
 
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-});
+}
 
 </script>
 
