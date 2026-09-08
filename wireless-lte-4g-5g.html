@@ -1954,6 +1954,20 @@ button{
 
 }
 
+
+/* GLOBAL TOP BAR */
+.top-bar{background:#020202;color:#fff;font-size:12px;position:relative;z-index:1100}
+.top-bar-inner{width:min(92%,1200px);margin:auto;min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top-left,.top-right{display:flex;align-items:center;gap:22px}
+.top-bar a{color:inherit;transition:.25s ease;text-decoration:none}
+.top-bar a:hover{color:#FFBB42}
+.top-bar .status-dot-live{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
+@media(max-width:800px){
+.top-bar{font-size:11px}
+.top-bar-inner{min-height:auto;padding:8px 0;flex-wrap:wrap;justify-content:center;gap:10px 18px}
+.top-left,.top-right{flex-wrap:wrap;justify-content:center;gap:12px 16px}
+}
+
 </style>
 
 </head>
@@ -1961,26 +1975,19 @@ button{
 
 <body>
 
-
-<!-- =====================================================
-     TOP BAR
-===================================================== -->
-
-<div class="topbar">
-
-    <div class="topbar-inner">
-
-        <span>
-            Reliable Technology & Connectivity Solutions
-        </span>
-
-        <span>
-            South Africa
-        </span>
-
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-left">
+      <a href="status.html"><span class="status-dot-live"></span>Network Status</a>
+      <a href="contact.html">Contact Us</a>
     </div>
-
+    <div class="top-right">
+      <span>Local technology support</span>
+      <a href="tel:+27101415650">010 141 5650</a>
+    </div>
+  </div>
 </div>
+
 
 
 <!-- =====================================================
@@ -2001,9 +2008,7 @@ button{
         >
 
             <img
-                src="dingestech-logo.png"
-                alt="Dinges TechHub"
-            >
+                src="dingestech-logo.png" alt="Dinges TechHub" style="width:150px;max-width:100%;height:auto;display:block;object-fit:contain;">
 
         </a>
 
@@ -2372,148 +2377,44 @@ button{
      FOOTER
 ===================================================== -->
 
-<footer class="footer">
 
-
-    <div class="footer-grid">
-
-
-        <!-- BRAND -->
-
-        <div class="footer-brand">
-
-            <a
-                href="index.html"
-                class="footer-logo"
-            >
-
-                <img
-                    src="dingestech-logo.png"
-                    alt="Dinges TechHub"
-                >
-
-            </a>
-
-
-            <p class="footer-description">
-
-                Reliable technology, connectivity and
-                digital solutions for homes and businesses
-                across South Africa.
-
-            </p>
-
-        </div>
-
-
-        <!-- QUICK LINKS -->
-
-        <div class="footer-column">
-
-            <h4>
-                Quick Links
-            </h4>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
-
-            <a href="cart.html">
-                Shopping Cart
-            </a>
-
-        </div>
-
-
-        <!-- SERVICES -->
-
-        <div class="footer-column">
-
-            <h4>
-                Services
-            </h4>
-
-            <a href="internet-connectivity.html">
-                Internet Connectivity
-            </a>
-
-            <a href="wireless-lte-4g-5g.html">
-                LTE / 4G / 5G
-            </a>
-
-            <a href="advanced-pbx.html">
-                Advanced PBX
-            </a>
-
-            <a href="hosting.html">
-                Web Hosting
-            </a>
-
-        </div>
-
-
-        <!-- SUPPORT -->
-
-        <div class="footer-column">
-
-            <h4>
-                Support
-            </h4>
-
-            <a href="contact.html">
-                Contact Support
-            </a>
-
-            <a href="help-centre.html">
-                Help Centre
-            </a>
-
-            <a href="login.html">
-                Client Login
-            </a>
-
-            <a href="register.html">
-                Register
-            </a>
-
-        </div>
-
-
+<footer class="footer" style="background:#16091A;color:rgba(255,255,255,.75);padding:55px 0 0;text-align:left;">
+  <div style="width:min(92%,1200px);margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px;">
+    <div>
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges TechHub" style="width:175px;height:auto;margin-bottom:16px;display:block;"></a>
+      <p style="max-width:360px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.68);">Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
     </div>
-
-
-    <div class="footer-bottom">
-
-        <span>
-
-            &copy;
-
-            <span id="year"></span>
-
-            Dinges TechHub.
-            All rights reserved.
-
-        </span>
-
-
-        <span>
-
-            Technology & Connectivity Solutions
-
-        </span>
-
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Internet</h3>
+      <a href="fibre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Fibre</a>
+      <a href="https://register.web.za/api/wireless-broadband.php" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Wireless Broadband</a>
+      <a href="wireless-lte-4g-5g.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">LTE / 4G / 5G</a>
+      <a href="melon-mobile.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Mobile</a>
     </div>
-
-
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Hosting</h3>
+      <a href="domain.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Domains</a>
+      <a href="shared-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Shared Hosting</a>
+      <a href="email-hosting.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Email Hosting</a>
+      <a href="web-development.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Website Development</a>
+    </div>
+    <div>
+      <h3 style="color:#fff;font-size:16px;margin-bottom:16px;">Support</h3>
+      <a href="contact.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Contact Us</a>
+      <a href="status.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Network Status</a>
+      <a href="services.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Services</a>
+      <a href="help-centre.html" style="display:block;color:rgba(255,255,255,.68);font-size:14px;margin-bottom:10px;text-decoration:none;">Help Centre</a>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,.12);padding:20px 0;">
+    <div style="width:min(92%,1200px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55);">
+      <span>© <span id="year"></span> Dinges TechHub. All rights reserved.</span>
+      <span>Connect. Host. Grow.</span>
+      <a href="admin-login.html" style="color:rgba(255,255,255,.7);font-weight:700;text-decoration:none;">Admin Login</a>
+    </div>
+  </div>
 </footer>
+
 
 
 <!-- =====================================================
