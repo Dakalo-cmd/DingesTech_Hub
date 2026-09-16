@@ -1,4317 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Contact Us | Dinges TechHub
-    </title>
-
-    <meta
-        name="description"
-        content="Contact Dinges TechHub for internet connectivity, fibre, mobile, wireless broadband, technical support and business technology solutions."
-    >
-
-
-    <style>
-
-        /* =========================================================
-           COLOR SETTINGS
-        ========================================================= */
-
-        :root {
-
-            --primary-color: #00A8E8;
-
-            --primary-dark: #0086BA;
-
-            --dark-color: #111827;
-
-            --dark-blue: #0B1F33;
-
-            --text-color: #1F2937;
-
-            --muted-text: #64748B;
-
-            --light-color: #F8FAFC;
-
-            --white-color: #FFFFFF;
-
-            --border-color: #E2E8F0;
-
-            --success-color: #16A34A;
-
-            --shadow:
-                0 10px 30px
-                rgba(15, 23, 42, 0.08);
-
-            --transition:
-                all 0.3s ease;
-
-        }
-
-
-        /* =========================================================
-           GLOBAL RESET
-        ========================================================= */
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
-
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-
-        body {
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            color:
-                var(--text-color);
-
-            background:
-                var(--white-color);
-
-            line-height:
-                1.6;
-
-        }
-
-
-        a {
-
-            text-decoration:
-                none;
-
-            color:
-                inherit;
-
-        }
-
-
-        button,
-        input,
-        textarea,
-        select {
-
-            font:
-                inherit;
-
-        }
-
-
-        img {
-
-            max-width:
-                100%;
-
-            display:
-                block;
-
-        }
-
-
-        .container {
-
-            width:
-                90%;
-
-            max-width:
-                1200px;
-
-            margin:
-                auto;
-
-        }
-
-
-
-        /* =========================================================
-           HEADER / NAVIGATION
-        ========================================================= */
-
-        header {
-
-            background:
-                var(--white-color);
-
-            border-bottom:
-                1px solid var(--border-color);
-
-            position:
-                sticky;
-
-            top:
-                0;
-
-            z-index:
-                1000;
-
-        }
-
-
-        .navbar {
-
-            min-height:
-                75px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                30px;
-
-        }
-
-
-        .logo {
-
-            font-size:
-                24px;
-
-            font-weight:
-                800;
-
-            color:
-                var(--dark-color);
-
-            white-space:
-                nowrap;
-
-        }
-
-
-        .logo span {
-
-            color:
-                var(--primary-color);
-
-        }
-
-
-        .nav-menu {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                25px;
-
-            list-style:
-                none;
-
-        }
-
-
-        .nav-menu > li {
-
-            position:
-                relative;
-
-        }
-
-
-        .nav-link {
-
-            color:
-                var(--dark-color);
-
-            font-size:
-                15px;
-
-            font-weight:
-                600;
-
-            padding:
-                28px 0;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                5px;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .nav-link:hover,
-        .nav-link.active {
-
-            color:
-                var(--primary-color);
-
-        }
-
-
-        .dropdown-arrow {
-
-            font-size:
-                11px;
-
-        }
-
-
-
-        /* =========================================================
-           DROPDOWN MENU
-        ========================================================= */
-
-        .dropdown-menu {
-
-            position:
-                absolute;
-
-            top:
-                100%;
-
-            left:
-                50%;
-
-            transform:
-                translateX(-50%) translateY(10px);
-
-            background:
-                var(--white-color);
-
-            min-width:
-                240px;
-
-            border:
-                1px solid var(--border-color);
-
-            border-radius:
-                10px;
-
-            box-shadow:
-                var(--shadow);
-
-            padding:
-                10px;
-
-            list-style:
-                none;
-
-            opacity:
-                0;
-
-            visibility:
-                hidden;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .dropdown-menu li a {
-
-            display:
-                block;
-
-            padding:
-                11px 14px;
-
-            color:
-                var(--text-color);
-
-            border-radius:
-                7px;
-
-            font-size:
-                14px;
-
-        }
-
-
-        .dropdown-menu li a:hover {
-
-            background:
-                #F0F9FF;
-
-            color:
-                var(--primary-color);
-
-        }
-
-
-        .dropdown:hover .dropdown-menu {
-
-            opacity:
-                1;
-
-            visibility:
-                visible;
-
-            transform:
-                translateX(-50%) translateY(0);
-
-        }
-
-
-
-        /* =========================================================
-           NAV BUTTONS
-        ========================================================= */
-
-        .nav-actions {
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            gap:
-                10px;
-
-        }
-
-
-        .login-btn,
-        .register-btn {
-
-            padding:
-                10px 18px;
-
-            border-radius:
-                7px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                700;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .login-btn {
-
-            color:
-                var(--primary-color);
-
-            border:
-                1px solid var(--primary-color);
-
-        }
-
-
-        .login-btn:hover {
-
-            background:
-                var(--primary-color);
-
-            color:
-                var(--white-color);
-
-        }
-
-
-        .register-btn {
-
-            color:
-                var(--white-color);
-
-            background:
-                var(--primary-color);
-
-            border:
-                1px solid var(--primary-color);
-
-        }
-
-
-        .register-btn:hover {
-
-            background:
-                var(--primary-dark);
-
-        }
-
-
-        .cart-btn {
-
-            font-size:
-                20px;
-
-            padding:
-                8px;
-
-        }
-
-
-
-        /* =========================================================
-           MOBILE MENU BUTTON
-        ========================================================= */
-
-        .menu-toggle {
-
-            display:
-                none;
-
-            background:
-                none;
-
-            border:
-                none;
-
-            font-size:
-                28px;
-
-            color:
-                var(--dark-color);
-
-            cursor:
-                pointer;
-
-        }
-
-
-
-        /* =========================================================
-           HERO SECTION
-        ========================================================= */
-
-        .contact-hero {
-
-            background:
-
-                linear-gradient(
-
-                    135deg,
-
-                    rgba(11, 31, 51, 0.98),
-
-                    rgba(0, 134, 186, 0.92)
-
-                );
-
-            color:
-                var(--white-color);
-
-            padding:
-                90px 20px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .hero-content {
-
-            max-width:
-                800px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .hero-badge {
-
-            display:
-                inline-block;
-
-            padding:
-                7px 15px;
-
-            border:
-                1px solid rgba(255,255,255,0.3);
-
-            border-radius:
-                30px;
-
-            font-size:
-                13px;
-
-            margin-bottom:
-                20px;
-
-            background:
-                rgba(255,255,255,0.08);
-
-        }
-
-
-        .contact-hero h1 {
-
-            font-size:
-                clamp(36px, 6vw, 60px);
-
-            line-height:
-                1.1;
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .contact-hero h1 span {
-
-            color:
-                #7DD3FC;
-
-        }
-
-
-        .contact-hero p {
-
-            font-size:
-                18px;
-
-            color:
-                #E0F2FE;
-
-            max-width:
-                700px;
-
-            margin:
-                auto;
-
-        }
-
-
-
-        /* =========================================================
-           CONTACT CARDS
-        ========================================================= */
-
-        .contact-cards-section {
-
-            margin-top:
-                -50px;
-
-            position:
-                relative;
-
-            z-index:
-                5;
-
-        }
-
-
-        .contact-cards {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap:
-                20px;
-
-        }
-
-
-        .contact-card {
-
-            background:
-                var(--white-color);
-
-            padding:
-                30px 20px;
-
-            text-align:
-                center;
-
-            border-radius:
-                12px;
-
-            box-shadow:
-                var(--shadow);
-
-            border:
-                1px solid var(--border-color);
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .contact-card:hover {
-
-            transform:
-                translateY(-6px);
-
-        }
-
-
-        .contact-icon {
-
-            width:
-                55px;
-
-            height:
-                55px;
-
-            margin:
-                0 auto 15px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            border-radius:
-                50%;
-
-            background:
-                #E0F2FE;
-
-            color:
-                var(--primary-color);
-
-            font-size:
-                25px;
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .contact-icon img {
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            object-fit:
-                cover;
-
-        }
-
-
-        .contact-card h3 {
-
-            margin-bottom:
-                8px;
-
-            color:
-                var(--dark-color);
-
-        }
-
-
-        .contact-card p {
-
-            color:
-                var(--muted-text);
-
-            font-size:
-                14px;
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        .contact-card a {
-
-            color:
-                var(--primary-color);
-
-            font-weight:
-                700;
-
-            font-size:
-                14px;
-
-        }
-
-
-
-        /* =========================================================
-           MAIN CONTACT SECTION
-        ========================================================= */
-
-        .contact-section {
-
-            padding:
-                90px 0;
-
-        }
-
-
-        .contact-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1.2fr;
-
-            gap:
-                60px;
-
-            align-items:
-                start;
-
-        }
-
-
-
-        /* =========================================================
-           CONTACT INFORMATION
-        ========================================================= */
-
-        .section-label {
-
-            color:
-                var(--primary-color);
-
-            font-size:
-                14px;
-
-            font-weight:
-                800;
-
-            text-transform:
-                uppercase;
-
-            letter-spacing:
-                1px;
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        .contact-info h2 {
-
-            font-size:
-                38px;
-
-            line-height:
-                1.2;
-
-            color:
-                var(--dark-color);
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .contact-info > p {
-
-            color:
-                var(--muted-text);
-
-            margin-bottom:
-                35px;
-
-        }
-
-
-        .info-item {
-
-            display:
-                flex;
-
-            gap:
-                18px;
-
-            margin-bottom:
-                25px;
-
-            align-items:
-                flex-start;
-
-        }
-
-
-        .info-icon {
-
-            width:
-                45px;
-
-            height:
-                45px;
-
-            min-width:
-                45px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-                #E0F2FE;
-
-            color:
-                var(--primary-color);
-
-            border-radius:
-                8px;
-
-            font-size:
-                20px;
-
-        }
-
-
-        .info-item h4 {
-
-            color:
-                var(--dark-color);
-
-            margin-bottom:
-                3px;
-
-        }
-
-
-        .info-item p {
-
-            color:
-                var(--muted-text);
-
-            font-size:
-                14px;
-
-        }
-
-
-
-        /* =========================================================
-           LOCATION ITEM
-        ========================================================= */
-
-        .location-info {
-
-            display:
-                flex;
-
-            gap:
-                18px;
-
-            align-items:
-                flex-start;
-
-        }
-
-
-        .location-image-wrapper {
-
-            width:
-                150px;
-
-            height:
-                110px;
-
-            min-width:
-                150px;
-
-            border-radius:
-                10px;
-
-            overflow:
-                hidden;
-
-            position:
-                relative;
-
-            border:
-                1px solid var(--border-color);
-
-        }
-
-
-        .location-image-wrapper a {
-
-            display:
-                block;
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            position:
-                relative;
-
-        }
-
-
-        .location-map-image {
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            object-fit:
-                cover;
-
-            transition:
-                transform 0.3s ease;
-
-        }
-
-
-        .location-image-wrapper:hover
-        .location-map-image {
-
-            transform:
-                scale(1.08);
-
-        }
-
-
-        .map-image-overlay {
-
-            position:
-                absolute;
-
-            inset:
-                0;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            background:
-                rgba(0, 134, 186, 0.80);
-
-            color:
-                white;
-
-            font-size:
-                12px;
-
-            font-weight:
-                700;
-
-            text-align:
-                center;
-
-            opacity:
-                0;
-
-            transition:
-                opacity 0.3s ease;
-
-        }
-
-
-        .location-image-wrapper:hover
-        .map-image-overlay {
-
-            opacity:
-                1;
-
-        }
-
-
-        .get-directions-link {
-
-            display:
-                inline-block;
-
-            margin-top:
-                8px;
-
-            color:
-                var(--primary-color);
-
-            font-size:
-                13px;
-
-            font-weight:
-                700;
-
-        }
-
-
-
-        /* =========================================================
-           CONTACT FORM
-        ========================================================= */
-
-        .contact-form-wrapper {
-
-            background:
-                var(--white-color);
-
-            padding:
-                40px;
-
-            border:
-                1px solid var(--border-color);
-
-            border-radius:
-                15px;
-
-            box-shadow:
-                var(--shadow);
-
-        }
-
-
-        .contact-form-wrapper h3 {
-
-            font-size:
-                27px;
-
-            color:
-                var(--dark-color);
-
-            margin-bottom:
-                8px;
-
-        }
-
-
-        .contact-form-wrapper > p {
-
-            color:
-                var(--muted-text);
-
-            font-size:
-                14px;
-
-            margin-bottom:
-                25px;
-
-        }
-
-
-        .form-row {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                18px;
-
-        }
-
-
-        .form-group {
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .form-group label {
-
-            display:
-                block;
-
-            margin-bottom:
-                7px;
-
-            font-size:
-                14px;
-
-            font-weight:
-                700;
-
-            color:
-                var(--dark-color);
-
-        }
-
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-
-            width:
-                100%;
-
-            padding:
-                13px 15px;
-
-            border:
-                1px solid var(--border-color);
-
-            border-radius:
-                7px;
-
-            outline:
-                none;
-
-            color:
-                var(--text-color);
-
-            background:
-                var(--white-color);
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-
-            border-color:
-                var(--primary-color);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(0, 168, 232, 0.1);
-
-        }
-
-
-        .form-group textarea {
-
-            min-height:
-                140px;
-
-            resize:
-                vertical;
-
-        }
-
-
-        .submit-btn {
-
-            width:
-                100%;
-
-            padding:
-                14px 20px;
-
-            background:
-                var(--primary-color);
-
-            color:
-                var(--white-color);
-
-            border:
-                none;
-
-            border-radius:
-                7px;
-
-            font-weight:
-                800;
-
-            cursor:
-                pointer;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .submit-btn:hover {
-
-            background:
-                var(--primary-dark);
-
-            transform:
-                translateY(-2px);
-
-        }
-
-
-        .submit-btn:disabled {
-
-            opacity:
-                0.7;
-
-            cursor:
-                not-allowed;
-
-            transform:
-                none;
-
-        }
-
-
-        .form-message {
-
-            display:
-                none;
-
-            padding:
-                13px;
-
-            margin-top:
-                15px;
-
-            border-radius:
-                7px;
-
-            font-size:
-                14px;
-
-            text-align:
-                center;
-
-        }
-
-
-        .form-message.show {
-
-            display:
-                block;
-
-        }
-
-
-        .form-message.success {
-
-            background:
-                #DCFCE7;
-
-            color:
-                #166534;
-
-        }
-
-
-        .form-message.error {
-
-            background:
-                #FEE2E2;
-
-            color:
-                #991B1B;
-
-        }
-
-
-
-        /* =========================================================
-           LOCATION CHECKER
-        ========================================================= */
-
-        .location-checker {
-
-            margin-top:
-                35px;
-
-            padding:
-                25px;
-
-            background:
-                #F0F9FF;
-
-            border:
-                1px solid #BAE6FD;
-
-            border-radius:
-                12px;
-
-        }
-
-
-        .location-checker h3 {
-
-            font-size:
-                20px;
-
-            margin-bottom:
-                7px;
-
-            color:
-                var(--dark-color);
-
-        }
-
-
-        .location-checker p {
-
-            font-size:
-                14px;
-
-            color:
-                var(--muted-text);
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .location-check-form {
-
-            display:
-                flex;
-
-            gap:
-                10px;
-
-        }
-
-
-        .location-check-form input {
-
-            flex:
-                1;
-
-            padding:
-                13px 15px;
-
-            border:
-                1px solid var(--border-color);
-
-            border-radius:
-                7px;
-
-            outline:
-                none;
-
-        }
-
-
-        .location-check-form input:focus {
-
-            border-color:
-                var(--primary-color);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(0, 168, 232, 0.1);
-
-        }
-
-
-        .location-check-btn {
-
-            padding:
-                13px 20px;
-
-            border:
-                none;
-
-            border-radius:
-                7px;
-
-            background:
-                var(--primary-color);
-
-            color:
-                var(--white-color);
-
-            font-weight:
-                700;
-
-            cursor:
-                pointer;
-
-            transition:
-                var(--transition);
-
-            white-space:
-                nowrap;
-
-        }
-
-
-        .location-check-btn:hover {
-
-            background:
-                var(--primary-dark);
-
-        }
-
-
-        .location-result {
-
-            display:
-                none;
-
-            margin-top:
-                15px;
-
-            padding:
-                12px 15px;
-
-            border-radius:
-                7px;
-
-            font-size:
-                14px;
-
-        }
-
-
-        .location-result.show {
-
-            display:
-                block;
-
-        }
-
-
-        .location-result.success {
-
-            background:
-                #DCFCE7;
-
-            color:
-                #166534;
-
-            border:
-                1px solid #BBF7D0;
-
-        }
-
-
-        .location-result.info {
-
-            background:
-                #EFF6FF;
-
-            color:
-                #1D4ED8;
-
-            border:
-                1px solid #BFDBFE;
-
-        }
-
-
-
-        /* =========================================================
-           SUPPORT SECTION
-        ========================================================= */
-
-        .support-section {
-
-            padding:
-                80px 0;
-
-            background:
-                var(--light-color);
-
-        }
-
-
-        .section-heading {
-
-            text-align:
-                center;
-
-            max-width:
-                700px;
-
-            margin:
-                0 auto 45px;
-
-        }
-
-
-        .section-heading h2 {
-
-            font-size:
-                38px;
-
-            color:
-                var(--dark-color);
-
-            margin-bottom:
-                12px;
-
-        }
-
-
-        .section-heading p {
-
-            color:
-                var(--muted-text);
-
-        }
-
-
-        .support-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap:
-                25px;
-
-        }
-
-
-        .support-card {
-
-            background:
-                var(--white-color);
-
-            padding:
-                35px;
-
-            border:
-                1px solid var(--border-color);
-
-            border-radius:
-                12px;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .support-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                var(--shadow);
-
-        }
-
-
-        .support-card-icon {
-
-            font-size:
-                35px;
-
-            margin-bottom:
-                18px;
-
-        }
-
-
-        .support-card h3 {
-
-            margin-bottom:
-                10px;
-
-            color:
-                var(--dark-color);
-
-        }
-
-
-        .support-card p {
-
-            color:
-                var(--muted-text);
-
-            font-size:
-                14px;
-
-            margin-bottom:
-                20px;
-
-        }
-
-
-        .support-card a {
-
-            color:
-                var(--primary-color);
-
-            font-weight:
-                700;
-
-            font-size:
-                14px;
-
-        }
-
-
-
-        /* =========================================================
-           SERVICE AREA SECTION
-        ========================================================= */
-
-        .service-area {
-
-            padding:
-                80px 0;
-
-        }
-
-
-        .area-box {
-
-            background:
-                var(--dark-blue);
-
-            color:
-                var(--white-color);
-
-            border-radius:
-                15px;
-
-            padding:
-                55px;
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                40px;
-
-            align-items:
-                center;
-
-        }
-
-
-        .area-box h2 {
-
-            font-size:
-                35px;
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .area-box p {
-
-            color:
-                #CBD5E1;
-
-        }
-
-
-        .area-list {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                12px;
-
-        }
-
-
-        .area-list div {
-
-            background:
-                rgba(255,255,255,0.08);
-
-            padding:
-                13px 15px;
-
-            border-radius:
-                7px;
-
-            font-size:
-                14px;
-
-        }
-
-
-
-        /* =========================================================
-           FAQ SECTION
-        ========================================================= */
-
-        .faq-section {
-
-            padding:
-                80px 0;
-
-            background:
-                var(--light-color);
-
-        }
-
-
-        .faq-container {
-
-            max-width:
-                850px;
-
-            margin:
-                auto;
-
-        }
-
-
-        .faq-item {
-
-            background:
-                var(--white-color);
-
-            border:
-                1px solid var(--border-color);
-
-            margin-bottom:
-                12px;
-
-            border-radius:
-                8px;
-
-            overflow:
-                hidden;
-
-        }
-
-
-        .faq-question {
-
-            width:
-                100%;
-
-            padding:
-                20px;
-
-            background:
-                var(--white-color);
-
-            border:
-                none;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            text-align:
-                left;
-
-            font-weight:
-                700;
-
-            color:
-                var(--dark-color);
-
-            cursor:
-                pointer;
-
-        }
-
-
-        .faq-answer {
-
-            display:
-                none;
-
-            padding:
-                0 20px 20px;
-
-            color:
-                var(--muted-text);
-
-            font-size:
-                14px;
-
-        }
-
-
-        .faq-item.active .faq-answer {
-
-            display:
-                block;
-
-        }
-
-
-        .faq-icon {
-
-            font-size:
-                20px;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .faq-item.active .faq-icon {
-
-            transform:
-                rotate(45deg);
-
-        }
-
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        footer {
-
-            background:
-                var(--dark-color);
-
-            color:
-                var(--white-color);
-
-            padding:
-                60px 0 25px;
-
-        }
-
-
-        .footer-grid {
-
-            display:
-                grid;
-
-            grid-template-columns:
-                2fr 1fr 1fr 1fr;
-
-            gap:
-                40px;
-
-            padding-bottom:
-                40px;
-
-        }
-
-
-        .footer-logo {
-
-            font-size:
-                24px;
-
-            font-weight:
-                800;
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .footer-logo span {
-
-            color:
-                var(--primary-color);
-
-        }
-
-
-        .footer-column p {
-
-            color:
-                #94A3B8;
-
-            font-size:
-                14px;
-
-            max-width:
-                350px;
-
-        }
-
-
-        .footer-column h4 {
-
-            margin-bottom:
-                15px;
-
-        }
-
-
-        .footer-column ul {
-
-            list-style:
-                none;
-
-        }
-
-
-        .footer-column li {
-
-            margin-bottom:
-                10px;
-
-        }
-
-
-        .footer-column a {
-
-            color:
-                #94A3B8;
-
-            font-size:
-                14px;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .footer-column a:hover {
-
-            color:
-                var(--primary-color);
-
-        }
-
-
-        .footer-bottom {
-
-            border-top:
-                1px solid rgba(255,255,255,0.1);
-
-            padding-top:
-                20px;
-
-            text-align:
-                center;
-
-            color:
-                #94A3B8;
-
-            font-size:
-                13px;
-
-        }
-
-
-
-        /* =========================================================
-           WHATSAPP FLOATING BUTTON
-        ========================================================= */
-
-        .whatsapp-float {
-
-            position:
-                fixed;
-
-            right:
-                25px;
-
-            bottom:
-                25px;
-
-            width:
-                58px;
-
-            height:
-                58px;
-
-            border-radius:
-                50%;
-
-            background:
-                #25D366;
-
-            color:
-                white;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            font-size:
-                27px;
-
-            box-shadow:
-                0 8px 20px
-                rgba(0,0,0,0.2);
-
-            z-index:
-                999;
-
-            transition:
-                var(--transition);
-
-        }
-
-
-        .whatsapp-float:hover {
-
-            transform:
-                scale(1.1);
-
-        }
-
-
-
-        /* =========================================================
-           RESPONSIVE DESIGN
-        ========================================================= */
-
-        @media (max-width: 1050px) {
-
-            .nav-menu {
-
-                gap:
-                    15px;
-
-            }
-
-
-            .nav-actions {
-
-                gap:
-                    5px;
-
-            }
-
-
-            .contact-cards {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
-        }
-
-
-
-        @media (max-width: 850px) {
-
-            .menu-toggle {
-
-                display:
-                    block;
-
-            }
-
-
-            .navbar {
-
-                min-height:
-                    70px;
-
-            }
-
-
-            .nav-menu {
-
-                position:
-                    absolute;
-
-                top:
-                    70px;
-
-                left:
-                    0;
-
-                width:
-                    100%;
-
-                background:
-                    var(--white-color);
-
-                border-top:
-                    1px solid var(--border-color);
-
-                display:
-                    none;
-
-                flex-direction:
-                    column;
-
-                align-items:
-                    stretch;
-
-                gap:
-                    0;
-
-                padding:
-                    10px 5%;
-
-                box-shadow:
-                    var(--shadow);
-
-            }
-
-
-            .nav-menu.active {
-
-                display:
-                    flex;
-
-            }
-
-
-            .nav-menu > li {
-
-                width:
-                    100%;
-
-            }
-
-
-            .nav-link {
-
-                padding:
-                    14px 0;
-
-            }
-
-
-            .dropdown-menu {
-
-                position:
-                    static;
-
-                transform:
-                    none;
-
-                opacity:
-                    1;
-
-                visibility:
-                    visible;
-
-                display:
-                    none;
-
-                box-shadow:
-                    none;
-
-                border:
-                    none;
-
-                padding:
-                    0 0 5px 15px;
-
-                min-width:
-                    auto;
-
-            }
-
-
-            .dropdown.active .dropdown-menu {
-
-                display:
-                    block;
-
-            }
-
-
-            .dropdown:hover .dropdown-menu {
-
-                transform:
-                    none;
-
-            }
-
-
-            .nav-actions {
-
-                margin-left:
-                    auto;
-
-            }
-
-
-            .login-btn,
-            .register-btn {
-
-                display:
-                    none;
-
-            }
-
-
-            .contact-grid {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    40px;
-
-            }
-
-
-            .area-box {
-
-                grid-template-columns:
-                    1fr;
-
-                padding:
-                    40px;
-
-            }
-
-
-            .support-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-        }
-
-
-
-        @media (max-width: 600px) {
-
-            .container {
-
-                width:
-                    92%;
-
-            }
-
-
-            .logo {
-
-                font-size:
-                    20px;
-
-            }
-
-
-            .contact-hero {
-
-                padding:
-                    70px 20px;
-
-            }
-
-
-            .contact-hero p {
-
-                font-size:
-                    16px;
-
-            }
-
-
-            .contact-cards {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .contact-section {
-
-                padding:
-                    60px 0;
-
-            }
-
-
-            .contact-info h2 {
-
-                font-size:
-                    30px;
-
-            }
-
-
-            .contact-form-wrapper {
-
-                padding:
-                    25px 20px;
-
-            }
-
-
-            .form-row {
-
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    0;
-
-            }
-
-
-            .section-heading h2 {
-
-                font-size:
-                    30px;
-
-            }
-
-
-            .area-box {
-
-                padding:
-                    30px 25px;
-
-            }
-
-
-            .area-box h2 {
-
-                font-size:
-                    28px;
-
-            }
-
-
-            .area-list {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .footer-grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-
-            .location-info {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .location-image-wrapper {
-
-                width:
-                    100%;
-
-                height:
-                    200px;
-
-                min-width:
-                    100%;
-
-            }
-
-
-            .location-check-form {
-
-                flex-direction:
-                    column;
-
-            }
-
-
-            .location-check-btn {
-
-                width:
-                    100%;
-
-            }
-
-
-            .whatsapp-float {
-
-                width:
-                    52px;
-
-                height:
-                    52px;
-
-                right:
-                    18px;
-
-                bottom:
-                    18px;
-
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Dinges TechHub</title>
+  <meta name="description" content="Contact Dinges TechHub for fibre, LTE, wireless, hosting, VOIP and technical support. Call 010 141 5650 or send us a message.">
+  <link rel="icon" href="favicon.ico">
+  <style>
+    :root {
+      --purple: #5B2C8A;
+      --purple-dark: #3D1A63;
+      --purple-deep: #2A1245;
+      --gold: #F5A623;
+      --gold-hover: #E09412;
+      --text: #1F2937;
+      --muted: #64748B;
+      --border: #E5E7EB;
+      --bg: #F8F7FC;
+      --white: #FFFFFF;
+      --shadow: 0 12px 40px rgba(61, 26, 99, 0.12);
+      --radius: 14px;
+      --transition: 0.25s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(92%, 1180px); margin: 0 auto; }
+
+    /* Top bar */
+    .topbar {
+      background: #0B0B12;
+      color: #E5E7EB;
+      font-size: 13px;
+      padding: 8px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: #E5E7EB; }
+    .topbar a:hover { color: var(--gold); }
+    .topbar-left { display: flex; gap: 18px; align-items: center; }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22C55E; display: inline-block; margin-right: 6px;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--purple-dark);
+      white-space: nowrap;
+    }
+    .logo img { height: 40px; width: auto; }
+    .logo span { color: var(--gold); }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+    .nav-link {
+      display: block;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      border-radius: 999px;
+      transition: var(--transition);
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--purple);
+      background: #F3EAFB;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--purple);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--purple-dark); }
+    .btn-gold {
+      background: var(--gold);
+      color: #1A0F2E;
+    }
+    .btn-gold:hover { background: var(--gold-hover); }
+    .btn-outline {
+      border-color: var(--border);
+      background: var(--white);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: var(--purple-dark);
+    }
+
+    /* Hero */
+    .contact-hero {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(245, 166, 35, 0.18), transparent 40%),
+        linear-gradient(135deg, var(--purple-deep), var(--purple) 55%, #7B3FB0);
+      color: var(--white);
+      padding: 72px 20px 100px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .contact-hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .contact-hero h1 span { color: var(--gold); }
+    .contact-hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.88);
+      font-size: 17px;
+    }
+
+    /* Cards */
+    .contact-cards-section { margin-top: -48px; position: relative; z-index: 5; }
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 18px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .contact-card:hover { transform: translateY(-5px); }
+    .contact-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #F3EAFB;
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .contact-card h3 { font-size: 17px; margin-bottom: 6px; color: var(--purple-dark); }
+    .contact-card p { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+    .contact-card a { color: var(--purple); font-weight: 700; font-size: 14px; }
+    .contact-card a:hover { color: var(--gold-hover); }
+
+    /* Main grid */
+    .contact-section { padding: 70px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .section-label {
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .contact-info h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      color: var(--purple-dark);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .contact-info > p { color: var(--muted); margin-bottom: 28px; }
+    .info-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .info-icon {
+      width: 44px; height: 44px; min-width: 44px;
+      border-radius: 10px;
+      background: #F3EAFB;
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .info-item h4 { color: var(--purple-dark); margin-bottom: 2px; }
+    .info-item p, .info-item a { color: var(--muted); font-size: 14px; }
+    .info-item a:hover { color: var(--purple); }
+
+    .location-info { display: flex; gap: 16px; align-items: flex-start; margin-top: 8px; }
+    .location-image-wrapper {
+      width: 150px; height: 110px; min-width: 150px;
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .location-map-image { width: 100%; height: 100%; object-fit: cover; }
+    .map-image-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(91, 44, 138, 0.82);
+      color: #fff; font-size: 12px; font-weight: 700;
+      opacity: 0; transition: var(--transition);
+    }
+    .location-image-wrapper:hover .map-image-overlay { opacity: 1; }
+    .get-directions-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .location-checker {
+      margin-top: 28px;
+      padding: 22px;
+      background: #F8F4FC;
+      border: 1px solid #E5D4F5;
+      border-radius: var(--radius);
+    }
+    .location-checker h3 { font-size: 18px; color: var(--purple-dark); margin-bottom: 6px; }
+    .location-checker p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+    .location-check-form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .location-check-form input {
+      flex: 1;
+      min-width: 180px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+    }
+    .location-check-form input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(91, 44, 138, 0.12);
+    }
+    .location-result {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+    .location-result.show { display: block; }
+    .location-result.success { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+    .location-result.info { background: #F3EAFB; color: var(--purple-dark); border: 1px solid #E5D4F5; }
+
+    /* Form */
+    .contact-form-wrapper {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    .contact-form-wrapper h3 {
+      font-size: 24px;
+      color: var(--purple-dark);
+      margin-bottom: 6px;
+    }
+    .contact-form-wrapper > p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--purple-dark);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      outline: none;
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(91, 44, 138, 0.12);
+    }
+    .form-group textarea { min-height: 130px; resize: vertical; }
+    .submit-btn {
+      width: 100%;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 999px;
+      background: var(--purple);
+      color: var(--white);
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .submit-btn:hover { background: var(--purple-dark); }
+    .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+    .form-message {
+      display: none;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      text-align: center;
+    }
+    .form-message.show { display: block; }
+    .form-message.success { background: #DCFCE7; color: #166534; }
+    .form-message.error { background: #FEE2E2; color: #991B1B; }
+
+    /* Support */
+    .support-section { padding: 70px 0; background: var(--bg); }
+    .section-heading { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+    .section-heading h2 { font-size: clamp(28px, 4vw, 36px); color: var(--purple-dark); margin-bottom: 10px; }
+    .section-heading p { color: var(--muted); }
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .support-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: var(--transition);
+    }
+    .support-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .support-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .support-card h3 { color: var(--purple-dark); margin-bottom: 8px; }
+    .support-card p { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .support-card a { color: var(--purple); font-weight: 700; font-size: 14px; }
+
+    /* Service area */
+    .service-area { padding: 70px 0; }
+    .area-box {
+      background: linear-gradient(135deg, var(--purple-deep), var(--purple));
+      color: var(--white);
+      border-radius: 18px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .area-box h2 { font-size: 32px; margin-bottom: 10px; }
+    .area-box p { color: rgba(255,255,255,0.85); }
+    .area-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .area-list div {
+      background: rgba(255,255,255,0.1);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    /* FAQ */
+    .faq-section { padding: 70px 0; background: var(--bg); }
+    .faq-container { max-width: 820px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      padding: 18px 20px;
+      background: var(--white);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+      font-weight: 700;
+      color: var(--purple-dark);
+      cursor: pointer;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-icon { font-size: 20px; transition: var(--transition); }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+    /* Footer */
+    footer {
+      background: #12081F;
+      color: var(--white);
+      padding: 56px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      padding-bottom: 36px;
+    }
+    .footer-logo { font-size: 22px; font-weight: 800; margin-bottom: 12px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-column p { color: #A8A3B5; font-size: 14px; max-width: 320px; }
+    .footer-column h4 { margin-bottom: 14px; }
+    .footer-column ul { list-style: none; }
+    .footer-column li { margin-bottom: 9px; }
+    .footer-column a { color: #A8A3B5; font-size: 14px; }
+    .footer-column a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 18px;
+      text-align: center;
+      color: #8B8499;
+      font-size: 13px;
+    }
+
+    /* WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: var(--transition);
+    }
+    .whatsapp-float:hover { transform: scale(1.06); }
+
+    @media (max-width: 980px) {
+      .contact-cards { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid,
+      .area-box,
+      .footer-grid,
+      .support-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 850px) {
+      .menu-toggle { display: block; }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        gap: 4px;
+      }
+      .nav-menu.active { display: flex; }
+      .nav-actions .btn-outline { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
-
 <body>
 
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
-<header>
-
-    <div class="container navbar">
-
-        <a
-            href="index.html"
-            class="logo"
-        >
-            Dinges<span>TechHub</span>
-        </a>
-
-
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open navigation menu"
-            type="button"
-        >
-            ☰
-        </button>
-
-
-        <ul
-            class="nav-menu"
-            id="navMenu"
-        >
-
-            <li>
-
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
-
-            </li>
-
-
-            <li class="dropdown">
-
-                <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                >
-
-                    Services
-
-                    <span class="dropdown-arrow">
-                        ▼
-                    </span>
-
-                </a>
-
-
-                <ul class="dropdown-menu">
-
-                    <li>
-                        <a href="internet-connectivity.html">
-                            Internet Connectivity
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="fibre.html">
-                            Fibre
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="wireless.html">
-                            Wireless Broadband
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="mobile.html">
-                            Mobile
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="lte-4g-5g.html">
-                            Wireless LTE / 4G / 5G
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <li class="dropdown">
-
-                <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                >
-
-                    Help Centre
-
-                    <span class="dropdown-arrow">
-                        ▼
-                    </span>
-
-                </a>
-
-
-                <ul class="dropdown-menu">
-
-                    <li>
-                        <a href="network-status.html">
-                            Network Status
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="support.html">
-                            Technical Support
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="faq.html">
-                            FAQs
-                        </a>
-                    </li>
-
-                </ul>
-
-            </li>
-
-
-            <li>
-
-                <a
-                    href="contact.html"
-                    class="nav-link active"
-                >
-                    Contact Us
-                </a>
-
-            </li>
-
-        </ul>
-
-
-        <div class="nav-actions">
-
-            <a
-                href="login.html"
-                class="login-btn"
-            >
-                Login
-            </a>
-
-
-            <a
-                href="register.html"
-                class="register-btn"
-            >
-                Register
-            </a>
-
-
-            <a
-                href="cart.html"
-                class="cart-btn"
-                aria-label="Shopping cart"
-            >
-                🛒
-            </a>
-
-        </div>
-
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <a href="status.html"><span class="status-dot"></span>Network Status</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div>
+        Local technology support
+        <a href="tel:+27101415650" style="margin-left:10px;font-weight:700;">010 141 5650</a>
+      </div>
     </div>
+  </div>
 
-</header>
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">
+        <img src="logo.png" alt="Dinges TechHub" onerror="this.style.display='none'">
+        Dinges <span>TechHub</span>
+      </a>
 
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="services.html">Services</a></li>
+        <li><a class="nav-link" href="fibre.html">Internet</a></li>
+        <li><a class="nav-link" href="hosting.html">Hosting</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="login.html">Login</a>
+        <a class="btn btn-primary" href="login.html">Portal</a>
+      </div>
+    </div>
+  </header>
 
-<section class="contact-hero">
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="hero-content container">
+      <div class="hero-badge">Dinges TechHub Support</div>
+      <h1>Let's get you <span>connected</span></h1>
+      <p>
+        Questions about fibre, LTE, wireless, hosting or support?
+        Our local team is ready to help.
+      </p>
+    </div>
+  </section>
 
-    <div class="hero-content">
+  <!-- Contact cards -->
+  <section class="contact-cards-section">
+    <div class="container contact-cards">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Call Us</h3>
+        <p>Speak directly with our team.</p>
+        <a href="tel:+27101415650">010 141 5650</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h3>Email Us</h3>
+        <p>Send us your questions anytime.</p>
+        <a href="mailto:support@dingestechhub.co.za">support@dingestechhub.co.za</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Chat with our support team.</p>
+        <a href="https://wa.me/27101415650" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>Visit Us</h3>
+        <p>Mbombela, Mpumalanga.</p>
+        <a href="#service-area">View Location</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="hero-badge">
-            Dinges TechHub Support
-        </div>
-
-
-        <h1>
-            Let's Get You
-            <span>Connected</span>
-        </h1>
-
-
+  <!-- Main contact -->
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Get in touch</div>
+        <h2>We're here to help</h2>
         <p>
-            Have a question about our internet services, fibre,
-            mobile plans, wireless broadband, or technical support?
-            Our team is ready to help.
+          Whether you need a new connection, technical help, or account support,
+          Dinges TechHub is ready to assist.
         </p>
 
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTACT CARDS
-========================================================= -->
-
-<section class="contact-cards-section">
-
-    <div class="container contact-cards">
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                📞
-            </div>
-
-            <h3>
-                Call Us
-            </h3>
-
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+27101415650">010 141 5650</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:support@dingestechhub.co.za">support@dingestechhub.co.za</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕒</div>
+          <div>
+            <h4>Business Hours</h4>
             <p>
-                Speak directly with our team.
+              Monday – Friday: 09:00 – 16:00<br>
+              Saturday &amp; Sunday: Closed
             </p>
-
-            <a href="tel:+27000000000">
-                +27 00 000 0000
-            </a>
-
+          </div>
         </div>
 
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                ✉️
-            </div>
-
-            <h3>
-                Email Us
-            </h3>
-
-            <p>
-                Send us your questions anytime.
-            </p>
-
-            <a href="mailto:support@dingestechhub.co.za">
-                support@dingestechhub.co.za
-            </a>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-                💬
-            </div>
-
-            <h3>
-                WhatsApp
-            </h3>
-
-            <p>
-                Chat with our support team.
-            </p>
-
+        <div class="location-info">
+          <div class="location-image-wrapper">
             <a
-                href="https://wa.me/27000000000"
-                target="_blank"
-                rel="noopener noreferrer"
+              href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Get directions to Dinges TechHub"
             >
-                Chat on WhatsApp
+              <img src="dinges location.png" alt="Dinges TechHub location map" class="location-map-image"
+                   onerror="this.parentElement.style.background='#F3EAFB'">
+              <span class="map-image-overlay">Get Directions</span>
             </a>
-
-        </div>
-
-
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-
-                <img
-                    src="dinges location.png"
-                    alt="Dinges TechHub location map"
-                >
-
-            </div>
-
-            <h3>
-                Visit Us
-            </h3>
-
+          </div>
+          <div>
+            <h4>Our Location</h4>
             <p>
-                We are here to assist you.
+              Beryl Ridge Estate,<br>
+              20 Nimmersat Street,<br>
+              Stonehenge, Mbombela, 1201
             </p>
-
-            <a href="#service-area">
-                View Location
-            </a>
-
+            <a
+              class="get-directions-link"
+              href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
+              target="_blank" rel="noopener noreferrer"
+            >Get Directions →</a>
+          </div>
         </div>
 
+        <div class="location-checker">
+          <h3>📍 Check your location</h3>
+          <p>Enter your address, suburb or city and we’ll help check connectivity options in your area.</p>
+          <form class="location-check-form" id="locationCheckForm">
+            <input type="text" id="customerLocation" placeholder="Enter your address or location" autocomplete="street-address" required>
+            <button type="submit" class="btn btn-primary">Check availability</button>
+          </form>
+          <div class="location-result" id="locationResult"></div>
+        </div>
+      </div>
 
+      <div class="contact-form-wrapper">
+        <h3>Send us a message</h3>
+        <p>Fill in the form and our team will get back to you as soon as possible.</p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address *</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="082 000 0000">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" name="subject" placeholder="How can we help?" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reason">Reason for contact</label>
+            <select id="reason" name="reason">
+              <option value="">Select an option</option>
+              <option value="new-connection">New internet connection</option>
+              <option value="technical-support">Technical support</option>
+              <option value="billing">Billing &amp; account</option>
+              <option value="fibre">Fibre enquiry</option>
+              <option value="mobile">Mobile / LTE services</option>
+              <option value="hosting">Hosting / domains</option>
+              <option value="business">Business services</option>
+              <option value="reseller">Reseller enquiry</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactLocation">Your location / address</label>
+            <input type="text" id="contactLocation" name="contactLocation" placeholder="Suburb, city or full address" autocomplete="street-address">
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send message</button>
+          <div class="form-message" id="formMessage"></div>
+        </form>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     MAIN CONTACT SECTION
-========================================================= -->
-
-<section class="contact-section">
-
-    <div class="container contact-grid">
-
-
-        <!-- LEFT SIDE -->
-
-        <div class="contact-info">
-
-            <div class="section-label">
-                Get In Touch
-            </div>
-
-
-            <h2>
-                We're Here to Help
-            </h2>
-
-
-            <p>
-                Whether you are looking for a new internet connection,
-                need technical assistance, or have a question about
-                your account, our team is ready to assist you.
-            </p>
-
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    📞
-                </div>
-
-
-                <div>
-
-                    <h4>
-                        Phone
-                    </h4>
-
-                    <p>
-                        +27 00 000 0000
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    ✉️
-                </div>
-
-
-                <div>
-
-                    <h4>
-                        Email
-                    </h4>
-
-                    <p>
-                        support@dingestechhub.co.za
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="info-item">
-
-                <div class="info-icon">
-                    🕒
-                </div>
-
-
-                <div>
-
-                    <h4>
-                        Business Hours
-                    </h4>
-
-
-                    <p>
-
-                        Monday - Friday:
-                        09:00 - 16:00
-
-                        <br>
-
-                        Saturday:
-                        Closed
-
-                        <br>
-
-                        Sunday:
-                        Closed
-
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="location-info">
-
-
-                <div class="location-image-wrapper">
-
-                    <a
-                        href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Get directions to Dinges TechHub"
-                    >
-
-                        <img
-                            src="dinges location.png"
-                            alt="Dinges TechHub location map"
-                            class="location-map-image"
-                        >
-
-
-                        <span class="map-image-overlay">
-                            Get Directions
-                        </span>
-
-                    </a>
-
-                </div>
-
-
-
-                <div>
-
-                    <h4>
-                        Our Location
-                    </h4>
-
-
-                    <p>
-                        Beryl Ridge Estate,
-                        20 Nimmersat Street,
-                        Stonehenge,
-                        Mbombela,
-                        1201
-                    </p>
-
-
-                    <a
-                        href="https://www.google.com/maps/dir/?api=1&destination=Beryl%20Ridge%20Estate%2C%2020%20Nimmersat%20Street%2C%20Stonehenge%2C%20Mbombela%2C%201201%2C%20South%20Africa"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="get-directions-link"
-                    >
-                        Get Directions →
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- LOCATION CHECKER -->
-
-            <div class="location-checker">
-
-                <h3>
-                    📍 Check Your Location
-                </h3>
-
-
-                <p>
-                    Enter your address, suburb, or city and
-                    our team can assist you in checking the
-                    connectivity services available in your area.
-                </p>
-
-
-                <form
-                    class="location-check-form"
-                    id="locationCheckForm"
-                >
-
-                    <input
-                        type="text"
-                        id="customerLocation"
-                        placeholder="Enter your address or location"
-                        autocomplete="street-address"
-                        required
-                    >
-
-
-                    <button
-                        type="submit"
-                        class="location-check-btn"
-                    >
-                        Check Availability
-                    </button>
-
-                </form>
-
-
-                <div
-                    class="location-result"
-                    id="locationResult"
-                ></div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- =====================================================
-             RIGHT SIDE - CONTACT FORM
-        ====================================================== -->
-
-        <div class="contact-form-wrapper">
-
-            <h3>
-                Send Us a Message
-            </h3>
-
-
-            <p>
-                Fill in the form below and our team will get back
-                to you as soon as possible.
-            </p>
-
-
-            <!-- IMPORTANT:
-                 JavaScript below uses this exact ID:
-                 contactForm
-            -->
-
-            <form id="contactForm">
-
-
-                <div class="form-row">
-
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            Full Name *
-                        </label>
-
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Enter your full name"
-                            required
-                        >
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Email Address *
-                        </label>
-
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="you@example.com"
-                            required
-                        >
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="form-row">
-
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone Number
-                        </label>
-
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="+27 XX XXX XXXX"
-                        >
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <label for="subject">
-                            Subject *
-                        </label>
-
-
-                        <input
-                            type="text"
-                            id="subject"
-                            name="subject"
-                            placeholder="How can we help?"
-                            required
-                        >
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="reason">
-                        Reason for Contact
-                    </label>
-
-
-                    <select
-                        id="reason"
-                        name="reason"
-                    >
-
-                        <option value="">
-                            Select an option
-                        </option>
-
-
-                        <option value="new-connection">
-                            New Internet Connection
-                        </option>
-
-
-                        <option value="technical-support">
-                            Technical Support
-                        </option>
-
-
-                        <option value="billing">
-                            Billing & Account
-                        </option>
-
-
-                        <option value="fibre">
-                            Fibre Enquiry
-                        </option>
-
-
-                        <option value="mobile">
-                            Mobile Services
-                        </option>
-
-
-                        <option value="business">
-                            Business Services
-                        </option>
-
-
-                        <option value="other">
-                            Other
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="contactLocation">
-                        Your Location / Address
-                    </label>
-
-
-                    <input
-                        type="text"
-                        id="contactLocation"
-                        name="contactLocation"
-                        placeholder="Enter your suburb, city or full address"
-                        autocomplete="street-address"
-                    >
-
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <label for="message">
-                        Message *
-                    </label>
-
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Tell us how we can help you..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-
-                <button
-                    type="submit"
-                    class="submit-btn"
-                >
-                    Send Message
-                </button>
-
-
-                <div
-                    class="form-message"
-                    id="formMessage"
-                ></div>
-
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SUPPORT OPTIONS
-========================================================= -->
-
-<section class="support-section">
-
+  <!-- Support options -->
+  <section class="support-section">
     <div class="container">
-
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                How Can We Help?
-            </div>
-
-
-            <h2>
-                Choose the Right Support
-            </h2>
-
-
-            <p>
-                Get connected with the right team for your needs.
-            </p>
-
+      <div class="section-heading">
+        <div class="section-label">How can we help?</div>
+        <h2>Choose the right support</h2>
+        <p>Get connected with the right team for your needs.</p>
+      </div>
+      <div class="support-grid">
+        <div class="support-card">
+          <div class="support-card-icon">🛠️</div>
+          <h3>Technical support</h3>
+          <p>Connection problems or service issues? Our technical team can help.</p>
+          <a href="support.html">Get technical help →</a>
         </div>
-
-
-
-        <div class="support-grid">
-
-
-            <div class="support-card">
-
-                <div class="support-card-icon">
-                    🛠️
-                </div>
-
-
-                <h3>
-                    Technical Support
-                </h3>
-
-
-                <p>
-                    Experiencing connection problems or need help
-                    with your internet service? Our technical team
-                    is ready to assist.
-                </p>
-
-
-                <a href="support.html">
-                    Get Technical Help →
-                </a>
-
-            </div>
-
-
-
-            <div class="support-card">
-
-                <div class="support-card-icon">
-                    🌐
-                </div>
-
-
-                <h3>
-                    New Services
-                </h3>
-
-
-                <p>
-                    Looking for fibre, LTE, 4G, 5G, wireless,
-                    or mobile connectivity? Let us help you
-                    find the right solution.
-                </p>
-
-
-                <a href="internet-connectivity.html">
-                    Explore Services →
-                </a>
-
-            </div>
-
-
-
-            <div class="support-card">
-
-                <div class="support-card-icon">
-                    💳
-                </div>
-
-
-                <h3>
-                    Billing & Accounts
-                </h3>
-
-
-                <p>
-                    Need help with your account, payments,
-                    invoices, or subscription? Contact our
-                    customer service team.
-                </p>
-
-
-                <a href="#contactForm">
-                    Contact Us →
-                </a>
-
-            </div>
-
-
+        <div class="support-card">
+          <div class="support-card-icon">🌐</div>
+          <h3>New services</h3>
+          <p>Fibre, LTE, 5G, wireless or hosting — find the right solution.</p>
+          <a href="services.html">Explore services →</a>
         </div>
-
+        <div class="support-card">
+          <div class="support-card-icon">💳</div>
+          <h3>Billing &amp; accounts</h3>
+          <p>Invoices, payments or account questions — we’re here to help.</p>
+          <a href="#contactForm">Contact us →</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     SERVICE AREA
-========================================================= -->
-
-<section
-    class="service-area"
-    id="service-area"
->
-
+  <!-- Service area -->
+  <section class="service-area" id="service-area">
     <div class="container">
-
-        <div class="area-box">
-
-
-            <div>
-
-                <div class="section-label">
-                    Where We Operate
-                </div>
-
-
-                <h2>
-                    Connecting South Africa
-                </h2>
-
-
-                <p>
-                    Dinges TechHub is committed to providing reliable
-                    connectivity and technology solutions to customers
-                    across South Africa.
-                </p>
-
-            </div>
-
-
-
-            <div class="area-list">
-
-                <div>
-                    ✓ Gauteng
-                </div>
-
-
-                <div>
-                    ✓ Mpumalanga
-                </div>
-
-
-                <div>
-                    ✓ Other Areas
-                </div>
-
-            </div>
-
+      <div class="area-box">
+        <div>
+          <div class="section-label" style="color:var(--gold);">Where we operate</div>
+          <h2>Connecting South Africa</h2>
+          <p>
+            Based in Mbombela, Dinges TechHub provides connectivity and technology
+            solutions across Mpumalanga, Gauteng and selected areas nationwide.
+          </p>
         </div>
-
+        <div class="area-list">
+          <div>✓ Mpumalanga</div>
+          <div>✓ Gauteng</div>
+          <div>✓ Selected SA areas</div>
+          <div>✓ Business clients nationwide</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section class="faq-section">
-
+  <!-- FAQ -->
+  <section class="faq-section">
     <div class="container">
-
-
-        <div class="section-heading">
-
-            <div class="section-label">
-                Frequently Asked Questions
-            </div>
-
-
-            <h2>
-                Before You Contact Us
-            </h2>
-
-
-            <p>
-                Find quick answers to some common questions.
-            </p>
-
+      <div class="section-heading">
+        <div class="section-label">FAQ</div>
+        <h2>Before you contact us</h2>
+        <p>Quick answers to common questions.</p>
+      </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            How quickly will you respond?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We aim to respond during business hours (Mon–Fri, 09:00–16:00) as quickly as possible.
+          </div>
         </div>
-
-
-
-        <div class="faq-container">
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                >
-
-                    How quickly will you respond to my message?
-
-                    <span class="faq-icon">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="faq-answer">
-
-                    Our team aims to respond to customer enquiries
-                    as quickly as possible during business hours.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                >
-
-                    Can I check if fibre is available in my area?
-
-                    <span class="faq-icon">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="faq-answer">
-
-                    Yes. Enter your address or location in the
-                    location checker above, or contact our team
-                    and we can assist you with checking available
-                    connectivity options.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                >
-
-                    Do you provide technical support?
-
-                    <span class="faq-icon">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="faq-answer">
-
-                    Yes. Our support team can assist with
-                    connectivity and service-related enquiries.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button
-                    class="faq-question"
-                    type="button"
-                >
-
-                    Can I contact you through WhatsApp?
-
-                    <span class="faq-icon">
-                        +
-                    </span>
-
-                </button>
-
-
-                <div class="faq-answer">
-
-                    Yes. You can use the WhatsApp button on this
-                    page to start a conversation with our team.
-
-                </div>
-
-            </div>
-
-
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I check if fibre is available at my address?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Use the location checker above, browse fibre packages, or contact us with your address.
+          </div>
         </div>
-
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Do you provide technical support?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Existing customers can log in to the customer portal or contact us for support.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">
+            Can I contact you on WhatsApp?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Yes. Use the green WhatsApp button or message 010 141 5650.
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
+  <!-- Footer -->
+  <footer>
     <div class="container">
-
-
-        <div class="footer-grid">
-
-
-            <div class="footer-column">
-
-                <div class="footer-logo">
-                    Dinges<span>TechHub</span>
-                </div>
-
-
-                <p>
-                    Reliable connectivity and technology solutions
-                    designed to keep individuals and businesses
-                    connected.
-                </p>
-
-            </div>
-
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Services
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="internet-connectivity.html">
-                            Internet Connectivity
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="fibre.html">
-                            Fibre
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="wireless.html">
-                            Wireless Broadband
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="mobile.html">
-                            Mobile
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Support
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="support.html">
-                            Technical Support
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="network-status.html">
-                            Network Status
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="faq.html">
-                            FAQs
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="contact.html">
-                            Contact Us
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div class="footer-column">
-
-                <h4>
-                    Company
-                </h4>
-
-
-                <ul>
-
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="register.html">
-                            Register
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a href="cart.html">
-                            Cart
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-logo">Dinges <span>TechHub</span></div>
+          <p>Reliable connectivity, hosting and technology solutions for homes and businesses.</p>
         </div>
-
-
-
-        <div class="footer-bottom">
-
-            © 2026 Dinges TechHub.
-            All Rights Reserved.
-
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="fibre.html">Fibre</a></li>
+            <li><a href="wireless-lte-4g-5g.html">LTE / 5G</a></li>
+            <li><a href="wireless-broadband.html">Wireless</a></li>
+            <li><a href="hosting.html">Hosting</a></li>
+          </ul>
         </div>
-
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="status.html">Network status</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="login.html">Customer login</a></li>
+            <li><a href="support.html">Help centre</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Dinges TechHub. All rights reserved.
+      </div>
     </div>
+  </footer>
 
-</footer>
+  <a class="whatsapp-float" href="https://wa.me/27101415650" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">💬</a>
 
+  <script>
+    /* ========= Config =========
+       Option A (recommended on Cloudflare Workers): set your Worker API path
+       Option B: Bitrix inbound webhook (same portal as your CRM)
+    */
+    var CONTACT_ENDPOINT = ""; // e.g. "/api/contact" if you add a Worker route
+    var BITRIX_WEBHOOK = "https://gvassistants.co.za/rest/269/18b5lg291h3vg4zn/";
 
-
-<!-- =========================================================
-     WHATSAPP BUTTON
-========================================================= -->
-
-<a
-    href="https://wa.me/27000000000"
-    class="whatsapp-float"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat with us on WhatsApp"
->
-    💬
-</a>
-
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
-<script>
-
-
-/* =========================================================
-   GET ELEMENTS
-========================================================= */
-
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navMenu =
-    document.getElementById("navMenu");
-
-const contactForm =
-    document.getElementById("contactForm");
-
-const formMessage =
-    document.getElementById("formMessage");
-
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-if (menuToggle && navMenu) {
-
-    menuToggle.addEventListener(
-        "click",
-        function () {
-
-            navMenu.classList.toggle("active");
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   MOBILE DROPDOWN MENUS
-========================================================= */
-
-const dropdowns =
-    document.querySelectorAll(".dropdown");
-
-
-dropdowns.forEach(
-    function(dropdown) {
-
-        const toggle =
-            dropdown.querySelector(".dropdown-toggle");
-
-
-        if (toggle) {
-
-            toggle.addEventListener(
-                "click",
-                function(event) {
-
-                    if (window.innerWidth <= 850) {
-
-                        event.preventDefault();
-
-                        dropdown.classList.toggle("active");
-
-                    }
-
-                }
-            );
-
-        }
-
+    var menuToggle = document.getElementById("menuToggle");
+    var navMenu = document.getElementById("navMenu");
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("active");
+      });
     }
-);
 
-
-
-/* =========================================================
-   LOCATION CHECKER
-========================================================= */
-
-const locationCheckForm =
-    document.getElementById(
-        "locationCheckForm"
-    );
-
-
-const customerLocation =
-    document.getElementById(
-        "customerLocation"
-    );
-
-
-const locationResult =
-    document.getElementById(
-        "locationResult"
-    );
-
-
-if (
-    locationCheckForm &&
-    customerLocation &&
-    locationResult
-) {
-
-    locationCheckForm.addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
-
-            const location =
-                customerLocation.value.trim();
-
-
-            if (location === "") {
-
-                locationResult.className =
-                    "location-result show info";
-
-
-                locationResult.innerHTML =
-                    "Please enter your address, suburb or city.";
-
-
-                return;
-
-            }
-
-
-            locationResult.className =
-                "location-result show success";
-
-
-            locationResult.innerHTML =
-
-                "<strong>Location received!</strong><br>" +
-
-                "You entered: <strong>" +
-
-                escapeHtml(location) +
-
-                "</strong><br><br>" +
-
-                "Our team can assist you in checking the " +
-
-                "connectivity services available in your area.";
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   CONTACT FORM → NETLIFY FUNCTION → BITRIX24
-========================================================= */
-
-if (contactForm) {
-
-    contactForm.addEventListener(
-        "submit",
-        async function(event) {
-
-            event.preventDefault();
-
-
-            const submitButton =
-                contactForm.querySelector(
-                    ".submit-btn"
-                );
-
-
-            /* Clear old message */
-
-            formMessage.className =
-                "form-message";
-
-
-            formMessage.textContent =
-                "";
-
-
-            /* Disable button */
-
-            submitButton.disabled =
-                true;
-
-
-            submitButton.textContent =
-                "Sending...";
-
-
-            /* =================================================
-               COLLECT ALL FORM DATA
-            ================================================= */
-
-            const formData = {
-
-                name:
-                    document
-                    .getElementById("name")
-                    .value
-                    .trim(),
-
-
-                email:
-                    document
-                    .getElementById("email")
-                    .value
-                    .trim(),
-
-
-                phone:
-                    document
-                    .getElementById("phone")
-                    .value
-                    .trim(),
-
-
-                subject:
-                    document
-                    .getElementById("subject")
-                    .value
-                    .trim(),
-
-
-                reason:
-                    document
-                    .getElementById("reason")
-                    .value
-                    .trim(),
-
-
-                contactLocation:
-                    document
-                    .getElementById("contactLocation")
-                    .value
-                    .trim(),
-
-
-                message:
-                    document
-                    .getElementById("message")
-                    .value
-                    .trim()
-
-            };
-
-
-            try {
-
-
-                /* =================================================
-                   SEND DATA TO NETLIFY FUNCTION
-                ================================================= */
-
-                const response =
-                    await fetch(
-                        "/.netlify/functions/bitrix-contact",
-                        {
-
-                            method:
-                                "POST",
-
-
-                            headers: {
-
-                                "Content-Type":
-                                    "application/json"
-
-                            },
-
-
-                            body:
-                                JSON.stringify(
-                                    formData
-                                )
-
-                        }
-                    );
-
-
-
-                /* =================================================
-                   CHECK RESPONSE
-                ================================================= */
-
-                let result;
-
-
-                try {
-
-                    result =
-                        await response.json();
-
-                } catch (jsonError) {
-
-                    result = {
-
-                        success:
-                            false,
-
-                        message:
-                            "The server returned an invalid response."
-
-                    };
-
-                }
-
-
-
-                /* =================================================
-                   SUCCESS
-                ================================================= */
-
-                if (
-                    response.ok &&
-                    result.success
-                ) {
-
-
-                    formMessage.className =
-                        "form-message show success";
-
-
-                    formMessage.textContent =
-                        "Thank you! Your message has been sent successfully. Our team will contact you shortly.";
-
-
-                    contactForm.reset();
-
-
-                }
-
-
-                /* =================================================
-                   ERROR
-                ================================================= */
-
-                else {
-
-
-                    formMessage.className =
-                        "form-message show error";
-
-
-                    formMessage.textContent =
-
-                        result.message ||
-
-                        "We could not send your message. Please try again later.";
-
-                }
-
-
-            } catch (error) {
-
-
-                console.error(
-                    "Contact form error:",
-                    error
-                );
-
-
-                formMessage.className =
-                    "form-message show error";
-
-
-                formMessage.textContent =
-
-                    "We could not connect to the server. Please try again later.";
-
-
-            }
-
-
-            /* =================================================
-               ENABLE BUTTON AGAIN
-            ================================================= */
-
-            submitButton.disabled =
-                false;
-
-
-            submitButton.textContent =
-                "Send Message";
-
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   FAQ ACCORDION
-========================================================= */
-
-const faqQuestions =
-    document.querySelectorAll(
-        ".faq-question"
-    );
-
-
-faqQuestions.forEach(
-    function(question) {
-
-        question.addEventListener(
-            "click",
-            function() {
-
-                const faqItem =
-                    question.parentElement;
-
-
-                faqItem.classList.toggle(
-                    "active"
-                );
-
-            }
-        );
-
+    function escapeHtml(value) {
+      var div = document.createElement("div");
+      div.textContent = value;
+      return div.innerHTML;
     }
-);
 
-
-
-/* =========================================================
-   CLOSE MOBILE MENU AFTER NORMAL LINK CLICK
-========================================================= */
-
-const normalNavLinks =
-    document.querySelectorAll(
-        ".nav-menu > li:not(.dropdown) .nav-link"
-    );
-
-
-normalNavLinks.forEach(
-    function(link) {
-
-        link.addEventListener(
-            "click",
-            function() {
-
-                if (navMenu) {
-
-                    navMenu.classList.remove(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
+    /* Location checker */
+    var locationCheckForm = document.getElementById("locationCheckForm");
+    var customerLocation = document.getElementById("customerLocation");
+    var locationResult = document.getElementById("locationResult");
+    if (locationCheckForm) {
+      locationCheckForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var location = (customerLocation.value || "").trim();
+        if (!location) {
+          locationResult.className = "location-result show info";
+          locationResult.innerHTML = "Please enter your address, suburb or city.";
+          return;
+        }
+        locationResult.className = "location-result show success";
+        locationResult.innerHTML =
+          "<strong>Location received.</strong><br>You entered: <strong>" +
+          escapeHtml(location) +
+          "</strong><br><br>Our team can help check fibre, LTE and wireless options for this area. " +
+          "Prefer a faster reply? <a href=\"https://wa.me/27101415650?text=" +
+          encodeURIComponent("Hi, please check coverage for: " + location) +
+          "\" target=\"_blank\" rel=\"noopener\">WhatsApp us</a>.";
+      });
     }
-);
 
+    /* Contact form → Bitrix lead (or custom endpoint) */
+    var contactForm = document.getElementById("contactForm");
+    var formMessage = document.getElementById("formMessage");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var submitButton = contactForm.querySelector(".submit-btn");
+        formMessage.className = "form-message";
+        formMessage.textContent = "";
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
+        var formData = {
+          name: document.getElementById("name").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          phone: document.getElementById("phone").value.trim(),
+          subject: document.getElementById("subject").value.trim(),
+          reason: document.getElementById("reason").value.trim(),
+          contactLocation: document.getElementById("contactLocation").value.trim(),
+          message: document.getElementById("message").value.trim()
+        };
 
-/* =========================================================
-   BASIC HTML ESCAPE FUNCTION
-   Prevents user-entered location from being interpreted
-   as HTML inside the location result.
-========================================================= */
+        try {
+          var ok = false;
+          var errMsg = "We could not send your message. Please try again or call 010 141 5650.";
 
-function escapeHtml(value) {
+          if (CONTACT_ENDPOINT) {
+            var r1 = await fetch(CONTACT_ENDPOINT, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(formData)
+            });
+            var j1 = {};
+            try { j1 = await r1.json(); } catch (x) {}
+            ok = r1.ok && j1.success !== false;
+            if (j1.message) errMsg = j1.message;
+          } else if (BITRIX_WEBHOOK) {
+            var title = "Website contact: " + (formData.subject || formData.name);
+            var comments =
+              "Reason: " + (formData.reason || "n/a") + "\n" +
+              "Location: " + (formData.contactLocation || "n/a") + "\n\n" +
+              formData.message;
+            var body = new URLSearchParams();
+            body.set("fields[TITLE]", title);
+            body.set("fields[NAME]", formData.name);
+            body.set("fields[EMAIL][0][VALUE]", formData.email);
+            body.set("fields[EMAIL][0][VALUE_TYPE]", "WORK");
+            if (formData.phone) {
+              body.set("fields[PHONE][0][VALUE]", formData.phone);
+              body.set("fields[PHONE][0][VALUE_TYPE]", "WORK");
+            }
+            body.set("fields[COMMENTS]", comments);
+            body.set("fields[SOURCE_ID]", "WEB");
+            body.set("fields[SOURCE_DESCRIPTION]", "Dinges TechHub website contact form");
 
-    const div =
-        document.createElement("div");
+            var r2 = await fetch(BITRIX_WEBHOOK.replace(/\/?$/, "/") + "crm.lead.add.json", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: body.toString()
+            });
+            var j2 = {};
+            try { j2 = await r2.json(); } catch (x) {}
+            ok = !!(j2 && j2.result);
+            if (j2 && j2.error_description) errMsg = j2.error_description;
+          }
 
+          if (ok) {
+            formMessage.className = "form-message show success";
+            formMessage.textContent = "Thank you! Your message was sent. Our team will contact you shortly.";
+            contactForm.reset();
+          } else {
+            formMessage.className = "form-message show error";
+            formMessage.textContent = errMsg;
+          }
+        } catch (err) {
+          console.error(err);
+          formMessage.className = "form-message show error";
+          formMessage.textContent = "Connection error. Please try WhatsApp or call 010 141 5650.";
+        }
 
-    div.textContent =
-        value;
+        submitButton.disabled = false;
+        submitButton.textContent = "Send message";
+      });
+    }
 
-
-    return div.innerHTML;
-
-}
-
-
-</script>
-
-
+    /* FAQ */
+    document.querySelectorAll(".faq-question").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        btn.parentElement.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
-
 </html>
