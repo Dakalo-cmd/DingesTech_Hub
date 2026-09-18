@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shared Hosting | Dinges TechHub</title>
-<meta name="description" content="Reliable, secure and affordable shared hosting from Dinges TechHub.">
+<title>Shared Hosting | Dinges Tech</title>
+<meta name="description" content="Reliable, secure and affordable shared hosting from Dinges Tech.">
 <style>
 :root{
     --primary:#3C1542;--secondary:#7A2C78;--accent:#FFBB42;
@@ -55,7 +55,7 @@ button{font-family:inherit}
 .section-title p{color:var(--gray);font-size:14px}
 .status{display:none;max-width:850px;margin:0 auto 30px;padding:15px;border-radius:9px;text-align:center;font-size:13px}
 .status.loading{display:block;background:#eeeeee;color:#555}
-.status.success{display:block;background:#e9f7ef;color:var(--success)}
+.status.success{display:none}
 .status.error{display:block;background:#fdecec;color:var(--danger)}
 .package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .package-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:27px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
@@ -118,10 +118,10 @@ button{font-family:inherit}
 </div>
 <nav class="navbar" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Dinges TechHub Home">
-      <img src="dingestech-logo.png" alt="Dinges TechHub Logo">
+    <a href="index.html" class="logo" aria-label="Dinges Tech Home">
+      <img src="dingestech-logo.png" alt="Dinges Tech Logo">
       <span class="logo-text">
-        <span class="logo-name">Dinges TechHub</span>
+        <span class="logo-name">Dinges Tech</span>
         <span class="logo-tagline">TECHNOLOGY &amp; CONNECTIVITY</span>
       </span>
     </a>
@@ -177,14 +177,14 @@ button{font-family:inherit}
 <section class="cta">
   <div class="cta-inner">
     <h2>Need Help Choosing Hosting?</h2>
-    <p>Contact Dinges TechHub and we can help you choose the right hosting package for your website or business.</p>
+    <p>Contact Dinges Tech and we can help you choose the right hosting package for your website or business.</p>
     <a href="contact.html">Contact Us</a>
   </div>
 </section>
 <footer class="footer" style="background:#16091A;color:rgba(255,255,255,.75);padding:55px 0 0;text-align:left;">
   <div class="container" style="width:min(92%,1200px);margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px;">
     <div>
-      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges TechHub" style="width:175px;height:auto;margin-bottom:16px;"></a>
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges Tech" style="width:175px;height:auto;margin-bottom:16px;"></a>
       <p style="max-width:360px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.68);">Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
     </div>
     <div>
@@ -211,7 +211,7 @@ button{font-family:inherit}
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.12);padding:20px 0;">
     <div class="container" style="width:min(92%,1200px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55);">
-      <span>© <span id="year"></span> Dinges TechHub. All rights reserved.</span>
+      <span>© <span id="year"></span> Dinges Tech. All rights reserved.</span>
       <span>Connect. Host. Grow.</span>
       <a href="admin-login.html" style="color:rgba(255,255,255,.7);font-weight:700;">Admin Login</a>
     </div>
@@ -243,22 +243,22 @@ async function loadHostingPackages(){
     const response = await fetch(API_URL + "?t=" + Date.now(), {method:"GET", cache:"no-store"});
     if(!response.ok) throw new Error("HTTP " + response.status);
     const data = await response.json();
-    if(!data || data.success !== true) throw new Error((data && data.message) || "API error");
+    if(!data || data.success !== true) throw new Error((data && data.message) || "Unable to load packages");
     let packages = Array.isArray(data.packages) ? data.packages : (Array.isArray(data.products) ? data.products : []);
     if(packages.length === 0){
       status.className = "status error";
-      status.textContent = "No shared hosting packages were found.";
-      grid.innerHTML = '<div class="empty-card"><h3>No Packages</h3><p>No shared hosting packages available.</p><a href="contact.html">Contact Us</a></div>';
+      status.textContent = "No shared hosting packages are available right now.";
+      grid.innerHTML = '<div class="empty-card"><h3>No Packages</h3><p>No shared hosting packages available at the moment.</p><a href="contact.html">Contact Us</a></div>';
       return;
     }
     packages.forEach(function(product, index){ createHostingCard(product, index); });
     status.className = "status success";
-    status.textContent = packages.length + " shared hosting package" + (packages.length === 1 ? "" : "s") + " loaded successfully.";
+    status.textContent = "";
   }catch(error){
     console.error(error);
     status.className = "status error";
-    status.textContent = "Unable to load shared hosting packages. " + error.message;
-    grid.innerHTML = '<div class="empty-card"><h3>Shared Hosting Unavailable</h3><p>We could not retrieve plans from the live database.</p><a href="contact.html">Contact Us</a></div>';
+    status.textContent = "Unable to load shared hosting packages. Please try again later.";
+    grid.innerHTML = '<div class="empty-card"><h3>Shared Hosting Unavailable</h3><p>We could not load hosting plans right now. Please try again or contact us for help.</p><a href="contact.html">Contact Us</a></div>';
   }
 }
 function createHostingCard(product, index){

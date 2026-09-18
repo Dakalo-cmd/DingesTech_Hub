@@ -9,17 +9,17 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>Advanced PBX | Dinges TechHub</title>
+<title>Advanced PBX | Dinges Tech</title>
 
 <meta
     name="description"
-    content="Advanced cloud PBX and VOIP solutions from Dinges TechHub."
+    content="Advanced cloud PBX and VOIP solutions from Dinges Tech."
 >
 
 <style>
 
 /* =========================================================
-   DINGES TECHHUB — ADVANCED PBX
+   DINGES TECH — ADVANCED PBX
    ========================================================= */
 
 :root{
@@ -1664,18 +1664,18 @@ footer{
         <a
             href="index.html"
             class="logo"
-            aria-label="Dinges TechHub Home"
+            aria-label="Dinges Tech Home"
         >
 
             <img
                 src="dingestech-logo.png"
-                alt="Dinges TechHub Logo"
+                alt="Dinges Tech Logo"
             >
 
             <span class="logo-text">
 
                 <span class="logo-name">
-                    Dinges TechHub
+                    Dinges Tech
                 </span>
 
                 <span class="logo-tagline">
@@ -1809,7 +1809,7 @@ footer{
         ></span>
 
         <span id="apiStatusText">
-            Connecting to PBX database...
+            Loading packages...
         </span>
 
     </div>
@@ -1844,26 +1844,6 @@ footer{
 
     </div>
 
-
-    <!-- =================================================
-         DATABASE NOTE
-         ================================================= -->
-
-    <div class="database-note">
-
-        <strong>
-            Live database:
-        </strong>
-
-        PBX product information and monthly pricing are
-        loaded from the WHMCS database through the Dinges
-        TechHub PHP API.
-
-        Prices displayed on this page are controlled from
-        the backend.
-
-    </div>
-
 </main>
 
 
@@ -1880,7 +1860,7 @@ footer{
         </h2>
 
         <p>
-            Contact Dinges TechHub and we can help you
+            Contact Dinges Tech and we can help you
             choose the right VOIP and PBX solution for
             your business.
         </p>
@@ -1914,7 +1894,7 @@ footer{
 <footer class="footer" style="background:#16091A;color:rgba(255,255,255,.75);padding:55px 0 0;text-align:left;">
   <div style="width:min(92%,1200px);margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px;">
     <div>
-      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges TechHub" style="width:175px;height:auto;margin-bottom:16px;"></a>
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges Tech" style="width:175px;height:auto;margin-bottom:16px;"></a>
       <p style="max-width:360px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.68);">Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
     </div>
     <div>
@@ -1941,7 +1921,7 @@ footer{
   </div>
   <div style="border-top:1px solid rgba(255,255,255,.12);padding:20px 0;">
     <div style="width:min(92%,1200px);margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.55);">
-      <span>© <span id="year"></span> Dinges TechHub. All rights reserved.</span>
+      <span>© <span id="year"></span> Dinges Tech. All rights reserved.</span>
       <span>Connect. Host. Grow.</span>
       <a href="admin-login.html" style="color:rgba(255,255,255,.7);font-weight:700;">Admin Login</a>
     </div>
@@ -1953,7 +1933,7 @@ footer{
 <script>
 
 /* =========================================================
-   LIVE PBX API
+   PBX API
    ========================================================= */
 
 const API_URL =
@@ -2162,7 +2142,7 @@ async function loadPBXProducts(){
     try{
 
         statusText.textContent =
-            "Connecting to live PBX database...";
+            "Loading packages...";
 
 
         const response =
@@ -2259,14 +2239,7 @@ async function loadPBXProducts(){
 
 
             throw new Error(
-                "API returned HTTP " +
-                response.status +
-                (
-                    serverMessage
-                        ? ": " +
-                          serverMessage
-                        : ""
-                )
+                "Unable to load packages right now. Please try again."
             );
 
         }
@@ -2286,14 +2259,14 @@ async function loadPBXProducts(){
         catch(jsonError){
 
             throw new Error(
-                "The PBX API returned an invalid JSON response."
+                "Unable to load packages. Please try again."
             );
 
         }
 
 
         console.log(
-            "LIVE PBX API RESPONSE:",
+            "PBX API RESPONSE:",
             data
         );
 
@@ -2303,7 +2276,7 @@ async function loadPBXProducts(){
             throw new Error(
                 data.error ||
                 data.message ||
-                "The PBX API returned success=false."
+                "Unable to load packages. Please try again."
             );
 
         }
@@ -2312,7 +2285,7 @@ async function loadPBXProducts(){
         if(!Array.isArray(data.products)){
 
             throw new Error(
-                "The PBX API did not return a products array."
+                "No packages available right now."
             );
 
         }
@@ -2328,7 +2301,6 @@ async function loadPBXProducts(){
 
 
         statusText.textContent =
-            "Live PBX database connected • " +
             data.products.length +
             (
                 data.products.length === 1
@@ -2357,7 +2329,7 @@ async function loadPBXProducts(){
 
 
         statusText.textContent =
-            "Unable to connect to PBX database";
+            "Unable to load packages";
 
 
         showError(
@@ -2374,8 +2346,8 @@ async function loadPBXProducts(){
                 </h3>
 
                 <p>
-                    We could not retrieve the live PBX
-                    products from the database.
+                    We could not load PBX packages right now.
+                    Please try again later.
                 </p>
 
                 <button
@@ -2579,7 +2551,7 @@ function createProductCard(
                 </span>
 
                 <span>
-                    Managed through Dinges TechHub
+                    Managed through Dinges Tech
                 </span>
 
             </div>
@@ -2601,18 +2573,6 @@ function createProductCard(
 
 
         <div class="package-info">
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    Product ID
-                </span>
-
-                <span class="info-value">
-                    ${escapeHTML(productId)}
-                </span>
-
-            </div>
 
 
             <div class="info-row">
@@ -2958,7 +2918,7 @@ function addToCart(
 
             serviceType:"pbx",
 
-            source:"whmcs"
+            source:"pbx"
 
         });
 
@@ -3168,7 +3128,7 @@ function showError(
     errorMessage.innerHTML = `
 
         <strong>
-            Advanced PBX API Connection Error
+            Unable to load Advanced PBX
         </strong>
 
         ${escapeHTML(
@@ -3176,17 +3136,7 @@ function showError(
             "Unknown error"
         )}
 
-        <div class="error-api">
 
-            <strong>
-                API:
-            </strong>
-
-            ${escapeHTML(
-                API_URL
-            )}
-
-        </div>
 
     `;
 
