@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Dinges Tech</title>
+<meta name="description" content="About Dinges Tech — your local partner for internet, hosting, communication, software and IT solutions.">
+<style>
+:root{
+  --purple-dark:#3C1542;
+  --purple:#7A2C78;
+  --purple-light:#A84FA5;
+  --gold:#FFBB42;
+  --gold-light:#FFD77A;
+  --black:#020202;
+  --white:#FFFFFF;
+  --grey:#949493;
+  --light:#F5F3F6;
+  --border:#E7E1E8;
+  --container:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,Helvetica,sans-serif;background:#fff;color:var(--black);line-height:1.6;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+.container{width:min(92%,var(--container));margin:auto}
+/* TOP BAR */
+.top-bar{background:var(--black);color:#fff;font-size:12px;position:relative;z-index:6000}
+.top-bar-inner{min-height:38px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.top-left,.top-right{display:flex;align-items:center;gap:22px}
+.top-bar a{transition:.25s ease}
+.top-bar a:hover{color:var(--gold)}
+.status-dot{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
+/* HEADER */
+.header{position:sticky;top:0;z-index:5000;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(60,21,66,.08);transition:.3s ease}
+.header.scrolled{box-shadow:0 12px 35px rgba(60,21,66,.10)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;flex-shrink:0}
+.logo img{height:58px;width:auto;max-width:220px;object-fit:contain}
+.navigation{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-link{padding:11px 13px;border-radius:10px;color:#28202A;font-size:14px;font-weight:700;transition:.25s ease}
+.nav-link:hover,.nav-link.active{background:var(--light);color:var(--purple)}
+.nav-login{padding:10px 18px;border-radius:10px;background:var(--gold);color:var(--black);font-size:13px;font-weight:800;margin-left:6px}
+.nav-login:hover{background:var(--gold-light)}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--border);background:#fff;color:var(--purple);border-radius:10px;font-size:20px}
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#24102A 0%,#3C1542 45%,#7A2C78 100%);padding:90px 0 80px}
+.hero-inner{max-width:720px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);border-radius:50px;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:1.7px;margin-bottom:22px}
+.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(255,187,66,.12)}
+.hero h1{font-size:clamp(36px,5vw,56px);line-height:1.05;letter-spacing:-2px;margin-bottom:18px}
+.hero h1 span{color:var(--gold)}
+.hero-description{color:#E9DFEB;font-size:16px;line-height:1.8;margin-bottom:28px;max-width:560px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
+.primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 22px;background:var(--gold);color:var(--black);border-radius:10px;font-size:14px;font-weight:800;transition:.3s ease;border:0}
+.primary-btn:hover{background:#fff;transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.secondary-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.04);color:#fff;border-radius:10px;font-size:14px;font-weight:800;transition:.3s ease}
+.secondary-btn:hover{background:#fff;color:var(--purple-dark);transform:translateY(-3px)}
+/* STORY */
+.story{padding:80px 0;background:#fff}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.section-eyebrow{display:block;color:var(--purple);font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:12px}
+.story h2{color:var(--purple-dark);font-size:clamp(28px,3.5vw,40px);line-height:1.15;letter-spacing:-1.2px;margin-bottom:16px}
+.story p{color:#666;font-size:15px;line-height:1.8;margin-bottom:14px}
+.story-visual{background:linear-gradient(135deg,#3C1542,#7A2C78);border-radius:20px;padding:40px;color:#fff;min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.story-visual h3{font-size:22px;margin-bottom:12px;letter-spacing:-.5px}
+.story-visual p{color:#E9DFEB;font-size:14px;line-height:1.7;margin-bottom:0}
+.stat-row{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px}
+.stat{flex:1;min-width:90px}
+.stat strong{display:block;font-size:26px;color:var(--gold);letter-spacing:-1px}
+.stat span{font-size:12px;color:#ccc}
+/* VALUES */
+.values{background:var(--light);padding:80px 0}
+.section-heading{max-width:640px;margin:0 auto 48px;text-align:center}
+.section-heading h2{color:var(--purple-dark);font-size:clamp(28px,3.5vw,40px);line-height:1.15;letter-spacing:-1.2px;margin-bottom:12px}
+.section-heading p{color:#777;font-size:15px;line-height:1.7}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.value-card{background:#fff;padding:28px;border:1px solid var(--border);border-radius:18px;transition:transform .3s ease,box-shadow .3s ease}
+.value-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(60,21,66,.1)}
+.value-icon{width:48px;height:48px;border-radius:12px;background:rgba(122,44,120,.08);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.value-card h3{color:var(--purple-dark);font-size:17px;margin-bottom:8px}
+.value-card p{color:#777;font-size:13px;line-height:1.7}
+/* WHAT WE DO */
+.what{padding:80px 0;background:#fff}
+.what-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.what-item{display:flex;gap:16px;padding:22px;border:1px solid var(--border);border-radius:14px;background:#faf9fb;transition:.25s}
+.what-item:hover{border-color:rgba(122,44,120,.3);background:#f6f0f8}
+.what-num{width:36px;height:36px;border-radius:10px;background:var(--purple);color:var(--gold);display:grid;place-items:center;font-size:12px;font-weight:900;flex-shrink:0}
+.what-item h3{color:var(--purple-dark);font-size:15px;margin-bottom:4px}
+.what-item p{color:#777;font-size:13px;line-height:1.6}
+/* CTA */
+.cta{padding:80px 0;background:linear-gradient(135deg,#3C1542,#7A2C78);color:#fff}
+.cta-inner{text-align:center;max-width:640px;margin:auto}
+.cta h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px;letter-spacing:-1px}
+.cta p{color:#E9DFEB;margin-bottom:24px;font-size:15px}
+.cta .primary-btn{display:inline-flex}
+/* FOOTER */
+.footer{background:var(--black);color:#fff;padding:50px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.footer-brand img{height:48px;width:auto;margin-bottom:14px}
+.footer-brand p{color:#999;font-size:13px;line-height:1.7;max-width:320px}
+.footer-column h3{font-size:13px;font-weight:900;margin-bottom:14px;color:#fff}
+.footer-column a{display:block;color:#999;font-size:13px;margin-bottom:10px;transition:.2s}
+.footer-column a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 0}
+.footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#888}
+.footer-bottom-inner a{color:#aaa;font-weight:700}
+.footer-bottom-inner a:hover{color:var(--gold)}
+@media(max-width:980px){
+  .story-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .what-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .menu-btn{display:flex;align-items:center;justify-content:center}
+  .navigation{display:none;position:absolute;top:76px;left:0;right:0;background:var(--purple-dark);flex-direction:column;align-items:stretch;padding:12px 5% 18px;gap:4px}
+  .navigation.open{display:flex}
+  .nav-link,.nav-login{color:#fff;width:100%;justify-content:center}
+  .nav-link:hover,.nav-link.active{background:rgba(255,255,255,.12);color:var(--gold)}
+  .nav-login{text-align:center;margin:8px 0 0}
+}
+@media(max-width:800px){
+  .top-bar{font-size:11px}
+  .top-bar-inner{min-height:auto;padding:8px 0;flex-wrap:wrap;justify-content:center;gap:10px 18px}
+  .top-left,.top-right{flex-wrap:wrap;justify-content:center;gap:12px 16px}
+}
+@media(max-width:600px){
+  .values-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="container top-bar-inner">
+    <div class="top-left">
+      <a href="status.html"><span class="status-dot"></span>Network Status</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="top-right">
+      <span>Local technology support</span>
+      <a href="tel:+27101415650">010 141 5650</a>
+    </div>
+  </div>
+</div>
+<header class="header" id="siteHeader">
+  <div class="container nav">
+    <div class="logo">
+      <a href="index.html" aria-label="Dinges Tech Home">
+        <img src="dingestech-logo.png" alt="Dinges Tech">
+      </a>
+    </div>
+    <nav class="navigation" id="navigation">
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="services.html#internet" class="nav-link">Internet</a>
+      <a href="services.html#hosting" class="nav-link">Hosting</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="login.html" class="nav-login">Login</a>
+    </nav>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        ABOUT US
+      </div>
+      <h1>Technology that<br><span>works for you.</span></h1>
+      <p class="hero-description">
+        Dinges Tech is your local partner for internet, hosting, communication,
+        software and IT support — practical solutions with genuine care.
+      </p>
+      <div class="hero-buttons">
+        <a href="contact.html" class="primary-btn">Talk to us →</a>
+        <a href="services.html" class="secondary-btn">Our services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="container story-grid">
+    <div>
+      <span class="section-eyebrow">WHO WE ARE</span>
+      <h2>Big capability. Local care.</h2>
+      <p>
+        We help homes and businesses stay connected and productive. From fibre and
+        wireless internet to VoIP, hosting, domains and software — we bring the tools
+        together under one team that knows the technology and the people who use it.
+      </p>
+      <p>
+        Whether you need a simple home connection or a full business stack, we focus
+        on clear options, reliable partners and support you can reach when it matters.
+      </p>
+    </div>
+    <div class="story-visual">
+      <h3>Connect. Host. Grow.</h3>
+      <p>
+        Our promise is simple: the right technology for where you are, with support
+        that stays local and human.
+      </p>
+      <div class="stat-row">
+        <div class="stat">
+          <strong>One</strong>
+          <span>technology partner</span>
+        </div>
+        <div class="stat">
+          <strong>Local</strong>
+          <span>support team</span>
+        </div>
+        <div class="stat">
+          <strong>Clear</strong>
+          <span>pricing &amp; advice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-eyebrow">WHAT DRIVES US</span>
+      <h2>Our values</h2>
+      <p>How we work with every customer — from first enquiry to ongoing support.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">✓</div>
+        <h3>Clarity</h3>
+        <p>Plain language, honest recommendations and pricing you can understand before you commit.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">◎</div>
+        <h3>Reliability</h3>
+        <p>We work with trusted networks and platforms so your connection and services stay dependable.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">☎</div>
+        <h3>Support</h3>
+        <p>A real team you can call. We help you choose, set up and fix issues when they arise.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">↗</div>
+        <h3>Growth</h3>
+        <p>Start with what you need today. Add internet, voice, hosting or software as your needs grow.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">⌂</div>
+        <h3>Local focus</h3>
+        <p>Built for South African homes and businesses — coverage, billing and support that fit the context.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✦</div>
+        <h3>Partnership</h3>
+        <p>We aim to be the technology partner you return to, not a one-off supplier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="what">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-eyebrow">WHAT WE OFFER</span>
+      <h2>Everything under one roof</h2>
+      <p>Connectivity, communication, hosting and IT — designed to work together.</p>
+    </div>
+    <div class="what-grid">
+      <div class="what-item">
+        <div class="what-num">01</div>
+        <div>
+          <h3>Internet connectivity</h3>
+          <p>Fibre, wireless broadband, LTE / 4G / 5G and mobile options for home and business.</p>
+        </div>
+      </div>
+      <div class="what-item">
+        <div class="what-num">02</div>
+        <div>
+          <h3>Voice &amp; telephony</h3>
+          <p>Smart numbers, cloud PBX and call centre solutions for professional communication.</p>
+        </div>
+      </div>
+      <div class="what-item">
+        <div class="what-num">03</div>
+        <div>
+          <h3>Hosting &amp; domains</h3>
+          <p>Domains, shared hosting, email and web development to get your brand online.</p>
+        </div>
+      </div>
+      <div class="what-item">
+        <div class="what-num">04</div>
+        <div>
+          <h3>Software &amp; IT support</h3>
+          <p>CRM, Microsoft 365, antivirus, IoT and practical IT help when you need it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner">
+    <h2>Ready to get started?</h2>
+    <p>Tell us what you need. We’ll help you find the right solution for your home or business.</p>
+    <a href="contact.html" class="primary-btn">Contact Us →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html"><img src="dingestech-logo.png" alt="Dinges Tech"></a>
+      <p>Your technology and connectivity partner for internet, hosting, communication, software and IT solutions.</p>
+    </div>
+    <div class="footer-column">
+      <h3>Internet</h3>
+      <a href="fibre.html">Fibre</a>
+      <a href="https://register.web.za/api/wireless-broadband.php">Wireless Broadband</a>
+      <a href="wireless-lte-4g-5g.html">LTE / 4G / 5G</a>
+      <a href="melon-mobile.html">Mobile</a>
+    </div>
+    <div class="footer-column">
+      <h3>Hosting</h3>
+      <a href="domains.html">Domains</a>
+      <a href="shared-hosting.html">Shared Hosting</a>
+      <a href="email-hosting.html">Email Hosting</a>
+      <a href="web-development.html">Website Development</a>
+    </div>
+    <div class="footer-column">
+      <h3>Support</h3>
+      <a href="contact.html">Contact Us</a>
+      <a href="status.html">Network Status</a>
+      <a href="services.html">Services</a>
+      <a href="help-centre.html">Help Centre</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© <span id="year"></span> Dinges Tech. All rights reserved.</span>
+      <span>Connect. Host. Grow.</span>
+      <a href="admin-login.html">Admin Login</a>
+    </div>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', function () {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+const menuBtn = document.getElementById('menuBtn');
+const navigation = document.getElementById('navigation');
+menuBtn.addEventListener('click', function () {
+  const open = navigation.classList.toggle('open');
+  document.body.classList.toggle('menu-open', open);
+  menuBtn.textContent = open ? '×' : '☰';
+});
+navigation.querySelectorAll('a').forEach(function (a) {
+  a.addEventListener('click', function () {
+    navigation.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    menuBtn.textContent = '☰';
+  });
+});
+</script>
+</body>
+</html>
