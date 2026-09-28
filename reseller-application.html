@@ -653,6 +653,443 @@ footer {
 
 }
 
+
+/* =========================================================
+   VISUAL POLISH LAYER
+   Styling only - no content, fields, links or scripts changed.
+========================================================= */
+:root{
+    --shadow-soft:0 10px 30px rgba(60,21,66,.08);
+    --shadow-card:0 18px 55px rgba(60,21,66,.12);
+    --ease:cubic-bezier(.22,.61,.36,1);
+}
+body{
+    background:
+        radial-gradient(900px 500px at 100% 0%,rgba(122,44,120,.07),transparent 60%),
+        radial-gradient(700px 500px at 0% 40%,rgba(255,187,66,.06),transparent 60%),
+        var(--background);
+    -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(122,44,120,.22)}
+
+/* ---------- header ---------- */
+.site-header{
+    background:rgba(255,255,255,.92);
+    -webkit-backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(60,21,66,.08);
+    box-shadow:0 6px 24px rgba(60,21,66,.06);
+}
+.nav-container{min-height:78px}
+.logo img{width:auto;height:58px;object-fit:contain}
+.nav-menu{gap:6px}
+.nav-menu a{
+    padding:10px 14px;
+    border-radius:10px;
+    font-size:15px;
+}
+.nav-menu a:hover{background:var(--background);color:var(--purple)}
+.nav-menu a.nav-cta{
+    margin-left:8px;
+    padding:11px 20px;
+    background:linear-gradient(135deg,var(--purple),var(--purple-dark));
+    box-shadow:0 8px 20px rgba(122,44,120,.28);
+}
+.nav-menu a.nav-cta:hover{
+    background:linear-gradient(135deg,#8b3489,var(--purple-dark))!important;
+    color:#fff;
+    box-shadow:0 12px 26px rgba(122,44,120,.36);
+}
+
+/* ---------- hero ---------- */
+.hero{
+    position:relative;
+    overflow:hidden;
+    padding:92px 20px 100px;
+    background:
+        radial-gradient(600px 320px at 85% 15%,rgba(168,79,165,.45),transparent 65%),
+        radial-gradient(500px 300px at 10% 100%,rgba(255,187,66,.16),transparent 65%),
+        linear-gradient(135deg,#24102A 0%,#3C1542 45%,#7A2C78 100%);
+}
+.hero::before,
+.hero::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    border:1px solid rgba(255,255,255,.08);
+}
+.hero::before{width:520px;height:520px;right:-140px;top:-220px}
+.hero::after{width:360px;height:360px;left:-120px;bottom:-200px;border-color:rgba(255,187,66,.14)}
+.hero-content{position:relative;z-index:1}
+.hero-badge{
+    padding:8px 18px;
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,187,66,.45);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.14em;
+}
+.hero h1{
+    font-size:clamp(32px,5vw,52px);
+    letter-spacing:-.02em;
+    text-wrap:balance;
+    text-shadow:0 4px 30px rgba(0,0,0,.25);
+}
+.hero p{font-size:clamp(16px,1.6vw,19px);text-wrap:pretty}
+
+/* ---------- main + benefits ---------- */
+.page-wrapper{padding:0 20px 90px}
+.benefits{
+    margin-top:-46px;
+    margin-bottom:56px;
+    position:relative;
+    z-index:2;
+}
+.benefit-card{
+    position:relative;
+    overflow:hidden;
+    border-color:rgba(60,21,66,.08);
+    border-radius:18px;
+    box-shadow:var(--shadow-soft);
+    transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+}
+.benefit-card::before{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:0;
+    height:4px;
+    background:linear-gradient(90deg,var(--purple),var(--gold));
+    opacity:.9;
+}
+.benefit-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow-card);
+    border-color:rgba(122,44,120,.22);
+}
+.benefit-icon{
+    width:56px;height:56px;
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(122,44,120,.14),rgba(255,187,66,.22));
+    box-shadow:inset 0 0 0 1px rgba(122,44,120,.08);
+}
+.benefit-card h3{font-family:"Manrope",sans-serif;font-weight:800;letter-spacing:-.01em}
+.benefit-card p{line-height:1.65}
+
+/* ---------- form card ---------- */
+.form-card{
+    border-color:rgba(60,21,66,.08);
+    border-radius:22px;
+    box-shadow:var(--shadow-card);
+    padding:48px;
+    position:relative;
+    overflow:hidden;
+}
+.form-card::before{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:0;
+    height:5px;
+    background:linear-gradient(90deg,var(--purple-dark),var(--purple),var(--gold));
+}
+.form-header{
+    margin-bottom:34px;
+    padding-bottom:26px;
+    border-bottom:1px solid #eee8ef;
+}
+.form-header h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em}
+.form-header p{max-width:680px;line-height:1.7}
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:38px 0 22px;
+    padding-bottom:12px;
+    border-bottom:1px solid #eee8ef;
+    font-family:"Manrope",sans-serif;
+    font-size:19px;
+    letter-spacing:-.01em;
+}
+.section-title::before{
+    content:"";
+    width:5px;height:22px;
+    border-radius:4px;
+    background:linear-gradient(180deg,var(--purple),var(--gold));
+    flex-shrink:0;
+}
+.form-header + form .section-title:first-child,
+form > .section-title:first-child{margin-top:0}
+
+/* ---------- fields ---------- */
+label{
+    font-size:14px;
+    letter-spacing:.01em;
+    color:#2b2130;
+}
+input,select,textarea{
+    background:#fbfafc;
+    border:1.5px solid #ddd5df;
+    border-radius:11px;
+    padding:14px 16px;
+    transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+input::placeholder,textarea::placeholder{color:#a79fab}
+input:hover,select:hover,textarea:hover{border-color:#bfb2c4;background:#fff}
+input:focus,select:focus,textarea:focus{
+    background:#fff;
+    border-color:var(--purple);
+    box-shadow:0 0 0 4px rgba(122,44,120,.13);
+}
+select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    padding-right:44px;
+    cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5l6 6 6-6' stroke='%237A2C78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 16px center;
+    background-size:14px 9px;
+}
+textarea{line-height:1.6}
+.hint{font-size:13px;color:#8a818e}
+.required{font-weight:800}
+
+/* ---------- agreements ---------- */
+.checkbox-area{
+    margin-top:32px;
+    padding:22px 24px;
+    background:linear-gradient(180deg,#fbf9fc,#f6f2f8);
+    border:1px solid #e7dfe9;
+    border-radius:14px;
+}
+.checkbox-row input{
+    accent-color:var(--purple);
+    padding:0;
+    border-radius:5px;
+    cursor:pointer;
+    box-shadow:none;
+}
+.checkbox-row label{cursor:pointer;color:#3b3140}
+
+/* ---------- submit + messages ---------- */
+.form-actions{margin-top:34px}
+.submit-button{
+    padding:18px 24px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--purple) 0%,var(--purple-dark) 100%);
+    box-shadow:0 12px 28px rgba(122,44,120,.30);
+    letter-spacing:.01em;
+}
+.submit-button:hover{
+    background:linear-gradient(135deg,#8b3489 0%,var(--purple-dark) 100%);
+    box-shadow:0 16px 36px rgba(122,44,120,.38);
+}
+.submit-button:active{transform:translateY(0)}
+.form-message{border-radius:12px;line-height:1.55}
+
+/* ---------- footer ---------- */
+footer{
+    position:relative;
+    padding:56px 20px 28px;
+    background:
+        radial-gradient(500px 240px at 90% 0%,rgba(168,79,165,.28),transparent 65%),
+        linear-gradient(135deg,#24102A,var(--purple-dark));
+}
+footer::before{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--purple),var(--gold),var(--purple));
+}
+.footer-logo a{
+    display:inline-flex;
+    padding:10px 16px;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.footer-logo img{width:auto;height:52px;object-fit:contain}
+.footer-links{gap:8px 26px}
+.footer-links a{opacity:.92;transition:color .2s ease,opacity .2s ease}
+.footer-links a:hover{opacity:1}
+.copyright{border-top-color:rgba(255,255,255,.12)}
+
+/* ---------- accessibility ---------- */
+a:focus-visible,button:focus-visible{
+    outline:3px solid var(--gold);
+    outline-offset:3px;
+    border-radius:8px;
+}
+@media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+}
+
+/* ---------- responsive polish ---------- */
+@media(max-width:850px){
+    .nav-container{gap:14px}
+    .nav-menu{gap:4px 6px}
+    .nav-menu a.nav-cta{margin-left:0}
+    .benefits{margin-top:-34px;gap:16px}
+    .hero{padding:70px 20px 84px}
+}
+@media(max-width:650px){
+    .hero{padding:56px 18px 72px}
+    .form-card{padding:28px 18px;border-radius:18px}
+    .form-header{padding-bottom:20px;margin-bottom:26px}
+    .checkbox-area{padding:18px 16px}
+    .benefit-card{padding:24px 20px}
+    .logo img{height:50px;width:auto}
+}
+
+/* =========================================================
+   SERVICES MULTI-SELECT DROPDOWN
+========================================================= */
+.ms{position:relative}
+.ms-trigger{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 16px;
+    background:#fbfafc;
+    border:1.5px solid #ddd5df;
+    border-radius:11px;
+    color:var(--black);
+    font-size:16px;
+    line-height:1.4;
+    text-align:left;
+    cursor:pointer;
+    transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.ms-trigger:hover{border-color:#bfb2c4;background:#fff}
+.ms-trigger:focus-visible,
+.ms.open .ms-trigger{
+    outline:none;
+    background:#fff;
+    border-color:var(--purple);
+    box-shadow:0 0 0 4px rgba(122,44,120,.13);
+}
+.ms-text{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ms-text.is-placeholder{color:#a79fab}
+.ms-arrow{
+    width:14px;height:9px;flex-shrink:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5l6 6 6-6' stroke='%237A2C78' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+    transition:transform .2s ease;
+}
+.ms.open .ms-arrow{transform:rotate(180deg)}
+
+/* invisible field that only carries the "required" validation */
+input.ms-validity{
+    position:absolute;
+    left:0;bottom:0;
+    width:100%;height:1px;
+    padding:0;border:0;margin:0;
+    opacity:0;
+    pointer-events:none;
+}
+
+.ms-panel{
+    display:none;
+    position:absolute;
+    left:0;right:0;top:calc(100% + 8px);
+    z-index:50;
+    background:#fff;
+    border:1px solid #e3dbe5;
+    border-radius:14px;
+    box-shadow:0 22px 55px rgba(60,21,66,.20);
+    overflow:hidden;
+}
+.ms.open .ms-panel{display:block}
+.ms-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:2px;
+    max-height:290px;
+    overflow-y:auto;
+    padding:10px;
+}
+label.ms-option{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    margin:0;
+    padding:11px 12px;
+    border-radius:9px;
+    font-size:15px;
+    font-weight:500;
+    color:#2b2130;
+    cursor:pointer;
+    transition:background .15s ease;
+}
+label.ms-option:hover{background:#f6f2f8}
+label.ms-option.checked{background:rgba(122,44,120,.09);color:var(--purple-dark);font-weight:700}
+.ms-option input{
+    width:18px;height:18px;
+    padding:0;margin:0;
+    flex-shrink:0;
+    border-radius:5px;
+    box-shadow:none;
+    accent-color:var(--purple);
+    cursor:pointer;
+}
+.ms-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    background:#faf8fb;
+    border-top:1px solid #eee8ef;
+}
+.ms-clear{
+    background:none;border:0;
+    padding:8px 6px;
+    color:#7b7280;
+    font-size:14px;font-weight:600;
+    cursor:pointer;
+}
+.ms-clear:hover{color:var(--danger)}
+.ms-done{
+    padding:9px 22px;
+    border:0;
+    border-radius:9px;
+    background:var(--purple);
+    color:#fff;
+    font-size:14px;font-weight:700;
+    cursor:pointer;
+    transition:background .2s ease;
+}
+.ms-done:hover{background:var(--purple-dark)}
+.ms-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ms-chips:empty{display:none}
+.ms-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 8px 6px 13px;
+    border:1px solid rgba(122,44,120,.22);
+    border-radius:999px;
+    background:rgba(122,44,120,.08);
+    color:var(--purple-dark);
+    font-size:14px;font-weight:600;
+    cursor:pointer;
+    transition:background .15s ease;
+}
+.ms-chip:hover{background:rgba(198,40,40,.10);border-color:rgba(198,40,40,.3);color:var(--danger)}
+.ms-chip span{
+    width:18px;height:18px;
+    display:inline-flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    background:rgba(60,21,66,.12);
+    font-size:14px;line-height:1;
+}
+@media(max-width:650px){
+    .ms-options{grid-template-columns:1fr;max-height:260px}
+}
 </style>
 
 </head>
@@ -1159,12 +1596,100 @@ footer {
                             <span class="required">*</span>
                         </label>
 
-                        <textarea
-                            id="services"
-                            name="services"
-                            placeholder="For example: Fibre, LTE, VoIP, hosting, email hosting, domains, IT support..."
-                            required
-                        ></textarea>
+                        <div class="ms" id="servicesMulti">
+
+                            <button
+                                type="button"
+                                class="ms-trigger"
+                                id="servicesTrigger"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-controls="servicesPanel"
+                            >
+                                <span class="ms-text is-placeholder" id="servicesText">Select one or more services</span>
+                                <span class="ms-arrow" aria-hidden="true"></span>
+                            </button>
+
+                            <input
+                                type="text"
+                                id="services"
+                                name="services"
+                                class="ms-validity"
+                                tabindex="-1"
+                                autocomplete="off"
+                                aria-hidden="true"
+                                required
+                            >
+
+                            <div
+                                class="ms-panel"
+                                id="servicesPanel"
+                                role="group"
+                                aria-label="Services you are interested in"
+                            >
+                                <div class="ms-options">
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Fibre">
+                                    <span>Fibre</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Wireless Broadband">
+                                    <span>Wireless Broadband</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="LTE / 4G / 5G (Mobile)">
+                                    <span>LTE / 4G / 5G (Mobile)</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="VoIP / Telephony">
+                                    <span>VoIP / Telephony</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Web Hosting">
+                                    <span>Web Hosting</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Email Hosting">
+                                    <span>Email Hosting</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Domains">
+                                    <span>Domains</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Website Development">
+                                    <span>Website Development</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="IT Support">
+                                    <span>IT Support</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Internet of Things (IoT)">
+                                    <span>Internet of Things (IoT)</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Software">
+                                    <span>Software</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Smart Solutions">
+                                    <span>Smart Solutions</span>
+                                </label>
+                                <label class="ms-option">
+                                    <input type="checkbox" value="Other">
+                                    <span>Other</span>
+                                </label>
+                                </div>
+                                <div class="ms-footer">
+                                    <button type="button" class="ms-clear" id="servicesClear">Clear all</button>
+                                    <button type="button" class="ms-done" id="servicesDone">Done</button>
+                                </div>
+                            </div>
+
+                            <div class="ms-chips" id="servicesChips" aria-live="polite"></div>
+
+                        </div>
 
                     </div>
 
@@ -1851,5 +2376,138 @@ if (form) {
 
 </script>
 
+<script>
+/* ==========================================================
+   SERVICES MULTI-SELECT DROPDOWN
+   Keeps the "services" value as one comma-separated string
+   (e.g. "Fibre, VoIP / Telephony"), exactly like before.
+========================================================== */
+(function () {
+    var root = document.getElementById("servicesMulti");
+    if (!root) { return; }
+
+    var trigger = document.getElementById("servicesTrigger");
+    var text    = document.getElementById("servicesText");
+    var hidden  = document.getElementById("services");
+    var chips   = document.getElementById("servicesChips");
+    var clear   = document.getElementById("servicesClear");
+    var done    = document.getElementById("servicesDone");
+    var boxes   = Array.prototype.slice.call(root.querySelectorAll(".ms-option input"));
+
+    function selected() {
+        return boxes.filter(function (b) { return b.checked; })
+                    .map(function (b) { return b.value; });
+    }
+
+    function open() {
+        root.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+    }
+    function close() {
+        root.classList.remove("open");
+        trigger.setAttribute("aria-expanded", "false");
+    }
+
+    function update() {
+        var list = selected();
+        hidden.value = list.join(", ");
+
+        if (list.length === 0) {
+            text.textContent = "Select one or more services";
+            text.classList.add("is-placeholder");
+        } else if (list.length <= 2) {
+            text.textContent = list.join(", ");
+            text.classList.remove("is-placeholder");
+        } else {
+            text.textContent = list.length + " services selected";
+            text.classList.remove("is-placeholder");
+        }
+
+        boxes.forEach(function (b) {
+            b.parentNode.classList.toggle("checked", b.checked);
+        });
+
+        chips.innerHTML = "";
+        list.forEach(function (name) {
+            var chip = document.createElement("button");
+            chip.type = "button";
+            chip.className = "ms-chip";
+            chip.setAttribute("aria-label", "Remove " + name);
+            chip.appendChild(document.createTextNode(name + " "));
+            var x = document.createElement("span");
+            x.setAttribute("aria-hidden", "true");
+            x.textContent = "\u00D7";
+            chip.appendChild(x);
+            chip.addEventListener("click", function () {
+                boxes.forEach(function (b) { if (b.value === name) { b.checked = false; } });
+                update();
+            });
+            chips.appendChild(chip);
+        });
+
+        if (hidden.setCustomValidity) { hidden.setCustomValidity(""); }
+    }
+
+    trigger.addEventListener("click", function () {
+        if (root.classList.contains("open")) { close(); } else { open(); }
+    });
+
+    trigger.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" && !root.classList.contains("open")) {
+            e.preventDefault();
+            open();
+            if (boxes[0]) { boxes[0].focus(); }
+        }
+    });
+
+    boxes.forEach(function (b) { b.addEventListener("change", update); });
+
+    clear.addEventListener("click", function () {
+        boxes.forEach(function (b) { b.checked = false; });
+        update();
+    });
+    done.addEventListener("click", function () {
+        close();
+        trigger.focus();
+    });
+
+    /* close on outside click, Escape, or when focus leaves the field */
+    document.addEventListener("mousedown", function (e) {
+        if (!root.contains(e.target)) { close(); }
+    });
+    document.addEventListener("touchstart", function (e) {
+        if (!root.contains(e.target)) { close(); }
+    }, { passive: true });
+    document.addEventListener("focusin", function (e) {
+        if (root.classList.contains("open") && !root.contains(e.target)) { close(); }
+    });
+    root.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && root.classList.contains("open")) {
+            close();
+            trigger.focus();
+        }
+    });
+
+    /* required-field check: show the dropdown instead of a hidden input */
+    hidden.addEventListener("invalid", function () {
+        open();
+        trigger.focus();
+        if (hidden.setCustomValidity) {
+            hidden.setCustomValidity("Please choose at least one service.");
+        }
+    });
+    hidden.addEventListener("focus", function () { trigger.focus(); });
+
+    /* after the form is reset (successful submit) clear the dropdown */
+    var form = root.closest("form");
+    if (form) {
+        form.addEventListener("reset", function () {
+            setTimeout(function () { close(); update(); }, 0);
+        });
+    }
+
+    update();
+})();
+</script>
 </body>
 </html>
