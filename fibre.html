@@ -2184,22 +2184,6 @@ button{
 
 
 
-    <!-- =================================================
-         DATABASE NOTE
-         ================================================= -->
-
-    <div class="database-note">
-
-        <strong>
-            Live database:
-        </strong>
-
-        Fibre package information is loaded from the
-        WHMCS database through the Dinges Tech PHP API.
-        Prices and package information are therefore
-        controlled from the backend.
-
-    </div>
 
 </main>
 
@@ -3029,15 +3013,55 @@ function createProviderCard(
             .toUpperCase();
 
 
-    card.innerHTML = `
+    /* Same provider → logo file mapping used on the homepage */
+    const logoMap = {
+        "dnatel": "dnatel.png",
+        "vumatel": "vuma.png",
+        "vuma": "vuma.png",
+        "clearaccess": "clearaccess.png",
+        "openserve": "openserve.png",
+        "frogfoot": "frogfoot.png",
+        "vollies": "vollies.png"
+    };
 
-        <div class="provider-image">
+    const logoFile =
+        logoMap[
+            providerName
+                .toLowerCase()
+                .replace(/[^a-z0-9]/g, "")
+        ];
 
+    const logoHTML =
+        logoFile
+        ? `
+            <img
+                src="${escapeHTML(logoFile)}"
+                alt="${escapeHTML(providerName)}"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='block';
+                "
+            >
+            <span
+                class="provider-placeholder"
+                style="display:none"
+            >
+                ${escapeHTML(initial)}
+            </span>
+        `
+        : `
             <span
                 class="provider-placeholder"
             >
                 ${escapeHTML(initial)}
             </span>
+        `;
+
+    card.innerHTML = `
+
+        <div class="provider-image">
+
+            ${logoHTML}
 
         </div>
 
