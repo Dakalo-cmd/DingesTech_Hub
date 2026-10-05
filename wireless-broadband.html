@@ -2317,7 +2317,7 @@ footer{
    API CONFIGURATION
    ========================================================= */
 
-const API_URL = "https://register.web.za/api/wireless-packages.php";
+const API_URL = "https://register.web.za/api/wireless-broadband.php";
 
 const API_JSONP_URL = "https://register.web.za/api/wireless-packages-jsonp.php";
 
@@ -2756,7 +2756,7 @@ async function loadProviders(){
     /* Prefer same-origin when page is hosted on register.web.za */
     const apiCandidates = [];
     if(location.hostname.indexOf("register.web.za") !== -1){
-        apiCandidates.push("/api/wireless-packages.php");
+        apiCandidates.push("/api/wireless-broadband.php");
     }
     apiCandidates.push(API_URL);
 
