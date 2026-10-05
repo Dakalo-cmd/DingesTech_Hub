@@ -3344,29 +3344,16 @@ function createPackageCard(pkg){
         );
 
 
-    const dataAllowance =
-        getValue(
-            pkg,
-            [
-                "data",
-                "data_limit",
-                "data_allowance",
-                "allowance",
-                "cap",
-                "usage"
-            ]
-        );
+    /* These packages are unmetered (No Fair Usage Policy).
+       Never show a fake "Data: 10 MB" row. */
+    const descText =
+        String(pkg.description || "") +
+        " " +
+        packageName;
 
-
-    const contract =
-        getValue(
-            pkg,
-            [
-                "contract",
-                "contract_term",
-                "term",
-                "duration"
-            ]
+    const isUnmetered =
+        /no fair usage|uncapped|unlimited|symmetrical|asymmetrical/i.test(
+            descText
         );
 
 
@@ -3430,20 +3417,14 @@ function createPackageCard(pkg){
 
 
             ${createInfoRow(
-                "Data",
-                dataAllowance
+                "Type",
+                isUnmetered ? "Uncapped / No FUP" : ""
             )}
 
 
             ${createInfoRow(
                 "Installation",
                 installation
-            )}
-
-
-            ${createInfoRow(
-                "Contract",
-                contract
             )}
 
 
