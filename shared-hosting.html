@@ -24,17 +24,22 @@ button{font-family:inherit}
 .top-bar a{color:inherit;transition:.25s ease}
 .top-bar a:hover{color:#FFBB42}
 .top-bar .status-dot-live{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
-.navbar{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+.navbar{background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(60,21,66,.08);position:sticky;top:0;z-index:5000}
 .nav-inner{width:100%;max-width:1200px;min-height:76px;margin:auto;padding:8px 5%;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.logo{display:flex;align-items:center;gap:12px;color:var(--primary);font-weight:800;white-space:nowrap;min-width:0}
-.logo img{width:58px;height:58px;object-fit:contain;display:block}
-.logo-text{display:flex;flex-direction:column;line-height:1.05}
-.logo-name{font-size:20px;font-weight:900;color:var(--primary)}
-.logo-tagline{margin-top:4px;font-size:8px;font-weight:800;letter-spacing:1.3px;color:var(--secondary)}
-.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:20px}
-.nav-links a{color:#333;font-size:14px;font-weight:600;transition:color .2s ease,background .2s ease}
-.nav-links a:hover,.nav-links a.active{color:var(--secondary)}
-.nav-links .nav-cta{background:var(--accent);color:var(--black);padding:10px 17px;border-radius:8px;font-weight:800}
+.logo{display:flex;align-items:center;gap:0;color:var(--primary);font-weight:800;white-space:nowrap;min-width:0;flex-shrink:0}
+.logo img{width:auto;height:68px;max-width:260px;object-fit:contain;display:block}
+.logo-text{display:none!important}
+.logo-name{display:none}
+.logo-tagline{display:none}
+.nav-links{display:flex;align-items:center;justify-content:flex-end;gap:4px}
+.nav-links a{padding:11px 13px;border-radius:10px;color:#28202A;font-size:14px;font-weight:700;transition:.25s ease}
+.nav-links a:hover,.nav-links a.active{background:#F5F3F6;color:var(--secondary)}
+.nav-login{display:inline-flex!important;align-items:center;justify-content:center;padding:10px 20px!important;background:#7A2C78!important;color:#fff!important;border-radius:8px;font-weight:700!important;font-size:14px;transition:.25s ease}
+.nav-login:hover{background:#3C1542!important}
+.nav-cart{display:inline-flex!important;align-items:center;justify-content:center;gap:8px;padding:10px 16px!important;background:#7A2C78!important;color:#fff!important;border-radius:8px;font-weight:700!important;font-size:14px;transition:.25s ease}
+.nav-cart:hover{background:#3C1542!important}
+.cart-count{min-width:21px;height:21px;padding:0 5px;display:inline-flex;align-items:center;justify-content:center;background:#FFBB42;color:#020202;border-radius:50%;font-size:11px;font-weight:900}
+.nav-links .nav-cta{display:none}
 .menu-toggle{display:none;width:44px;height:44px;border:0;border-radius:9px;background:var(--primary);color:var(--accent);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;flex-shrink:0}
 .menu-toggle span{width:22px;height:2px;background:var(--accent);border-radius:5px;transition:.2s ease}
 .menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -119,11 +124,7 @@ button{font-family:inherit}
 <nav class="navbar" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="Dinges Tech Home">
-      <img src="dingestech-logo.png" alt="Dinges Tech Logo">
-      <span class="logo-text">
-        <span class="logo-name">Dinges Tech</span>
-        <span class="logo-tagline">TECHNOLOGY &amp; CONNECTIVITY</span>
-      </span>
+      <img src="dingestech-logo.png" alt="Dinges Tech">
     </a>
     <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -131,11 +132,13 @@ button{font-family:inherit}
     <div class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
-      <a href="domains.html">Domains</a>
+      <a href="fibre.html">Fibre</a>
+      <a href="services.html#internet">Internet</a>
       <a href="shared-hosting.html" class="active">Hosting</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="login.html">Login</a>
-      <a href="cart.html" class="nav-cta">Cart</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="nav-login">Login</a>
+      <a href="cart.html" class="nav-cart">🛒 <span>Cart</span> <span class="cart-count" id="cartCount">0</span></a>
     </div>
   </div>
 </nav>
@@ -326,5 +329,18 @@ function cleanDescription(description){
 }
 document.addEventListener("DOMContentLoaded", loadHostingPackages);
 </script>
+
+<script>
+(function(){
+  try {
+    var raw = localStorage.getItem("dingesTechHubCart") || localStorage.getItem("dingesCart");
+    var cart = raw ? JSON.parse(raw) : [];
+    var count = Array.isArray(cart) ? cart.reduce(function(t,i){return t+Number(i.quantity||1);},0) : 0;
+    var el = document.getElementById("cartCount");
+    if(el) el.textContent = count;
+  } catch(e) {}
+})();
+</script>
+
 </body>
 </html>
