@@ -96,58 +96,44 @@ button{
    TOP BAR
    ========================================================= */
 
-.topbar{
-
-    background:var(--primary);
-
-    color:var(--white);
-
-    padding:8px 5%;
-
-    font-size:13px;
+.topbar,
+.top-bar{
+    background:#020202;
+    color:#fff;
+    padding:0;
+    font-size:12px;
+    position:relative;
+    z-index:1100;
 }
-
-
-.topbar-inner{
-
-    width:100%;
-
-    max-width:1200px;
-
+.topbar-inner,
+.top-bar-inner{
+    width:min(92%,1240px);
+    max-width:1240px;
     margin:auto;
-
+    min-height:38px;
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
-    gap:20px;
+    gap:12px;
 }
-
-
-.topbar-inner span{
-    white-space:nowrap;
-}
-
+.top-left,.top-right{display:flex;align-items:center;gap:22px}
+.topbar a,.top-bar a{color:inherit;text-decoration:none;transition:.25s ease}
+.topbar a:hover,.top-bar a:hover{color:#FFBB42}
+.status-dot-live{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
 
 /* =========================================================
    NAVIGATION
    ========================================================= */
 
 .navbar{
-
-    background:var(--white);
-
-    border-bottom:1px solid var(--border);
-
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(60,21,66,.08);
     position:sticky;
-
     top:0;
-
-    z-index:1000;
+    z-index:5000;
 }
-
 
 .nav-inner{
 
@@ -195,7 +181,9 @@ button{
 
 .logo img{
 
-    width:58px;
+    width:auto;
+    height:68px;
+    max-width:260px;
 
     height:58px;
 
@@ -205,7 +193,7 @@ button{
 }
 
 
-.logo-text{
+.logo-text{display:none !important;
 
     display:flex;
 
@@ -256,45 +244,68 @@ button{
 
 
 .nav-links a{
-
-    color:#333;
-
+    padding:11px 13px;
+    border-radius:10px;
+    color:#28202A;
     font-size:14px;
-
-    font-weight:600;
-
-    transition:
-        color .2s ease,
-        background .2s ease;
+    font-weight:700;
+    white-space:nowrap;
+    transition:.25s ease;
 }
 
 
 .nav-links a:hover,
 .nav-links a.active{
-
+    background:#F5F3F6;
     color:var(--secondary);
 }
 
 
-.nav-links .nav-cta{
-
-    background:var(--accent);
-
-    color:var(--black);
-
-    padding:10px 17px;
-
+.nav-login{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    padding:10px 20px !important;
+    background:#7A2C78 !important;
+    color:#fff !important;
     border-radius:8px;
-
-    font-weight:800;
+    font-weight:700 !important;
+    font-size:14px;
+    transition:.25s ease;
 }
-
-
-.nav-links .nav-cta:hover{
-
+.nav-login:hover{background:#3C1542 !important;transform:translateY(-1px)}
+.nav-cart{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--primary);
+    color:var(--white) !important;
+    padding:9px 15px;
+    border-radius:8px;
+    font-weight:800 !important;
+    font-size:13px;
+    transition:.2s ease;
+}
+.nav-cart:hover{
+    background:var(--secondary);
+    color:var(--white) !important;
+}
+.cart-count{
+    min-width:21px;
+    height:21px;
+    padding:0 5px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--accent);
     color:var(--black);
-
-    opacity:.9;
+    border-radius:50%;
+    font-size:11px;
+    font-weight:900;
+}
+.nav-links .nav-cta{
+    display:none;
 }
 
 
@@ -1668,19 +1679,16 @@ footer{
      ===================================================== -->
 
 <div class="topbar">
-
     <div class="topbar-inner">
-
-        <span>
-            Reliable Technology &amp; Connectivity Solutions
-        </span>
-
-        <span>
-            South Africa
-        </span>
-
+        <div class="top-left">
+            <a href="status.html"><span class="status-dot-live"></span>Network Status</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="top-right">
+            <span>Local technology support</span>
+            <a href="tel:+27101415650">010 141 5650</a>
+        </div>
     </div>
-
 </div>
 
 
@@ -1749,34 +1757,18 @@ footer{
             id="navLinks"
         >
 
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a
-                href="email-hosting.html"
-                class="active"
-            >
-                Email Hosting
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
-
-            <a
-                href="cart.html"
-                class="nav-cta"
-            >
-                Cart
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="fibre.html">Fibre</a>
+            <a href="services.html#internet">Internet</a>
+            <a href="services.html#hosting">Hosting</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="nav-login">Login</a>
+            <a href="cart.html" class="nav-cart">
+                🛒
+                <span>Cart</span>
+                <span class="cart-count" id="cartCount">0</span>
             </a>
 
         </div>
@@ -3057,7 +3049,7 @@ function addToCart(
 
         const saved =
             localStorage.getItem(
-                "dingesCart"
+                "dingesTechHubCart"
             );
 
 
@@ -3163,7 +3155,7 @@ function addToCart(
     try{
 
         localStorage.setItem(
-            "dingesCart",
+            "dingesTechHubCart",
             JSON.stringify(cart)
         );
 
@@ -3463,6 +3455,19 @@ function escapeHTML(
 
 </script>
 
+
+
+<script>
+(function(){
+  try {
+    var raw = localStorage.getItem("dingesTechHubCart") || localStorage.getItem("dingesCart");
+    var cart = raw ? JSON.parse(raw) : [];
+    var count = Array.isArray(cart) ? cart.reduce(function(t,i){return t+Number(i.quantity||1);},0) : 0;
+    var el = document.getElementById("cartCount");
+    if(el) el.textContent = count;
+  } catch(e) {}
+})();
+</script>
 
 </body>
 </html>
