@@ -1279,7 +1279,7 @@ function displayDomainCards(){
         }
     );
 }
-function searchDomain(){
+async function searchDomain(){
     const name =
         domainNameInput
             .value
@@ -1372,29 +1372,99 @@ function searchDomain(){
     const fullDomain =
         cleanName +
         extension;
-    selectedDomain = {
-        name:
-            cleanName,
-        extension:
-            extension,
-        domain:
-            fullDomain,
-        price:
-            selected.registration_price
-    };
-    resultDomainElement.textContent =
-        fullDomain;
-    resultPriceElement.textContent =
-        price;
-    resultElement.style.display =
-        "block";
+
+    // Real availability check via WHMCS / registrar module
     showStatus(
-        "success",
-        "Domain pricing ready."
+        "loading",
+        "Checking availability for " + fullDomain + "..."
     );
+    resultElement.style.display = "none";
+    selectedDomain = null;
+    searchButton.disabled = true;
+
+    let available = false;
+    let checkMessage = "";
+
+    try {
+        const checkUrls = [
+            "https://register.web.za/api/domain-check.php?domain=" + encodeURIComponent(fullDomain),
+            "api/domain-check.php?domain=" + encodeURIComponent(fullDomain)
+        ];
+
+        let checkData = null;
+
+        for (let i = 0; i < checkUrls.length; i++) {
+            try {
+                const res = await fetch(checkUrls[i], {
+                    method: "GET",
+                    headers: { "Accept": "application/json" }
+                });
+                if (!res.ok) continue;
+                const data = await res.json();
+                if (data && typeof data.available !== "undefined") {
+                    checkData = data;
+                    break;
+                }
+            } catch (e) {
+                // try next URL
+            }
+        }
+
+        if (checkData) {
+            available = !!checkData.available;
+            checkMessage = checkData.message || "";
+        } else {
+            // Could not verify — never show as available
+            available = false;
+            checkMessage = "Could not verify domain availability. Please try again.";
+        }
+    } catch (err) {
+        available = false;
+        checkMessage = "Domain check failed. Please try again.";
+    }
+
+    searchButton.disabled = false;
+
+    resultDomainElement.textContent = fullDomain;
+
+    if (available) {
+        selectedDomain = {
+            name: cleanName,
+            extension: extension,
+            domain: fullDomain,
+            price: selected.registration_price,
+            available: true
+        };
+        resultPriceElement.textContent = price;
+        resultPriceElement.style.color = "";
+        if (registerButton) {
+            registerButton.style.display = "";
+            registerButton.disabled = false;
+            registerButton.textContent = "Register Domain";
+        }
+        resultElement.style.display = "block";
+        showStatus(
+            "success",
+            checkMessage || (fullDomain + " is available for registration.")
+        );
+    } else {
+        selectedDomain = null;
+        resultPriceElement.textContent = "Unavailable";
+        resultPriceElement.style.color = "#dc3545";
+        if (registerButton) {
+            registerButton.style.display = "none";
+            registerButton.disabled = true;
+        }
+        resultElement.style.display = "block";
+        showStatus(
+            "error",
+            checkMessage || (fullDomain + " is already registered and not available.")
+        );
+    }
+
     resultElement.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
+        behavior: "smooth",
+        block: "center"
     });
 }
 function registerDomain(){
