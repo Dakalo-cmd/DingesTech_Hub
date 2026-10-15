@@ -126,32 +126,35 @@ button{
 .navbar{
 
     background:
-        rgba(255,255,255,.97);
+        rgba(255,255,255,.92);
 
     border-bottom:
-        1px solid var(--border);
+        1px solid rgba(60,21,66,.08);
 
     position:sticky;
 
     top:0;
 
-    z-index:1000;
+    z-index:5000;
 
     backdrop-filter:
-        blur(10px);
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
 
 }
 
 .nav-inner{
 
-    max-width:1250px;
+    max-width:1240px;
 
-    min-height:72px;
+    height:76px;
 
     margin:auto;
 
     padding:
-        0 5%;
+        0 4%;
 
     display:flex;
 
@@ -180,11 +183,11 @@ button{
 
 .logo img{
 
-    width:150px;
+    width:auto;
 
-    max-width:100%;
+    height:68px;
 
-    height:auto;
+    max-width:260px;
 
     display:block;
 
@@ -211,25 +214,25 @@ button{
 
 .nav-links a{
 
-    position:relative;
+    padding:11px 13px;
 
-    color:#333;
+    border-radius:10px;
 
-    font-size:13px;
+    color:#28202A;
+
+    font-size:14px;
 
     font-weight:700;
 
-    padding:
-        8px 0;
+    transition:.25s ease;
 
-    transition:
-        color .2s ease;
+    position:relative;
 
 }
 
 .nav-links a::after{
 
-    content:"";
+    content:none;
 
     position:absolute;
 
@@ -253,6 +256,8 @@ button{
 .nav-links a:hover,
 .nav-links a.active{
 
+    background:#F5F3F6;
+
     color:var(--secondary);
 
 }
@@ -260,14 +265,75 @@ button{
 .nav-links a:hover::after,
 .nav-links a.active::after{
 
-    width:100%;
+    width:0;
 
+}
+
+/* Services dropdown (same as homepage) */
+.nav-dropdown{
+    position:relative;
+}
+
+.nav-dropdown-menu{
+    position:absolute;
+    top:calc(100% + 12px);
+    left:0;
+    min-width:230px;
+    padding:8px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    box-shadow:0 18px 40px rgba(60,21,66,.12);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(8px);
+    transition:.2s ease;
+    z-index:100;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-dropdown-menu a{
+    display:block;
+    padding:10px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+    color:#333;
+}
+
+.nav-dropdown-menu a:hover{
+    background:#F7F2F8;
+    color:var(--secondary);
 }
 
 
 /* =========================================================
    CART NAV BUTTON
    ========================================================= */
+
+.nav-login{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+    padding:10px 20px !important;
+    background:#7A2C78;
+    color:#FFFFFF !important;
+    border-radius:8px;
+    font-weight:700 !important;
+    font-size:14px;
+    transition:0.25s ease;
+}
+
+.nav-login:hover{
+    background:#3C1542;
+    color:#FFFFFF !important;
+    transform:translateY(-1px);
+}
 
 .nav-cart{
 
@@ -279,24 +345,20 @@ button{
 
     gap:7px;
 
-    background:var(--accent);
+    background:#7A2C78;
 
-    color:var(--black)!important;
+    color:#FFFFFF!important;
 
     padding:
         10px 16px!important;
 
-    border-radius:9px;
+    border-radius:8px;
 
-    font-weight:900!important;
+    font-weight:700!important;
 
-    box-shadow:
-        0 5px 14px
-        rgba(255,187,66,.22);
+    font-size:14px;
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+    transition:0.25s ease;
 
     flex-shrink:0;
 
@@ -310,12 +372,14 @@ button{
 
 .nav-cart:hover{
 
-    transform:
-        translateY(-2px);
+    background:#3C1542;
 
-    box-shadow:
-        0 8px 20px
-        rgba(255,187,66,.32);
+    color:#FFFFFF!important;
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:none;
 
 }
 
@@ -513,27 +577,28 @@ button{
     background:
 
         radial-gradient(
-            circle at 85% 20%,
-            rgba(255,187,66,.20),
-            transparent 28%
+            circle at 78% 20%,
+            rgba(168,79,165,.40),
+            transparent 32%
         ),
 
         radial-gradient(
             circle at 10% 90%,
-            rgba(255,255,255,.08),
+            rgba(255,255,255,.06),
             transparent 25%
         ),
 
         linear-gradient(
             135deg,
-            var(--primary),
-            var(--secondary)
+            #24102A 0%,
+            #3C1542 45%,
+            #7A2C78 100%
         );
 
     color:var(--white);
 
     padding:
-        72px 5%;
+        90px 5%;
 
     text-align:center;
 
@@ -2008,37 +2073,34 @@ button{
         >
 
             <img
-                src="dingestech-logo.png" alt="Dinges Tech" style="width:150px;max-width:100%;height:auto;display:block;object-fit:contain;">
+                src="dingestech-logo.png" alt="Dinges Tech">
 
         </a>
 
 
-        <!-- DESKTOP NAVIGATION -->
+        <!-- DESKTOP NAVIGATION (matched to homepage) -->
 
         <div class="nav-links">
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
-            <a href="services.html">
-                Services
-            </a>
+            <div class="nav-dropdown">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown-menu">
+                    <a href="fibre.html">Fibre</a>
+                    <a href="wireless-broadband.html">Wireless Broadband</a>
+                    <a href="wireless-lte-4g-5g.html">Mobile & LTE / 4G / 5G</a>
+                    <a href="iot.html">Internet of Things</a>
+                    <a href="software.html">Software</a>
+                </div>
+            </div>
 
-            <a
-                href="internet-connectivity.html"
-                class="active"
-            >
-                Internet Connectivity
-            </a>
+            <a href="services.html#internet">Internet</a>
+            <a href="services.html#hosting">Hosting</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
 
-            <a href="advanced-pbx.html">
-                Advanced PBX
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
+            <a href="login.html" class="nav-login">Login</a>
 
         </div>
 
@@ -2099,28 +2161,15 @@ button{
 
         <div class="mobile-menu-inner">
 
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="services.html">
-                Services
-            </a>
-
-            <a
-                href="internet-connectivity.html"
-                class="active"
-            >
-                Internet Connectivity
-            </a>
-
-            <a href="advanced-pbx.html">
-                Advanced PBX
-            </a>
-
-            <a href="contact.html">
-                Contact Us
-            </a>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="fibre.html">Fibre</a>
+            <a href="wireless-lte-4g-5g.html" class="active">Internet</a>
+            <a href="services.html#hosting">Hosting</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Login</a>
+            <a href="cart.html">Cart</a>
 
         </div>
 
