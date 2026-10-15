@@ -16,22 +16,25 @@ body{font-family:Arial,Helvetica,sans-serif;color:#020202;background:#ffffff;lin
 .top-bar a{color:inherit;transition:.25s ease}
 .top-bar a:hover{color:#FFBB42}
 .top-bar .status-dot-live{width:8px;height:8px;display:inline-block;margin-right:7px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 5px rgba(34,197,94,.12)}
-.main-header{background:#ffffff;border-bottom:1px solid #eeeeee;position:relative;z-index:1000}
-.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.logo{text-decoration:none;font-size:28px;font-weight:800;white-space:nowrap}
-.logo-black{color:#020202}.logo-purple{color:#7A2C78}
-.main-nav{display:flex;align-items:center;gap:35px;margin-left:auto}
-.main-nav>a,.nav-dropdown>a{position:relative;display:flex;align-items:center;gap:6px;color:#020202;text-decoration:none;font-size:15px;font-weight:600;padding:28px 0;transition:color .3s ease}
-.main-nav>a:hover,.nav-dropdown>a:hover{color:#7A2C78}
+.main-header{background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(60,21,66,.08);position:sticky;top:0;z-index:5000}
+.navbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.logo img{width:auto;height:68px;max-width:260px;object-fit:contain;display:block}
+.main-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.main-nav>a,.nav-dropdown>a{position:relative;display:flex;align-items:center;gap:6px;color:#28202A;text-decoration:none;font-size:14px;font-weight:700;padding:11px 13px;border-radius:10px;transition:.25s ease}
+.main-nav>a:hover,.nav-dropdown>a:hover{background:#F5F3F6;color:#7A2C78}
 .nav-dropdown{position:relative}
 .dropdown-arrow{font-size:9px;color:#020202;transition:transform .3s ease}
 .nav-dropdown:hover .dropdown-arrow{transform:rotate(180deg)}
-.dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);width:240px;padding:10px 0;background:#ffffff;border-top:3px solid #7A2C78;border-radius:0 0 8px 8px;box-shadow:0 10px 30px rgba(0,0,0,.12);opacity:0;visibility:hidden;transition:opacity .3s ease,transform .3s ease,visibility .3s ease}
-.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-.dropdown-menu a{display:block;padding:12px 20px;color:#333;text-decoration:none;font-size:14px}
-.dropdown-menu a:hover{background:#f7f1f7;color:#7A2C78}
-.cart-button{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#020202;color:#fff;text-decoration:none;border-radius:7px;font-size:14px;font-weight:600}
-.cart-button strong{display:flex;align-items:center;justify-content:center;width:21px;height:21px;background:#FFBB42;color:#020202;border-radius:50%;font-size:11px}
+.dropdown-menu{position:absolute;top:calc(100% + 10px);left:0;min-width:245px;padding:8px;background:#fff;border:1px solid #E7E1E8;border-radius:15px;box-shadow:0 20px 60px rgba(60,21,66,.12);opacity:0;visibility:hidden;transform:translateY(8px);transition:.25s ease;z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-menu a{display:block;padding:10px 14px;border-radius:8px;color:#333;text-decoration:none;font-size:13px;font-weight:600}
+.dropdown-menu a:hover{background:#F7F2F8;color:#7A2C78}
+.nav-login{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:#7A2C78;color:#fff!important;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;transition:.25s ease}
+.nav-login:hover{background:#3C1542;transform:translateY(-1px)}
+.cart-button{display:flex;align-items:center;gap:8px;padding:10px 16px;background:#7A2C78;color:#fff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:700;transition:.25s ease}
+.cart-button:hover{background:#3C1542}
+.cart-button strong{display:flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;background:#FFBB42;color:#020202;border-radius:50%;font-size:11px}
 .menu-toggle{display:none;border:none;background:transparent;color:#3C1542;font-size:26px;cursor:pointer}
 .iot-hero{position:relative;padding:100px 20px;background:linear-gradient(135deg,#3C1542,#7A2C78);overflow:hidden}
 .iot-hero-content{position:relative;z-index:2;max-width:850px;margin:0 auto;text-align:center}
@@ -99,28 +102,26 @@ body{font-family:Arial,Helvetica,sans-serif;color:#020202;background:#ffffff;lin
 </div>
 <header class="main-header">
   <div class="container navbar">
-    <a href="index.html" class="logo"><span class="logo-black">DingesTech</span><span class="logo-purple">Hub</span></a>
+    <a href="index.html" class="logo" aria-label="Dinges Tech Home">
+      <img src="dingestech-logo.png" alt="Dinges Tech">
+    </a>
     <nav class="main-nav">
+      <a href="index.html">Home</a>
       <div class="nav-dropdown">
-        <a href="#">Services <span class="dropdown-arrow">▼</span></a>
+        <a href="services.html">Services <span class="dropdown-arrow">▼</span></a>
         <div class="dropdown-menu">
-          <a href="internet-connectivity.html">Internet Connectivity</a>
-          <a href="voip_telephony.html">VOIP / Telephony</a>
-          <a href="hosting.html">Web &amp; Email Hosting</a>
-          <a href="iot.html">Internet of Things (IoT)</a>
-          <a href="crm.html">CRM</a>
-          <a href="smart-home-business.html">Smart Home &amp; Business</a>
+          <a href="fibre.html">Fibre</a>
+          <a href="wireless-broadband.html">Wireless Broadband</a>
+          <a href="wireless-lte-4g-5g.html">Mobile &amp; LTE / 4G / 5G</a>
+          <a href="iot.html">Internet of Things</a>
+          <a href="software.html">Software</a>
         </div>
       </div>
-      <div class="nav-dropdown">
-        <a href="#">Help Centre <span class="dropdown-arrow">▼</span></a>
-        <div class="dropdown-menu">
-          <a href="support.html">Support</a>
-          <a href="faqs.html">FAQs</a>
-          <a href="contact.html">Contact Us</a>
-        </div>
-      </div>
-      <a href="contact.html">Contact Us</a>
+      <a href="services.html#internet">Internet</a>
+      <a href="services.html#hosting">Hosting</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" class="nav-login">Login</a>
     </nav>
     <a href="cart.html" class="cart-button">🛒 <span>Cart</span> <strong id="cartCount">0</strong></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu">☰</button>
