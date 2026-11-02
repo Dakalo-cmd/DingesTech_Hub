@@ -850,12 +850,6 @@ textarea:focus{
 
 /* =========================================================
    MOBILE
-   Key mobile-usability fixes applied here:
-   - Inputs bumped to 16px font-size to stop iOS Safari
-     from auto-zooming the page when a field is focused.
-   - Buttons/tap targets kept at a minimum ~44px for
-     comfortable thumb use.
-   - Form grid collapses to a single column.
 ========================================================= */
 
 @media(max-width:520px){
@@ -911,12 +905,6 @@ textarea:focus{
     .form-full{
         grid-column:auto;
     }
-
-    /*
-     * Prevent iOS Safari from zooming the whole page
-     * when a field receives focus (happens whenever a
-     * font-size under 16px is used on an input).
-     */
 
     input,
     select,
@@ -2002,7 +1990,6 @@ const CUSTOMER_KEY =
 
 /* =========================================================
    URL PARAMS
-   (read once, used by both login success + initial tab)
 ========================================================= */
 
 const urlParams =
@@ -2011,12 +1998,6 @@ const urlParams =
     );
 
 
-/*
- * If we arrived here via e.g.
- * login.html?redirect=checkout.html
- * (as cart.html's login modal does), this is where
- * the customer should be sent back to after logging in.
- */
 const redirectParam =
     urlParams.get("redirect");
 
@@ -2539,17 +2520,6 @@ loginForm.addEventListener(
             );
 
 
-            /*
-             * IMPORTANT:
-             *
-             * credentials:"include"
-             * allows the browser to accept/send
-             * cookies where the browser permits them.
-             *
-             * The PHP API must also be configured
-             * correctly for cross-origin credentials.
-             */
-
             const response =
                 await fetch(
                     LOGIN_API,
@@ -2597,29 +2567,29 @@ loginForm.addEventListener(
                 /*
                  * Store the logged-in customer so cart.html
                  * and checkout.html can recognise the session.
-                 * The shape here matches what those pages'
-                 * getLoggedInCustomer() helpers already expect.
+                 * FIXED: read from result.json.customer
                  */
-
                 try{
+
+                    const cust = result.json.customer || {};
 
                     sessionStorage.setItem(
                         CUSTOMER_KEY,
                         JSON.stringify({
                             id:
-                                result.json.client_id,
+                                cust.client_id || cust.id || 0,
                             clientId:
-                                result.json.client_id,
+                                cust.client_id || cust.id || 0,
                             firstname:
-                                result.json.firstname,
+                                cust.firstname || '',
                             lastname:
-                                result.json.lastname,
+                                cust.lastname || '',
                             name:
-                                result.json.name,
+                                cust.name || ((cust.firstname || '') + ' ' + (cust.lastname || '')).trim(),
                             email:
-                                result.json.email,
+                                cust.email || '',
                             status:
-                                result.json.status
+                                cust.status || 'Active'
                         })
                     );
 
@@ -2635,23 +2605,20 @@ loginForm.addEventListener(
 
 
                 /*
-                 * Prefer, in order:
-                 * 1. The ?redirect= query param this page
-                 *    was opened with (e.g. from the cart).
-                 * 2. Any redirect the API itself suggested.
-                 * 3. The default WHMCS dashboard.
+                 * Prefer the first-party establish_url
+                 * so the session cookie is set correctly.
                  */
-
                 setTimeout(
                     function(){
 
                         window.location.href =
+                            result.json.establish_url ||
                             redirectParam ||
                             result.json.redirect ||
                             DASHBOARD_URL;
 
                     },
-                    500
+                    400
                 );
 
 
@@ -2937,15 +2904,6 @@ registerForm.addEventListener(
                 formData.get("service")
             );
 
-
-            /*
-             * DO NOT manually set Content-Type.
-             *
-             * Browser automatically sets:
-             *
-             * multipart/form-data;
-             * boundary=...
-             */
 
             const response =
                 await fetch(
@@ -3303,6 +3261,23 @@ function displayLoginError(){
 
             message.textContent =
                 "Your login session could not be created. Please try again.";
+
+            break;
+
+
+        case "invalid_token":
+        case "expired_token":
+
+            message.textContent =
+                "Your login link expired. Please sign in again.";
+
+            break;
+
+
+        case "account_inactive":
+
+            message.textContent =
+                "Your customer account is not active. Please contact Dinges Tech.";
 
             break;
 
