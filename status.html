@@ -18,7 +18,7 @@
 <section class="section" style="padding-top:0"><div class="container"><div class="section-head"><div><div class="eyebrow">Customer updates</div><h2>Current & recent incidents</h2></div></div><div id="incidents"></div></div></section>
 <footer class="footer"><div class="container">© 2026 Dinges Tech. All rights reserved.</div></footer>
 <script>
-const API='https://register.web.za/api/network-status.php';
+const API='https://dingestech.co.za/clientarea/api/network-status.php';
 const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
 const fmt=v=>{if(!v)return '—';const d=new Date(String(v).replace(' ','T'));return isNaN(d)?String(v):d.toLocaleString([], {day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});};
 const pillClass=s=>['operational','resolved'].includes(s)?'active':['degraded','maintenance','investigating','identified','monitoring'].includes(s)?'pending':'danger';

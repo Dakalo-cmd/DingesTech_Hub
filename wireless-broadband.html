@@ -2317,11 +2317,11 @@ footer{
    API CONFIGURATION
    ========================================================= */
 
-const API_URL = "https://register.web.za/api/wireless-broadband.php";
+const API_URL = "https://dingestech.co.za/clientarea/api/wireless-broadband.php";
 
-const API_JSONP_URL = "https://register.web.za/api/wireless-packages-jsonp.php";
+const API_JSONP_URL = "https://dingestech.co.za/clientarea/api/wireless-packages-jsonp.php";
 
-const API_BRIDGE_URL = "https://register.web.za/api/wireless-bridge.html";
+const API_BRIDGE_URL = "https://dingestech.co.za/clientarea/api/wireless-bridge.html";
 
 
 /* =========================================================
@@ -2753,10 +2753,10 @@ async function loadProviders(){
         providerLoading.style.display = "block";
     }
 
-    /* Prefer same-origin when page is hosted on register.web.za */
+    /* Prefer same-origin when page is hosted on dingestech.co.za */
     const apiCandidates = [];
-    if(location.hostname.indexOf("register.web.za") !== -1){
-        apiCandidates.push("/api/wireless-broadband.php");
+    if(location.hostname.indexOf("dingestech.co.za") !== -1){
+        apiCandidates.push("/clientarea/api/wireless-broadband.php");
     }
     apiCandidates.push(API_URL);
 
@@ -2810,7 +2810,7 @@ async function loadProviders(){
         lastError = err;
     }
 
-    /* 3) iframe postMessage bridge (same-origin fetch inside register.web.za) */
+    /* 3) iframe postMessage bridge (same-origin fetch inside dingestech.co.za) */
     try{
         const data = await loadPackagesViaBridge(15000);
         console.log("WIRELESS BRIDGE OK:", data);
@@ -2828,7 +2828,7 @@ async function loadProviders(){
 
     showLoadError(
         (lastError && lastError.message) ||
-        "Failed to load packages. Host this page on register.web.za or allow API access."
+        "Failed to load packages. Host this page on dingestech.co.za or allow API access."
     );
 }
 

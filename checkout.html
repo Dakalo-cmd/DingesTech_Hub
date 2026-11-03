@@ -1911,7 +1911,7 @@ const CHECKOUT_RETURN_KEY =
     "dingesCheckoutReturn";
 
 const CREATE_ORDER_API =
-    "https://register.web.za/api/create-order.php";
+    "https://dingestech.co.za/clientarea/api/create-order.php";
 
 
 /* =========================================================
@@ -3236,7 +3236,7 @@ async function placeOrder(){
         /*
          * Build the request sent to:
          *
-         * https://register.web.za/api/create-order.php
+         * https://dingestech.co.za/clientarea/api/create-order.php
          */
 
         const requestBody = {
@@ -3426,7 +3426,7 @@ async function placeOrder(){
              */
 
             window.location.href =
-                "https://register.web.za/clientarea.php?action=invoices";
+                "https://dingestech.co.za/clientarea/api/customer-dashboard.php";
 
 
             return;
